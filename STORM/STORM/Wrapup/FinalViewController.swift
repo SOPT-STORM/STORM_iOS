@@ -17,24 +17,25 @@ class FinalViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        roundCollectionView.register(UINib(nibName: "RoundCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "RoundCollectionViewCell")
+        roundCollectionView.register(UINib(nibName: "RoundCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "testCell")
         roundCollectionView.delegate = self
         roundCollectionView.dataSource = self
-        
-
         }
         
 func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    switch section {
-    case collectionView.tag == 0:
-        <#code#>
-    case collectionView.tag == 1:
-        <#code#>
+//    switch section {
+//    case collectionView.tag == 0:
+//
+//    case collectionView.tag == 1:
+//
+//    }
+        return 1
     }
-                }
                 
 func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-                    <#code#>
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "testCell", for: indexPath) as! RoundCollectionViewCell
+    
+    return cell
     }
 
     /*

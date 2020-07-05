@@ -10,26 +10,94 @@
 
 import UIKit
 
+enum undoMode {
+    case append
+    case remove
+}
+
 class Canvas: UIView {
     
     // public func
+//
+//    lazy var didCleared: Bool = false
+    
+    var mode: undoMode = .remove
     
     func undo() {
+        
+//        if lines.isEmpty {
+//            mode = .append
+//        } else if restoreLines.isEmpty {
+//            mode = .remove
+//        }
+//
+//        if mode == .append {
+//            guard let line  = restoreLines.popLast() else {return}
+//            lines.append(line)
+//        } else{
+//            guard let line = lines.popLast() else {return}
+//            restoreLines.append(line)
+//        }
+        
         guard let line = lines.popLast() else {return}
         restoreLines.append(line)
+        
         setNeedsDisplay()
         
+//            guard let line  = restoreLines.popLast() else {return}
+//            lines.append(line)
+//            lines = restoreLines
+//            restoreLines.removeAll()
+//
+//        } else {
+//            guard let line = lines.popLast() else {return}
+//            restoreLines.append(line)
+//        }
+//        guard let line = lines.popLast() else {return}
+//        restoreLines.append(line)
+//        setNeedsDisplay()
+            
     }
     
     func clear() {
+        restoreLines = lines
+        
         lines.removeAll()
         setNeedsDisplay()
-        
     }
     
     func restore() {
-        guard let line = restoreLines.first else {return}
-        restoreLines.removeFirst()
+//        if lines.isEmpty {
+//            lines = restoreLines
+//            restoreLines.removeAll()
+//        } else {
+//            guard let line = restoreLines.popLast() else {return}
+//            lines.append(line)
+//        }
+        
+//        if lines.isEmpty {
+//            mode = .append
+//        } else if restoreLines.isEmpty {
+//            mode = .remove
+//        }
+//
+//        if mode == .append {
+//            guard let line  = restoreLines.popLast() else {return}
+//            lines.append(line)
+//        } else{
+//            guard let line = lines.popLast() else {return}
+//            restoreLines.append(line)
+//        }
+        
+//        if lines.isEmpty {
+//            lines = restoreLines
+//            restoreLines.removeAll()
+//        } else {
+//            guard let line  = restoreLines.popLast() else {return}
+//            lines.append(line)
+//        }
+        
+        guard let line  = restoreLines.popLast() else {return}
         lines.append(line)
         setNeedsDisplay()
     }
