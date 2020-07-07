@@ -58,7 +58,7 @@ extension CollecViewController: UICollectionViewDelegateFlowLayout, UICollection
 //
 //
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return 12
     }
 //
 //    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -117,63 +117,63 @@ extension CollecViewController: UICollectionViewDelegateFlowLayout, UICollection
         return CGSize(width: collectionView.bounds.width/3, height: collectionView.bounds.height)
     }
 
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        // Simulate "Page" Function
-        let pageWidth: Float = Float(self.collectionView.frame.width/3 + 20)
-        let currentOffset: Float = Float(scrollView.contentOffset.x)
-        let targetOffset: Float = Float(targetContentOffset.pointee.x)
-        var newTargetOffset: Float = 0
-        if targetOffset > currentOffset {
-            newTargetOffset = ceilf(currentOffset / pageWidth) * pageWidth
-        }
-        else {
-            newTargetOffset = floorf(currentOffset / pageWidth) * pageWidth
-        }
-        if newTargetOffset < 0 {
-            newTargetOffset = 0
-        }
-        else if (newTargetOffset > Float(scrollView.contentSize.width)){
-            newTargetOffset = Float(Float(scrollView.contentSize.width))
-        }
-
-        targetContentOffset.pointee.x = CGFloat(currentOffset)
-        scrollView.setContentOffset(CGPoint(x: CGFloat(newTargetOffset), y: scrollView.contentOffset.y), animated: true)
-
-        // Make Transition Effects for cells
-        let duration = 0.2
-        var index = newTargetOffset / pageWidth;
-        var cell:UICollectionViewCell = self.collectionView.cellForItem(at: IndexPath(row: Int(index), section: 0))!
-        if (index == 0) { // If first index
-            UIView.animate(withDuration: duration, delay: 0.0, options: [ .curveEaseOut], animations: {
-                cell.transform = CGAffineTransform.identity
-            }, completion: nil)
-            index += 1
-            cell = self.collectionView.cellForItem(at: IndexPath(row: Int(index), section: 0))!
-            UIView.animate(withDuration: duration, delay: 0.0, options: [ .curveEaseOut], animations: {
-                cell.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
-            }, completion: nil)
-        }else{
-            UIView.animate(withDuration: duration, delay: 0.0, options: [ .curveEaseOut], animations: {
-                cell.transform = CGAffineTransform.identity;
-            }, completion: nil)
-
-            index -= 1 // left
-            if let cell = self.collectionView.cellForItem(at: IndexPath(row: Int(index), section: 0)) {
-                UIView.animate(withDuration: duration, delay: 0.0, options: [ .curveEaseOut], animations: {
-                    cell.transform = CGAffineTransform(scaleX: 0.8, y: 0.8);
-                }, completion: nil)
-            }
-
-            index += 1
-            index += 1 // right
-            if let cell = self.collectionView.cellForItem(at: IndexPath(row: Int(index), section: 0)) {
-                UIView.animate(withDuration: duration, delay: 0.0, options: [ .curveEaseOut], animations: {
-                    cell.transform = CGAffineTransform(scaleX: 0.8, y: 0.8);
-                }, completion: nil)
-            }
-        }
-
-    }
+//    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+//        // Simulate "Page" Function
+//        let pageWidth: Float = Float(self.collectionView.frame.width/3 + 20)
+//        let currentOffset: Float = Float(scrollView.contentOffset.x)
+//        let targetOffset: Float = Float(targetContentOffset.pointee.x)
+//        var newTargetOffset: Float = 0
+//        if targetOffset > currentOffset {
+//            newTargetOffset = ceilf(currentOffset / pageWidth) * pageWidth
+//        }
+//        else {
+//            newTargetOffset = floorf(currentOffset / pageWidth) * pageWidth
+//        }
+//        if newTargetOffset < 0 {
+//            newTargetOffset = 0
+//        }
+//        else if (newTargetOffset > Float(scrollView.contentSize.width)){
+//            newTargetOffset = Float(Float(scrollView.contentSize.width))
+//        }
+//
+//        targetContentOffset.pointee.x = CGFloat(currentOffset)
+//        scrollView.setContentOffset(CGPoint(x: CGFloat(newTargetOffset), y: scrollView.contentOffset.y), animated: true)
+//
+//        // Make Transition Effects for cells
+//        let duration = 0.2
+//        var index = newTargetOffset / pageWidth;
+//        var cell:UICollectionViewCell = self.collectionView.cellForItem(at: IndexPath(row: Int(index), section: 0))!
+//        if (index == 0) { // If first index
+//            UIView.animate(withDuration: duration, delay: 0.0, options: [ .curveEaseOut], animations: {
+//                cell.transform = CGAffineTransform.identity
+//            }, completion: nil)
+//            index += 1
+//            cell = self.collectionView.cellForItem(at: IndexPath(row: Int(index), section: 0))!
+//            UIView.animate(withDuration: duration, delay: 0.0, options: [ .curveEaseOut], animations: {
+//                cell.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+//            }, completion: nil)
+//        }else{
+//            UIView.animate(withDuration: duration, delay: 0.0, options: [ .curveEaseOut], animations: {
+//                cell.transform = CGAffineTransform.identity;
+//            }, completion: nil)
+//
+//            index -= 1 // left
+//            if let cell = self.collectionView.cellForItem(at: IndexPath(row: Int(index), section: 0)) {
+//                UIView.animate(withDuration: duration, delay: 0.0, options: [ .curveEaseOut], animations: {
+//                    cell.transform = CGAffineTransform(scaleX: 0.8, y: 0.8);
+//                }, completion: nil)
+//            }
+//
+//            index += 1
+//            index += 1 // right
+//            if let cell = self.collectionView.cellForItem(at: IndexPath(row: Int(index), section: 0)) {
+//                UIView.animate(withDuration: duration, delay: 0.0, options: [ .curveEaseOut], animations: {
+//                    cell.transform = CGAffineTransform(scaleX: 0.8, y: 0.8);
+//                }, completion: nil)
+//            }
+//        }
+//
+//    }
     
     
 }
