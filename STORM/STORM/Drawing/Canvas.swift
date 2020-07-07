@@ -1,12 +1,10 @@
 //
-//  DrawingViewController.swift
+//  Canvas.swift
 //  STORM
 //
-//  Created by seunghwan Lee on 2020/07/03.
+//  Created by seunghwan Lee on 2020/07/06.
 //  Copyright © 2020 Team STORM. All rights reserved.
 //
-
-// feature - Drawing 
 
 import UIKit
 
@@ -22,6 +20,23 @@ class Canvas: UIView {
 //    lazy var didCleared: Bool = false
     
     var mode: undoMode = .remove
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.layer.cornerRadius = 10
+        self.layer.masksToBounds = true
+    }
+    
+    
+    required init?(coder aDecoder: NSCoder) {
+       super.init(coder: aDecoder)
+    }
+
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+    
+    
     
     func undo() {
         
@@ -56,7 +71,6 @@ class Canvas: UIView {
 //        guard let line = lines.popLast() else {return}
 //        restoreLines.append(line)
 //        setNeedsDisplay()
-            
     }
     
     func clear() {
@@ -106,21 +120,14 @@ class Canvas: UIView {
     var restoreLines = [[CGPoint]]()
     
     override func draw(_ rect: CGRect) {
-        // custom drawing
+
         super.draw(rect)
-        
         guard let context = UIGraphicsGetCurrentContext() else {return}
         
-//        let startPoint = CGPoint(x: 0, y: 0)
-//        let endPoint = CGPoint(x: 100, y: 100)
-//
-//
-//        context.move(to: startPoint)
-//        context.addLine(to: endPoint)
-        
         context.setStrokeColor(UIColor.black.cgColor)
-        context.setLineWidth(7)
-        context.setLineCap(.butt)
+        context.setLineWidth(3)
+//        context.setLineCap(.butt)
+        context.setLineCap(.round)
         
         
         lines.forEach { (line) in
@@ -138,110 +145,22 @@ class Canvas: UIView {
         context.strokePath()
     }
     
-//    var line = [CGPoint]()
-    
-    
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("TouchesBegan 실행")
         lines.append([CGPoint]())
     }
-    
-    // track the finger as we move across screen
-    
+
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("TouchesMoved 실행")
         
-        guard let point = touches.first?.location(in: nil) else {return}
-        
-//        print(point)
+        guard let point = touches.first?.location(in: self) else {return}
         
         guard var lastLine = lines.popLast() else {return}
         
-//        var lastLine = lines.last
         lastLine.append(point)
         lines.append(lastLine)
         
-//        line.append(point)
-        
         setNeedsDisplay()
     }
+    
+    
 }
 
-class DrawingViewController: UIViewController {
-    
-    let canvas = Canvas()
-    
-    let undoButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("undo", for: .normal)
-        button.titleLabel?.font = .boldSystemFont(ofSize: 14)
-        button.addTarget(self, action: #selector(handleUndo) , for: .touchUpInside)
-        return button
-    }()
-    
-    @objc fileprivate func handleUndo() {
-        canvas.undo()
-    }
-    
-    let clearButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("clear", for: .normal)
-        button.titleLabel?.font = .boldSystemFont(ofSize: 14)
-        button.addTarget(self, action: #selector(handleClear) , for: .touchUpInside)
-        return button
-    }()
-    
-    @objc fileprivate func handleClear() {
-        canvas.clear()
-    }
-    
-    let restoreButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("restore", for: .normal)
-        button.titleLabel?.font = .boldSystemFont(ofSize: 14)
-        button.addTarget(self, action: #selector(handleRestore) , for: .touchUpInside)
-        return button
-    }()
-    
-    @objc fileprivate func handleRestore() {
-        canvas.restore()
-    }
-
-    override func loadView() {
-        self.view = canvas
-    }
-
-
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        setupLayout()
-        
-    }
-    
-    fileprivate func setupLayout() {
-        //        view.addSubview(canvas)
-        //        canvas.frame = view.frame
-        
-        print("실행")
-        
-        canvas.backgroundColor = .white
-        
-        let stackView = UIStackView(arrangedSubviews: [
-            undoButton,
-            clearButton,
-            restoreButton
-        ])
-        
-        stackView.distribution = .fillEqually
-        
-        view.addSubview(stackView)
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-    }
-
-}
