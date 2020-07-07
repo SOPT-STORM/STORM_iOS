@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0BE507DF34E6144C923BB667 /* Pods_STORM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F413571526ADC3ABE1F9D186 /* Pods_STORM.framework */; };
 		D12EC23E24AB4070007E5896 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12EC23D24AB4070007E5896 /* AppDelegate.swift */; };
-		D12EC24224AB4070007E5896 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12EC24124AB4070007E5896 /* ViewController.swift */; };
+		D12EC24224AB4070007E5896 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12EC24124AB4070007E5896 /* ReminderViewController.swift */; };
 		D12EC24524AB4070007E5896 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D12EC24324AB4070007E5896 /* Main.storyboard */; };
 		D12EC24824AB4070007E5896 /* STORM.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D12EC24624AB4070007E5896 /* STORM.xcdatamodeld */; };
 		D12EC24A24AB4072007E5896 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D12EC24924AB4072007E5896 /* Assets.xcassets */; };
@@ -19,23 +19,31 @@
 		D162A73024AE2F8E002535A7 /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D162A72F24AE2F8E002535A7 /* DrawingViewController.swift */; };
 		D17935B524B1AC7A00811173 /* CollecViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17935B424B1AC7A00811173 /* CollecViewController2.swift */; };
 		D17935B724B1AF7900811173 /* CollecViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17935B624B1AF7900811173 /* CollecViewController3.swift */; };
-		D17935C824B1DCF500811173 /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = D17935C524B1DCF500811173 /* NotoSansCJKkr-Medium.otf */; };
-		D17935C924B1DCF500811173 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D17935C624B1DCF500811173 /* NotoSansCJKkr-Regular.otf */; };
-		D17935CA24B1DCF500811173 /* NotoSansCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D17935C724B1DCF500811173 /* NotoSansCJKkr-Bold.otf */; };
 		D17935CF24B1F80C00811173 /* TestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17935CD24B1F80C00811173 /* TestCell.swift */; };
 		D17935D024B1F80C00811173 /* TestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D17935CE24B1F80C00811173 /* TestCell.xib */; };
-		D17935D224B1FFEC00811173 /* Test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D17935D124B1FFEC00811173 /* Test.storyboard */; };
 		D743C57024AF5D8C00FF6ED4 /* RoundCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D743C56E24AF5D8C00FF6ED4 /* RoundCollectionViewCell.swift */; };
 		D743C57124AF5D8C00FF6ED4 /* RoundCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D743C56F24AF5D8C00FF6ED4 /* RoundCollectionViewCell.xib */; };
 		D743C57324AF5F8600FF6ED4 /* FinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D743C57224AF5F8600FF6ED4 /* FinalViewController.swift */; };
+		D743C58D24B2054700FF6ED4 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D743C58A24B2054700FF6ED4 /* NotoSansCJKkr-Regular.otf */; };
+		D743C58E24B2054700FF6ED4 /* NotoSansCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D743C58B24B2054700FF6ED4 /* NotoSansCJKkr-Bold.otf */; };
+		D743C58F24B2054700FF6ED4 /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = D743C58C24B2054700FF6ED4 /* NotoSansCJKkr-Medium.otf */; };
+		D75186AD24B3400F00D07567 /* ScrapCardMemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75186AC24B3400F00D07567 /* ScrapCardMemoViewController.swift */; };
+		D75186B024B34B8800D07567 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75186AE24B34B8800D07567 /* CardCollectionViewCell.swift */; };
+		D75186B124B34B8800D07567 /* CardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D75186AF24B34B8800D07567 /* CardCollectionViewCell.xib */; };
+		D75186B924B38E4700D07567 /* ScrapCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75186B824B38E4700D07567 /* ScrapCardViewController.swift */; };
+		D75186BC24B39ADC00D07567 /* LayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75186BB24B39ADC00D07567 /* LayerExtension.swift */; };
+		D75186BE24B39DB300D07567 /* ProjectWaitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75186BD24B39DB300D07567 /* ProjectWaitingViewController.swift */; };
+		D75186C324B3A08400D07567 /* ProjectWaitingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75186C124B3A08400D07567 /* ProjectWaitingTableViewCell.swift */; };
+		D75186C424B3A08400D07567 /* ProjectWaitingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D75186C224B3A08400D07567 /* ProjectWaitingTableViewCell.xib */; };
 		D76A2E6D24ADBEAD00D0CF4E /* Wrapup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D76A2E6C24ADBEAD00D0CF4E /* Wrapup.storyboard */; };
+		D781D6DC24B47C9300AAE389 /* Host.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D781D6DB24B47C9300AAE389 /* Host.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		446905E67F662B2207C7B0E7 /* Pods-STORM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STORM.debug.xcconfig"; path = "Target Support Files/Pods-STORM/Pods-STORM.debug.xcconfig"; sourceTree = "<group>"; };
 		D12EC23A24AB4070007E5896 /* STORM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = STORM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D12EC23D24AB4070007E5896 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D12EC24124AB4070007E5896 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D12EC24124AB4070007E5896 /* ReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
 		D12EC24424AB4070007E5896 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D12EC24724AB4070007E5896 /* STORM.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = STORM.xcdatamodel; sourceTree = "<group>"; };
 		D12EC24924AB4072007E5896 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -46,16 +54,24 @@
 		D162A72F24AE2F8E002535A7 /* DrawingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
 		D17935B424B1AC7A00811173 /* CollecViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollecViewController2.swift; sourceTree = "<group>"; };
 		D17935B624B1AF7900811173 /* CollecViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollecViewController3.swift; sourceTree = "<group>"; };
-		D17935C524B1DCF500811173 /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Medium.otf"; path = "../../../../../Downloads/NotoSansCJKkr-hinted-2/NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
-		D17935C624B1DCF500811173 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Regular.otf"; path = "../../../../../Downloads/NotoSansCJKkr-hinted-2/NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
-		D17935C724B1DCF500811173 /* NotoSansCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Bold.otf"; path = "../../../../../Downloads/NotoSansCJKkr-hinted-2/NotoSansCJKkr-Bold.otf"; sourceTree = "<group>"; };
 		D17935CD24B1F80C00811173 /* TestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCell.swift; sourceTree = "<group>"; };
 		D17935CE24B1F80C00811173 /* TestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestCell.xib; sourceTree = "<group>"; };
-		D17935D124B1FFEC00811173 /* Test.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Test.storyboard; sourceTree = "<group>"; };
 		D743C56E24AF5D8C00FF6ED4 /* RoundCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCollectionViewCell.swift; sourceTree = "<group>"; };
 		D743C56F24AF5D8C00FF6ED4 /* RoundCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoundCollectionViewCell.xib; sourceTree = "<group>"; };
 		D743C57224AF5F8600FF6ED4 /* FinalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalViewController.swift; sourceTree = "<group>"; };
+		D743C58A24B2054700FF6ED4 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Regular.otf"; path = "../../../../../Desktop/지윤/STORM/NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
+		D743C58B24B2054700FF6ED4 /* NotoSansCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Bold.otf"; path = "../../../../../Desktop/지윤/STORM/NotoSansCJKkr-Bold.otf"; sourceTree = "<group>"; };
+		D743C58C24B2054700FF6ED4 /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Medium.otf"; path = "../../../../../Desktop/지윤/STORM/NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
+		D75186AC24B3400F00D07567 /* ScrapCardMemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapCardMemoViewController.swift; sourceTree = "<group>"; };
+		D75186AE24B34B8800D07567 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
+		D75186AF24B34B8800D07567 /* CardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardCollectionViewCell.xib; sourceTree = "<group>"; };
+		D75186B824B38E4700D07567 /* ScrapCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapCardViewController.swift; sourceTree = "<group>"; };
+		D75186BB24B39ADC00D07567 /* LayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerExtension.swift; sourceTree = "<group>"; };
+		D75186BD24B39DB300D07567 /* ProjectWaitingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectWaitingViewController.swift; sourceTree = "<group>"; };
+		D75186C124B3A08400D07567 /* ProjectWaitingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectWaitingTableViewCell.swift; sourceTree = "<group>"; };
+		D75186C224B3A08400D07567 /* ProjectWaitingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectWaitingTableViewCell.xib; sourceTree = "<group>"; };
 		D76A2E6C24ADBEAD00D0CF4E /* Wrapup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Wrapup.storyboard; sourceTree = "<group>"; };
+		D781D6DB24B47C9300AAE389 /* Host.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Host.storyboard; sourceTree = "<group>"; };
 		F413571526ADC3ABE1F9D186 /* Pods_STORM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_STORM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F68B1EA2A7FA6388C84C951E /* Pods-STORM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STORM.release.xcconfig"; path = "Target Support Files/Pods-STORM/Pods-STORM.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,9 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				D17935B824B1D73600811173 /* Fonts */,
-				D743C56D24AF5B7300FF6ED4 /* Wrapup */,
-				D12EC23D24AB4070007E5896 /* AppDelegate.swift */,
-				D12EC24124AB4070007E5896 /* ViewController.swift */,
+				D75186B224B3580700D07567 /* Jiyoon */,
 				D162A72F24AE2F8E002535A7 /* DrawingViewController.swift */,
 				D14C306B24B1884B00DD82B9 /* CollecViewController.swift */,
 				D17935B424B1AC7A00811173 /* CollecViewController2.swift */,
@@ -121,8 +135,8 @@
 				D17935CD24B1F80C00811173 /* TestCell.swift */,
 				D17935CE24B1F80C00811173 /* TestCell.xib */,
 				D147598424AB4DA3006C4122 /* SceneDelegate.swift */,
+				D12EC23D24AB4070007E5896 /* AppDelegate.swift */,
 				D12EC24324AB4070007E5896 /* Main.storyboard */,
-				D17935D124B1FFEC00811173 /* Test.storyboard */,
 				D12EC24924AB4072007E5896 /* Assets.xcassets */,
 				D12EC24B24AB4072007E5896 /* LaunchScreen.storyboard */,
 				D12EC24E24AB4072007E5896 /* Info.plist */,
@@ -134,9 +148,9 @@
 		D17935B824B1D73600811173 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				D17935C724B1DCF500811173 /* NotoSansCJKkr-Bold.otf */,
-				D17935C524B1DCF500811173 /* NotoSansCJKkr-Medium.otf */,
-				D17935C624B1DCF500811173 /* NotoSansCJKkr-Regular.otf */,
+				D743C58B24B2054700FF6ED4 /* NotoSansCJKkr-Bold.otf */,
+				D743C58C24B2054700FF6ED4 /* NotoSansCJKkr-Medium.otf */,
+				D743C58A24B2054700FF6ED4 /* NotoSansCJKkr-Regular.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -145,11 +159,45 @@
 			isa = PBXGroup;
 			children = (
 				D76A2E6C24ADBEAD00D0CF4E /* Wrapup.storyboard */,
-				D743C56E24AF5D8C00FF6ED4 /* RoundCollectionViewCell.swift */,
-				D743C56F24AF5D8C00FF6ED4 /* RoundCollectionViewCell.xib */,
-				D743C57224AF5F8600FF6ED4 /* FinalViewController.swift */,
+				D781D6DB24B47C9300AAE389 /* Host.storyboard */,
+				D75186BB24B39ADC00D07567 /* LayerExtension.swift */,
+				D75186BA24B394CF00D07567 /* Controller */,
+				D75186B524B376E300D07567 /* Cell */,
 			);
 			path = Wrapup;
+			sourceTree = "<group>";
+		};
+		D75186B224B3580700D07567 /* Jiyoon */ = {
+			isa = PBXGroup;
+			children = (
+				D743C56D24AF5B7300FF6ED4 /* Wrapup */,
+			);
+			path = Jiyoon;
+			sourceTree = "<group>";
+		};
+		D75186B524B376E300D07567 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D743C56E24AF5D8C00FF6ED4 /* RoundCollectionViewCell.swift */,
+				D743C56F24AF5D8C00FF6ED4 /* RoundCollectionViewCell.xib */,
+				D75186AE24B34B8800D07567 /* CardCollectionViewCell.swift */,
+				D75186AF24B34B8800D07567 /* CardCollectionViewCell.xib */,
+				D75186C124B3A08400D07567 /* ProjectWaitingTableViewCell.swift */,
+				D75186C224B3A08400D07567 /* ProjectWaitingTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		D75186BA24B394CF00D07567 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D743C57224AF5F8600FF6ED4 /* FinalViewController.swift */,
+				D75186AC24B3400F00D07567 /* ScrapCardMemoViewController.swift */,
+				D75186BD24B39DB300D07567 /* ProjectWaitingViewController.swift */,
+				D75186B824B38E4700D07567 /* ScrapCardViewController.swift */,
+				D12EC24124AB4070007E5896 /* ReminderViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,15 +261,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				D743C57124AF5D8C00FF6ED4 /* RoundCollectionViewCell.xib in Resources */,
-				D17935C924B1DCF500811173 /* NotoSansCJKkr-Regular.otf in Resources */,
+				D743C58D24B2054700FF6ED4 /* NotoSansCJKkr-Regular.otf in Resources */,
+				D75186C424B3A08400D07567 /* ProjectWaitingTableViewCell.xib in Resources */,
 				D12EC24D24AB4072007E5896 /* LaunchScreen.storyboard in Resources */,
+				D781D6DC24B47C9300AAE389 /* Host.storyboard in Resources */,
 				D12EC24A24AB4072007E5896 /* Assets.xcassets in Resources */,
-				D17935D224B1FFEC00811173 /* Test.storyboard in Resources */,
 				D12EC24524AB4070007E5896 /* Main.storyboard in Resources */,
 				D17935D024B1F80C00811173 /* TestCell.xib in Resources */,
-				D17935CA24B1DCF500811173 /* NotoSansCJKkr-Bold.otf in Resources */,
+				D75186B124B34B8800D07567 /* CardCollectionViewCell.xib in Resources */,
 				D76A2E6D24ADBEAD00D0CF4E /* Wrapup.storyboard in Resources */,
-				D17935C824B1DCF500811173 /* NotoSansCJKkr-Medium.otf in Resources */,
+				D743C58E24B2054700FF6ED4 /* NotoSansCJKkr-Bold.otf in Resources */,
+				D743C58F24B2054700FF6ED4 /* NotoSansCJKkr-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,16 +324,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D75186AD24B3400F00D07567 /* ScrapCardMemoViewController.swift in Sources */,
 				D17935CF24B1F80C00811173 /* TestCell.swift in Sources */,
 				D17935B524B1AC7A00811173 /* CollecViewController2.swift in Sources */,
-				D12EC24224AB4070007E5896 /* ViewController.swift in Sources */,
+				D12EC24224AB4070007E5896 /* ReminderViewController.swift in Sources */,
 				D743C57324AF5F8600FF6ED4 /* FinalViewController.swift in Sources */,
 				D12EC23E24AB4070007E5896 /* AppDelegate.swift in Sources */,
 				D12EC24824AB4070007E5896 /* STORM.xcdatamodeld in Sources */,
+				D75186B024B34B8800D07567 /* CardCollectionViewCell.swift in Sources */,
+				D75186B924B38E4700D07567 /* ScrapCardViewController.swift in Sources */,
+				D75186BC24B39ADC00D07567 /* LayerExtension.swift in Sources */,
+				D75186C324B3A08400D07567 /* ProjectWaitingTableViewCell.swift in Sources */,
 				D743C57024AF5D8C00FF6ED4 /* RoundCollectionViewCell.swift in Sources */,
 				D147598524AB4DA3006C4122 /* SceneDelegate.swift in Sources */,
 				D14C306C24B1884B00DD82B9 /* CollecViewController.swift in Sources */,
 				D17935B724B1AF7900811173 /* CollecViewController3.swift in Sources */,
+				D75186BE24B39DB300D07567 /* ProjectWaitingViewController.swift in Sources */,
 				D162A73024AE2F8E002535A7 /* DrawingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
