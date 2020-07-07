@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9Oj-In-jgo">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -121,7 +120,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="136"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6eM-iu-dPH">
-                                        <rect key="frame" x="26" y="11" width="156.66666666666666" height="20"/>
+                                        <rect key="frame" x="26" y="10.999999999999998" width="166" height="25.333333333333329"/>
                                         <attributedString key="attributedText">
                                             <fragment content="스크랩한 카드 모아보기">
                                                 <attributes>
@@ -134,10 +133,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f0Q-WH-OVx">
-                                        <rect key="frame" x="26" y="47" width="323" height="50"/>
+                                        <rect key="frame" x="26" y="52.333333333333329" width="323" height="44.666666666666671"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XC8-HU-zat">
-                                                <rect key="frame" x="14" y="15" width="93" height="20"/>
+                                                <rect key="frame" x="14" y="9.6666666666666696" width="98.666666666666671" height="25.333333333333329"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="프로젝트 제목">
                                                         <attributes>
@@ -149,7 +148,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WiN-OH-vnS">
-                                                <rect key="frame" x="205" y="15" width="102" height="20"/>
+                                                <rect key="frame" x="200.66666666666666" y="9.6666666666666696" width="106.33333333333334" height="25.333333333333329"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="총 10개의 카드">
                                                         <attributes>

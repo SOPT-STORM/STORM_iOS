@@ -9,41 +9,43 @@
 /* Begin PBXBuildFile section */
 		0BE507DF34E6144C923BB667 /* Pods_STORM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F413571526ADC3ABE1F9D186 /* Pods_STORM.framework */; };
 		D12EC23E24AB4070007E5896 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12EC23D24AB4070007E5896 /* AppDelegate.swift */; };
-		D12EC24224AB4070007E5896 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12EC24124AB4070007E5896 /* ReminderViewController.swift */; };
 		D12EC24524AB4070007E5896 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D12EC24324AB4070007E5896 /* Main.storyboard */; };
 		D12EC24824AB4070007E5896 /* STORM.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D12EC24624AB4070007E5896 /* STORM.xcdatamodeld */; };
 		D12EC24A24AB4072007E5896 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D12EC24924AB4072007E5896 /* Assets.xcassets */; };
 		D12EC24D24AB4072007E5896 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D12EC24B24AB4072007E5896 /* LaunchScreen.storyboard */; };
 		D147598524AB4DA3006C4122 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D147598424AB4DA3006C4122 /* SceneDelegate.swift */; };
 		D14C306C24B1884B00DD82B9 /* CollecViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14C306B24B1884B00DD82B9 /* CollecViewController.swift */; };
-		D162A73024AE2F8E002535A7 /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D162A72F24AE2F8E002535A7 /* DrawingViewController.swift */; };
+		D156333B24B2F80600193EF9 /* UPCarouselFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D156333A24B2F80600193EF9 /* UPCarouselFlow.swift */; };
+		D156333D24B3198F00193EF9 /* CollecViewController4.swift in Sources */ = {isa = PBXBuildFile; fileRef = D156333C24B3198F00193EF9 /* CollecViewController4.swift */; };
 		D17935B524B1AC7A00811173 /* CollecViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17935B424B1AC7A00811173 /* CollecViewController2.swift */; };
 		D17935B724B1AF7900811173 /* CollecViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17935B624B1AF7900811173 /* CollecViewController3.swift */; };
-		D17935CF24B1F80C00811173 /* TestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17935CD24B1F80C00811173 /* TestCell.swift */; };
-		D17935D024B1F80C00811173 /* TestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D17935CE24B1F80C00811173 /* TestCell.xib */; };
-		D743C57024AF5D8C00FF6ED4 /* RoundCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D743C56E24AF5D8C00FF6ED4 /* RoundCollectionViewCell.swift */; };
-		D743C57124AF5D8C00FF6ED4 /* RoundCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D743C56F24AF5D8C00FF6ED4 /* RoundCollectionViewCell.xib */; };
-		D743C57324AF5F8600FF6ED4 /* FinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D743C57224AF5F8600FF6ED4 /* FinalViewController.swift */; };
+		D17935D524B2488C00811173 /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17935D424B2488C00811173 /* Canvas.swift */; };
+		D18D89B624B3A6FF00D8779E /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18D89B524B3A6FF00D8779E /* UIView.swift */; };
 		D743C58D24B2054700FF6ED4 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D743C58A24B2054700FF6ED4 /* NotoSansCJKkr-Regular.otf */; };
 		D743C58E24B2054700FF6ED4 /* NotoSansCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D743C58B24B2054700FF6ED4 /* NotoSansCJKkr-Bold.otf */; };
 		D743C58F24B2054700FF6ED4 /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = D743C58C24B2054700FF6ED4 /* NotoSansCJKkr-Medium.otf */; };
-		D75186AD24B3400F00D07567 /* ScrapCardMemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75186AC24B3400F00D07567 /* ScrapCardMemoViewController.swift */; };
-		D75186B024B34B8800D07567 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75186AE24B34B8800D07567 /* CardCollectionViewCell.swift */; };
-		D75186B124B34B8800D07567 /* CardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D75186AF24B34B8800D07567 /* CardCollectionViewCell.xib */; };
-		D75186B924B38E4700D07567 /* ScrapCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75186B824B38E4700D07567 /* ScrapCardViewController.swift */; };
-		D75186BC24B39ADC00D07567 /* LayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75186BB24B39ADC00D07567 /* LayerExtension.swift */; };
-		D75186BE24B39DB300D07567 /* ProjectWaitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75186BD24B39DB300D07567 /* ProjectWaitingViewController.swift */; };
-		D75186C324B3A08400D07567 /* ProjectWaitingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75186C124B3A08400D07567 /* ProjectWaitingTableViewCell.swift */; };
-		D75186C424B3A08400D07567 /* ProjectWaitingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D75186C224B3A08400D07567 /* ProjectWaitingTableViewCell.xib */; };
-		D76A2E6D24ADBEAD00D0CF4E /* Wrapup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D76A2E6C24ADBEAD00D0CF4E /* Wrapup.storyboard */; };
-		D781D6DC24B47C9300AAE389 /* Host.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D781D6DB24B47C9300AAE389 /* Host.storyboard */; };
+		D781D6E324B49BAA00AAE389 /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781D6E224B49BAA00AAE389 /* DrawingViewController.swift */; };
+		D781D6E624B4A10100AAE389 /* CollecViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = D156333824B2F76400193EF9 /* CollecViewController3.swift */; };
+		D781D6FB24B4A66F00AAE389 /* Wrapup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D781D6EB24B4A66F00AAE389 /* Wrapup.storyboard */; };
+		D781D6FC24B4A66F00AAE389 /* LayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781D6EC24B4A66F00AAE389 /* LayerExtension.swift */; };
+		D781D6FD24B4A66F00AAE389 /* ProjectWaitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781D6EE24B4A66F00AAE389 /* ProjectWaitingViewController.swift */; };
+		D781D6FE24B4A66F00AAE389 /* FinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781D6EF24B4A66F00AAE389 /* FinalViewController.swift */; };
+		D781D6FF24B4A66F00AAE389 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781D6F024B4A66F00AAE389 /* ReminderViewController.swift */; };
+		D781D70024B4A66F00AAE389 /* ScrapCardMemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781D6F124B4A66F00AAE389 /* ScrapCardMemoViewController.swift */; };
+		D781D70124B4A66F00AAE389 /* ScrapCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781D6F224B4A66F00AAE389 /* ScrapCardViewController.swift */; };
+		D781D70224B4A66F00AAE389 /* RoundCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781D6F424B4A66F00AAE389 /* RoundCollectionViewCell.swift */; };
+		D781D70324B4A66F00AAE389 /* ProjectWaitingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D781D6F524B4A66F00AAE389 /* ProjectWaitingTableViewCell.xib */; };
+		D781D70424B4A66F00AAE389 /* CardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D781D6F624B4A66F00AAE389 /* CardCollectionViewCell.xib */; };
+		D781D70524B4A66F00AAE389 /* ProjectWaitingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781D6F724B4A66F00AAE389 /* ProjectWaitingTableViewCell.swift */; };
+		D781D70624B4A66F00AAE389 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781D6F824B4A66F00AAE389 /* CardCollectionViewCell.swift */; };
+		D781D70724B4A66F00AAE389 /* RoundCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D781D6F924B4A66F00AAE389 /* RoundCollectionViewCell.xib */; };
+		D781D70824B4A66F00AAE389 /* Host.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D781D6FA24B4A66F00AAE389 /* Host.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		446905E67F662B2207C7B0E7 /* Pods-STORM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STORM.debug.xcconfig"; path = "Target Support Files/Pods-STORM/Pods-STORM.debug.xcconfig"; sourceTree = "<group>"; };
 		D12EC23A24AB4070007E5896 /* STORM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = STORM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D12EC23D24AB4070007E5896 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D12EC24124AB4070007E5896 /* ReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
 		D12EC24424AB4070007E5896 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D12EC24724AB4070007E5896 /* STORM.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = STORM.xcdatamodel; sourceTree = "<group>"; };
 		D12EC24924AB4072007E5896 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,27 +53,34 @@
 		D12EC24E24AB4072007E5896 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D147598424AB4DA3006C4122 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D14C306B24B1884B00DD82B9 /* CollecViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollecViewController.swift; sourceTree = "<group>"; };
-		D162A72F24AE2F8E002535A7 /* DrawingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
+		D156333824B2F76400193EF9 /* CollecViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollecViewController3.swift; sourceTree = "<group>"; };
+		D156333A24B2F80600193EF9 /* UPCarouselFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPCarouselFlow.swift; sourceTree = "<group>"; };
+		D156333C24B3198F00193EF9 /* CollecViewController4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollecViewController4.swift; sourceTree = "<group>"; };
 		D17935B424B1AC7A00811173 /* CollecViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollecViewController2.swift; sourceTree = "<group>"; };
 		D17935B624B1AF7900811173 /* CollecViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollecViewController3.swift; sourceTree = "<group>"; };
+		D17935C724B1DCF500811173 /* NotoSansCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Bold.otf"; path = "/Downloads/NotoSansCJKkr-hinted-2/NotoSansCJKkr-Bold.otf"; sourceTree = "<absolute>"; };
 		D17935CD24B1F80C00811173 /* TestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCell.swift; sourceTree = "<group>"; };
 		D17935CE24B1F80C00811173 /* TestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestCell.xib; sourceTree = "<group>"; };
-		D743C56E24AF5D8C00FF6ED4 /* RoundCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCollectionViewCell.swift; sourceTree = "<group>"; };
-		D743C56F24AF5D8C00FF6ED4 /* RoundCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoundCollectionViewCell.xib; sourceTree = "<group>"; };
-		D743C57224AF5F8600FF6ED4 /* FinalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalViewController.swift; sourceTree = "<group>"; };
+		D17935D424B2488C00811173 /* Canvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
+		D18D89B524B3A6FF00D8779E /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		D743C58A24B2054700FF6ED4 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Regular.otf"; path = "../../../../../Desktop/지윤/STORM/NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		D743C58B24B2054700FF6ED4 /* NotoSansCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Bold.otf"; path = "../../../../../Desktop/지윤/STORM/NotoSansCJKkr-Bold.otf"; sourceTree = "<group>"; };
 		D743C58C24B2054700FF6ED4 /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Medium.otf"; path = "../../../../../Desktop/지윤/STORM/NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
-		D75186AC24B3400F00D07567 /* ScrapCardMemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapCardMemoViewController.swift; sourceTree = "<group>"; };
-		D75186AE24B34B8800D07567 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
-		D75186AF24B34B8800D07567 /* CardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardCollectionViewCell.xib; sourceTree = "<group>"; };
-		D75186B824B38E4700D07567 /* ScrapCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapCardViewController.swift; sourceTree = "<group>"; };
-		D75186BB24B39ADC00D07567 /* LayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerExtension.swift; sourceTree = "<group>"; };
-		D75186BD24B39DB300D07567 /* ProjectWaitingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectWaitingViewController.swift; sourceTree = "<group>"; };
-		D75186C124B3A08400D07567 /* ProjectWaitingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectWaitingTableViewCell.swift; sourceTree = "<group>"; };
-		D75186C224B3A08400D07567 /* ProjectWaitingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectWaitingTableViewCell.xib; sourceTree = "<group>"; };
-		D76A2E6C24ADBEAD00D0CF4E /* Wrapup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Wrapup.storyboard; sourceTree = "<group>"; };
-		D781D6DB24B47C9300AAE389 /* Host.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Host.storyboard; sourceTree = "<group>"; };
+		D781D6E224B49BAA00AAE389 /* DrawingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
+		D781D6EB24B4A66F00AAE389 /* Wrapup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Wrapup.storyboard; sourceTree = "<group>"; };
+		D781D6EC24B4A66F00AAE389 /* LayerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayerExtension.swift; sourceTree = "<group>"; };
+		D781D6EE24B4A66F00AAE389 /* ProjectWaitingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectWaitingViewController.swift; sourceTree = "<group>"; };
+		D781D6EF24B4A66F00AAE389 /* FinalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinalViewController.swift; sourceTree = "<group>"; };
+		D781D6F024B4A66F00AAE389 /* ReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
+		D781D6F124B4A66F00AAE389 /* ScrapCardMemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrapCardMemoViewController.swift; sourceTree = "<group>"; };
+		D781D6F224B4A66F00AAE389 /* ScrapCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrapCardViewController.swift; sourceTree = "<group>"; };
+		D781D6F424B4A66F00AAE389 /* RoundCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundCollectionViewCell.swift; sourceTree = "<group>"; };
+		D781D6F524B4A66F00AAE389 /* ProjectWaitingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectWaitingTableViewCell.xib; sourceTree = "<group>"; };
+		D781D6F624B4A66F00AAE389 /* CardCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardCollectionViewCell.xib; sourceTree = "<group>"; };
+		D781D6F724B4A66F00AAE389 /* ProjectWaitingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectWaitingTableViewCell.swift; sourceTree = "<group>"; };
+		D781D6F824B4A66F00AAE389 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
+		D781D6F924B4A66F00AAE389 /* RoundCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoundCollectionViewCell.xib; sourceTree = "<group>"; };
+		D781D6FA24B4A66F00AAE389 /* Host.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Host.storyboard; sourceTree = "<group>"; };
 		F413571526ADC3ABE1F9D186 /* Pods_STORM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_STORM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F68B1EA2A7FA6388C84C951E /* Pods-STORM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STORM.release.xcconfig"; path = "Target Support Files/Pods-STORM/Pods-STORM.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,6 +121,7 @@
 				D12EC23B24AB4070007E5896 /* Products */,
 				86663522A806D89569C56231 /* Pods */,
 				69F8A07259A2F48B1ACCF1AD /* Frameworks */,
+				D781D6DF24B4997600AAE389 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,14 +136,15 @@
 		D12EC23C24AB4070007E5896 /* STORM */ = {
 			isa = PBXGroup;
 			children = (
+				D781D6E924B4A66F00AAE389 /* Jiyoon */,
+				D18D89B824B3BB3100D8779E /* Extensions */,
 				D17935B824B1D73600811173 /* Fonts */,
-				D75186B224B3580700D07567 /* Jiyoon */,
-				D162A72F24AE2F8E002535A7 /* DrawingViewController.swift */,
+				D17935D324B2484D00811173 /* Drawing */,
 				D14C306B24B1884B00DD82B9 /* CollecViewController.swift */,
 				D17935B424B1AC7A00811173 /* CollecViewController2.swift */,
-				D17935B624B1AF7900811173 /* CollecViewController3.swift */,
-				D17935CD24B1F80C00811173 /* TestCell.swift */,
-				D17935CE24B1F80C00811173 /* TestCell.xib */,
+				D156333824B2F76400193EF9 /* CollecViewController3.swift */,
+				D156333C24B3198F00193EF9 /* CollecViewController4.swift */,
+				D156333A24B2F80600193EF9 /* UPCarouselFlow.swift */,
 				D147598424AB4DA3006C4122 /* SceneDelegate.swift */,
 				D12EC23D24AB4070007E5896 /* AppDelegate.swift */,
 				D12EC24324AB4070007E5896 /* Main.storyboard */,
@@ -155,49 +166,77 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		D743C56D24AF5B7300FF6ED4 /* Wrapup */ = {
+		D17935D324B2484D00811173 /* Drawing */ = {
 			isa = PBXGroup;
 			children = (
-				D76A2E6C24ADBEAD00D0CF4E /* Wrapup.storyboard */,
-				D781D6DB24B47C9300AAE389 /* Host.storyboard */,
-				D75186BB24B39ADC00D07567 /* LayerExtension.swift */,
-				D75186BA24B394CF00D07567 /* Controller */,
-				D75186B524B376E300D07567 /* Cell */,
+				D781D6E224B49BAA00AAE389 /* DrawingViewController.swift */,
+				D17935D424B2488C00811173 /* Canvas.swift */,
 			);
-			path = Wrapup;
+			path = Drawing;
 			sourceTree = "<group>";
 		};
-		D75186B224B3580700D07567 /* Jiyoon */ = {
+		D18D89B824B3BB3100D8779E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				D743C56D24AF5B7300FF6ED4 /* Wrapup */,
+				D18D89B524B3A6FF00D8779E /* UIView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D781D6DF24B4997600AAE389 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				D17935CD24B1F80C00811173 /* TestCell.swift */,
+				D17935B624B1AF7900811173 /* CollecViewController3.swift */,
+				D17935CE24B1F80C00811173 /* TestCell.xib */,
+				D17935C724B1DCF500811173 /* NotoSansCJKkr-Bold.otf */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		D781D6E924B4A66F00AAE389 /* Jiyoon */ = {
+			isa = PBXGroup;
+			children = (
+				D781D6EA24B4A66F00AAE389 /* Wrapup */,
 			);
 			path = Jiyoon;
 			sourceTree = "<group>";
 		};
-		D75186B524B376E300D07567 /* Cell */ = {
+		D781D6EA24B4A66F00AAE389 /* Wrapup */ = {
 			isa = PBXGroup;
 			children = (
-				D743C56E24AF5D8C00FF6ED4 /* RoundCollectionViewCell.swift */,
-				D743C56F24AF5D8C00FF6ED4 /* RoundCollectionViewCell.xib */,
-				D75186AE24B34B8800D07567 /* CardCollectionViewCell.swift */,
-				D75186AF24B34B8800D07567 /* CardCollectionViewCell.xib */,
-				D75186C124B3A08400D07567 /* ProjectWaitingTableViewCell.swift */,
-				D75186C224B3A08400D07567 /* ProjectWaitingTableViewCell.xib */,
+				D781D6EB24B4A66F00AAE389 /* Wrapup.storyboard */,
+				D781D6EC24B4A66F00AAE389 /* LayerExtension.swift */,
+				D781D6ED24B4A66F00AAE389 /* Controller */,
+				D781D6F324B4A66F00AAE389 /* Cell */,
+				D781D6FA24B4A66F00AAE389 /* Host.storyboard */,
 			);
-			path = Cell;
+			path = Wrapup;
 			sourceTree = "<group>";
 		};
-		D75186BA24B394CF00D07567 /* Controller */ = {
+		D781D6ED24B4A66F00AAE389 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D743C57224AF5F8600FF6ED4 /* FinalViewController.swift */,
-				D75186AC24B3400F00D07567 /* ScrapCardMemoViewController.swift */,
-				D75186BD24B39DB300D07567 /* ProjectWaitingViewController.swift */,
-				D75186B824B38E4700D07567 /* ScrapCardViewController.swift */,
-				D12EC24124AB4070007E5896 /* ReminderViewController.swift */,
+				D781D6EE24B4A66F00AAE389 /* ProjectWaitingViewController.swift */,
+				D781D6EF24B4A66F00AAE389 /* FinalViewController.swift */,
+				D781D6F024B4A66F00AAE389 /* ReminderViewController.swift */,
+				D781D6F124B4A66F00AAE389 /* ScrapCardMemoViewController.swift */,
+				D781D6F224B4A66F00AAE389 /* ScrapCardViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		D781D6F324B4A66F00AAE389 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D781D6F424B4A66F00AAE389 /* RoundCollectionViewCell.swift */,
+				D781D6F524B4A66F00AAE389 /* ProjectWaitingTableViewCell.xib */,
+				D781D6F624B4A66F00AAE389 /* CardCollectionViewCell.xib */,
+				D781D6F724B4A66F00AAE389 /* ProjectWaitingTableViewCell.swift */,
+				D781D6F824B4A66F00AAE389 /* CardCollectionViewCell.swift */,
+				D781D6F924B4A66F00AAE389 /* RoundCollectionViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,18 +299,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D743C57124AF5D8C00FF6ED4 /* RoundCollectionViewCell.xib in Resources */,
 				D743C58D24B2054700FF6ED4 /* NotoSansCJKkr-Regular.otf in Resources */,
-				D75186C424B3A08400D07567 /* ProjectWaitingTableViewCell.xib in Resources */,
+				D781D70424B4A66F00AAE389 /* CardCollectionViewCell.xib in Resources */,
 				D12EC24D24AB4072007E5896 /* LaunchScreen.storyboard in Resources */,
-				D781D6DC24B47C9300AAE389 /* Host.storyboard in Resources */,
 				D12EC24A24AB4072007E5896 /* Assets.xcassets in Resources */,
 				D12EC24524AB4070007E5896 /* Main.storyboard in Resources */,
-				D17935D024B1F80C00811173 /* TestCell.xib in Resources */,
-				D75186B124B34B8800D07567 /* CardCollectionViewCell.xib in Resources */,
-				D76A2E6D24ADBEAD00D0CF4E /* Wrapup.storyboard in Resources */,
+				D781D70724B4A66F00AAE389 /* RoundCollectionViewCell.xib in Resources */,
 				D743C58E24B2054700FF6ED4 /* NotoSansCJKkr-Bold.otf in Resources */,
+				D781D70824B4A66F00AAE389 /* Host.storyboard in Resources */,
+				D781D70324B4A66F00AAE389 /* ProjectWaitingTableViewCell.xib in Resources */,
 				D743C58F24B2054700FF6ED4 /* NotoSansCJKkr-Medium.otf in Resources */,
+				D781D6FB24B4A66F00AAE389 /* Wrapup.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,23 +362,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D75186AD24B3400F00D07567 /* ScrapCardMemoViewController.swift in Sources */,
-				D17935CF24B1F80C00811173 /* TestCell.swift in Sources */,
+				D781D6FE24B4A66F00AAE389 /* FinalViewController.swift in Sources */,
+				D781D70124B4A66F00AAE389 /* ScrapCardViewController.swift in Sources */,
 				D17935B524B1AC7A00811173 /* CollecViewController2.swift in Sources */,
-				D12EC24224AB4070007E5896 /* ReminderViewController.swift in Sources */,
-				D743C57324AF5F8600FF6ED4 /* FinalViewController.swift in Sources */,
+				D18D89B624B3A6FF00D8779E /* UIView.swift in Sources */,
+				D17935B524B1AC7A00811173 /* CollecViewController2.swift in Sources */,
+				D156333D24B3198F00193EF9 /* CollecViewController4.swift in Sources */,
+				D781D6E324B49BAA00AAE389 /* DrawingViewController.swift in Sources */,
+				D781D6E624B4A10100AAE389 /* CollecViewController3.swift in Sources */,
 				D12EC23E24AB4070007E5896 /* AppDelegate.swift in Sources */,
 				D12EC24824AB4070007E5896 /* STORM.xcdatamodeld in Sources */,
-				D75186B024B34B8800D07567 /* CardCollectionViewCell.swift in Sources */,
-				D75186B924B38E4700D07567 /* ScrapCardViewController.swift in Sources */,
-				D75186BC24B39ADC00D07567 /* LayerExtension.swift in Sources */,
-				D75186C324B3A08400D07567 /* ProjectWaitingTableViewCell.swift in Sources */,
-				D743C57024AF5D8C00FF6ED4 /* RoundCollectionViewCell.swift in Sources */,
+				D781D6FC24B4A66F00AAE389 /* LayerExtension.swift in Sources */,
+				D156333B24B2F80600193EF9 /* UPCarouselFlow.swift in Sources */,
 				D147598524AB4DA3006C4122 /* SceneDelegate.swift in Sources */,
+				D781D70624B4A66F00AAE389 /* CardCollectionViewCell.swift in Sources */,
+				D781D70024B4A66F00AAE389 /* ScrapCardMemoViewController.swift in Sources */,
 				D14C306C24B1884B00DD82B9 /* CollecViewController.swift in Sources */,
+				D781D70224B4A66F00AAE389 /* RoundCollectionViewCell.swift in Sources */,
+				D781D6FF24B4A66F00AAE389 /* ReminderViewController.swift in Sources */,
 				D17935B724B1AF7900811173 /* CollecViewController3.swift in Sources */,
-				D75186BE24B39DB300D07567 /* ProjectWaitingViewController.swift in Sources */,
-				D162A73024AE2F8E002535A7 /* DrawingViewController.swift in Sources */,
+				D781D70524B4A66F00AAE389 /* ProjectWaitingTableViewCell.swift in Sources */,
+				D781D6FD24B4A66F00AAE389 /* ProjectWaitingViewController.swift in Sources */,
+				D17935D524B2488C00811173 /* Canvas.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
