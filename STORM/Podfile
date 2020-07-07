@@ -7,6 +7,16 @@ target 'STORM' do
   
   pod 'Alamofire'
 
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+
+  pod 'Firebase/Database'
+  pod 'Firebase/Storage'
+  pod 'CodableFirebase'
+
+  pod 'FirebaseUI/Auth'
+  pod 'FirebaseUI/Google'
+
   # Pods for STORM
 
 end

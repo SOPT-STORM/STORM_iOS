@@ -8,6 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		0BE507DF34E6144C923BB667 /* Pods_STORM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F413571526ADC3ABE1F9D186 /* Pods_STORM.framework */; };
+		B8A25E9424B4376500C07092 /* JwtTokenStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A25E9324B4376500C07092 /* JwtTokenStructures.swift */; };
+		B8E2B64B24B24ADA0098F677 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E2B64A24B24ADA0098F677 /* Login.storyboard */; };
+		B8E2B64D24B2514E0098F677 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B8E2B64C24B2514E0098F677 /* GoogleService-Info.plist */; };
+		B8E2B65424B254890098F677 /* NotoSansCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B8E2B65124B254890098F677 /* NotoSansCJKkr-Bold.otf */; };
+		B8E2B65524B254890098F677 /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = B8E2B65224B254890098F677 /* NotoSansCJKkr-Medium.otf */; };
+		B8E2B65624B254890098F677 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B8E2B65324B254890098F677 /* NotoSansCJKkr-Regular.otf */; };
+		B8E2B65824B2F4C40098F677 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E2B65724B2F4C40098F677 /* LoginViewController.swift */; };
+		B8E2B65A24B2F9630098F677 /* UserDataStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E2B65924B2F9630098F677 /* UserDataStructure.swift */; };
+		B8E2B65E24B3179C0098F677 /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E2B65D24B3179C0098F677 /* CustomViewController.swift */; };
+		B8E2B66024B36FCD0098F677 /* LogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E2B65F24B36FCD0098F677 /* LogoutViewController.swift */; };
+		B8E2B66224B39EAE0098F677 /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E2B66124B39EAE0098F677 /* KakaoOpenSDK.framework */; };
+		B8E2B66424B3A5430098F677 /* KakaoCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E2B66324B3A5430098F677 /* KakaoCommon.framework */; };
 		D12EC23E24AB4070007E5896 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12EC23D24AB4070007E5896 /* AppDelegate.swift */; };
 		D12EC24224AB4070007E5896 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12EC24124AB4070007E5896 /* ViewController.swift */; };
 		D12EC24524AB4070007E5896 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D12EC24324AB4070007E5896 /* Main.storyboard */; };
@@ -19,9 +31,6 @@
 		D162A73024AE2F8E002535A7 /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D162A72F24AE2F8E002535A7 /* DrawingViewController.swift */; };
 		D17935B524B1AC7A00811173 /* CollecViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17935B424B1AC7A00811173 /* CollecViewController2.swift */; };
 		D17935B724B1AF7900811173 /* CollecViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17935B624B1AF7900811173 /* CollecViewController3.swift */; };
-		D17935C824B1DCF500811173 /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = D17935C524B1DCF500811173 /* NotoSansCJKkr-Medium.otf */; };
-		D17935C924B1DCF500811173 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D17935C624B1DCF500811173 /* NotoSansCJKkr-Regular.otf */; };
-		D17935CA24B1DCF500811173 /* NotoSansCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D17935C724B1DCF500811173 /* NotoSansCJKkr-Bold.otf */; };
 		D17935CF24B1F80C00811173 /* TestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17935CD24B1F80C00811173 /* TestCell.swift */; };
 		D17935D024B1F80C00811173 /* TestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D17935CE24B1F80C00811173 /* TestCell.xib */; };
 		D17935D224B1FFEC00811173 /* Test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D17935D124B1FFEC00811173 /* Test.storyboard */; };
@@ -33,6 +42,19 @@
 
 /* Begin PBXFileReference section */
 		446905E67F662B2207C7B0E7 /* Pods-STORM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STORM.debug.xcconfig"; path = "Target Support Files/Pods-STORM/Pods-STORM.debug.xcconfig"; sourceTree = "<group>"; };
+		B8A25E8E24B42ED700C07092 /* KakaoOpenSDK-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KakaoOpenSDK-Bridging-Header.h"; sourceTree = "<group>"; };
+		B8A25E9324B4376500C07092 /* JwtTokenStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JwtTokenStructures.swift; sourceTree = "<group>"; };
+		B8E2B64A24B24ADA0098F677 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		B8E2B64C24B2514E0098F677 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B8E2B65124B254890098F677 /* NotoSansCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Bold.otf"; path = "../../../../../../Downloads/NotoSansCJKkr-Bold.otf"; sourceTree = "<group>"; };
+		B8E2B65224B254890098F677 /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Medium.otf"; path = "../../../../../../Downloads/NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
+		B8E2B65324B254890098F677 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Regular.otf"; path = "../../../../../../Downloads/NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
+		B8E2B65724B2F4C40098F677 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B8E2B65924B2F9630098F677 /* UserDataStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataStructure.swift; sourceTree = "<group>"; };
+		B8E2B65D24B3179C0098F677 /* CustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
+		B8E2B65F24B36FCD0098F677 /* LogoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewController.swift; sourceTree = "<group>"; };
+		B8E2B66124B39EAE0098F677 /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KakaoOpenSDK.framework; path = STORM/KakaoOpenSDK.framework; sourceTree = "<group>"; };
+		B8E2B66324B3A5430098F677 /* KakaoCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KakaoCommon.framework; path = STORM/KakaoCommon.framework; sourceTree = "<group>"; };
 		D12EC23A24AB4070007E5896 /* STORM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = STORM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D12EC23D24AB4070007E5896 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D12EC24124AB4070007E5896 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,9 +68,6 @@
 		D162A72F24AE2F8E002535A7 /* DrawingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
 		D17935B424B1AC7A00811173 /* CollecViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollecViewController2.swift; sourceTree = "<group>"; };
 		D17935B624B1AF7900811173 /* CollecViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollecViewController3.swift; sourceTree = "<group>"; };
-		D17935C524B1DCF500811173 /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Medium.otf"; path = "../../../../../Downloads/NotoSansCJKkr-hinted-2/NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
-		D17935C624B1DCF500811173 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Regular.otf"; path = "../../../../../Downloads/NotoSansCJKkr-hinted-2/NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
-		D17935C724B1DCF500811173 /* NotoSansCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Bold.otf"; path = "../../../../../Downloads/NotoSansCJKkr-hinted-2/NotoSansCJKkr-Bold.otf"; sourceTree = "<group>"; };
 		D17935CD24B1F80C00811173 /* TestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCell.swift; sourceTree = "<group>"; };
 		D17935CE24B1F80C00811173 /* TestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestCell.xib; sourceTree = "<group>"; };
 		D17935D124B1FFEC00811173 /* Test.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Test.storyboard; sourceTree = "<group>"; };
@@ -66,6 +85,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BE507DF34E6144C923BB667 /* Pods_STORM.framework in Frameworks */,
+				B8E2B66424B3A5430098F677 /* KakaoCommon.framework in Frameworks */,
+				B8E2B66224B39EAE0098F677 /* KakaoOpenSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +96,8 @@
 		69F8A07259A2F48B1ACCF1AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B8E2B66324B3A5430098F677 /* KakaoCommon.framework */,
+				B8E2B66124B39EAE0098F677 /* KakaoOpenSDK.framework */,
 				F413571526ADC3ABE1F9D186 /* Pods_STORM.framework */,
 			);
 			name = Frameworks;
@@ -87,6 +110,27 @@
 				F68B1EA2A7FA6388C84C951E /* Pods-STORM.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		B8A25E9D24B469FF00C07092 /* DataBases */ = {
+			isa = PBXGroup;
+			children = (
+				B8A25E9324B4376500C07092 /* JwtTokenStructures.swift */,
+				B8E2B65924B2F9630098F677 /* UserDataStructure.swift */,
+			);
+			path = DataBases;
+			sourceTree = "<group>";
+		};
+		B8E2B64924B24AB60098F677 /* jh */ = {
+			isa = PBXGroup;
+			children = (
+				B8A25E9D24B469FF00C07092 /* DataBases */,
+				B8E2B64A24B24ADA0098F677 /* Login.storyboard */,
+				B8E2B65724B2F4C40098F677 /* LoginViewController.swift */,
+				B8E2B65D24B3179C0098F677 /* CustomViewController.swift */,
+				B8E2B65F24B36FCD0098F677 /* LogoutViewController.swift */,
+			);
+			path = jh;
 			sourceTree = "<group>";
 		};
 		D12EC23124AB4070007E5896 = {
@@ -110,8 +154,10 @@
 		D12EC23C24AB4070007E5896 /* STORM */ = {
 			isa = PBXGroup;
 			children = (
+				B8E2B64924B24AB60098F677 /* jh */,
 				D17935B824B1D73600811173 /* Fonts */,
 				D743C56D24AF5B7300FF6ED4 /* Wrapup */,
+				B8A25E8E24B42ED700C07092 /* KakaoOpenSDK-Bridging-Header.h */,
 				D12EC23D24AB4070007E5896 /* AppDelegate.swift */,
 				D12EC24124AB4070007E5896 /* ViewController.swift */,
 				D162A72F24AE2F8E002535A7 /* DrawingViewController.swift */,
@@ -126,6 +172,7 @@
 				D12EC24924AB4072007E5896 /* Assets.xcassets */,
 				D12EC24B24AB4072007E5896 /* LaunchScreen.storyboard */,
 				D12EC24E24AB4072007E5896 /* Info.plist */,
+				B8E2B64C24B2514E0098F677 /* GoogleService-Info.plist */,
 				D12EC24624AB4070007E5896 /* STORM.xcdatamodeld */,
 			);
 			path = STORM;
@@ -134,9 +181,9 @@
 		D17935B824B1D73600811173 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				D17935C724B1DCF500811173 /* NotoSansCJKkr-Bold.otf */,
-				D17935C524B1DCF500811173 /* NotoSansCJKkr-Medium.otf */,
-				D17935C624B1DCF500811173 /* NotoSansCJKkr-Regular.otf */,
+				B8E2B65124B254890098F677 /* NotoSansCJKkr-Bold.otf */,
+				B8E2B65224B254890098F677 /* NotoSansCJKkr-Medium.otf */,
+				B8E2B65324B254890098F677 /* NotoSansCJKkr-Regular.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -164,6 +211,7 @@
 				D12EC23724AB4070007E5896 /* Frameworks */,
 				D12EC23824AB4070007E5896 /* Resources */,
 				B9DDE14916DB772CD5034DF3 /* [CP] Embed Pods Frameworks */,
+				05D91E9E221813B1B161B05F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -213,15 +261,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				D743C57124AF5D8C00FF6ED4 /* RoundCollectionViewCell.xib in Resources */,
-				D17935C924B1DCF500811173 /* NotoSansCJKkr-Regular.otf in Resources */,
+				B8E2B65624B254890098F677 /* NotoSansCJKkr-Regular.otf in Resources */,
+				B8E2B65424B254890098F677 /* NotoSansCJKkr-Bold.otf in Resources */,
 				D12EC24D24AB4072007E5896 /* LaunchScreen.storyboard in Resources */,
 				D12EC24A24AB4072007E5896 /* Assets.xcassets in Resources */,
 				D17935D224B1FFEC00811173 /* Test.storyboard in Resources */,
+				B8E2B64D24B2514E0098F677 /* GoogleService-Info.plist in Resources */,
 				D12EC24524AB4070007E5896 /* Main.storyboard in Resources */,
 				D17935D024B1F80C00811173 /* TestCell.xib in Resources */,
-				D17935CA24B1DCF500811173 /* NotoSansCJKkr-Bold.otf in Resources */,
+				B8E2B65524B254890098F677 /* NotoSansCJKkr-Medium.otf in Resources */,
 				D76A2E6D24ADBEAD00D0CF4E /* Wrapup.storyboard in Resources */,
-				D17935C824B1DCF500811173 /* NotoSansCJKkr-Medium.otf in Resources */,
+				B8E2B64B24B24ADA0098F677 /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +300,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		05D91E9E221813B1B161B05F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-STORM/Pods-STORM-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-STORM/Pods-STORM-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-STORM/Pods-STORM-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B9DDE14916DB772CD5034DF3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -274,8 +341,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8E2B65824B2F4C40098F677 /* LoginViewController.swift in Sources */,
+				B8E2B65E24B3179C0098F677 /* CustomViewController.swift in Sources */,
 				D17935CF24B1F80C00811173 /* TestCell.swift in Sources */,
 				D17935B524B1AC7A00811173 /* CollecViewController2.swift in Sources */,
+				B8E2B65A24B2F9630098F677 /* UserDataStructure.swift in Sources */,
 				D12EC24224AB4070007E5896 /* ViewController.swift in Sources */,
 				D743C57324AF5F8600FF6ED4 /* FinalViewController.swift in Sources */,
 				D12EC23E24AB4070007E5896 /* AppDelegate.swift in Sources */,
@@ -284,6 +354,8 @@
 				D147598524AB4DA3006C4122 /* SceneDelegate.swift in Sources */,
 				D14C306C24B1884B00DD82B9 /* CollecViewController.swift in Sources */,
 				D17935B724B1AF7900811173 /* CollecViewController3.swift in Sources */,
+				B8A25E9424B4376500C07092 /* JwtTokenStructures.swift in Sources */,
+				B8E2B66024B36FCD0098F677 /* LogoutViewController.swift in Sources */,
 				D162A73024AE2F8E002535A7 /* DrawingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -431,13 +503,97 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6D8SYQ63KK;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/STORM",
+				);
 				INFOPLIST_FILE = STORM/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"c++\"",
+					"-l\"icucore\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"AppAuth\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CodableFirebase\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"FBLPromises\"",
+					"-framework",
+					"\"FIRAnalyticsConnector\"",
+					"-framework",
+					"\"FirebaseAnalytics\"",
+					"-framework",
+					"\"FirebaseAuth\"",
+					"-framework",
+					"\"FirebaseCore\"",
+					"-framework",
+					"\"FirebaseCoreDiagnostics\"",
+					"-framework",
+					"\"FirebaseDatabase\"",
+					"-framework",
+					"\"FirebaseInstallations\"",
+					"-framework",
+					"\"FirebaseStorage\"",
+					"-framework",
+					"\"FirebaseUI\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"GTMAppAuth\"",
+					"-framework",
+					"\"GTMSessionFetcher\"",
+					"-framework",
+					"\"GoogleAppMeasurement\"",
+					"-framework",
+					"\"GoogleDataTransport\"",
+					"-framework",
+					"\"GoogleDataTransportCCTSupport\"",
+					"-framework",
+					"\"GoogleSignIn\"",
+					"-framework",
+					"\"GoogleUtilities\"",
+					"-framework",
+					"\"LocalAuthentication\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"SafariServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"leveldb\"",
+					"-framework",
+					"\"nanopb\"",
+					"-weak_framework",
+					"\"AuthenticationServices\"",
+					"-all_load",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tistory.lsh424.STORM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "./STORM/KakaoOpenSDK-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -450,13 +606,97 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6D8SYQ63KK;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/STORM",
+				);
 				INFOPLIST_FILE = STORM/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"c++\"",
+					"-l\"icucore\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"AppAuth\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CodableFirebase\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"FBLPromises\"",
+					"-framework",
+					"\"FIRAnalyticsConnector\"",
+					"-framework",
+					"\"FirebaseAnalytics\"",
+					"-framework",
+					"\"FirebaseAuth\"",
+					"-framework",
+					"\"FirebaseCore\"",
+					"-framework",
+					"\"FirebaseCoreDiagnostics\"",
+					"-framework",
+					"\"FirebaseDatabase\"",
+					"-framework",
+					"\"FirebaseInstallations\"",
+					"-framework",
+					"\"FirebaseStorage\"",
+					"-framework",
+					"\"FirebaseUI\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"GTMAppAuth\"",
+					"-framework",
+					"\"GTMSessionFetcher\"",
+					"-framework",
+					"\"GoogleAppMeasurement\"",
+					"-framework",
+					"\"GoogleDataTransport\"",
+					"-framework",
+					"\"GoogleDataTransportCCTSupport\"",
+					"-framework",
+					"\"GoogleSignIn\"",
+					"-framework",
+					"\"GoogleUtilities\"",
+					"-framework",
+					"\"LocalAuthentication\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"SafariServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"leveldb\"",
+					"-framework",
+					"\"nanopb\"",
+					"-weak_framework",
+					"\"AuthenticationServices\"",
+					"-all_load",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tistory.lsh424.STORM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "./STORM/KakaoOpenSDK-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
