@@ -67,6 +67,13 @@ class DrawingViewController: UIViewController {
 //        canvasView = canvas
 //        canvasView.layer.cornerRadius = 10
 //        self.canvasView = Canvas()
+        let img = UIImage(named: "red_navigation_bar")
+        navigationController?.navigationBar.setBackgroundImage(img, for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        
+        let titmeImg = UIImage(named: "img_logo")
+        let imageView = UIImageView(image:titmeImg)
+        self.navigationItem.titleView = imageView
     }
         
     @IBAction func didPressText(_ sender: UIButton) {
