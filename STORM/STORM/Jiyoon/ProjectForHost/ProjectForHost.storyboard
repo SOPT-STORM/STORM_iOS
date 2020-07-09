@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Host Project Setting View Controller-->
+        <scene sceneID="5Vu-KV-Yad">
+            <objects>
+                <viewController id="Cxj-Tf-mrD" customClass="HostProjectSettingViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tI7-sy-2im">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hProjectsettingBg" translatesAutoresizingMaskIntoConstraints="NO" id="dh0-ra-mwH">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FD6-Et-mek">
+                                <rect key="frame" x="27" y="63" width="123" height="24"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="프로젝트 추가하기">
+                                        <attributes>
+                                            <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <font key="NSFont" size="16" name="NotoSansCJKkr-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RzE-Ml-PyI">
+                                <rect key="frame" x="27" y="110.66666666666669" width="321" height="428.00000000000006"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8D2-nF-4me">
+                                        <rect key="frame" x="19" y="19.000000000000057" width="74" height="23"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="프로젝트 명">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="15" name="NotoSansCJKkr-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="25p-2u-Zg7">
+                                <rect key="frame" x="108.66666666666669" y="510.33333333333326" width="158" height="49"/>
+                                <color key="backgroundColor" red="0.96078431369999995" green="0.79215686269999996" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="chD-2z-32m"/>
+                                    <constraint firstAttribute="width" constant="158" id="soQ-Oq-RyQ"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="추가">
+                                            <attributes>
+                                                <color key="NSColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="15" name="NotoSansCJKkr-Bold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="RzE-Ml-PyI" firstAttribute="leading" secondItem="fCt-Hb-DVh" secondAttribute="leading" constant="27" id="0Le-dq-PgP"/>
+                            <constraint firstItem="FD6-Et-mek" firstAttribute="leading" secondItem="fCt-Hb-DVh" secondAttribute="leading" constant="27" id="EXW-0d-iEW"/>
+                            <constraint firstItem="dh0-ra-mwH" firstAttribute="top" secondItem="tI7-sy-2im" secondAttribute="top" id="JZc-C8-cZK"/>
+                            <constraint firstItem="25p-2u-Zg7" firstAttribute="centerX" secondItem="tI7-sy-2im" secondAttribute="centerX" id="MBN-Nc-DmQ"/>
+                            <constraint firstItem="RzE-Ml-PyI" firstAttribute="centerY" secondItem="tI7-sy-2im" secondAttribute="centerY" multiplier="0.8" id="QwY-B7-nDP"/>
+                            <constraint firstAttribute="bottom" secondItem="dh0-ra-mwH" secondAttribute="bottom" id="WTi-vi-q49"/>
+                            <constraint firstItem="25p-2u-Zg7" firstAttribute="centerY" secondItem="tI7-sy-2im" secondAttribute="centerY" multiplier="1.3" constant="7" id="WWQ-4U-5TH"/>
+                            <constraint firstAttribute="trailing" secondItem="dh0-ra-mwH" secondAttribute="trailing" id="cX0-lZ-Mci"/>
+                            <constraint firstItem="RzE-Ml-PyI" firstAttribute="centerX" secondItem="tI7-sy-2im" secondAttribute="centerX" id="dfO-96-BG6"/>
+                            <constraint firstAttribute="trailing" secondItem="RzE-Ml-PyI" secondAttribute="trailing" constant="27" id="jCg-ny-zwG"/>
+                            <constraint firstItem="RzE-Ml-PyI" firstAttribute="height" secondItem="tI7-sy-2im" secondAttribute="height" multiplier="0.527094" id="mT9-sx-Qbd"/>
+                            <constraint firstItem="RzE-Ml-PyI" firstAttribute="top" secondItem="FD6-Et-mek" secondAttribute="bottom" constant="23.670000000000002" id="svE-LA-iuN"/>
+                            <constraint firstItem="dh0-ra-mwH" firstAttribute="leading" secondItem="tI7-sy-2im" secondAttribute="leading" id="vyU-ku-OEc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fCt-Hb-DVh"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sDN-mn-X7K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="213" y="149"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="hProjectsettingBg" width="375" height="706"/>
+    </resources>
+</document>
