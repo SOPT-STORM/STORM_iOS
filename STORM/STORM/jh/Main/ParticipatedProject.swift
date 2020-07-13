@@ -9,11 +9,16 @@
 import Foundation
 
 struct ParticipatedProject {
+    
+    // MARK:- 변수 선언
+    
     var cardImg1: UIImage?
     var cardImg2: UIImage?
     var cardImg3: UIImage?
     var cardImg4: UIImage?
     var projectTitle: String
+    
+    // MARK:- 함수 선언
     init(title: String, cardImageName1: String, cardImageName2: String, cardImageName3: String, cardImageName4: String ) {
         self.cardImg1 = UIImage(named: cardImageName1)
         self.cardImg2 = UIImage(named: cardImageName2)

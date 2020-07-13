@@ -9,15 +9,18 @@
 import UIKit
 
 class ViewMoreViewController: UIViewController {
+    
+    // MARK:- IBOutlet 선언
 
     @IBOutlet weak var participatedProjectCollectionView: UICollectionView!
+    
+    // MARK:- viewDidLoad 선언
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // MARK: NAVIGATION BAR
         
-        // Do any additional setup after loading the view.
         let backButton = UIBarButtonItem()
         //backButton.image = UIImage(named: "imageName") //Replaces title
         backButton.setBackgroundImage(UIImage(named: "seemoreCard1BtnBack"), for: .normal, barMetrics: .default) // Stretches image
@@ -27,22 +30,14 @@ class ViewMoreViewController: UIViewController {
         let imageView = UIImageView(image:titmeImg)
         self.navigationItem.titleView = imageView
         
+        // MARK: COLLECTION VIEW
+        
         participatedProjectCollectionView.delegate = self
         participatedProjectCollectionView.dataSource = self
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+// MARK:- COLLECTION VIEW
 
 extension ViewMoreViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

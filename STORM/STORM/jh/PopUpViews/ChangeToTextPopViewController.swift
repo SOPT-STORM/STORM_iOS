@@ -9,8 +9,12 @@
 import UIKit
 
 class ChangeToTextPopViewController: UIViewController {
+    
+    // MARK:- IBOutlet 선언
 
     @IBOutlet weak var changeToTextPopView: UIView!
+    
+    // MARK:- viewDidLoad 선언
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +28,8 @@ class ChangeToTextPopViewController: UIViewController {
         self.showAnimate()
     }
     
+    // MARK:- IBAction 선언
+    
     /*
     @IBAction func cardCancelButtonDidTap(_ sender: UIButton) {
         self.removeAnimate()
@@ -34,6 +40,8 @@ class ChangeToTextPopViewController: UIViewController {
     }
     액션 명 정하는게 너무너무너무 어려워~~~~~
     */
+    
+    // MARK:- 함수 선언
     
     func showAnimate() {
         self.view.transform = CGAffineTransform(scaleX: 1.3,y: 1.3)
@@ -55,16 +63,4 @@ class ChangeToTextPopViewController: UIViewController {
                 }
             });
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

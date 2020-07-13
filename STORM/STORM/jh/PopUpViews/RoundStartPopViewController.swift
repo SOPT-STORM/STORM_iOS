@@ -11,8 +11,16 @@ import Lottie
 
 class RoundStartPopViewController: UIViewController {
     
+    // MARK:- 변수 선언
+    
+    let animationView = AnimationView()
+    
+    // MARK:- IBOutlet 선언
+    
     @IBOutlet weak var lottieView: UIView!
     @IBOutlet weak var startPopView: UIView!
+    
+    // MARK:- viewDidLoad 선언
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,11 +33,13 @@ class RoundStartPopViewController: UIViewController {
         self.showAnimate()
     }
     
+    // MARK:- viewDidAppear 선언
+    
     override func viewDidAppear(_ animated: Bool) {
         setupAnimation()
     }
     
-    let animationView = AnimationView()
+    // MARK:- 함수 선언
     
     func setupAnimation(){
         
@@ -70,16 +80,4 @@ class RoundStartPopViewController: UIViewController {
             }
         });
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

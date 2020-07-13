@@ -9,14 +9,20 @@
 import UIKit
 
 class ParticipatedProjectCell: UICollectionViewCell {
-    @IBOutlet weak var projectTitle: UILabel!
     
+    // MARK:- IBOutlet 선언
+    
+    @IBOutlet weak var projectTitle: UILabel!
     @IBOutlet weak var cardImage1: UIImageView!
     @IBOutlet weak var cardImage2: UIImageView!
     @IBOutlet weak var cardImage3: UIImageView!
     @IBOutlet weak var cardImage4: UIImageView!
     
+    // MARK:- 변수 선언
+    
     static let identifier: String = "Participated Project Cell"
+    
+    // MARK:- 함수 선언
     
     func set(_ projectInformation: ParticipatedProject) {
         cardImage1.image = projectInformation.cardImg1

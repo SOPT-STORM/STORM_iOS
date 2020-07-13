@@ -9,8 +9,12 @@
 import UIKit
 
 class EndProjectPopViewController: UIViewController {
+    
+    // MARK:- IBOutlet 선언
 
     @IBOutlet weak var endProjectPopView: UIView!
+    
+    // MARK:- viewDidLoad 선언
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +28,8 @@ class EndProjectPopViewController: UIViewController {
         self.showAnimate()
     }
     
+    // MARK:- IBAction 선언
+    
     @IBAction func endConfirmButtonDidTap(_ sender: UIButton) {
         self.removeAnimate()
     }
@@ -31,6 +37,8 @@ class EndProjectPopViewController: UIViewController {
     @IBAction func endCancelButtonDidTap(_ sender: UIButton) {
         self.removeAnimate()
     }
+    
+    // MARK:- 함수 선언
     
     func showAnimate() {
         self.view.transform = CGAffineTransform(scaleX: 1.3,y: 1.3)
@@ -40,28 +48,16 @@ class EndProjectPopViewController: UIViewController {
             self.view.transform = CGAffineTransform(scaleX: 1.0,y: 1.0)
         });
     }
-        
-        func removeAnimate() {
-            UIView.animate(withDuration: 0.25, animations: {
-                self.view.transform = CGAffineTransform(scaleX: 1.3,y: 1.3)
-                self.view.alpha = 0.0;
-            }, completion: {(finished : Bool)   in
-                if (finished)
-                {
-                    self.view.removeFromSuperview()
-                }
-            });
-    }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func removeAnimate() {
+        UIView.animate(withDuration: 0.25, animations: {
+            self.view.transform = CGAffineTransform(scaleX: 1.3,y: 1.3)
+            self.view.alpha = 0.0;
+        }, completion: {(finished : Bool)   in
+            if (finished)
+            {
+                self.view.removeFromSuperview()
+            }
+        });
     }
-    */
-
 }
