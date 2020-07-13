@@ -9,7 +9,6 @@
 import UIKit
 import FirebaseAuth
 import FirebaseUI
-import FirebaseDatabase
 import CodableFirebase
 import KakaoOpenSDK
 import Alamofire
@@ -120,6 +119,7 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
             NSLog(error.localizedDescription)
             return
         }
+        /*
         if let user = Auth.auth().currentUser {
             let user_id = user.uid
             
@@ -147,5 +147,6 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
                 (error) in NSLog(error.localizedDescription)
             }
         }
+        */
     }
 }

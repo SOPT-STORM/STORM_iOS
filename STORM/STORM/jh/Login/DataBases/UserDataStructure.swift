@@ -6,8 +6,8 @@
 //  Copyright © 2020 Team STORM. All rights reserved.
 //
 
-struct User:Codable {
-    // 수정할 사용자 정보
-    let name:String?
-    let image_url:String?
-}
+//struct User:Codable {
+//    // 수정할 사용자 정보
+//    let name:String?
+//    let image_url:String?
+//}
