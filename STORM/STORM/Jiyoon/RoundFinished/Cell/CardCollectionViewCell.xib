@@ -11,25 +11,22 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cardCollectionViewCell" id="gTV-IL-0wX" customClass="CardCollectionViewCell" customModule="STORM" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="147" height="169"/>
+            <rect key="frame" x="0.0" y="0.0" width="147" height="158"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="147" height="169"/>
+                <rect key="frame" x="0.0" y="0.0" width="147" height="158"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9ap-48-sQc">
-                        <rect key="frame" x="0.0" y="0.0" width="147" height="169"/>
+                        <rect key="frame" x="0.0" y="0.0" width="147" height="158"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="169" id="9lJ-uv-Pyr"/>
-                            <constraint firstAttribute="width" constant="147" id="bHS-ch-7zB"/>
+                            <constraint firstAttribute="height" constant="158" id="nvd-YC-eEA"/>
+                            <constraint firstAttribute="width" constant="147" id="p4P-9i-VjU"/>
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="12H-Nv-xt4">
-                        <rect key="frame" x="0.0" y="0.0" width="147" height="169"/>
-                        <connections>
-                            <action selector="cardButtonDidPress:" destination="gTV-IL-0wX" eventType="touchUpInside" id="DBO-AL-JBr"/>
-                        </connections>
+                        <rect key="frame" x="0.0" y="0.0" width="147" height="158"/>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ps-Ew-hv1">
                         <rect key="frame" x="99" y="0.0" width="48" height="48"/>
@@ -41,13 +38,13 @@
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="9ap-48-sQc" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="3hf-Ja-A2h"/>
                 <constraint firstAttribute="trailing" secondItem="12H-Nv-xt4" secondAttribute="trailing" id="4LR-VI-S3S"/>
                 <constraint firstAttribute="bottom" secondItem="12H-Nv-xt4" secondAttribute="bottom" id="5w5-3w-Qjq"/>
+                <constraint firstItem="9ap-48-sQc" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="60c-WR-2GM"/>
+                <constraint firstAttribute="bottom" secondItem="9ap-48-sQc" secondAttribute="bottom" id="DTr-cs-rIh"/>
                 <constraint firstItem="6ps-Ew-hv1" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="J2x-wX-Ilt"/>
-                <constraint firstAttribute="trailing" secondItem="9ap-48-sQc" secondAttribute="trailing" id="YxI-RP-cWH"/>
+                <constraint firstAttribute="trailing" secondItem="9ap-48-sQc" secondAttribute="trailing" id="PjC-OV-via"/>
                 <constraint firstItem="12H-Nv-xt4" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="g44-0z-vLP"/>
-                <constraint firstAttribute="bottom" secondItem="9ap-48-sQc" secondAttribute="bottom" id="lUd-32-O55"/>
                 <constraint firstItem="9ap-48-sQc" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="oME-58-Dc4"/>
                 <constraint firstAttribute="trailing" secondItem="6ps-Ew-hv1" secondAttribute="trailing" id="uYu-u7-giT"/>
                 <constraint firstItem="12H-Nv-xt4" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="uzr-Ig-ej7"/>
@@ -71,7 +68,6 @@
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
             <connections>
-                <outlet property="cardButton" destination="12H-Nv-xt4" id="h3c-wO-s8G"/>
                 <outlet property="cardView" destination="9ap-48-sQc" id="glF-Da-6jb"/>
                 <outlet property="scrapButton" destination="6ps-Ew-hv1" id="bMA-fM-PSL"/>
             </connections>

@@ -1,24 +1,24 @@
 PODS:
   - Alamofire (5.2.0)
-  - AlignedCollectionViewFlowLayout (1.1.2)
+  - FlexiblePageControl (1.0.8)
   - lottie-ios (3.1.8)
 
 DEPENDENCIES:
   - Alamofire
-  - AlignedCollectionViewFlowLayout
+  - FlexiblePageControl (~> 1.0.8)
   - lottie-ios (~> 3.1.8)
 
 SPEC REPOS:
   trunk:
     - Alamofire
-    - AlignedCollectionViewFlowLayout
+    - FlexiblePageControl
     - lottie-ios
 
 SPEC CHECKSUMS:
   Alamofire: c1ca147559e730bfb2182c8c7aafbdd90a867987
-  AlignedCollectionViewFlowLayout: ee2ef451e741ec08f8e0967d828001e2f051c20a
+  FlexiblePageControl: 07f7765054f16b3f0bc3f14dfd95ab5f45817ea4
   lottie-ios: 48fac6be217c76937e36e340e2d09cf7b10b7f5f
 
-PODFILE CHECKSUM: 18163cba2721a7bfad41421a28a7f07f4eb5641a
+PODFILE CHECKSUM: 948da456203657d5ccc54c5cd8e37cd2dfe1ccc0
 
 COCOAPODS: 1.9.3

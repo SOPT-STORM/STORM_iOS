@@ -26,7 +26,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="307" height="115"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMK-LK-zAK">
-                                <rect key="frame" x="19" y="76.5" width="69.5" height="19.5"/>
+                                <rect key="frame" x="19" y="80" width="69.5" height="19.5"/>
                                 <attributedString key="attributedText">
                                     <fragment content="총 10분 소요">
                                         <attributes>
@@ -38,7 +38,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pgm-Rp-6QQ">
-                                <rect key="frame" x="19" y="18" width="66" height="19.5"/>
+                                <rect key="frame" x="19" y="16.5" width="66" height="19.5"/>
                                 <attributedString key="attributedText">
                                     <fragment content="ROUND 10">
                                         <attributes>
@@ -50,21 +50,8 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSk-hi-Md9">
-                                <rect key="frame" x="173" y="18" width="115" height="8.5"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="프로젝트 제목 입력칸">
-                                        <attributes>
-                                            <color key="NSColor" red="0.92549019607843142" green="0.396078431372549" blue="0.396078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="13" name="NotoSansCJKkr-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hxv-r9-xVh">
-                                <rect key="frame" x="19" y="37.5" width="59" height="18"/>
+                                <rect key="frame" x="19" y="36" width="59" height="18"/>
                                 <attributedString key="attributedText">
                                     <fragment content="라운드 목표">
                                         <attributes>
@@ -77,7 +64,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="imy-et-fDO">
-                                <rect key="frame" x="163" y="81" width="115" height="15"/>
+                                <rect key="frame" x="170" y="82" width="115" height="15"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hProjectwaitingSelectedMember1" translatesAutoresizingMaskIntoConstraints="NO" id="24Y-kP-ayR">
                                         <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
@@ -106,20 +93,34 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSk-hi-Md9">
+                                <rect key="frame" x="173" y="16.5" width="115" height="19.5"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="프로젝트 제목 입력칸">
+                                        <attributes>
+                                            <color key="NSColor" red="0.92549019607843142" green="0.396078431372549" blue="0.396078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="13" name="NotoSansCJKkr-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="PMK-LK-zAK" firstAttribute="leading" secondItem="FdN-dZ-KwW" secondAttribute="leading" constant="19" id="5oZ-RA-dEX"/>
                             <constraint firstItem="Hxv-r9-xVh" firstAttribute="leading" secondItem="FdN-dZ-KwW" secondAttribute="leading" constant="19" id="7F2-A7-iMR"/>
                             <constraint firstItem="pgm-Rp-6QQ" firstAttribute="leading" secondItem="FdN-dZ-KwW" secondAttribute="leading" constant="19" id="7ov-8J-Js7"/>
-                            <constraint firstItem="imy-et-fDO" firstAttribute="leading" secondItem="PMK-LK-zAK" secondAttribute="trailing" constant="74.5" id="BLb-8Y-i8P"/>
-                            <constraint firstItem="pgm-Rp-6QQ" firstAttribute="top" secondItem="FdN-dZ-KwW" secondAttribute="top" constant="18" id="Bc3-yI-Tyy"/>
-                            <constraint firstItem="imy-et-fDO" firstAttribute="top" secondItem="MSk-hi-Md9" secondAttribute="bottom" constant="54.5" id="KfF-dT-64w"/>
-                            <constraint firstAttribute="bottom" secondItem="PMK-LK-zAK" secondAttribute="bottom" constant="19" id="NDz-kN-NZL"/>
+                            <constraint firstItem="PMK-LK-zAK" firstAttribute="centerY" secondItem="FdN-dZ-KwW" secondAttribute="centerY" multiplier="1.56" id="Bov-6g-g01"/>
+                            <constraint firstAttribute="width" constant="307" id="QKM-Xu-BV3"/>
                             <constraint firstItem="Hxv-r9-xVh" firstAttribute="top" secondItem="pgm-Rp-6QQ" secondAttribute="bottom" id="WH1-i5-uSs"/>
-                            <constraint firstItem="MSk-hi-Md9" firstAttribute="top" secondItem="FdN-dZ-KwW" secondAttribute="top" constant="18" id="aIS-Hv-QlW"/>
-                            <constraint firstAttribute="trailing" secondItem="MSk-hi-Md9" secondAttribute="trailing" constant="19" id="fwz-ri-DBF"/>
-                            <constraint firstAttribute="bottom" secondItem="imy-et-fDO" secondAttribute="bottom" constant="19" id="ug4-My-FNV"/>
+                            <constraint firstItem="MSk-hi-Md9" firstAttribute="centerY" secondItem="FdN-dZ-KwW" secondAttribute="centerY" multiplier="0.46" id="hvO-8I-Xrt"/>
+                            <constraint firstAttribute="trailing" secondItem="imy-et-fDO" secondAttribute="trailing" constant="22" id="j8R-cq-hTw"/>
+                            <constraint firstAttribute="height" constant="115" id="p0Q-MV-KXy"/>
+                            <constraint firstItem="imy-et-fDO" firstAttribute="centerY" secondItem="FdN-dZ-KwW" secondAttribute="centerY" multiplier="1.56" id="qhp-6P-gO3"/>
+                            <constraint firstItem="pgm-Rp-6QQ" firstAttribute="centerY" secondItem="FdN-dZ-KwW" secondAttribute="centerY" multiplier="0.46" id="sUN-O5-5wm"/>
+                            <constraint firstAttribute="trailing" secondItem="MSk-hi-Md9" secondAttribute="trailing" constant="19" id="yNa-AE-83r"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -157,7 +158,7 @@
                 <outlet property="timeLimitLabel" destination="PMK-LK-zAK" id="O6D-M7-NQs"/>
                 <outletCollection property="profileImageView" destination="DCH-l2-IpH" collectionClass="NSMutableArray" id="58N-I0-jb7"/>
             </connections>
-            <point key="canvasLocation" x="136.95652173913044" y="130.58035714285714"/>
+            <point key="canvasLocation" x="136.95652173913044" y="130.24553571428572"/>
         </collectionViewCell>
     </objects>
     <resources>

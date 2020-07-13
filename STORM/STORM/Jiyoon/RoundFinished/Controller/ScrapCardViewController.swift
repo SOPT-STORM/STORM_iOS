@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AlignedCollectionViewFlowLayout
 
 class ScrapCardViewController: UIViewController {
 
@@ -18,7 +17,7 @@ class ScrapCardViewController: UIViewController {
     @IBOutlet weak var cardScrapCollectionView: UICollectionView!
     
 
-    var cards = 10
+    var cards = 9
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +25,7 @@ class ScrapCardViewController: UIViewController {
         cardScrapCollectionView.register(UINib(nibName: "CardCollectionViewCell", bundle:nil), forCellWithReuseIdentifier: CardCollectionViewCell.identifier)
         cardScrapCollectionView.delegate = self
         cardScrapCollectionView.dataSource = self
-        let aligned = cardScrapCollectionView.collectionViewLayout as? AlignedCollectionViewFlowLayout
-        aligned?.horizontalAlignment = .left
+
 
         // Do any additional setup after loading the view.
     }
@@ -72,13 +70,13 @@ extension ScrapCardViewController: UICollectionViewDelegateFlowLayout, UICollect
             return CGSize(width: cardScrapCollectionView.frame.width, height: cardScrapCollectionView.frame.height)
         }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
 
-            return 28
+            return 27
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-            return UIEdgeInsets(top: 28, left: 27, bottom: 0, right: 27)
+            return UIEdgeInsets(top: 27, left: 27, bottom: 0, right: 27)
     }
 
 }

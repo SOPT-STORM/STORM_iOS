@@ -12,17 +12,31 @@ class RoundStartAlertPopupViewController: UIViewController {
 
     @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var roundStartAlertView: UIView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        roundStartAlertView.setRound(15)
-        roundStartAlertView.dropShadow(color: .black, opacity: 0.2, offSet: CGSize(width: 0, height: 3), radius: 7.5, scale: true)
-        roundStartAlertView.clipsToBounds = true
-        
+       var pressButton: (() -> Void)?
 
-        // Do any additional setup after loading the view.
-    }
-    
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            // self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+            popupView.layer.opacity = 0.6
+            roundStartAlertView.setRadius(radius: 15)
+            roundStartAlertView.dropShadow(color: .darkGray, offSet: CGSize(width: 0, height: 3))
+            self.showAnimate()
+                
+                // Do any additional setup after loading the view.
+            }
 
 
+            override func didReceiveMemoryWarning() {
+                super.didReceiveMemoryWarning()
+                // Dispose of any resources that can be recreated.
+            }
+            
+            @IBAction func confirmButtonDidPress(_ sender: UIButton) {
+                pressButton?()
+                self.removeAnimate()
+            
+         
+            }
+            
 }
+

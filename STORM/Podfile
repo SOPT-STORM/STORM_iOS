@@ -6,8 +6,9 @@ target 'STORM' do
   use_frameworks!
   
   pod 'Alamofire'
-  pod "AlignedCollectionViewFlowLayout"
   pod 'lottie-ios', '~> 3.1.8'
+  pod 'FlexiblePageControl', '~> 1.0.8'
+
 
   # Pods for STORM
 

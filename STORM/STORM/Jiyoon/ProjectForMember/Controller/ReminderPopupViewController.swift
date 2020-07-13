@@ -16,6 +16,11 @@ class ReminderPopupViewController: UIViewController {
     @IBOutlet weak var reminderView: UIView!
     var pressButton: (() -> Void)?
     
+    lazy var box = UIView()
+
+
+
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +33,7 @@ class ReminderPopupViewController: UIViewController {
             // Do any additional setup after loading the view.
         }
 
+
         override func didReceiveMemoryWarning() {
             super.didReceiveMemoryWarning()
             // Dispose of any resources that can be recreated.
@@ -36,6 +42,7 @@ class ReminderPopupViewController: UIViewController {
         @IBAction func confirmButtonDidPress(_ sender: UIButton) {
             pressButton?()
             self.removeAnimate()
+            self.dismiss(animated: true, completion: nil)
         
      
         }

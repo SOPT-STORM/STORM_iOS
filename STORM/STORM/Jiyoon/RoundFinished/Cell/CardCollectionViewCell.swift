@@ -13,10 +13,11 @@ class CardCollectionViewCell: UICollectionViewCell {
     static let identifier = "cardCollectionViewCell"
 
     @IBOutlet weak var cardView: UIView!
-    @IBOutlet weak var cardButton: UIButton!
     @IBOutlet weak var scrapButton: UIButton!
     
     var didScrap: (() -> Void)?
+    
+    // TODO: 분기 처리 다시하기
     
     var isScrap: Bool = false {
         didSet {
@@ -27,8 +28,6 @@ class CardCollectionViewCell: UICollectionViewCell {
     
     // MARK: - IBAction
     
-    @IBAction func cardButtonDidPress(_ sender: UIButton) {
-    }
     @IBAction func scrapButtonDidPress(_ sender: UIButton) {
         isScrap = !isScrap
         didScrap?()
@@ -38,7 +37,7 @@ class CardCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        cardView.dropShadow(color: .black, opacity: 0.2, offSet: (CGSize(width: 0, height: 3)), radius: 7, scale: true)
+        cardView.dropShadow(color: .black, opacity: 0.2, offSet: (CGSize(width: 0, height: 3)), radius: 3.5)
         cardView.setRadius(radius: 15)
     }
 
