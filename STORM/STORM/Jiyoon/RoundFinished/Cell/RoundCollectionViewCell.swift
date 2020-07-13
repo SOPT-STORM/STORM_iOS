@@ -11,9 +11,9 @@ import UIKit
 class RoundCollectionViewCell: UICollectionViewCell {
 
     
-    static let identifier : String = "RoundCollectionViewCell"
+    static let identifier : String = "roundCollectionViewCell"
     
-    
+    @IBOutlet weak var roundView: UIView!
     @IBOutlet weak var roundIndexLabel: UILabel!
     @IBOutlet weak var roundGoalLabel: UILabel!
     @IBOutlet weak var timeLimitLabel: UILabel!
@@ -23,7 +23,7 @@ class RoundCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        roundView.setRadius(radius: 15)
     }
 
 }

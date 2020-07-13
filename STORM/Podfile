@@ -6,11 +6,12 @@ target 'STORM' do
   use_frameworks!
   
   pod 'Alamofire'
+  pod 'FlexiblePageControl', '~> 1.0.8'
+
 
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
 
-  pod 'Firebase/Database'
   pod 'Firebase/Storage'
   pod 'CodableFirebase'
 
