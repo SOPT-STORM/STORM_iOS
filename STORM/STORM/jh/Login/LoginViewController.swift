@@ -14,7 +14,7 @@ import CodableFirebase
 import KakaoOpenSDK
 import Alamofire
 
-class LoginViewController: UIViewController, FUIAuthDelegate{
+class LoginViewController: UIViewController, FUIAuthDelegate {
     
     // MARK:- 변수 선언
     
