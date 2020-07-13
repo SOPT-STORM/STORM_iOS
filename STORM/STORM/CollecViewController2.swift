@@ -22,7 +22,7 @@ class CollecViewController2: UICollectionViewController {
         layout.scrollDirection = .horizontal
 
         layout.sideItemAlpha = 1
-        layout.sideItemScale = 0.8
+        layout.sideItemScale = 0.849
         layout.spacingMode = UPCarouselFlowLayoutSpacingMode.overlap(visibleOffset: 60)
 
         collectionView?.setCollectionViewLayout(layout, animated: false)
@@ -75,7 +75,7 @@ public class UPCarouselFlowLayout: UICollectionViewFlowLayout {
         }
     }
 
-    @IBInspectable public var sideItemScale: CGFloat = 0.757//0.757
+    @IBInspectable public var sideItemScale: CGFloat = 0.849//0.757
     @IBInspectable public var sideItemAlpha: CGFloat = 0.5
     public var spacingMode = UPCarouselFlowLayoutSpacingMode.fixed(spacing: 5)
 
@@ -85,12 +85,10 @@ public class UPCarouselFlowLayout: UICollectionViewFlowLayout {
     override public func prepare() {
         super.prepare()
         
-        print("prepare 실행")
-        print(self.collectionView!.bounds.size, self.scrollDirection)
         let currentState = LayoutState(size: self.collectionView!.bounds.size, direction: self.scrollDirection)
 
         if !self.state.isEqual(otherState: currentState) {
-            print("실행2")
+
             self.setupCollectionView()
             self.updateLayout()
             self.state = currentState
@@ -124,8 +122,10 @@ public class UPCarouselFlowLayout: UICollectionViewFlowLayout {
             let inset = xInset
             self.minimumLineSpacing = inset - fullSizeSideItemOverlap
         }
+        print("미니멈 라인 스페이싱\(self.minimumLineSpacing)")
     }
-
+    
+    
     public override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
         return true
     }
@@ -145,13 +145,15 @@ public class UPCarouselFlowLayout: UICollectionViewFlowLayout {
         let collectionCenter = collectionView.frame.size.width/2
         let offset = collectionView.contentOffset.x
         let normalizedCenter = attributes.center.x - offset
+        
+//        print(attributes,attributes.center.x)
+//        print(collectionCenter,offset,normalizedCenter)
 
         let maxDistance = self.itemSize.width + self.minimumLineSpacing
         let distance = min(abs(collectionCenter - normalizedCenter), maxDistance)
         let ratio = (maxDistance - distance)/maxDistance
         
-        var test = Float()
-        
+
 //        if normalizedCenter < distance * 3 + 5 {
 //            test = normalizedCenter
 //        }
@@ -160,14 +162,29 @@ public class UPCarouselFlowLayout: UICollectionViewFlowLayout {
         let scale = ratio * (1 - self.sideItemScale) + self.sideItemScale
         
         attributes.alpha = alpha
-        attributes.transform3D = CATransform3DScale(CATransform3DIdentity, scale, scale, 1)
+        
+        print("maxDistance: \(maxDistance), 절대값: \(abs(collectionCenter - normalizedCenter))")
+        print("레이시오 \(ratio) \(scale)")
+        
+//        attributes.transform3D = CATransform3DScale(CATransform3DIdentity, scale, scale, 1)
+        
+        let visibleRect = CGRect(origin: self.collectionView!.contentOffset, size: self.collectionView!.bounds.size)
+        let dist = attributes.frame.midX - visibleRect.midX
+        var transform = CATransform3DScale(CATransform3DIdentity, scale, scale, 1)
+        transform = CATransform3DTranslate(transform, 0, 0, -abs(dist/1000))
+        attributes.transform3D = transform
         
 //        print(maxDistance, distance)
-        print(offset, normalizedCenter, distance, abs(collectionCenter - normalizedCenter), ratio, scale  )
-        print("scale \(ratio) \(scale) \(self.sideItemScale)")
+//        print(offset, normalizedCenter, distance, abs(collectionCenter - normalizedCenter), ratio, scale  )
+//        print("scale \(ratio) \(scale) \(self.sideItemScale)")
         
         return attributes
     }
+    
+    
+    
+    
+    
     
 //    public override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint) -> CGPoint {
 //        guard let collectionView = collectionView, !collectionView.isPagingEnabled,
@@ -191,21 +208,5 @@ public class UPCarouselFlowLayout: UICollectionViewFlowLayout {
 //
 //        return targetContentOffset
 //    }
-    
-    /*
-     You can translate your items to a small negative z value based on distance from center.
 
-     Replace this line:
-     
-     attributes.transform3D = CATransform3DScale(CATransform3DIdentity, scale, scale, 1)
-     
-     let visibleRect = CGRect(origin: self.collectionView!.contentOffset, size: self.collectionView!.bounds.size)
-     let dist = CGRectGetMidX(attributes.frame) - CGRectGetMidX(visibleRect)
-     var transform = CATransform3DScale(CATransform3DIdentity, scale, scale, 1)
-     transform = CATransform3DTranslate(transform, 0, 0, -abs(dist/1000))
-     attributes.transform3D = transform
-     
-     */
-    
-    
 }

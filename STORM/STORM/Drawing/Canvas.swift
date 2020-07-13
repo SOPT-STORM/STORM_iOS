@@ -8,18 +8,10 @@
 
 import UIKit
 
-enum undoMode {
-    case append
-    case remove
-}
-
 class Canvas: UIView {
     
-    // public func
-//
-//    lazy var didCleared: Bool = false
-    
-    var mode: undoMode = .remove
+    var lines = [[CGPoint]]()
+    var restoreLines = [[CGPoint]]()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,117 +19,45 @@ class Canvas: UIView {
         self.layer.masksToBounds = true
     }
     
-    
     required init?(coder aDecoder: NSCoder) {
        super.init(coder: aDecoder)
     }
 
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-    
-    
-    
     func undo() {
-        
-//        if lines.isEmpty {
-//            mode = .append
-//        } else if restoreLines.isEmpty {
-//            mode = .remove
-//        }
-//
-//        if mode == .append {
-//            guard let line  = restoreLines.popLast() else {return}
-//            lines.append(line)
-//        } else{
-//            guard let line = lines.popLast() else {return}
-//            restoreLines.append(line)
-//        }
-        
         guard let line = lines.popLast() else {return}
         restoreLines.append(line)
         
         setNeedsDisplay()
-        
-//            guard let line  = restoreLines.popLast() else {return}
-//            lines.append(line)
-//            lines = restoreLines
-//            restoreLines.removeAll()
-//
-//        } else {
-//            guard let line = lines.popLast() else {return}
-//            restoreLines.append(line)
-//        }
-//        guard let line = lines.popLast() else {return}
-//        restoreLines.append(line)
-//        setNeedsDisplay()
     }
     
     func clear() {
-        restoreLines = lines
-        
         lines.removeAll()
+        restoreLines.removeAll()
         setNeedsDisplay()
     }
     
-    func restore() {
-//        if lines.isEmpty {
-//            lines = restoreLines
-//            restoreLines.removeAll()
-//        } else {
-//            guard let line = restoreLines.popLast() else {return}
-//            lines.append(line)
-//        }
-        
-//        if lines.isEmpty {
-//            mode = .append
-//        } else if restoreLines.isEmpty {
-//            mode = .remove
-//        }
-//
-//        if mode == .append {
-//            guard let line  = restoreLines.popLast() else {return}
-//            lines.append(line)
-//        } else{
-//            guard let line = lines.popLast() else {return}
-//            restoreLines.append(line)
-//        }
-        
-//        if lines.isEmpty {
-//            lines = restoreLines
-//            restoreLines.removeAll()
-//        } else {
-//            guard let line  = restoreLines.popLast() else {return}
-//            lines.append(line)
-//        }
-        
+    func redo() {
         guard let line  = restoreLines.popLast() else {return}
         lines.append(line)
         setNeedsDisplay()
     }
     
-    var lines = [[CGPoint]]()
-    var restoreLines = [[CGPoint]]()
-    
     override func draw(_ rect: CGRect) {
 
         super.draw(rect)
-        guard let context = UIGraphicsGetCurrentContext() else {return}
+        guard let context = UIGraphicsGetCurrentContext() else {return} // 2D그림을 그리기 위한 context
         
-        context.setStrokeColor(UIColor.black.cgColor)
-        context.setLineWidth(3)
-//        context.setLineCap(.butt)
-        context.setLineCap(.round)
+        context.setStrokeColor(UIColor.black.cgColor) // 색상 검정 설정
+        context.setLineWidth(3) // 선 굵기 3 설정
+        context.setLineCap(.round) // line의 endpoint 라운드 설정
         
         
         lines.forEach { (line) in
-            print("라인: \(line)")
             for (i, p) in line.enumerated() {
-                print("아이피\(i), \(p)")
                 if i == 0 {
-                    context.move(to: p)
+                    context.move(to: p) // 배열의 첫번째 p: CGPoint지점에서 새로운 subpath 시작
                 } else {
-                    context.addLine(to: p)
+                    context.addLine(to: p) // p 까지 직선 라인 추가
                 }
             }
         }
@@ -146,19 +66,19 @@ class Canvas: UIView {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        lines.append([CGPoint]())
+        lines.append([CGPoint]()) // 사용자가 첫번째 화면 터치시 lines 배열에 CGPoint 배열 추가
     }
 
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        guard let point = touches.first?.location(in: self) else {return}
+        guard let point = touches.first?.location(in: self) else {return} // 사용자의 touch move event 발생 시, point변수에 터치지점 좌표 저장
         
         guard var lastLine = lines.popLast() else {return}
         
-        lastLine.append(point)
-        lines.append(lastLine)
+        lastLine.append(point) // lines 배열의 마지막 원소(line: [CGPoint])를 빼낸 후 point 추가
+        lines.append(lastLine) // lines 배열
         
-        setNeedsDisplay()
+        setNeedsDisplay() // setNeedDisplay() 호출 - 시스템에 뷰가 다시 그려져야 함을 알리는 메소드로 뷰를 다시 그려 업데이트 함, setNeedsDisplay() 호출 시 draw(_ rect: CGRect) 실행
     }
     
     

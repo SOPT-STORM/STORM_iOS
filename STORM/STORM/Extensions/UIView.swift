@@ -11,7 +11,7 @@ import UIKit
 extension UIView {
     
     func addShadow(width: CGFloat, height: CGFloat, _ opacity: Float, _ radius: CGFloat) {
-        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1).cgColor
         self.layer.shadowRadius = radius
         self.layer.shadowOpacity = opacity
         self.layer.shadowOffset = CGSize(width: width, height: height)
@@ -20,6 +20,38 @@ extension UIView {
     func setRound(_ radius: CGFloat) {
         self.layer.cornerRadius = radius
     }
+    
+    func asImage() -> UIImage {
+        let renderer = UIGraphicsImageRenderer(bounds: bounds)
+        return renderer.image { rendererContext in
+            layer.render(in: rendererContext.cgContext)
+        }
+    }
+    
+    func showAnimate()
+    {
+        self.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+        self.alpha = 0.0;
+        UIView.animate(withDuration: 0.25, animations: {
+            self.alpha = 1.0
+            self.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        });
+    }
+    
+    func removeAnimate()
+    {
+        UIView.animate(withDuration: 0.25, animations: {
+            self.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+            self.alpha = 0.0;
+            }, completion:{(finished : Bool)  in
+                if (finished)
+                {
+                    self.removeFromSuperview()
+                }
+        });
+    }
+    
+    
     
     @IBInspectable var cornerRadius: CGFloat {
         get {
@@ -80,3 +112,4 @@ extension UIView {
     
     
 }
+
