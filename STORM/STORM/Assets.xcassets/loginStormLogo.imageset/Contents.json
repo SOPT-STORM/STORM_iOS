@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "redNavigationBar.png"
+      "filename" : "loginStormLogo.png"
     },
     {
       "scale" : "2x",
-      "filename" : "redNavigationBar@2x.png",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "filename" : "loginStormLogo@2x.png"
     },
     {
-      "filename" : "redNavigationBar@3x.png",
+      "idiom" : "universal",
       "scale" : "3x",
-      "idiom" : "universal"
+      "filename" : "loginStormLogo@3x.png"
     }
   ],
   "info" : {

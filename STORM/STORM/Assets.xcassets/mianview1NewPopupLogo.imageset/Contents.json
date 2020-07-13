@@ -2,16 +2,16 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "redNavigationBar.png"
+      "filename" : "mianview1NewPopupLogo.png",
+      "scale" : "1x"
     },
     {
+      "filename" : "mianview1NewPopupLogo@2x.png",
       "scale" : "2x",
-      "filename" : "redNavigationBar@2x.png",
       "idiom" : "universal"
     },
     {
-      "filename" : "redNavigationBar@3x.png",
+      "filename" : "mianview1NewPopupLogo@3x.png",
       "scale" : "3x",
       "idiom" : "universal"
     }
