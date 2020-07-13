@@ -6,9 +6,19 @@ target 'STORM' do
   use_frameworks!
   
   pod 'Alamofire'
-  pod 'lottie-ios', '~> 3.1.8'
   pod 'FlexiblePageControl', '~> 1.0.8'
 
+
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+
+  pod 'Firebase/Storage'
+  pod 'CodableFirebase'
+
+  pod 'FirebaseUI/Auth'
+  pod 'FirebaseUI/Google'
+
+  pod 'lottie-ios'
 
   # Pods for STORM
 

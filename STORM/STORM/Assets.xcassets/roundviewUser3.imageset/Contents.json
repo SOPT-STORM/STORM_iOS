@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+<<<<<<< HEAD
       "filename" : "roundviewUser3.png",
       "scale" : "1x",
       "idiom" : "universal"
@@ -8,12 +9,26 @@
     {
       "filename" : "roundviewUser3@2x.png",
       "scale" : "2x",
+=======
+      "scale" : "1x",
+      "idiom" : "universal",
+      "filename" : "roundviewUser3.png"
+    },
+    {
+      "scale" : "2x",
+      "filename" : "roundviewUser3@2x.png",
+>>>>>>> ae45f5df0271ec0017ae62d9c3112d8b22c355b0
       "idiom" : "universal"
     },
     {
       "idiom" : "universal",
+<<<<<<< HEAD
       "filename" : "roundviewUser3@3x.png",
       "scale" : "3x"
+=======
+      "scale" : "3x",
+      "filename" : "roundviewUser3@3x.png"
+>>>>>>> ae45f5df0271ec0017ae62d9c3112d8b22c355b0
     }
   ],
   "info" : {

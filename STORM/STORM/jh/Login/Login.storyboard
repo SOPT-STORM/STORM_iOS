@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QL9-iy-CSK">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="zEY-oI-Yhg">
+            <objects>
+                <viewController id="QL9-iy-CSK" customClass="LoginViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="589-lD-BgO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="ZhF-pb-bM8"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pIC-ke-Sgk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="96" y="153"/>
+        </scene>
+        <!--Custom View Controller-->
+        <scene sceneID="rcF-6f-o6I">
+            <objects>
+                <viewController id="BZH-KH-hxZ" customClass="CustomViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Uey-UX-gAx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="kbe-in-mdX"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ein-EN-byt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="927" y="148"/>
+        </scene>
+        <!--Logout View Controller-->
+        <scene sceneID="hW1-Ml-axE">
+            <objects>
+                <viewController storyboardIdentifier="mainView" id="8Q6-eU-ilT" customClass="LogoutViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="71m-xz-Zjx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r5C-H5-kgA">
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="logoutpressed:" destination="8Q6-eU-ilT" eventType="touchUpInside" id="FXZ-ZN-DKE"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="nX6-g5-MMU" firstAttribute="trailing" secondItem="r5C-H5-kgA" secondAttribute="trailing" id="OlX-rn-TGt"/>
+                            <constraint firstItem="r5C-H5-kgA" firstAttribute="leading" secondItem="nX6-g5-MMU" secondAttribute="leading" id="RKg-cQ-FKb"/>
+                            <constraint firstItem="nX6-g5-MMU" firstAttribute="bottom" secondItem="r5C-H5-kgA" secondAttribute="bottom" id="ehL-cd-f1A"/>
+                            <constraint firstItem="r5C-H5-kgA" firstAttribute="top" secondItem="nX6-g5-MMU" secondAttribute="top" id="npE-CD-Vn3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="nX6-g5-MMU"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YMN-1D-mgO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1767" y="153"/>
+        </scene>
+    </scenes>
+</document>
