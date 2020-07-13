@@ -9,7 +9,6 @@
 import UIKit
 import FirebaseAuth
 import FirebaseUI
-import FirebaseDatabase
 import CodableFirebase
 
 class LogoutViewController: UIViewController, FUIAuthDelegate {
