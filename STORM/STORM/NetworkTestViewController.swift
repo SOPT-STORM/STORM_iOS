@@ -11,92 +11,112 @@ import SocketIO
 
 class NetworkTestViewController: UIViewController {
     
-    var socket: SocketIOClient!
+    @IBAction func didPressConnect(_ sender: UIButton) {
+        SocketIOManager.shared.openConnection()
+    }
     
+    @IBAction func didPressDisconnect(_ sender: UIButton) {
+        SocketIOManager.shared.closeConnection()
+    }
+    
+    @IBAction func didPressEmit(_ sender: UIButton) {
+        SocketIOManager.shared.sendData()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("실행")
         
-        let manager = SocketManager(socketURL: URL(string: "http://156f31f9418d.ngrok.io")!, config: [.log(true), .compress])
-        
-        socket = manager.defaultSocket
-//        NetworkManager.shared.signIn(userName: "이승환", googleToken: "테스트", KakaoToken: nil,
-//                                     userImg: "test.jpg") { (response) in
-//
-//            print(response)
-//
-//        }
-        
-//        NetworkManager.shared.fetchProjectList { (result) in
-//            print(result)
-//        }
-//
-//        NetworkManager.shared.enterProject(projectCode: "") { (result) in
-//            print(result)
-//        }
-        
-        
-        
-//        NetworkManager.shared.
-    
-
-        // Do any additional setup after loading the view.
-    
-        
-        socket.connect()
-        
-        socket.on(clientEvent: .connect) {data, ack in
-            print("socket connected")
+        NetworkManager.shared.fetchProjectList { (response) in
+            print("fetchProjectList")
+            print(response)
         }
         
+        NetworkManager.shared.enterProject(projectCode: "d7bfp2gxpi") { (response) in
+            print("프로젝트 참여하기")
+            print(response)
+        }
 
-        socket.on("currentAmount") {data, ack in
-            guard let cur = data[0] as? Double else { return }
+        NetworkManager.shared.fetchMemberList(roundIdx: 1) { (response) in
+            print("라운드 참여자 목록")
+            print(response)
+        }
 
-            self.socket.emitWithAck("canUpdate", cur).timingOut(after: 0) {data in
-                self.socket.emit("update", ["amount": cur + 2.50])
-            }
+        
+        NetworkManager.shared.addProject(projectName: "test", projectComment: "test", userIdx: 1) { (response) in
+            print("프로젝트 추가하기")
+            print(response)
+        }
 
-            ack.with("Got your currentAmount", "dude")
+        NetworkManager.shared.fetchProjectInfo(projectIdx: 1) { (response) in
+            print("프로젝트 정보")
+            print(response)
         }
         
-//        socket.emit("joinRoom", ["joinRoom" : "testtest"])
         
-//        socket.emit("joinRoom", with: ["roomCode", "세영"])
-//
-//        socket.emit("joinRoom", ["roomCode", "세영"])
-//
-//        socket.on("test") { (dataArray, SocketAckEmitter) in
-//            print("소켓 실행")
-//            print("데이터 \(dataArray)")
-//            print("소켓 \(SocketAckEmitter)")
-//        }
-
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        socket.emit("joinRoom", with: ["roomCode", "세영"])
-        
-        socket.emit("joinRoom", ["roomCode", "세영"])
-        
-        socket.on("test") { (dataArray, SocketAckEmitter) in
-            print("소켓 실행")
-            print("데이터 \(dataArray)")
-            print("소켓 \(SocketAckEmitter)")
+        NetworkManager.shared.fetchProjectMember(projectIdx: 1) { (response) in
+            print("프로젝트 참여자 목록")
+            print(response)
         }
         
+        
+        
+        NetworkManager.shared.exitProject(projectIdx: 1) { (response) in
+            print("프로젝트 나가기")
+            print(response)
+        }
+
+        NetworkManager.shared.fetchRoundCountInfo(projectIdx: 1) { (response) in
+            print("라운드 카운트 정보 출력 - Host")
+            print(response)
+        }
+
+        NetworkManager.shared.setRound(projectIdx: 1, roundPurpose: "test", roundTime: 10) { (response) in
+            print("라운드 설정 - Host")
+            print(response)
+        }
+
+        NetworkManager.shared.fetchRoundInfo(projectIdx: 1) { (response) in
+            print("라운드 정보")
+            print(response)
+        }
+
+        NetworkManager.shared.enterRound(roundIdx: 1) { (response) in
+            print("라운드 참여")
+            print(response)
+        }
+
+        NetworkManager.shared.exitRound(roundIdx: 1) { (response) in
+            print("라운드 나가기")
+            print(response)
+        }
+
+        NetworkManager.shared.addCardMemo(cardIdx: 1, memoContent: "테스트 메모") { (response) in
+            print("카드메모추가")
+            print(response)
+        }
+
+        NetworkManager.shared.addCard(projectIdx: 1, roundIdx: 1, cardImg: UIImage(named: "이탈리아"), cardTxt: nil)
+
+        NetworkManager.shared.fetchCardList(projectIdx: 1, roundIdx: 1) { (response) in
+            print("라운드카드리스트")
+            print(response)
+        }
+
+
+
+        NetworkManager.shared.modifyCardMemo(cardIdx: 1, memoContent: "테스트 메모 수정") { (response) in
+            print("카드메모수정")
+            print(response)
+        }
+        
+        NetworkManager.shared.fetchFinalProjectInfo(projectIdx: 1) { (response) in
+            print("최종 프로젝트 정보")
+            print(response)
+        }
+
+        NetworkManager.shared.fetchAllRoundInfo(projectIdx: 1) { (response) in
+            print("라운드 별 정보")
+            print(response)
+        }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

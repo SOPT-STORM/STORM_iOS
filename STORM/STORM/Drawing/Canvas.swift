@@ -47,10 +47,10 @@ class Canvas: UIView {
         super.draw(rect)
         guard let context = UIGraphicsGetCurrentContext() else {return} // 2D그림을 그리기 위한 context
         
-        context.setStrokeColor(UIColor.black.cgColor) // 색상 검정 설정
-        context.setLineWidth(3) // 선 굵기 3 설정
+        let color = UIColor(red: 78/255, green: 78/255, blue: 78/255, alpha: 1).cgColor
+        context.setStrokeColor(color) // 색상 검정 설정
+        context.setLineWidth(5) // 선 굵기 5 설정
         context.setLineCap(.round) // line의 endpoint 라운드 설정
-        
         
         lines.forEach { (line) in
             for (i, p) in line.enumerated() {
@@ -80,7 +80,5 @@ class Canvas: UIView {
         
         setNeedsDisplay() // setNeedDisplay() 호출 - 시스템에 뷰가 다시 그려져야 함을 알리는 메소드로 뷰를 다시 그려 업데이트 함, setNeedsDisplay() 호출 시 draw(_ rect: CGRect) 실행
     }
-    
-    
 }
 
