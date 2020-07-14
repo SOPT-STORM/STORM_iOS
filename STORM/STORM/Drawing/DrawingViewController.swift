@@ -37,14 +37,8 @@ class DrawingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let img = UIImage(named: "red_navigation_bar")
-        navigationController?.navigationBar.setBackgroundImage(img, for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
         
-        let titmeImg = UIImage(named: "img_logo")
-        let imageView = UIImageView(image:titmeImg)
-        self.navigationItem.titleView = imageView
+        self.setNaviTitle()
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         
@@ -104,7 +98,6 @@ class DrawingViewController: UIViewController {
         self.showToast(message: "test toast message", frame: CGRect(x: self.view.center.x, y: self.view.frame.height*0.674, width: width, height: width*0.227))
         
         self.canvasView.clear()
-
     }
     
     @objc func hideKeyboard(_ sender: Any){
@@ -140,14 +133,12 @@ class DrawingViewController: UIViewController {
     }
     
     func canvasSetup() {
-        canvasView.layer.cornerRadius = 10 
-        
-        canvasView.layer.cornerRadius = 20
-        canvasView.clipsToBounds = true
-        canvasView.layer.masksToBounds = false
+        canvasView.layer.cornerRadius = 10
+//        canvasView.clipsToBounds = true
+//        canvasView.layer.masksToBounds = false
         canvasView.addShadow(width: 1, height: 3, 0.16, 3)
-        canvasView.layoutIfNeeded()
-        canvasView.layer.masksToBounds = false
+//        canvasView.layoutIfNeeded()
+//        canvasView.layer.masksToBounds = false
     }
     
     func memoSetup() {
@@ -155,9 +146,9 @@ class DrawingViewController: UIViewController {
         memoView.delegate = self
         memoViewHeight = memoView.frame.size.height
         memoView.contentInset = UIEdgeInsets(top: 29, left: 32, bottom: 29, right: 32)
-        memoView.tintColor = UIColor(red: 112/256, green: 112/256, blue: 112/256, alpha: 1)
+        memoView.tintColor = UIColor(red: 112/255, green: 112/255, blue: 112/255, alpha: 1)
         memoView.font = UIFont(name: "NotoSansCJKkr-Medium", size: 17)
-        memoView.textColor = UIColor(red: 112/256, green: 112/256, blue: 112/256, alpha: 1)
+        memoView.textColor = UIColor(red: 112/255, green: 112/255, blue: 112/255, alpha: 1)
     }
     
      override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
