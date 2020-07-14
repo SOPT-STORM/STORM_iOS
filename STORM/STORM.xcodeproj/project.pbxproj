@@ -13,7 +13,6 @@
 		B82C5D7524B78BF90016DB68 /* real_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = B82C5D7424B78BF90016DB68 /* real_loading.json */; };
 		B84BE18B24BAC4810048BE9C /* RoundFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BE18A24BAC4810048BE9C /* RoundFinishedViewController.swift */; };
 		B84BE19124BB122A0048BE9C /* RoundCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BE19024BB122A0048BE9C /* RoundCell.swift */; };
-		B84BE19524BB125F0048BE9C /* Round.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BE19424BB125F0048BE9C /* Round.swift */; };
 		B84BE1A124BB96620048BE9C /* ScrappedCardTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BE1A024BB96620048BE9C /* ScrappedCardTextCell.swift */; };
 		B84BE1A524BB970F0048BE9C /* ScrappedCardImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BE1A424BB970F0048BE9C /* ScrappedCardImageViewCell.swift */; };
 		B88B6C3E24B83AB300F22DDE /* ViewMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88B6C3D24B83AB300F22DDE /* ViewMoreViewController.swift */; };
@@ -45,7 +44,10 @@
 		D12EC24A24AB4072007E5896 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D12EC24924AB4072007E5896 /* Assets.xcassets */; };
 		D12EC24D24AB4072007E5896 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D12EC24B24AB4072007E5896 /* LaunchScreen.storyboard */; };
 		D147598524AB4DA3006C4122 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D147598424AB4DA3006C4122 /* SceneDelegate.swift */; };
+		D147B40324BDABAA0064B026 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = D147B40224BDABAA0064B026 /* Card.swift */; };
+		D15088AB24BD98DD007D9596 /* Round.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15088AA24BD98DC007D9596 /* Round.swift */; };
 		D18D89B624B3A6FF00D8779E /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18D89B524B3A6FF00D8779E /* UIView.swift */; };
+		D19533B724BCB072008DB22F /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19533B624BCB072008DB22F /* Member.swift */; };
 		D1E5837324BC95690013FB7C /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5837124BC95690013FB7C /* Canvas.swift */; };
 		D1E5837424BC95690013FB7C /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5837224BC95690013FB7C /* DrawingViewController.swift */; };
 		D1E5837F24BC95990013FB7C /* CollecViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5837524BC95970013FB7C /* CollecViewController2.swift */; };
@@ -103,7 +105,6 @@
 		B84BE18A24BAC4810048BE9C /* RoundFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundFinishedViewController.swift; sourceTree = "<group>"; };
 		B84BE18C24BAC49F0048BE9C /* RoundFinished.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RoundFinished.storyboard; sourceTree = "<group>"; };
 		B84BE19024BB122A0048BE9C /* RoundCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCell.swift; sourceTree = "<group>"; };
-		B84BE19424BB125F0048BE9C /* Round.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Round.swift; sourceTree = "<group>"; };
 		B84BE1A024BB96620048BE9C /* ScrappedCardTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrappedCardTextCell.swift; sourceTree = "<group>"; };
 		B84BE1A424BB970F0048BE9C /* ScrappedCardImageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrappedCardImageViewCell.swift; sourceTree = "<group>"; };
 		B88B6C3D24B83AB300F22DDE /* ViewMoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMoreViewController.swift; sourceTree = "<group>"; };
@@ -141,12 +142,15 @@
 		D12EC24C24AB4072007E5896 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D12EC24E24AB4072007E5896 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D147598424AB4DA3006C4122 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		D147B40224BDABAA0064B026 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		D15088AA24BD98DC007D9596 /* Round.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Round.swift; sourceTree = "<group>"; };
 		D17935B624B1AF7900811173 /* CollecViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollecViewController3.swift; sourceTree = "<group>"; };
 		D17935C524B1DCF500811173 /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Medium.otf"; path = "/Downloads/NotoSansCJKkr-hinted-2/NotoSansCJKkr-Medium.otf"; sourceTree = "<absolute>"; };
 		D17935C724B1DCF500811173 /* NotoSansCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Bold.otf"; path = "../../../../../Downloads/NotoSansCJKkr-hinted-2/NotoSansCJKkr-Bold.otf"; sourceTree = "<group>"; };
 		D17935CD24B1F80C00811173 /* TestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCell.swift; sourceTree = "<group>"; };
 		D17935CE24B1F80C00811173 /* TestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestCell.xib; sourceTree = "<group>"; };
 		D18D89B524B3A6FF00D8779E /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		D19533B624BCB072008DB22F /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		D1E5837124BC95690013FB7C /* Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
 		D1E5837224BC95690013FB7C /* DrawingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
 		D1E5837524BC95970013FB7C /* CollecViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollecViewController2.swift; sourceTree = "<group>"; };
@@ -284,7 +288,6 @@
 			isa = PBXGroup;
 			children = (
 				B84BE19024BB122A0048BE9C /* RoundCell.swift */,
-				B84BE19424BB125F0048BE9C /* Round.swift */,
 			);
 			path = Round;
 			sourceTree = "<group>";
@@ -430,6 +433,9 @@
 				D1E5839124BC965C0013FB7C /* NetworkManager.swift */,
 				D1E5839224BC965C0013FB7C /* Project.swift */,
 				D1E5839324BC965C0013FB7C /* Response.swift */,
+				D19533B624BCB072008DB22F /* Member.swift */,
+				D15088AA24BD98DC007D9596 /* Round.swift */,
+				D147B40224BDABAA0064B026 /* Card.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -724,12 +730,13 @@
 				B8A25EA924B4D7B500C07092 /* MainViewController.swift in Sources */,
 				B8E9FA7C24B9FC3B00A97235 /* RoundStartPopViewController.swift in Sources */,
 				B8E2B65824B2F4C40098F677 /* LoginViewController.swift in Sources */,
+				D19533B724BCB072008DB22F /* Member.swift in Sources */,
 				B8E2B65E24B3179C0098F677 /* CustomViewController.swift in Sources */,
 				B8E9FA7E24BA059600A97235 /* SettingCodePopViewController.swift in Sources */,
 				B84BE19124BB122A0048BE9C /* RoundCell.swift in Sources */,
 				B8E2B65A24B2F9630098F677 /* UserDataStructure.swift in Sources */,
 				B8E9FA8624BA551E00A97235 /* RoundEndPopViewController.swift in Sources */,
-				B84BE19524BB125F0048BE9C /* Round.swift in Sources */,
+				D15088AB24BD98DD007D9596 /* Round.swift in Sources */,
 				D18D89B624B3A6FF00D8779E /* UIView.swift in Sources */,
 				D761568F24B8D4AD00D4D484 /* UITextField.swift in Sources */,
 				D12EC23E24AB4070007E5896 /* AppDelegate.swift in Sources */,
@@ -758,6 +765,7 @@
 				D1E5838224BC95990013FB7C /* CollectionFlowLayout.swift in Sources */,
 				D1E5838024BC95990013FB7C /* UPCarouselFlow.swift in Sources */,
 				D1E5838324BC95990013FB7C /* CollecViewController.swift in Sources */,
+				D147B40324BDABAA0064B026 /* Card.swift in Sources */,
 				B8E9FA7A24B9FC0500A97235 /* ReminderPopViewController.swift in Sources */,
 				D147598524AB4DA3006C4122 /* SceneDelegate.swift in Sources */,
 				D781D70624B4A66F00AAE389 /* CardCollectionViewCell.swift in Sources */,
