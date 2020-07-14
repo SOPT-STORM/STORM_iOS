@@ -18,12 +18,21 @@ class SocketIOManager: NSObject {
     
     override init() {
         super.init()
-        socket = self.manager.socket(forNamespace: "")
+//        socket = self.manager.socket(forNamespace: "")
+        
+        socket = manager.defaultSocket
 
 //        socket = self.manager.
 
-        socket.on("") { (dataArray, SocketAckEmitter) in
-            print(dataArray)
+        socket.on("test") { (dataArray, SocketAckEmitter) in
+            print("소켓 실행")
+//            print("데이터 \(dataArray)")
+//            print("소켓 \(SocketAckEmitter)")
+            
+            NetworkManager.shared.fetchMemberList(roundIdx: 1) { (result) in
+                print("get통신")
+                print(result)
+            }
         } // 이름이 "test"인 emit 수신
     }
     
@@ -37,6 +46,9 @@ class SocketIOManager: NSObject {
     }
     
     func sendData() {
+        socket.emit("joinRoom", with: ["roomCode", "세영"])
+        
+        socket.emit("joinRoom", ["roomCode", "세영"])
         // emit("이벤트 이름", 전송할 데이터)
         
 //        socket.emit("event",  ["message" : "This is a test message"])
