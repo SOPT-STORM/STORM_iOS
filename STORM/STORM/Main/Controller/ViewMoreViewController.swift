@@ -12,14 +12,15 @@ class ViewMoreViewController: UIViewController {
     
     // MARK:- IBOutlet 선언
 
-    @IBOutlet weak var participatedProjectCollectionView: UICollectionView!
+    @IBOutlet weak var recentProjectCollectionView: UICollectionView!
     
     // MARK:- viewDidLoad 선언
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // MARK: NAVIGATION BAR
+        // MARK: 네비게이션 바 색, 로고
+        self.navigationController?.setNavigationBar()
         
         let backButton = UIBarButtonItem()
         //backButton.image = UIImage(named: "imageName") //Replaces title
@@ -30,27 +31,44 @@ class ViewMoreViewController: UIViewController {
         let imageView = UIImageView(image:titmeImg)
         self.navigationItem.titleView = imageView
         
-        // MARK: COLLECTION VIEW
+        // MARK: Nib register
         
-        participatedProjectCollectionView.delegate = self
-        participatedProjectCollectionView.dataSource = self
+        recentProjectCollectionView.register(UINib(nibName: "RecentProjectCardCollectionViewCell", bundle:nil), forCellWithReuseIdentifier: RecentProjectCardCollectionViewCell.identifier)
+        recentProjectCollectionView.delegate = self
+        recentProjectCollectionView.dataSource = self
+        
+        recentProjectCollectionView.clipsToBounds = false
     }
 }
+
+
 
 // MARK:- COLLECTION VIEW
 
 extension ViewMoreViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return 6// 수정 해야 함
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let participatedProjectCell = collectionView.dequeueReusableCell(withReuseIdentifier: ParticipatedProjectCell.identifier, for: indexPath) as? ParticipatedProjectCell else { return UICollectionViewCell() }
-        //participatedProjectCell.set(projectList[indexPath.row])
-        return participatedProjectCell
+        
+        guard let recentProjectCell = collectionView.dequeueReusableCell(withReuseIdentifier: RecentProjectCardCollectionViewCell.identifier, for: indexPath) as? RecentProjectCardCollectionViewCell else { return UICollectionViewCell() }
+        
+        return recentProjectCell
     }
-    
+    /*
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 16
     } // 셀 좌우 간격 조정
+    
+    /*
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: recentProjectCollectionView.frame.width, height: recentProjectCollectionView.frame.height)
+    }
+    */
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 27, left: 27, bottom: 0, right: 27)
+    }*/
 }

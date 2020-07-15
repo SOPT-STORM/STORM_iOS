@@ -1,14 +1,14 @@
 //
-//  RoundFinishedViewController.swift
+//  ProjectFinishedViewController.swift
 //  STORM
 //
-//  Created by 김지현 on 2020/07/12.
+//  Created by 김지현 on 2020/07/14.
 //  Copyright © 2020 Team STORM. All rights reserved.
 //
 
 import UIKit
 
-class RoundFinishedViewController: UIViewController {
+class ProjectFinishedViewController: UIViewController {
     
     // MARK:- 변수 선언
     
@@ -21,9 +21,9 @@ class RoundFinishedViewController: UIViewController {
     @IBOutlet weak var projectRoundCountLabel: UILabel!
     @IBOutlet weak var peopleCountLabel: UILabel!
     @IBOutlet weak var projectInfoView: UIView!
-    @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var roundCollectionView: UICollectionView!
     @IBOutlet weak var scrappedCardCollectionView: UICollectionView!
+    @IBOutlet weak var scrappedCardSlider: UISlider!
     
     // MARK:- viewDidLoad
     
@@ -46,6 +46,19 @@ class RoundFinishedViewController: UIViewController {
         roundCollectionView.tag = 2
         
         setScrappedCardList()
+        
+        // MARK: 네비게이션 바 색, 로고
+        self.navigationController?.setNavigationBar()
+        
+        // 슬라이더바
+        scrappedCardSlider.thumbTintColor = .clear
+        scrappedCardSlider.maximumTrackTintColor = UIColor(white: 1, alpha: 0.56)
+        
+        // MARK: Nib register
+        roundCollectionView.register(UINib(nibName: "RoundCollectionViewCell", bundle:nil), forCellWithReuseIdentifier: RoundCollectionViewCell.identifier)
+        roundCollectionView.delegate = self
+        roundCollectionView.dataSource = self
+        roundCollectionView.clipsToBounds = false
     }
     
     // MARK:- 함수 선언
@@ -64,32 +77,29 @@ class RoundFinishedViewController: UIViewController {
 
 // MARK:- COLLECTION VIEW
 
-extension RoundFinishedViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension ProjectFinishedViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView.tag {
         case 1:
             return 2
         default:
-            return imageList?.count ?? 0
+            return 5
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        switch collectionView.tag {
-        case 1:
+        if collectionView.tag == 1 {
             guard let scrappedCardTextCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Scrapped Card Text Cell", for: indexPath) as? ScrappedCardTextCell else {
-                return UICollectionViewCell()
-            }
+                 return UICollectionViewCell()
+             }
             scrappedCardTextCell.text.text = textList?[indexPath.row]
-            return scrappedCardTextCell
-            
-        default:
-            guard let scrappedCardImageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Scrapped Card Text Cell", for: indexPath) as? ScrappedCardImageViewCell else { return UICollectionViewCell()
+             return scrappedCardTextCell
+        }
+        else {
+            guard let roundCell = collectionView.dequeueReusableCell(withReuseIdentifier: RoundCollectionViewCell.identifier, for: indexPath) as? ScrappedCardImageViewCell else { return UICollectionViewCell()
             }
-            
-            scrappedCardImageCell.image.image = imageList?[indexPath.row]
-            return scrappedCardImageCell
+            return roundCell
         }
     }
     
@@ -97,4 +107,3 @@ extension RoundFinishedViewController: UICollectionViewDelegate, UICollectionVie
         return 13
     } // 셀 좌우 간격 조정
 }
-

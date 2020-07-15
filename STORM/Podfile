@@ -21,7 +21,7 @@ target 'STORM' do
   pod 'FirebaseUI/Google'
 
   pod 'lottie-ios'
-  
+
   pod 'Firebase/Database'
 
   # Pods for STORM
