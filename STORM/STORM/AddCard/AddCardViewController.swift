@@ -15,7 +15,7 @@ enum mode {
     case memo
 }
 
-class DrawingViewController: UIViewController {
+class AddCardViewController: UIViewController {
 
     @IBOutlet weak var projectName: UILabel!
     @IBOutlet weak var round: UILabel!
@@ -177,7 +177,7 @@ class DrawingViewController: UIViewController {
     }
 }
 
-extension DrawingViewController: UITextViewDelegate {
+extension AddCardViewController: UITextViewDelegate {
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         
