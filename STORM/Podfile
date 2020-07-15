@@ -6,24 +6,10 @@ target 'STORM' do
   use_frameworks!
   
   pod 'Socket.IO-Client-Swift', '~> 15.2.0'
-  
   pod 'Alamofire'
   pod 'FlexiblePageControl', '~> 1.0.8'
-
-  
-  pod 'Firebase/Core'
-  pod 'Firebase/Auth'
-
-  pod 'Firebase/Storage'
-  pod 'CodableFirebase'
-
-  pod 'FirebaseUI/Auth'
-  pod 'FirebaseUI/Google'
-
   pod 'lottie-ios'
   
-  pod 'Firebase/Database'
-
   # Pods for STORM
 
 end
