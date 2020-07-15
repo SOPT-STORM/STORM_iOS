@@ -16,9 +16,9 @@ class NetworkManager {
     
     private init() {}
     
-//    private let baseURL = "http://52.78.113.197:3000"
+    private let baseURL = "http://52.78.113.197:3000"
     
-    private let baseURL = "http://21f3540136ec.ngrok.io" // 임시 url
+//    private let baseURL = "http://21f3540136ec.ngrok.io" // 임시 url
     
     // userImg - String 일지 File일지 아직 미정 (연동 끝나야 확인 가능)
     func signIn(userName: String, googleToken: String?, KakaoToken: String?, userImg: String, completion: @escaping (Response?) -> Void) {
@@ -399,7 +399,6 @@ class NetworkManager {
     }
     
     // (GET) 라운드 별 정보
-    
     func fetchAllRoundInfo(projectIdx: Int, completion: @escaping (RoundFinalResponse?) -> Void) {
         let url = baseURL + "/round/roundFinalInfo/" + "\(projectIdx)"
         

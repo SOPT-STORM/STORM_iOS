@@ -39,16 +39,18 @@
 		D147B40324BDABAA0064B026 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = D147B40224BDABAA0064B026 /* Card.swift */; };
 		D15088AB24BD98DD007D9596 /* Round.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15088AA24BD98DC007D9596 /* Round.swift */; };
 		D154C46424BEECF700FC95C9 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D154C46324BEECF700FC95C9 /* UIImage.swift */; };
+		D15EA3EE24BF3FD900D3017F /* MemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15EA3ED24BF3FD900D3017F /* MemoCell.swift */; };
+		D15EA3F024BF3FE800D3017F /* DrawingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15EA3EF24BF3FE800D3017F /* DrawingCell.swift */; };
 		D18D89B624B3A6FF00D8779E /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18D89B524B3A6FF00D8779E /* UIView.swift */; };
 		D19533B724BCB072008DB22F /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19533B624BCB072008DB22F /* Member.swift */; };
 		D1E5837324BC95690013FB7C /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5837124BC95690013FB7C /* Canvas.swift */; };
-		D1E5837424BC95690013FB7C /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5837224BC95690013FB7C /* DrawingViewController.swift */; };
+		D1E5837424BC95690013FB7C /* AddCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5837224BC95690013FB7C /* AddCardViewController.swift */; };
 		D1E5837F24BC95990013FB7C /* CollecViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5837524BC95970013FB7C /* CollecViewController2.swift */; };
 		D1E5838024BC95990013FB7C /* UPCarouselFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5837624BC95970013FB7C /* UPCarouselFlow.swift */; };
 		D1E5838124BC95990013FB7C /* CollecViewController4.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5837724BC95980013FB7C /* CollecViewController4.swift */; };
 		D1E5838224BC95990013FB7C /* CollectionFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5837824BC95980013FB7C /* CollectionFlowLayout.swift */; };
 		D1E5838324BC95990013FB7C /* CollecViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5837924BC95980013FB7C /* CollecViewController.swift */; };
-		D1E5838524BC95990013FB7C /* CollecViewController5.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5837B24BC95980013FB7C /* CollecViewController5.swift */; };
+		D1E5838524BC95990013FB7C /* RoundMeetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5837B24BC95980013FB7C /* RoundMeetingViewController.swift */; };
 		D1E5838624BC95990013FB7C /* NetworkTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5837C24BC95980013FB7C /* NetworkTestViewController.swift */; };
 		D1E5838724BC95990013FB7C /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5837D24BC95990013FB7C /* SocketIOManager.swift */; };
 		D1E5838824BC95990013FB7C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5837E24BC95990013FB7C /* ViewController.swift */; };
@@ -129,6 +131,8 @@
 		D147B40224BDABAA0064B026 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		D15088AA24BD98DC007D9596 /* Round.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Round.swift; sourceTree = "<group>"; };
 		D154C46324BEECF700FC95C9 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		D15EA3ED24BF3FD900D3017F /* MemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCell.swift; sourceTree = "<group>"; };
+		D15EA3EF24BF3FE800D3017F /* DrawingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingCell.swift; sourceTree = "<group>"; };
 		D17935B624B1AF7900811173 /* CollecViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollecViewController3.swift; sourceTree = "<group>"; };
 		D17935C524B1DCF500811173 /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Medium.otf"; path = "/Downloads/NotoSansCJKkr-hinted-2/NotoSansCJKkr-Medium.otf"; sourceTree = "<absolute>"; };
 		D17935C724B1DCF500811173 /* NotoSansCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Bold.otf"; path = "../../../../../Downloads/NotoSansCJKkr-hinted-2/NotoSansCJKkr-Bold.otf"; sourceTree = "<group>"; };
@@ -137,13 +141,13 @@
 		D18D89B524B3A6FF00D8779E /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		D19533B624BCB072008DB22F /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		D1E5837124BC95690013FB7C /* Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
-		D1E5837224BC95690013FB7C /* DrawingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
+		D1E5837224BC95690013FB7C /* AddCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCardViewController.swift; sourceTree = "<group>"; };
 		D1E5837524BC95970013FB7C /* CollecViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollecViewController2.swift; sourceTree = "<group>"; };
 		D1E5837624BC95970013FB7C /* UPCarouselFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UPCarouselFlow.swift; sourceTree = "<group>"; };
 		D1E5837724BC95980013FB7C /* CollecViewController4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollecViewController4.swift; sourceTree = "<group>"; };
 		D1E5837824BC95980013FB7C /* CollectionFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionFlowLayout.swift; sourceTree = "<group>"; };
 		D1E5837924BC95980013FB7C /* CollecViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollecViewController.swift; sourceTree = "<group>"; };
-		D1E5837B24BC95980013FB7C /* CollecViewController5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollecViewController5.swift; sourceTree = "<group>"; };
+		D1E5837B24BC95980013FB7C /* RoundMeetingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundMeetingViewController.swift; sourceTree = "<group>"; };
 		D1E5837C24BC95980013FB7C /* NetworkTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTestViewController.swift; sourceTree = "<group>"; };
 		D1E5837D24BC95990013FB7C /* SocketIOManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
 		D1E5837E24BC95990013FB7C /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -350,19 +354,21 @@
 				B8E2B64924B24AB60098F677 /* jh */,
 				D1E5838D24BC964E0013FB7C /* Signin */,
 				D743C56D24AF5B7300FF6ED4 /* Extensions */,
-				D17935D324B2484D00811173 /* Drawing */,
+				D17935D324B2484D00811173 /* AddCard */,
 				D1E5837824BC95980013FB7C /* CollectionFlowLayout.swift */,
 				D1E5837924BC95980013FB7C /* CollecViewController.swift */,
 				D1E5837524BC95970013FB7C /* CollecViewController2.swift */,
 				D1E5838924BC95BB0013FB7C /* CollecViewController3.swift */,
 				D1E5837724BC95980013FB7C /* CollecViewController4.swift */,
-				D1E5837B24BC95980013FB7C /* CollecViewController5.swift */,
+				D1E5837B24BC95980013FB7C /* RoundMeetingViewController.swift */,
 				D1E5837C24BC95980013FB7C /* NetworkTestViewController.swift */,
 				D1E5837D24BC95990013FB7C /* SocketIOManager.swift */,
 				D1E5837624BC95970013FB7C /* UPCarouselFlow.swift */,
 				D1E5837E24BC95990013FB7C /* ViewController.swift */,
 				D147598424AB4DA3006C4122 /* SceneDelegate.swift */,
 				D12EC23D24AB4070007E5896 /* AppDelegate.swift */,
+				D15EA3ED24BF3FD900D3017F /* MemoCell.swift */,
+				D15EA3EF24BF3FE800D3017F /* DrawingCell.swift */,
 				D1E5839724BC96C00013FB7C /* Main.storyboard */,
 				D17935B824B1D73600811173 /* Fonts */,
 				D7EB706624B75C320041B9CA /* SupportingFiles */,
@@ -384,13 +390,13 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		D17935D324B2484D00811173 /* Drawing */ = {
+		D17935D324B2484D00811173 /* AddCard */ = {
 			isa = PBXGroup;
 			children = (
 				D1E5837124BC95690013FB7C /* Canvas.swift */,
-				D1E5837224BC95690013FB7C /* DrawingViewController.swift */,
+				D1E5837224BC95690013FB7C /* AddCardViewController.swift */,
 			);
-			path = Drawing;
+			path = AddCard;
 			sourceTree = "<group>";
 		};
 		D1E5838D24BC964E0013FB7C /* Signin */ = {
@@ -676,13 +682,14 @@
 				D756DF8A24B5908900551E12 /* PopupAnimationExtension.swift in Sources */,
 				D18D89B624B3A6FF00D8779E /* UIView.swift in Sources */,
 				D1E5839424BC965C0013FB7C /* NetworkManager.swift in Sources */,
-				D1E5837424BC95690013FB7C /* DrawingViewController.swift in Sources */,
+				D1E5837424BC95690013FB7C /* AddCardViewController.swift in Sources */,
 				D761569124BADDEC00D4D484 /* HostRoundStartViewController.swift in Sources */,
 				D761569324BB005A00D4D484 /* HostProjectWaitingViewController.swift in Sources */,
 				D7EB706A24B8B75A0041B9CA /* HostRoundSettingViewController.swift in Sources */,
 				D12EC23E24AB4070007E5896 /* AppDelegate.swift in Sources */,
 				D12EC24824AB4070007E5896 /* STORM.xcdatamodeld in Sources */,
 				D781D6FC24B4A66F00AAE389 /* LayerExtension.swift in Sources */,
+				D15EA3F024BF3FE800D3017F /* DrawingCell.swift in Sources */,
 				B8A25EA924B4D7B500C07092 /* MainViewController.swift in Sources */,
 				B8E9FA7C24B9FC3B00A97235 /* RoundStartPopViewController.swift in Sources */,
 				D19533B724BCB072008DB22F /* Member.swift in Sources */,
@@ -701,7 +708,7 @@
 				B8E9FA8424BA50EA00A97235 /* ChangeToTextPopViewController.swift in Sources */,
 				D1E5838F24BC964F0013FB7C /* User.swift in Sources */,
 				B82C5D7124B7597A0016DB68 /* ParticipatedProject.swift in Sources */,
-				D1E5838524BC95990013FB7C /* CollecViewController5.swift in Sources */,
+				D1E5838524BC95990013FB7C /* RoundMeetingViewController.swift in Sources */,
 				B84BE1A524BB970F0048BE9C /* ScrappedCardImageViewCell.swift in Sources */,
 				B82C5D6D24B741600016DB68 /* ParticipatedProjectCell.swift in Sources */,
 				B84BE1A124BB96620048BE9C /* ScrappedCardTextCell.swift in Sources */,
@@ -718,6 +725,7 @@
 				D1E5838224BC95990013FB7C /* CollectionFlowLayout.swift in Sources */,
 				D1E5838024BC95990013FB7C /* UPCarouselFlow.swift in Sources */,
 				D1E5838324BC95990013FB7C /* CollecViewController.swift in Sources */,
+				D15EA3EE24BF3FD900D3017F /* MemoCell.swift in Sources */,
 				D147B40324BDABAA0064B026 /* Card.swift in Sources */,
 				B8E9FA7A24B9FC0500A97235 /* ReminderPopViewController.swift in Sources */,
 				D147598524AB4DA3006C4122 /* SceneDelegate.swift in Sources */,
