@@ -95,7 +95,7 @@ class NetworkTestViewController: UIViewController {
             print(response)
         }
 
-        NetworkManager.shared.addCard(projectIdx: 1, roundIdx: 1, cardImg: UIImage(named: "이탈리아"), cardTxt: nil)
+//        NetworkManager.shared.addCard(projectIdx: 1, roundIdx: 1, cardImg: UIImage(named: "이탈리아"), cardTxt: nil)
 
         NetworkManager.shared.fetchCardList(projectIdx: 1, roundIdx: 1) { (response) in
             print("라운드카드리스트")
