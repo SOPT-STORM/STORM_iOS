@@ -32,14 +32,14 @@ class DrawingViewController: UIViewController {
     @IBOutlet weak var applicationBtn: UIButton!
     @IBOutlet weak var botConstOfMemoView: NSLayoutConstraint!
     
-    var mode: mode = .memo
+    var mode: mode = .drawing
     var memoViewHeight: CGFloat!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setNaviTitle()
-        
+
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         
         toolbarSetup()
@@ -86,24 +86,44 @@ class DrawingViewController: UIViewController {
     }
     
     @IBAction func didPressApplication(_ sender: UIButton) {
+        
+        let toastWidth = self.view.frame.width*0.573
+        let toastFrame = CGRect(x: self.view.center.x, y: self.view.frame.height*0.674, width: toastWidth, height: toastWidth*0.227)
+        
         if mode == .memo {
+            if memoView.text == "" {
+                self.showToast(message: "카드를 입력해주세요.", frame: toastFrame)
+                return
+            }
+            
             let content = memoView.text
             
+            NetworkManager.shared.addCard(projectIdx: 1, roundIdx: 1, cardImg: nil, cardTxt: content) {
+                self.showToast(message: "카드가 추가되었습니다.", frame: toastFrame)
+                self.memoView.text = ""
+            }
+            
+            
         } else {
+            if canvasView.lines.isEmpty {
+                self.showToast(message: "카드를 입력해주세요.", frame: toastFrame)
+                return
+            }
+                
             let img = canvasView.asImage()
+//            let scaledImg = UIImage.scale(image: img, by: 0.7)
+            
+            self.showToast(message: "카드가 추가되었습니다.", frame: toastFrame)
+            self.canvasView.clear()
+            
+            NetworkManager.shared.addCard(projectIdx: 1, roundIdx: 1, cardImg: img, cardTxt: nil) {
+            }
         }
-        
-        let width = self.view.frame.width*0.573
-        
-        self.showToast(message: "test toast message", frame: CGRect(x: self.view.center.x, y: self.view.frame.height*0.674, width: width, height: width*0.227))
-        
-        self.canvasView.clear()
     }
     
     @objc func hideKeyboard(_ sender: Any){
         self.view.endEditing(true)
         botConstOfMemoView.constant = 0
-        print(botConstOfMemoView.constant)
        }
     
     @objc func keyboardWillShow(_ notification: Notification) {
