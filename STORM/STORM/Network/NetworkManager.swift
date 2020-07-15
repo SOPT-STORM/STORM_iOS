@@ -18,7 +18,7 @@ class NetworkManager {
     
 //    private let baseURL = "http://52.78.113.197:3000"
     
-    private let baseURL = "http://9ed7bdc3145f.ngrok.io" // 임시 url
+    private let baseURL = "http://21f3540136ec.ngrok.io" // 임시 url
     
     // userImg - String 일지 File일지 아직 미정 (연동 끝나야 확인 가능)
     func signIn(userName: String, googleToken: String?, KakaoToken: String?, userImg: String, completion: @escaping (Response?) -> Void) {
@@ -275,7 +275,7 @@ class NetworkManager {
     }
     
     // (POST) 카드 추가하기
-    func addCard(projectIdx: Int, roundIdx: Int, cardImg: UIImage?, cardTxt: String?) {
+    func addCard(projectIdx: Int, roundIdx: Int, cardImg: UIImage?, cardTxt: String?,completion: @escaping () -> Void) {
         let url = baseURL + "/card"
         
         var parameters: [String:Any] = [:]
@@ -295,7 +295,7 @@ class NetworkManager {
             ]
         }
 
-        let imageData = cardImg?.jpegData(compressionQuality: 1)
+        let imageData = cardImg?.jpegData(compressionQuality: 0.8)
         
         AF.upload(multipartFormData: { multiPart in
         if imageData != nil {
@@ -308,12 +308,12 @@ class NetworkManager {
                 }, to: url, method: .post) .uploadProgress(queue: .main, closure: { progress in
                     print("Upload Progress: \(progress.fractionCompleted)")
                 }).responseJSON(completionHandler: { data in
-                    print("upload finished: \(data)")
                 }).response { (response) in
                     switch response.result {
-                    case .success(let result):
-                        print("upload success result: \(result)")
-                        print("code: \(response.response?.statusCode)")
+                    case .success(_):
+//                        print("upload success result: \(result)")
+//                        print("code: \(response.response?.statusCode)")
+                        completion()
                     case .failure(let err):
                         print("upload err: \(err)")
                     }
