@@ -16,7 +16,7 @@ extension UIColor {
   }
 
   @nonobjc class var placeholderColor: UIColor {
-    return UIColor(white: 152.0 / 255.0, alpha: 1.0)
+    return UIColor(white: 200.0 / 255.0, alpha: 1.0)
   }
 
   @nonobjc class var textDefaultColor: UIColor {
