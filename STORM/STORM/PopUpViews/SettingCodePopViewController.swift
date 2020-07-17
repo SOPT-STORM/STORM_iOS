@@ -26,7 +26,7 @@ class SettingCodePopViewController: UIViewController {
         // Do any additional setup after loading the view.
         settingCodePopView.layer.cornerRadius = 15
 //        settingCodePopView.addShadow(width: 1, height: 3, 0.2, 5)
-        settingCodePopView.addRoundShadow(cornerRadius: 15)
+        //settingCodePopView.addRoundShadow(cornerRadius: 15)
         settingCodePopView.clipsToBounds = true
         
         projectCodeTextField.text = (UserDefaults.standard.value(forKey: "projectCode") as! String)
@@ -38,7 +38,7 @@ class SettingCodePopViewController: UIViewController {
      // MARK:- IBAction 선언
      
      @IBAction func createOkButtonDidTap(_ sender: UIButton) {
-         self.dismiss(animated: false, completion: nil)
+        self.removeAnimate()
 
         let projectWaitingViewController = UIStoryboard(name: "ProjectForHost", bundle: nil).instantiateViewController(withIdentifier: HostRoundSettingViewController.identifier) as! HostRoundSettingViewController
          projectWaitingViewController.modalTransitionStyle = .coverVertical
@@ -57,10 +57,10 @@ class SettingCodePopViewController: UIViewController {
         let pasteboard = UIPasteboard.general
         pasteboard.string = projectCodeTextField.text
         print("copied")
-
-    @IBAction func createOkButtonDidTap(_ sender: UIButton) {
-        NotificationCenter.default.post(name: .buttonClickInPopup, object: nil)
-        self.removeAnimate()
+//
+//    @IBAction func createOkButtonDidTap(_ sender: UIButton) {
+//        NotificationCenter.default.post(name: .buttonClickInPopup, object: nil)
+//        self.removeAnimate()
 
     }
     

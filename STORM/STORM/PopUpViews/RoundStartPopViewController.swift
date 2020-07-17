@@ -46,13 +46,12 @@ class RoundStartPopViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
 
             //If your first viewController is NOT in Navigation stack
-            if let mainViewController = UIStoryboard(name: "MainView", bundle: nil).instantiateViewController(withIdentifier: MainViewController.identifier) as? MainViewController {
+            if let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AllRoundViewController") as? AllRoundViewController {
                 
-            self.dismiss(animated: false, completion: nil)
+            self.removeAnimate()
+            mainVC.modalPresentationStyle = .fullScreen
                 // TODO: dismiss 추가했더니 이전뷰로 돌아가벌임... 머지 이후 라운드 진행뷰로 넘어가기
-            self.present(mainViewController, animated: false, completion: nil)
-            mainViewController.modalPresentationStyle = .fullScreen
-                mainViewController.modalTransitionStyle = .coverVertical
+            self.present(mainVC, animated: false, completion: nil)
             }
         }
     }
