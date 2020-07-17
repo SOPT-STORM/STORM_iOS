@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Aun-Zc-ZCE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,7 +11,7 @@
         <!--Invalid Code Pop View Controller-->
         <scene sceneID="0a2-cR-3OC">
             <objects>
-                <viewController storyboardIdentifier="invalidCodePopUp" id="Aun-Zc-ZCE" customClass="InvalidCodePopViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InvalidCodePopViewController" id="Aun-Zc-ZCE" customClass="InvalidCodePopViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lcz-qu-Zsb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -75,7 +75,7 @@
         <!--Round Start Pop View Controller-->
         <scene sceneID="4YL-pc-W2g">
             <objects>
-                <viewController storyboardIdentifier="RoundPC" id="yPN-Qr-nXV" customClass="RoundStartPopViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RoundStartPopViewController" id="yPN-Qr-nXV" customClass="RoundStartPopViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YDX-MM-Uwz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -115,8 +115,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tl-cP-4Vy"/>
                     </view>
                     <connections>
-                        <outlet property="lottieView" destination="5Ep-dV-86c" id="yca-KA-t8q"/>
-                        <outlet property="startPopView" destination="fEw-B5-bdV" id="hhh-Fm-SiV"/>
+                        <outlet property="lottieView" destination="5Ep-dV-86c" id="fsg-pj-56I"/>
+                        <outlet property="startPopView" destination="fEw-B5-bdV" id="Qw2-i5-dvU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N2K-Kq-aeB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -126,7 +126,9 @@
         <!--reminderPopUp-->
         <scene sceneID="u3Y-rn-9mN">
             <objects>
-                <viewController storyboardIdentifier="reminderPopUp" title="reminderPopUp" id="rff-8j-RHE" customClass="ReminderPopViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
+
+                <viewController storyboardIdentifier="ReminderPopViewController" id="rff-8j-RHE" customClass="ReminderPopViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
+
                     <view key="view" contentMode="scaleToFill" id="M9L-Eh-m2Y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -141,7 +143,9 @@
                                             <color key="titleColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="remindOkButtonDidTap:" destination="rff-8j-RHE" eventType="touchUpInside" id="IoM-A2-aKl"/>
+
+                                            <action selector="confirmButtonDidPress:" destination="rff-8j-RHE" eventType="touchUpInside" id="YEz-eC-sv8"/>
+
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tFq-1F-46k">
@@ -241,7 +245,9 @@
                         <viewLayoutGuide key="safeArea" id="9sd-Fc-C5U"/>
                     </view>
                     <connections>
-                        <outlet property="reminderPopView" destination="1w9-fR-3xB" id="Zfm-7v-do7"/>
+
+                        <outlet property="reminderView" destination="1w9-fR-3xB" id="wO3-14-TTg"/>
+
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dy5-wa-tGE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -251,7 +257,7 @@
         <!--Setting Code Pop View Controller-->
         <scene sceneID="Adl-Ba-HOf">
             <objects>
-                <viewController id="O65-lI-4iZ" customClass="SettingCodePopViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingCodePopViewController" id="O65-lI-4iZ" customClass="SettingCodePopViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aqn-Np-qqq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -267,7 +273,7 @@
                                             <color key="titleColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="createOkButtonDidTap:" destination="O65-lI-4iZ" eventType="touchUpInside" id="S9C-6i-G7i"/>
+                                            <action selector="createOkButtonDidTap:" destination="O65-lI-4iZ" eventType="touchUpInside" id="K12-MA-Nnw"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="참여코드 생성 완료!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4p-HO-M2Q">
@@ -310,6 +316,9 @@
                                                 <state key="normal" title="복사">
                                                     <color key="titleColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="copyButtonDidPress:" destination="O65-lI-4iZ" eventType="touchUpInside" id="bhO-9x-d2J"/>
+                                                </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line" translatesAutoresizingMaskIntoConstraints="NO" id="qQI-Df-uJT">
                                                 <rect key="frame" x="0.0" y="27.333333333333314" width="218" height="1"/>
@@ -359,6 +368,8 @@
                         <viewLayoutGuide key="safeArea" id="tcu-Jx-ffN"/>
                     </view>
                     <connections>
+                        <outlet property="copyButton" destination="tZn-Qm-5bm" id="yE4-iz-5Ko"/>
+                        <outlet property="projectCodeTextField" destination="QmN-Z7-Yab" id="OJL-3h-dS3"/>
                         <outlet property="settingCodePopView" destination="ltd-13-bf7" id="vHH-tk-wlE"/>
                     </connections>
                 </viewController>
@@ -369,7 +380,7 @@
         <!--Cancel Card View Controller-->
         <scene sceneID="Ncn-mY-dND">
             <objects>
-                <viewController id="SIC-vi-6JC" customClass="CancelCardViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CancelCardViewController" id="SIC-vi-6JC" customClass="CancelCardViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Ua-u4-Qz5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -480,7 +491,7 @@
         <!--Change To Text Pop View Controller-->
         <scene sceneID="oez-3L-zIg">
             <objects>
-                <viewController id="tA1-mg-ccU" customClass="ChangeToTextPopViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChangeToTextPopViewController" id="tA1-mg-ccU" customClass="ChangeToTextPopViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="p8B-SA-uLF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -591,7 +602,7 @@
         <!--Change To Draw Pop View Controller-->
         <scene sceneID="O4e-kg-ZfL">
             <objects>
-                <viewController id="HEc-ip-lWI" customClass="ChangeToDrawPopViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChangeToDrawPopViewController" id="HEc-ip-lWI" customClass="ChangeToDrawPopViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vUk-Rx-okE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -702,7 +713,7 @@
         <!--Round End Pop View Controller-->
         <scene sceneID="gCb-K5-paZ">
             <objects>
-                <viewController id="4vo-Yg-MOV" customClass="RoundEndPopViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RoundEndPopViewController" id="4vo-Yg-MOV" customClass="RoundEndPopViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EHm-Zn-YtR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -788,7 +799,7 @@
         <!--Select Next Pop View Controller-->
         <scene sceneID="DIO-eb-1Bs">
             <objects>
-                <viewController id="Oe1-u9-wh2" customClass="SelectNextPopViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SelectNextPopViewController" id="Oe1-u9-wh2" customClass="SelectNextPopViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SpX-lW-Ncr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -889,7 +900,7 @@
         <!--End Project Pop View Controller-->
         <scene sceneID="D6g-t6-Te3">
             <objects>
-                <viewController id="h0u-AS-OKa" customClass="EndProjectPopViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EndProjectPopViewController" id="h0u-AS-OKa" customClass="EndProjectPopViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hrG-8S-VzU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

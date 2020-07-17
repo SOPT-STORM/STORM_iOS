@@ -10,6 +10,8 @@ import UIKit
 
 class RoundEndPopViewController: UIViewController {
     
+    static let identifier = "RoundEndPopViewController"
+    
     // MARK:- IBOutlet 선언
     
     @IBOutlet weak var roundEndPopView: UIView!

@@ -66,7 +66,7 @@ struct RoundCountResponse: Codable {
     let status: Int
     let success: Bool
     let message: String
-    let data: Int
+    let data: Int?
 }
 
 

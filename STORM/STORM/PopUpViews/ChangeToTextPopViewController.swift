@@ -10,6 +10,8 @@ import UIKit
 
 class ChangeToTextPopViewController: UIViewController {
     
+    static let identifier = "ChangeToTextPopViewController"
+    
     // MARK:- IBOutlet 선언
 
     @IBOutlet weak var changeToTextPopView: UIView!

@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProjectWaitingTableViewCell" rowHeight="24" id="KGk-i7-Jjw" customClass="ProjectWaitingTableViewCell" customModule="STORM" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ProjectWaitingTableViewCell" rowHeight="24" id="KGk-i7-Jjw" customClass="ProjectWaitingTableViewCell" customModule="STORM" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="24"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -43,8 +43,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="nameLabel" destination="hj9-Hw-D54" id="uzf-55-dfo"/>
-                <outlet property="profileImage" destination="9WC-mz-87k" id="uIY-K6-h48"/>
+                <outlet property="nameLabel" destination="hj9-Hw-D54" id="CRr-nL-Snw"/>
+                <outlet property="profileImage" destination="9WC-mz-87k" id="7Ue-Wl-AX9"/>
             </connections>
             <point key="canvasLocation" x="134.78260869565219" y="109.82142857142857"/>
         </tableViewCell>

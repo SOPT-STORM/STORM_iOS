@@ -8,11 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		0BE507DF34E6144C923BB667 /* Pods_STORM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F413571526ADC3ABE1F9D186 /* Pods_STORM.framework */; };
+
+		B82C5D6D24B741600016DB68 /* ParticipatedProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82C5D6C24B741600016DB68 /* ParticipatedProjectCell.swift */; };
+		B82C5D7124B7597A0016DB68 /* ParticipatedProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82C5D7024B7597A0016DB68 /* ParticipatedProject.swift */; };
+		B82C5D7524B78BF90016DB68 /* real_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = B82C5D7424B78BF90016DB68 /* real_loading.json */; };
+
 		B82094D524BCE25700DB543F /* real_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = B82094D424BCE25700DB543F /* real_loading.json */; };
 		B825FA2B24BCBA3D0098463D /* RecentProjectCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B825FA2924BCBA3D0098463D /* RecentProjectCardCollectionViewCell.swift */; };
 		B825FA2C24BCBA3D0098463D /* RecentProjectCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B825FA2A24BCBA3D0098463D /* RecentProjectCardCollectionViewCell.xib */; };
 		B825FA2E24BCBAA90098463D /* ProjectFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B825FA2D24BCBAA90098463D /* ProjectFinishedViewController.swift */; };
 		B864A9BF24C02A18002B700B /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B864A9BE24C02A18002B700B /* ReusableView.swift */; };
+
 		B88B6C3E24B83AB300F22DDE /* ViewMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88B6C3D24B83AB300F22DDE /* ViewMoreViewController.swift */; };
 		B8A25EA724B4D5D900C07092 /* MainView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8A25EA624B4D5D900C07092 /* MainView.storyboard */; };
 
@@ -101,11 +107,17 @@
 
 /* Begin PBXFileReference section */
 		446905E67F662B2207C7B0E7 /* Pods-STORM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STORM.debug.xcconfig"; path = "Target Support Files/Pods-STORM/Pods-STORM.debug.xcconfig"; sourceTree = "<group>"; };
+
+		B82C5D6C24B741600016DB68 /* ParticipatedProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipatedProjectCell.swift; sourceTree = "<group>"; };
+		B82C5D7024B7597A0016DB68 /* ParticipatedProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipatedProject.swift; sourceTree = "<group>"; };
+		B82C5D7424B78BF90016DB68 /* real_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = real_loading.json; path = STORM/jh/PopUpViews/real_loading.json; sourceTree = SOURCE_ROOT; };
+
 		B82094D424BCE25700DB543F /* real_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = real_loading.json; sourceTree = "<group>"; };
 		B825FA2924BCBA3D0098463D /* RecentProjectCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentProjectCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		B825FA2A24BCBA3D0098463D /* RecentProjectCardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecentProjectCardCollectionViewCell.xib; sourceTree = "<group>"; };
 		B825FA2D24BCBAA90098463D /* ProjectFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFinishedViewController.swift; sourceTree = "<group>"; };
 		B864A9BE24C02A18002B700B /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
+
 		B88B6C3D24B83AB300F22DDE /* ViewMoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMoreViewController.swift; sourceTree = "<group>"; };
 		B8A25EA624B4D5D900C07092 /* MainView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainView.storyboard; sourceTree = "<group>"; };
 		B8A25EAE24B5FF5E00C07092 /* login_bg.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = login_bg.json; sourceTree = "<group>"; };
@@ -258,6 +270,9 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+
+		B88B6C3F24B85AA200F22DDE /* ViewMoreProject */ = {
+
 		B825FA2824BCB9440098463D /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -289,6 +304,7 @@
 			sourceTree = "<group>";
 		};
 		B84BE19F24BB8C8F0048BE9C /* Round */ = {
+
 			isa = PBXGroup;
 			children = (
 			);
@@ -354,12 +370,17 @@
 			children = (
 				B8E9FA6E24B9B6EB00A97235 /* PopUpViews */,
 				D1E5839024BC965C0013FB7C /* Network */,
+
+				D781D6E924B4A66F00AAE389 /* Jiyoon */,
+				B8E2B64924B24AB60098F677 /* jh */,
+
 				D75ECBE724B6C78800CB46C3 /* ProjectForHost */,
 				D781D71424B512FE00AAE389 /* ProjectForMember */,
 				B84BE19F24BB8C8F0048BE9C /* Round */,
 				B84BE19E24BB8C7D0048BE9C /* ScrappedCard */,
 				D781D6EA24B4A66F00AAE389 /* RoundFinished */,
 				B82C5D7224B768C00016DB68 /* Main */,
+
 				D1E5838D24BC964E0013FB7C /* Signin */,
 				D743C56D24AF5B7300FF6ED4 /* Extensions */,
 				D17935D324B2484D00811173 /* AddCard */,
@@ -715,9 +736,15 @@
 				D1E5838724BC95990013FB7C /* SocketIOManager.swift in Sources */,
 				B8E9FA8424BA50EA00A97235 /* ChangeToTextPopViewController.swift in Sources */,
 				D1E5838F24BC964F0013FB7C /* User.swift in Sources */,
+
+				B82C5D7124B7597A0016DB68 /* ParticipatedProject.swift in Sources */,
+				D1E5838524BC95990013FB7C /* CollecViewController5.swift in Sources */,
+				B82C5D6D24B741600016DB68 /* ParticipatedProjectCell.swift in Sources */,
+
 				D1E5838524BC95990013FB7C /* RoundMeetingViewController.swift in Sources */,
 				B8D7DB6F24BF712B00DE9D02 /* ScrappedCardImageCell.swift in Sources */,
 				D1E5838524BC95990013FB7C /* RoundMeetingViewController.swift in Sources */,
+
 				D1E5837F24BC95990013FB7C /* CollecViewController2.swift in Sources */,
 				B88B6C3E24B83AB300F22DDE /* ViewMoreViewController.swift in Sources */,
 				B8E9FA8224BA50D800A97235 /* ChangeToDrawPopViewController.swift in Sources */,
@@ -885,7 +912,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6D8SYQ63KK;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/STORM",
