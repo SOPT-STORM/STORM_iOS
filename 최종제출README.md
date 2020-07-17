@@ -28,6 +28,14 @@
 
 ### ⚡️Main⚡️
 
+![storm_bigcard](https://user-images.githubusercontent.com/59338503/87799629-6db66980-c888-11ea-8806-34de4ede6a60.png)
+
+![storm_startload](https://user-images.githubusercontent.com/59338503/87799790-9b9bae00-c888-11ea-99a6-16376f78ef14.png)
+![storm_round](https://user-images.githubusercontent.com/59338503/87799798-9dfe0800-c888-11ea-9b20-75a6d9878dcb.png)
+![storm_totext](https://user-images.githubusercontent.com/59338503/87799811-a1918f00-c888-11ea-8056-3898fb704b3f.png)
+![storm_toimage](https://user-images.githubusercontent.com/59338503/87799814-a22a2580-c888-11ea-91d4-86fca541be59.png)
+![Simulator Screen Shot - iPhone 11 Pro - 2020-07-17 at 22 50 51](https://user-images.githubusercontent.com/59338503/87799822-a3f3e900-c888-11ea-9895-8335468e71d4.png)
+
 <img src="/Users/kimjihyeon/Desktop/storm_main.png" alt="storm_main" style="zoom:25%;" /><img src="/Users/kimjihyeon/Desktop/storm_nocode.png" alt="storm_nocode" style="zoom:25%;" />
 
 > 메인화면, 없는 참여 코드 안내 (팝업)
