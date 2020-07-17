@@ -16,12 +16,16 @@ enum mode {
 }
 
 class AddCardViewController: UIViewController {
+    
+    let projectIndex = UserDefaults.standard.integer(forKey: "projectIndex")
+    let roundIndex = UserDefaults.standard.integer(forKey: "roundIndex")
 
     @IBOutlet weak var projectName: UILabel!
     @IBOutlet weak var round: UILabel!
     @IBOutlet weak var remainingTime: UILabel!
     @IBOutlet weak var canvasView: Canvas!
     @IBOutlet weak var memoView: UITextView!
+    @IBOutlet weak var roundGoalLabel: UILabel!
     
     @IBOutlet weak var drawingBtn: UIButton!
     @IBOutlet weak var textBtn: UIButton!
@@ -45,6 +49,8 @@ class AddCardViewController: UIViewController {
         toolbarSetup()
         canvasSetup()
         memoSetup()
+        fetchRoundInfo()
+        fetchProjectNaem()
     }
         
     @IBAction func didPressText(_ sender: UIButton) {
@@ -116,8 +122,21 @@ class AddCardViewController: UIViewController {
             self.showToast(message: "카드가 추가되었습니다.", frame: toastFrame)
             self.canvasView.clear()
             
-            NetworkManager.shared.addCard(projectIdx: 1, roundIdx: 1, cardImg: img, cardTxt: nil) {
+            NetworkManager.shared.addCard(projectIdx: projectIndex, roundIdx: roundIndex, cardImg: img, cardTxt: nil) {
             }
+        }
+    }
+    
+    func fetchRoundInfo() {
+        NetworkManager.shared.fetchRoundInfo(projectIdx: self.projectIndex) { (response) in
+            self.round.text = "ROUND\(String(describing: response?.data!.round_number))"
+            self.roundGoalLabel.text = response?.data!.round_purpose
+        }
+    }
+    
+    func fetchProjectNaem() {
+        NetworkManager.shared.fetchProjectInfo(projectIdx: self.projectIndex) { (response) in
+            self.projectName.text = response?.data.project_name
         }
     }
     

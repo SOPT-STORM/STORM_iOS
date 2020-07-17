@@ -47,7 +47,9 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func didPressAddProject(_ sender: UIButton) {
-        
+        let pushVC = UIStoryboard(name: "ProjectForHost", bundle: nil).instantiateViewController(withIdentifier: HostProjectSettingViewController.identifier) as! HostProjectSettingViewController
+        self.navigationController?.pushViewController(pushVC, animated: false)
+        self.modalPresentationStyle = .fullScreen
     }
     
     @IBAction func didPressMoreProject(_ sender: UIButton) {

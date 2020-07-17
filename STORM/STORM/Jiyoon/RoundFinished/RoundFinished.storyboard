@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9Oj-In-jgo">
-
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -96,7 +94,6 @@
                             <constraint firstItem="2gN-Cz-Opa" firstAttribute="trailing" secondItem="jAc-FE-gqw" secondAttribute="trailing" id="mgP-Vf-bBU"/>
                             <constraint firstItem="Z3v-db-5Bz" firstAttribute="trailing" secondItem="2gN-Cz-Opa" secondAttribute="trailing" id="paO-KQ-Oap"/>
                             <constraint firstItem="2gN-Cz-Opa" firstAttribute="leading" secondItem="jAc-FE-gqw" secondAttribute="leading" id="qC6-eZ-Ioh"/>
-                            <constraint firstAttribute="bottom" secondItem="Z3v-db-5Bz" secondAttribute="bottom" constant="526" id="xXk-t3-aqF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jAc-FE-gqw"/>
                     </view>
@@ -272,9 +269,7 @@
                                                 <fragment content="저장">
                                                     <attributes>
                                                         <color key="NSColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-
                                                         <font key="NSFont" size="15" name="NotoSansCJKkr-Bold"/>
-
                                                         <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>
