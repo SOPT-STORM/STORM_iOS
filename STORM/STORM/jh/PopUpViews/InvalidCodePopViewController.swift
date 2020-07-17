@@ -10,6 +10,8 @@ import UIKit
 
 class InvalidCodePopViewController: UIViewController {
     
+    static let identifier = "InvalidCodePopViewController"
+    
     // MARK:- IBOutlet 선언
 
     @IBOutlet weak var invalidCodePopView: UIView!

@@ -10,6 +10,8 @@ import UIKit
 
 class EndProjectPopViewController: UIViewController {
     
+   static let identifier = "EndProjectPopViewController"
+    
     // MARK:- IBOutlet 선언
 
     @IBOutlet weak var endProjectPopView: UIView!

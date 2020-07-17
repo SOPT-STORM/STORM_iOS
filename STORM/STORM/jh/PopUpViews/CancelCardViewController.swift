@@ -10,6 +10,8 @@ import UIKit
 
 class CancelCardViewController: UIViewController {
     
+    static let identifier = "CancelCardViewController"
+    
     // MARK:- 변수 선언
 
     @IBOutlet weak var cancelCardPopView: UIView!

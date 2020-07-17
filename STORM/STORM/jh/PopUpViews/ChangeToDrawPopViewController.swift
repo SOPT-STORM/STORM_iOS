@@ -10,6 +10,7 @@ import UIKit
 
 class ChangeToDrawPopViewController: UIViewController {
     
+    static let identifier = "ChangeToDrawPopViewController"
     
     // MARK:- IBOutlet 선언
 
