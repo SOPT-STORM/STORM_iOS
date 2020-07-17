@@ -80,7 +80,7 @@ class AddCardViewController: UIViewController {
     @IBAction func didPressClean(_ sender: UIButton) {
         if mode == .drawing{
             canvasView.clear()
-        } else {
+        }else{
             memoView.text = ""
         }
     }
@@ -96,7 +96,7 @@ class AddCardViewController: UIViewController {
                 return
             }
             
-            let content = memoView.text
+            let content = memoView.text!
             
             NetworkManager.shared.addCard(projectIdx: 1, roundIdx: 1, cardImg: nil, cardTxt: content) {
                 self.showToast(message: "카드가 추가되었습니다.", frame: toastFrame)
@@ -121,10 +121,31 @@ class AddCardViewController: UIViewController {
         }
     }
     
+    //    URLSession.shared.dataTask(with: url) { data, response, error in
+    //        guard let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+    //              let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+    //              let data = data, error == nil,
+    //              let image = UIImage(data: data) else {
+    //              DispatchQueue.main.async {
+    //                 self.present(alert, animated: false, completion: nil)
+    //                }
+    //              return
+    //        }
+    //
+    //            let imgID = ImageManager.saveImage(img: image)
+    //            self.imgList.append(image)
+    //            self.imgIDs.append(imgID)
+    //
+    //            DispatchQueue.main.async {
+    //                self.imgCollectionView.reloadData()
+    //                self.changeModeReadToModify()
+    //            }
+    //            }.resume()
+    
     @objc func hideKeyboard(_ sender: Any){
         self.view.endEditing(true)
         botConstOfMemoView.constant = 0
-       }
+    }
     
     @objc func keyboardWillShow(_ notification: Notification) {
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
@@ -153,12 +174,7 @@ class AddCardViewController: UIViewController {
     }
     
     func canvasSetup() {
-        canvasView.layer.cornerRadius = 10
-//        canvasView.clipsToBounds = true
-//        canvasView.layer.masksToBounds = false
-        canvasView.addShadow(width: 1, height: 3, 0.16, 3)
-//        canvasView.layoutIfNeeded()
-//        canvasView.layer.masksToBounds = false
+//        canvasView.addRoundShadow(cornerRadius: 10)
     }
     
     func memoSetup() {
