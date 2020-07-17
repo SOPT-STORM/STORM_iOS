@@ -15,7 +15,7 @@ struct Round: Codable {
 struct RoundInfo: Codable {
     let round_idx: Int?
     let round_number: Int
-    let round_purpose: String
+    let round_purpose: String?
     let round_time: Int
     let round_participant: [Member]?
 }

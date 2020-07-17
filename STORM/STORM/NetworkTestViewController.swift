@@ -58,8 +58,6 @@ class NetworkTestViewController: UIViewController {
             print(response)
         }
         
-        
-        
         NetworkManager.shared.exitProject(projectIdx: 1) { (response) in
             print("프로젝트 나가기")
             print(response)
