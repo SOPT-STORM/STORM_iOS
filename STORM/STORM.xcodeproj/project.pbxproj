@@ -11,10 +11,6 @@
 		B82C5D6D24B741600016DB68 /* ParticipatedProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82C5D6C24B741600016DB68 /* ParticipatedProjectCell.swift */; };
 		B82C5D7124B7597A0016DB68 /* ParticipatedProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82C5D7024B7597A0016DB68 /* ParticipatedProject.swift */; };
 		B82C5D7524B78BF90016DB68 /* real_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = B82C5D7424B78BF90016DB68 /* real_loading.json */; };
-		B84BE18B24BAC4810048BE9C /* RoundFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BE18A24BAC4810048BE9C /* RoundFinishedViewController.swift */; };
-		B84BE19124BB122A0048BE9C /* RoundCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BE19024BB122A0048BE9C /* RoundCell.swift */; };
-		B84BE1A124BB96620048BE9C /* ScrappedCardTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BE1A024BB96620048BE9C /* ScrappedCardTextCell.swift */; };
-		B84BE1A524BB970F0048BE9C /* ScrappedCardImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BE1A424BB970F0048BE9C /* ScrappedCardImageViewCell.swift */; };
 		B88B6C3E24B83AB300F22DDE /* ViewMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88B6C3D24B83AB300F22DDE /* ViewMoreViewController.swift */; };
 		B8A25EA724B4D5D900C07092 /* MainView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8A25EA624B4D5D900C07092 /* MainView.storyboard */; };
 		B8A25EA924B4D7B500C07092 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A25EA824B4D7B500C07092 /* MainViewController.swift */; };
@@ -95,11 +91,6 @@
 		B82C5D6C24B741600016DB68 /* ParticipatedProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipatedProjectCell.swift; sourceTree = "<group>"; };
 		B82C5D7024B7597A0016DB68 /* ParticipatedProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipatedProject.swift; sourceTree = "<group>"; };
 		B82C5D7424B78BF90016DB68 /* real_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = real_loading.json; path = STORM/jh/PopUpViews/real_loading.json; sourceTree = SOURCE_ROOT; };
-		B84BE18A24BAC4810048BE9C /* RoundFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundFinishedViewController.swift; sourceTree = "<group>"; };
-		B84BE18C24BAC49F0048BE9C /* RoundFinished.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RoundFinished.storyboard; sourceTree = "<group>"; };
-		B84BE19024BB122A0048BE9C /* RoundCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCell.swift; sourceTree = "<group>"; };
-		B84BE1A024BB96620048BE9C /* ScrappedCardTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrappedCardTextCell.swift; sourceTree = "<group>"; };
-		B84BE1A424BB970F0048BE9C /* ScrappedCardImageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrappedCardImageViewCell.swift; sourceTree = "<group>"; };
 		B88B6C3D24B83AB300F22DDE /* ViewMoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMoreViewController.swift; sourceTree = "<group>"; };
 		B8A25EA624B4D5D900C07092 /* MainView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainView.storyboard; sourceTree = "<group>"; };
 		B8A25EA824B4D7B500C07092 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -242,34 +233,6 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		B84BE18924BAC4620048BE9C /* RoundFinished */ = {
-			isa = PBXGroup;
-			children = (
-				B84BE19F24BB8C8F0048BE9C /* Round */,
-				B84BE19E24BB8C7D0048BE9C /* ScrappedCard */,
-				B84BE18A24BAC4810048BE9C /* RoundFinishedViewController.swift */,
-				B84BE18C24BAC49F0048BE9C /* RoundFinished.storyboard */,
-			);
-			path = RoundFinished;
-			sourceTree = "<group>";
-		};
-		B84BE19E24BB8C7D0048BE9C /* ScrappedCard */ = {
-			isa = PBXGroup;
-			children = (
-				B84BE1A024BB96620048BE9C /* ScrappedCardTextCell.swift */,
-				B84BE1A424BB970F0048BE9C /* ScrappedCardImageViewCell.swift */,
-			);
-			path = ScrappedCard;
-			sourceTree = "<group>";
-		};
-		B84BE19F24BB8C8F0048BE9C /* Round */ = {
-			isa = PBXGroup;
-			children = (
-				B84BE19024BB122A0048BE9C /* RoundCell.swift */,
-			);
-			path = Round;
-			sourceTree = "<group>";
-		};
 		B88B6C3F24B85AA200F22DDE /* ViewMoreProject */ = {
 			isa = PBXGroup;
 			children = (
@@ -346,7 +309,6 @@
 			children = (
 				D1E5839024BC965C0013FB7C /* Network */,
 				D781D6E924B4A66F00AAE389 /* Jiyoon */,
-				B84BE18924BAC4620048BE9C /* RoundFinished */,
 				B8E2B64924B24AB60098F677 /* jh */,
 				D1E5838D24BC964E0013FB7C /* Signin */,
 				D743C56D24AF5B7300FF6ED4 /* Extensions */,
@@ -687,7 +649,6 @@
 				B8E9FA7C24B9FC3B00A97235 /* RoundStartPopViewController.swift in Sources */,
 				D19533B724BCB072008DB22F /* Member.swift in Sources */,
 				B8E9FA7E24BA059600A97235 /* SettingCodePopViewController.swift in Sources */,
-				B84BE19124BB122A0048BE9C /* RoundCell.swift in Sources */,
 				B8E9FA8624BA551E00A97235 /* RoundEndPopViewController.swift in Sources */,
 				D15088AB24BD98DD007D9596 /* Round.swift in Sources */,
 				D18D89B624B3A6FF00D8779E /* UIView.swift in Sources */,
@@ -702,9 +663,7 @@
 				D1E5838F24BC964F0013FB7C /* User.swift in Sources */,
 				B82C5D7124B7597A0016DB68 /* ParticipatedProject.swift in Sources */,
 				D1E5838524BC95990013FB7C /* CollecViewController5.swift in Sources */,
-				B84BE1A524BB970F0048BE9C /* ScrappedCardImageViewCell.swift in Sources */,
 				B82C5D6D24B741600016DB68 /* ParticipatedProjectCell.swift in Sources */,
-				B84BE1A124BB96620048BE9C /* ScrappedCardTextCell.swift in Sources */,
 				D1E5837F24BC95990013FB7C /* CollecViewController2.swift in Sources */,
 				B88B6C3E24B83AB300F22DDE /* ViewMoreViewController.swift in Sources */,
 				B8E9FA8224BA50D800A97235 /* ChangeToDrawPopViewController.swift in Sources */,
@@ -733,7 +692,6 @@
 				D1E5838C24BC96270013FB7C /* UIViewController.swift in Sources */,
 				D781D6FD24B4A66F00AAE389 /* ProjectWaitingViewController.swift in Sources */,
 				B8E9FA8A24BA5C8E00A97235 /* EndProjectPopViewController.swift in Sources */,
-				B84BE18B24BAC4810048BE9C /* RoundFinishedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -871,7 +829,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6D8SYQ63KK;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/STORM",
