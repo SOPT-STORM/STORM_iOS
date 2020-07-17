@@ -10,31 +10,40 @@ import UIKit
 
 class ReminderPopViewController: UIViewController {
 
-    // MARK:- IBOutlet 선언
+    static let identifier = "ReminderPopViewController"
     
-    @IBOutlet weak var reminderPopView: UIView!
+    // MARK: - IBOutlet, 변수선언
     
-    // MARK:- viewDidLoad 선언
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        reminderPopView.layer.cornerRadius = 15
-        reminderPopView.addShadow(width: 1, height: 3, 0.2, 5)
-        reminderPopView.clipsToBounds = true
+        @IBOutlet weak var reminderView: UIView!
+//        var pressButton: (() -> Void)?
         
-        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
-        self.showAnimate()
+        
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            // self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+            self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+            reminderView.setRadius(radius: 15)
+            reminderView.dropShadow(color: .black, offSet: CGSize(width: 0, height: 3))
+            self.showAnimate()
+            
+            // Do any additional setup after loading the view.
+        }
+        
+        
+        override func didReceiveMemoryWarning() {
+            super.didReceiveMemoryWarning()
+            // Dispose of any resources that can be recreated.
+        }
+        
+        @IBAction func confirmButtonDidPress(_ sender: UIButton) {
+//            pressButton?()
+            self.removeAnimate()
+            self.dismiss(animated: false, completion: nil)
+            
+            
+        }
+        
+        
     }
-    
-    // MARK:- IBAction 선언
-    
-    @IBAction func remindOkButtonDidTap(_ sender: UIButton) {
-        self.removeAnimate()
-    }
-    
-    // MARK:- 함수 선언
-    
 
-}
+

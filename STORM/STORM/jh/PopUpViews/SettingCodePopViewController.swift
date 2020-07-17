@@ -10,9 +10,13 @@ import UIKit
 
 class SettingCodePopViewController: UIViewController {
     
+    static let identifier = "SettingCodePopViewController"
+    
     // MARK:- 변수 선언
 
+    @IBOutlet weak var projectCodeTextField: UITextField!
     @IBOutlet weak var settingCodePopView: UIView!
+    @IBOutlet weak var copyButton: UIButton!
     
     // MARK:- viewDidLoad 선언
     
@@ -24,17 +28,40 @@ class SettingCodePopViewController: UIViewController {
         settingCodePopView.addShadow(width: 1, height: 3, 0.2, 5)
         settingCodePopView.clipsToBounds = true
         
-        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
+        projectCodeTextField.text = (UserDefaults.standard.value(forKey: "projectCode") as! String)
+        
+        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         self.showAnimate()
     }
     
-    // MARK:- IBAction 선언
+     // MARK:- IBAction 선언
+     
+     @IBAction func createOkButtonDidTap(_ sender: UIButton) {
+         self.dismiss(animated: false, completion: nil)
+
+        let projectWaitingViewController = UIStoryboard(name: "ProjectForHost", bundle: nil).instantiateViewController(withIdentifier: HostRoundSettingViewController.identifier) as! HostRoundSettingViewController
+         projectWaitingViewController.modalTransitionStyle = .coverVertical
+         self.present(projectWaitingViewController, animated: false, completion: nil)
+
+         
+     }
     
-    @IBAction func createOkButtonDidTap(_ sender: UIButton) {
-        self.removeAnimate()
+    @IBAction func copyButtonDidPress(_ sender: Any) {
+        getCopiedText()
+        
+    }
+    
+    func getCopiedText() {
+        let pasteboard = UIPasteboard.general
+        pasteboard.string = projectCodeTextField.text
+        print("copied")
     }
     
     // MARK:- 함수 선언
-    
+    /*
+    func getProjectCode() {
+        NetworkManager.shared.fetchProjectInfo(projectIdx: <#T##Int#>, completion: <#T##(ProjectInfoResponse?) -> Void#>)
+    // TODO: projectWithCode 쓸지 projectWithIdx 쓸지 정하기.
+    } */
 
 }
