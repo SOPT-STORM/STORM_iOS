@@ -30,8 +30,9 @@ class HostProjectSettingViewController: UIViewController {
         hostMessageTextView.font = UIFont(name: "Noto Sans CJK KR Medium", size: 13)
         hostMessageTextView.delegate = self
         
-
+        // MARK: NAVIGATION BAR
         
+        self.setNaviTitle()
     }
     
     
@@ -53,6 +54,7 @@ class HostProjectSettingViewController: UIViewController {
     }
     
 }
+
 /*
  @IBAction func projectNameTextFieldEditingChanged(_ sender: UITextField) {
  if sender.text?.isEmpty ?? true {
@@ -112,5 +114,10 @@ extension HostProjectSettingViewController: UITextFieldDelegate {
         let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
         
         return updatedText.count < 21
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        projectNameTextField.resignFirstResponder()
+        return true
     }
 }

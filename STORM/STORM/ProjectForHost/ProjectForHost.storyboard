@@ -11,13 +11,13 @@
         <!--Host Project Setting View Controller-->
         <scene sceneID="5Vu-KV-Yad">
             <objects>
-                <viewController id="Cxj-Tf-mrD" customClass="HostProjectSettingViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="addProjectViewController" id="Cxj-Tf-mrD" customClass="HostProjectSettingViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tI7-sy-2im">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hProjectsettingBg" translatesAutoresizingMaskIntoConstraints="NO" id="dh0-ra-mwH">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="768"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FD6-Et-mek">
                                 <rect key="frame" x="27" y="67.666666666666671" width="115" height="19.333333333333329"/>
@@ -56,7 +56,7 @@
                                         <rect key="frame" x="26.666666666666657" y="78.333333333333329" width="274" height="39.333333333333329"/>
                                         <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
                                         <attributedString key="attributedText"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="10"/>
@@ -167,12 +167,12 @@
                         <constraints>
                             <constraint firstItem="RzE-Ml-PyI" firstAttribute="leading" secondItem="fCt-Hb-DVh" secondAttribute="leading" constant="27" id="0Le-dq-PgP"/>
                             <constraint firstItem="sWu-B1-lcw" firstAttribute="width" secondItem="tI7-sy-2im" secondAttribute="width" multiplier="0.730667" id="1as-cK-fZK"/>
+                            <constraint firstAttribute="bottom" secondItem="dh0-ra-mwH" secondAttribute="bottom" id="Dvq-ca-iVt"/>
                             <constraint firstItem="FD6-Et-mek" firstAttribute="leading" secondItem="fCt-Hb-DVh" secondAttribute="leading" constant="27" id="EXW-0d-iEW"/>
                             <constraint firstItem="Jbk-ll-8Mf" firstAttribute="width" secondItem="tI7-sy-2im" secondAttribute="width" multiplier="0.730667" id="HJa-8O-Lsc"/>
-                            <constraint firstItem="dh0-ra-mwH" firstAttribute="top" secondItem="tI7-sy-2im" secondAttribute="top" id="JZc-C8-cZK"/>
+                            <constraint firstItem="dh0-ra-mwH" firstAttribute="top" secondItem="fCt-Hb-DVh" secondAttribute="top" id="JZc-C8-cZK"/>
                             <constraint firstItem="25p-2u-Zg7" firstAttribute="centerX" secondItem="tI7-sy-2im" secondAttribute="centerX" id="MBN-Nc-DmQ"/>
                             <constraint firstItem="RzE-Ml-PyI" firstAttribute="centerY" secondItem="tI7-sy-2im" secondAttribute="centerY" multiplier="0.8" id="QwY-B7-nDP"/>
-                            <constraint firstAttribute="bottom" secondItem="dh0-ra-mwH" secondAttribute="bottom" id="WTi-vi-q49"/>
                             <constraint firstItem="25p-2u-Zg7" firstAttribute="centerY" secondItem="tI7-sy-2im" secondAttribute="centerY" multiplier="1.3" constant="7" id="WWQ-4U-5TH"/>
                             <constraint firstAttribute="trailing" secondItem="dh0-ra-mwH" secondAttribute="trailing" id="cX0-lZ-Mci"/>
                             <constraint firstItem="RzE-Ml-PyI" firstAttribute="centerX" secondItem="tI7-sy-2im" secondAttribute="centerX" id="dfO-96-BG6"/>
@@ -201,7 +201,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgReal" translatesAutoresizingMaskIntoConstraints="NO" id="cgw-eG-Nnv">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="706"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cQD-Eh-2rw">
                                 <rect key="frame" x="27" y="173" width="321" height="492"/>
@@ -437,14 +437,13 @@
                         <constraints>
                             <constraint firstItem="w20-DK-Zkl" firstAttribute="centerY" secondItem="9dl-Gl-B1c" secondAttribute="centerY" multiplier="1.6" constant="10" id="4T2-wA-6Fv"/>
                             <constraint firstItem="dZr-NF-CeT" firstAttribute="centerY" secondItem="9dl-Gl-B1c" secondAttribute="centerY" multiplier="0.56" constant="2" id="4y2-tf-noR"/>
-                            <constraint firstItem="cgw-eG-Nnv" firstAttribute="top" secondItem="9dl-Gl-B1c" secondAttribute="top" id="8HS-yG-bAo"/>
+                            <constraint firstItem="cgw-eG-Nnv" firstAttribute="top" secondItem="3f5-2K-MG0" secondAttribute="top" id="8HS-yG-bAo"/>
                             <constraint firstItem="cQD-Eh-2rw" firstAttribute="centerY" secondItem="9dl-Gl-B1c" secondAttribute="centerY" multiplier="1.007" constant="10" id="8Su-Xj-VFg"/>
                             <constraint firstItem="XNS-ZQ-sQm" firstAttribute="top" secondItem="ffg-EM-hTm" secondAttribute="bottom" multiplier="0.99" constant="34" id="Ato-1q-wqx"/>
                             <constraint firstItem="iKl-me-qzG" firstAttribute="centerX" secondItem="9dl-Gl-B1c" secondAttribute="centerX" id="BPI-JS-8F1"/>
                             <constraint firstItem="cgw-eG-Nnv" firstAttribute="trailing" secondItem="3f5-2K-MG0" secondAttribute="trailing" id="Cnn-90-2NO"/>
                             <constraint firstItem="w20-DK-Zkl" firstAttribute="centerX" secondItem="9dl-Gl-B1c" secondAttribute="centerX" id="Ekl-OD-S82"/>
                             <constraint firstItem="T30-45-CtW" firstAttribute="centerX" secondItem="9dl-Gl-B1c" secondAttribute="centerX" id="I3r-J3-7Sq"/>
-                            <constraint firstAttribute="bottom" secondItem="cgw-eG-Nnv" secondAttribute="bottom" id="Ili-6W-vib"/>
                             <constraint firstItem="ffg-EM-hTm" firstAttribute="centerY" secondItem="9dl-Gl-B1c" secondAttribute="centerY" multiplier="0.4" constant="6" id="ItW-am-nEy"/>
                             <constraint firstItem="XNS-ZQ-sQm" firstAttribute="centerX" secondItem="9dl-Gl-B1c" secondAttribute="centerX" id="JxS-Ld-1t6"/>
                             <constraint firstItem="ffg-EM-hTm" firstAttribute="centerX" secondItem="9dl-Gl-B1c" secondAttribute="centerX" id="KAz-H6-Sgk"/>
@@ -493,7 +492,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgReal" translatesAutoresizingMaskIntoConstraints="NO" id="FRp-EC-n53">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="706"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TPt-YZ-UX4">
                                 <rect key="frame" x="27" y="175.33333333333337" width="321" height="492"/>
@@ -584,7 +583,7 @@
                                                     <fragment content="안녕하세요! 이번 SOPT APP JAM 프로젝트에 참여해 주셔서 감사합니다. 우리 한 번 열심히 해봐요 ^_^">
                                                         <attributes>
                                                             <color key="NSColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <font key="NSFont" metaFont="cellTitle"/>
+                                                            <font key="NSFont" metaFont="label" size="12"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
                                                     </fragment>
@@ -757,12 +756,11 @@
                             <constraint firstItem="i1d-VH-mNf" firstAttribute="width" secondItem="5gb-Ao-SR4" secondAttribute="width" multiplier="0.621333" id="Vt2-0K-YZH"/>
                             <constraint firstItem="5OU-sb-FKt" firstAttribute="centerY" secondItem="5gb-Ao-SR4" secondAttribute="centerY" multiplier="0.4" constant="6" id="X58-oF-99K"/>
                             <constraint firstItem="SQu-sg-WtK" firstAttribute="height" secondItem="5gb-Ao-SR4" secondAttribute="height" multiplier="0.245895" id="a5X-3U-RN2"/>
-                            <constraint firstAttribute="bottom" secondItem="FRp-EC-n53" secondAttribute="bottom" id="eRb-aO-JDE"/>
                             <constraint firstItem="i1d-VH-mNf" firstAttribute="centerY" secondItem="5gb-Ao-SR4" secondAttribute="centerY" multiplier="0.56" constant="2" id="eYn-W4-jVG"/>
                             <constraint firstItem="FRp-EC-n53" firstAttribute="trailing" secondItem="Yzx-ci-cze" secondAttribute="trailing" id="jH7-97-lfz"/>
                             <constraint firstItem="mdN-vh-rjU" firstAttribute="centerX" secondItem="5gb-Ao-SR4" secondAttribute="centerX" id="ohR-b3-oNa"/>
                             <constraint firstItem="TPt-YZ-UX4" firstAttribute="centerY" secondItem="5gb-Ao-SR4" secondAttribute="centerY" multiplier="1.05" constant="-5" id="omS-h7-BlI"/>
-                            <constraint firstItem="FRp-EC-n53" firstAttribute="top" secondItem="5gb-Ao-SR4" secondAttribute="top" id="pD6-MS-LOY"/>
+                            <constraint firstItem="FRp-EC-n53" firstAttribute="top" secondItem="Yzx-ci-cze" secondAttribute="top" id="pD6-MS-LOY"/>
                             <constraint firstItem="TPt-YZ-UX4" firstAttribute="centerX" secondItem="5gb-Ao-SR4" secondAttribute="centerX" id="rME-ma-sEb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Yzx-ci-cze"/>
@@ -833,7 +831,7 @@
                                                 <fragment content="확인">
                                                     <attributes>
                                                         <color key="NSColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <font key="NSFont" metaFont="system" size="14"/>
+                                                        <font key="NSFont" metaFont="menu" size="14"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>
@@ -852,7 +850,7 @@
                                                     <fragment content="아이디어를 시각화하며 진행해요">
                                                         <attributes>
                                                             <color key="NSColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <font key="NSFont" metaFont="cellTitle"/>
+                                                            <font key="NSFont" metaFont="label" size="12"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
                                                     </fragment>
@@ -865,7 +863,7 @@
                                                     <fragment content="다듬어지지 않은 아이디어를 장려해요">
                                                         <attributes>
                                                             <color key="NSColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <font key="NSFont" metaFont="cellTitle"/>
+                                                            <font key="NSFont" metaFont="label" size="12"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
                                                     </fragment>
@@ -878,7 +876,7 @@
                                                     <fragment content="다른 사람의 아이디어를 더 발전시켜요">
                                                         <attributes>
                                                             <color key="NSColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <font key="NSFont" metaFont="cellTitle"/>
+                                                            <font key="NSFont" metaFont="label" size="12"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
                                                     </fragment>
@@ -891,7 +889,7 @@
                                                     <fragment content="주제에 집중하고 목표에 초점을 맞추어 토론해요">
                                                         <attributes>
                                                             <color key="NSColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <font key="NSFont" metaFont="cellTitle"/>
+                                                            <font key="NSFont" metaFont="label" size="12"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
                                                     </fragment>
@@ -904,7 +902,7 @@
                                                     <fragment content="한 번에 한 가지 주제로 대화를 해요">
                                                         <attributes>
                                                             <color key="NSColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <font key="NSFont" metaFont="cellTitle"/>
+                                                            <font key="NSFont" metaFont="label" size="12"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
                                                     </fragment>
@@ -917,7 +915,7 @@
                                                     <fragment content="판단은 보류해요">
                                                         <attributes>
                                                             <color key="NSColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <font key="NSFont" metaFont="cellTitle"/>
+                                                            <font key="NSFont" metaFont="label" size="12"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
                                                     </fragment>
@@ -930,7 +928,7 @@
                                                     <fragment content="아이디어의 질보다는 양을 추구해요">
                                                         <attributes>
                                                             <color key="NSColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <font key="NSFont" metaFont="cellTitle"/>
+                                                            <font key="NSFont" metaFont="label" size="12"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
                                                     </fragment>
@@ -980,7 +978,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qQb-bH-Zl6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1607" y="149"/>
+            <point key="canvasLocation" x="-710" y="-670"/>
         </scene>
         <!--Host Round Start View Controller-->
         <scene sceneID="SuJ-1H-Maz">
@@ -991,7 +989,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgReal" translatesAutoresizingMaskIntoConstraints="NO" id="h0Q-UL-oqF">
-                                <rect key="frame" x="0.0" y="44" width="375" height="768"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="706"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G1h-eZ-DA5">
                                 <rect key="frame" x="27" y="168.66666666666663" width="321" height="505"/>
@@ -1025,7 +1023,7 @@
                                                 <fragment content="ROUND 10">
                                                     <attributes>
                                                         <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <font key="NSFont" metaFont="system" size="14"/>
+                                                        <font key="NSFont" metaFont="menu" size="14"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>
@@ -1064,7 +1062,7 @@
                                             <fragment content="ROUND 목표 들깨는 귀여운 아기 천사 최고의 강아지">
                                                 <attributes>
                                                     <color key="NSColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <font key="NSFont" metaFont="cellTitle"/>
+                                                    <font key="NSFont" metaFont="label" size="12"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
@@ -1081,7 +1079,7 @@
                                             <fragment content="총 10분 예정">
                                                 <attributes>
                                                     <color key="NSColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <font key="NSFont" metaFont="cellTitle"/>
+                                                    <font key="NSFont" metaFont="label" size="12"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
@@ -1267,7 +1265,6 @@
                             <constraint firstItem="fQX-J7-UNQ" firstAttribute="width" secondItem="fQX-J7-UNQ" secondAttribute="height" multiplier="233:67" id="t8m-y5-81r"/>
                             <constraint firstItem="h0Q-UL-oqF" firstAttribute="leading" secondItem="LNL-pP-BNH" secondAttribute="leading" id="uX8-y1-9Pb"/>
                             <constraint firstItem="1qI-5V-E3l" firstAttribute="centerY" secondItem="7k5-hS-RDe" secondAttribute="centerY" multiplier="1.65" id="voU-IX-qUo"/>
-                            <constraint firstAttribute="bottom" secondItem="h0Q-UL-oqF" secondAttribute="bottom" id="zcO-pm-Ldz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LNL-pP-BNH"/>
                     </view>

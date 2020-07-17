@@ -17,7 +17,7 @@ class RoundMeetingViewController: UIViewController {
         
         collectionView.delegate = self
         collectionView.dataSource = self
-        
+
         self.setNaviTitle()
     }
 }

@@ -24,7 +24,7 @@ class ChangeToDrawPopViewController: UIViewController {
         // Do any additional setup after loading the view.
         changeToDrawPopView.layer.cornerRadius = 15
 //        changeToDrawPopView.addShadow(width: 1, height: 3, 0.2, 5)
-        changeToDrawPopView.addRoundShadow(cornerRadius: 15)
+        //changeToDrawPopView.addRoundShadow(cornerRadius: 15)
         changeToDrawPopView.clipsToBounds = true
         
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)

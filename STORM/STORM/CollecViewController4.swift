@@ -23,6 +23,7 @@ class CollecViewController4: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setNaviTitle()
         self.addCollectionView()
 
         slider.value = 0

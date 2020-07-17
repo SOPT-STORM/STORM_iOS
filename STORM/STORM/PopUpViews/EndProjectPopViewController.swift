@@ -13,6 +13,7 @@ class EndProjectPopViewController: UIViewController {
     // MARK:- IBOutlet 선언
 
     @IBOutlet weak var endProjectPopView: UIView!
+    @IBOutlet weak var backgroundView: UIView!
     
     // MARK:- viewDidLoad 선언
     
@@ -20,12 +21,11 @@ class EndProjectPopViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-//        endProjectPopView.layer.cornerRadius = 15
-//        endProjectPopView.addShadow(width: 1, height: 3, 0.2, 5)
-        endProjectPopView.addRoundShadow(cornerRadius: 15)
+        endProjectPopView.layer.cornerRadius = 15
+        //endProjectPopView.addRoundShadow(cornerRadius: 15)
         endProjectPopView.clipsToBounds = true
         
-        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
+        backgroundView.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         self.showAnimate()
     }
     

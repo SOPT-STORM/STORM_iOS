@@ -216,7 +216,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kE4-bl-1LJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2994" y="898"/>
+            <point key="canvasLocation" x="1334" y="92"/>
         </scene>
         <!--View More View Controller-->
         <scene sceneID="fM9-SQ-bYX">
@@ -306,12 +306,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XmO-8x-aci" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3234" y="129"/>
+            <point key="canvasLocation" x="866" y="773"/>
         </scene>
-        <!--Project Finished View Controller-->
+        <!--View Controller-->
         <scene sceneID="8yi-av-GQg">
             <objects>
-                <viewController id="JTO-fa-5bF" customClass="ProjectFinishedViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="JTO-fa-5bF" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="heM-6y-chW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -454,22 +454,12 @@
                                             </cells>
                                         </collectionView>
                                     </subviews>
-                                    <connections>
-                                        <outlet property="peopleCountLabel" destination="u4h-hz-ya2" id="HYp-tm-zZ4"/>
-                                        <outlet property="projectDateLabel" destination="ULg-dr-CNJ" id="1d1-9t-p9j"/>
-                                        <outlet property="projectInfoView" destination="Wii-da-Vce" id="xgm-th-1mx"/>
-                                        <outlet property="projectRoundCountLabel" destination="Jb0-fv-ocs" id="LX0-tc-Dpt"/>
-                                        <outlet property="scrapCardCollectionView" destination="Hdk-To-ee9" id="eu1-g0-gcK"/>
-                                    </connections>
                                 </collectionReusableView>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" red="0.92549019610000005" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.92156862745098034" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="9Vb-yW-3US"/>
                     </view>
-                    <connections>
-                        <outlet property="roundCollectionView" destination="RYu-he-9iZ" id="oYV-JF-tMt"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z4J-OT-hL0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -633,7 +623,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1KH-x5-zVf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2359" y="129"/>
+            <point key="canvasLocation" x="1332" y="-612"/>
         </scene>
         <!--Example View Controller-->
         <scene sceneID="4ji-7J-WAP">
@@ -705,7 +695,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hif-Al-rpb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5086" y="129"/>
+            <point key="canvasLocation" x="465" y="70"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Xqf-b7-loW">
@@ -723,7 +713,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3v3-oG-4ev" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1172" y="129"/>
+            <point key="canvasLocation" x="465" y="-635"/>
         </scene>
     </scenes>
     <resources>

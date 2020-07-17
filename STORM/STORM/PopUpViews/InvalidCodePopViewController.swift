@@ -13,6 +13,7 @@ class InvalidCodePopViewController: UIViewController {
     // MARK:- IBOutlet 선언
 
     @IBOutlet weak var invalidCodePopView: UIView!
+    @IBOutlet weak var backgroundView: UIView!
     
     // MARK:- viewDidLoad 선언
     
@@ -20,12 +21,14 @@ class InvalidCodePopViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-//        invalidCodePopView.layer.cornerRadius = 15
+        invalidCodePopView.layer.cornerRadius = 15
 //        invalidCodePopView.addShadow(width: 1, height: 3, 0.2, 5)
-        invalidCodePopView.addRoundShadow(cornerRadius: 15)
+        //invalidCodePopView.addRoundShadow(cornerRadius: 15)
         invalidCodePopView.clipsToBounds = true
         
-        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
+        backgroundView.tintColor = UIColor.black.withAlphaComponent(0.6)
+        
+        //self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
         self.showAnimate()
     }
     

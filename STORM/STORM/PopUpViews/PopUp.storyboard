@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Aun-Zc-ZCE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Oe1-u9-wh2">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -16,6 +16,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view alpha="0.59999999999999998" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cho-rs-bNr">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UfD-xg-0Cf">
                                 <rect key="frame" x="34" y="286.66666666666669" width="307" height="239.00000000000006"/>
                                 <subviews>
@@ -65,12 +70,13 @@
                         <viewLayoutGuide key="safeArea" id="BR9-YT-77Z"/>
                     </view>
                     <connections>
+                        <outlet property="backgroundView" destination="Cho-rs-bNr" id="Yra-0B-r8B"/>
                         <outlet property="invalidCodePopView" destination="UfD-xg-0Cf" id="Zey-PG-ff1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ox-3o-qvV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2097.1014492753625" y="17.410714285714285"/>
+            <point key="canvasLocation" x="-2098.4000000000001" y="16.995073891625616"/>
         </scene>
         <!--Round Start Pop View Controller-->
         <scene sceneID="4YL-pc-W2g">
@@ -131,6 +137,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view alpha="0.59999999999999998" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LUM-36-MrM">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1w9-fR-3xB">
                                 <rect key="frame" x="28" y="203" width="319" height="406"/>
                                 <subviews>
@@ -231,7 +242,6 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="1w9-fR-3xB" firstAttribute="height" secondItem="M9L-Eh-m2Y" secondAttribute="height" multiplier="0.5" id="0pt-CQ-vdm"/>
                             <constraint firstItem="1w9-fR-3xB" firstAttribute="centerX" secondItem="M9L-Eh-m2Y" secondAttribute="centerX" id="RcI-wc-y8W"/>
@@ -239,8 +249,14 @@
                             <constraint firstItem="1w9-fR-3xB" firstAttribute="centerY" secondItem="M9L-Eh-m2Y" secondAttribute="centerY" id="a5t-PF-fNA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9sd-Fc-C5U"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
+                        <outlet property="backgroundView" destination="LUM-36-MrM" id="6bn-yB-yCe"/>
                         <outlet property="reminderPopView" destination="1w9-fR-3xB" id="Zfm-7v-do7"/>
                     </connections>
                 </viewController>
@@ -256,6 +272,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view alpha="0.59999999999999998" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NKw-5A-XV0">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ltd-13-bf7">
                                 <rect key="frame" x="28" y="235" width="319" height="342"/>
                                 <subviews>
@@ -289,7 +310,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fB1-Qe-LGC">
                                         <rect key="frame" x="50.666666666666686" y="157" width="218" height="28.333333333333343"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QmN-Z7-Yab">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="D4G957BV" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QmN-Z7-Yab">
                                                 <rect key="frame" x="0.0" y="0.0" width="150" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="150" id="Eba-y0-RPx"/>
@@ -349,7 +370,6 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ltd-13-bf7" firstAttribute="centerY" secondItem="aqn-Np-qqq" secondAttribute="centerY" id="08c-Qi-44I"/>
                             <constraint firstItem="ltd-13-bf7" firstAttribute="width" secondItem="aqn-Np-qqq" secondAttribute="width" multiplier="0.850667" id="Ck8-9P-i9A"/>
@@ -359,6 +379,8 @@
                         <viewLayoutGuide key="safeArea" id="tcu-Jx-ffN"/>
                     </view>
                     <connections>
+                        <outlet property="backgroundView" destination="NKw-5A-XV0" id="dN9-Y0-2eJ"/>
+                        <outlet property="copyButton" destination="tZn-Qm-5bm" id="PsL-3q-Uka"/>
                         <outlet property="settingCodePopView" destination="ltd-13-bf7" id="vHH-tk-wlE"/>
                     </connections>
                 </viewController>
@@ -894,6 +916,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view alpha="0.59999999999999998" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wda-Hh-0PJ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kdb-Fz-kOP">
                                 <rect key="frame" x="34" y="286.66666666666669" width="307" height="239.00000000000006"/>
                                 <subviews>
@@ -968,12 +995,13 @@
                         <viewLayoutGuide key="safeArea" id="dBY-cD-jsq"/>
                     </view>
                     <connections>
+                        <outlet property="backgroundView" destination="wda-Hh-0PJ" id="cxL-Fa-n8j"/>
                         <outlet property="endProjectPopView" destination="Kdb-Fz-kOP" id="3T2-FI-iIn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lez-rF-BFk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1021" y="754"/>
+            <point key="canvasLocation" x="1020" y="752.95566502463055"/>
         </scene>
     </scenes>
     <resources>

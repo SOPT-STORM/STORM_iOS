@@ -13,6 +13,7 @@ class ReminderPopViewController: UIViewController {
     // MARK:- IBOutlet 선언
     
     @IBOutlet weak var reminderPopView: UIView!
+    @IBOutlet weak var backgroundView: UIView!
     
     // MARK:- viewDidLoad 선언
     
@@ -21,10 +22,12 @@ class ReminderPopViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         reminderPopView.layer.cornerRadius = 15
-        reminderPopView.addRoundShadow(cornerRadius: 15)
+        //reminderPopView.addRoundShadow(cornerRadius: 15)
         reminderPopView.clipsToBounds = true
         
-        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
+        backgroundView.tintColor = UIColor.black.withAlphaComponent(0.6)
+        
+        //self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
         self.showAnimate()
     }
     

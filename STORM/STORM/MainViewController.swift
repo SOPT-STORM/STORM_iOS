@@ -47,7 +47,12 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func didPressAddProject(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "ProjectForHost", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "addProjectViewController") as! HostProjectSettingViewController
         
+        vc.navigationController?.setNaviTitle()
+        
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func didPressMoreProject(_ sender: UIButton) {

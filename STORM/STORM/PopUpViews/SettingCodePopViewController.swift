@@ -13,6 +13,8 @@ class SettingCodePopViewController: UIViewController {
     // MARK:- 변수 선언
 
     @IBOutlet weak var settingCodePopView: UIView!
+    @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet weak var copyButton: UIButton!
     
     // MARK:- viewDidLoad 선언
     
@@ -21,11 +23,13 @@ class SettingCodePopViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         settingCodePopView.layer.cornerRadius = 15
-//        settingCodePopView.addShadow(width: 1, height: 3, 0.2, 5)
-        settingCodePopView.addRoundShadow(cornerRadius: 15)
+        //settingCodePopView.addRoundShadow(cornerRadius: 15)
         settingCodePopView.clipsToBounds = true
         
-        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
+        backgroundView.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        
+        copyButton.cornerRadius = 4.0
+        
         self.showAnimate()
     }
     

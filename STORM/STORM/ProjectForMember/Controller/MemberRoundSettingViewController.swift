@@ -35,7 +35,6 @@ class MemberRoundSettingViewController: UIViewController {
     var projectIndex = 1
     var roundIndex = 1
     
-    private var shadowLayer: CAShapeLayer!
     
     // TODO : 몇번째 라운드인지 타임캐스팅 해서 바꿔야 함
     // 라운드 인트 가져오는 것 우선 했음
@@ -81,8 +80,8 @@ class MemberRoundSettingViewController: UIViewController {
         
         // MARK: 프로젝트 이름 통신
         
-        fetchProjectInfo()
-        fetchRoundInfo()
+        //fetchProjectInfo()
+        //fetchRoundInfo()
         
         // MARK: RADIUS, SHADOW
 
@@ -97,16 +96,18 @@ class MemberRoundSettingViewController: UIViewController {
     // 룰리마인더 버튼
     @IBAction func ruleButtonDidTap(_ sender: UIButton) {
         let popupStoryboard: UIStoryboard = UIStoryboard(name: "PopUp", bundle: nil)
-        /*
-        let ruleReminderPopUpVC = popupStoryboard.instantiateViewController(withIdentifier: "reminderPopUp") as! ReminderPopViewController // 이거 안되면 다시 as! UIViewController로 바꾸기
-        self.navigationController?.addChild(ruleReminderPopUpVC)
-        ruleReminderPopUpVC.view.frame = UIApplication.shared.keyWindow!.frame
-        self.navigationController?.view.addSubview(ruleReminderPopUpVC.view)
-        ruleReminderPopUpVC.didMove(toParent: self.navigationController)
-        */
         
-        let ruleReminderPopUpVC = popupStoryboard.instantiateViewController(withIdentifier: "reminderPopUp") as! ReminderPopViewController // 이거 안되면 다시 as! UIViewController로 바꾸기
+//        let ruleReminderPopUpVC = popupStoryboard.instantiateViewController(withIdentifier: "reminderPopUp") as! ReminderPopViewController // 이거 안되면 다시 as! UIViewController로 바꾸기
+//
+//
+//        self.navigationController?.addChild(ruleReminderPopUpVC)
+//        ruleReminderPopUpVC.view.frame = UIApplication.shared.keyWindow!.frame
+//        self.navigationController?.view.addSubview(ruleReminderPopUpVC.view)
+//        ruleReminderPopUpVC.didMove(toParent: self.navigationController)
+        
+        let ruleReminderPopUpVC = popupStoryboard.instantiateViewController(withIdentifier: "reminderPopUp") as! ReminderPopViewController //이거 안되면 다시 as! UIViewController로 바꾸기
         childVC = ruleReminderPopUpVC
+        
         
         self.navigationController?.addChild(ruleReminderPopUpVC)
         ruleReminderPopUpVC.view.frame = self.view.frame
@@ -140,12 +141,12 @@ extension MemberRoundSettingViewController: UITableViewDelegate {
     
     // MARK:- func
     
-    
     func fetchProjectInfo() {
         NetworkManager.shared.fetchProjectInfo(projectIdx: self.projectIndex) { (response) in
             self.projectName.text = response?.data.project_name
         }
     }
+    
     
     func fetchRoundInfo() {
         NetworkManager.shared.fetchRoundInfo(projectIdx: self.projectIndex) { (response) in
@@ -153,7 +154,9 @@ extension MemberRoundSettingViewController: UITableViewDelegate {
             self.roundTimeLabel.text =
             "총 \(String(describing: response?.data!.round_time))분 예정"
         }
-        
+
     }
+    
+
  
 }
