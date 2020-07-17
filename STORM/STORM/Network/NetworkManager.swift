@@ -10,6 +10,7 @@ import Alamofire
 
 class NetworkManager {
     
+    // Singleton 객체
     static let shared = NetworkManager()
     
     let user_idx = 1
@@ -18,7 +19,7 @@ class NetworkManager {
     
     private let baseURL = "http://52.78.113.197:3000"
     
-//    private let baseURL = "http://21f3540136ec.ngrok.io" // 임시 url
+//    private let baseURL = "http://aec63a50f4b8.ngrok.io" // 임시 url
     
     // userImg - String 일지 File일지 아직 미정 (연동 끝나야 확인 가능)
     func signIn(userName: String, googleToken: String?, KakaoToken: String?, userImg: String, completion: @escaping (Response?) -> Void) {
@@ -45,7 +46,7 @@ class NetworkManager {
     
     func fetchProjectList(completion: @escaping (Response?) -> Void) {
 
-        let url = baseURL + "/project/user/" + "\(user_idx)"
+        let url = baseURL + "/project/" + "\(user_idx)"
         
         let request = AF.request(url)
         
@@ -57,9 +58,21 @@ class NetworkManager {
             print("Error description is: \(error.localizedDescription)")
            }
         }
+        
+        // 가라 데이터
+        let card1 = Card(card_idx: 12, card_img: nil, card_txt: "fwjleifjwaoeifjalkdfj")
+        let card2 = Card(card_idx: 13, card_img: nil, card_txt: "인라ㅓ니아러니마어리ㅏㄴㅁ얼ㄴ")
+        let card3 = Card(card_idx: 23, card_img: nil, card_txt: "fwjleifjwaㅇㄹㄴㅇㄹoeifjalkdfj")
+        let card4 = Card(card_idx: 30, card_img: nil, card_txt: "인라ㅓㄴㅇㄹㄴㅁㅇㅏㄴㅁ얼ㄴ")
+        
+        let detail1 = ProjectWithDetail(project_idx: 1, project_name: "프로젝트1", card_list: [card1, card2, card3, card4])
+        let detail2 = ProjectWithDetail(project_idx: 2, project_name: "프로젝트2", card_list: [card1, card2, card3, card4])
+        let detail3 = ProjectWithDetail(project_idx: 3, project_name: "프로젝트3", card_list: [card1, card2, card3, card4])
+        let response = Response(status: 200, success: true, message: "성공", data: [detail1, detail2, detail3])
+        completion(response)
     }
     
-    // (POST) 프로젝트 참여하기
+    // MARK:- (POST) 프로젝트 참여하기
     func enterProject(projectCode: String, completion: @escaping (ProjectIdxResponse?) -> Void) {
         let url = baseURL + "/project/enter"
         
@@ -79,9 +92,14 @@ class NetworkManager {
              print("Error description is: \(error.localizedDescription)")
             }
          }
+        
+//        // 가라 데이터 - 나중에 빼기
+//        let project = ProjectWithIdx(project_idx: 57, project_code: "WEFAJE1209")
+//        let result = ProjectIdxResponse(status: 200, success: true, message: "프로젝트 참여 등록 완료!", data: project)
+//        completion(result)
     }
     
-    // (GET) 라운드 참여자 목록
+    // MARK:- (GET) 라운드 참여자 목록
     func fetchMemberList(roundIdx: Int, completion: @escaping (MemberResponse?) -> Void) {
         let url = baseURL + "/round/memberList/" + "\(roundIdx)"
         
@@ -97,16 +115,24 @@ class NetworkManager {
             print("Error description is: \(error.localizedDescription)")
            }
         }
+        
+        // 가라 데이터
+//        let member1 = Member(user_name: "수지", user_img: "")
+//        let member2 = Member(user_name: "종욱", user_img: "")
+//        let member3 = Member(user_name: "은지", user_img: "")
+//        let member4 = Member(user_name: "지윤", user_img: "")
+//        let member5 = Member(user_name: "양희", user_img: "")
+//        let result = MemberResponse(status: 200, success: true, message: "멤버 가져오기 성공!", data: [member1, member2, member3, member4, member5])
+//        completion(result)
     }
     
-    // (POST) 프로젝트 추가하기
+    // MARK:- (POST) 프로젝트 추가하기
     func addProject(projectName: String, projectComment: String?, userIdx: Int, completion: @escaping (ProjectIdxResponse?) -> Void) {
         
         let url = baseURL + "/project"
         
         let parameters = Project(project_name: projectName, project_comment: projectComment, user_idx: userIdx, project_code: nil)
         
-
         let request = AF.request(url,
                     method: .post,
                     parameters: parameters,
@@ -121,9 +147,13 @@ class NetworkManager {
              print("Error description is: \(error.localizedDescription)")
             }
          }
+        
+//        // 가라 데이터
+//        let result = ProjectIdxResponse(status: 200, success: true, message: "완료!!", data: ProjectWithIdx(project_idx: 20, project_code: "WEFAE123"))
+//        completion(result)
     }
     
-    // (GET) 프로젝트 정보
+    // MARK:- (GET) 프로젝트 정보
     func fetchProjectInfo(projectIdx: Int, completion: @escaping (ProjectInfoResponse?) -> Void) {
         let url = baseURL + "/project/" + "\(projectIdx)"
 
@@ -139,7 +169,7 @@ class NetworkManager {
         }
     }
     
-    // (GET) 프로젝트 참여자 목록
+    // MARK:- (GET) 프로젝트 참여자 목록
     func fetchProjectMember(projectIdx: Int, completion: @escaping (MemberResponse?) -> Void) {
         let url = baseURL + "/project/enter/" + "\(projectIdx)"
         
@@ -157,7 +187,7 @@ class NetworkManager {
         }
     }
     
-    // (DELETE) 프로젝트 나가기
+    // MARK:- (DELETE) 프로젝트 나가기
     func exitProject(projectIdx: Int, completion: @escaping (Response?) -> Void) {
         let url = baseURL + "/project/" + "\(user_idx)/"  + "\(projectIdx)"
         
@@ -175,7 +205,7 @@ class NetworkManager {
          }
     }
     
-    // (GET) 라운드 카운트 정보 출력 - Host
+    // MARK:- (GET) 라운드 카운트 정보 출력 - Host
     func fetchRoundCountInfo(projectIdx: Int, completion: @escaping (RoundCountResponse?) -> Void) {
         let url = baseURL + "/round/count/" + "\(projectIdx)"
         
@@ -191,8 +221,8 @@ class NetworkManager {
         }
     }
     
-    // (Post) 라운드 설정 - Host
-    func setRound(projectIdx: Int, roundPurpose: String, roundTime: Int, completion: @escaping (RoundResponse?) -> Void) {
+    // MARK:- (POST) 라운드 설정 - Host
+    func setRound(projectIdx: Int, roundPurpose: String, roundTime: Int, completion: @escaping (RoundCountResponse?) -> Void) {
         
         let url = baseURL + "/round/setting"
         
@@ -204,7 +234,7 @@ class NetworkManager {
                     encoder: JSONParameterEncoder.default,
                     headers: nil)
          
-         request.responseDecodable(of: RoundResponse.self) { response in
+         request.responseDecodable(of: RoundCountResponse.self) { response in
             switch response.result {
             case let .success(result):
              completion(result)
@@ -214,7 +244,7 @@ class NetworkManager {
          }
     }
     
-    // (GET) 라운드 정보
+    // MARK:- (GET) 라운드 정보
     func fetchRoundInfo(projectIdx: Int, completion: @escaping (RoundResponse?) -> Void) {
         let url = baseURL + "/round/info/" + "\(projectIdx)"
         
@@ -230,7 +260,7 @@ class NetworkManager {
         }
     }
     
-    // (POST) 라운드 참여
+    // MARK:- (POST) 라운드 참여
     func enterRound(roundIdx: Int, completion: @escaping (RoundResponse?) -> Void) {
         let url = baseURL + "/round/enter"
         
@@ -252,7 +282,7 @@ class NetworkManager {
         }
     }
     
-    // (DELETE) 라운드 나가기
+    // MARK:- (DELETE) 라운드 나가기
     func exitRound(roundIdx: Int, completion: @escaping (RoundResponse?) -> Void) {
         let url = baseURL + "/round/leave"
         
@@ -274,7 +304,7 @@ class NetworkManager {
          }
     }
     
-    // (POST) 카드 추가하기
+    // MARK:- (POST) 카드 추가하기
     func addCard(projectIdx: Int, roundIdx: Int, cardImg: UIImage?, cardTxt: String?,completion: @escaping () -> Void) {
         let url = baseURL + "/card"
         
@@ -312,7 +342,7 @@ class NetworkManager {
                     switch response.result {
                     case .success(_):
 //                        print("upload success result: \(result)")
-                        print("code: \(response.response?.statusCode)")
+//                        print("code: \(response.response?.statusCode)")
                         completion()
                     case .failure(let err):
                         print("upload err: \(err)")
@@ -320,7 +350,7 @@ class NetworkManager {
         }
     }
     
-    // (GET) 라운드 카드 리스트
+    // MARK:- (GET) 라운드 카드 리스트
     func fetchCardList(projectIdx: Int, roundIdx: Int, completion: @escaping (CardResponse?) -> Void) {
         let url = baseURL + "/round/cardList/" + "\(projectIdx)" + "/" + "\(roundIdx)"
         
@@ -338,7 +368,7 @@ class NetworkManager {
     
     // 카드 스크랩 및 취소 내부 로직
     
-    // (POST) 카드 메모 추가
+    // MARK:- (POST) 카드 메모 추가
     func addCardMemo(cardIdx: Int, memoContent: String, completion: @escaping (CardResponse?) -> Void) {
         let url = baseURL + "/card/memo"
         
@@ -360,7 +390,7 @@ class NetworkManager {
          }
     }
     
-    // (PUT) 카드 메모 수정
+    // MARK:- (PUT) 카드 메모 수정
     func modifyCardMemo(cardIdx: Int, memoContent: String, completion: @escaping (CardResponse?) -> Void) {
         let url = baseURL + "/card/memo"
         
@@ -382,7 +412,7 @@ class NetworkManager {
         }
     }
     
-    // (GET) 최종 프로젝트 정보
+    // MARK:- (GET) 최종 프로젝트 정보
     func fetchFinalProjectInfo(projectIdx: Int, completion: @escaping (ProjectResponse?) -> Void) {
         let url = baseURL + "/project/finalInfo/" + "\(projectIdx)"
         
@@ -398,7 +428,8 @@ class NetworkManager {
         }
     }
     
-    // (GET) 라운드 별 정보
+    // MARK:- (GET) 라운드 별 정보
+    
     func fetchAllRoundInfo(projectIdx: Int, completion: @escaping (RoundFinalResponse?) -> Void) {
         let url = baseURL + "/round/roundFinalInfo/" + "\(projectIdx)"
         
