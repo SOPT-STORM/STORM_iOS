@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,7 +11,7 @@
         <!--Invalid Code Pop View Controller-->
         <scene sceneID="0a2-cR-3OC">
             <objects>
-                <viewController storyboardIdentifier="InvalidCodePopViewController" id="Aun-Zc-ZCE" customClass="InvalidCodePopViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="invalidCodePopUp" id="Aun-Zc-ZCE" customClass="InvalidCodePopViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lcz-qu-Zsb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -123,12 +123,10 @@
             </objects>
             <point key="canvasLocation" x="-1295.6521739130435" y="12.723214285714285"/>
         </scene>
-        <!--reminderPopUp-->
+        <!--Reminder Pop View Controller-->
         <scene sceneID="u3Y-rn-9mN">
             <objects>
-
-                <viewController storyboardIdentifier="ReminderPopViewController" id="rff-8j-RHE" customClass="ReminderPopViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
-
+                <viewController storyboardIdentifier="reminderPopUp" id="rff-8j-RHE" customClass="ReminderPopViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="M9L-Eh-m2Y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -143,9 +141,7 @@
                                             <color key="titleColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-
                                             <action selector="confirmButtonDidPress:" destination="rff-8j-RHE" eventType="touchUpInside" id="YEz-eC-sv8"/>
-
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tFq-1F-46k">
@@ -245,9 +241,7 @@
                         <viewLayoutGuide key="safeArea" id="9sd-Fc-C5U"/>
                     </view>
                     <connections>
-
                         <outlet property="reminderView" destination="1w9-fR-3xB" id="wO3-14-TTg"/>
-
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dy5-wa-tGE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

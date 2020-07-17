@@ -11,13 +11,13 @@
         <!--Member Round Setting View Controller-->
         <scene sceneID="ybk-gu-bt8">
             <objects>
-                <viewController id="lhL-k7-tjQ" customClass="MemberRoundSettingViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="memberRoundSettingVC" id="lhL-k7-tjQ" customClass="MemberRoundSettingViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nT4-nk-Aiu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgReal" translatesAutoresizingMaskIntoConstraints="NO" id="B4w-S1-i3G">
-                                <rect key="frame" x="0.0" y="44" width="375" height="706"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hHR-d0-ABv">
                                 <rect key="frame" x="28" y="200.66666666666663" width="319" height="492"/>
@@ -176,10 +176,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="B4w-S1-i3G" firstAttribute="trailing" secondItem="dhW-u4-3RD" secondAttribute="trailing" id="0sO-MF-blK"/>
-                            <constraint firstItem="B4w-S1-i3G" firstAttribute="top" secondItem="dhW-u4-3RD" secondAttribute="top" id="4qi-Vd-uqT"/>
+                            <constraint firstItem="B4w-S1-i3G" firstAttribute="top" secondItem="nT4-nk-Aiu" secondAttribute="top" id="4qi-Vd-uqT"/>
                             <constraint firstItem="hHR-d0-ABv" firstAttribute="centerY" secondItem="nT4-nk-Aiu" secondAttribute="centerY" multiplier="1.1" id="Dcs-c0-qIS"/>
                             <constraint firstItem="hHR-d0-ABv" firstAttribute="width" secondItem="nT4-nk-Aiu" secondAttribute="width" multiplier="0.850667" id="FVK-6A-PEa"/>
                             <constraint firstItem="YcD-hw-IQg" firstAttribute="width" secondItem="nT4-nk-Aiu" secondAttribute="width" multiplier="0.773333" id="HcT-x9-r70"/>
+                            <constraint firstAttribute="bottom" secondItem="B4w-S1-i3G" secondAttribute="bottom" id="VZL-kI-Era"/>
                             <constraint firstItem="55V-XQ-YAk" firstAttribute="centerX" secondItem="nT4-nk-Aiu" secondAttribute="centerX" id="Wif-eg-NeP"/>
                             <constraint firstItem="55V-XQ-YAk" firstAttribute="centerY" secondItem="nT4-nk-Aiu" secondAttribute="centerY" multiplier="0.45" id="cZ4-FB-Ejl"/>
                             <constraint firstItem="55V-XQ-YAk" firstAttribute="width" secondItem="nT4-nk-Aiu" secondAttribute="width" multiplier="0.717333" id="f3T-Ke-DYC"/>
