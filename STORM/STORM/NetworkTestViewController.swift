@@ -25,7 +25,7 @@ class NetworkTestViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        /*
         NetworkManager.shared.fetchProjectList { (response) in
             print("fetchProjectList")
             print(response)
@@ -57,6 +57,7 @@ class NetworkTestViewController: UIViewController {
             print("프로젝트 참여자 목록")
             print(response)
         }
+        
         
         NetworkManager.shared.exitProject(projectIdx: 1) { (response) in
             print("프로젝트 나가기")
@@ -116,5 +117,6 @@ class NetworkTestViewController: UIViewController {
             print("라운드 별 정보")
             print(response)
         }
+        */
     }
 }

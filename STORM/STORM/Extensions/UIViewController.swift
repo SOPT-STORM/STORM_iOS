@@ -19,8 +19,9 @@ extension UIViewController {
         
         let toastMessage = UILabel(frame: frame)
         toastMessage.center.x = frame.origin.x
-        toastMessage.setRound(5)
-        toastMessage.addShadow(width: 1, height: 1, 0.16, 3)
+//        toastMessage.setRound(5)
+//        toastMessage.addShadow(width: 1, height: 1, 0.16, 3)
+        toastMessage.addRoundShadow(cornerRadius: 5)
         toastMessage.backgroundColor = .white
         toastMessage.font = UIFont(name: "NotoSansCJKkr-Medium", size: 11)
         toastMessage.textColor = UIColor(red: 142/256, green: 142/256, blue: 142/256, alpha: 1)
