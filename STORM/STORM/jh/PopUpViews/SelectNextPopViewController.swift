@@ -20,8 +20,9 @@ class SelectNextPopViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        selectNextPopView.layer.cornerRadius = 15
-        selectNextPopView.addShadow(width: 1, height: 3, 0.2, 5)
+//        selectNextPopView.layer.cornerRadius = 15
+//        selectNextPopView.addShadow(width: 1, height: 3, 0.2, 5)
+        selectNextPopView.addRoundShadow(cornerRadius: 15)
         selectNextPopView.clipsToBounds = true
         
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)

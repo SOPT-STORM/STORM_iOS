@@ -30,8 +30,9 @@ class RoundFinishedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        projectInfoView.addShadow(width: 1, height: 4, 0.3, 3)
-        projectInfoView.cornerRadius = 15
+//        projectInfoView.addShadow(width: 1, height: 4, 0.3, 3)
+        projectInfoView.addRoundShadow(cornerRadius: 15)
+//        projectInfoView.cornerRadius = 15
         
         // MARK: COLLECTION VIEW
         
