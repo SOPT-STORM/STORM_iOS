@@ -50,9 +50,10 @@ class HostProjectSettingViewController: UIViewController {
             let settingCodePopViewController = UIStoryboard(name: "PopUp", bundle: nil).instantiateViewController(withIdentifier: SettingCodePopViewController.identifier) as! SettingCodePopViewController
             
             self.addChild(settingCodePopViewController)
-            settingCodePopViewController.view.frame = self.view.frame
-            settingCodePopViewController.didMove(toParent: self)
+            settingCodePopViewController.view.frame = UIApplication.shared.keyWindow!.frame
+            settingCodePopViewController.didMove(toParent: self.navigationController)
             self.view.addSubview(settingCodePopViewController.view)
+            //self.modalPresentationStyle = .fullScreen
             postProjectSetting()
         }
 //        else {
@@ -76,7 +77,34 @@ class HostProjectSettingViewController: UIViewController {
         }
     }
     
-}
+    // MARK: - Set Keyboard Toolbar
+    
+    func toolbarSetup() {
+            let toolbar = UIToolbar()
+            toolbar.frame = CGRect(x: 0, y: 0, width: 0, height: 38)
+            toolbar.barTintColor = UIColor.white
+                    
+            let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+                    
+            let btnImg = UIImage.init(named: "Input_keyboard_icn")!.withRenderingMode(.alwaysOriginal)
+            
+            let hideKeybrd = UIBarButtonItem(image: btnImg, style: .done, target: self, action: #selector(hideKeyboard))
+
+            toolbar.setItems([flexibleSpace, hideKeybrd], animated: true)
+            projectNameTextField.inputAccessoryView = toolbar
+        hostMessageTextView.inputAccessoryView = toolbar
+        
+        }
+        
+        override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+            self.projectNameTextField.endEditing(true)
+            self.hostMessageTextView.endEditing(true)
+        }
+        
+        @objc func hideKeyboard(_ sender: Any){
+            self.view.endEditing(true)
+        }
+    }
 
 /*
  @IBAction func projectNameTextFieldEditingChanged(_ sender: UITextField) {
@@ -125,7 +153,6 @@ extension HostProjectSettingViewController: UITextViewDelegate {
     
 }
 
-
 extension HostProjectSettingViewController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -142,5 +169,11 @@ extension HostProjectSettingViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         projectNameTextField.font = UIFont(name: "NotoSansCJKkr-Medium", size: 13)
         projectNameTextField.textColor = UIColor.textDefaultColor
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print("return key pressed")
+        textField.resignFirstResponder()
+        return true
     }
 }

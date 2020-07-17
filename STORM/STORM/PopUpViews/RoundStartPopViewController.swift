@@ -41,20 +41,19 @@ class RoundStartPopViewController: UIViewController {
     // MARK:- viewDidAppear 선언
     
     override func viewDidAppear(_ animated: Bool) {
-//        setupAnimation()
-//      //If you are using Storyboard
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-//
-//            //If your first viewController is NOT in Navigation stack
-//            if let mainViewController = UIStoryboard(name: "MainView", bundle: nil).instantiateViewController(withIdentifier: MainViewController.identifier) as? MainViewController {
-//                
-//            self.dismiss(animated: false, completion: nil)
-//                // TODO: dismiss 추가했더니 이전뷰로 돌아가벌임... 머지 이후 라운드 진행뷰로 넘어가기
-//            self.present(mainViewController, animated: false, completion: nil)
-//            mainViewController.modalPresentationStyle = .fullScreen
-//                mainViewController.modalTransitionStyle = .coverVertical
-//            }
-//        }
+        setupAnimation()
+      //If you are using Storyboard
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+
+            //If your first viewController is NOT in Navigation stack
+            if let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AllRoundViewController") as? AllRoundViewController {
+                
+            self.removeAnimate()
+            mainVC.modalPresentationStyle = .fullScreen
+                // TODO: dismiss 추가했더니 이전뷰로 돌아가벌임... 머지 이후 라운드 진행뷰로 넘어가기
+            self.present(mainVC, animated: false, completion: nil)
+            }
+        }
     }
     
     // MARK:- 함수 선언

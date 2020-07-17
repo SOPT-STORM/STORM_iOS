@@ -51,8 +51,7 @@ class MainViewController: UIViewController {
         let vc = storyboard.instantiateViewController(withIdentifier: "hostProjectSettingVC") as! HostProjectSettingViewController
         
         self.navigationController?.pushViewController(vc, animated: true)
-        
-        
+
     }
     
     @IBAction func didPressMoreProject(_ sender: UIButton) {
