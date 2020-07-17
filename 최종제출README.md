@@ -40,50 +40,19 @@
 
 ### ⚡️Main⚡️
 
-
-<img src = "https://user-images.githubusercontent.com/59338503/87800112-f92ffa80-c888-11ea-91ab-4ebf3d474b39.png" width = "20%">
-<img src = "https://user-images.githubusercontent.com/59338503/87800119-fa612780-c888-11ea-86df-485ff04d653c.png" width = "20%">
-<img src = "https://user-images.githubusercontent.com/59338503/87800121-faf9be00-c888-11ea-9280-edb6789a2091.png" width = "20%">
-<img src = "https://user-images.githubusercontent.com/59338503/87800123-fb925480-c888-11ea-80c5-7a30bee1fc9d.png" width = "20%">
-
-<img src = "https://user-images.githubusercontent.com/59338503/87800126-fc2aeb00-c888-11ea-9e99-f329f1eca9e2.png" width = "20%">
-<img src = "https://user-images.githubusercontent.com/59338503/87800129-fc2aeb00-c888-11ea-9eac-968d9b188789.png" width = "20%">
-<img src = "https://user-images.githubusercontent.com/59338503/87800131-fcc38180-c888-11ea-8f49-57b476354bab.png" width = "20%">
-<img src = "https://user-images.githubusercontent.com/59338503/87800135-fd5c1800-c888-11ea-8a37-721f867c0e77.png" width = "20%">
-
-<img src = "https://user-images.githubusercontent.com/59338503/87800136-fdf4ae80-c888-11ea-94ca-e1a037f50743.png" width = "20%">
-<img src = "https://user-images.githubusercontent.com/59338503/87800139-fe8d4500-c888-11ea-8bb0-e7491f0b959e.png" width = "20%">
-<img src = "https://user-images.githubusercontent.com/59338503/87800141-fe8d4500-c888-11ea-8463-852c97e82259.png" width = "20%">
-<img src = "https://user-images.githubusercontent.com/59338503/87800144-ff25db80-c888-11ea-9fd8-90dd5228a779.png" width = "20%">
-
-
-<img src = "https://user-images.githubusercontent.com/59338503/87800147-ffbe7200-c888-11ea-837a-41faaf9466a7.png" width = "20%">
-<img src = "https://user-images.githubusercontent.com/59338503/87800152-00570880-c889-11ea-9da7-befa7e7bbcc9.png" width = "20%">
-<img src = "https://user-images.githubusercontent.com/59338503/87800154-00570880-c889-11ea-8708-1eeb4b9f577d.png" width = "20%">
-<img src = "https://user-images.githubusercontent.com/59338503/87800158-00ef9f00-c889-11ea-9d4b-0f9b29dcd354.png" width = "20%">
-
-<img src = "https://user-images.githubusercontent.com/59338503/87800161-01883580-c889-11ea-8ebe-3925a95cd0bf.png" width = "20%">
-<img src = "https://user-images.githubusercontent.com/59338503/87800166-0220cc00-c889-11ea-8f21-32d544bbd172.png" width = "20%">
-<img src = "https://user-images.githubusercontent.com/59338503/87800168-0220cc00-c889-11ea-9a47-4b9f4da5e924.png" width = "20%">
-<img src = "https://user-images.githubusercontent.com/59338503/87800172-02b96280-c889-11ea-86d4-4c77d00f0655.png" width = "20%">
-
-<img src = "https://user-images.githubusercontent.com/59338503/87800177-0351f900-c889-11ea-95fd-805c3c502d30.png" width = "20%">
-
-
-
-<img src="/Users/kimjihyeon/Desktop/storm_main.png" alt="storm_main" style="zoom:25%;" /><img src="/Users/kimjihyeon/Desktop/storm_nocode.png" alt="storm_nocode" style="zoom:25%;" />
+<img src = "https://user-images.githubusercontent.com/59338503/87800152-00570880-c889-11ea-9da7-befa7e7bbcc9.png" width = "20%"><img src = "https://user-images.githubusercontent.com/59338503/87800158-00ef9f00-c889-11ea-9d4b-0f9b29dcd354.png" width = "20%">
 
 > 메인화면, 없는 참여 코드 안내 (팝업)
 
 
 
-<img src="/Users/kimjihyeon/Desktop/storm_code.png" alt="storm_code" style="zoom:25%;" />
+<img src = "https://user-images.githubusercontent.com/59338503/87800135-fd5c1800-c888-11ea-8a37-721f867c0e77.png" width = "20%">
 
 > 참여코드 생성 (팝업)
 
 
 
-<img src="/Users/kimjihyeon/Desktop/storm_recent.png" alt="storm_recent" style="zoom:25%;" />
+<img src = "https://user-images.githubusercontent.com/59338503/87800154-00570880-c889-11ea-8708-1eeb4b9f577d.png" width = "20%">
 
 > 참여한 프로젝트 더보기
 
@@ -97,19 +66,19 @@
 
 
 
-<img src="/Users/kimjihyeon/Desktop/storm_rule.png" alt="storm_rule" style="zoom:25%;" /><img src="/Users/kimjihyeon/Desktop/storm_startload.png" alt="storm_startload" style="zoom:25%;" />
+<img src = "https://user-images.githubusercontent.com/59338503/87800136-fdf4ae80-c888-11ea-94ca-e1a037f50743.png" width = "20%"><img src = "https://user-images.githubusercontent.com/59338503/87800123-fb925480-c888-11ea-80c5-7a30bee1fc9d.png" width = "20%">
 
 > 브레인스토밍 툴 리마인더 (팝업), 라운드 시작 안내 (팝업)
 
 
 
-<img src="/Users/kimjihyeon/Desktop/storm_roundend.png" alt="storm_roundend" style="zoom:25%;" /> <img src="/Users/kimjihyeon/Desktop/Simulator Screen Shot - iPhone 11 Pro - 2020-07-17 at 22.50.51.png" alt="Simulator Screen Shot - iPhone 11 Pro - 2020-07-17 at 22.50.51" style="zoom: 25%;" />
+<img src = "https://user-images.githubusercontent.com/59338503/87800168-0220cc00-c889-11ea-9a47-4b9f4da5e924.png" width = "20%"> <img src = "https://user-images.githubusercontent.com/59338503/87800139-fe8d4500-c888-11ea-8bb0-e7491f0b959e.png" width = "20%">
 
 > 라운드 종료 후 회의, 카드 회전목마 보기
 
 
 
-<img src="/Users/kimjihyeon/Desktop/storm_nexthost.png" alt="storm_nexthost" style="zoom:25%;" />
+<img src = "https://user-images.githubusercontent.com/59338503/87800126-fc2aeb00-c888-11ea-9e99-f329f1eca9e2.png" width = "20%">
 
 > 다음 단계 선택 (팝업)
 
@@ -117,19 +86,19 @@
 
 ### ⚡️Project MEMBER⚡️
 
-<img src="/Users/kimjihyeon/Desktop/storm_ing.png" alt="storm_ing" style="zoom:25%;" /> <img src="/Users/kimjihyeon/Desktop/storm_rule.png" alt="storm_rule" style="zoom:25%;" /><img src="/Users/kimjihyeon/Desktop/storm_proout.png" alt="storm_proout" style="zoom:25%;" />
+<img src = "https://user-images.githubusercontent.com/59338503/87800172-02b96280-c889-11ea-86d4-4c77d00f0655.png" width = "20%"> <img src = "https://user-images.githubusercontent.com/59338503/87800136-fdf4ae80-c888-11ea-94ca-e1a037f50743.png" width = "20%"><img src = "https://user-images.githubusercontent.com/59338503/87800141-fe8d4500-c888-11ea-8463-852c97e82259.png" width = "20%">
 
 > 라운드 설정 대기, 브레인스토밍 룰 리마인더 (팝업), 프로젝트 나가기 (팝업)
 
 
 
-<img src="/Users/kimjihyeon/Desktop/storm_done.png" alt="storm_done" style="zoom:25%;" /> <img src="/Users/kimjihyeon/Desktop/storm_rule.png" alt="storm_rule" style="zoom:25%;" /><img src="/Users/kimjihyeon/Desktop/storm_proout.png" alt="storm_" style="zoom:25%;" /><img src="/Users/kimjihyeon/Desktop/storm_startload.png" alt="storm_startload" style="zoom:25%;" />
+<img src = "https://user-images.githubusercontent.com/59338503/87800177-0351f900-c889-11ea-95fd-805c3c502d30.png" width = "20%"> <img src = "https://user-images.githubusercontent.com/59338503/87800136-fdf4ae80-c888-11ea-94ca-e1a037f50743.png" width = "20%"><img src = "https://user-images.githubusercontent.com/59338503/87800141-fe8d4500-c888-11ea-8463-852c97e82259.png" width = "20%"><img src = "https://user-images.githubusercontent.com/59338503/87800123-fb925480-c888-11ea-80c5-7a30bee1fc9d.png" width = "20%">
 
 > 라운드 시작 대기, 브레인스토밍 룰 리마인더 (팝업), 프로젝트 나가기 (팝업), 라운드 시작 안내 (팝업)
 
 
 
-<img src="/Users/kimjihyeon/Desktop/storm_nextmember.png" alt="storm_nextmember" style="zoom:25%;" />
+<img src = "https://user-images.githubusercontent.com/59338503/87800166-0220cc00-c889-11ea-8f21-32d544bbd172.png" width = "20%">
 
 > 라운드 종료 후 회의
 
@@ -137,13 +106,13 @@
 
 ### ⚡️Project ALL⚡️
 
-<img src="/Users/kimjihyeon/Desktop/storm_image.png" alt="storm_image" style="zoom:25%;" /> <img src="/Users/kimjihyeon/Desktop/storm_totext.png" alt="storm_totext" style="zoom:25%;" />
+<img src = "https://user-images.githubusercontent.com/59338503/87800147-ffbe7200-c888-11ea-837a-41faaf9466a7.png" width = "20%"> <img src = "https://user-images.githubusercontent.com/59338503/87800131-fcc38180-c888-11ea-8f49-57b476354bab.png" width = "20%">
 
 > 그림 카드 추가, 글 모드로 변경 시 안내 (팝업)
 
 
 
-<img src="/Users/kimjihyeon/Desktop/storm_text.png" alt="storm_text" style="zoom:25%;" /> <img src="/Users/kimjihyeon/Desktop/storm_toimage.png" alt="storm_toimage" style="zoom:25%;" />
+<img src = "https://user-images.githubusercontent.com/59338503/87800112-f92ffa80-c888-11ea-91ab-4ebf3d474b39.png" width = "20%"> <img src = "https://user-images.githubusercontent.com/59338503/87800144-ff25db80-c888-11ea-9fd8-90dd5228a779.png" width = "20%">
 
 > 글 카드 추가, 그림 모드로 변경 시 안내 (팝업)
 
@@ -157,13 +126,13 @@
 
 ### ⚡️Project FINAL⚡️
 
-<img src="/Users/kimjihyeon/Desktop/storm_round.png" alt="storm_round" style="zoom:25%;" /><img src="/Users/kimjihyeon/Desktop/storm_bigcard2.png" alt="storm_bigcard2" style="zoom:25%;" />
+<img src = "https://user-images.githubusercontent.com/59338503/87800129-fc2aeb00-c888-11ea-9eac-968d9b188789.png" width = "20%"><img src = "https://user-images.githubusercontent.com/59338503/87800121-faf9be00-c888-11ea-9280-edb6789a2091.png" width = "20%">
 
 > 라운드 별 카드 리스트, 카드 크게보기 & 메모
 
 
 
-<img src="/Users/kimjihyeon/Desktop/storm_scrap.png" alt="storm_scrap" style="zoom:25%;" /><img src="/Users/kimjihyeon/Desktop/storm_bigcard.png" alt="storm_bigcard" style="zoom:25%;" />
+<img src = "https://user-images.githubusercontent.com/59338503/87800161-01883580-c889-11ea-8ebe-3925a95cd0bf.png" width = "20%"><img src = "https://user-images.githubusercontent.com/59338503/87800119-fa612780-c888-11ea-86df-485ff04d653c.png" width = "20%">
 
 > 스크랩한 카드 리스트, 카드 크게보기 & 메모
 
