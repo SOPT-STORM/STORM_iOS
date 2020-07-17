@@ -1,19 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vSH-Fj-0r4">
-ProjectForHost.storyboard
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="NotoSansCJKkr-Bold.otf">
-            <string>NotoSansCJKkr-Bold</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Host Project Setting View Controller-->
         <scene sceneID="5Vu-KV-Yad">
@@ -27,13 +20,10 @@ ProjectForHost.storyboard
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FD6-Et-mek">
-
-
-                                <rect key="frame" x="27" y="63" width="130" height="24"/>
+                                <rect key="frame" x="27" y="67.666666666666671" width="130" height="19.333333333333329"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="130" id="WqN-l3-FNs"/>
                                 </constraints>
-
                                 <attributedString key="attributedText">
                                     <fragment content="프로젝트 추가하기">
                                         <attributes>
@@ -253,20 +243,18 @@ ProjectForHost.storyboard
                                     <fragment content="ROUND10 설정">
                                         <attributes>
                                             <color key="NSColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-
                                             <font key="NSFont" size="15" name="NotoSansCJKkr-Bold"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-ProjectForHost.storyboard
                                         </attributes>
                                     </fragment>
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T30-45-CtW">
-                                <rect key="frame" x="50.666666666666657" y="460" width="274" height="95"/>
+                                <rect key="frame" x="50.666666666666657" y="508.66666666666674" width="274" height="95"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="라운드 소요 시간" minimumFontSize="10" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="699-zU-1y9">
-                                        <rect key="frame" x="0.0" y="55" width="274" height="40"/>
+                                        <rect key="frame" x="0.0" y="54.999999999999943" width="274" height="40"/>
                                         <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="QKd-Xy-AJT"/>
@@ -295,19 +283,16 @@ ProjectForHost.storyboard
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="699-zU-1y9" secondAttribute="trailing" id="3lH-GV-ydg"/>
-                                    <constraint firstItem="699-zU-1y9" firstAttribute="leading" secondItem="T30-45-CtW" secondAttribute="leading" id="91Y-N3-1NO"/>
-                                    <constraint firstAttribute="height" constant="95" id="U9r-xr-hXa"/>
-                                    <constraint firstAttribute="trailing" secondItem="cCI-c5-58m" secondAttribute="trailing" id="aPq-8m-ZIV"/>
-                                    <constraint firstItem="cCI-c5-58m" firstAttribute="width" secondItem="T30-45-CtW" secondAttribute="width" id="cld-v8-J3c"/>
-                                    <constraint firstItem="cCI-c5-58m" firstAttribute="top" secondItem="T30-45-CtW" secondAttribute="top" id="fWf-T0-oIO"/>
-                                    <constraint firstItem="699-zU-1y9" firstAttribute="width" secondItem="T30-45-CtW" secondAttribute="width" id="grj-pY-4jB"/>
-                                    <constraint firstAttribute="bottom" secondItem="699-zU-1y9" secondAttribute="bottom" id="gwx-O5-eCI"/>
-                                    <constraint firstItem="cCI-c5-58m" firstAttribute="leading" secondItem="T30-45-CtW" secondAttribute="leading" id="zlD-7G-rvV"/>
+                                    <constraint firstItem="699-zU-1y9" firstAttribute="leading" secondItem="T30-45-CtW" secondAttribute="leading" id="9sk-rf-e33"/>
+                                    <constraint firstItem="cCI-c5-58m" firstAttribute="leading" secondItem="T30-45-CtW" secondAttribute="leading" id="B4w-Pt-iy1"/>
+                                    <constraint firstItem="cCI-c5-58m" firstAttribute="top" secondItem="T30-45-CtW" secondAttribute="top" id="adj-9a-JBe"/>
+                                    <constraint firstAttribute="trailing" secondItem="699-zU-1y9" secondAttribute="trailing" id="eaa-en-Imi"/>
+                                    <constraint firstAttribute="bottom" secondItem="699-zU-1y9" secondAttribute="bottom" id="fAY-fx-cCP"/>
+                                    <constraint firstAttribute="height" constant="95" id="hVN-D1-ghm"/>
+                                    <constraint firstAttribute="trailing" secondItem="cCI-c5-58m" secondAttribute="trailing" id="r3V-s8-lOx"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ffg-EM-hTm">
@@ -426,6 +411,7 @@ ProjectForHost.storyboard
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="iKl-me-qzG" firstAttribute="top" secondItem="XNS-ZQ-sQm" secondAttribute="bottom" constant="28" id="01P-ec-Xft"/>
+                            <constraint firstItem="T30-45-CtW" firstAttribute="width" secondItem="9dl-Gl-B1c" secondAttribute="width" multiplier="0.730667" id="28x-yP-ahO"/>
                             <constraint firstItem="w20-DK-Zkl" firstAttribute="centerY" secondItem="9dl-Gl-B1c" secondAttribute="centerY" multiplier="1.55" constant="10" id="4T2-wA-6Fv"/>
                             <constraint firstItem="ezN-s7-12r" firstAttribute="leading" secondItem="3f5-2K-MG0" secondAttribute="leading" id="4pC-u0-ghY"/>
                             <constraint firstItem="cgw-eG-Nnv" firstAttribute="top" secondItem="9dl-Gl-B1c" secondAttribute="top" id="8HS-yG-bAo"/>
@@ -434,7 +420,6 @@ ProjectForHost.storyboard
                             <constraint firstItem="iKl-me-qzG" firstAttribute="centerX" secondItem="9dl-Gl-B1c" secondAttribute="centerX" id="BPI-JS-8F1"/>
                             <constraint firstItem="cgw-eG-Nnv" firstAttribute="trailing" secondItem="3f5-2K-MG0" secondAttribute="trailing" id="Cnn-90-2NO"/>
                             <constraint firstItem="w20-DK-Zkl" firstAttribute="centerX" secondItem="9dl-Gl-B1c" secondAttribute="centerX" id="Ekl-OD-S82"/>
-                            <constraint firstItem="T30-45-CtW" firstAttribute="centerX" secondItem="9dl-Gl-B1c" secondAttribute="centerX" id="I3r-J3-7Sq"/>
                             <constraint firstAttribute="bottom" secondItem="cgw-eG-Nnv" secondAttribute="bottom" id="Ili-6W-vib"/>
                             <constraint firstItem="ffg-EM-hTm" firstAttribute="centerY" secondItem="9dl-Gl-B1c" secondAttribute="centerY" multiplier="0.4" constant="6" id="ItW-am-nEy"/>
                             <constraint firstItem="XNS-ZQ-sQm" firstAttribute="centerX" secondItem="9dl-Gl-B1c" secondAttribute="centerX" id="JxS-Ld-1t6"/>
@@ -443,10 +428,10 @@ ProjectForHost.storyboard
                             <constraint firstItem="cQD-Eh-2rw" firstAttribute="leading" secondItem="3f5-2K-MG0" secondAttribute="leading" constant="27" id="UfR-K1-lth"/>
                             <constraint firstItem="cgw-eG-Nnv" firstAttribute="leading" secondItem="3f5-2K-MG0" secondAttribute="leading" id="Xgg-oi-JJN"/>
                             <constraint firstItem="cQD-Eh-2rw" firstAttribute="height" secondItem="9dl-Gl-B1c" secondAttribute="height" multiplier="0.585911" id="bu9-ig-Hzv"/>
-                            <constraint firstItem="T30-45-CtW" firstAttribute="centerY" secondItem="9dl-Gl-B1c" secondAttribute="centerY" multiplier="1.25" id="cfv-Yq-468"/>
-                            <constraint firstItem="T30-45-CtW" firstAttribute="width" secondItem="9dl-Gl-B1c" secondAttribute="width" multiplier="0.730667" id="d0U-ov-7jh"/>
                             <constraint firstItem="iKl-me-qzG" firstAttribute="width" secondItem="9dl-Gl-B1c" secondAttribute="width" multiplier="0.096" id="fvj-Jv-xPf"/>
                             <constraint firstItem="ffg-EM-hTm" firstAttribute="width" secondItem="9dl-Gl-B1c" secondAttribute="width" multiplier="0.717333" id="m6j-L9-5dh"/>
+                            <constraint firstItem="T30-45-CtW" firstAttribute="centerY" secondItem="9dl-Gl-B1c" secondAttribute="centerY" multiplier="1.37" id="n16-Fv-TxC"/>
+                            <constraint firstItem="T30-45-CtW" firstAttribute="centerX" secondItem="9dl-Gl-B1c" secondAttribute="centerX" id="nxx-lv-qeU"/>
                             <constraint firstItem="ezN-s7-12r" firstAttribute="trailing" secondItem="3f5-2K-MG0" secondAttribute="trailing" id="rFt-NN-jh6"/>
                             <constraint firstItem="3f5-2K-MG0" firstAttribute="trailing" secondItem="cQD-Eh-2rw" secondAttribute="trailing" constant="27" id="tOK-Wb-g2V"/>
                             <constraint firstItem="ezN-s7-12r" firstAttribute="bottom" secondItem="3f5-2K-MG0" secondAttribute="bottom" id="txi-ff-Pqs"/>
@@ -460,7 +445,7 @@ ProjectForHost.storyboard
                         <outlet property="roundGoalTextField" destination="cCI-c5-58m" id="Iuo-J0-Vk1"/>
                         <outlet property="roundIndexSetLabel" destination="XNS-ZQ-sQm" id="Rro-ZY-p9g"/>
                         <outlet property="stormLogoImage" destination="iKl-me-qzG" id="9g8-Ov-7Bh"/>
-                        <outlet property="textFieldYConstraint" destination="cfv-Yq-468" id="NcP-98-Pkl"/>
+                        <outlet property="textFieldYConstraint" destination="n16-Fv-TxC" id="xfm-Tl-m5O"/>
                         <outlet property="timeLimitPickerView" destination="ezN-s7-12r" id="6HP-hr-2OE"/>
                         <outlet property="timeLimitTextField" destination="699-zU-1y9" id="yQT-Yz-2mM"/>
                     </connections>
@@ -469,7 +454,6 @@ ProjectForHost.storyboard
             </objects>
             <point key="canvasLocation" x="212" y="810"/>
         </scene>
-
         <!--Reminder Popup View Controller-->
         <scene sceneID="EKB-I7-hN7">
             <objects>
@@ -518,7 +502,7 @@ ProjectForHost.storyboard
                                                 <fragment content="확인">
                                                     <attributes>
                                                         <color key="NSColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <font key="NSFont" metaFont="system" size="14"/>
+                                                        <font key="NSFont" metaFont="menu" size="14"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>
@@ -537,7 +521,7 @@ ProjectForHost.storyboard
                                                     <fragment content="아이디어를 시각화하며 진행해요">
                                                         <attributes>
                                                             <color key="NSColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <font key="NSFont" metaFont="cellTitle"/>
+                                                            <font key="NSFont" metaFont="label" size="12"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
                                                     </fragment>
@@ -550,7 +534,7 @@ ProjectForHost.storyboard
                                                     <fragment content="다듬어지지 않은 아이디어를 장려해요">
                                                         <attributes>
                                                             <color key="NSColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <font key="NSFont" metaFont="cellTitle"/>
+                                                            <font key="NSFont" metaFont="label" size="12"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
                                                     </fragment>
@@ -563,7 +547,7 @@ ProjectForHost.storyboard
                                                     <fragment content="다른 사람의 아이디어를 더 발전시켜요">
                                                         <attributes>
                                                             <color key="NSColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <font key="NSFont" metaFont="cellTitle"/>
+                                                            <font key="NSFont" metaFont="label" size="12"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
                                                     </fragment>
@@ -576,7 +560,7 @@ ProjectForHost.storyboard
                                                     <fragment content="주제에 집중하고 목표에 초점을 맞추어 토론해요">
                                                         <attributes>
                                                             <color key="NSColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <font key="NSFont" metaFont="cellTitle"/>
+                                                            <font key="NSFont" metaFont="label" size="12"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
                                                     </fragment>
@@ -589,7 +573,7 @@ ProjectForHost.storyboard
                                                     <fragment content="한 번에 한 가지 주제로 대화를 해요">
                                                         <attributes>
                                                             <color key="NSColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <font key="NSFont" metaFont="cellTitle"/>
+                                                            <font key="NSFont" metaFont="label" size="12"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
                                                     </fragment>
@@ -602,7 +586,7 @@ ProjectForHost.storyboard
                                                     <fragment content="판단은 보류해요">
                                                         <attributes>
                                                             <color key="NSColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <font key="NSFont" metaFont="cellTitle"/>
+                                                            <font key="NSFont" metaFont="label" size="12"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
                                                     </fragment>
@@ -615,7 +599,7 @@ ProjectForHost.storyboard
                                                     <fragment content="아이디어의 질보다는 양을 추구해요">
                                                         <attributes>
                                                             <color key="NSColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <font key="NSFont" metaFont="cellTitle"/>
+                                                            <font key="NSFont" metaFont="label" size="12"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
                                                     </fragment>
@@ -665,7 +649,7 @@ ProjectForHost.storyboard
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qQb-bH-Zl6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1607" y="149"/>
+            <point key="canvasLocation" x="-594" y="106"/>
         </scene>
         <!--Host Round Start View Controller-->
         <scene sceneID="SuJ-1H-Maz">
@@ -710,9 +694,8 @@ ProjectForHost.storyboard
                                                 <fragment content="브레인스토밍 룰 확인 ">
                                                     <attributes>
                                                         <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-
                                                         <font key="NSFont" size="11" name="NotoSansCJKkr-Medium"/>
-                                                       <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>
                                             </attributedString>
@@ -769,7 +752,7 @@ ProjectForHost.storyboard
                                             <fragment content="ROUND 목표 들깨는 귀여운 아기 천사 최고의 강아지">
                                                 <attributes>
                                                     <color key="NSColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <font key="NSFont" metaFont="cellTitle"/>
+                                                    <font key="NSFont" metaFont="label" size="12"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
@@ -786,7 +769,7 @@ ProjectForHost.storyboard
                                             <fragment content="총 10분 예정">
                                                 <attributes>
                                                     <color key="NSColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <font key="NSFont" metaFont="cellTitle"/>
+                                                    <font key="NSFont" metaFont="label" size="12"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
@@ -833,7 +816,7 @@ ProjectForHost.storyboard
                                         <rect key="frame" x="0.0" y="0.0" width="269" height="171"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LMj-ZA-MsD">
-                                        <rect key="frame" x="97.666666666666657" y="97.333333333333343" width="74" height="11"/>
+                                        <rect key="frame" x="97.666666666666657" y="96.666666666666657" width="74" height="11"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="11" id="ILU-yL-4qU"/>
                                             <constraint firstAttribute="width" constant="74" id="PCk-6i-je0"/>
@@ -850,17 +833,16 @@ ProjectForHost.storyboard
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TtN-bJ-wyh">
-
-                                        <rect key="frame" x="49.666666666666686" y="74.333333333333343" width="170" height="22.333333333333329"/>
+                                        <rect key="frame" x="49.666666666666686" y="77" width="170" height="16.666666666666671"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="170" id="4Zu-Sw-TXk"/>
                                         </constraints>
-
                                         <attributedString key="attributedText">
                                             <fragment content="프로젝트명">
                                                 <attributes>
                                                     <color key="NSColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <font key="NSFont" metaFont="system" size="15"/>
+                                                    <font key="NSFont" size="15" name=".AppleSDGothicNeoI-Regular"/>
+                                                    <font key="NSOriginalFont" metaFont="system" size="15"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
@@ -990,131 +972,6 @@ ProjectForHost.storyboard
                 <tapGestureRecognizer id="dZQ-G4-Wlk"/>
             </objects>
             <point key="canvasLocation" x="1089" y="810"/>
-        </scene>
-        <!--Scrap Card View Controller-->
-        <scene sceneID="atw-mO-EJ6">
-            <objects>
-                <viewController id="kaH-2G-WI8" customClass="ScrapCardViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Jnf-DN-sGw">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="v0c-0D-Dah">
-                                <rect key="frame" x="0.0" y="152" width="375" height="660"/>
-                                <color key="backgroundColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="msl-C1-A7h" customClass="AlignedCollectionViewFlowLayout" customModule="STORM" customModuleProvider="target">
-                                    <size key="itemSize" width="128" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells/>
-                            </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9dr-24-Ndl">
-                                <rect key="frame" x="0.0" y="44" width="375" height="108"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="스크랩한 카드" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l2N-Qg-E9M">
-                                        <rect key="frame" x="26" y="11" width="93" height="24"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="16"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KZj-BN-Wml">
-                                        <rect key="frame" x="26" y="51" width="322" height="40"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LUR-Su-v4t">
-                                                <rect key="frame" x="14" y="10" width="75.666666666666671" height="20"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <attributedString key="attributedText">
-                                                    <fragment content="프로젝트 제목">
-                                                        <attributes>
-                                                            <color key="NSColor" red="0.92549019610000005" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <font key="NSFont" size="13" name="NotoSansCJKkr-Bold"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dUL-S6-yis">
-                                                <rect key="frame" x="224" y="10" width="82" height="20"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <attributedString key="attributedText">
-                                                    <fragment content="총 10개의 카드">
-                                                        <attributes>
-                                                            <color key="NSColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <font key="NSFont" size="13" name="NotoSansCJKkr-Medium"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="10"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                <real key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                <real key="value" value="0.20000000000000001"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                                <size key="value" width="0.0" height="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                                <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" red="0.92549019610000005" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="108" id="cL4-7p-J6q"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                        <real key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                        <real key="value" value="0.20000000000000001"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                        <size key="value" width="0.0" height="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                        <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" red="0.92549019610000005" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="v0c-0D-Dah" firstAttribute="height" secondItem="Jnf-DN-sGw" secondAttribute="height" multiplier="0.811576" priority="750" id="Brk-WU-97e"/>
-                            <constraint firstItem="9dr-24-Ndl" firstAttribute="leading" secondItem="alm-e1-DuB" secondAttribute="leading" id="GV7-9i-PrC"/>
-                            <constraint firstItem="v0c-0D-Dah" firstAttribute="top" secondItem="9dr-24-Ndl" secondAttribute="bottom" id="Hcp-y4-THW"/>
-                            <constraint firstItem="9dr-24-Ndl" firstAttribute="top" secondItem="alm-e1-DuB" secondAttribute="top" id="MVP-ZQ-gHV"/>
-                            <constraint firstItem="9dr-24-Ndl" firstAttribute="trailing" secondItem="alm-e1-DuB" secondAttribute="trailing" id="NIq-WF-qBO"/>
-                            <constraint firstAttribute="bottom" secondItem="v0c-0D-Dah" secondAttribute="bottom" id="Qv1-K1-xXH"/>
-                            <constraint firstItem="v0c-0D-Dah" firstAttribute="trailing" secondItem="alm-e1-DuB" secondAttribute="trailing" id="oRb-YA-waT"/>
-                            <constraint firstItem="v0c-0D-Dah" firstAttribute="leading" secondItem="alm-e1-DuB" secondAttribute="leading" id="t7J-4n-k3a"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="alm-e1-DuB"/>
-                    </view>
-                    <connections>
-                        <outlet property="cardCountLabel" destination="dUL-S6-yis" id="kQd-G7-qgx"/>
-                        <outlet property="cardScrapCollectionView" destination="v0c-0D-Dah" id="VwF-JU-cNh"/>
-                        <outlet property="projectTitleView" destination="KZj-BN-Wml" id="uwh-c3-CB6"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aGt-2X-Nxs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2706" y="742"/>
         </scene>
     </scenes>
     <resources>
