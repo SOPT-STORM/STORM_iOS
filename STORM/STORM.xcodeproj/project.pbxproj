@@ -8,28 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		0BE507DF34E6144C923BB667 /* Pods_STORM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F413571526ADC3ABE1F9D186 /* Pods_STORM.framework */; };
-
-		B82C5D6D24B741600016DB68 /* ParticipatedProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82C5D6C24B741600016DB68 /* ParticipatedProjectCell.swift */; };
-		B82C5D7124B7597A0016DB68 /* ParticipatedProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82C5D7024B7597A0016DB68 /* ParticipatedProject.swift */; };
-		B82C5D7524B78BF90016DB68 /* real_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = B82C5D7424B78BF90016DB68 /* real_loading.json */; };
-
 		B82094D524BCE25700DB543F /* real_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = B82094D424BCE25700DB543F /* real_loading.json */; };
 		B825FA2B24BCBA3D0098463D /* RecentProjectCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B825FA2924BCBA3D0098463D /* RecentProjectCardCollectionViewCell.swift */; };
 		B825FA2C24BCBA3D0098463D /* RecentProjectCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B825FA2A24BCBA3D0098463D /* RecentProjectCardCollectionViewCell.xib */; };
 		B825FA2E24BCBAA90098463D /* ProjectFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B825FA2D24BCBAA90098463D /* ProjectFinishedViewController.swift */; };
 		B864A9BF24C02A18002B700B /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B864A9BE24C02A18002B700B /* ReusableView.swift */; };
-
 		B88B6C3E24B83AB300F22DDE /* ViewMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88B6C3D24B83AB300F22DDE /* ViewMoreViewController.swift */; };
 		B8A25EA724B4D5D900C07092 /* MainView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8A25EA624B4D5D900C07092 /* MainView.storyboard */; };
-
-		B8A25EA924B4D7B500C07092 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A25EA824B4D7B500C07092 /* MainViewController.swift */; };
 		B8D7DB6D24BF711700DE9D02 /* ScrappedCardTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D7DB6C24BF711700DE9D02 /* ScrappedCardTextCell.swift */; };
 		B8D7DB6F24BF712B00DE9D02 /* ScrappedCardImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D7DB6E24BF712B00DE9D02 /* ScrappedCardImageCell.swift */; };
 		B8D7DB7124BF912D00DE9D02 /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D7DB7024BF912D00DE9D02 /* ExampleViewController.swift */; };
-
-		B8A25EAF24B5FF5E00C07092 /* login_bg.json in Resources */ = {isa = PBXBuildFile; fileRef = B8A25EAE24B5FF5E00C07092 /* login_bg.json */; };
-		B8E2B64B24B24ADA0098F677 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E2B64A24B24ADA0098F677 /* Login.storyboard */; };
-
 		B8E9FA7224B9B7CB00A97235 /* InvalidCodePopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9FA7124B9B7CB00A97235 /* InvalidCodePopViewController.swift */; };
 		B8E9FA7424B9B7FC00A97235 /* PopUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E9FA7324B9B7FC00A97235 /* PopUp.storyboard */; };
 		B8E9FA7A24B9FC0500A97235 /* ReminderPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9FA7924B9FC0500A97235 /* ReminderPopViewController.swift */; };
@@ -47,6 +35,9 @@
 		D12EC24D24AB4072007E5896 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D12EC24B24AB4072007E5896 /* LaunchScreen.storyboard */; };
 		D147598524AB4DA3006C4122 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D147598424AB4DA3006C4122 /* SceneDelegate.swift */; };
 		D147B40324BDABAA0064B026 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = D147B40224BDABAA0064B026 /* Card.swift */; };
+		D14B131E24C1E6D6002E87F2 /* AllRoundCarouselViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14B131D24C1E6D6002E87F2 /* AllRoundCarouselViewController.swift */; };
+		D14B132024C1E92B002E87F2 /* CarouselFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14B131F24C1E92B002E87F2 /* CarouselFlowLayout.swift */; };
+		D14B132224C1EBAB002E87F2 /* CarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14B132124C1EBAB002E87F2 /* CarouselCell.swift */; };
 		D15088AB24BD98DD007D9596 /* Round.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15088AA24BD98DC007D9596 /* Round.swift */; };
 		D154C46424BEECF700FC95C9 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D154C46324BEECF700FC95C9 /* UIImage.swift */; };
 		D15EA3EE24BF3FD900D3017F /* MemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15EA3ED24BF3FD900D3017F /* MemoCell.swift */; };
@@ -59,15 +50,9 @@
 		D19533B724BCB072008DB22F /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19533B624BCB072008DB22F /* Member.swift */; };
 		D1E5837324BC95690013FB7C /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5837124BC95690013FB7C /* Canvas.swift */; };
 		D1E5837424BC95690013FB7C /* AddCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5837224BC95690013FB7C /* AddCardViewController.swift */; };
-		D1E5837F24BC95990013FB7C /* CollecViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5837524BC95970013FB7C /* CollecViewController2.swift */; };
-		D1E5838024BC95990013FB7C /* UPCarouselFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5837624BC95970013FB7C /* UPCarouselFlow.swift */; };
-		D1E5838124BC95990013FB7C /* CollecViewController4.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5837724BC95980013FB7C /* CollecViewController4.swift */; };
-		D1E5838224BC95990013FB7C /* CollectionFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5837824BC95980013FB7C /* CollectionFlowLayout.swift */; };
-		D1E5838324BC95990013FB7C /* CollecViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5837924BC95980013FB7C /* CollecViewController.swift */; };
 		D1E5838524BC95990013FB7C /* RoundMeetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5837B24BC95980013FB7C /* RoundMeetingViewController.swift */; };
 		D1E5838624BC95990013FB7C /* NetworkTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5837C24BC95980013FB7C /* NetworkTestViewController.swift */; };
 		D1E5838724BC95990013FB7C /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5837D24BC95990013FB7C /* SocketIOManager.swift */; };
-		D1E5838A24BC95BB0013FB7C /* CollecViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5838924BC95BB0013FB7C /* CollecViewController3.swift */; };
 		D1E5838C24BC96270013FB7C /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5838B24BC96270013FB7C /* UIViewController.swift */; };
 		D1E5838F24BC964F0013FB7C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5838E24BC964E0013FB7C /* User.swift */; };
 		D1E5839424BC965C0013FB7C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5839124BC965C0013FB7C /* NetworkManager.swift */; };
@@ -107,17 +92,13 @@
 
 /* Begin PBXFileReference section */
 		446905E67F662B2207C7B0E7 /* Pods-STORM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STORM.debug.xcconfig"; path = "Target Support Files/Pods-STORM/Pods-STORM.debug.xcconfig"; sourceTree = "<group>"; };
-
-		B82C5D6C24B741600016DB68 /* ParticipatedProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipatedProjectCell.swift; sourceTree = "<group>"; };
-		B82C5D7024B7597A0016DB68 /* ParticipatedProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipatedProject.swift; sourceTree = "<group>"; };
-		B82C5D7424B78BF90016DB68 /* real_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = real_loading.json; path = STORM/jh/PopUpViews/real_loading.json; sourceTree = SOURCE_ROOT; };
-
 		B82094D424BCE25700DB543F /* real_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = real_loading.json; sourceTree = "<group>"; };
 		B825FA2924BCBA3D0098463D /* RecentProjectCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentProjectCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		B825FA2A24BCBA3D0098463D /* RecentProjectCardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecentProjectCardCollectionViewCell.xib; sourceTree = "<group>"; };
 		B825FA2D24BCBAA90098463D /* ProjectFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFinishedViewController.swift; sourceTree = "<group>"; };
+		B82C5D6C24B741600016DB68 /* ParticipatedProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipatedProjectCell.swift; sourceTree = "<group>"; };
+		B82C5D7024B7597A0016DB68 /* ParticipatedProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipatedProject.swift; sourceTree = "<group>"; };
 		B864A9BE24C02A18002B700B /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
-
 		B88B6C3D24B83AB300F22DDE /* ViewMoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMoreViewController.swift; sourceTree = "<group>"; };
 		B8A25EA624B4D5D900C07092 /* MainView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainView.storyboard; sourceTree = "<group>"; };
 		B8A25EAE24B5FF5E00C07092 /* login_bg.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = login_bg.json; sourceTree = "<group>"; };
@@ -147,6 +128,9 @@
 		D12EC24E24AB4072007E5896 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D147598424AB4DA3006C4122 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D147B40224BDABAA0064B026 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		D14B131D24C1E6D6002E87F2 /* AllRoundCarouselViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRoundCarouselViewController.swift; sourceTree = "<group>"; };
+		D14B131F24C1E92B002E87F2 /* CarouselFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselFlowLayout.swift; sourceTree = "<group>"; };
+		D14B132124C1EBAB002E87F2 /* CarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCell.swift; sourceTree = "<group>"; };
 		D15088AA24BD98DC007D9596 /* Round.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Round.swift; sourceTree = "<group>"; };
 		D154C46324BEECF700FC95C9 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		D15EA3ED24BF3FD900D3017F /* MemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCell.swift; sourceTree = "<group>"; };
@@ -164,15 +148,9 @@
 		D19533B624BCB072008DB22F /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		D1E5837124BC95690013FB7C /* Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
 		D1E5837224BC95690013FB7C /* AddCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCardViewController.swift; sourceTree = "<group>"; };
-		D1E5837524BC95970013FB7C /* CollecViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollecViewController2.swift; sourceTree = "<group>"; };
-		D1E5837624BC95970013FB7C /* UPCarouselFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UPCarouselFlow.swift; sourceTree = "<group>"; };
-		D1E5837724BC95980013FB7C /* CollecViewController4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollecViewController4.swift; sourceTree = "<group>"; };
-		D1E5837824BC95980013FB7C /* CollectionFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionFlowLayout.swift; sourceTree = "<group>"; };
-		D1E5837924BC95980013FB7C /* CollecViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollecViewController.swift; sourceTree = "<group>"; };
 		D1E5837B24BC95980013FB7C /* RoundMeetingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundMeetingViewController.swift; sourceTree = "<group>"; };
 		D1E5837C24BC95980013FB7C /* NetworkTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTestViewController.swift; sourceTree = "<group>"; };
 		D1E5837D24BC95990013FB7C /* SocketIOManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
-		D1E5838924BC95BB0013FB7C /* CollecViewController3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollecViewController3.swift; sourceTree = "<group>"; };
 		D1E5838B24BC96270013FB7C /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		D1E5838E24BC964E0013FB7C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D1E5839124BC965C0013FB7C /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -247,13 +225,9 @@
 		B825FA2624BCB91F0098463D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-
-				B8A25EA624B4D5D900C07092 /* MainView.storyboard */,
 				B82C5D6C24B741600016DB68 /* ParticipatedProjectCell.swift */,
 				B82C5D7024B7597A0016DB68 /* ParticipatedProject.swift */,
-
 				B88B6C3D24B83AB300F22DDE /* ViewMoreViewController.swift */,
-				B8A25EA824B4D7B500C07092 /* MainViewController.swift */,
 				B825FA2D24BCBAA90098463D /* ProjectFinishedViewController.swift */,
 				B8D7DB7024BF912D00DE9D02 /* ExampleViewController.swift */,
 			);
@@ -270,9 +244,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-
-		B88B6C3F24B85AA200F22DDE /* ViewMoreProject */ = {
-
 		B825FA2824BCB9440098463D /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,14 +272,6 @@
 				B8D7DB6E24BF712B00DE9D02 /* ScrappedCardImageCell.swift */,
 			);
 			path = ScrappedCard;
-			sourceTree = "<group>";
-		};
-		B84BE19F24BB8C8F0048BE9C /* Round */ = {
-
-			isa = PBXGroup;
-			children = (
-			);
-			path = Round;
 			sourceTree = "<group>";
 		};
 		B8A25E9D24B469FF00C07092 /* DataBases */ = {
@@ -370,38 +333,29 @@
 			children = (
 				B8E9FA6E24B9B6EB00A97235 /* PopUpViews */,
 				D1E5839024BC965C0013FB7C /* Network */,
-
-				D781D6E924B4A66F00AAE389 /* Jiyoon */,
-				B8E2B64924B24AB60098F677 /* jh */,
-
 				D75ECBE724B6C78800CB46C3 /* ProjectForHost */,
 				D781D71424B512FE00AAE389 /* ProjectForMember */,
-				B84BE19F24BB8C8F0048BE9C /* Round */,
 				B84BE19E24BB8C7D0048BE9C /* ScrappedCard */,
 				D781D6EA24B4A66F00AAE389 /* RoundFinished */,
 				B82C5D7224B768C00016DB68 /* Main */,
-
 				D1E5838D24BC964E0013FB7C /* Signin */,
 				D743C56D24AF5B7300FF6ED4 /* Extensions */,
 				D17935D324B2484D00811173 /* AddCard */,
-				D1E5837824BC95980013FB7C /* CollectionFlowLayout.swift */,
-				D1E5837924BC95980013FB7C /* CollecViewController.swift */,
-				D1E5837524BC95970013FB7C /* CollecViewController2.swift */,
-				D1E5838924BC95BB0013FB7C /* CollecViewController3.swift */,
-				D1E5837724BC95980013FB7C /* CollecViewController4.swift */,
 				D1E5837B24BC95980013FB7C /* RoundMeetingViewController.swift */,
 				D1E5837C24BC95980013FB7C /* NetworkTestViewController.swift */,
 				D1E5837D24BC95990013FB7C /* SocketIOManager.swift */,
-				D1E5837624BC95970013FB7C /* UPCarouselFlow.swift */,
 				D147598424AB4DA3006C4122 /* SceneDelegate.swift */,
 				D12EC23D24AB4070007E5896 /* AppDelegate.swift */,
 				D15EA3ED24BF3FD900D3017F /* MemoCell.swift */,
 				D15EA3EF24BF3FE800D3017F /* DrawingCell.swift */,
 				D1E5839724BC96C00013FB7C /* Main.storyboard */,
+				D14B131D24C1E6D6002E87F2 /* AllRoundCarouselViewController.swift */,
 				D186EFF824BF5E4F00D67FAD /* AllRoundViewController.swift */,
 				D186EFFC24BF840000D67FAD /* MainViewController.swift */,
 				D186EFFE24BF863100D67FAD /* ProjectSummaryCell.swift */,
 				D186F00224BFAE3D00D67FAD /* AllProjectViewController.swift */,
+				D14B131F24C1E92B002E87F2 /* CarouselFlowLayout.swift */,
+				D14B132124C1EBAB002E87F2 /* CarouselCell.swift */,
 				D17935B824B1D73600811173 /* Fonts */,
 				D7EB706624B75C320041B9CA /* SupportingFiles */,
 				D12EC24924AB4072007E5896 /* Assets.xcassets */,
@@ -698,8 +652,8 @@
 				D781D70124B4A66F00AAE389 /* ScrapCardViewController.swift in Sources */,
 				D761569524BB487600D4D484 /* UIColor+Extensions.swift in Sources */,
 				D781D71324B4E3D600AAE389 /* NavigationControllerExtension.swift in Sources */,
+				D14B132224C1EBAB002E87F2 /* CarouselCell.swift in Sources */,
 				D1E5837324BC95690013FB7C /* Canvas.swift in Sources */,
-				D1E5838124BC95990013FB7C /* CollecViewController4.swift in Sources */,
 				D781D70F24B4B07100AAE389 /* FinishedRoundViewController.swift in Sources */,
 				B8D7DB7124BF912D00DE9D02 /* ExampleViewController.swift in Sources */,
 				D756DF8A24B5908900551E12 /* PopupAnimationExtension.swift in Sources */,
@@ -736,16 +690,10 @@
 				D1E5838724BC95990013FB7C /* SocketIOManager.swift in Sources */,
 				B8E9FA8424BA50EA00A97235 /* ChangeToTextPopViewController.swift in Sources */,
 				D1E5838F24BC964F0013FB7C /* User.swift in Sources */,
-
-				B82C5D7124B7597A0016DB68 /* ParticipatedProject.swift in Sources */,
-				D1E5838524BC95990013FB7C /* CollecViewController5.swift in Sources */,
-				B82C5D6D24B741600016DB68 /* ParticipatedProjectCell.swift in Sources */,
-
+				D1E5838524BC95990013FB7C /* RoundMeetingViewController.swift in Sources */,
 				D1E5838524BC95990013FB7C /* RoundMeetingViewController.swift in Sources */,
 				B8D7DB6F24BF712B00DE9D02 /* ScrappedCardImageCell.swift in Sources */,
 				D1E5838524BC95990013FB7C /* RoundMeetingViewController.swift in Sources */,
-
-				D1E5837F24BC95990013FB7C /* CollecViewController2.swift in Sources */,
 				B88B6C3E24B83AB300F22DDE /* ViewMoreViewController.swift in Sources */,
 				B8E9FA8224BA50D800A97235 /* ChangeToDrawPopViewController.swift in Sources */,
 				D186EFFF24BF863100D67FAD /* ProjectSummaryCell.swift in Sources */,
@@ -755,15 +703,13 @@
 				B8E9FA7224B9B7CB00A97235 /* InvalidCodePopViewController.swift in Sources */,
 				D12EC24824AB4070007E5896 /* STORM.xcdatamodeld in Sources */,
 				B8E9FA8824BA5A8700A97235 /* SelectNextPopViewController.swift in Sources */,
-				D1E5838224BC95990013FB7C /* CollectionFlowLayout.swift in Sources */,
-				D1E5838024BC95990013FB7C /* UPCarouselFlow.swift in Sources */,
 				D186EFF924BF5E4F00D67FAD /* AllRoundViewController.swift in Sources */,
-				D1E5838324BC95990013FB7C /* CollecViewController.swift in Sources */,
 				D15EA3EE24BF3FD900D3017F /* MemoCell.swift in Sources */,
 				D147B40324BDABAA0064B026 /* Card.swift in Sources */,
 				B8E9FA7A24B9FC0500A97235 /* ReminderPopViewController.swift in Sources */,
 				D147598524AB4DA3006C4122 /* SceneDelegate.swift in Sources */,
 				D781D70624B4A66F00AAE389 /* CardCollectionViewCell.swift in Sources */,
+				D14B132024C1E92B002E87F2 /* CarouselFlowLayout.swift in Sources */,
 				D781D70024B4A66F00AAE389 /* ScrapCardMemoViewController.swift in Sources */,
 				D781D70224B4A66F00AAE389 /* RoundCollectionViewCell.swift in Sources */,
 				D1E5838624BC95990013FB7C /* NetworkTestViewController.swift in Sources */,
@@ -771,8 +717,8 @@
 				D154C46424BEECF700FC95C9 /* UIImage.swift in Sources */,
 				D781D70524B4A66F00AAE389 /* ProjectWaitingTableViewCell.swift in Sources */,
 				D75ECBE624B6BD2500CB46C3 /* RoundStartAlertPopupViewController.swift in Sources */,
-				D1E5838A24BC95BB0013FB7C /* CollecViewController3.swift in Sources */,
 				D1E5838C24BC96270013FB7C /* UIViewController.swift in Sources */,
+				D14B131E24C1E6D6002E87F2 /* AllRoundCarouselViewController.swift in Sources */,
 				D781D6FD24B4A66F00AAE389 /* ProjectWaitingViewController.swift in Sources */,
 				B8E9FA8A24BA5C8E00A97235 /* EndProjectPopViewController.swift in Sources */,
 			);
@@ -912,7 +858,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6D8SYQ63KK;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/STORM",
