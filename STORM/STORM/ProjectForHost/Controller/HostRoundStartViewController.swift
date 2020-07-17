@@ -13,8 +13,8 @@ class HostRoundStartViewController: UIViewController {
     
     static let identifier = "HostRoundStartViewController"
     let projectIndex = UserDefaults.standard.integer(forKey: "projectIndex")
-    let roundIndex = 1 //UserDefaults.standard.integer(forKey: "roundIndex")
-//    var numberOfRows = 0
+    let roundIndex = UserDefaults.standard.integer(forKey: "roundIndex")
+    //    var numberOfRows = 0
     var testString = String()
     
     // MARK: - IBOutlet
@@ -39,55 +39,56 @@ class HostRoundStartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchRoundInfo()
+        fetchProjectInfo()
+        //        let manager = SocketManager(socketURL: URL(string: "http://4cd4fd360e7c.ngrok.io")!, config: [.log(true), .compress])
+        //
+        //        self.socket = manager.defaultSocket
+        //
+        ////        self.socket.connect()
+        //
+        //        self.socket.on("roundcomplete") { (dataArray, SocketAckEmitter) in
+        //                    print("소켓 실행")
+        //        //            print("데이터 \(dataArray)")
+        //        //            print("소켓 \(SocketAckEmitter)")
+        //
+        //                    NetworkManager.shared.fetchMemberList(roundIdx: 1) { (result) in
+        //                        print("get통신")
+        //                        print(result)
+        //                    }
+        //                }
+        //
+        //        self.socket.connect()
+        //
+        //        socket.emit("joinRoom", ["roomCode", "지윤"])
+        //        socket.emit("roundSetting", "roomCode")
         
-//        let manager = SocketManager(socketURL: URL(string: "http://4cd4fd360e7c.ngrok.io")!, config: [.log(true), .compress])
-//
-//        self.socket = manager.defaultSocket
-//
-////        self.socket.connect()
-//
-//        self.socket.on("roundcomplete") { (dataArray, SocketAckEmitter) in
-//                    print("소켓 실행")
-//        //            print("데이터 \(dataArray)")
-//        //            print("소켓 \(SocketAckEmitter)")
-//
-//                    NetworkManager.shared.fetchMemberList(roundIdx: 1) { (result) in
-//                        print("get통신")
-//                        print(result)
-//                    }
-//                }
-//
-//        self.socket.connect()
-//
-//        socket.emit("joinRoom", ["roomCode", "지윤"])
-//        socket.emit("roundSetting", "roomCode")
-        
-//        SocketIOManager.shared.openConnection()
+        //        SocketIOManager.shared.openConnection()
         SocketIOManager.shared.sendData()
         
         SocketIOManager.shared.socket.on("roundComplete") { (dataArray, SocketAckEmitter) in
-                print("소켓 실행")
-        //            print("데이터 \(dataArray)")
-        //            print("소켓 \(SocketAckEmitter)")
-                    
-                NetworkManager.shared.fetchMemberList(roundIdx: 1) { (result) in
-                    print("get통신")
-                    print(result!.data!)
-                    self.members = result!.data!
-                    self.projectWaitingTableView.reloadData()
+            print("소켓 실행")
+            //            print("데이터 \(dataArray)")
+            //            print("소켓 \(SocketAckEmitter)")
+            
+            NetworkManager.shared.fetchMemberList(roundIdx: 1) { (result) in
+                print("get통신")
+                print(result!.data!)
+                self.members = result!.data!
+                self.projectWaitingTableView.reloadData()
             }
         }
         
-//                socket.on("roundComplete") { (dataArray, SocketAckEmitter) in
-//                    print("소켓 실행")
-//        //            print("데이터 \(dataArray)")
-//        //            print("소켓 \(SocketAckEmitter)")
-//
-//                    NetworkManager.shared.fetchMemberList(roundIdx: 1) { (result) in
-//                        print("get통신")
-//                        print(result)
-//                    }
-//                }
+        //                socket.on("roundComplete") { (dataArray, SocketAckEmitter) in
+        //                    print("소켓 실행")
+        //        //            print("데이터 \(dataArray)")
+        //        //            print("소켓 \(SocketAckEmitter)")
+        //
+        //                    NetworkManager.shared.fetchMemberList(roundIdx: 1) { (result) in
+        //                        print("get통신")
+        //                        print(result)
+        //                    }
+        //                }
         
         
         projectWaitingTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
@@ -101,21 +102,18 @@ class HostRoundStartViewController: UIViewController {
         
         // TODO: 또 그림자가 적용 안 됨..ㅠㅠㅠ
         
-
-
+        
+        
         
         // TODO: TapGestureRecognizer 인식 안됨 문제
         
         let tapPasteCodeImage = UITapGestureRecognizer(target: self, action: #selector(handlePasteCodeImage))
         pasteCodeImage.addGestureRecognizer(tapPasteCodeImage)
         
-        fetchRoundInfo()
-        fetchProjectInfo()
-        fetchRoundCountInfo()
+
+        
     }
     
-    
-
     
     // MARK: - Receive Data
     
@@ -124,18 +122,14 @@ class HostRoundStartViewController: UIViewController {
             print(response?.status)
             print(response?.message)
             self.roundIndexSetLabel.text = "ROUND\(String(describing: response!.data!.round_idx)) 설정 완료"
-            self.roundGoalLabel.text = response?.data!.round_purpose
+            self.roundGoalLabel.text = response!.data!.round_purpose
             self.timeLImitLabel.text = "총 \(String(describing: response!.data!.round_time))분 예정"
+            self.roundIndexSetLabel.text = "ROUND\(String(describing: response!.data!.round_number)) 설정 완료"
         }
         
-        }
-    
-    func fetchRoundCountInfo() {
-        NetworkManager.shared.fetchRoundCountInfo(projectIdx: self.projectIndex) { (response) in
-            self.roundIndexSetLabel.text = "ROUND\(String(describing: response!.data!)) 설정 완료"
-        }
     }
-
+    
+    
     var projectInfo: Project?? {
         didSet {
             projectNameLabel.text = projectInfo??.project_name
@@ -163,7 +157,7 @@ class HostRoundStartViewController: UIViewController {
         self.showToast(message: "참여코드가 복사되었습니다.", frame: CGRect(x: self.view.center.x, y: self.view.frame.height * (200/812) , width: self.view.frame.width * (215/375), height: self.view.frame.height * (49/812)))
         getCopiedText()
     }
-        
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -181,21 +175,16 @@ class HostRoundStartViewController: UIViewController {
     }
     
     @IBAction func ruleReminderButtonDidPress(_ sender: Any) {
-    let reminderPopupViewController = UIStoryboard(name: "PopUp", bundle: nil).instantiateViewController(withIdentifier: ReminderPopViewController.identifier) as! ReminderPopViewController
-           
-           // MARK: - Display Brainstorming Rule Reminder Popup View Controller
-           
-           self.addChild(reminderPopupViewController)
-           reminderPopupViewController.view.frame = self.view.frame
-           reminderPopupViewController.didMove(toParent: self)
-           self.view.addSubview(reminderPopupViewController.view)
+        let reminderPopupViewController = UIStoryboard(name: "PopUp", bundle: nil).instantiateViewController(withIdentifier: ReminderPopViewController.identifier) as! ReminderPopViewController
+        
+        // MARK: - Display Brainstorming Rule Reminder Popup View Controller
+        
+        self.addChild(reminderPopupViewController)
+        reminderPopupViewController.view.frame = self.view.frame
+        reminderPopupViewController.didMove(toParent: self)
+        self.view.addSubview(reminderPopupViewController.view)
     }
 }
-
-
-
-
-
 
 // MARK: - extension
 

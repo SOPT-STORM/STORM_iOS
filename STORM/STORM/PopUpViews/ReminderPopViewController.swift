@@ -43,8 +43,7 @@ class ReminderPopViewController: UIViewController {
         @IBAction func confirmButtonDidPress(_ sender: UIButton) {
 //            pressButton?()
             self.removeAnimate()
-            self.dismiss(animated: false, completion: nil)
-            
+
             
         }
         
