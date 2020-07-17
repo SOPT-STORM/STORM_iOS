@@ -47,6 +47,11 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func didPressAddProject(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "ProjectForHost", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "hostProjectSettingVC") as! HostProjectSettingViewController
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+        
         
     }
     
@@ -143,7 +148,32 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
 extension MainViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print("return key pressed")
+        
+        guard let code = textField.text else {return true}
+        
+        NetworkManager.shared.enterProject(projectCode: code) { (response) in
+
+            if response?.status == 200 {
+                print("status 200~")
+                let storyboard = UIStoryboard(name: "ProjectForMember", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "memberRoundSettingVC") as! MemberRoundSettingViewController
+                
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true, completion: nil)
+                
+            } else {
+                // 팝업뷰 띄우기
+                print("팝업뷰 띄우기")
+                let popupStoryBoard: UIStoryboard = UIStoryboard(name: "PopUp", bundle: nil)
+                let invalidCodePopUp = popupStoryBoard.instantiateViewController(withIdentifier: "invalidCodePopUp") as! InvalidCodePopViewController
+                
+                self.navigationController?.addChild(invalidCodePopUp)
+                invalidCodePopUp.view.frame = UIApplication.shared.keyWindow!.frame
+                self.navigationController?.view.addSubview(invalidCodePopUp.view)
+                invalidCodePopUp.didMove(toParent: self.navigationController)
+            }
+        }
+        
         textField.resignFirstResponder()
         return true
     }
