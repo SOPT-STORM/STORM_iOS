@@ -10,6 +10,8 @@ import UIKit
 
 class SelectNextPopViewController: UIViewController {
     
+    static let identifier = "SelectNextPopViewController"
+    
     // MARK:- IBOutlet 선언
 
     @IBOutlet weak var selectNextPopView: UIView!
