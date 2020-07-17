@@ -37,7 +37,8 @@ class HostRoundSettingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        getProjectInfo()
+        getRoundIndex()
         roundGoalTextField.addTextFieldInset()
         timeLimitTextField.addTextFieldInset()
         timeLimitPickerView.isHidden = true
@@ -52,8 +53,7 @@ class HostRoundSettingViewController: UIViewController {
         
         let tapPasteCodeImage = UITapGestureRecognizer(target: self, action: #selector(handlePasteCodeImage))
         pasteCodeImage.addGestureRecognizer(tapPasteCodeImage)
-        getProjectInfo()
-        getRoundIndex()
+
 
         
         
