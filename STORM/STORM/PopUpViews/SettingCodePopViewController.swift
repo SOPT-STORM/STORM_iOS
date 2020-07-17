@@ -21,7 +21,8 @@ class SettingCodePopViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         settingCodePopView.layer.cornerRadius = 15
-        settingCodePopView.addShadow(width: 1, height: 3, 0.2, 5)
+//        settingCodePopView.addShadow(width: 1, height: 3, 0.2, 5)
+        settingCodePopView.addRoundShadow(cornerRadius: 15)
         settingCodePopView.clipsToBounds = true
         
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)

@@ -127,7 +127,7 @@ extension ProjectFinishedViewController: UICollectionViewDelegate, UICollectionV
                // MARK: INFO VIEW
             print("1  \(reusableView)", "2   \(reusableView.projectInfoView)")
 
-               reusableView.projectInfoView.addShadow(width: 1, height: 4, 0.3, 3)
+//               reusableView.projectInfoView.addShadow(width: 1, height: 4, 0.3, 3)
                reusableView.projectInfoView.cornerRadius = 15
                
                // MARK: COLLECTION VIEW SCRAP

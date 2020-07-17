@@ -1,6 +1,9 @@
 PODS:
   - Alamofire (5.2.1)
   - FlexiblePageControl (1.0.8)
+  - Kingfisher (5.14.1):
+    - Kingfisher/Core (= 5.14.1)
+  - Kingfisher/Core (5.14.1)
   - lottie-ios (3.1.8)
   - Socket.IO-Client-Swift (15.2.0):
     - Starscream (~> 3.1)
@@ -9,6 +12,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - FlexiblePageControl (~> 1.0.8)
+  - Kingfisher
   - lottie-ios
   - Socket.IO-Client-Swift (~> 15.2.0)
 
@@ -16,6 +20,7 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - FlexiblePageControl
+    - Kingfisher
     - lottie-ios
     - Socket.IO-Client-Swift
     - Starscream
@@ -23,10 +28,11 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
   FlexiblePageControl: 07f7765054f16b3f0bc3f14dfd95ab5f45817ea4
+  Kingfisher: 8050bc6f7f68cbf3908bd04df7ccbac188f6d6d6
   lottie-ios: 48fac6be217c76937e36e340e2d09cf7b10b7f5f
   Socket.IO-Client-Swift: 1e3e3a1f09f3312a167f0d781eb2f383d477357c
   Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
 
-PODFILE CHECKSUM: efc10c154e09182d130e1e2f7613a0e0086b9720
+PODFILE CHECKSUM: 6f57bc10f88a453913e57bfdf9ab693f4678c380
 
 COCOAPODS: 1.9.3

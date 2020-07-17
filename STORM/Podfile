@@ -9,6 +9,7 @@ target 'STORM' do
   pod 'Alamofire'
   pod 'FlexiblePageControl', '~> 1.0.8'
   pod 'lottie-ios'
+  pod 'Kingfisher'
   
   # Pods for STORM
 

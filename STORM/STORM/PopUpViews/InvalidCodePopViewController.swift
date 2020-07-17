@@ -20,8 +20,9 @@ class InvalidCodePopViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        invalidCodePopView.layer.cornerRadius = 15
-        invalidCodePopView.addShadow(width: 1, height: 3, 0.2, 5)
+//        invalidCodePopView.layer.cornerRadius = 15
+//        invalidCodePopView.addShadow(width: 1, height: 3, 0.2, 5)
+        invalidCodePopView.addRoundShadow(cornerRadius: 15)
         invalidCodePopView.clipsToBounds = true
         
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
