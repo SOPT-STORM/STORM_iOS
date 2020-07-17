@@ -29,7 +29,7 @@
 ### ⚡️Main⚡️
 
 
-![storm_text](https://user-images.githubusercontent.com/59338503/87800112-f92ffa80-c888-11ea-91ab-4ebf3d474b39.png){height:200, width:200}
+![storm_text](https://user-images.githubusercontent.com/59338503/87800112-f92ffa80-c888-11ea-91ab-4ebf3d474b39.png)
 ![storm_bigcard](https://user-images.githubusercontent.com/59338503/87800119-fa612780-c888-11ea-86df-485ff04d653c.png)
 ![storm_bigcard2](https://user-images.githubusercontent.com/59338503/87800121-faf9be00-c888-11ea-9280-edb6789a2091.png)
 ![storm_startload](https://user-images.githubusercontent.com/59338503/87800123-fb925480-c888-11ea-80c5-7a30bee1fc9d.png)
