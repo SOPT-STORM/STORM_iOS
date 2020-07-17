@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "mainviewBtnAll.png",
       "idiom" : "universal",
+      "filename" : "testImg2.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "mainviewBtnAll@2x.png"
+      "scale" : "2x"
     },
     {
-      "filename" : "mainviewBtnAll@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

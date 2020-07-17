@@ -10,24 +10,29 @@ import UIKit
 
 extension UIView {
     
-    func addShadow(width: CGFloat, height: CGFloat, _ opacity: Float, _ radius: CGFloat) {
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowRadius = radius
-        self.layer.shadowOpacity = opacity
-        self.layer.shadowOffset = CGSize(width: width, height: height)
+    func addRoundShadow(cornerRadius: CGFloat) {
         
-//        let shadowLayer = CAShapeLayer()
-//        shadowLayer.path = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius).cgPath
-//
-////        shadowLayer.fillColor = UIColor.black.cgColor
-//
-//        shadowLayer.shadowColor = UIColor.black.cgColor
-//        shadowLayer.shadowPath = shadowLayer.path
-//        shadowLayer.shadowOffset = CGSize(width: width, height: height)
-//        shadowLayer.shadowOpacity = opacity
-//        shadowLayer.shadowRadius = radius
-//
-//        self.layer.insertSublayer(shadowLayer, at: 0)
+      self.layer.cornerRadius = cornerRadius
+        
+      let containerView = UIView()
+      
+      layer.backgroundColor = UIColor.clear.cgColor
+      layer.shadowColor = UIColor.black.cgColor
+      layer.shadowOffset = CGSize(width: 0, height: 3.0)
+      layer.shadowOpacity = 0.16
+      layer.shadowRadius = 2.5
+        
+      containerView.layer.cornerRadius = cornerRadius
+      containerView.layer.masksToBounds = true
+      
+      self.addSubview(containerView)
+      
+      containerView.translatesAutoresizingMaskIntoConstraints = false
+      
+      containerView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+      containerView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+      containerView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+      containerView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
     
     func setRound(_ radius: CGFloat) {

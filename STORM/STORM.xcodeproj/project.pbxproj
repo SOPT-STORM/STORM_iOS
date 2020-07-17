@@ -17,7 +17,6 @@
 		B84BE1A524BB970F0048BE9C /* ScrappedCardImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BE1A424BB970F0048BE9C /* ScrappedCardImageViewCell.swift */; };
 		B88B6C3E24B83AB300F22DDE /* ViewMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88B6C3D24B83AB300F22DDE /* ViewMoreViewController.swift */; };
 		B8A25EA724B4D5D900C07092 /* MainView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8A25EA624B4D5D900C07092 /* MainView.storyboard */; };
-		B8A25EA924B4D7B500C07092 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A25EA824B4D7B500C07092 /* MainViewController.swift */; };
 		B8A25EAF24B5FF5E00C07092 /* login_bg.json in Resources */ = {isa = PBXBuildFile; fileRef = B8A25EAE24B5FF5E00C07092 /* login_bg.json */; };
 		B8E2B64B24B24ADA0098F677 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E2B64A24B24ADA0098F677 /* Login.storyboard */; };
 		B8E9FA7224B9B7CB00A97235 /* InvalidCodePopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9FA7124B9B7CB00A97235 /* InvalidCodePopViewController.swift */; };
@@ -41,6 +40,10 @@
 		D154C46424BEECF700FC95C9 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D154C46324BEECF700FC95C9 /* UIImage.swift */; };
 		D15EA3EE24BF3FD900D3017F /* MemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15EA3ED24BF3FD900D3017F /* MemoCell.swift */; };
 		D15EA3F024BF3FE800D3017F /* DrawingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15EA3EF24BF3FE800D3017F /* DrawingCell.swift */; };
+		D186EFF924BF5E4F00D67FAD /* AllRoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D186EFF824BF5E4F00D67FAD /* AllRoundViewController.swift */; };
+		D186EFFD24BF840000D67FAD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D186EFFC24BF840000D67FAD /* MainViewController.swift */; };
+		D186EFFF24BF863100D67FAD /* ProjectSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D186EFFE24BF863100D67FAD /* ProjectSummaryCell.swift */; };
+		D186F00324BFAE3E00D67FAD /* AllProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D186F00224BFAE3D00D67FAD /* AllProjectViewController.swift */; };
 		D18D89B624B3A6FF00D8779E /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18D89B524B3A6FF00D8779E /* UIView.swift */; };
 		D19533B724BCB072008DB22F /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19533B624BCB072008DB22F /* Member.swift */; };
 		D1E5837324BC95690013FB7C /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5837124BC95690013FB7C /* Canvas.swift */; };
@@ -53,7 +56,6 @@
 		D1E5838524BC95990013FB7C /* RoundMeetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5837B24BC95980013FB7C /* RoundMeetingViewController.swift */; };
 		D1E5838624BC95990013FB7C /* NetworkTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5837C24BC95980013FB7C /* NetworkTestViewController.swift */; };
 		D1E5838724BC95990013FB7C /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5837D24BC95990013FB7C /* SocketIOManager.swift */; };
-		D1E5838824BC95990013FB7C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5837E24BC95990013FB7C /* ViewController.swift */; };
 		D1E5838A24BC95BB0013FB7C /* CollecViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5838924BC95BB0013FB7C /* CollecViewController3.swift */; };
 		D1E5838C24BC96270013FB7C /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5838B24BC96270013FB7C /* UIViewController.swift */; };
 		D1E5838F24BC964F0013FB7C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5838E24BC964E0013FB7C /* User.swift */; };
@@ -104,7 +106,6 @@
 		B84BE1A424BB970F0048BE9C /* ScrappedCardImageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrappedCardImageViewCell.swift; sourceTree = "<group>"; };
 		B88B6C3D24B83AB300F22DDE /* ViewMoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMoreViewController.swift; sourceTree = "<group>"; };
 		B8A25EA624B4D5D900C07092 /* MainView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainView.storyboard; sourceTree = "<group>"; };
-		B8A25EA824B4D7B500C07092 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B8A25EAE24B5FF5E00C07092 /* login_bg.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = login_bg.json; sourceTree = "<group>"; };
 		B8E2B64A24B24ADA0098F677 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		B8E2B65124B254890098F677 /* NotoSansCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Bold.otf"; path = "/Downloads/NotoSansCJKkr-Bold.otf"; sourceTree = "<absolute>"; };
@@ -138,6 +139,10 @@
 		D17935C724B1DCF500811173 /* NotoSansCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Bold.otf"; path = "../../../../../Downloads/NotoSansCJKkr-hinted-2/NotoSansCJKkr-Bold.otf"; sourceTree = "<group>"; };
 		D17935CD24B1F80C00811173 /* TestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCell.swift; sourceTree = "<group>"; };
 		D17935CE24B1F80C00811173 /* TestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestCell.xib; sourceTree = "<group>"; };
+		D186EFF824BF5E4F00D67FAD /* AllRoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRoundViewController.swift; sourceTree = "<group>"; };
+		D186EFFC24BF840000D67FAD /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		D186EFFE24BF863100D67FAD /* ProjectSummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSummaryCell.swift; sourceTree = "<group>"; };
+		D186F00224BFAE3D00D67FAD /* AllProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllProjectViewController.swift; sourceTree = "<group>"; };
 		D18D89B524B3A6FF00D8779E /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		D19533B624BCB072008DB22F /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		D1E5837124BC95690013FB7C /* Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
@@ -150,7 +155,6 @@
 		D1E5837B24BC95980013FB7C /* RoundMeetingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundMeetingViewController.swift; sourceTree = "<group>"; };
 		D1E5837C24BC95980013FB7C /* NetworkTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTestViewController.swift; sourceTree = "<group>"; };
 		D1E5837D24BC95990013FB7C /* SocketIOManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
-		D1E5837E24BC95990013FB7C /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D1E5838924BC95BB0013FB7C /* CollecViewController3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollecViewController3.swift; sourceTree = "<group>"; };
 		D1E5838B24BC96270013FB7C /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		D1E5838E24BC964E0013FB7C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -227,7 +231,6 @@
 			isa = PBXGroup;
 			children = (
 				B8A25EA624B4D5D900C07092 /* MainView.storyboard */,
-				B8A25EA824B4D7B500C07092 /* MainViewController.swift */,
 				B82C5D6C24B741600016DB68 /* ParticipatedProjectCell.swift */,
 				B82C5D7024B7597A0016DB68 /* ParticipatedProject.swift */,
 				B88B6C3D24B83AB300F22DDE /* ViewMoreViewController.swift */,
@@ -364,12 +367,15 @@
 				D1E5837C24BC95980013FB7C /* NetworkTestViewController.swift */,
 				D1E5837D24BC95990013FB7C /* SocketIOManager.swift */,
 				D1E5837624BC95970013FB7C /* UPCarouselFlow.swift */,
-				D1E5837E24BC95990013FB7C /* ViewController.swift */,
 				D147598424AB4DA3006C4122 /* SceneDelegate.swift */,
 				D12EC23D24AB4070007E5896 /* AppDelegate.swift */,
 				D15EA3ED24BF3FD900D3017F /* MemoCell.swift */,
 				D15EA3EF24BF3FE800D3017F /* DrawingCell.swift */,
 				D1E5839724BC96C00013FB7C /* Main.storyboard */,
+				D186EFF824BF5E4F00D67FAD /* AllRoundViewController.swift */,
+				D186EFFC24BF840000D67FAD /* MainViewController.swift */,
+				D186EFFE24BF863100D67FAD /* ProjectSummaryCell.swift */,
+				D186F00224BFAE3D00D67FAD /* AllProjectViewController.swift */,
 				D17935B824B1D73600811173 /* Fonts */,
 				D7EB706624B75C320041B9CA /* SupportingFiles */,
 				D12EC24924AB4072007E5896 /* Assets.xcassets */,
@@ -690,7 +696,6 @@
 				D12EC24824AB4070007E5896 /* STORM.xcdatamodeld in Sources */,
 				D781D6FC24B4A66F00AAE389 /* LayerExtension.swift in Sources */,
 				D15EA3F024BF3FE800D3017F /* DrawingCell.swift in Sources */,
-				B8A25EA924B4D7B500C07092 /* MainViewController.swift in Sources */,
 				B8E9FA7C24B9FC3B00A97235 /* RoundStartPopViewController.swift in Sources */,
 				D19533B724BCB072008DB22F /* Member.swift in Sources */,
 				B8E9FA7E24BA059600A97235 /* SettingCodePopViewController.swift in Sources */,
@@ -698,12 +703,14 @@
 				B8E9FA8624BA551E00A97235 /* RoundEndPopViewController.swift in Sources */,
 				D15088AB24BD98DD007D9596 /* Round.swift in Sources */,
 				D18D89B624B3A6FF00D8779E /* UIView.swift in Sources */,
+				D186EFFD24BF840000D67FAD /* MainViewController.swift in Sources */,
 				D761568F24B8D4AD00D4D484 /* UITextField.swift in Sources */,
 				D12EC23E24AB4070007E5896 /* AppDelegate.swift in Sources */,
 				D75ECBE424B6443B00CB46C3 /* MemberRoundSettingViewController.swift in Sources */,
 				D12EC24824AB4070007E5896 /* STORM.xcdatamodeld in Sources */,
 				D75ECBEC24B6C7EF00CB46C3 /* HostProjectSettingViewController.swift in Sources */,
 				D1E5839524BC965C0013FB7C /* Project.swift in Sources */,
+				D186F00324BFAE3E00D67FAD /* AllProjectViewController.swift in Sources */,
 				D1E5838724BC95990013FB7C /* SocketIOManager.swift in Sources */,
 				B8E9FA8424BA50EA00A97235 /* ChangeToTextPopViewController.swift in Sources */,
 				D1E5838F24BC964F0013FB7C /* User.swift in Sources */,
@@ -715,15 +722,16 @@
 				D1E5837F24BC95990013FB7C /* CollecViewController2.swift in Sources */,
 				B88B6C3E24B83AB300F22DDE /* ViewMoreViewController.swift in Sources */,
 				B8E9FA8224BA50D800A97235 /* ChangeToDrawPopViewController.swift in Sources */,
+				D186EFFF24BF863100D67FAD /* ProjectSummaryCell.swift in Sources */,
 				D1E5839624BC965C0013FB7C /* Response.swift in Sources */,
 				D12EC23E24AB4070007E5896 /* AppDelegate.swift in Sources */,
 				B8E9FA8024BA3D2E00A97235 /* CancelCardViewController.swift in Sources */,
 				B8E9FA7224B9B7CB00A97235 /* InvalidCodePopViewController.swift in Sources */,
 				D12EC24824AB4070007E5896 /* STORM.xcdatamodeld in Sources */,
 				B8E9FA8824BA5A8700A97235 /* SelectNextPopViewController.swift in Sources */,
-				D1E5838824BC95990013FB7C /* ViewController.swift in Sources */,
 				D1E5838224BC95990013FB7C /* CollectionFlowLayout.swift in Sources */,
 				D1E5838024BC95990013FB7C /* UPCarouselFlow.swift in Sources */,
+				D186EFF924BF5E4F00D67FAD /* AllRoundViewController.swift in Sources */,
 				D1E5838324BC95990013FB7C /* CollecViewController.swift in Sources */,
 				D15EA3EE24BF3FD900D3017F /* MemoCell.swift in Sources */,
 				D147B40324BDABAA0064B026 /* Card.swift in Sources */,

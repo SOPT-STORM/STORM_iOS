@@ -20,8 +20,9 @@ class ReminderPopViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        reminderPopView.layer.cornerRadius = 15
-        reminderPopView.addShadow(width: 1, height: 3, 0.2, 5)
+//        reminderPopView.layer.cornerRadius = 15
+//        reminderPopView.addShadow(width: 1, height: 3, 0.2, 5)
+        reminderPopView.addRoundShadow(cornerRadius: 15)
         reminderPopView.clipsToBounds = true
         
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)

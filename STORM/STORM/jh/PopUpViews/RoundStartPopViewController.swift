@@ -26,7 +26,7 @@ class RoundStartPopViewController: UIViewController {
         super.viewDidLoad()
 
         startPopView.layer.cornerRadius = 15
-        startPopView.addShadow(width: 1, height: 3, 0.2, 5)
+//        startPopView.addShadow(width: 1, height: 3, 0.2, 5)
         startPopView.clipsToBounds = false
         
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)

@@ -12,7 +12,7 @@ import SocketIO
 class SocketIOManager: NSObject {
     static let shared = SocketIOManager()
     
-    var manager = SocketManager(socketURL: URL(string: "http://156f31f9418d.ngrok.io")!, config: [.log(true), .compress])
+    var manager = SocketManager(socketURL: URL(string: "http://4cd4fd360e7c.ngrok.io")!, config: [.log(true), .compress])
     //  서버의 주소와 포트를 맞춰줘야 통신 가능
     var socket: SocketIOClient!
     
@@ -24,7 +24,7 @@ class SocketIOManager: NSObject {
 
 //        socket = self.manager.
 
-        socket.on("test") { (dataArray, SocketAckEmitter) in
+        socket.on("roundcomplete") { (dataArray, SocketAckEmitter) in
             print("소켓 실행")
 //            print("데이터 \(dataArray)")
 //            print("소켓 \(SocketAckEmitter)")
@@ -46,10 +46,14 @@ class SocketIOManager: NSObject {
     }
     
     func sendData() {
-        socket.emit("joinRoom", with: ["roomCode", "세영"])
+//        socket.emit("roundSetting", with: "roomCode")
         
-        socket.emit("joinRoom", ["roomCode", "세영"])
+        socket.emit("joinRoom", ["roomCode", "승환"])
+        socket.emit("roundSetting", "roomCode")
+        
         // emit("이벤트 이름", 전송할 데이터)
+        
+//        socket.emit("roundSetting", ["roomCode": "testtest"])
         
 //        socket.emit("event",  ["message" : "This is a test message"])
 //        socket.emit("event1", [["name" : "ns"], ["email" : "@naver.com"]])

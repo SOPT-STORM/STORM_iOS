@@ -40,7 +40,7 @@ class HostRoundStartViewController: UIViewController {
         // TODO: 스크롤바 인셋 설정 버전별로 다르게 해야하는데 어떻게 하지.?
         // TODO: 또 그림자가 적용 안 됨..ㅠㅠㅠ
         
-        projectStartButton.addShadow(width: 0, height: 3, 0.16, 2.5)
+//        projectStartButton.addShadow(width: 0, height: 3, 0.16, 2.5)
         toastPopupImage.isHidden = true
         
         let tapPasteCodeImage = UITapGestureRecognizer(target: self, action: #selector(handlePasteCodeImage(sender:)))

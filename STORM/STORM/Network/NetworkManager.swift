@@ -45,7 +45,7 @@ class NetworkManager {
     
     func fetchProjectList(completion: @escaping (Response?) -> Void) {
 
-        let url = baseURL + "/project/" + "\(user_idx)"
+        let url = baseURL + "/project/user/" + "\(user_idx)"
         
         let request = AF.request(url)
         
@@ -312,7 +312,7 @@ class NetworkManager {
                     switch response.result {
                     case .success(_):
 //                        print("upload success result: \(result)")
-//                        print("code: \(response.response?.statusCode)")
+                        print("code: \(response.response?.statusCode)")
                         completion()
                     case .failure(let err):
                         print("upload err: \(err)")
