@@ -10,6 +10,8 @@ import UIKit
 
 class HostProjectWaitingViewController: UIViewController {
     
+    static let identifier = "HostProjectWaitingViewController"
+    
     // MARK: - IBOutlet
     
     @IBOutlet weak var projectNameLabel: UILabel!
@@ -19,13 +21,12 @@ class HostProjectWaitingViewController: UIViewController {
     @IBOutlet weak var ruleReminderView: UIView!
     @IBOutlet weak var pasteCodeImage: UIImageView!
     @IBOutlet var codePastedGesture: UITapGestureRecognizer!
-    @IBOutlet weak var toastPopupImage: UIImageView!
     @IBOutlet weak var hostMessageLabel: UILabel!
     
     var projectName = String()
     var hostMessage = String()
     
-    // MARK: - Override
+    // MARK: - ViewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,91 +38,85 @@ class HostProjectWaitingViewController: UIViewController {
         projectWaitingTableView.setRadius(radius: 15)
         projectWaitingTableView.dropShadow(color: .black, opacity: 0.16, offSet: CGSize(width: 0, height: 3), radius: 2.5)
         projectWaitingTableView.clipsToBounds = true
+        projectStartButton.addShadow(width: 0, height: 3, 0.16, 2.5)
         
         // projectWaitingTableView.verticalScrollIndicatorInsets = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 14)
         // TODO: 스크롤바 인셋 설정 버전별로 다르게 해야하는데 어떻게 하지.?
         // TODO: 또 그림자가 적용 안 됨..ㅠㅠㅠ
         
-        projectStartButton.addShadow(width: 0, height: 3, 0.16, 2.5)
-        toastPopupImage.isHidden = true
+        
+        // MARK: - Add Gesture Recognizer
+        
         let tapReminderView = UITapGestureRecognizer(target: self, action: #selector(handleReminderView(sender:)))
         ruleReminderView.addGestureRecognizer(tapReminderView)
         
-        let tapPasteCodeImage = UITapGestureRecognizer(target: self, action: #selector(handlePasteCodeImage(sender:)))
-        
-        
+        let tapPasteCodeImage = UITapGestureRecognizer(target: self, action: #selector(handlePasteCodeImage))
         pasteCodeImage.addGestureRecognizer(tapPasteCodeImage)
-        projectNameLabel.text = projectName
-        hostMessageLabel.text = hostMessage
-        self.present(UIViewController(), animated: false, completion: nil)
+        
+        
         
     }
+    
+    var projectInfo: Project? {
+        didSet {
+            projectNameLabel.text = projectInfo?.project_name
+            hostMessageLabel.text = projectInfo?.project_comment
+        }
+    }
+    
+    func getProjectInfo() {
+        NetworkManager.shared.fetchProjectInfo(projectIdx: 0) { (response) in
+            self.projectInfo = response?.data
+        }
+    }
+    
+    // MARK: - Connect to Brainstorming Rule Reminder
     
     @objc func handleReminderView(sender: UITapGestureRecognizer) {
         print("tap")
-        let reminderPopupViewController = UIStoryboard(name: "ProjectForMember", bundle: nil).instantiateViewController(withIdentifier: ReminderPopupViewController.identifier) as! ReminderPopupViewController
+        let reminderPopupViewController = UIStoryboard(name: "PopUp", bundle: nil).instantiateViewController(withIdentifier: ReminderPopViewController.identifier) as! ReminderPopViewController
         
-        self.addChild(reminderPopupViewController)
-        reminderPopupViewController.view.frame = self.view.frame
-        reminderPopupViewController.didMove(toParent: self)
-        self.view.addSubview(reminderPopupViewController.view)
-        reminderPopupViewController.pressButton = { self.ruleReminderImage.image = (UIImage(named: "mProjectwaitingBrainstormingOkSelected"))
-        }
+        // MARK: - Display Brainstorming Rule Reminder Popup View Controller
+        
+//        self.addChild(reminderPopupViewController)
+//        reminderPopupViewController.view.frame = self.view.frame
+//        reminderPopupViewController.didMove(toParent: self)
+//        self.view.addSubview(reminderPopupViewController.view)
+//        reminderPopupViewController.pressButton = { self.ruleReminderImage.image = (UIImage(named: "mProjectwaitingBrainstormingOkSelected"))
+//        }
+        
         
         
     }
     
-    
-    // TODO: toast popup 구현 붙이기
+    // MARK: - Display Toast Popup
     
     @objc func handlePasteCodeImage(sender: UITapGestureRecognizer) {
-        print("tap")
-        /*
-         UIView.animate(withDuration: 0.5, animations: {
-         self.toastPopupImage.isHidden = false
-         self.toastPopupImage.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-         });
-         
-         UIView.animate(withDuration: 0.5, animations: {
-         self.toastPopupImage.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
-         self.toastPopupImage.isHidden = true;
-         });
-         */
+        print("tap111")
+        self.showToast(message: "참여코드가 복사되었습니다.", frame: CGRect(x: self.view.center.x, y: self.view.frame.height * (200/812) , width: self.view.frame.width * (215/375), height: self.view.frame.height * (49/812)))
     }
-    
-    
     
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    /*
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC : HostProjectSettingViewController = segue.destination as! HostProjectSettingViewController
+        destinationVC.delegate = self
+    }*/
     
     // MARK: - IBAction
     
-    @IBAction func projectCodePasteButtonDidPress(_ sender: UIButton) {
-    }
-    /*
-     @IBAction func ruleReminderButtonDidPress(_ sender: UIButton) {
-     let reminderPopupViewController = UIStoryboard(name: "ProjectForMember", bundle: nil).instantiateViewController(withIdentifier: ReminderPopupViewController.identifier) as! ReminderPopupViewController
-     
-     // Pop up view 구현
-     
-     self.addChild(reminderPopupViewController)
-     reminderPopupViewController.view.frame = self.view.frame
-     reminderPopupViewController.didMove(toParent: self)
-     self.view.addSubview(reminderPopupViewController.view)
-     reminderPopupViewController.pressButton = { self.ruleReminderImage.image = (UIImage(named: "mProjectwaitingBrainstormingOkSelected"))
-     }
-     } */
-    
-    
     @IBAction func projectStartButtonDidPress(_ sender: UIButton) {
+        
+        let hostRoundSettingVC = UIStoryboard.init(name: "ProjectForHost", bundle: nil).instantiateViewController(withIdentifier: HostRoundSettingViewController.identifier)
+        hostRoundSettingVC.modalTransitionStyle = .coverVertical
+        self.present(hostRoundSettingVC, animated: false, completion: nil)
+        
     }
-    
-    
 }
-
 
 
 
@@ -141,6 +136,6 @@ extension HostProjectWaitingViewController: UITableViewDataSource {
 
 extension HostProjectWaitingViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return projectWaitingTableView.frame.height/3
+        return projectWaitingTableView.bounds.height/3
     }
 }
