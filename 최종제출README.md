@@ -28,13 +28,28 @@
 
 ### ⚡️Main⚡️
 
-![storm_bigcard](https://user-images.githubusercontent.com/59338503/87799629-6db66980-c888-11ea-8806-34de4ede6a60.png)
 
-![storm_startload](https://user-images.githubusercontent.com/59338503/87799790-9b9bae00-c888-11ea-99a6-16376f78ef14.png)
-![storm_round](https://user-images.githubusercontent.com/59338503/87799798-9dfe0800-c888-11ea-9b20-75a6d9878dcb.png)
-![storm_totext](https://user-images.githubusercontent.com/59338503/87799811-a1918f00-c888-11ea-8056-3898fb704b3f.png)
-![storm_toimage](https://user-images.githubusercontent.com/59338503/87799814-a22a2580-c888-11ea-91d4-86fca541be59.png)
-![Simulator Screen Shot - iPhone 11 Pro - 2020-07-17 at 22 50 51](https://user-images.githubusercontent.com/59338503/87799822-a3f3e900-c888-11ea-9895-8335468e71d4.png)
+![storm_text](https://user-images.githubusercontent.com/59338503/87800112-f92ffa80-c888-11ea-91ab-4ebf3d474b39.png)
+![storm_bigcard](https://user-images.githubusercontent.com/59338503/87800119-fa612780-c888-11ea-86df-485ff04d653c.png)
+![storm_bigcard2](https://user-images.githubusercontent.com/59338503/87800121-faf9be00-c888-11ea-9280-edb6789a2091.png)
+![storm_startload](https://user-images.githubusercontent.com/59338503/87800123-fb925480-c888-11ea-80c5-7a30bee1fc9d.png)
+![storm_nexthost](https://user-images.githubusercontent.com/59338503/87800126-fc2aeb00-c888-11ea-9e99-f329f1eca9e2.png)
+![storm_round](https://user-images.githubusercontent.com/59338503/87800129-fc2aeb00-c888-11ea-9eac-968d9b188789.png)
+![storm_totext](https://user-images.githubusercontent.com/59338503/87800131-fcc38180-c888-11ea-8f49-57b476354bab.png)
+![storm_code](https://user-images.githubusercontent.com/59338503/87800135-fd5c1800-c888-11ea-8a37-721f867c0e77.png)
+![storm_rule](https://user-images.githubusercontent.com/59338503/87800136-fdf4ae80-c888-11ea-94ca-e1a037f50743.png)
+![Simulator Screen Shot - iPhone 11 Pro - 2020-07-17 at 22 50 51](https://user-images.githubusercontent.com/59338503/87800139-fe8d4500-c888-11ea-8bb0-e7491f0b959e.png)
+![storm_proout](https://user-images.githubusercontent.com/59338503/87800141-fe8d4500-c888-11ea-8463-852c97e82259.png)
+![storm_toimage](https://user-images.githubusercontent.com/59338503/87800144-ff25db80-c888-11ea-9fd8-90dd5228a779.png)
+![storm_image](https://user-images.githubusercontent.com/59338503/87800147-ffbe7200-c888-11ea-837a-41faaf9466a7.png)
+![storm_main](https://user-images.githubusercontent.com/59338503/87800152-00570880-c889-11ea-9da7-befa7e7bbcc9.png)
+![storm_recent](https://user-images.githubusercontent.com/59338503/87800154-00570880-c889-11ea-8708-1eeb4b9f577d.png)
+![storm_nocode](https://user-images.githubusercontent.com/59338503/87800158-00ef9f00-c889-11ea-9d4b-0f9b29dcd354.png)
+![storm_scrap](https://user-images.githubusercontent.com/59338503/87800161-01883580-c889-11ea-8ebe-3925a95cd0bf.png)
+![storm_nextmember](https://user-images.githubusercontent.com/59338503/87800166-0220cc00-c889-11ea-8f21-32d544bbd172.png)
+![storm_roundend](https://user-images.githubusercontent.com/59338503/87800168-0220cc00-c889-11ea-9a47-4b9f4da5e924.png)
+![storm_ing](https://user-images.githubusercontent.com/59338503/87800172-02b96280-c889-11ea-86d4-4c77d00f0655.png)
+![storm_done](https://user-images.githubusercontent.com/59338503/87800177-0351f900-c889-11ea-95fd-805c3c502d30.png)
 
 <img src="/Users/kimjihyeon/Desktop/storm_main.png" alt="storm_main" style="zoom:25%;" /><img src="/Users/kimjihyeon/Desktop/storm_nocode.png" alt="storm_nocode" style="zoom:25%;" />
 
