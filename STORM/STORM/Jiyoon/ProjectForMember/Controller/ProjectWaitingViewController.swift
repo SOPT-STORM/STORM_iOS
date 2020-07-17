@@ -19,9 +19,8 @@ class ProjectWaitingViewController: UIViewController {
     @IBOutlet weak var ruleReminderView: UIView!
     @IBOutlet weak var pasteCodeImage: UIImageView!
     @IBOutlet var codePastedGesture: UITapGestureRecognizer!
-    @IBOutlet weak var toastPopupImage: UIImageView!
-    @IBOutlet weak var toastPopupView: UIView!
     
+    @IBOutlet weak var hostMessageLabel: UILabel!
     
     
     
@@ -43,7 +42,7 @@ class ProjectWaitingViewController: UIViewController {
         // TODO: 또 그림자가 적용 안 됨..ㅠㅠㅠ
         
         projectStartButton.addShadow(width: 0, height: 3, 0.16, 2.5)
-        toastPopupImage.isHidden = true
+
         let tapReminderView = UITapGestureRecognizer(target: self, action: #selector(handleReminderView(sender:)))
         ruleReminderView.addGestureRecognizer(tapReminderView)
         
@@ -52,7 +51,20 @@ class ProjectWaitingViewController: UIViewController {
         
         pasteCodeImage.addGestureRecognizer(tapPasteCodeImage)
         
-        
+        getProjectInfo()
+    }
+    
+    var projectInfo: Project? {
+        didSet {
+            projectNameLabel.text = projectInfo?.project_name
+            hostMessageLabel.text = projectInfo?.project_comment
+        }
+    }
+    
+    func getProjectInfo() {
+        NetworkManager.shared.fetchProjectInfo(projectIdx: 0) { (response) in
+            self.projectInfo = response?.data
+        }
     }
     
     @objc func handleReminderView(sender: UITapGestureRecognizer) {
@@ -74,6 +86,9 @@ class ProjectWaitingViewController: UIViewController {
      
     @objc func handlePasteCodeImage(sender: UITapGestureRecognizer) {
         print("tap")
+        
+//        projectInfo?.project_code
+        
         /*
         UIView.animate(withDuration: 0.5, animations: {
             self.toastPopupImage.isHidden = false
