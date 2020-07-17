@@ -11,6 +11,7 @@ import UIKit
 class DrawingCell: UICollectionViewCell {
     
     @IBOutlet weak var drawingImg: UIImageView!
+    @IBOutlet weak var heartBtn: UIButton!
     
     @IBAction func didPressHeart(_ sender: UIButton) {
         if sender.imageView!.image ==  UIImage(named: "btn_heart") {

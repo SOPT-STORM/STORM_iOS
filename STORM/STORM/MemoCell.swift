@@ -11,6 +11,7 @@ import UIKit
 class MemoCell: UICollectionViewCell {
     
     @IBOutlet weak var memo: UILabel!
+    @IBOutlet weak var heartBtn: UIButton!
     
     @IBAction func didPressHeart(_ sender: UIButton) {
         if sender.imageView!.image ==  UIImage(named: "btn_heart") {
