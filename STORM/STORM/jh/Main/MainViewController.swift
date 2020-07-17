@@ -11,6 +11,8 @@ import UIKit
 class MainViewController: UIViewController, UITextFieldDelegate {
     
     // MARK:- 변수 선언
+    
+    static let identifier = "MainViewController"
     private var projectList: [ParticipatedProject] = []
     
     // MARK:- IBOutlet 선언
@@ -42,12 +44,13 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     
     // MARK:- IBAction 함수
     @IBAction func addButtonDidTap(_ sender: UIButton) {
-        
+        let pushVC = UIStoryboard.init(name: "ProjectForHost", bundle: nil).instantiateViewController(withIdentifier: "HostProjectSettingViewController")
+        self.navigationController?.pushViewController(pushVC, animated: false)
     }
     
     @IBAction func viewMoreButtonDidTap(_ sender: UIButton) {
     }
-
+    
     // MARK:- func 함수
     
     func invalidCodeEntered() {
@@ -58,7 +61,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         invalidCodePopViewController.view.frame = UIApplication.shared.keyWindow!.frame
         self.navigationController?.view.addSubview(invalidCodePopViewController.view)
         invalidCodePopViewController.didMove(toParent: self.navigationController)
-    
+        
         //invalidCodePopViewController.modalPresentationStyle = .fullScreen
         /*self.present(invalidCodePopViewController, animated: false)*/
     }
