@@ -274,6 +274,13 @@
 			path = ScrappedCard;
 			sourceTree = "<group>";
 		};
+		B84BE19F24BB8C8F0048BE9C /* Round */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Round;
+			sourceTree = "<group>";
+		};
 		B8A25E9D24B469FF00C07092 /* DataBases */ = {
 			isa = PBXGroup;
 			children = (
@@ -335,6 +342,7 @@
 				D1E5839024BC965C0013FB7C /* Network */,
 				D75ECBE724B6C78800CB46C3 /* ProjectForHost */,
 				D781D71424B512FE00AAE389 /* ProjectForMember */,
+				B84BE19F24BB8C8F0048BE9C /* Round */,
 				B84BE19E24BB8C7D0048BE9C /* ScrappedCard */,
 				D781D6EA24B4A66F00AAE389 /* RoundFinished */,
 				B82C5D7224B768C00016DB68 /* Main */,
