@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PpM-qP-U71">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JcB-m9-RoJ">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -1000,7 +1000,7 @@
                                                     <attributedString key="attributedText">
                                                         <fragment content="프로젝트 이름">
                                                             <attributes>
-                                                                <font key="NSFont" metaFont="message" size="11"/>
+                                                                <font key="NSFont" metaFont="label" size="11"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
@@ -1070,7 +1070,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CJa-B9-7Fz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1753" y="779"/>
+            <point key="canvasLocation" x="1769" y="779"/>
         </scene>
         <!--All Project View Controller-->
         <scene sceneID="m8i-7T-RO4">
@@ -1161,7 +1161,7 @@
                                                     <attributedString key="attributedText">
                                                         <fragment content="프로젝트 이름">
                                                             <attributes>
-                                                                <font key="NSFont" metaFont="message" size="11"/>
+                                                                <font key="NSFont" metaFont="label" size="11"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
@@ -1234,7 +1234,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lV3-5h-dfn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="980" y="779"/>
+            <point key="canvasLocation" x="1010" y="779"/>
         </scene>
     </scenes>
     <resources>
