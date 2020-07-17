@@ -14,7 +14,6 @@ class ReminderPopupViewController: UIViewController {
     
     @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var reminderView: UIView!
-    var pressButton: (() -> Void)?
     
     lazy var box = UIView()
 
@@ -40,7 +39,6 @@ class ReminderPopupViewController: UIViewController {
         }
         
         @IBAction func confirmButtonDidPress(_ sender: UIButton) {
-            pressButton?()
             self.removeAnimate()
             self.dismiss(animated: true, completion: nil)
         

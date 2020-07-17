@@ -32,10 +32,12 @@ class CancelCardViewController: UIViewController {
     // MARK:- IBAction 선언
     
     @IBAction func cardCancelButtonDidTap(_ sender: UIButton) {
+        NotificationCenter.default.post(name: .buttonClickInPopup, object: nil)
         self.removeAnimate()
     }
     
     @IBAction func cardConfirmButtonDidTap(_ sender: UIButton) {
+        NotificationCenter.default.post(name: .buttonClickInPopup, object: nil)
         self.removeAnimate()
     }
     

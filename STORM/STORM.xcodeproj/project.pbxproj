@@ -8,17 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		0BE507DF34E6144C923BB667 /* Pods_STORM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F413571526ADC3ABE1F9D186 /* Pods_STORM.framework */; };
-		B82C5D6D24B741600016DB68 /* ParticipatedProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82C5D6C24B741600016DB68 /* ParticipatedProjectCell.swift */; };
-		B82C5D7124B7597A0016DB68 /* ParticipatedProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82C5D7024B7597A0016DB68 /* ParticipatedProject.swift */; };
-		B82C5D7524B78BF90016DB68 /* real_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = B82C5D7424B78BF90016DB68 /* real_loading.json */; };
-		B84BE18B24BAC4810048BE9C /* RoundFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BE18A24BAC4810048BE9C /* RoundFinishedViewController.swift */; };
-		B84BE19124BB122A0048BE9C /* RoundCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BE19024BB122A0048BE9C /* RoundCell.swift */; };
-		B84BE1A124BB96620048BE9C /* ScrappedCardTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BE1A024BB96620048BE9C /* ScrappedCardTextCell.swift */; };
-		B84BE1A524BB970F0048BE9C /* ScrappedCardImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BE1A424BB970F0048BE9C /* ScrappedCardImageViewCell.swift */; };
+		B82094D524BCE25700DB543F /* real_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = B82094D424BCE25700DB543F /* real_loading.json */; };
+		B825FA2B24BCBA3D0098463D /* RecentProjectCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B825FA2924BCBA3D0098463D /* RecentProjectCardCollectionViewCell.swift */; };
+		B825FA2C24BCBA3D0098463D /* RecentProjectCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B825FA2A24BCBA3D0098463D /* RecentProjectCardCollectionViewCell.xib */; };
+		B825FA2E24BCBAA90098463D /* ProjectFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B825FA2D24BCBAA90098463D /* ProjectFinishedViewController.swift */; };
+		B864A9BF24C02A18002B700B /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B864A9BE24C02A18002B700B /* ReusableView.swift */; };
 		B88B6C3E24B83AB300F22DDE /* ViewMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88B6C3D24B83AB300F22DDE /* ViewMoreViewController.swift */; };
 		B8A25EA724B4D5D900C07092 /* MainView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8A25EA624B4D5D900C07092 /* MainView.storyboard */; };
+
+		B8A25EA924B4D7B500C07092 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A25EA824B4D7B500C07092 /* MainViewController.swift */; };
+		B8D7DB6D24BF711700DE9D02 /* ScrappedCardTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D7DB6C24BF711700DE9D02 /* ScrappedCardTextCell.swift */; };
+		B8D7DB6F24BF712B00DE9D02 /* ScrappedCardImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D7DB6E24BF712B00DE9D02 /* ScrappedCardImageCell.swift */; };
+		B8D7DB7124BF912D00DE9D02 /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D7DB7024BF912D00DE9D02 /* ExampleViewController.swift */; };
+
 		B8A25EAF24B5FF5E00C07092 /* login_bg.json in Resources */ = {isa = PBXBuildFile; fileRef = B8A25EAE24B5FF5E00C07092 /* login_bg.json */; };
 		B8E2B64B24B24ADA0098F677 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E2B64A24B24ADA0098F677 /* Login.storyboard */; };
+
 		B8E9FA7224B9B7CB00A97235 /* InvalidCodePopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9FA7124B9B7CB00A97235 /* InvalidCodePopViewController.swift */; };
 		B8E9FA7424B9B7FC00A97235 /* PopUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E9FA7324B9B7FC00A97235 /* PopUp.storyboard */; };
 		B8E9FA7A24B9FC0500A97235 /* ReminderPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9FA7924B9FC0500A97235 /* ReminderPopViewController.swift */; };
@@ -96,17 +101,17 @@
 
 /* Begin PBXFileReference section */
 		446905E67F662B2207C7B0E7 /* Pods-STORM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STORM.debug.xcconfig"; path = "Target Support Files/Pods-STORM/Pods-STORM.debug.xcconfig"; sourceTree = "<group>"; };
-		B82C5D6C24B741600016DB68 /* ParticipatedProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipatedProjectCell.swift; sourceTree = "<group>"; };
-		B82C5D7024B7597A0016DB68 /* ParticipatedProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipatedProject.swift; sourceTree = "<group>"; };
-		B82C5D7424B78BF90016DB68 /* real_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = real_loading.json; path = STORM/jh/PopUpViews/real_loading.json; sourceTree = SOURCE_ROOT; };
-		B84BE18A24BAC4810048BE9C /* RoundFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundFinishedViewController.swift; sourceTree = "<group>"; };
-		B84BE18C24BAC49F0048BE9C /* RoundFinished.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RoundFinished.storyboard; sourceTree = "<group>"; };
-		B84BE19024BB122A0048BE9C /* RoundCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCell.swift; sourceTree = "<group>"; };
-		B84BE1A024BB96620048BE9C /* ScrappedCardTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrappedCardTextCell.swift; sourceTree = "<group>"; };
-		B84BE1A424BB970F0048BE9C /* ScrappedCardImageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrappedCardImageViewCell.swift; sourceTree = "<group>"; };
+		B82094D424BCE25700DB543F /* real_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = real_loading.json; sourceTree = "<group>"; };
+		B825FA2924BCBA3D0098463D /* RecentProjectCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentProjectCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		B825FA2A24BCBA3D0098463D /* RecentProjectCardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecentProjectCardCollectionViewCell.xib; sourceTree = "<group>"; };
+		B825FA2D24BCBAA90098463D /* ProjectFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFinishedViewController.swift; sourceTree = "<group>"; };
+		B864A9BE24C02A18002B700B /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		B88B6C3D24B83AB300F22DDE /* ViewMoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMoreViewController.swift; sourceTree = "<group>"; };
 		B8A25EA624B4D5D900C07092 /* MainView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainView.storyboard; sourceTree = "<group>"; };
 		B8A25EAE24B5FF5E00C07092 /* login_bg.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = login_bg.json; sourceTree = "<group>"; };
+		B8D7DB6C24BF711700DE9D02 /* ScrappedCardTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrappedCardTextCell.swift; sourceTree = "<group>"; };
+		B8D7DB6E24BF712B00DE9D02 /* ScrappedCardImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrappedCardImageCell.swift; sourceTree = "<group>"; };
+		B8D7DB7024BF912D00DE9D02 /* ExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
 		B8E2B64A24B24ADA0098F677 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		B8E2B65124B254890098F677 /* NotoSansCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Bold.otf"; path = "/Downloads/NotoSansCJKkr-Bold.otf"; sourceTree = "<absolute>"; };
 		B8E2B65224B254890098F677 /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Medium.otf"; path = "/Downloads/NotoSansCJKkr-Medium.otf"; sourceTree = "<absolute>"; };
@@ -227,44 +232,58 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		B82C5D7224B768C00016DB68 /* Main */ = {
+		B825FA2624BCB91F0098463D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+
 				B8A25EA624B4D5D900C07092 /* MainView.storyboard */,
 				B82C5D6C24B741600016DB68 /* ParticipatedProjectCell.swift */,
 				B82C5D7024B7597A0016DB68 /* ParticipatedProject.swift */,
+
 				B88B6C3D24B83AB300F22DDE /* ViewMoreViewController.swift */,
-				B88B6C3F24B85AA200F22DDE /* ViewMoreProject */,
+				B8A25EA824B4D7B500C07092 /* MainViewController.swift */,
+				B825FA2D24BCBAA90098463D /* ProjectFinishedViewController.swift */,
+				B8D7DB7024BF912D00DE9D02 /* ExampleViewController.swift */,
 			);
-			path = Main;
+			path = Controller;
 			sourceTree = "<group>";
 		};
-		B82C5D7324B769A50016DB68 /* Login */ = {
+		B825FA2724BCB93A0098463D /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				B8A25E9D24B469FF00C07092 /* DataBases */,
 				B8A25EAE24B5FF5E00C07092 /* login_bg.json */,
 				B8E2B64A24B24ADA0098F677 /* Login.storyboard */,
 			);
-			path = Login;
+			path = Model;
 			sourceTree = "<group>";
 		};
-		B84BE18924BAC4620048BE9C /* RoundFinished */ = {
+		B825FA2824BCB9440098463D /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				B84BE19F24BB8C8F0048BE9C /* Round */,
-				B84BE19E24BB8C7D0048BE9C /* ScrappedCard */,
-				B84BE18A24BAC4810048BE9C /* RoundFinishedViewController.swift */,
-				B84BE18C24BAC49F0048BE9C /* RoundFinished.storyboard */,
+				B825FA2924BCBA3D0098463D /* RecentProjectCardCollectionViewCell.swift */,
+				B825FA2A24BCBA3D0098463D /* RecentProjectCardCollectionViewCell.xib */,
+				B864A9BE24C02A18002B700B /* ReusableView.swift */,
 			);
-			path = RoundFinished;
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		B82C5D7224B768C00016DB68 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				B8A25EA624B4D5D900C07092 /* MainView.storyboard */,
+				B825FA2624BCB91F0098463D /* Controller */,
+				B825FA2824BCB9440098463D /* Cell */,
+				B825FA2724BCB93A0098463D /* Model */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		B84BE19E24BB8C7D0048BE9C /* ScrappedCard */ = {
 			isa = PBXGroup;
 			children = (
-				B84BE1A024BB96620048BE9C /* ScrappedCardTextCell.swift */,
-				B84BE1A424BB970F0048BE9C /* ScrappedCardImageViewCell.swift */,
+				B8D7DB6C24BF711700DE9D02 /* ScrappedCardTextCell.swift */,
+				B8D7DB6E24BF712B00DE9D02 /* ScrappedCardImageCell.swift */,
 			);
 			path = ScrappedCard;
 			sourceTree = "<group>";
@@ -272,16 +291,8 @@
 		B84BE19F24BB8C8F0048BE9C /* Round */ = {
 			isa = PBXGroup;
 			children = (
-				B84BE19024BB122A0048BE9C /* RoundCell.swift */,
 			);
 			path = Round;
-			sourceTree = "<group>";
-		};
-		B88B6C3F24B85AA200F22DDE /* ViewMoreProject */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewMoreProject;
 			sourceTree = "<group>";
 		};
 		B8A25E9D24B469FF00C07092 /* DataBases */ = {
@@ -299,20 +310,10 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
-		B8E2B64924B24AB60098F677 /* jh */ = {
-			isa = PBXGroup;
-			children = (
-				B8E9FA6E24B9B6EB00A97235 /* PopUpViews */,
-				B82C5D7324B769A50016DB68 /* Login */,
-				B82C5D7224B768C00016DB68 /* Main */,
-			);
-			path = jh;
-			sourceTree = "<group>";
-		};
 		B8E9FA6E24B9B6EB00A97235 /* PopUpViews */ = {
 			isa = PBXGroup;
 			children = (
-				B82C5D7424B78BF90016DB68 /* real_loading.json */,
+				B82094D424BCE25700DB543F /* real_loading.json */,
 				B8E9FA7324B9B7FC00A97235 /* PopUp.storyboard */,
 				B8E9FA7124B9B7CB00A97235 /* InvalidCodePopViewController.swift */,
 				B8E9FA7924B9FC0500A97235 /* ReminderPopViewController.swift */,
@@ -351,10 +352,14 @@
 		D12EC23C24AB4070007E5896 /* STORM */ = {
 			isa = PBXGroup;
 			children = (
+				B8E9FA6E24B9B6EB00A97235 /* PopUpViews */,
 				D1E5839024BC965C0013FB7C /* Network */,
-				D781D6E924B4A66F00AAE389 /* Jiyoon */,
-				B84BE18924BAC4620048BE9C /* RoundFinished */,
-				B8E2B64924B24AB60098F677 /* jh */,
+				D75ECBE724B6C78800CB46C3 /* ProjectForHost */,
+				D781D71424B512FE00AAE389 /* ProjectForMember */,
+				B84BE19F24BB8C8F0048BE9C /* Round */,
+				B84BE19E24BB8C7D0048BE9C /* ScrappedCard */,
+				D781D6EA24B4A66F00AAE389 /* RoundFinished */,
+				B82C5D7224B768C00016DB68 /* Main */,
 				D1E5838D24BC964E0013FB7C /* Signin */,
 				D743C56D24AF5B7300FF6ED4 /* Extensions */,
 				D17935D324B2484D00811173 /* AddCard */,
@@ -478,16 +483,6 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
-		D781D6E924B4A66F00AAE389 /* Jiyoon */ = {
-			isa = PBXGroup;
-			children = (
-				D75ECBE724B6C78800CB46C3 /* ProjectForHost */,
-				D781D71424B512FE00AAE389 /* ProjectForMember */,
-				D781D6EA24B4A66F00AAE389 /* RoundFinished */,
-			);
-			path = Jiyoon;
-			sourceTree = "<group>";
-		};
 		D781D6EA24B4A66F00AAE389 /* RoundFinished */ = {
 			isa = PBXGroup;
 			children = (
@@ -495,7 +490,8 @@
 				D781D6ED24B4A66F00AAE389 /* Controller */,
 				D781D6F324B4A66F00AAE389 /* Cell */,
 			);
-			path = RoundFinished;
+			name = RoundFinished;
+			path = Jiyoon/RoundFinished;
 			sourceTree = "<group>";
 		};
 		D781D6ED24B4A66F00AAE389 /* Controller */ = {
@@ -614,19 +610,18 @@
 				D1E5839C24BCA1010013FB7C /* NotoSansCJKkr-Bold.otf in Resources */,
 				D781D70424B4A66F00AAE389 /* CardCollectionViewCell.xib in Resources */,
 				D12EC24D24AB4072007E5896 /* LaunchScreen.storyboard in Resources */,
-				B8A25EAF24B5FF5E00C07092 /* login_bg.json in Resources */,
 				B8E9FA7424B9B7FC00A97235 /* PopUp.storyboard in Resources */,
 				D12EC24A24AB4072007E5896 /* Assets.xcassets in Resources */,
 				D1E5839824BC96C00013FB7C /* Main.storyboard in Resources */,
 				D781D70724B4A66F00AAE389 /* RoundCollectionViewCell.xib in Resources */,
 				D7EB706524B7459F0041B9CA /* loading3.json in Resources */,
 				D781D70324B4A66F00AAE389 /* ProjectWaitingTableViewCell.xib in Resources */,
+				B825FA2C24BCBA3D0098463D /* RecentProjectCardCollectionViewCell.xib in Resources */,
 				D781D71624B5131C00AAE389 /* ProjectForMember.storyboard in Resources */,
 				D781D6FB24B4A66F00AAE389 /* RoundFinished.storyboard in Resources */,
 				B8A25EA724B4D5D900C07092 /* MainView.storyboard in Resources */,
 				D1E5839E24BCA1010013FB7C /* NotoSansCJKkr-Medium.otf in Resources */,
-				B82C5D7524B78BF90016DB68 /* real_loading.json in Resources */,
-				B8E2B64B24B24ADA0098F677 /* Login.storyboard in Resources */,
+				B82094D524BCE25700DB543F /* real_loading.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -685,6 +680,7 @@
 				D1E5837324BC95690013FB7C /* Canvas.swift in Sources */,
 				D1E5838124BC95990013FB7C /* CollecViewController4.swift in Sources */,
 				D781D70F24B4B07100AAE389 /* FinishedRoundViewController.swift in Sources */,
+				B8D7DB7124BF912D00DE9D02 /* ExampleViewController.swift in Sources */,
 				D756DF8A24B5908900551E12 /* PopupAnimationExtension.swift in Sources */,
 				D18D89B624B3A6FF00D8779E /* UIView.swift in Sources */,
 				D1E5839424BC965C0013FB7C /* NetworkManager.swift in Sources */,
@@ -694,12 +690,15 @@
 				D7EB706A24B8B75A0041B9CA /* HostRoundSettingViewController.swift in Sources */,
 				D12EC23E24AB4070007E5896 /* AppDelegate.swift in Sources */,
 				D12EC24824AB4070007E5896 /* STORM.xcdatamodeld in Sources */,
+				B8D7DB6D24BF711700DE9D02 /* ScrappedCardTextCell.swift in Sources */,
 				D781D6FC24B4A66F00AAE389 /* LayerExtension.swift in Sources */,
 				D15EA3F024BF3FE800D3017F /* DrawingCell.swift in Sources */,
 				B8E9FA7C24B9FC3B00A97235 /* RoundStartPopViewController.swift in Sources */,
+				B8E9FA7E24BA059600A97235 /* SettingCodePopViewController.swift in Sources */,
+				B8E9FA8624BA551E00A97235 /* RoundEndPopViewController.swift in Sources */,
+				B825FA2B24BCBA3D0098463D /* RecentProjectCardCollectionViewCell.swift in Sources */,
 				D19533B724BCB072008DB22F /* Member.swift in Sources */,
 				B8E9FA7E24BA059600A97235 /* SettingCodePopViewController.swift in Sources */,
-				B84BE19124BB122A0048BE9C /* RoundCell.swift in Sources */,
 				B8E9FA8624BA551E00A97235 /* RoundEndPopViewController.swift in Sources */,
 				D15088AB24BD98DD007D9596 /* Round.swift in Sources */,
 				D18D89B624B3A6FF00D8779E /* UIView.swift in Sources */,
@@ -708,17 +707,17 @@
 				D12EC23E24AB4070007E5896 /* AppDelegate.swift in Sources */,
 				D75ECBE424B6443B00CB46C3 /* MemberRoundSettingViewController.swift in Sources */,
 				D12EC24824AB4070007E5896 /* STORM.xcdatamodeld in Sources */,
+				B864A9BF24C02A18002B700B /* ReusableView.swift in Sources */,
 				D75ECBEC24B6C7EF00CB46C3 /* HostProjectSettingViewController.swift in Sources */,
+				B825FA2E24BCBAA90098463D /* ProjectFinishedViewController.swift in Sources */,
 				D1E5839524BC965C0013FB7C /* Project.swift in Sources */,
 				D186F00324BFAE3E00D67FAD /* AllProjectViewController.swift in Sources */,
 				D1E5838724BC95990013FB7C /* SocketIOManager.swift in Sources */,
 				B8E9FA8424BA50EA00A97235 /* ChangeToTextPopViewController.swift in Sources */,
 				D1E5838F24BC964F0013FB7C /* User.swift in Sources */,
-				B82C5D7124B7597A0016DB68 /* ParticipatedProject.swift in Sources */,
 				D1E5838524BC95990013FB7C /* RoundMeetingViewController.swift in Sources */,
-				B84BE1A524BB970F0048BE9C /* ScrappedCardImageViewCell.swift in Sources */,
-				B82C5D6D24B741600016DB68 /* ParticipatedProjectCell.swift in Sources */,
-				B84BE1A124BB96620048BE9C /* ScrappedCardTextCell.swift in Sources */,
+				B8D7DB6F24BF712B00DE9D02 /* ScrappedCardImageCell.swift in Sources */,
+				D1E5838524BC95990013FB7C /* RoundMeetingViewController.swift in Sources */,
 				D1E5837F24BC95990013FB7C /* CollecViewController2.swift in Sources */,
 				B88B6C3E24B83AB300F22DDE /* ViewMoreViewController.swift in Sources */,
 				B8E9FA8224BA50D800A97235 /* ChangeToDrawPopViewController.swift in Sources */,
@@ -749,7 +748,6 @@
 				D1E5838C24BC96270013FB7C /* UIViewController.swift in Sources */,
 				D781D6FD24B4A66F00AAE389 /* ProjectWaitingViewController.swift in Sources */,
 				B8E9FA8A24BA5C8E00A97235 /* EndProjectPopViewController.swift in Sources */,
-				B84BE18B24BAC4810048BE9C /* RoundFinishedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -32,6 +32,7 @@ class InvalidCodePopViewController: UIViewController {
     // MARK:- IBAction 선언
     
     @IBAction func okButtonDidTap(_ sender: UIButton) {
+        NotificationCenter.default.post(name: .buttonClickInPopup, object: nil)
         self.removeAnimate()
     }
     

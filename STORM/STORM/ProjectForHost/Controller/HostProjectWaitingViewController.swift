@@ -65,8 +65,7 @@ class HostProjectWaitingViewController: UIViewController {
         reminderPopupViewController.view.frame = self.view.frame
         reminderPopupViewController.didMove(toParent: self)
         self.view.addSubview(reminderPopupViewController.view)
-        reminderPopupViewController.pressButton = { self.ruleReminderImage.image = (UIImage(named: "mProjectwaitingBrainstormingOkSelected"))
-        }
+
         
         
     }
