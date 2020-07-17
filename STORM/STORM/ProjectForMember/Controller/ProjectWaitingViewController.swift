@@ -42,11 +42,11 @@ class ProjectWaitingViewController: UIViewController {
         // TODO: 또 그림자가 적용 안 됨..ㅠㅠㅠ
         
 
-        projectStartButton.addShadow(width: 0, height: 3, 0.16, 2.5)
-
-
 //        projectStartButton.addShadow(width: 0, height: 3, 0.16, 2.5)
-        toastPopupImage.isHidden = true
+//
+//
+////        projectStartButton.addShadow(width: 0, height: 3, 0.16, 2.5)
+//        toastPopupImage.isHidden = true
 
         let tapReminderView = UITapGestureRecognizer(target: self, action: #selector(handleReminderView(sender:)))
         ruleReminderView.addGestureRecognizer(tapReminderView)

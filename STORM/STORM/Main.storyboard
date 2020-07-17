@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JcB-m9-RoJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PpM-qP-U71">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -30,7 +30,7 @@
                                     <fragment content="프로젝트 명">
                                         <attributes>
                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" metaFont="label" size="13"/>
+                                            <font key="NSFont" metaFont="system"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -46,7 +46,7 @@
                                     <fragment content="라운드 목표">
                                         <attributes>
                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" metaFont="label" size="13"/>
+                                            <font key="NSFont" metaFont="system"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -63,7 +63,7 @@
                                     <fragment content="ROUND 1">
                                         <attributes>
                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" metaFont="label" size="13"/>
+                                            <font key="NSFont" metaFont="system"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -79,7 +79,7 @@
                                     <fragment content="총 00:00 남음">
                                         <attributes>
                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" metaFont="label" size="13"/>
+                                            <font key="NSFont" metaFont="system"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -199,6 +199,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VID-bI-v5I" secondAttribute="trailing" constant="27" id="0Nz-I7-801"/>
+                            <constraint firstItem="td2-gT-b3J" firstAttribute="height" secondItem="CQw-lr-l1b" secondAttribute="height" multiplier="0.615885" id="0X2-rK-y9p"/>
                             <constraint firstItem="W8U-4Q-ZfM" firstAttribute="leading" secondItem="LLc-Eo-UlX" secondAttribute="trailing" id="1rO-qt-IND"/>
                             <constraint firstItem="LLc-Eo-UlX" firstAttribute="centerY" secondItem="W8U-4Q-ZfM" secondAttribute="centerY" id="5Th-lJ-90z"/>
                             <constraint firstItem="kjt-Lc-3ob" firstAttribute="leading" secondItem="wd1-kf-TkN" secondAttribute="trailing" id="7YL-LH-fbd"/>
@@ -215,7 +216,6 @@
                             <constraint firstItem="CQw-lr-l1b" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="MKy-L8-Omm"/>
                             <constraint firstItem="td2-gT-b3J" firstAttribute="centerX" secondItem="CQw-lr-l1b" secondAttribute="centerX" id="Ntl-1z-fKk"/>
                             <constraint firstAttribute="bottom" secondItem="CQw-lr-l1b" secondAttribute="bottom" id="ORk-yM-uhR"/>
-                            <constraint firstItem="td2-gT-b3J" firstAttribute="width" secondItem="CQw-lr-l1b" secondAttribute="width" multiplier="0.853333" id="OaR-xJ-xbW"/>
                             <constraint firstItem="wd1-kf-TkN" firstAttribute="top" secondItem="1Gc-mj-MmE" secondAttribute="bottom" constant="26" id="Uyx-9s-rQq"/>
                             <constraint firstItem="CQw-lr-l1b" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="WIy-zE-yvx"/>
                             <constraint firstItem="td2-gT-b3J" firstAttribute="top" secondItem="wd1-kf-TkN" secondAttribute="bottom" id="Yfv-zb-4je"/>
@@ -247,24 +247,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="229.59999999999999" y="90.886699507389167"/>
+            <point key="canvasLocation" x="-628" y="91"/>
         </scene>
         <!--Round Meeting View Controller-->
         <scene sceneID="dK6-ZU-8yB">
             <objects>
                 <viewController id="jRk-BP-If2" customClass="RoundMeetingViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NjI-sA-2Cx">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_red" translatesAutoresizingMaskIntoConstraints="NO" id="SAQ-tM-E67">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="101"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="101"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="101" id="5jB-gu-8jT"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x4h-96-OEt">
-                                <rect key="frame" x="27" y="53" width="60" height="20"/>
+                                <rect key="frame" x="27" y="97" width="60" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="fzE-7a-AIf"/>
                                 </constraints>
@@ -272,7 +272,7 @@
                                     <fragment content="라운드 목표">
                                         <attributes>
                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" metaFont="label" size="13"/>
+                                            <font key="NSFont" metaFont="system"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -280,7 +280,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BSo-Wb-YXZ">
-                                <rect key="frame" x="278" y="29" width="70" height="20"/>
+                                <rect key="frame" x="278" y="73" width="70" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="CAn-rO-5rn"/>
                                     <constraint firstAttribute="height" constant="20" id="ZbI-A8-pu3"/>
@@ -289,7 +289,7 @@
                                     <fragment content="ROUND 1">
                                         <attributes>
                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" metaFont="label" size="13"/>
+                                            <font key="NSFont" metaFont="system"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -297,7 +297,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4pK-7q-b6d">
-                                <rect key="frame" x="27" y="29" width="60" height="20"/>
+                                <rect key="frame" x="27" y="73" width="60" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="uFA-No-Ftr"/>
                                 </constraints>
@@ -305,7 +305,7 @@
                                     <fragment content="프로젝트 명">
                                         <attributes>
                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" metaFont="label" size="13"/>
+                                            <font key="NSFont" metaFont="system"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -313,7 +313,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="osp-XM-hQY">
-                                <rect key="frame" x="0.0" y="101" width="375" height="623"/>
+                                <rect key="frame" x="0.0" y="145" width="375" height="667"/>
                                 <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="27" minimumInteritemSpacing="27" id="oTI-BR-zEP">
                                     <size key="itemSize" width="50" height="50"/>
@@ -418,7 +418,7 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Tf-7z-WP2">
-                                <rect key="frame" x="270.66666666666669" y="53" width="77.333333333333314" height="20"/>
+                                <rect key="frame" x="270.66666666666669" y="97" width="77.333333333333314" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="SaD-F2-ZAk"/>
                                 </constraints>
@@ -426,7 +426,7 @@
                                     <fragment content="총 00:00 남음">
                                         <attributes>
                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" metaFont="label" size="13"/>
+                                            <font key="NSFont" metaFont="system"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -461,43 +461,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DT3-tW-fYR" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1878" y="91"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="PMa-Bl-ZjI">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="U4g-Cm-635" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="sUb-13-fsz">
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.92549019607843142" green="0.396078431372549" blue="0.396078431372549" alpha="1" colorSpace="calibratedRGB"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="phU-Rh-KEQ"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zcs-ir-SUI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-628" y="91"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Efl-0Y-apx">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sqm-aq-BFT" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="Zsm-XW-txX">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="jRk-BP-If2" kind="relationship" relationship="rootViewController" id="7Jl-Gv-qhy"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OqL-Hz-9F7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1006" y="91"/>
+            <point key="canvasLocation" x="230" y="91"/>
         </scene>
         <!--All Round View Controller-->
         <scene sceneID="kOI-JQ-xKp">
@@ -520,7 +484,7 @@
                                     <fragment content="프로젝트 명">
                                         <attributes>
                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" metaFont="label" size="13"/>
+                                            <font key="NSFont" metaFont="system"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -536,7 +500,7 @@
                                     <fragment content="라운드 목표">
                                         <attributes>
                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" metaFont="label" size="13"/>
+                                            <font key="NSFont" metaFont="system"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -553,7 +517,7 @@
                                     <fragment content="ROUND 1">
                                         <attributes>
                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" metaFont="label" size="13"/>
+                                            <font key="NSFont" metaFont="system"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -569,7 +533,7 @@
                                     <fragment content="총 00:00 남음">
                                         <attributes>
                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" metaFont="label" size="13"/>
+                                            <font key="NSFont" metaFont="system"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -692,26 +656,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q19-7r-4hZ" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2669.5999999999999" y="90.886699507389167"/>
+            <point key="canvasLocation" x="-628" y="779"/>
         </scene>
-        <!--Collec View Controller4-->
+        <!--All Round Carousel View Controller-->
         <scene sceneID="SYj-1t-I9H">
             <objects>
-                <viewController id="PpM-qP-U71" customClass="CollecViewController4" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="PpM-qP-U71" customClass="AllRoundCarouselViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="01F-0H-1qG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_img" translatesAutoresizingMaskIntoConstraints="NO" id="hro-QZ-zbD">
-                                <rect key="frame" x="0.0" y="88" width="375" height="724"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="768"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tJr-VC-RgO">
-                                <rect key="frame" x="30" y="113" width="315" height="371"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="tJr-VC-RgO" secondAttribute="height" multiplier="45:53" id="cR2-pG-DZR"/>
-                                </constraints>
+                                <rect key="frame" x="30" y="137" width="315" height="347"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <viewLayoutGuide key="safeArea" id="GYf-oM-9uU"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Fpc-c7-M5o">
                                     <size key="itemSize" width="50" height="50"/>
@@ -731,7 +692,7 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTL-Gc-Uq1">
-                                <rect key="frame" x="165.66666666666666" y="74" width="43.666666666666657" height="18"/>
+                                <rect key="frame" x="165.66666666666666" y="74" width="43.666666666666657" height="42"/>
                                 <attributedString key="attributedText">
                                     <fragment content="(0/00)">
                                         <attributes>
@@ -789,26 +750,17 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="GYP-kQ-DhF">
-                                <rect key="frame" x="26" y="722" width="323" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="minimumTrackTintColor" red="0.85882352941176465" green="0.42745098039215684" blue="0.41176470588235292" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <color key="maximumTrackTintColor" red="0.92324715850000005" green="0.79614305500000004" blue="0.79607689380000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <color key="thumbTintColor" red="0.8607490659" green="0.4282121062" blue="0.41175150869999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <connections>
-                                    <action selector="slide:" destination="PpM-qP-U71" eventType="valueChanged" id="WW5-g2-nCY"/>
-                                </connections>
-                            </slider>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="mqw-P6-vRd" firstAttribute="leading" secondItem="Z6G-WY-33J" secondAttribute="leading" constant="65" id="0mq-hn-tBb"/>
                             <constraint firstItem="3mZ-4b-qSc" firstAttribute="centerX" secondItem="mqw-P6-vRd" secondAttribute="centerX" id="8aC-V3-3bq"/>
-                            <constraint firstItem="wTL-Gc-Uq1" firstAttribute="top" relation="lessThanOrEqual" secondItem="Z6G-WY-33J" secondAttribute="top" constant="30" id="ADT-qj-qcK"/>
+                            <constraint firstItem="wTL-Gc-Uq1" firstAttribute="top" secondItem="Z6G-WY-33J" secondAttribute="top" constant="30" id="ADT-qj-qcK"/>
                             <constraint firstItem="hro-QZ-zbD" firstAttribute="top" secondItem="Z6G-WY-33J" secondAttribute="top" id="K0K-G4-0dQ"/>
                             <constraint firstItem="Z6G-WY-33J" firstAttribute="trailing" secondItem="mqw-P6-vRd" secondAttribute="trailing" constant="65" id="MbG-yf-aPy"/>
                             <constraint firstItem="tJr-VC-RgO" firstAttribute="top" secondItem="wTL-Gc-Uq1" secondAttribute="bottom" constant="21" id="Ua4-pS-tto"/>
                             <constraint firstItem="tJr-VC-RgO" firstAttribute="leading" secondItem="Z6G-WY-33J" secondAttribute="leading" constant="30" id="VGw-4c-Sq3"/>
+                            <constraint firstItem="tJr-VC-RgO" firstAttribute="height" secondItem="hro-QZ-zbD" secondAttribute="height" multiplier="0.451657" id="ZdN-6u-E7L"/>
                             <constraint firstItem="hro-QZ-zbD" firstAttribute="trailing" secondItem="Z6G-WY-33J" secondAttribute="trailing" id="eVk-IR-1de"/>
                             <constraint firstItem="mqw-P6-vRd" firstAttribute="top" secondItem="tJr-VC-RgO" secondAttribute="bottom" constant="33" id="n42-DR-kM6"/>
                             <constraint firstItem="3mZ-4b-qSc" firstAttribute="centerY" secondItem="mqw-P6-vRd" secondAttribute="centerY" multiplier="1.11" id="nkG-h3-1Jd"/>
@@ -823,9 +775,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="fSP-On-VG1"/>
                     <connections>
-                        <outlet property="botConstOfMemo" destination="prW-Uv-Rba" id="HdG-iN-f02"/>
-                        <outlet property="collectionView" destination="tJr-VC-RgO" id="XuZ-5T-g19"/>
-                        <outlet property="slider" destination="GYP-kQ-DhF" id="qpx-DF-2hQ"/>
+                        <outlet property="botConstOfMemo" destination="prW-Uv-Rba" id="Los-Ug-VLV"/>
+                        <outlet property="collectionView" destination="tJr-VC-RgO" id="SsQ-HT-GcO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yBe-Nw-FEf" sceneMemberID="firstResponder"/>
@@ -871,7 +822,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tpf-9h-g5b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1006" y="779"/>
+            <point key="canvasLocation" x="980" y="91"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="EpO-8U-wSo">
@@ -901,7 +852,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rzj-ls-tAk">
-                                <rect key="frame" x="27" y="149" width="115" height="24"/>
+                                <rect key="frame" x="27" y="126" width="115" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="Wth-rS-i4V"/>
                                 </constraints>
@@ -949,9 +900,9 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9SE-gb-1vK">
-                                <rect key="frame" x="27.666666666666657" y="189" width="320" height="203"/>
+                                <rect key="frame" x="18.666666666666657" y="166" width="338" height="221"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="9SE-gb-1vK" secondAttribute="height" multiplier="320:203" id="0QM-fh-p8b"/>
+                                    <constraint firstAttribute="width" secondItem="9SE-gb-1vK" secondAttribute="height" multiplier="26:17" id="arM-in-DOB"/>
                                 </constraints>
                                 <state key="normal" image="mainviewBtnProject"/>
                                 <connections>
@@ -959,7 +910,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NxQ-ts-jIO">
-                                <rect key="frame" x="25.999999999999993" y="415" width="101.33333333333331" height="24"/>
+                                <rect key="frame" x="25.999999999999993" y="410" width="101.33333333333331" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="qBs-ce-DpH"/>
                                 </constraints>
@@ -975,7 +926,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCA-XB-YSo">
-                                <rect key="frame" x="285" y="418" width="49.666666666666686" height="18"/>
+                                <rect key="frame" x="285" y="413" width="49.666666666666686" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="49.5" id="DJS-TR-QEp"/>
                                     <constraint firstAttribute="height" constant="18" id="f2O-Hp-lWy"/>
@@ -986,13 +937,13 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_project_img" translatesAutoresizingMaskIntoConstraints="NO" id="Ogv-nf-8h7">
-                                <rect key="frame" x="106.66666666666669" y="498" width="162" height="100"/>
+                                <rect key="frame" x="106.66666666666669" y="493" width="162" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Ogv-nf-8h7" secondAttribute="height" multiplier="81:50" id="WDX-fo-X2Z"/>
                                 </constraints>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="06N-vn-dBr">
-                                <rect key="frame" x="0.0" y="454.99999999999994" width="375" height="174.33333333333331"/>
+                                <rect key="frame" x="0.0" y="449.99999999999994" width="375" height="174.33333333333331"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="RPG-tL-G1h">
                                     <size key="itemSize" width="128" height="174"/>
@@ -1049,7 +1000,7 @@
                                                     <attributedString key="attributedText">
                                                         <fragment content="프로젝트 이름">
                                                             <attributes>
-                                                                <font key="NSFont" metaFont="label" size="11"/>
+                                                                <font key="NSFont" metaFont="message" size="11"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
@@ -1089,9 +1040,9 @@
                             <constraint firstItem="jSk-1a-Xwt" firstAttribute="trailing" secondItem="drp-fd-QcZ" secondAttribute="trailing" id="Azi-Q9-NjS"/>
                             <constraint firstItem="GgJ-rd-Sq3" firstAttribute="leading" secondItem="drp-fd-QcZ" secondAttribute="leading" constant="27" id="D4k-qY-pxc"/>
                             <constraint firstItem="GgJ-rd-Sq3" firstAttribute="top" secondItem="drp-fd-QcZ" secondAttribute="top" constant="25" id="FNU-KN-6me"/>
-                            <constraint firstItem="06N-vn-dBr" firstAttribute="height" secondItem="jSk-1a-Xwt" secondAttribute="height" multiplier="0.241" id="GnE-q0-LRs"/>
                             <constraint firstItem="9SE-gb-1vK" firstAttribute="top" secondItem="Rzj-ls-tAk" secondAttribute="bottom" constant="16" id="Ix4-TP-NHG"/>
                             <constraint firstItem="9SE-gb-1vK" firstAttribute="centerX" secondItem="jSk-1a-Xwt" secondAttribute="centerX" id="M5I-oI-Lxe"/>
+                            <constraint firstItem="9SE-gb-1vK" firstAttribute="height" secondItem="cLT-OS-cyK" secondAttribute="height" multiplier="0.305249" id="NK2-Cf-RW7"/>
                             <constraint firstItem="06N-vn-dBr" firstAttribute="leading" secondItem="drp-fd-QcZ" secondAttribute="leading" id="NTt-cK-JWq"/>
                             <constraint firstItem="Rzj-ls-tAk" firstAttribute="leading" secondItem="drp-fd-QcZ" secondAttribute="leading" constant="27" id="PVT-nH-KZ7"/>
                             <constraint firstItem="drp-fd-QcZ" firstAttribute="trailing" secondItem="C6t-YZ-bb2" secondAttribute="trailing" constant="27" id="TXP-F4-axI"/>
@@ -1101,10 +1052,10 @@
                             <constraint firstItem="Ogv-nf-8h7" firstAttribute="centerX" secondItem="jSk-1a-Xwt" secondAttribute="centerX" id="iKj-5q-Mf1"/>
                             <constraint firstItem="Ogv-nf-8h7" firstAttribute="top" secondItem="NxQ-ts-jIO" secondAttribute="bottom" constant="59" id="k2S-M6-raE"/>
                             <constraint firstAttribute="bottom" secondItem="jSk-1a-Xwt" secondAttribute="bottom" id="kLU-X0-0ft"/>
+                            <constraint firstItem="06N-vn-dBr" firstAttribute="height" secondItem="cLT-OS-cyK" secondAttribute="height" multiplier="0.240792" id="p5y-LX-MX9"/>
                             <constraint firstItem="NxQ-ts-jIO" firstAttribute="top" secondItem="9SE-gb-1vK" secondAttribute="bottom" constant="23" id="pUi-4o-yTv"/>
-                            <constraint firstItem="Rzj-ls-tAk" firstAttribute="top" secondItem="C6t-YZ-bb2" secondAttribute="bottom" constant="43" id="r4t-t2-hrT"/>
+                            <constraint firstItem="Rzj-ls-tAk" firstAttribute="top" secondItem="C6t-YZ-bb2" secondAttribute="bottom" constant="20" id="r4t-t2-hrT"/>
                             <constraint firstItem="jSk-1a-Xwt" firstAttribute="leading" secondItem="drp-fd-QcZ" secondAttribute="leading" id="tDw-IX-If4"/>
-                            <constraint firstItem="9SE-gb-1vK" firstAttribute="width" secondItem="jSk-1a-Xwt" secondAttribute="width" multiplier="0.853333" id="v15-Wa-73o"/>
                             <constraint firstItem="QCA-XB-YSo" firstAttribute="centerY" secondItem="NxQ-ts-jIO" secondAttribute="centerY" id="zqi-1l-MDI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="drp-fd-QcZ"/>
@@ -1119,7 +1070,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CJa-B9-7Fz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2670" y="779"/>
+            <point key="canvasLocation" x="1753" y="779"/>
         </scene>
         <!--All Project View Controller-->
         <scene sceneID="m8i-7T-RO4">
@@ -1210,7 +1161,7 @@
                                                     <attributedString key="attributedText">
                                                         <fragment content="프로젝트 이름">
                                                             <attributes>
-                                                                <font key="NSFont" metaFont="label" size="11"/>
+                                                                <font key="NSFont" metaFont="message" size="11"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
@@ -1263,24 +1214,6 @@
             <point key="canvasLocation" x="3455" y="779"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="jsH-cU-PBc">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GIz-1l-fSx" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="khC-9b-ALL">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="PpM-qP-U71" kind="relationship" relationship="rootViewController" id="IS9-dG-HEn"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Naq-JO-Qg8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-628" y="779"/>
-        </scene>
-        <!--Navigation Controller-->
         <scene sceneID="M3J-ll-cJG">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JcB-m9-RoJ" sceneMemberID="viewController">
@@ -1301,7 +1234,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lV3-5h-dfn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1878" y="779"/>
+            <point key="canvasLocation" x="980" y="779"/>
         </scene>
     </scenes>
     <resources>

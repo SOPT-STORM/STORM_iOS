@@ -119,6 +119,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
             idx += 1
         }
+    
         
         return cell
     }

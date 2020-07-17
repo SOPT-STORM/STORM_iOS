@@ -57,10 +57,10 @@ class SettingCodePopViewController: UIViewController {
         let pasteboard = UIPasteboard.general
         pasteboard.string = projectCodeTextField.text
         print("copied")
-
-    @IBAction func createOkButtonDidTap(_ sender: UIButton) {
-        NotificationCenter.default.post(name: .buttonClickInPopup, object: nil)
-        self.removeAnimate()
+//
+//    @IBAction func createOkButtonDidTap(_ sender: UIButton) {
+//        NotificationCenter.default.post(name: .buttonClickInPopup, object: nil)
+//        self.removeAnimate()
 
     }
     

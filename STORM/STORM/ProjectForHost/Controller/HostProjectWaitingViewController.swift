@@ -38,7 +38,7 @@ class HostProjectWaitingViewController: UIViewController {
         projectWaitingTableView.setRadius(radius: 15)
         projectWaitingTableView.dropShadow(color: .black, opacity: 0.16, offSet: CGSize(width: 0, height: 3), radius: 2.5)
         projectWaitingTableView.clipsToBounds = true
-        projectStartButton.addShadow(width: 0, height: 3, 0.16, 2.5)
+//        projectStartButton.addShadow(width: 0, height: 3, 0.16, 2.5)
         
         // projectWaitingTableView.verticalScrollIndicatorInsets = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 14)
         // TODO: 스크롤바 인셋 설정 버전별로 다르게 해야하는데 어떻게 하지.?
@@ -48,8 +48,8 @@ class HostProjectWaitingViewController: UIViewController {
         
 
 //        projectStartButton.addShadow(width: 0, height: 3, 0.16, 2.5)
-        toastPopupImage.isHidden = true
- db62d716ee59f350d935ad8fbdd786651d829e1b:STORM/STORM/ProjectForHost/Controller/HostProjectWaitingViewController.swift
+//        toastPopupImage.isHidden = true
+
         let tapReminderView = UITapGestureRecognizer(target: self, action: #selector(handleReminderView(sender:)))
         ruleReminderView.addGestureRecognizer(tapReminderView)
         

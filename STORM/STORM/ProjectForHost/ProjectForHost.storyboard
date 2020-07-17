@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vSH-Fj-0r4">
-ProjectForHost.storyboard
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vSH-Fj-0r4">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -27,13 +25,10 @@ ProjectForHost.storyboard
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FD6-Et-mek">
-
-
-                                <rect key="frame" x="27" y="63" width="130" height="24"/>
+                                <rect key="frame" x="27" y="67.666666666666671" width="130" height="19.333333333333329"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="130" id="WqN-l3-FNs"/>
                                 </constraints>
-
                                 <attributedString key="attributedText">
                                     <fragment content="프로젝트 추가하기">
                                         <attributes>
@@ -253,10 +248,8 @@ ProjectForHost.storyboard
                                     <fragment content="ROUND10 설정">
                                         <attributes>
                                             <color key="NSColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-
                                             <font key="NSFont" size="15" name="NotoSansCJKkr-Bold"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-ProjectForHost.storyboard
                                         </attributes>
                                     </fragment>
                                 </attributedString>
@@ -295,7 +288,6 @@ ProjectForHost.storyboard
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
@@ -442,8 +434,8 @@ ProjectForHost.storyboard
                             <constraint firstItem="w20-DK-Zkl" firstAttribute="width" secondItem="9dl-Gl-B1c" secondAttribute="width" multiplier="0.221333" id="SUo-Uz-7wT"/>
                             <constraint firstItem="cQD-Eh-2rw" firstAttribute="leading" secondItem="3f5-2K-MG0" secondAttribute="leading" constant="27" id="UfR-K1-lth"/>
                             <constraint firstItem="cgw-eG-Nnv" firstAttribute="leading" secondItem="3f5-2K-MG0" secondAttribute="leading" id="Xgg-oi-JJN"/>
+                            <constraint firstItem="T30-45-CtW" firstAttribute="top" secondItem="iKl-me-qzG" secondAttribute="bottom" constant="58.670000000000002" id="YwS-SR-xwo"/>
                             <constraint firstItem="cQD-Eh-2rw" firstAttribute="height" secondItem="9dl-Gl-B1c" secondAttribute="height" multiplier="0.585911" id="bu9-ig-Hzv"/>
-                            <constraint firstItem="T30-45-CtW" firstAttribute="centerY" secondItem="9dl-Gl-B1c" secondAttribute="centerY" multiplier="1.25" id="cfv-Yq-468"/>
                             <constraint firstItem="T30-45-CtW" firstAttribute="width" secondItem="9dl-Gl-B1c" secondAttribute="width" multiplier="0.730667" id="d0U-ov-7jh"/>
                             <constraint firstItem="iKl-me-qzG" firstAttribute="width" secondItem="9dl-Gl-B1c" secondAttribute="width" multiplier="0.096" id="fvj-Jv-xPf"/>
                             <constraint firstItem="ffg-EM-hTm" firstAttribute="width" secondItem="9dl-Gl-B1c" secondAttribute="width" multiplier="0.717333" id="m6j-L9-5dh"/>
@@ -460,7 +452,6 @@ ProjectForHost.storyboard
                         <outlet property="roundGoalTextField" destination="cCI-c5-58m" id="Iuo-J0-Vk1"/>
                         <outlet property="roundIndexSetLabel" destination="XNS-ZQ-sQm" id="Rro-ZY-p9g"/>
                         <outlet property="stormLogoImage" destination="iKl-me-qzG" id="9g8-Ov-7Bh"/>
-                        <outlet property="textFieldYConstraint" destination="cfv-Yq-468" id="NcP-98-Pkl"/>
                         <outlet property="timeLimitPickerView" destination="ezN-s7-12r" id="6HP-hr-2OE"/>
                         <outlet property="timeLimitTextField" destination="699-zU-1y9" id="yQT-Yz-2mM"/>
                     </connections>
@@ -469,7 +460,6 @@ ProjectForHost.storyboard
             </objects>
             <point key="canvasLocation" x="212" y="810"/>
         </scene>
-
         <!--Reminder Popup View Controller-->
         <scene sceneID="EKB-I7-hN7">
             <objects>
@@ -518,7 +508,7 @@ ProjectForHost.storyboard
                                                 <fragment content="확인">
                                                     <attributes>
                                                         <color key="NSColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <font key="NSFont" metaFont="system" size="14"/>
+                                                        <font key="NSFont" metaFont="menu" size="14"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>
@@ -537,7 +527,7 @@ ProjectForHost.storyboard
                                                     <fragment content="아이디어를 시각화하며 진행해요">
                                                         <attributes>
                                                             <color key="NSColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <font key="NSFont" metaFont="cellTitle"/>
+                                                            <font key="NSFont" metaFont="label" size="12"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
                                                     </fragment>
@@ -550,7 +540,7 @@ ProjectForHost.storyboard
                                                     <fragment content="다듬어지지 않은 아이디어를 장려해요">
                                                         <attributes>
                                                             <color key="NSColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <font key="NSFont" metaFont="cellTitle"/>
+                                                            <font key="NSFont" metaFont="label" size="12"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
                                                     </fragment>
@@ -563,7 +553,7 @@ ProjectForHost.storyboard
                                                     <fragment content="다른 사람의 아이디어를 더 발전시켜요">
                                                         <attributes>
                                                             <color key="NSColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <font key="NSFont" metaFont="cellTitle"/>
+                                                            <font key="NSFont" metaFont="label" size="12"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
                                                     </fragment>
@@ -576,7 +566,7 @@ ProjectForHost.storyboard
                                                     <fragment content="주제에 집중하고 목표에 초점을 맞추어 토론해요">
                                                         <attributes>
                                                             <color key="NSColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <font key="NSFont" metaFont="cellTitle"/>
+                                                            <font key="NSFont" metaFont="label" size="12"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
                                                     </fragment>
@@ -589,7 +579,7 @@ ProjectForHost.storyboard
                                                     <fragment content="한 번에 한 가지 주제로 대화를 해요">
                                                         <attributes>
                                                             <color key="NSColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <font key="NSFont" metaFont="cellTitle"/>
+                                                            <font key="NSFont" metaFont="label" size="12"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
                                                     </fragment>
@@ -602,7 +592,7 @@ ProjectForHost.storyboard
                                                     <fragment content="판단은 보류해요">
                                                         <attributes>
                                                             <color key="NSColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <font key="NSFont" metaFont="cellTitle"/>
+                                                            <font key="NSFont" metaFont="label" size="12"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
                                                     </fragment>
@@ -615,7 +605,7 @@ ProjectForHost.storyboard
                                                     <fragment content="아이디어의 질보다는 양을 추구해요">
                                                         <attributes>
                                                             <color key="NSColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <font key="NSFont" metaFont="cellTitle"/>
+                                                            <font key="NSFont" metaFont="label" size="12"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
                                                     </fragment>
@@ -710,9 +700,8 @@ ProjectForHost.storyboard
                                                 <fragment content="브레인스토밍 룰 확인 ">
                                                     <attributes>
                                                         <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-
                                                         <font key="NSFont" size="11" name="NotoSansCJKkr-Medium"/>
-                                                       <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>
                                             </attributedString>
@@ -769,7 +758,7 @@ ProjectForHost.storyboard
                                             <fragment content="ROUND 목표 들깨는 귀여운 아기 천사 최고의 강아지">
                                                 <attributes>
                                                     <color key="NSColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <font key="NSFont" metaFont="cellTitle"/>
+                                                    <font key="NSFont" metaFont="label" size="12"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
@@ -786,7 +775,7 @@ ProjectForHost.storyboard
                                             <fragment content="총 10분 예정">
                                                 <attributes>
                                                     <color key="NSColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <font key="NSFont" metaFont="cellTitle"/>
+                                                    <font key="NSFont" metaFont="label" size="12"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
@@ -850,12 +839,10 @@ ProjectForHost.storyboard
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TtN-bJ-wyh">
-
-                                        <rect key="frame" x="49.666666666666686" y="74.333333333333343" width="170" height="22.333333333333329"/>
+                                        <rect key="frame" x="49.666666666666686" y="76.333333333333343" width="170" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="170" id="4Zu-Sw-TXk"/>
                                         </constraints>
-
                                         <attributedString key="attributedText">
                                             <fragment content="프로젝트명">
                                                 <attributes>
