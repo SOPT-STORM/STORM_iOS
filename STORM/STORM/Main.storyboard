@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JcB-m9-RoJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sZo-dS-UcC">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -466,7 +466,7 @@
         <!--All Round View Controller-->
         <scene sceneID="kOI-JQ-xKp">
             <objects>
-                <viewController id="sZo-dS-UcC" customClass="AllRoundViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="allRoundViewController" id="sZo-dS-UcC" customClass="AllRoundViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LBZ-wt-C6A">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -558,8 +558,8 @@
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yQg-vV-orI">
                                 <rect key="frame" x="0.0" y="357" width="375" height="455"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bvP-Rk-hAo">
+                                <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bvP-Rk-hAo">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -614,7 +614,51 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
+                                            <outlet property="heartBtn" destination="0UQ-ss-8L3" id="roN-S2-4Kz"/>
                                             <outlet property="memo" destination="56i-0r-fyT" id="mjV-A7-sH2"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="drawingCell" id="gky-Xl-der" customClass="DrawingCell" customModule="STORM" customModuleProvider="target">
+                                        <rect key="frame" x="228" y="0.0" width="147" height="158"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="8Mr-Mz-TE9">
+                                            <rect key="frame" x="0.0" y="0.0" width="147" height="158"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9ya-HT-yE4">
+                                                    <rect key="frame" x="0.0" y="0.0" width="147" height="158"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="20"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U2l-ii-IeV">
+                                                    <rect key="frame" x="99" y="0.0" width="48" height="48"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="U2l-ii-IeV" secondAttribute="height" multiplier="1:1" id="tg8-2N-AqC"/>
+                                                    </constraints>
+                                                    <state key="normal" image="btn_heart"/>
+                                                    <connections>
+                                                        <action selector="didPressHeart:" destination="gky-Xl-der" eventType="touchUpInside" id="jBy-nZ-3w5"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="U2l-ii-IeV" firstAttribute="width" secondItem="9ya-HT-yE4" secondAttribute="width" multiplier="0.326531" id="GNr-Us-hZS"/>
+                                                <constraint firstItem="U2l-ii-IeV" firstAttribute="top" secondItem="8Mr-Mz-TE9" secondAttribute="top" id="SCG-Ov-z5Y"/>
+                                                <constraint firstAttribute="trailing" secondItem="9ya-HT-yE4" secondAttribute="trailing" id="VQ1-EZ-Qju"/>
+                                                <constraint firstAttribute="trailing" secondItem="U2l-ii-IeV" secondAttribute="trailing" id="cWg-qZ-mDa"/>
+                                                <constraint firstItem="9ya-HT-yE4" firstAttribute="leading" secondItem="8Mr-Mz-TE9" secondAttribute="leading" id="eTd-9v-JbN"/>
+                                                <constraint firstItem="9ya-HT-yE4" firstAttribute="top" secondItem="8Mr-Mz-TE9" secondAttribute="top" id="tcc-uP-kQM"/>
+                                                <constraint firstAttribute="bottom" secondItem="9ya-HT-yE4" secondAttribute="bottom" id="vKc-Mx-GbF"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="147" height="158"/>
+                                        <connections>
+                                            <outlet property="drawingImg" destination="9ya-HT-yE4" id="Ljn-k4-lIw"/>
+                                            <outlet property="heartBtn" destination="U2l-ii-IeV" id="ku0-zv-mcX"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -822,7 +866,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tpf-9h-g5b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="980" y="91"/>
+            <point key="canvasLocation" x="1113" y="91"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="EpO-8U-wSo">
@@ -1000,7 +1044,7 @@
                                                     <attributedString key="attributedText">
                                                         <fragment content="프로젝트 이름">
                                                             <attributes>
-                                                                <font key="NSFont" metaFont="label" size="11"/>
+                                                                <font key="NSFont" metaFont="menu" size="11"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
@@ -1070,7 +1114,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CJa-B9-7Fz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1769" y="779"/>
+            <point key="canvasLocation" x="1950" y="779"/>
         </scene>
         <!--All Project View Controller-->
         <scene sceneID="m8i-7T-RO4">
@@ -1121,17 +1165,17 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jxX-SV-iTR">
-                                                    <rect key="frame" x="1" y="1" width="128" height="140"/>
+                                                    <rect key="frame" x="1" y="1" width="153" height="148"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wHV-Ph-RQH">
-                                                            <rect key="frame" x="63.666666666666671" y="0.0" width="1" height="140"/>
+                                                            <rect key="frame" x="76" y="0.0" width="1" height="148"/>
                                                             <color key="backgroundColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="1" id="OKR-De-Ny8"/>
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3W0-Mz-lhH">
-                                                            <rect key="frame" x="0.0" y="69.666666666666671" width="128" height="1"/>
+                                                            <rect key="frame" x="0.0" y="73.666666666666671" width="153" height="1"/>
                                                             <color key="backgroundColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="0.13" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="1" id="bVa-5v-kkL"/>
@@ -1154,14 +1198,14 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idg-MO-e0J">
-                                                    <rect key="frame" x="0.0" y="157" width="130" height="15"/>
+                                                    <rect key="frame" x="0.0" y="165" width="155" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="17" id="vVY-mF-19l"/>
                                                     </constraints>
                                                     <attributedString key="attributedText">
                                                         <fragment content="프로젝트 이름">
                                                             <attributes>
-                                                                <font key="NSFont" metaFont="label" size="11"/>
+                                                                <font key="NSFont" metaFont="menu" size="11"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
@@ -1211,7 +1255,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yg7-Ij-e6M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3455" y="779"/>
+            <point key="canvasLocation" x="1950" y="91"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="M3J-ll-cJG">
@@ -1234,7 +1278,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lV3-5h-dfn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1010" y="779"/>
+            <point key="canvasLocation" x="1113" y="779"/>
         </scene>
     </scenes>
     <resources>

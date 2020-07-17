@@ -38,7 +38,8 @@ class HostProjectSettingViewController: UIViewController {
         hostMessageTextView.font = UIFont(name: "NotoSansCJKkr-Medium", size: 13)
         hostMessageTextView.delegate = self
         
-        self.navigationController?.setNaviBar()
+//        self.navigationController?.setNaviBar()
+        self.setNaviTitle()
     }
     
     // MARK: - IBAction
@@ -68,10 +69,10 @@ class HostProjectSettingViewController: UIViewController {
         NetworkManager.shared.addProject(projectName: projectName, projectComment: comment, userIdx: self.userId) { (response) in
             print(response?.status)
             print(response?.message)
-            print(response!.data.project_idx)
-            print(response!.data.project_code!)
-            UserDefaults.standard.set(response!.data.project_idx, forKey: "projectIndex")
-            UserDefaults.standard.set(response!.data.project_code!, forKey: "projectCode")
+            print(response!.data?.project_idx)
+            print(response!.data?.project_code!)
+            UserDefaults.standard.set(response!.data!.project_idx, forKey: "projectIndex")
+            UserDefaults.standard.set(response!.data?.project_code!, forKey: "projectCode")
         }
     }
     
