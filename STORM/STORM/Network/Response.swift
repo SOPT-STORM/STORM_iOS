@@ -52,7 +52,7 @@ struct ProjectIdxResponse: Codable {
     let status: Int
     let success: Bool
     let message: String
-    let data: ProjectWithIdx
+    let data: ProjectWithIdx?
 }
 
 struct ProjectInfoResponse: Codable {
