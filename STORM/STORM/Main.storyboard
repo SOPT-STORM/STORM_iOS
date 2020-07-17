@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qfR-Ek-Or0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qfR-Ek-Or0">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Drawing View Controller-->
+        <!--Add Card View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="DrawingViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="AddCardViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -30,7 +30,7 @@
                                     <fragment content="프로젝트 명">
                                         <attributes>
                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="13" name="NotoSansCJKkr-Bold"/>
+                                            <font key="NSFont" metaFont="system"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -46,7 +46,7 @@
                                     <fragment content="라운드 목표">
                                         <attributes>
                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="13" name="NotoSansCJKkr-Bold"/>
+                                            <font key="NSFont" metaFont="system"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -63,7 +63,7 @@
                                     <fragment content="ROUND 1">
                                         <attributes>
                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="13" name="NotoSansCJKkr-Bold"/>
+                                            <font key="NSFont" metaFont="system"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -71,7 +71,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sMK-ax-9CI">
-                                <rect key="frame" x="274.33333333333331" y="54" width="73.666666666666686" height="20"/>
+                                <rect key="frame" x="270.66666666666669" y="54" width="77.333333333333314" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="0TZ-cZ-VY4"/>
                                 </constraints>
@@ -79,7 +79,7 @@
                                     <fragment content="총 00:00 남음">
                                         <attributes>
                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="13" name="NotoSansCJKkr-Bold"/>
+                                            <font key="NSFont" metaFont="system"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -171,7 +171,7 @@
                                         <fragment content="저장">
                                             <attributes>
                                                 <color key="NSColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="15" name="NotoSansCJKkr-Bold"/>
+                                                <font key="NSFont" metaFont="system" size="15"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
                                         </fragment>
@@ -308,22 +308,22 @@
             </objects>
             <point key="canvasLocation" x="231" y="791"/>
         </scene>
-        <!--Collec View Controller5-->
+        <!--Round Meeting View Controller-->
         <scene sceneID="dK6-ZU-8yB">
             <objects>
-                <viewController id="jRk-BP-If2" customClass="CollecViewController5" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="jRk-BP-If2" customClass="RoundMeetingViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NjI-sA-2Cx">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_red" translatesAutoresizingMaskIntoConstraints="NO" id="SAQ-tM-E67">
-                                <rect key="frame" x="0.0" y="88" width="375" height="101"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="101"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="101" id="5jB-gu-8jT"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x4h-96-OEt">
-                                <rect key="frame" x="27" y="141" width="60" height="20"/>
+                                <rect key="frame" x="27" y="53" width="60" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="fzE-7a-AIf"/>
                                 </constraints>
@@ -331,7 +331,7 @@
                                     <fragment content="라운드 목표">
                                         <attributes>
                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="13" name="NotoSansCJKkr-Bold"/>
+                                            <font key="NSFont" metaFont="system"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -339,7 +339,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BSo-Wb-YXZ">
-                                <rect key="frame" x="278" y="117" width="70" height="20"/>
+                                <rect key="frame" x="278" y="29" width="70" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="CAn-rO-5rn"/>
                                     <constraint firstAttribute="height" constant="20" id="ZbI-A8-pu3"/>
@@ -348,7 +348,7 @@
                                     <fragment content="ROUND 1">
                                         <attributes>
                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="13" name="NotoSansCJKkr-Bold"/>
+                                            <font key="NSFont" metaFont="system"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -356,7 +356,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4pK-7q-b6d">
-                                <rect key="frame" x="27" y="117" width="60" height="20"/>
+                                <rect key="frame" x="27" y="29" width="60" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="uFA-No-Ftr"/>
                                 </constraints>
@@ -364,7 +364,7 @@
                                     <fragment content="프로젝트 명">
                                         <attributes>
                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="13" name="NotoSansCJKkr-Bold"/>
+                                            <font key="NSFont" metaFont="system"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -372,28 +372,112 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="osp-XM-hQY">
-                                <rect key="frame" x="0.0" y="197" width="375" height="581"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="27" minimumInteritemSpacing="27" id="ZTk-vZ-7VE">
-                                    <size key="itemSize" width="147" height="158"/>
+                                <rect key="frame" x="0.0" y="101" width="375" height="623"/>
+                                <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="27" minimumInteritemSpacing="27" id="oTI-BR-zEP">
+                                    <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="27" minY="27" maxX="27" maxY="27"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="rEI-OE-TJx">
-                                        <rect key="frame" x="27" y="27" width="147" height="50"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="memoCell" id="rEI-OE-TJx" customClass="MemoCell" customModule="STORM" customModuleProvider="target">
+                                        <rect key="frame" x="27" y="27" width="147" height="158"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ATs-EY-9N6">
-                                            <rect key="frame" x="0.0" y="0.0" width="147" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="147" height="158"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qnl-oH-sLE">
+                                                    <rect key="frame" x="17" y="41" width="113" height="76"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="고래맛 우유는 찐 우유다 고래맛 우 이건 텍스트 임다">
+                                                            <attributes>
+                                                                <font key="NSFont" metaFont="system" size="17"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FQd-7b-S1s">
+                                                    <rect key="frame" x="99" y="0.0" width="48" height="48"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="FQd-7b-S1s" secondAttribute="height" multiplier="1:1" id="BKP-pI-GC6"/>
+                                                    </constraints>
+                                                    <state key="normal" image="btn_heart"/>
+                                                    <connections>
+                                                        <action selector="didPressHeart:" destination="rEI-OE-TJx" eventType="touchUpInside" id="AAQ-oM-peR"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="FQd-7b-S1s" firstAttribute="width" secondItem="ATs-EY-9N6" secondAttribute="width" multiplier="0.326531" id="CRJ-5j-HlL"/>
+                                                <constraint firstItem="qnl-oH-sLE" firstAttribute="width" secondItem="ATs-EY-9N6" secondAttribute="width" multiplier="0.77" id="CVf-9D-S67"/>
+                                                <constraint firstItem="qnl-oH-sLE" firstAttribute="centerX" secondItem="ATs-EY-9N6" secondAttribute="centerX" id="CmD-Vb-xeF"/>
+                                                <constraint firstItem="qnl-oH-sLE" firstAttribute="centerY" secondItem="ATs-EY-9N6" secondAttribute="centerY" id="V8p-nn-0J7"/>
+                                                <constraint firstItem="FQd-7b-S1s" firstAttribute="top" secondItem="ATs-EY-9N6" secondAttribute="top" id="Vmg-RR-t9r"/>
+                                                <constraint firstAttribute="trailing" secondItem="FQd-7b-S1s" secondAttribute="trailing" id="oop-RF-O65"/>
+                                                <constraint firstItem="qnl-oH-sLE" firstAttribute="height" secondItem="ATs-EY-9N6" secondAttribute="height" multiplier="0.48" id="snQ-6F-Yef"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
-                                        <color key="backgroundColor" red="0.92549019610000005" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <size key="customSize" width="147" height="158"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="memo" destination="qnl-oH-sLE" id="TE7-fV-jSY"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="drawingCell" id="jDH-fu-mBj" customClass="DrawingCell" customModule="STORM" customModuleProvider="target">
+                                        <rect key="frame" x="201" y="27" width="147" height="158"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="CUL-2M-IbP">
+                                            <rect key="frame" x="0.0" y="0.0" width="147" height="158"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IgC-fz-qhT">
+                                                    <rect key="frame" x="0.0" y="0.0" width="147" height="158"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="20"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P5x-F9-crs">
+                                                    <rect key="frame" x="99" y="0.0" width="48" height="48"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="P5x-F9-crs" secondAttribute="height" multiplier="1:1" id="Sjx-JO-JNZ"/>
+                                                    </constraints>
+                                                    <state key="normal" image="btn_heart"/>
+                                                    <connections>
+                                                        <action selector="didPressHeart:" destination="jDH-fu-mBj" eventType="touchUpInside" id="NFw-EA-brR"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="IgC-fz-qhT" secondAttribute="trailing" id="5J7-K5-483"/>
+                                                <constraint firstItem="P5x-F9-crs" firstAttribute="width" secondItem="IgC-fz-qhT" secondAttribute="width" multiplier="0.326531" id="C4y-rl-5Pu"/>
+                                                <constraint firstAttribute="trailing" secondItem="P5x-F9-crs" secondAttribute="trailing" id="N7I-Hq-ghY"/>
+                                                <constraint firstAttribute="bottom" secondItem="IgC-fz-qhT" secondAttribute="bottom" id="bFQ-6D-EK6"/>
+                                                <constraint firstItem="IgC-fz-qhT" firstAttribute="leading" secondItem="CUL-2M-IbP" secondAttribute="leading" id="iFs-TN-SRO"/>
+                                                <constraint firstItem="IgC-fz-qhT" firstAttribute="top" secondItem="CUL-2M-IbP" secondAttribute="top" id="tSI-Zb-sOj"/>
+                                                <constraint firstItem="P5x-F9-crs" firstAttribute="top" secondItem="CUL-2M-IbP" secondAttribute="top" id="wEs-vW-UsW"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="147" height="158"/>
+                                        <connections>
+                                            <outlet property="drawingImg" destination="IgC-fz-qhT" id="uOx-BD-xTw"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Tf-7z-WP2">
-                                <rect key="frame" x="274.33333333333331" y="141" width="73.666666666666686" height="20"/>
+                                <rect key="frame" x="270.66666666666669" y="53" width="77.333333333333314" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="SaD-F2-ZAk"/>
                                 </constraints>
@@ -401,7 +485,7 @@
                                     <fragment content="총 00:00 남음">
                                         <attributes>
                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="13" name="NotoSansCJKkr-Bold"/>
+                                            <font key="NSFont" metaFont="system"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -409,13 +493,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Qw8-4N-kGa" firstAttribute="bottom" secondItem="osp-XM-hQY" secondAttribute="bottom" id="3YX-yJ-1ut"/>
+                            <constraint firstAttribute="bottom" secondItem="osp-XM-hQY" secondAttribute="bottom" id="3YX-yJ-1ut"/>
                             <constraint firstItem="SAQ-tM-E67" firstAttribute="leading" secondItem="Qw8-4N-kGa" secondAttribute="leading" id="4gZ-9u-RUu"/>
                             <constraint firstItem="x4h-96-OEt" firstAttribute="top" secondItem="4pK-7q-b6d" secondAttribute="bottom" constant="4" id="7LP-D5-3dC"/>
                             <constraint firstItem="x4h-96-OEt" firstAttribute="leading" secondItem="4pK-7q-b6d" secondAttribute="leading" id="BQD-7u-mud"/>
-                            <constraint firstItem="osp-XM-hQY" firstAttribute="top" secondItem="SAQ-tM-E67" secondAttribute="bottom" constant="8" symbolic="YES" id="C0J-52-rvj"/>
+                            <constraint firstItem="osp-XM-hQY" firstAttribute="top" secondItem="SAQ-tM-E67" secondAttribute="bottom" id="C0J-52-rvj"/>
                             <constraint firstItem="Qw8-4N-kGa" firstAttribute="trailing" secondItem="SAQ-tM-E67" secondAttribute="trailing" id="Hl5-JG-nGI"/>
                             <constraint firstItem="8Tf-7z-WP2" firstAttribute="top" secondItem="BSo-Wb-YXZ" secondAttribute="bottom" constant="4" id="Ik7-U2-iza"/>
                             <constraint firstItem="4pK-7q-b6d" firstAttribute="top" secondItem="Qw8-4N-kGa" secondAttribute="top" constant="29" id="NAy-HG-Aht"/>
@@ -436,7 +520,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DT3-tW-fYR" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1908" y="91"/>
+            <point key="canvasLocation" x="1878" y="91"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PMa-Bl-ZjI">
@@ -462,7 +546,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sqm-aq-BFT" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Zsm-XW-txX">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="Zsm-XW-txX">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -473,7 +557,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OqL-Hz-9F7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1169" y="91"/>
+            <point key="canvasLocation" x="1006" y="91"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="kOI-JQ-xKp">
@@ -496,7 +580,7 @@
                                     <fragment content="프로젝트 명">
                                         <attributes>
                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="13" name="NotoSansCJKkr-Bold"/>
+                                            <font key="NSFont" metaFont="system"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -512,7 +596,7 @@
                                     <fragment content="라운드 목표">
                                         <attributes>
                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="13" name="NotoSansCJKkr-Bold"/>
+                                            <font key="NSFont" metaFont="system"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -529,7 +613,7 @@
                                     <fragment content="ROUND 1">
                                         <attributes>
                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="13" name="NotoSansCJKkr-Bold"/>
+                                            <font key="NSFont" metaFont="system"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -537,7 +621,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWt-0D-dv7">
-                                <rect key="frame" x="274.33333333333331" y="98" width="73.666666666666686" height="20"/>
+                                <rect key="frame" x="270.66666666666669" y="98" width="77.333333333333314" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="0lh-MN-IfE"/>
                                 </constraints>
@@ -545,7 +629,7 @@
                                     <fragment content="총 00:00 남음">
                                         <attributes>
                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="13" name="NotoSansCJKkr-Bold"/>
+                                            <font key="NSFont" metaFont="system"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -617,7 +701,7 @@
                                     <fragment content="프로젝트 명">
                                         <attributes>
                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="13" name="NotoSansCJKkr-Bold"/>
+                                            <font key="NSFont" metaFont="system"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -633,7 +717,7 @@
                                     <fragment content="라운드 목표">
                                         <attributes>
                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="13" name="NotoSansCJKkr-Bold"/>
+                                            <font key="NSFont" metaFont="system"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -650,7 +734,7 @@
                                     <fragment content="ROUND 1">
                                         <attributes>
                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="13" name="NotoSansCJKkr-Bold"/>
+                                            <font key="NSFont" metaFont="system"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -658,7 +742,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mCj-7L-cnF">
-                                <rect key="frame" x="274.33333333333331" y="98" width="73.666666666666686" height="20"/>
+                                <rect key="frame" x="270.66666666666669" y="98" width="77.333333333333314" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="8I8-3s-bFV"/>
                                 </constraints>
@@ -666,7 +750,7 @@
                                     <fragment content="총 00:00 남음">
                                         <attributes>
                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="13" name="NotoSansCJKkr-Bold"/>
+                                            <font key="NSFont" metaFont="system"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -681,8 +765,8 @@
                                 <state key="normal" image="all_round_tab"/>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LT1-lq-kd9">
-                                <rect key="frame" x="27" y="357" width="321" height="421"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <rect key="frame" x="0.0" y="357" width="375" height="455"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nyk-A3-Kei">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -690,13 +774,56 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Nhn-he-r3z">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="memoCell" id="NVq-qL-k4X" customClass="MemoCell" customModule="STORM" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="147" height="158"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="0uW-Qn-AXW">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="cOb-OI-TfM">
+                                            <rect key="frame" x="0.0" y="0.0" width="147" height="158"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W0F-9r-JgT">
+                                                    <rect key="frame" x="17" y="41" width="113" height="76"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="고래맛 우유는 찐 우유다 고래맛 우 이건 텍스트 임다">
+                                                            <attributes>
+                                                                <font key="NSFont" metaFont="system" size="17"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SW9-TS-2PT">
+                                                    <rect key="frame" x="99" y="0.0" width="48" height="48"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="SW9-TS-2PT" secondAttribute="height" multiplier="1:1" id="QHw-Qp-Uku"/>
+                                                    </constraints>
+                                                    <state key="normal" image="btn_heart"/>
+                                                    <connections>
+                                                        <action selector="didPressHeart:" destination="NVq-qL-k4X" eventType="touchUpInside" id="LrL-Nz-d91"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="SW9-TS-2PT" firstAttribute="top" secondItem="cOb-OI-TfM" secondAttribute="top" id="0vi-LD-ApY"/>
+                                                <constraint firstItem="W0F-9r-JgT" firstAttribute="centerX" secondItem="cOb-OI-TfM" secondAttribute="centerX" id="AtG-Ia-g44"/>
+                                                <constraint firstItem="W0F-9r-JgT" firstAttribute="centerY" secondItem="cOb-OI-TfM" secondAttribute="centerY" id="KJd-G0-QGw"/>
+                                                <constraint firstItem="SW9-TS-2PT" firstAttribute="width" secondItem="cOb-OI-TfM" secondAttribute="width" multiplier="0.326531" id="PnP-QN-nTw"/>
+                                                <constraint firstItem="W0F-9r-JgT" firstAttribute="width" secondItem="cOb-OI-TfM" secondAttribute="width" multiplier="0.77" id="QGK-1D-sbC"/>
+                                                <constraint firstAttribute="trailing" secondItem="SW9-TS-2PT" secondAttribute="trailing" id="hP1-Pg-FLS"/>
+                                                <constraint firstItem="W0F-9r-JgT" firstAttribute="height" secondItem="cOb-OI-TfM" secondAttribute="height" multiplier="0.48" id="qcM-e0-D7u"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <size key="customSize" width="147" height="158"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="memo" destination="W0F-9r-JgT" id="BDx-iW-Imv"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -705,7 +832,7 @@
                         <constraints>
                             <constraint firstItem="YSW-CT-2vk" firstAttribute="leading" secondItem="VIt-99-Ien" secondAttribute="leading" constant="27" id="0Nf-Qq-2GO"/>
                             <constraint firstItem="VIt-99-Ien" firstAttribute="trailing" secondItem="oop-ZN-Ave" secondAttribute="trailing" constant="27" id="3uL-eS-OIJ"/>
-                            <constraint firstItem="LT1-lq-kd9" firstAttribute="leading" secondItem="VIt-99-Ien" secondAttribute="leading" constant="27" id="9hx-h1-vtZ"/>
+                            <constraint firstItem="LT1-lq-kd9" firstAttribute="leading" secondItem="VIt-99-Ien" secondAttribute="leading" id="9hx-h1-vtZ"/>
                             <constraint firstItem="LT1-lq-kd9" firstAttribute="top" secondItem="qa0-am-cPg" secondAttribute="bottom" constant="30" id="I56-Md-42g"/>
                             <constraint firstItem="mCj-7L-cnF" firstAttribute="trailing" secondItem="oop-ZN-Ave" secondAttribute="trailing" id="K2P-zQ-NEX"/>
                             <constraint firstItem="qa0-am-cPg" firstAttribute="top" secondItem="n0h-JW-Yu5" secondAttribute="bottom" constant="38" id="KDa-Yw-M3R"/>
@@ -717,11 +844,11 @@
                             <constraint firstAttribute="bottom" secondItem="6Wq-Qu-LrU" secondAttribute="bottom" id="a3f-gt-4sq"/>
                             <constraint firstItem="6Wq-Qu-LrU" firstAttribute="top" secondItem="VIt-99-Ien" secondAttribute="top" id="cMP-T6-8NP"/>
                             <constraint firstItem="n0h-JW-Yu5" firstAttribute="top" secondItem="YSW-CT-2vk" secondAttribute="bottom" constant="5" id="dP6-vT-JT1"/>
-                            <constraint firstItem="VIt-99-Ien" firstAttribute="trailing" secondItem="LT1-lq-kd9" secondAttribute="trailing" constant="27" id="dRd-kf-DHj"/>
+                            <constraint firstItem="VIt-99-Ien" firstAttribute="trailing" secondItem="LT1-lq-kd9" secondAttribute="trailing" id="dRd-kf-DHj"/>
                             <constraint firstItem="YSW-CT-2vk" firstAttribute="top" secondItem="VIt-99-Ien" secondAttribute="top" constant="29" id="iOt-Jh-x2v"/>
                             <constraint firstItem="mCj-7L-cnF" firstAttribute="centerY" secondItem="n0h-JW-Yu5" secondAttribute="centerY" id="oQp-3E-pL3"/>
                             <constraint firstItem="qa0-am-cPg" firstAttribute="leading" secondItem="VIt-99-Ien" secondAttribute="leading" constant="53" id="oWc-C0-HMH"/>
-                            <constraint firstItem="VIt-99-Ien" firstAttribute="bottom" secondItem="LT1-lq-kd9" secondAttribute="bottom" id="pdz-UK-AWx"/>
+                            <constraint firstAttribute="bottom" secondItem="LT1-lq-kd9" secondAttribute="bottom" id="pdz-UK-AWx"/>
                             <constraint firstItem="n0h-JW-Yu5" firstAttribute="leading" secondItem="YSW-CT-2vk" secondAttribute="leading" id="qMA-BL-GJr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VIt-99-Ien"/>
@@ -769,12 +896,12 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTL-Gc-Uq1">
-                                <rect key="frame" x="168.66666666666666" y="74" width="38" height="18"/>
+                                <rect key="frame" x="165.66666666666666" y="74" width="43.666666666666657" height="18"/>
                                 <attributedString key="attributedText">
                                     <fragment content="(0/00)">
                                         <attributes>
                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="15" name="NotoSansCJKkr-Bold"/>
+                                            <font key="NSFont" metaFont="system" size="15"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -807,7 +934,7 @@
                                         <fragment content="저장">
                                             <attributes>
                                                 <color key="NSColor" red="0.4392187595" green="0.43920999770000002" blue="0.43921595810000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <font key="NSFont" size="20" name="NotoSansCJKkr-Bold"/>
+                                                <font key="NSFont" metaFont="system" size="20"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -877,13 +1004,39 @@
                     <view key="view" contentMode="scaleToFill" id="EL8-iC-lRF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="god-dk-o19">
+                                <rect key="frame" x="127" y="158" width="120" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="소켓연결"/>
+                                <connections>
+                                    <action selector="didPressConnect:" destination="qfR-Ek-Or0" eventType="touchUpInside" id="iJx-FR-cvA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rR1-Zs-tdr">
+                                <rect key="frame" x="127" y="258" width="120" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="소켓종료"/>
+                                <connections>
+                                    <action selector="didPressDisconnect:" destination="qfR-Ek-Or0" eventType="touchUpInside" id="0Hi-De-w8O"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2kh-Wy-yIg">
+                                <rect key="frame" x="127" y="377" width="120" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="전송"/>
+                                <connections>
+                                    <action selector="didPressEmit:" destination="qfR-Ek-Or0" eventType="touchUpInside" id="qJp-Ol-SB1"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="CL7-kH-Yk3"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tpf-9h-g5b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2670" y="779"/>
+            <point key="canvasLocation" x="2669.5999999999999" y="778.81773399014787"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jsH-cU-PBc">
@@ -911,6 +1064,7 @@
         <image name="all_round_tab" width="287" height="189"/>
         <image name="bg_img" width="375" height="706"/>
         <image name="bg_red" width="375" height="103"/>
+        <image name="btn_heart" width="48" height="48"/>
         <image name="card_add_img" width="112" height="112"/>
         <image name="drawing_selected" width="48" height="48"/>
         <image name="text_deselected" width="48" height="48"/>

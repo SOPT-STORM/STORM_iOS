@@ -46,9 +46,5 @@ class RecentProjectCardCollectionViewCell: UICollectionViewCell {
         recentCardView.dropShadow(color: .black, opacity: 0.2, offSet: (CGSize(width: 0, height: 3)), radius: 3.5)
         recentCardView.setRadius(radius: 15)
         recentCardView.clipsToBounds = false
-    
-        
-        heightConstraint.constant = 20
-        heightConstraint.multiplier
     }
 }

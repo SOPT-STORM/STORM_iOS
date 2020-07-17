@@ -56,19 +56,23 @@ extension ViewMoreViewController: UICollectionViewDataSource, UICollectionViewDe
         
         return recentProjectCell
     }
-    /*
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 16
-    } // 셀 좌우 간격 조정
     
-    /*
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: recentProjectCollectionView.frame.width, height: recentProjectCollectionView.frame.height)
+        let width = self.view.frame.width * 0.2
+        return CGSize(width: width, height: width * 1.075)
     }
-    */
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 27, left: 27, bottom: 0, right: 27)
-    }*/
+       let inset = self.view.frame.width * 0.072
+       return UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return self.view.frame.width * 0.072
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return self.view.frame.width * 0.072
+    }
 }

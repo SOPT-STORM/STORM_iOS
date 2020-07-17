@@ -9,7 +9,7 @@
 import UIKit
 
 class ReminderPopViewController: UIViewController {
-
+    
     // MARK:- IBOutlet 선언
     
     @IBOutlet weak var reminderPopView: UIView!
@@ -18,7 +18,7 @@ class ReminderPopViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         reminderPopView.layer.cornerRadius = 15
         reminderPopView.addShadow(width: 1, height: 3, 0.2, 5)
@@ -29,12 +29,12 @@ class ReminderPopViewController: UIViewController {
     }
     
     // MARK:- IBAction 선언
-    
     @IBAction func remindOkButtonDidTap(_ sender: UIButton) {
+        NotificationCenter.default.post(name: .buttonClickInPopup, object: nil)
         self.removeAnimate()
     }
     
     // MARK:- 함수 선언
     
-
+    
 }

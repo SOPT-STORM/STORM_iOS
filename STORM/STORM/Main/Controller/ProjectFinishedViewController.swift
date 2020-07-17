@@ -17,93 +17,133 @@ class ProjectFinishedViewController: UIViewController {
     
     // MARK:- IBOutlet 선언
     
-    @IBOutlet weak var projectDateLabel: UILabel!
-    @IBOutlet weak var projectRoundCountLabel: UILabel!
-    @IBOutlet weak var peopleCountLabel: UILabel!
-    @IBOutlet weak var projectInfoView: UIView!
     @IBOutlet weak var roundCollectionView: UICollectionView!
-    @IBOutlet weak var scrappedCardCollectionView: UICollectionView!
-    @IBOutlet weak var scrappedCardSlider: UISlider!
+    
+    /*
+    @IBAction func sliderAction(_ sender: UISlider) {
+        self.scrappedCardCollectionView.contentOffset.x += CGFloat(sender.value)
+    }
+    */
+    
     
     // MARK:- viewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        projectInfoView.addShadow(width: 1, height: 4, 0.3, 3)
-        projectInfoView.cornerRadius = 15
         
-        // MARK: COLLECTION VIEW
+        // MARK: HEADER
         
-        scrappedCardCollectionView.delegate = self
-        scrappedCardCollectionView.dataSource = self
+       roundCollectionView.register(ReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "reusableView")
+        
+        
+        
+        // MARK: COLLECTION VIEW ROUND
         
         roundCollectionView.delegate = self
         roundCollectionView.dataSource = self
         
-        scrappedCardCollectionView.tag = 1
-        
+        //reusableView.scrapCardCollectionView.tag = 1
         roundCollectionView.tag = 2
         
-        setScrappedCardList()
         
         // MARK: 네비게이션 바 색, 로고
         self.navigationController?.setNavigationBar()
         
+        /*
         // 슬라이더바
         scrappedCardSlider.thumbTintColor = .clear
         scrappedCardSlider.maximumTrackTintColor = UIColor(white: 1, alpha: 0.56)
+        */
         
         // MARK: Nib register
         roundCollectionView.register(UINib(nibName: "RoundCollectionViewCell", bundle:nil), forCellWithReuseIdentifier: RoundCollectionViewCell.identifier)
         roundCollectionView.delegate = self
         roundCollectionView.dataSource = self
         roundCollectionView.clipsToBounds = false
-    }
-    
-    // MARK:- 함수 선언
-    
-    private func setScrappedCardList() {
-        let card1 = "날개 달린 마스크"
-        let card2 = "파파고 기능 마스크"
         
-        guard let card3 = UIImage(named: "roundViewUser1") else {return}
-        guard let card4 = UIImage(named: "roundViewUser2") else {return}
-        
-        textList = [card1, card2]
-        imageList = [card3, card4]
+        roundCollectionView.register(ReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "reusableView")
     }
 }
 
 // MARK:- COLLECTION VIEW
 
-extension ProjectFinishedViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension ProjectFinishedViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        switch collectionView.tag {
-        case 1:
-            return 2
-        default:
-            return 5
-        }
+//        switch collectionView.tag {
+//        case 1:
+//            return 9
+//        default:
+//            return 5
+//        }
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if collectionView.tag == 1 {
-            guard let scrappedCardTextCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Scrapped Card Text Cell", for: indexPath) as? ScrappedCardTextCell else {
-                 return UICollectionViewCell()
-             }
-            scrappedCardTextCell.text.text = textList?[indexPath.row]
-             return scrappedCardTextCell
+            if indexPath.row / 2 == 1 {
+                let scrappedCardTextCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Scrapped Card Text Cell", for: indexPath) as! ScrappedCardTextCell
+                scrappedCardTextCell.scrappedTextLabel.text = "adadfadfadff"
+                 return scrappedCardTextCell
+            }
+            else {
+                let scrappedCardImgaeCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Scrapped Card Image Cell", for: indexPath) as! ScrappedCardImageCell
+                scrappedCardImgaeCell.scrappedImage.image = UIImage(named: "testImg")
+                
+                 return scrappedCardImgaeCell
+            }
         }
         else {
-            guard let roundCell = collectionView.dequeueReusableCell(withReuseIdentifier: RoundCollectionViewCell.identifier, for: indexPath) as? ScrappedCardImageViewCell else { return UICollectionViewCell()
+            guard let roundCell = collectionView.dequeueReusableCell(withReuseIdentifier: RoundCollectionViewCell.identifier, for: indexPath) as? RoundCollectionViewCell else { return UICollectionViewCell()
             }
             return roundCell
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let width = self.view.frame.width * 0.2933
+        return CGSize(width: width, height: width * 1.0909)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+       let rlInset = self.view.frame.width * 0.08
+       let tbInset = self.view.frame.width * 0.0213
+        
+        return UIEdgeInsets(top: 1.5, left: rlInset, bottom: 1.5, right: rlInset)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 13
-    } // 셀 좌우 간격 조정
+        return self.view.frame.width * 0.034
+    }
+    
+    // MARK:- REUSABLE VIEW
+       
+       func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+           switch kind {
+           case UICollectionView.elementKindSectionHeader:
+            let reusableView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "resuableView", for: indexPath) as! ReusableView
+               
+               // MARK: INFO VIEW
+            print("1  \(reusableView)", "2   \(reusableView.projectInfoView)")
+
+               reusableView.projectInfoView.addShadow(width: 1, height: 4, 0.3, 3)
+               reusableView.projectInfoView.cornerRadius = 15
+               
+               // MARK: COLLECTION VIEW SCRAP
+               
+               reusableView.scrapCardCollectionView.delegate = self
+               reusableView.scrapCardCollectionView.dataSource = self
+               
+               return reusableView
+           default:
+               assert(false, "")
+           }
+       }
+       
+       func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+           let width: CGFloat = collectionView.frame.width
+           let height: CGFloat = width * 1.392
+           return CGSize(width: width, height: height)
+    }
 }

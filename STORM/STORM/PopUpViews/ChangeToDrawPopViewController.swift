@@ -35,10 +35,12 @@ class ChangeToDrawPopViewController: UIViewController {
     
     /*
     @IBAction func cardCancelButtonDidTap(_ sender: UIButton) {
+        NotificationCenter.default.post(name: .buttonClickInPopup, object: nil)
         self.removeAnimate()
     }
     
     @IBAction func cardConfirmButtonDidTap(_ sender: UIButton) {
+        NotificationCenter.default.post(name: .buttonClickInPopup, object: nil)
         self.removeAnimate()
     }
     액션 명 정하기 어려워서 남겨둠
