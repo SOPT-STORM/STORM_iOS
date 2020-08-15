@@ -13,41 +13,40 @@ class NetworkManager {
     // Singleton 객체
     static let shared = NetworkManager()
     
-    let user_idx = 1
+    let user_idx = 1 // 1
     
     private init() {}
 
-    
-//    private let baseURL = "http://52.78.113.197:3000"
+    private let baseURL = "http://3.34.179.75:3000"
 
-    private let baseURL = "http://6cc8b8f248dd.ngrok.io" // 임시 url
-    
+//    private let baseURL = "http://6cc8b8f248dd.ngrok.io" // 임시 url
+//    
     // userImg - String 일지 File일지 아직 미정 (연동 끝나야 확인 가능)
-    func signIn(userName: String, googleToken: String?, KakaoToken: String?, userImg: String, completion: @escaping (Response?) -> Void) {
-    
-        let url = baseURL + "/user"
-        
-        let parameters = User(user_name: userName, user_token_google: googleToken, user_token_kakao: KakaoToken, user_img: userImg, user_idx: nil)
-        
-        let request = AF.request(url,
-                   method: .post,
-                   parameters: parameters,
-                   encoder: JSONParameterEncoder.default,
-                   headers: nil)
-        
-        request.responseDecodable(of: Response.self) { response in
-           switch response.result {
-           case let .success(result):
-            completion(result)
-           case let .failure(error):
-            print("Error description is: \(error.localizedDescription)")
-           }
-        }
-    }
+//    func signIn(userName: String, googleToken: String?, KakaoToken: String?, userImg: String, completion: @escaping (Response?) -> Void) {
+//    
+//        let url = baseURL + "/user"
+//        
+//        let parameters = User(user_name: userName, user_token_google: googleToken, user_token_kakao: KakaoToken, user_img: userImg, user_idx: nil)
+//        
+//        let request = AF.request(url,
+//                   method: .post,
+//                   parameters: parameters,
+//                   encoder: JSONParameterEncoder.default,
+//                   headers: nil)
+//        
+//        request.responseDecodable(of: Response.self) { response in
+//           switch response.result {
+//           case let .success(result):
+//            completion(result)
+//           case let .failure(error):
+//            print("Error description is: \(error.localizedDescription)")
+//           }
+//        }
+//    }
     
     func fetchProjectList(completion: @escaping (Response?) -> Void) {
 
-        let url = baseURL + "/project/" + "\(user_idx)"
+        let url = baseURL + "/project/user/" + "\(user_idx)"
         
         let request = AF.request(url)
         
@@ -59,25 +58,25 @@ class NetworkManager {
             print("Error description is: \(error.localizedDescription)")
            }
         }
-        
-        // 가라 데이터
-        let card1 = Card(card_idx: 12, card_img: nil, card_txt: "fwjleifjwaoeifjalkdfj")
-        let card2 = Card(card_idx: 13, card_img: nil, card_txt: "인라ㅓ니아러니마어리ㅏㄴㅁ얼ㄴ")
-        let card3 = Card(card_idx: 23, card_img: nil, card_txt: "fwjleifjwaㅇㄹㄴㅇㄹoeifjalkdfj")
-        let card4 = Card(card_idx: 30, card_img: nil, card_txt: "인라ㅓㄴㅇㄹㄴㅁㅇㅏㄴㅁ얼ㄴ")
-        
-        let detail1 = ProjectWithDetail(project_idx: 1, project_name: "프로젝트1", card_list: [card1, card2, card3, card4])
-        let detail2 = ProjectWithDetail(project_idx: 2, project_name: "프로젝트2", card_list: [card1, card2, card3, card4])
-        let detail3 = ProjectWithDetail(project_idx: 3, project_name: "프로젝트3", card_list: [card1, card2, card3, card4])
-        let response = Response(status: 200, success: true, message: "성공", data: [detail1, detail2, detail3])
-        completion(response)
+//
+//        // 가라 데이터
+//        let card1 = Card(card_idx: 12, card_img: nil, card_txt: "인라ㅓ니아러니마어리ㅏㄴㅁ얼ㄴ")
+//        let card2 = Card(card_idx: 13, card_img: nil, card_txt: "인라ㅓ니아러니마어리ㅏㄴㅁ얼ㄴ")
+//        let card3 = Card(card_idx: 23, card_img: nil, card_txt: "인라ㅓ니아러니마어리ㅏㄴㅁ얼ㄴ")
+//        let card4 = Card(card_idx: 30, card_img: nil, card_txt: "인라ㅓㄴㅇㄹㄴㅁㅇㅏㄴㅁ얼ㄴ")
+//
+//        let detail1 = ProjectWithDetail(project_idx: 1, project_name: "프로젝트1", card_list: [card1, card2, card3, card4])
+//        let detail2 = ProjectWithDetail(project_idx: 2, project_name: "프로젝트2", card_list: [card1, card2, card3, card4])
+//        let detail3 = ProjectWithDetail(project_idx: 3, project_name: "프로젝트3", card_list: [card1, card2, card3, card4])
+//        let response = Response(status: 200, success: true, message: "성공", data: [detail1, detail2, detail3])
+//        completion(response)
     }
     
     // MARK:- (POST) 프로젝트 참여하기
     func enterProject(projectCode: String, completion: @escaping (ProjectIdxResponse?) -> Void) {
         let url = baseURL + "/project/enter"
         
-        let parameters = ProjectWithCode(user_idx: 1, project_code: projectCode)
+        let parameters = ProjectWithCode(user_idx: user_idx, project_code: projectCode)
          
          let request = AF.request(url,
                     method: .post,
@@ -132,7 +131,7 @@ class NetworkManager {
         
         let url = baseURL + "/project"
         
-        let parameters = Project(project_name: projectName, project_comment: projectComment, user_idx: userIdx, project_code: nil)
+        let parameters = Project(project_name: projectName, project_comment: projectComment, user_idx: user_idx, project_code: nil)
         
         let request = AF.request(url,
                     method: .post,
@@ -266,6 +265,7 @@ class NetworkManager {
         let url = baseURL + "/round/enter"
         
         let parameters = RoundWithMemberIdx(user_idx: user_idx, round_idx: roundIdx)
+        print(user_idx, roundIdx)
         
         let request = AF.request(url,
                     method: .post,
@@ -316,7 +316,7 @@ class NetworkManager {
                 "user_idx": user_idx,
                 "project_idx": projectIdx,
                 "round_idx": roundIdx,
-                "card_txt": cardTxt
+                "card_txt": cardTxt!
             ]
         } else {
             parameters = [

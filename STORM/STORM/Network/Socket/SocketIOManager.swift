@@ -12,7 +12,7 @@ import SocketIO
 class SocketIOManager: NSObject {
     static let shared = SocketIOManager()
     
-    var manager = SocketManager(socketURL: URL(string: "http://c1561f73405a.ngrok.io")!, config: [.log(false), .compress])
+    var manager = SocketManager(socketURL: URL(string: "http://3.34.179.75:3000")!, config: [.log(true), .compress])
     //  서버의 주소와 포트를 맞춰줘야 통신 가능
     var socket: SocketIOClient!
     
@@ -21,8 +21,8 @@ class SocketIOManager: NSObject {
 //        socket = self.manager.socket(forNamespace: "")
         
         socket = manager.defaultSocket
-
-
+        
+          
 //        socket.on("roundComplete") { (dataArray, SocketAckEmitter) in
 //            print("소켓 실행")
 ////            print("데이터 \(dataArray)")
@@ -36,8 +36,7 @@ class SocketIOManager: NSObject {
 
     }
     
-    
-    func openConnection() {
+    func establishConnection() {
         socket.connect() // 설정한 주소와 포트로 소켓 연결
     }
     
@@ -45,15 +44,16 @@ class SocketIOManager: NSObject {
         socket.disconnect() // 소켓 연결 끊기
     }
     
-    func sendData() {
-        socket.emit("joinRoom", ["roomCode", "지윤"])
-        socket.emit("roundSetting", "roomCode")
+    func sendData(roomCode: String) {
+        socket.emit("joinRoom", roomCode)
+//        socket.emit("roundSetting", "roomCode")
         // emit("이벤트 이름", 전송할 데이터)
         
 //        socket.emit("event",  ["message" : "This is a test message"])
 //        socket.emit("event1", [["name" : "ns"], ["email" : "@naver.com"]])
 //        socket.emit("event2", ["name" : "ns", "email" : "@naver.com"])
 //        socket.emit
+//        socket.emit("connectUser", nickname)
     }
         
     
