@@ -39,11 +39,40 @@ extension UIView {
         self.layer.cornerRadius = radius
     }
     
+    /* 8/3 추가 */
+    
+    func roundCorners(corners: UIRectCorner, radius: CGFloat) {
+        let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        layer.mask = mask
+    }
+    
+    func makeCircle() {
+        self.layer.cornerRadius = self.frame.width / 2
+        self.layer.masksToBounds = true
+    }
+    
+    func addShadow(cornerRadus: CGFloat, shadowOffset: CGSize, shadowOpacity: Float, shadowRadius: CGFloat, shadowColor: UIColor = .black ) {
+        self.layer.cornerRadius = cornerRadus
+        self.layer.shadowOffset = shadowOffset
+        self.layer.shadowColor = shadowColor.cgColor
+        self.layer.shadowOpacity = shadowOpacity
+        self.layer.shadowRadius = shadowRadius
+        self.layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius).cgPath
+        // 마지막 이해 x
+    }
+    
+    
+    
+    /* 8/3 추가 */
+    
+    
     func asImage() -> UIImage {
         let renderer = UIGraphicsImageRenderer(bounds: bounds)
-        return renderer.image { rendererContext in
+        return renderer.image(actions: { rendererContext in
             layer.render(in: rendererContext.cgContext)
-        }
+        })
     }
     
     func showAnimate()

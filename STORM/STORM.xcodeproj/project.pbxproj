@@ -8,17 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		0BE507DF34E6144C923BB667 /* Pods_STORM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F413571526ADC3ABE1F9D186 /* Pods_STORM.framework */; };
+		B800D24624E86D960024CE2F /* login_0816.json in Resources */ = {isa = PBXBuildFile; fileRef = B800D24524E86D960024CE2F /* login_0816.json */; };
+		B806015924E50318006AA9EF /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B806015824E50318006AA9EF /* SignUp.storyboard */; };
+		B806015B24E51254006AA9EF /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B806015A24E51254006AA9EF /* LogInViewController.swift */; };
+		B806015D24E5207E006AA9EF /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B806015C24E5207E006AA9EF /* SignUpViewController.swift */; };
+		B806015F24E527B7006AA9EF /* SignUpProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B806015E24E527B7006AA9EF /* SignUpProfileViewController.swift */; };
 		B82094D524BCE25700DB543F /* real_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = B82094D424BCE25700DB543F /* real_loading.json */; };
-		B825FA2B24BCBA3D0098463D /* RecentProjectCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B825FA2924BCBA3D0098463D /* RecentProjectCardCollectionViewCell.swift */; };
-		B825FA2C24BCBA3D0098463D /* RecentProjectCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B825FA2A24BCBA3D0098463D /* RecentProjectCardCollectionViewCell.xib */; };
-		B825FA2E24BCBAA90098463D /* ProjectFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B825FA2D24BCBAA90098463D /* ProjectFinishedViewController.swift */; };
+		B8255E8E24D492A700749B62 /* example.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B8255E8D24D492A700749B62 /* example.jpg */; };
+		B84697E224D30FAA00E56804 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B84697E124D30FAA00E56804 /* MyPage.storyboard */; };
+		B84697E524D313FB00E56804 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84697E424D313FB00E56804 /* ProfileViewController.swift */; };
+		B84697E724D3140A00E56804 /* SortProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84697E624D3140A00E56804 /* SortProjectViewController.swift */; };
+		B84697E924D3141D00E56804 /* DeleteAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84697E824D3141D00E56804 /* DeleteAccountViewController.swift */; };
+		B84697EA24D325A000E56804 /* NotoSansCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B84697EC24D325A000E56804 /* NotoSansCJKkr-Bold.otf */; };
+		B84697ED24D325A500E56804 /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = B84697EF24D325A500E56804 /* NotoSansCJKkr-Medium.otf */; };
+		B84697F024D325A800E56804 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B84697F224D325A800E56804 /* NotoSansCJKkr-Regular.otf */; };
+		B849814B24E11FB2003A7F59 /* ProjectFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849814A24E11FB2003A7F59 /* ProjectFinishedViewController.swift */; };
+		B849815224E12707003A7F59 /* ScrapCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849815124E12707003A7F59 /* ScrapCardCell.swift */; };
+		B849815424E1271B003A7F59 /* RoundCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849815324E1271B003A7F59 /* RoundCardCell.swift */; };
 		B863018E24C22D2E0081D8A6 /* ProjectFinished.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B863018D24C22D2E0081D8A6 /* ProjectFinished.storyboard */; };
-		B863019024C22DF20081D8A6 /* CollectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B863018F24C22DF20081D8A6 /* CollectionHeader.swift */; };
-		B88B6C3E24B83AB300F22DDE /* ViewMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88B6C3D24B83AB300F22DDE /* ViewMoreViewController.swift */; };
-		B8A25EA724B4D5D900C07092 /* MainView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8A25EA624B4D5D900C07092 /* MainView.storyboard */; };
+		B878A01224D9692400A8C19F /* CameraPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B878A01124D9692400A8C19F /* CameraPopUpViewController.swift */; };
+		B878A01424DA051A00A8C19F /* EnsureDeleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B878A01324DA051A00A8C19F /* EnsureDeleteViewController.swift */; };
+		B87BB3EC24E3CE230021DB0C /* ScrapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BB3EA24E3CE230021DB0C /* ScrapCell.swift */; };
+		B87BB3ED24E3CE230021DB0C /* ScrapCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B87BB3EB24E3CE230021DB0C /* ScrapCell.xib */; };
+		B87BB3F124E3DB7F0021DB0C /* ProjectSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BB3F024E3DB7F0021DB0C /* ProjectSummaryViewController.swift */; };
 		B8D7DB6D24BF711700DE9D02 /* ScrappedCardTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D7DB6C24BF711700DE9D02 /* ScrappedCardTextCell.swift */; };
 		B8D7DB6F24BF712B00DE9D02 /* ScrappedCardImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D7DB6E24BF712B00DE9D02 /* ScrappedCardImageCell.swift */; };
-		B8D7DB7124BF912D00DE9D02 /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D7DB7024BF912D00DE9D02 /* ExampleViewController.swift */; };
+		B8E34D5924E438C7003538A8 /* LogIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E34D5824E438C7003538A8 /* LogIn.storyboard */; };
 		B8E9FA7224B9B7CB00A97235 /* InvalidCodePopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9FA7124B9B7CB00A97235 /* InvalidCodePopViewController.swift */; };
 		B8E9FA7424B9B7FC00A97235 /* PopUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E9FA7324B9B7FC00A97235 /* PopUp.storyboard */; };
 		B8E9FA7A24B9FC0500A97235 /* ReminderPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9FA7924B9FC0500A97235 /* ReminderPopViewController.swift */; };
@@ -30,6 +45,8 @@
 		B8E9FA8624BA551E00A97235 /* RoundEndPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9FA8524BA551E00A97235 /* RoundEndPopViewController.swift */; };
 		B8E9FA8824BA5A8700A97235 /* SelectNextPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9FA8724BA5A8700A97235 /* SelectNextPopViewController.swift */; };
 		B8E9FA8A24BA5C8E00A97235 /* EndProjectPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9FA8924BA5C8E00A97235 /* EndProjectPopViewController.swift */; };
+		B8F5636024DB1AD40036C768 /* LogoutPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F5635F24DB1AD40036C768 /* LogoutPopUpViewController.swift */; };
+		B8F5636224DBF3480036C768 /* CollectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F5636124DBF3480036C768 /* CollectionHeader.swift */; };
 		D12EC23E24AB4070007E5896 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12EC23D24AB4070007E5896 /* AppDelegate.swift */; };
 		D12EC24824AB4070007E5896 /* STORM.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D12EC24624AB4070007E5896 /* STORM.xcdatamodeld */; };
 		D12EC24A24AB4072007E5896 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D12EC24924AB4072007E5896 /* Assets.xcassets */; };
@@ -63,9 +80,6 @@
 		D1E5839524BC965C0013FB7C /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5839224BC965C0013FB7C /* Project.swift */; };
 		D1E5839624BC965C0013FB7C /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5839324BC965C0013FB7C /* Response.swift */; };
 		D1E5839824BC96C00013FB7C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1E5839724BC96C00013FB7C /* Main.storyboard */; };
-		D1E5839C24BCA1010013FB7C /* NotoSansCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D1E5839924BCA0FF0013FB7C /* NotoSansCJKkr-Bold.otf */; };
-		D1E5839D24BCA1010013FB7C /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D1E5839A24BCA1000013FB7C /* NotoSansCJKkr-Regular.otf */; };
-		D1E5839E24BCA1010013FB7C /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = D1E5839B24BCA1010013FB7C /* NotoSansCJKkr-Medium.otf */; };
 		D756DF8A24B5908900551E12 /* PopupAnimationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D756DF8924B5908900551E12 /* PopupAnimationExtension.swift */; };
 		D75ECBE424B6443B00CB46C3 /* MemberRoundSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75ECBE324B6443B00CB46C3 /* MemberRoundSettingViewController.swift */; };
 		D75ECBE624B6BD2500CB46C3 /* RoundStartAlertPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75ECBE524B6BD2500CB46C3 /* RoundStartAlertPopupViewController.swift */; };
@@ -96,22 +110,35 @@
 
 /* Begin PBXFileReference section */
 		446905E67F662B2207C7B0E7 /* Pods-STORM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STORM.debug.xcconfig"; path = "Target Support Files/Pods-STORM/Pods-STORM.debug.xcconfig"; sourceTree = "<group>"; };
+		B800D24524E86D960024CE2F /* login_0816.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = login_0816.json; path = STORM/login_0816.json; sourceTree = SOURCE_ROOT; };
+		B806015824E50318006AA9EF /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
+		B806015A24E51254006AA9EF /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		B806015C24E5207E006AA9EF /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		B806015E24E527B7006AA9EF /* SignUpProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpProfileViewController.swift; sourceTree = "<group>"; };
 		B82094D424BCE25700DB543F /* real_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = real_loading.json; sourceTree = "<group>"; };
-		B825FA2924BCBA3D0098463D /* RecentProjectCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentProjectCardCollectionViewCell.swift; sourceTree = "<group>"; };
-		B825FA2A24BCBA3D0098463D /* RecentProjectCardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecentProjectCardCollectionViewCell.xib; sourceTree = "<group>"; };
-		B825FA2D24BCBAA90098463D /* ProjectFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFinishedViewController.swift; sourceTree = "<group>"; };
+		B8255E8D24D492A700749B62 /* example.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = example.jpg; path = Assets.xcassets/example.jpg; sourceTree = "<group>"; };
+		B84697E124D30FAA00E56804 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
+		B84697E424D313FB00E56804 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		B84697E624D3140A00E56804 /* SortProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortProjectViewController.swift; sourceTree = "<group>"; };
+		B84697E824D3141D00E56804 /* DeleteAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountViewController.swift; sourceTree = "<group>"; };
+		B84697F324D3261200E56804 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = "en.lproj/NotoSansCJKkr-Bold.otf"; sourceTree = "<group>"; };
+		B84697F424D3261700E56804 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = "en.lproj/NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
+		B84697F524D3261A00E56804 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = "en.lproj/NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
+		B849814A24E11FB2003A7F59 /* ProjectFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFinishedViewController.swift; sourceTree = "<group>"; };
+		B849815124E12707003A7F59 /* ScrapCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapCardCell.swift; sourceTree = "<group>"; };
+		B849815324E1271B003A7F59 /* RoundCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCardCell.swift; sourceTree = "<group>"; };
 		B863018D24C22D2E0081D8A6 /* ProjectFinished.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProjectFinished.storyboard; sourceTree = "<group>"; };
-		B863018F24C22DF20081D8A6 /* CollectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionHeader.swift; sourceTree = "<group>"; };
-		B88B6C3D24B83AB300F22DDE /* ViewMoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMoreViewController.swift; sourceTree = "<group>"; };
-		B8A25EA624B4D5D900C07092 /* MainView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainView.storyboard; sourceTree = "<group>"; };
-		B8A25EAE24B5FF5E00C07092 /* login_bg.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = login_bg.json; sourceTree = "<group>"; };
+		B878A01124D9692400A8C19F /* CameraPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPopUpViewController.swift; sourceTree = "<group>"; };
+		B878A01324DA051A00A8C19F /* EnsureDeleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnsureDeleteViewController.swift; sourceTree = "<group>"; };
+		B87BB3EA24E3CE230021DB0C /* ScrapCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapCell.swift; sourceTree = "<group>"; };
+		B87BB3EB24E3CE230021DB0C /* ScrapCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScrapCell.xib; sourceTree = "<group>"; };
+		B87BB3F024E3DB7F0021DB0C /* ProjectSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSummaryViewController.swift; sourceTree = "<group>"; };
 		B8D7DB6C24BF711700DE9D02 /* ScrappedCardTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrappedCardTextCell.swift; sourceTree = "<group>"; };
 		B8D7DB6E24BF712B00DE9D02 /* ScrappedCardImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrappedCardImageCell.swift; sourceTree = "<group>"; };
-		B8D7DB7024BF912D00DE9D02 /* ExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
-		B8E2B64A24B24ADA0098F677 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		B8E2B65124B254890098F677 /* NotoSansCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Bold.otf"; path = "/Downloads/NotoSansCJKkr-Bold.otf"; sourceTree = "<absolute>"; };
 		B8E2B65224B254890098F677 /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Medium.otf"; path = "/Downloads/NotoSansCJKkr-Medium.otf"; sourceTree = "<absolute>"; };
 		B8E2B65324B254890098F677 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Regular.otf"; path = "/Downloads/NotoSansCJKkr-Regular.otf"; sourceTree = "<absolute>"; };
+		B8E34D5824E438C7003538A8 /* LogIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogIn.storyboard; sourceTree = "<group>"; };
 		B8E9FA7124B9B7CB00A97235 /* InvalidCodePopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvalidCodePopViewController.swift; sourceTree = "<group>"; };
 		B8E9FA7324B9B7FC00A97235 /* PopUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PopUp.storyboard; sourceTree = "<group>"; };
 		B8E9FA7924B9FC0500A97235 /* ReminderPopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderPopViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +150,8 @@
 		B8E9FA8524BA551E00A97235 /* RoundEndPopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundEndPopViewController.swift; sourceTree = "<group>"; };
 		B8E9FA8724BA5A8700A97235 /* SelectNextPopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectNextPopViewController.swift; sourceTree = "<group>"; };
 		B8E9FA8924BA5C8E00A97235 /* EndProjectPopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndProjectPopViewController.swift; sourceTree = "<group>"; };
+		B8F5635F24DB1AD40036C768 /* LogoutPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutPopUpViewController.swift; sourceTree = "<group>"; };
+		B8F5636124DBF3480036C768 /* CollectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionHeader.swift; sourceTree = "<group>"; };
 		D12EC23A24AB4070007E5896 /* STORM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = STORM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D12EC23D24AB4070007E5896 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D12EC24724AB4070007E5896 /* STORM.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = STORM.xcdatamodel; sourceTree = "<group>"; };
@@ -163,9 +192,6 @@
 		D1E5839224BC965C0013FB7C /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		D1E5839324BC965C0013FB7C /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		D1E5839724BC96C00013FB7C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		D1E5839924BCA0FF0013FB7C /* NotoSansCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Bold.otf"; sourceTree = "<group>"; };
-		D1E5839A24BCA1000013FB7C /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
-		D1E5839B24BCA1010013FB7C /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
 		D743C56E24AF5D8C00FF6ED4 /* RoundCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCollectionViewCell.swift; sourceTree = "<group>"; };
 		D743C57224AF5F8600FF6ED4 /* FinalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalViewController.swift; sourceTree = "<group>"; };
 		D756DF8924B5908900551E12 /* PopupAnimationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupAnimationExtension.swift; sourceTree = "<group>"; };
@@ -228,46 +254,65 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		B806015724E502A6006AA9EF /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				B806015824E50318006AA9EF /* SignUp.storyboard */,
+				B806015C24E5207E006AA9EF /* SignUpViewController.swift */,
+				B806015E24E527B7006AA9EF /* SignUpProfileViewController.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
 		B825FA2624BCB91F0098463D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B88B6C3D24B83AB300F22DDE /* ViewMoreViewController.swift */,
-				B825FA2D24BCBAA90098463D /* ProjectFinishedViewController.swift */,
-				B8D7DB7024BF912D00DE9D02 /* ExampleViewController.swift */,
+				B8F5636124DBF3480036C768 /* CollectionHeader.swift */,
+				B849814A24E11FB2003A7F59 /* ProjectFinishedViewController.swift */,
+				B87BB3F024E3DB7F0021DB0C /* ProjectSummaryViewController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		B825FA2724BCB93A0098463D /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				B8A25E9D24B469FF00C07092 /* DataBases */,
-				B8A25EAE24B5FF5E00C07092 /* login_bg.json */,
-				B8E2B64A24B24ADA0098F677 /* Login.storyboard */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		B825FA2824BCB9440098463D /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				B825FA2924BCBA3D0098463D /* RecentProjectCardCollectionViewCell.swift */,
-				B825FA2A24BCBA3D0098463D /* RecentProjectCardCollectionViewCell.xib */,
-				B863018F24C22DF20081D8A6 /* CollectionHeader.swift */,
-			);
-			path = Cell;
 			sourceTree = "<group>";
 		};
 		B82C5D7224B768C00016DB68 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				B8A25EA624B4D5D900C07092 /* MainView.storyboard */,
 				B863018D24C22D2E0081D8A6 /* ProjectFinished.storyboard */,
 				B825FA2624BCB91F0098463D /* Controller */,
-				B825FA2824BCB9440098463D /* Cell */,
-				B825FA2724BCB93A0098463D /* Model */,
+				B849814C24E126BC003A7F59 /* Cell */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		B84697E024D30F6A00E56804 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				B84697E124D30FAA00E56804 /* MyPage.storyboard */,
+				B84697E324D30FB000E56804 /* Controller */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
+		B84697E324D30FB000E56804 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B84697E424D313FB00E56804 /* ProfileViewController.swift */,
+				B84697E624D3140A00E56804 /* SortProjectViewController.swift */,
+				B84697E824D3141D00E56804 /* DeleteAccountViewController.swift */,
+				B878A01324DA051A00A8C19F /* EnsureDeleteViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B849814C24E126BC003A7F59 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B849815124E12707003A7F59 /* ScrapCardCell.swift */,
+				B849815324E1271B003A7F59 /* RoundCardCell.swift */,
+				B87BB3EA24E3CE230021DB0C /* ScrapCell.swift */,
+				B87BB3EB24E3CE230021DB0C /* ScrapCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		B84BE19E24BB8C7D0048BE9C /* ScrappedCard */ = {
@@ -286,19 +331,22 @@
 			path = Round;
 			sourceTree = "<group>";
 		};
-		B8A25E9D24B469FF00C07092 /* DataBases */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DataBases;
-			sourceTree = "<group>";
-		};
 		B8A25EA524B4B81900C07092 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
 				D17935C724B1DCF500811173 /* NotoSansCJKkr-Bold.otf */,
 			);
 			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		B8E34D5724E438A9003538A8 /* LogIn */ = {
+			isa = PBXGroup;
+			children = (
+				B800D24524E86D960024CE2F /* login_0816.json */,
+				B8E34D5824E438C7003538A8 /* LogIn.storyboard */,
+				B806015A24E51254006AA9EF /* LogInViewController.swift */,
+			);
+			path = LogIn;
 			sourceTree = "<group>";
 		};
 		B8E9FA6E24B9B6EB00A97235 /* PopUpViews */ = {
@@ -316,6 +364,8 @@
 				B8E9FA8524BA551E00A97235 /* RoundEndPopViewController.swift */,
 				B8E9FA8724BA5A8700A97235 /* SelectNextPopViewController.swift */,
 				B8E9FA8924BA5C8E00A97235 /* EndProjectPopViewController.swift */,
+				B878A01124D9692400A8C19F /* CameraPopUpViewController.swift */,
+				B8F5635F24DB1AD40036C768 /* LogoutPopUpViewController.swift */,
 			);
 			path = PopUpViews;
 			sourceTree = "<group>";
@@ -343,6 +393,9 @@
 		D12EC23C24AB4070007E5896 /* STORM */ = {
 			isa = PBXGroup;
 			children = (
+				B806015724E502A6006AA9EF /* SignUp */,
+				B8E34D5724E438A9003538A8 /* LogIn */,
+				B84697E024D30F6A00E56804 /* MyPage */,
 				B8E9FA6E24B9B6EB00A97235 /* PopUpViews */,
 				D1E5839024BC965C0013FB7C /* Network */,
 				D75ECBE724B6C78800CB46C3 /* ProjectForHost */,
@@ -375,6 +428,7 @@
 				D17935B824B1D73600811173 /* Fonts */,
 				D7EB706624B75C320041B9CA /* SupportingFiles */,
 				D12EC24924AB4072007E5896 /* Assets.xcassets */,
+				B8255E8D24D492A700749B62 /* example.jpg */,
 				D12EC24B24AB4072007E5896 /* LaunchScreen.storyboard */,
 				D12EC24E24AB4072007E5896 /* Info.plist */,
 				D12EC24624AB4070007E5896 /* STORM.xcdatamodeld */,
@@ -385,9 +439,9 @@
 		D17935B824B1D73600811173 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				D1E5839924BCA0FF0013FB7C /* NotoSansCJKkr-Bold.otf */,
-				D1E5839B24BCA1010013FB7C /* NotoSansCJKkr-Medium.otf */,
-				D1E5839A24BCA1000013FB7C /* NotoSansCJKkr-Regular.otf */,
+				B84697EC24D325A000E56804 /* NotoSansCJKkr-Bold.otf */,
+				B84697EF24D325A500E56804 /* NotoSansCJKkr-Medium.otf */,
+				B84697F224D325A800E56804 /* NotoSansCJKkr-Regular.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -597,22 +651,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				D75ECBE924B6C7A900CB46C3 /* ProjectForHost.storyboard in Resources */,
-				D1E5839D24BCA1010013FB7C /* NotoSansCJKkr-Regular.otf in Resources */,
-				D1E5839C24BCA1010013FB7C /* NotoSansCJKkr-Bold.otf in Resources */,
+				B84697F024D325A800E56804 /* NotoSansCJKkr-Regular.otf in Resources */,
+				B84697EA24D325A000E56804 /* NotoSansCJKkr-Bold.otf in Resources */,
 				D781D70424B4A66F00AAE389 /* CardCollectionViewCell.xib in Resources */,
+				B8E34D5924E438C7003538A8 /* LogIn.storyboard in Resources */,
+				B84697E224D30FAA00E56804 /* MyPage.storyboard in Resources */,
+				B800D24624E86D960024CE2F /* login_0816.json in Resources */,
 				D12EC24D24AB4072007E5896 /* LaunchScreen.storyboard in Resources */,
+				B8255E8E24D492A700749B62 /* example.jpg in Resources */,
 				B8E9FA7424B9B7FC00A97235 /* PopUp.storyboard in Resources */,
 				D12EC24A24AB4072007E5896 /* Assets.xcassets in Resources */,
+				B87BB3ED24E3CE230021DB0C /* ScrapCell.xib in Resources */,
 				D1E5839824BC96C00013FB7C /* Main.storyboard in Resources */,
 				B863018E24C22D2E0081D8A6 /* ProjectFinished.storyboard in Resources */,
 				D781D70724B4A66F00AAE389 /* RoundCollectionViewCell.xib in Resources */,
 				D7EB706524B7459F0041B9CA /* loading3.json in Resources */,
 				D781D70324B4A66F00AAE389 /* ProjectWaitingTableViewCell.xib in Resources */,
-				B825FA2C24BCBA3D0098463D /* RecentProjectCardCollectionViewCell.xib in Resources */,
 				D781D71624B5131C00AAE389 /* ProjectForMember.storyboard in Resources */,
+				B806015924E50318006AA9EF /* SignUp.storyboard in Resources */,
 				D781D6FB24B4A66F00AAE389 /* RoundFinished.storyboard in Resources */,
-				B8A25EA724B4D5D900C07092 /* MainView.storyboard in Resources */,
-				D1E5839E24BCA1010013FB7C /* NotoSansCJKkr-Medium.otf in Resources */,
+				B84697ED24D325A500E56804 /* NotoSansCJKkr-Medium.otf in Resources */,
 				B82094D524BCE25700DB543F /* real_loading.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -672,7 +730,6 @@
 				D1E5837324BC95690013FB7C /* Canvas.swift in Sources */,
 				D1E5838124BC95990013FB7C /* CollecViewController4.swift in Sources */,
 				D781D70F24B4B07100AAE389 /* FinishedRoundViewController.swift in Sources */,
-				B8D7DB7124BF912D00DE9D02 /* ExampleViewController.swift in Sources */,
 				D756DF8A24B5908900551E12 /* PopupAnimationExtension.swift in Sources */,
 				D18D89B624B3A6FF00D8779E /* UIView.swift in Sources */,
 				D1E5839424BC965C0013FB7C /* NetworkManager.swift in Sources */,
@@ -682,14 +739,13 @@
 				D7EB706A24B8B75A0041B9CA /* HostRoundSettingViewController.swift in Sources */,
 				D12EC23E24AB4070007E5896 /* AppDelegate.swift in Sources */,
 				D12EC24824AB4070007E5896 /* STORM.xcdatamodeld in Sources */,
-				B863019024C22DF20081D8A6 /* CollectionHeader.swift in Sources */,
 				B8D7DB6D24BF711700DE9D02 /* ScrappedCardTextCell.swift in Sources */,
 				D781D6FC24B4A66F00AAE389 /* LayerExtension.swift in Sources */,
 				D15EA3F024BF3FE800D3017F /* DrawingCell.swift in Sources */,
+				B806015F24E527B7006AA9EF /* SignUpProfileViewController.swift in Sources */,
 				B8E9FA7C24B9FC3B00A97235 /* RoundStartPopViewController.swift in Sources */,
 				B8E9FA7E24BA059600A97235 /* SettingCodePopViewController.swift in Sources */,
 				B8E9FA8624BA551E00A97235 /* RoundEndPopViewController.swift in Sources */,
-				B825FA2B24BCBA3D0098463D /* RecentProjectCardCollectionViewCell.swift in Sources */,
 				D19533B724BCB072008DB22F /* Member.swift in Sources */,
 				B8E9FA7E24BA059600A97235 /* SettingCodePopViewController.swift in Sources */,
 				B8E9FA8624BA551E00A97235 /* RoundEndPopViewController.swift in Sources */,
@@ -701,17 +757,17 @@
 				D75ECBE424B6443B00CB46C3 /* MemberRoundSettingViewController.swift in Sources */,
 				D12EC24824AB4070007E5896 /* STORM.xcdatamodeld in Sources */,
 				D75ECBEC24B6C7EF00CB46C3 /* HostProjectSettingViewController.swift in Sources */,
-				B825FA2E24BCBAA90098463D /* ProjectFinishedViewController.swift in Sources */,
 				D1E5839524BC965C0013FB7C /* Project.swift in Sources */,
 				D186F00324BFAE3E00D67FAD /* AllProjectViewController.swift in Sources */,
 				D1E5838724BC95990013FB7C /* SocketIOManager.swift in Sources */,
+				B87BB3EC24E3CE230021DB0C /* ScrapCell.swift in Sources */,
 				B8E9FA8424BA50EA00A97235 /* ChangeToTextPopViewController.swift in Sources */,
 				D1E5838F24BC964F0013FB7C /* User.swift in Sources */,
+				B849815224E12707003A7F59 /* ScrapCardCell.swift in Sources */,
 				D1E5838524BC95990013FB7C /* RoundMeetingViewController.swift in Sources */,
 				B8D7DB6F24BF712B00DE9D02 /* ScrappedCardImageCell.swift in Sources */,
 				D1E5838524BC95990013FB7C /* RoundMeetingViewController.swift in Sources */,
 				D1E5837F24BC95990013FB7C /* CollecViewController2.swift in Sources */,
-				B88B6C3E24B83AB300F22DDE /* ViewMoreViewController.swift in Sources */,
 				B8E9FA8224BA50D800A97235 /* ChangeToDrawPopViewController.swift in Sources */,
 				D186EFFF24BF863100D67FAD /* ProjectSummaryCell.swift in Sources */,
 				D1E5839624BC965C0013FB7C /* Response.swift in Sources */,
@@ -721,31 +777,67 @@
 				D12EC24824AB4070007E5896 /* STORM.xcdatamodeld in Sources */,
 				B8E9FA8824BA5A8700A97235 /* SelectNextPopViewController.swift in Sources */,
 				D1E5838224BC95990013FB7C /* CollectionFlowLayout.swift in Sources */,
+				B878A01424DA051A00A8C19F /* EnsureDeleteViewController.swift in Sources */,
 				D1E5838024BC95990013FB7C /* UPCarouselFlow.swift in Sources */,
 				D186EFF924BF5E4F00D67FAD /* AllRoundViewController.swift in Sources */,
+				B8F5636224DBF3480036C768 /* CollectionHeader.swift in Sources */,
 				D1E5838324BC95990013FB7C /* CollecViewController.swift in Sources */,
 				D15EA3EE24BF3FD900D3017F /* MemoCell.swift in Sources */,
 				D147B40324BDABAA0064B026 /* Card.swift in Sources */,
+				B87BB3F124E3DB7F0021DB0C /* ProjectSummaryViewController.swift in Sources */,
 				B8E9FA7A24B9FC0500A97235 /* ReminderPopViewController.swift in Sources */,
 				D147598524AB4DA3006C4122 /* SceneDelegate.swift in Sources */,
+				B806015B24E51254006AA9EF /* LogInViewController.swift in Sources */,
+				B849814B24E11FB2003A7F59 /* ProjectFinishedViewController.swift in Sources */,
+				B878A01224D9692400A8C19F /* CameraPopUpViewController.swift in Sources */,
 				D781D70624B4A66F00AAE389 /* CardCollectionViewCell.swift in Sources */,
 				D781D70024B4A66F00AAE389 /* ScrapCardMemoViewController.swift in Sources */,
+				B84697E924D3141D00E56804 /* DeleteAccountViewController.swift in Sources */,
+				B84697E724D3140A00E56804 /* SortProjectViewController.swift in Sources */,
 				D781D70224B4A66F00AAE389 /* RoundCollectionViewCell.swift in Sources */,
 				D1E5838624BC95990013FB7C /* NetworkTestViewController.swift in Sources */,
 				D781D6FF24B4A66F00AAE389 /* ReminderPopupViewController.swift in Sources */,
+				B8F5636024DB1AD40036C768 /* LogoutPopUpViewController.swift in Sources */,
 				D154C46424BEECF700FC95C9 /* UIImage.swift in Sources */,
 				D781D70524B4A66F00AAE389 /* ProjectWaitingTableViewCell.swift in Sources */,
 				D75ECBE624B6BD2500CB46C3 /* RoundStartAlertPopupViewController.swift in Sources */,
+				B806015D24E5207E006AA9EF /* SignUpViewController.swift in Sources */,
 				D1E5838A24BC95BB0013FB7C /* CollecViewController3.swift in Sources */,
 				D1E5838C24BC96270013FB7C /* UIViewController.swift in Sources */,
+				B84697E524D313FB00E56804 /* ProfileViewController.swift in Sources */,
 				D781D6FD24B4A66F00AAE389 /* ProjectWaitingViewController.swift in Sources */,
 				B8E9FA8A24BA5C8E00A97235 /* EndProjectPopViewController.swift in Sources */,
+				B849815424E1271B003A7F59 /* RoundCardCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		B84697EC24D325A000E56804 /* NotoSansCJKkr-Bold.otf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B84697F324D3261200E56804 /* en */,
+			);
+			name = "NotoSansCJKkr-Bold.otf";
+			sourceTree = "<group>";
+		};
+		B84697EF24D325A500E56804 /* NotoSansCJKkr-Medium.otf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B84697F424D3261700E56804 /* en */,
+			);
+			name = "NotoSansCJKkr-Medium.otf";
+			sourceTree = "<group>";
+		};
+		B84697F224D325A800E56804 /* NotoSansCJKkr-Regular.otf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B84697F524D3261A00E56804 /* en */,
+			);
+			name = "NotoSansCJKkr-Regular.otf";
+			sourceTree = "<group>";
+		};
 		D12EC24B24AB4072007E5896 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

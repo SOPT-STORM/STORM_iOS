@@ -45,13 +45,13 @@
 					<key>UISceneDelegateClassName</key>
 					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
 					<key>UISceneStoryboardFile</key>
-					<string>ProjectFinished</string>
+					<string>MyPage</string>
 				</dict>
 			</array>
 		</dict>
 	</dict>
 	<key>UILaunchStoryboardName</key>
-	<string>ProjectFinished</string>
+	<string>MyPage</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -71,5 +71,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>Allow Camera for this App?</string>
 </dict>
 </plist>
