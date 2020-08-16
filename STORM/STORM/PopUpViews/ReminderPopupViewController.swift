@@ -17,10 +17,6 @@ class ReminderPopupViewController: UIViewController {
     
     lazy var box = UIView()
 
-
-
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
