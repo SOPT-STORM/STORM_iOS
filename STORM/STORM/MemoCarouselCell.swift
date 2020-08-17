@@ -9,6 +9,8 @@
 import UIKit
 
 class MemoCarouselCell: UICollectionViewCell {
+    
+    var index: Int? = 0
 
     @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var contetnt: UIView!
@@ -19,8 +21,18 @@ class MemoCarouselCell: UICollectionViewCell {
     @IBAction func didPressHeartBtn(_ sender: UIButton) {
         if sender.imageView!.image ==  UIImage(named: "btn_heart") {
             sender.setImage(UIImage(named: "btn_heart_fill"), for: .normal)
+            
+            guard let idx = index else {return}
+            NetworkManager.shared.scrapCard(cardIdx: idx) { (response) in
+                print(response)
+            }
         } else {
             sender.setImage(UIImage(named: "btn_heart"), for: .normal)
+            
+            guard let idx = index else {return}
+            NetworkManager.shared.cancelScrap(cardIdx: idx) { (response) in
+                print(response)
+            }
         }
     }
     

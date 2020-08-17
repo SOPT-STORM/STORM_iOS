@@ -12,7 +12,7 @@ class AllProjectViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var data: [ProjectWithDetail] = []
+    lazy var data: [ProjectWithDetail] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,9 +38,7 @@ extension AllProjectViewController: UICollectionViewDelegate, UICollectionViewDa
 
         let data = self.data[indexPath.row]
 
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "projectSummaryCell", for: indexPath) as! ProjectSummaryCell
-        
-        cell.addRoundShadow(cornerRadius: 10)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "projectSummaryCell", for: indexPath) as? ProjectSummaryCell else {return UICollectionViewCell()}
         
         cell.projectName.text = data.project_name
         

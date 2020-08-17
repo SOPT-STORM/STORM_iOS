@@ -9,16 +9,29 @@
 import UIKit
 
 class DrawingCarouselCell: UICollectionViewCell {
+    
+    var index: Int? = 0
 
     @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var userImgView: UIImageView!
     @IBOutlet weak var drawingImgView: UIImageView!
     
     @IBAction func didPressHeartBtn(_ sender: UIButton) {
+        
         if sender.imageView!.image ==  UIImage(named: "btn_heart") {
             sender.setImage(UIImage(named: "btn_heart_fill"), for: .normal)
+            
+            guard let idx = index else {return}
+            NetworkManager.shared.scrapCard(cardIdx: idx) { (response) in
+                print(response)
+            }
         } else {
             sender.setImage(UIImage(named: "btn_heart"), for: .normal)
+            
+            guard let idx = index else {return}
+            NetworkManager.shared.cancelScrap(cardIdx: idx) { (response) in
+                print(response)
+            }
         }
     }
     
