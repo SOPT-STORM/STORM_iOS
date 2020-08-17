@@ -117,11 +117,11 @@ class AllRoundCarouselViewController: UIViewController {
         self.collectionView?.delegate = self
         self.collectionView?.dataSource = self
         
-        let DrawingCarouselCell = UINib(nibName: "DrawingCarouselCell", bundle: nil)
-        let MemoCarouselCell = UINib(nibName: "MemoCarouselCell", bundle: nil)
+        let drawingCarouselCell = UINib(nibName: "DrawingCarouselCell", bundle: nil)
+        let memoCarouselCell = UINib(nibName: "MemoCarouselCell", bundle: nil)
 
-        self.collectionView.register(DrawingCarouselCell, forCellWithReuseIdentifier: "drawingCarouselCell")
-        self.collectionView.register(MemoCarouselCell, forCellWithReuseIdentifier: "memoCarouselCell")
+        self.collectionView.register(drawingCarouselCell, forCellWithReuseIdentifier: "drawingCarouselCell")
+        self.collectionView.register(memoCarouselCell, forCellWithReuseIdentifier: "memoCarouselCell")
         
         let scaledItemOffset =  (layout.itemSize.width - (layout.itemSize.width*(layout.sideItemScale + (1 - layout.sideItemScale)/2))) / 2
         
@@ -169,6 +169,7 @@ extension AllRoundCarouselViewController: UICollectionViewDelegate, UICollection
             
             cell.userImgView.kf.setImage(with: userUrl)
             cell.drawingImgView.kf.setImage(with: drawingUrl )
+            cell.index = card.card_idx
 
             return cell
         } else {
@@ -178,6 +179,8 @@ extension AllRoundCarouselViewController: UICollectionViewDelegate, UICollection
             
             cell.userImage.kf.setImage(with: userUrl)
             cell.textView.text = cardText
+            cell.index = card.card_idx
+            
             return cell
         }
     }
