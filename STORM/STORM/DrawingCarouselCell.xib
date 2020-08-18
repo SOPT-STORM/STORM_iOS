@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="drawingCarouselCell" id="gTV-IL-0wX" customClass="DrawingCarouselCell" customModule="STORM" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="251" height="371"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="251" height="371"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XYe-Hf-2oQ">
+                        <rect key="frame" x="3" y="4" width="245" height="364"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainviewBtnProject" translatesAutoresizingMaskIntoConstraints="NO" id="qHK-Yk-MWr">
+                                <rect key="frame" x="0.0" y="0.0" width="245" height="364"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="qHK-Yk-MWr" secondAttribute="bottom" id="9hF-ew-V3Q"/>
+                            <constraint firstAttribute="trailing" secondItem="qHK-Yk-MWr" secondAttribute="trailing" id="G6E-Gw-bX6"/>
+                            <constraint firstItem="qHK-Yk-MWr" firstAttribute="leading" secondItem="XYe-Hf-2oQ" secondAttribute="leading" id="aHm-em-GqZ"/>
+                            <constraint firstItem="qHK-Yk-MWr" firstAttribute="top" secondItem="XYe-Hf-2oQ" secondAttribute="top" id="i70-L6-Zvb"/>
+                        </constraints>
+                    </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tNM-DW-OXs">
+                        <rect key="frame" x="13" y="15" width="30" height="30"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="Olc-TV-kla"/>
+                            <constraint firstAttribute="height" constant="30" id="cvg-YT-XqZ"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R8M-Jh-W5D">
+                        <rect key="frame" x="200" y="1" width="48" height="48"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="R8M-Jh-W5D" secondAttribute="height" multiplier="1:1" id="tgz-Ca-cwF"/>
+                        </constraints>
+                        <state key="normal" image="btn_heart"/>
+                        <connections>
+                            <action selector="didPressHeartBtn:" destination="gTV-IL-0wX" eventType="touchUpInside" id="INc-el-DbQ"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="XYe-Hf-2oQ" firstAttribute="top" secondItem="R8M-Jh-W5D" secondAttribute="top" constant="3" id="0f7-gS-idO"/>
+                <constraint firstAttribute="trailing" secondItem="XYe-Hf-2oQ" secondAttribute="trailing" constant="3" id="2Hl-ov-Ilh"/>
+                <constraint firstItem="XYe-Hf-2oQ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="3" id="IFl-il-JMh"/>
+                <constraint firstAttribute="bottom" secondItem="XYe-Hf-2oQ" secondAttribute="bottom" constant="3" id="ZAV-um-SoQ"/>
+                <constraint firstItem="tNM-DW-OXs" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="15" id="d3U-q8-WHI"/>
+                <constraint firstAttribute="trailing" secondItem="R8M-Jh-W5D" secondAttribute="trailing" constant="3" id="g1U-9X-Orr"/>
+                <constraint firstItem="R8M-Jh-W5D" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="1" id="gUE-iM-2vb"/>
+                <constraint firstItem="tNM-DW-OXs" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="13" id="t7J-UH-XFA"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="273" height="378"/>
+            <connections>
+                <outlet property="drawingImgView" destination="qHK-Yk-MWr" id="4Zh-W6-y6q"/>
+                <outlet property="shadowView" destination="XYe-Hf-2oQ" id="pab-Mt-1zA"/>
+                <outlet property="userImgView" destination="tNM-DW-OXs" id="Xl4-js-qei"/>
+            </connections>
+            <point key="canvasLocation" x="28.260869565217394" y="57.254464285714285"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="btn_heart" width="48" height="48"/>
+        <image name="mainviewBtnProject" width="338" height="221"/>
+    </resources>
+</document>

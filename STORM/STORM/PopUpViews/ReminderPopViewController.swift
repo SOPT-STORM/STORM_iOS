@@ -9,35 +9,66 @@
 import UIKit
 
 class ReminderPopViewController: UIViewController {
-    
+
     // MARK:- IBOutlet 선언
+
     
-    @IBOutlet weak var reminderPopView: UIView!
-    @IBOutlet weak var backgroundView: UIView!
+    // MARK: - IBOutlet, 변수선언
     
+        @IBOutlet weak var reminderView: UIView!
+//        var pressButton: (() -> Void)?
+        
+        
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            // self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+            self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+            reminderView.setRadius(radius: 15)
+            reminderView.dropShadow(color: .black, offSet: CGSize(width: 0, height: 3))
+//            self.showAnimate()
+            
+            // Do any additional setup after loading the view.
+        }
+        
+        
+        override func didReceiveMemoryWarning() {
+            super.didReceiveMemoryWarning()
+            // Dispose of any resources that can be recreated.
+        }
+        
+        @IBAction func confirmButtonDidPress(_ sender: UIButton) {
+//            pressButton?()
+//            self.removeAnimate()
+            self.dismiss(animated: false, completion: nil)
+
+        }
+        
+        
+    }
+
+
+
     // MARK:- viewDidLoad 선언
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-        reminderPopView.layer.cornerRadius = 15
-        //reminderPopView.addRoundShadow(cornerRadius: 15)
-        reminderPopView.clipsToBounds = true
-        
-        backgroundView.tintColor = UIColor.black.withAlphaComponent(0.6)
-        
-        //self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
-        self.showAnimate()
-    }
-    
-    // MARK:- IBAction 선언
-    @IBAction func remindOkButtonDidTap(_ sender: UIButton) {
-        NotificationCenter.default.post(name: .buttonClickInPopup, object: nil)
-        self.removeAnimate()
-    }
-    
-    // MARK:- 함수 선언
+//
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//
+//        // Do any additional setup after loading the view.
+//        reminderPopView.layer.cornerRadius = 15
+//        reminderPopView.addRoundShadow(cornerRadius: 15)
+//        reminderPopView.clipsToBounds = true
+//
+//        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
+//        self.showAnimate()
+//    }
+//
+//    // MARK:- IBAction 선언
+//    @IBAction func remindOkButtonDidTap(_ sender: UIButton) {
+//        NotificationCenter.default.post(name: .buttonClickInPopup, object: nil)
+//        self.removeAnimate()
+//    }
+//
+//    // MARK:- 함수 선언
     
     
-}
+

@@ -8,13 +8,19 @@
 
 import UIKit
 
+protocol PresentVC {
+    func presentVC()
+}
+
 class SettingCodePopViewController: UIViewController {
     
     // MARK:- 변수 선언
 
+    @IBOutlet weak var projectCodeTextField: UITextField!
     @IBOutlet weak var settingCodePopView: UIView!
-    @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var copyButton: UIButton!
+    
+    var delegate: PresentVC!
     
     // MARK:- viewDidLoad 선언
     
@@ -23,24 +29,55 @@ class SettingCodePopViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         settingCodePopView.layer.cornerRadius = 15
+//        settingCodePopView.addShadow(width: 1, height: 3, 0.2, 5)
         //settingCodePopView.addRoundShadow(cornerRadius: 15)
         settingCodePopView.clipsToBounds = true
         
-        backgroundView.backgroundColor = UIColor.black.withAlphaComponent(0.6)
-        
-        copyButton.cornerRadius = 4.0
-        
+        projectCodeTextField.text = ProjectSetting.shared.projectCode!
+//        self.view.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.6)
+//        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         self.showAnimate()
     }
     
-    // MARK:- IBAction 선언
-    
-    @IBAction func createOkButtonDidTap(_ sender: UIButton) {
-        NotificationCenter.default.post(name: .buttonClickInPopup, object: nil)
+     // MARK:- IBAction 선언
+     
+     @IBAction func createOkButtonDidTap(_ sender: UIButton) {
         self.removeAnimate()
+        
+        self.dismiss(animated: false) {
+            self.delegate.presentVC()
+        }
+        
+
+//        let projectWaitingViewController = UIStoryboard(name: "ProjectForHost", bundle: nil).instantiateViewController(withIdentifier: "hostRoundSettingVC") as! HostRoundSettingViewController
+//         projectWaitingViewController.modalTransitionStyle = .coverVertical
+//         self.present(projectWaitingViewController, animated: true, completion: nil)
+
+         
+     }
+    
+    @IBAction func copyButtonDidPress(_ sender: Any) {
+        getCopiedText()
+        
+    }
+    
+
+    func getCopiedText() {
+        let pasteboard = UIPasteboard.general
+        pasteboard.string = projectCodeTextField.text
+        print("copied")
+//
+//    @IBAction func createOkButtonDidTap(_ sender: UIButton) {
+//        NotificationCenter.default.post(name: .buttonClickInPopup, object: nil)
+//        self.removeAnimate()
+
     }
     
     // MARK:- 함수 선언
-    
+    /*
+    func getProjectCode() {
+        NetworkManager.shared.fetchProjectInfo(projectIdx: <#T##Int#>, completion: <#T##(ProjectInfoResponse?) -> Void#>)
+    // TODO: projectWithCode 쓸지 projectWithIdx 쓸지 정하기.
+    } */
 
 }

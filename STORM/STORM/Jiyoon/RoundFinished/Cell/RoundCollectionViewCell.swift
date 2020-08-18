@@ -23,7 +23,6 @@ class RoundCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        //roundView.setRadius(radius: 15)
     }
 
 }

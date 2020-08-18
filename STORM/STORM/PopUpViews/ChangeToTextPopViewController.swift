@@ -10,6 +10,8 @@ import UIKit
 
 class ChangeToTextPopViewController: UIViewController {
     
+    static let identifier = "ChangeToTextPopViewController"
+    
     // MARK:- IBOutlet 선언
 
     @IBOutlet weak var changeToTextPopView: UIView!
@@ -20,9 +22,11 @@ class ChangeToTextPopViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        changeToTextPopView.layer.cornerRadius = 15
+//        changeToTextPopView.layer.cornerRadius = 15
 //        changeToTextPopView.addShadow(width: 1, height: 3, 0.2, 5)
-        //changeToTextPopView.addRoundShadow(cornerRadius: 15)
+        
+        
+//        changeToTextPopView.addRoundShadow(cornerRadius: 15)
         changeToTextPopView.clipsToBounds = true
         
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)

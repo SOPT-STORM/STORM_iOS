@@ -10,6 +10,8 @@ import UIKit
 
 class RoundEndPopViewController: UIViewController {
     
+    static let identifier = "RoundEndPopViewController"
+    
     // MARK:- IBOutlet 선언
     
     @IBOutlet weak var roundEndPopView: UIView!
@@ -20,9 +22,9 @@ class RoundEndPopViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        roundEndPopView.layer.cornerRadius = 15
+//        roundEndPopView.layer.cornerRadius = 15
 //        roundEndPopView.addShadow(width: 1, height: 3, 0.2, 5)
-        //roundEndPopView.addRoundShadow(cornerRadius: 15)
+//        roundEndPopView.addRoundShadow(cornerRadius: 15)
         roundEndPopView.clipsToBounds = true
         
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)

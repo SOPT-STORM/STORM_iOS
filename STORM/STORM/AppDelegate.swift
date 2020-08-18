@@ -35,6 +35,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
     
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        // 소켓 연결 해제
+        SocketIOManager.shared.closeConnection()
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        // 소켓 연결
+        SocketIOManager.shared.establishConnection()
+    }
+    
     // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentContainer = {

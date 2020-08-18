@@ -11,10 +11,17 @@ import FlexiblePageControl
 
 class FinishedRoundViewController: UIViewController, UICollectionViewDelegate {
     
+    //    let projectIndex = UserDefaults.standard.object(forKey: "projectIndex")
+    
+    var numberOfRounds = 9
+    var numberOfCards = 9
+    
+    var cardInfos: ProjectInfo?
+    
     
     @IBOutlet weak var roundCollectionView: UICollectionView!
     @IBOutlet weak var cardListCollectionView: UICollectionView!
-
+    
     @IBOutlet weak var pageControl: FlexiblePageControl!
     
     
@@ -54,36 +61,82 @@ class FinishedRoundViewController: UIViewController, UICollectionViewDelegate {
             mediumDotSizeRatio: 0.7
         )
         pageControl.setConfig(config)
-
+//        getFinalRoundInfo()
+//        fetchCardList()
+        
     }
+    
+    func getFinalRoundInfo() {
+        NetworkManager.shared.fetchAllRoundInfo(projectIdx: 1) { (response) in
+            print(response?.status)
+            print(response?.message)
+            print(response!.data!)
+            self.numberOfRounds = response?.data!.count as! Int
+            //            print("numberOfRounds: \(self.numberOfRounds)")
+            self.roundCollectionView.reloadData()
+            
+        }
+    }
+    
+
+    
+    func fetchCardList() {
+        NetworkManager.shared.fetchCardList(projectIdx: ProjectSetting.shared.projectIdx!, roundIdx: ProjectSetting.shared.roundIdx!) { (response) in
+            print(response?.message)
+            self.numberOfCards = response?.data?.card_list.count as! Int
+            print("카드 수: \(self.numberOfCards)")
+            print(response!.data!)
+            self.cardListCollectionView.reloadData()
+
+        }
+    }
+    
 }
-
-
-
 
 extension FinishedRoundViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView.tag == 0 {
-            let count = 10
-            // TODO: 서버통신 구현하면 다시 재조정하기
-            // https://stackoverflow.com/questions/47745936/how-to-connect-uipagecontrol-to-uicollectionview-swift/47746060
             
-            pageControl.numberOfPages = count
+            pageControl.numberOfPages = self.numberOfRounds
             
-            return count
+            return self.numberOfRounds
             
         } else {
-            return 5
+            
+            return self.numberOfCards
+            
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView.tag == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RoundCollectionViewCell.identifier, for: indexPath) as! RoundCollectionViewCell
+            
+//            var projectInfo: ProjectInfo? {
+//                didSet {
+//                    cell.projectNameLabel.text = projectInfo?.project_name
+//                    cell.roundGoalLabel.text = projectInfo?.round_purpose
+//                    cell.timeLimitLabel.text = "총 \(projectInfo?.round_time)분 소요"
+//                    cell.roundIndexLabel.text = "ROUND\(projectInfo?.round_number)"
+//                }
+//            }
+            
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CardCollectionViewCell.identifier, for: indexPath) as! CardCollectionViewCell
+            if cardInfos?.card_list[indexPath.row].card_img == nil {
+                print("card_img is nill")
+                cell.cardImage.isHidden = true
+                cell.cardLabel.isHidden = false
+                cell.cardLabel.text = "\(String(describing: cardInfos?.card_list[indexPath.row].card_txt!))"
+            }
+            else {
+                print("card_text is nill")
+                cell.cardLabel.isHidden = true
+                //                cell.cardImage.image = cardInfos?.card_list[indexPath.row].card_txt
+            }
+            
             return cell
         }
         
@@ -110,6 +163,7 @@ extension FinishedRoundViewController: UICollectionViewDelegateFlowLayout {
             return 27
         }
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         if collectionView.tag == 0 {
             return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)

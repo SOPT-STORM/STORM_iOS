@@ -10,7 +10,7 @@ import UIKit
 import Lottie
 
 class RoundStartPopViewController: UIViewController {
-    
+        
     // MARK:- 변수 선언
     
     let animationView = AnimationView()
@@ -20,6 +20,8 @@ class RoundStartPopViewController: UIViewController {
     @IBOutlet weak var lottieView: UIView!
     @IBOutlet weak var startPopView: UIView!
     
+    var delegate: PresentVC!
+    
     // MARK:- viewDidLoad 선언
     
     override func viewDidLoad() {
@@ -28,15 +30,23 @@ class RoundStartPopViewController: UIViewController {
         startPopView.layer.cornerRadius = 15
 //        startPopView.addShadow(width: 1, height: 3, 0.2, 5)
         startPopView.clipsToBounds = false
+
+//        self.showAnimate()
+//        sleep(5)
         
-        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
-        self.showAnimate()
+        // TODO: 투명배경 설정이 왜 안되지..?ㅠㅠ
     }
     
     // MARK:- viewDidAppear 선언
     
     override func viewDidAppear(_ animated: Bool) {
         setupAnimation()
+      //If you are using Storyboard
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+            self.dismiss(animated: false) {
+                self.delegate.presentVC()
+            }
+        }
     }
     
     // MARK:- 함수 선언
@@ -59,5 +69,5 @@ class RoundStartPopViewController: UIViewController {
         //view안에 Subview로 넣어준다
         lottieView.insertSubview(animationView, at: 0)
     }
-    
+
 }

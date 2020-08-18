@@ -34,7 +34,7 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
         super.viewDidLoad()
         
         // navigationbar
-        setSignUpNavi()
+//        setSignUpNavi()
         
         // shadow, radius
         nameTextField.cornerRadius = 10

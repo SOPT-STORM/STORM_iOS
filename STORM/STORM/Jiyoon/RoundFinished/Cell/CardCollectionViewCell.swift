@@ -14,6 +14,8 @@ class CardCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var scrapButton: UIButton!
+    @IBOutlet weak var cardLabel: UILabel!
+    @IBOutlet weak var cardImage: UIImageView!
     
     var didScrap: (() -> Void)?
     
@@ -40,5 +42,5 @@ class CardCollectionViewCell: UICollectionViewCell {
         cardView.dropShadow(color: .black, opacity: 0.2, offSet: (CGSize(width: 0, height: 3)), radius: 3.5)
         cardView.setRadius(radius: 15)
     }
-
+    
 }

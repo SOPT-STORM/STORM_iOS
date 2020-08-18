@@ -12,25 +12,30 @@ extension UIViewController {
     
     func showToast(message : String, frame: CGRect) {
         
-//        let view = UIView(frame: frame)
-//        view.setRound(5)
-//        view.addShadow(width: 1, height: 1, 0.5, 3)
-//        view.backgroundColor = .white
-        
-        let toastMessage = UILabel(frame: frame)
+        let toastMessage = UIView(frame: frame)
         toastMessage.center.x = frame.origin.x
-//        toastMessage.setRound(5)
-//        toastMessage.addShadow(width: 1, height: 1, 0.16, 3)
-        toastMessage.addRoundShadow(cornerRadius: 5)
-        toastMessage.backgroundColor = .white
-        toastMessage.font = UIFont(name: "NotoSansCJKkr-Medium", size: 11)
-        toastMessage.textColor = UIColor(red: 142/256, green: 142/256, blue: 142/256, alpha: 1)
-        toastMessage.textAlignment = .center
-        toastMessage.text = message
-//        toastMessage.clipsToBounds = true
         
-//        view.addSubview(toastMessage)
+//        toastMessage.layer.cornerRadius = 10
+//        toastMessage.layer.backgroundColor = UIColor.clear.cgColor
+//        toastMessage.layer.shadowColor = UIColor.black.cgColor
+//        toastMessage.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
+//        toastMessage.layer.shadowOpacity = 0.16 // 0.16
+//        toastMessage.layer.shadowRadius = 5
         
+        let content = UILabel(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
+        content.backgroundColor = .white
+        content.font = UIFont(name: "NotoSansCJKkr-Medium", size: 11)
+        content.textColor = UIColor(red: 142/256, green: 142/256, blue: 142/256, alpha: 1)
+        content.textAlignment = .center
+        content.text = message
+        
+//        content.layer.cornerRadius = 10
+//        content.layer.masksToBounds = true
+        
+        
+        toastMessage.addSubview(content)
+        toastMessage.addRoundShadow(contentView: content, cornerRadius: 10)
+
         self.view.addSubview(toastMessage)
         
         UIView.animate(withDuration: 1.0, delay: 0.5, options: .curveEaseOut, animations: {
@@ -52,18 +57,7 @@ extension UIViewController {
         navigationItem.titleView = imageView
     }
     
-    func setSignUpNavi() {
-        // 수정 필요 ㅠㅜ
-        guard let navigationBar = self.navigationController?.navigationBar else { return }
-        
-        navigationBar.barTintColor = .white
-        navigationBar.shadowImage = UIImage()
-
-        navigationBar.backIndicatorImage = UIImage(named: "backBtn")
-        navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "backBtn")
-        navigationBar.tintColor = .gray
-        
-        navigationItem.title = "회원가입"
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-    }
+//    @objc func didPressMyPage() {
+//        print("마이페이지~")
+//    }
 }

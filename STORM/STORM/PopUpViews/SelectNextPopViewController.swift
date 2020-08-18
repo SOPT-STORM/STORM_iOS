@@ -9,32 +9,68 @@
 import UIKit
 
 class SelectNextPopViewController: UIViewController {
-    
-    // MARK:- IBOutlet 선언
-
-    @IBOutlet weak var selectNextPopView: UIView!
-    
-    // MARK:- viewDidLoad 선언
+ 
+    @IBOutlet weak var roundInfoLabel: UILabel!
+    @IBOutlet weak var popupView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        selectNextPopView.layer.cornerRadius = 15
-//        selectNextPopView.addShadow(width: 1, height: 3, 0.2, 5)
-        //selectNextPopView.addRoundShadow(cornerRadius: 15)
-        selectNextPopView.clipsToBounds = true
+        self.popupView.cornerRadius = 10 
         
-        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
-        self.showAnimate()
     }
     
-    // MARK:- IBAction 선언
-    
-    @IBAction func cancelNextButtonDidTap(_ sender: UIButton) {
-        self.removeAnimate()
+    @IBAction func didPressCancel(_ sender: UIButton) {
+        self.dismiss(animated: false, completion: nil)
     }
     
-    // MARK:- 함수 선언
+    
+    @IBAction func didPressNextRound(_ sender: UIButton) {
+        dismissViewControllers()
+        
+        guard let projectCode = ProjectSetting.shared.projectCode else {return}
+        
+        SocketIOManager.shared.socket.emit("nextRound", projectCode)
+    }
+    
+    @IBAction func didPressFinishProject(_ sender: UIButton) {
+        guard let projectCode = ProjectSetting.shared.projectCode else {return}
+        
+        print("실행1111")
+        SocketIOManager.shared.socket.emit("finishProject", projectCode)
+        
+        guard let presentingVc = self.presentingViewController else {return}
+        
+        print("실행2222")
+        self.dismiss(animated: false) {
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            guard let vc = storyboard.instantiateViewController(withIdentifier: "projectFinalViewController") as? ProjectFinalViewController else {return}
+            
+            print("실행333333")
+            let naviController = UINavigationController(rootViewController: vc)
+            
+            presentingVc.present(naviController, animated: false, completion: nil)
+        }
+        
+    }
+    
+    func dismissViewControllers() {
+        self.presentingViewController?.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: false, completion: nil)
 
+//        guard let vc = self.presentingViewController else { return }
+//
+//        while (vc.presentingViewController != nil) {
+//            print(vc)
+//            print(vc.presentingViewController is HostRoundSettingViewController)
+//            vc.dismiss(animated: true, completion: nil)
+//        }
+        
+//        guard let vc = self.presentingViewController else { return }
+//
+//        while !(vc.presentingViewController is HostRoundSettingViewController) {
+//            vc.dismiss(animated: true, completion: nil)
+//        }
+    }
 }
+    
+

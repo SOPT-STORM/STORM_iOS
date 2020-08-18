@@ -27,7 +27,7 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
         super.viewDidLoad()
         
         // navigationbar
-        setSignUpNavi()
+//        setSignUpNavi()
         
         // shadow, radius
         emailTextField.cornerRadius = 10
