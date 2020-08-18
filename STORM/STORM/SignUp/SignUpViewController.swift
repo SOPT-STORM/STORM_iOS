@@ -12,8 +12,6 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
 
     // MARK:- IBOutlet
     
-    
-    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var pwdTextField: UITextField!
     @IBOutlet weak var pwdConfirmTextField: UITextField!
@@ -28,10 +26,8 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //self.navigationController?.setNaviBar()
-        self.navigationController?.navigationBar.barTintColor = .white
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.tintColor = UIColor(red: 112/255, green: 112/255, blue: 112/255, alpha: 1)
+        // navigationbar
+        setSignUpNavi()
         
         // shadow, radius
         emailTextField.cornerRadius = 10

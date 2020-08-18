@@ -16,7 +16,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--회원가입-->
+        <!--Sign Up View Controller-->
         <scene sceneID="cf8-xA-S2B">
             <objects>
                 <viewController storyboardIdentifier="SignUpVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fFs-5m-tGv" customClass="SignUpViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
@@ -124,7 +124,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NNq-f6-W9o"/>
                     </view>
-                    <navigationItem key="navigationItem" title="회원가입" id="QUP-XK-kLk"/>
+                    <navigationItem key="navigationItem" id="QUP-XK-kLk"/>
                     <connections>
                         <outlet property="emailErrorLabel" destination="4dR-wQ-wyH" id="5Yd-RI-jo6"/>
                         <outlet property="emailTextField" destination="pZF-hr-BBx" id="d3B-Mf-kXm"/>
@@ -158,20 +158,41 @@
                                     <constraint firstAttribute="width" secondItem="fHF-Nd-WYc" secondAttribute="height" multiplier="1:1" id="faA-Ml-nRQ"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="wbY-1b-G1u">
-                                <rect key="frame" x="148" y="397.66666666666669" width="79" height="22"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="wbY-1b-G1u">
+                                <rect key="frame" x="141" y="397.66666666666669" width="93" height="21"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u4i-yX-MzC">
-                                        <rect key="frame" x="0.0" y="0.0" width="13" height="22"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="21" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="KLw-LX-kQM"/>
+                                            <constraint firstAttribute="width" constant="21" id="pT2-xr-NSx"/>
+                                        </constraints>
                                         <state key="normal" image="purpleCircle"/>
+                                        <connections>
+                                            <action selector="colorButtonDidPressed:" destination="5ze-xC-KOq" eventType="touchUpInside" id="bNe-8H-haG"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="62u-Pe-8s1">
-                                        <rect key="frame" x="33" y="0.0" width="13" height="22"/>
+                                        <rect key="frame" x="36" y="0.0" width="21" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="fbo-id-ARh"/>
+                                            <constraint firstAttribute="width" constant="21" id="wAx-91-aIl"/>
+                                        </constraints>
                                         <state key="normal" image="yellowCircle"/>
+                                        <connections>
+                                            <action selector="colorButtonDidPressed:" destination="5ze-xC-KOq" eventType="touchUpInside" id="XQr-Du-KYG"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wx9-Ky-B6J">
-                                        <rect key="frame" x="66" y="0.0" width="13" height="22"/>
+                                        <rect key="frame" x="72" y="0.0" width="21" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="21" id="gEF-Yn-1PU"/>
+                                            <constraint firstAttribute="height" constant="21" id="zdV-3y-6Gl"/>
+                                        </constraints>
                                         <state key="normal" image="redCircle"/>
+                                        <connections>
+                                            <action selector="colorButtonDidPressed:" destination="5ze-xC-KOq" eventType="touchUpInside" id="Tbf-1g-jUi"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>

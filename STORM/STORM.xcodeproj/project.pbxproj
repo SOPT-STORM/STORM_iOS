@@ -17,7 +17,6 @@
 		B8255E8E24D492A700749B62 /* example.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B8255E8D24D492A700749B62 /* example.jpg */; };
 		B84697E224D30FAA00E56804 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B84697E124D30FAA00E56804 /* MyPage.storyboard */; };
 		B84697E524D313FB00E56804 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84697E424D313FB00E56804 /* ProfileViewController.swift */; };
-		B84697E724D3140A00E56804 /* SortProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84697E624D3140A00E56804 /* SortProjectViewController.swift */; };
 		B84697E924D3141D00E56804 /* DeleteAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84697E824D3141D00E56804 /* DeleteAccountViewController.swift */; };
 		B84697EA24D325A000E56804 /* NotoSansCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B84697EC24D325A000E56804 /* NotoSansCJKkr-Bold.otf */; };
 		B84697ED24D325A500E56804 /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = B84697EF24D325A500E56804 /* NotoSansCJKkr-Medium.otf */; };
@@ -25,6 +24,7 @@
 		B849814B24E11FB2003A7F59 /* ProjectFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849814A24E11FB2003A7F59 /* ProjectFinishedViewController.swift */; };
 		B849815224E12707003A7F59 /* ScrapCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849815124E12707003A7F59 /* ScrapCardCell.swift */; };
 		B849815424E1271B003A7F59 /* RoundCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849815324E1271B003A7F59 /* RoundCardCell.swift */; };
+		B852371A24EA8C690028E602 /* ProjectCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B852371924EA8C690028E602 /* ProjectCollectionViewController.swift */; };
 		B863018E24C22D2E0081D8A6 /* ProjectFinished.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B863018D24C22D2E0081D8A6 /* ProjectFinished.storyboard */; };
 		B878A01224D9692400A8C19F /* CameraPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B878A01124D9692400A8C19F /* CameraPopUpViewController.swift */; };
 		B878A01424DA051A00A8C19F /* EnsureDeleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B878A01324DA051A00A8C19F /* EnsureDeleteViewController.swift */; };
@@ -119,7 +119,6 @@
 		B8255E8D24D492A700749B62 /* example.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = example.jpg; path = Assets.xcassets/example.jpg; sourceTree = "<group>"; };
 		B84697E124D30FAA00E56804 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		B84697E424D313FB00E56804 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		B84697E624D3140A00E56804 /* SortProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortProjectViewController.swift; sourceTree = "<group>"; };
 		B84697E824D3141D00E56804 /* DeleteAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountViewController.swift; sourceTree = "<group>"; };
 		B84697F324D3261200E56804 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = "en.lproj/NotoSansCJKkr-Bold.otf"; sourceTree = "<group>"; };
 		B84697F424D3261700E56804 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = "en.lproj/NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
@@ -127,6 +126,7 @@
 		B849814A24E11FB2003A7F59 /* ProjectFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFinishedViewController.swift; sourceTree = "<group>"; };
 		B849815124E12707003A7F59 /* ScrapCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapCardCell.swift; sourceTree = "<group>"; };
 		B849815324E1271B003A7F59 /* RoundCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCardCell.swift; sourceTree = "<group>"; };
+		B852371924EA8C690028E602 /* ProjectCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCollectionViewController.swift; sourceTree = "<group>"; };
 		B863018D24C22D2E0081D8A6 /* ProjectFinished.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProjectFinished.storyboard; sourceTree = "<group>"; };
 		B878A01124D9692400A8C19F /* CameraPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPopUpViewController.swift; sourceTree = "<group>"; };
 		B878A01324DA051A00A8C19F /* EnsureDeleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnsureDeleteViewController.swift; sourceTree = "<group>"; };
@@ -270,6 +270,7 @@
 				B8F5636124DBF3480036C768 /* CollectionHeader.swift */,
 				B849814A24E11FB2003A7F59 /* ProjectFinishedViewController.swift */,
 				B87BB3F024E3DB7F0021DB0C /* ProjectSummaryViewController.swift */,
+				B852371924EA8C690028E602 /* ProjectCollectionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -297,7 +298,6 @@
 			isa = PBXGroup;
 			children = (
 				B84697E424D313FB00E56804 /* ProfileViewController.swift */,
-				B84697E624D3140A00E56804 /* SortProjectViewController.swift */,
 				B84697E824D3141D00E56804 /* DeleteAccountViewController.swift */,
 				B878A01324DA051A00A8C19F /* EnsureDeleteViewController.swift */,
 			);
@@ -619,7 +619,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = "Team STORM";
 				TargetAttributes = {
 					D12EC23924AB4070007E5896 = {
@@ -738,6 +738,7 @@
 				D761569324BB005A00D4D484 /* HostProjectWaitingViewController.swift in Sources */,
 				D7EB706A24B8B75A0041B9CA /* HostRoundSettingViewController.swift in Sources */,
 				D12EC23E24AB4070007E5896 /* AppDelegate.swift in Sources */,
+				B852371A24EA8C690028E602 /* ProjectCollectionViewController.swift in Sources */,
 				D12EC24824AB4070007E5896 /* STORM.xcdatamodeld in Sources */,
 				B8D7DB6D24BF711700DE9D02 /* ScrappedCardTextCell.swift in Sources */,
 				D781D6FC24B4A66F00AAE389 /* LayerExtension.swift in Sources */,
@@ -747,15 +748,10 @@
 				B8E9FA7E24BA059600A97235 /* SettingCodePopViewController.swift in Sources */,
 				B8E9FA8624BA551E00A97235 /* RoundEndPopViewController.swift in Sources */,
 				D19533B724BCB072008DB22F /* Member.swift in Sources */,
-				B8E9FA7E24BA059600A97235 /* SettingCodePopViewController.swift in Sources */,
-				B8E9FA8624BA551E00A97235 /* RoundEndPopViewController.swift in Sources */,
 				D15088AB24BD98DD007D9596 /* Round.swift in Sources */,
-				D18D89B624B3A6FF00D8779E /* UIView.swift in Sources */,
 				D186EFFD24BF840000D67FAD /* MainViewController.swift in Sources */,
 				D761568F24B8D4AD00D4D484 /* UITextField.swift in Sources */,
-				D12EC23E24AB4070007E5896 /* AppDelegate.swift in Sources */,
 				D75ECBE424B6443B00CB46C3 /* MemberRoundSettingViewController.swift in Sources */,
-				D12EC24824AB4070007E5896 /* STORM.xcdatamodeld in Sources */,
 				D75ECBEC24B6C7EF00CB46C3 /* HostProjectSettingViewController.swift in Sources */,
 				D1E5839524BC965C0013FB7C /* Project.swift in Sources */,
 				D186F00324BFAE3E00D67FAD /* AllProjectViewController.swift in Sources */,
@@ -766,15 +762,12 @@
 				B849815224E12707003A7F59 /* ScrapCardCell.swift in Sources */,
 				D1E5838524BC95990013FB7C /* RoundMeetingViewController.swift in Sources */,
 				B8D7DB6F24BF712B00DE9D02 /* ScrappedCardImageCell.swift in Sources */,
-				D1E5838524BC95990013FB7C /* RoundMeetingViewController.swift in Sources */,
 				D1E5837F24BC95990013FB7C /* CollecViewController2.swift in Sources */,
 				B8E9FA8224BA50D800A97235 /* ChangeToDrawPopViewController.swift in Sources */,
 				D186EFFF24BF863100D67FAD /* ProjectSummaryCell.swift in Sources */,
 				D1E5839624BC965C0013FB7C /* Response.swift in Sources */,
-				D12EC23E24AB4070007E5896 /* AppDelegate.swift in Sources */,
 				B8E9FA8024BA3D2E00A97235 /* CancelCardViewController.swift in Sources */,
 				B8E9FA7224B9B7CB00A97235 /* InvalidCodePopViewController.swift in Sources */,
-				D12EC24824AB4070007E5896 /* STORM.xcdatamodeld in Sources */,
 				B8E9FA8824BA5A8700A97235 /* SelectNextPopViewController.swift in Sources */,
 				D1E5838224BC95990013FB7C /* CollectionFlowLayout.swift in Sources */,
 				B878A01424DA051A00A8C19F /* EnsureDeleteViewController.swift in Sources */,
@@ -793,7 +786,6 @@
 				D781D70624B4A66F00AAE389 /* CardCollectionViewCell.swift in Sources */,
 				D781D70024B4A66F00AAE389 /* ScrapCardMemoViewController.swift in Sources */,
 				B84697E924D3141D00E56804 /* DeleteAccountViewController.swift in Sources */,
-				B84697E724D3140A00E56804 /* SortProjectViewController.swift in Sources */,
 				D781D70224B4A66F00AAE389 /* RoundCollectionViewCell.swift in Sources */,
 				D1E5838624BC95990013FB7C /* NetworkTestViewController.swift in Sources */,
 				D781D6FF24B4A66F00AAE389 /* ReminderPopupViewController.swift in Sources */,
@@ -969,7 +961,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6D8SYQ63KK;
+				DEVELOPMENT_TEAM = B849TJY5N4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/STORM",
@@ -979,7 +971,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tistory.lsh424.STORM;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jhKim;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -992,7 +984,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6D8SYQ63KK;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/STORM",

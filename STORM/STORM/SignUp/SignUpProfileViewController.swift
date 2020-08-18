@@ -28,14 +28,13 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
     
     let myPicker = UIImagePickerController()
     
-    
     // MARK:- viewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // navigationbar
-        self.navigationController?.setNaviBar()
+        setSignUpNavi()
         
         // shadow, radius
         nameTextField.cornerRadius = 10
@@ -52,6 +51,7 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
         // photo
         profileImage.cornerRadius = profileImage.frame.width / 2
         selectPhotoButton.addShadow(cornerRadus: selectPhotoButton.frame.width / 2, shadowOffset: CGSize(width: 1, height: 1), shadowOpacity: 0.3, shadowRadius: 3)
+        profileImage.contentMode = .scaleAspectFill
         
     }
     
@@ -74,12 +74,56 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
         })
     }
     
+    @IBAction func colorButtonDidPressed(_ sender: UIButton) {
+        if sender.isSelected == false {
+            
+            if sender == purpleButton {
+                
+                sender.setImage(UIImage(named: "purple"), for: .normal)
+                yellowButton.setImage(UIImage(named: "yellowCircle"), for: .normal)
+                redButton.setImage(UIImage(named: "redCircle"), for: .normal)
+                
+                self.profileImage.image = UIImage(named: "purpleCircle")
+                
+                yellowButton.isSelected = false
+                redButton.isSelected = false
+                
+                
+            } else if sender == yellowButton {
+                
+                sender.setImage(UIImage(named: "yellow"), for: .normal)
+                purpleButton.setImage(UIImage(named: "purpleCircle"), for: .normal)
+                redButton.setImage(UIImage(named: "redCircle"), for: .normal)
+                
+                self.profileImage.image = UIImage(named: "yellowCircle")
+                
+                purpleButton.isSelected = false
+                redButton.isSelected = false
+                
+            } else {
+                
+                sender.setImage(UIImage(named: "red"), for: .normal)
+                yellowButton.setImage(UIImage(named: "yellowCircle"), for: .normal)
+                purpleButton.setImage(UIImage(named: "purpleCircle"), for: .normal)
+                
+                self.profileImage.image = UIImage(named: "redCircle")
+                
+                purpleButton.isSelected = false
+                yellowButton.isSelected = false
+                
+            }
+            
+            sender.isSelected = true
+        }
+    }
+    
+    
     @IBAction func doneButtonDidPressed(_ sender: UIButton) {
         
         /*if let loginVC = UIStoryboard(name: "LogIn", bundle: nil).instantiateViewController(withIdentifier: "LogInVC") as? LogInViewController {
-            loginVC.modalPresentationStyle = .fullScreen
-            self.navigationController?.popToViewController(loginVC, animated: true)
-        }*/
+         loginVC.modalPresentationStyle = .fullScreen
+         self.navigationController?.popToViewController(loginVC, animated: true)
+         }*/
         
         self.navigationController?.popToRootViewController(animated: true)
         
@@ -93,6 +137,20 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
         
         textField.resignFirstResponder()
         return true
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            profileImage.image = image
+            
+            yellowButton.setImage(UIImage(named: "yellowCircle"), for: .normal)
+            yellowButton.isSelected = false
+            purpleButton.setImage(UIImage(named: "purpleCircle"), for: .normal)
+            purpleButton.isSelected = false
+            redButton.setImage(UIImage(named: "redCircle"), for: .normal)
+            redButton.isSelected = false
+        }
+        dismiss(animated: true, completion: nil)
     }
 }
 

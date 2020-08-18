@@ -1285,7 +1285,7 @@
         <!--Navigation Controller-->
         <scene sceneID="M3J-ll-cJG">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JcB-m9-RoJ" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="mainVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JcB-m9-RoJ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="bga-MS-nTx">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
