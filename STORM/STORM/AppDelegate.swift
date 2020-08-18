@@ -36,13 +36,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
-        print("실행1")
+        // 소켓 연결 해제
         SocketIOManager.shared.closeConnection()
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
-        print("실행2")
-        SocketIOManager.shared.openConnection()
+        // 소켓 연결
+        SocketIOManager.shared.establishConnection()
     }
     
     // MARK: - Core Data stack
