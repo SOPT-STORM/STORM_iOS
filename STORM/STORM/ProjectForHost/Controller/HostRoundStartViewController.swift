@@ -11,86 +11,61 @@ import SocketIO
 
 class HostRoundStartViewController: UIViewController {
     
-    static let identifier = "HostRoundStartViewController"
-    let projectIndex = UserDefaults.standard.integer(forKey: "projectIndex")
-    let roundIndex = UserDefaults.standard.integer(forKey: "roundIndex")
-    //    var numberOfRows = 0
-    var testString = String()
-    
     // MARK: - IBOutlet
     
     @IBOutlet weak var projectNameLabel: UILabel!
     @IBOutlet weak var projectStartButton: UIButton!
     @IBOutlet weak var projectWaitingTableView: UITableView!
     @IBOutlet weak var pasteCodeImage: UIImageView!
-    @IBOutlet weak var roundGoalLabel: UILabel!
-    @IBOutlet weak var timeLImitLabel: UILabel!
+
     @IBOutlet weak var ruleReminderButton: UIButton!
-    @IBOutlet weak var roundIndexSetLabel: UILabel!
     
+    @IBOutlet weak var roundStateLabel: UILabel!
+
+    @IBOutlet weak var roundInfoLabel: UILabel!
+    @IBOutlet weak var roundStartInfoLabel: UILabel!
+    
+    var projectName: String?
     var roundGoalText = String()
     var timeLimitText = String()
     
     var members: [Member] = []
+//    var socket: SocketIOClient!
+    var isFetchedRoundInfo: Bool = false
+    var isEnter: Bool = false
     
-    var socket: SocketIOClient!
-    
-    // MARK: - Override
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchRoundInfo()
+
         fetchProjectInfo()
-        //        let manager = SocketManager(socketURL: URL(string: "http://4cd4fd360e7c.ngrok.io")!, config: [.log(true), .compress])
-        //
-        //        self.socket = manager.defaultSocket
-        //
-        ////        self.socket.connect()
-        //
-        //        self.socket.on("roundcomplete") { (dataArray, SocketAckEmitter) in
-        //                    print("소켓 실행")
-        //        //            print("데이터 \(dataArray)")
-        //        //            print("소켓 \(SocketAckEmitter)")
-        //
-        //                    NetworkManager.shared.fetchMemberList(roundIdx: 1) { (result) in
-        //                        print("get통신")
-        //                        print(result)
-        //                    }
-        //                }
-        //
-        //        self.socket.connect()
-        //
-        //        socket.emit("joinRoom", ["roomCode", "지윤"])
-        //        socket.emit("roundSetting", "roomCode")
+        setInitialRoundInfo()
         
-        //        SocketIOManager.shared.openConnection()
-        SocketIOManager.shared.sendData()
+        self.setNaviTitle()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "exit" ), style: .plain, target: self, action: #selector(didPressExit))
         
         SocketIOManager.shared.socket.on("roundComplete") { (dataArray, SocketAckEmitter) in
             print("소켓 실행")
-            //            print("데이터 \(dataArray)")
-            //            print("소켓 \(SocketAckEmitter)")
+            print("데이터 \(dataArray)")
+            print("소켓 \(SocketAckEmitter)")
             
-            NetworkManager.shared.fetchMemberList(roundIdx: 1) { (result) in
+            guard let roundIndex = ProjectSetting.shared.roundIdx else {
+                print("라운드 인덱스 없음")
+                self.fetchRoundInfo()
+                return}
+            
+             print("라운드 인덱스 있음")
+            
+            NetworkManager.shared.fetchMemberList(roundIdx: roundIndex) { (result) in
                 print("get통신")
+                print("프로젝트 라운드 인덱스 \(roundIndex)")
                 print(result!.data!)
                 self.members = result!.data!
                 self.projectWaitingTableView.reloadData()
             }
         }
-        
-        //                socket.on("roundComplete") { (dataArray, SocketAckEmitter) in
-        //                    print("소켓 실행")
-        //        //            print("데이터 \(dataArray)")
-        //        //            print("소켓 \(SocketAckEmitter)")
-        //
-        //                    NetworkManager.shared.fetchMemberList(roundIdx: 1) { (result) in
-        //                        print("get통신")
-        //                        print(result)
-        //                    }
-        //                }
-        
-        
+    
         projectWaitingTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         projectWaitingTableView.register(UINib(nibName: "ProjectWaitingTableViewCell", bundle: nil), forCellReuseIdentifier: ProjectWaitingTableViewCell.identifier)
         projectWaitingTableView.delegate = self
@@ -99,53 +74,128 @@ class HostRoundStartViewController: UIViewController {
         projectWaitingTableView.dropShadow(color: .black, opacity: 0.16, offSet: CGSize(width: 0, height: 3), radius: 2.5)
         projectWaitingTableView.clipsToBounds = true
         
-        
-        // TODO: 또 그림자가 적용 안 됨..ㅠㅠㅠ
-        
-        
-        
-        
-        // TODO: TapGestureRecognizer 인식 안됨 문제
-        
         let tapPasteCodeImage = UITapGestureRecognizer(target: self, action: #selector(handlePasteCodeImage))
         pasteCodeImage.addGestureRecognizer(tapPasteCodeImage)
-        
-
-        
     }
     
+    @objc func didPressExit() {
+
+        let rootVC = self.view.window?.rootViewController
+        
+        self.view.window?.rootViewController?.dismiss(animated: false, completion: {
+            guard let navi = rootVC as? UINavigationController else {return}
+            navi.popToRootViewController(animated: false)
+        })
+    }
+    
+    
+    func setInitialRoundInfo() {
+        if ProjectSetting.shared.mode == .host {
+//            roundReadyLabel.removeFromSuperview()
+//            loadingView.removeFromSuperview()
+        }else{
+            roundStartInfoLabel.isHidden = true
+            projectStartButton.removeFromSuperview()
+            roundStateLabel.isHidden = true
+//            let animation = Animation.named("loading3")
+//            loadingView.animation = animation
+//            loadingView.contentMode = .scaleAspectFit
+//            loadingView.play()
+            
+            roundInfoLabel.text = "호스트가 설정을 완료하면,\n ROUND 정보를 확인할 수 있습니다."
+            
+            SocketIOManager.shared.socket.on("roundStartMember") { (dataArray, SocketAckEmitter) in
+                print("소켓 실행 & 멤버 라운드 시작")
+                print("데이터 \(dataArray)")
+                print("소켓 \(SocketAckEmitter)")
+                
+                let hostRoundStartPopVC = UIStoryboard.init(name: "PopUp", bundle: nil).instantiateViewController(withIdentifier: "roundStartPopVC") as! RoundStartPopViewController
+                
+                hostRoundStartPopVC.delegate = self
+                hostRoundStartPopVC.modalPresentationStyle = .overCurrentContext
+                
+                self.present(hostRoundStartPopVC, animated: false, completion: nil)
+                }
+            }
+        }
+    
+    func fetchRoundInfo() {
+        
+        guard let projectIndex = ProjectSetting.shared.projectIdx else {return}
+        
+        print("프로젝트 인덱스\(projectIndex)")
+        
+        NetworkManager.shared.fetchRoundInfo(projectIdx: projectIndex) { (response) in
+            guard let roundNumb = response?.data?.round_number, let roundTime = response?.data?.round_time, let roundPurpose = response?.data?.round_purpose, let roundIndex = response?.data?.round_idx  else {return}
+            
+            if self.isFetchedRoundInfo == false {
+            ProjectSetting.shared.roundTime = Double(roundTime)
+            ProjectSetting.shared.roundPurpose = roundPurpose
+            ProjectSetting.shared.roundIdx = roundIndex
+            ProjectSetting.shared.roundNumb = roundNumb
+
+            if ProjectSetting.shared.mode == .host {
+                self.roundStateLabel.text = "ROUND\(roundNumb) 설정 완료"
+            }else {
+                self.roundStateLabel.text = "ROUND\(roundNumb) 준비 완료"
+//                self.roundReadyLabel.isHidden = true
+                self.roundStateLabel.isHidden = false
+//                self.loadingView.removeFromSuperview()
+            }
+
+            self.roundInfoLabel.text  = "\(roundPurpose) \n 총 \(roundTime)분 예정"
+                self.isFetchedRoundInfo = true
+            }
+            
+            if self.isEnter == false {
+                 NetworkManager.shared.enterRound(roundIdx: roundIndex) { (response) in
+                     print(response)
+                    NetworkManager.shared.fetchMemberList(roundIdx: roundIndex) { (result) in
+                        print("get통신")
+                        print("프로젝트 라운드 인덱스 \(roundIndex)")
+                        print(result!.data!)
+                        self.members = result!.data!
+                        self.projectWaitingTableView.reloadData()
+                    }
+                 }
+                 self.isEnter = true
+            } else {
+                NetworkManager.shared.fetchMemberList(roundIdx: roundIndex) { (result) in
+                    print("get통신")
+                    print("프로젝트 라운드 인덱스 \(roundIndex)")
+                    print(result!.data!)
+                    self.members = result!.data!
+                    self.projectWaitingTableView.reloadData()
+                }
+            }
+        
+        }
+    }
     
     // MARK: - Receive Data
     
-    func fetchRoundInfo() {
-        NetworkManager.shared.fetchRoundInfo(projectIdx: self.projectIndex) { (response) in
-            print(response?.status)
-            print(response?.message)
-            self.roundIndexSetLabel.text = "ROUND\(String(describing: response!.data!.round_idx)) 설정 완료"
-            self.roundGoalLabel.text = response!.data!.round_purpose
-            self.timeLImitLabel.text = "총 \(String(describing: response!.data!.round_time))분 예정"
-            self.roundIndexSetLabel.text = "ROUND\(String(describing: response!.data!.round_number)) 설정 완료"
-        }
-        
-    }
-    
-    
-    var projectInfo: Project?? {
-        didSet {
-            projectNameLabel.text = projectInfo??.project_name
-            
-        }
-    }
+//    func fetchRoundInfo() {
+//        NetworkManager.shared.fetchRoundInfo(projectIdx: ProjectSetting.shared.projectIdx!) { (response) in
+//            self.roundStateLabel.text = "ROUND\(String(describing: response!.data!.round_idx)) 설정 완료"
+//            self.roundInfoLabel.text = response!.data!.round_purpose
+////            self.timeLImitLabel.text = "총 \(String(describing: response!.data!.round_time))분 예정"
+////            self.roundStateLabel.text = "ROUND\(String(describing: response!.data!.round_number)) 설정 완료"
+//        }
+//
+//    }
     
     func fetchProjectInfo() {
-        NetworkManager.shared.fetchProjectInfo(projectIdx: self.projectIndex) { (response) in
-            self.projectInfo = response?.data
+        guard let projectIndex = ProjectSetting.shared.projectIdx else {return}
+        NetworkManager.shared.fetchProjectInfo(projectIdx: projectIndex) { (response) in
+            guard let projectName = response?.data.project_name else {return}
+            ProjectSetting.shared.projectName = projectName
+            self.projectNameLabel.text = projectName
         }
     }
     
     func getCopiedText() {
         let pasteboard = UIPasteboard.general
-        pasteboard.string = (UserDefaults.standard.value(forKey: "projectCode") as! String)
+        pasteboard.string = ProjectSetting.shared.projectCode!
         print("copied")
     }
     
@@ -153,7 +203,6 @@ class HostRoundStartViewController: UIViewController {
     // MARK: - Display Toast Popup
     
     @objc func handlePasteCodeImage(sender: UITapGestureRecognizer) {
-        print("tap111")
         self.showToast(message: "참여코드가 복사되었습니다.", frame: CGRect(x: self.view.center.x, y: self.view.frame.height * (200/812) , width: self.view.frame.width * (215/375), height: self.view.frame.height * (49/812)))
         getCopiedText()
     }
@@ -167,22 +216,21 @@ class HostRoundStartViewController: UIViewController {
     // MARK: - IBAction
     
     @IBAction func projectStartButtonDidPress(_ sender: UIButton) {
-        let hostRoundStartPopVC = UIStoryboard.init(name: "PopUp", bundle: nil).instantiateViewController(withIdentifier: RoundStartPopViewController.identifier)
-        self.addChild(hostRoundStartPopVC)
-        hostRoundStartPopVC.view.frame = self.view.frame
-        hostRoundStartPopVC.didMove(toParent: self)
-        self.view.addSubview(hostRoundStartPopVC.view)
+        let hostRoundStartPopVC = UIStoryboard.init(name: "PopUp", bundle: nil).instantiateViewController(withIdentifier: "roundStartPopVC") as! RoundStartPopViewController
+        
+        hostRoundStartPopVC.delegate = self
+        hostRoundStartPopVC.modalPresentationStyle = .overCurrentContext
+        
+        SocketIOManager.shared.socket.emit("roundStartHost", ProjectSetting.shared.projectCode!)
+        
+        self.present(hostRoundStartPopVC, animated: false, completion: nil)
     }
     
     @IBAction func ruleReminderButtonDidPress(_ sender: Any) {
-        let reminderPopupViewController = UIStoryboard(name: "PopUp", bundle: nil).instantiateViewController(withIdentifier: ReminderPopViewController.identifier) as! ReminderPopViewController
-        
-        // MARK: - Display Brainstorming Rule Reminder Popup View Controller
-        
-        self.addChild(reminderPopupViewController)
-        reminderPopupViewController.view.frame = self.view.frame
-        reminderPopupViewController.didMove(toParent: self)
-        self.view.addSubview(reminderPopupViewController.view)
+        let reminderPopupViewController = UIStoryboard(name: "PopUp", bundle: nil).instantiateViewController(withIdentifier: "reminderPopUpVC") as! ReminderPopViewController
+
+        reminderPopupViewController.modalPresentationStyle = .overCurrentContext
+        self.present(reminderPopupViewController, animated: false, completion: nil)
     }
 }
 
@@ -205,5 +253,17 @@ extension HostRoundStartViewController: UITableViewDataSource {
 extension HostRoundStartViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return projectWaitingTableView.frame.height/3
+    }
+}
+
+extension HostRoundStartViewController: PresentVC {
+    func presentVC() {
+  
+        if let allRoundVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "allRoundVC") as? AllRoundViewController {
+            
+            let naviController = UINavigationController(rootViewController: allRoundVC)
+            naviController.modalPresentationStyle = .fullScreen
+            self.present(naviController, animated: false, completion: nil)
+        }
     }
 }
