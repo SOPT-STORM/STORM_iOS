@@ -10,29 +10,17 @@ import UIKit
 
 extension UIView {
     
-    func addRoundShadow(cornerRadius: CGFloat) {
+    func addRoundShadow(contentView: UIView, cornerRadius: CGFloat) {
         
-      self.layer.cornerRadius = cornerRadius
+        self.layer.cornerRadius = cornerRadius
+        self.layer.backgroundColor = UIColor.white.cgColor  //UIColor.clear.cgColor
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
+        self.layer.shadowOpacity = 0.16 // 0.16
+        self.layer.shadowRadius = 3
         
-      let containerView = UIView()
-      
-      layer.backgroundColor = UIColor.clear.cgColor
-      layer.shadowColor = UIColor.black.cgColor
-      layer.shadowOffset = CGSize(width: 0, height: 3.0)
-      layer.shadowOpacity = 0.16
-      layer.shadowRadius = 2.5
-        
-      containerView.layer.cornerRadius = cornerRadius
-      containerView.layer.masksToBounds = true
-      
-      self.addSubview(containerView)
-      
-      containerView.translatesAutoresizingMaskIntoConstraints = false
-      
-      containerView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-      containerView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-      containerView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-      containerView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        contentView.layer.cornerRadius = cornerRadius
+        contentView.layer.masksToBounds = true
     }
     
     func setRound(_ radius: CGFloat) {

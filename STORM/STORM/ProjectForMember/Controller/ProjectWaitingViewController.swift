@@ -73,17 +73,15 @@ class ProjectWaitingViewController: UIViewController {
     }
     
     @objc func handleReminderView(sender: UITapGestureRecognizer) {
-        print("tap")
-        let reminderPopupViewController = UIStoryboard(name: "ProjectForMember", bundle: nil).instantiateViewController(withIdentifier: ReminderPopupViewController.identifier) as! ReminderPopupViewController
-        
-        self.addChild(reminderPopupViewController)
-        reminderPopupViewController.view.frame = self.view.frame
-        reminderPopupViewController.didMove(toParent: self)
-        self.view.addSubview(reminderPopupViewController.view)
+//        print("tap")
+//        let reminderPopupViewController = UIStoryboard(name: "ProjectForMember", bundle: nil).instantiateViewController(withIdentifier: ReminderPopupViewController.identifier) as! ReminderPopupViewController
+//
+//        self.addChild(reminderPopupViewController)
+//        reminderPopupViewController.view.frame = self.view.frame
+//        reminderPopupViewController.didMove(toParent: self)
+//        self.view.addSubview(reminderPopupViewController.view)
 //        reminderPopupViewController.pressButton = { self.ruleReminderImage.image = (UIImage(named: "mProjectwaitingBrainstormingOkSelected"))
 //        }
-        
-
     }
 
      

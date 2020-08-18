@@ -24,7 +24,7 @@ class CancelCardViewController: UIViewController {
         // Do any additional setup after loading the view.
         cancelCardPopView.layer.cornerRadius = 15
 //        cancelCardPopView.addShadow(width: 1, height: 3, 0.2, 5)
-        cancelCardPopView.addRoundShadow(cornerRadius: 10)
+//        cancelCardPopView.addRoundShadow(cornerRadius: 10)
         cancelCardPopView.clipsToBounds = true
         
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)

@@ -77,7 +77,7 @@ class HostProjectWaitingViewController: UIViewController {
     
     @objc func handleReminderView(sender: UITapGestureRecognizer) {
         print("tap")
-        let reminderPopupViewController = UIStoryboard(name: "PopUp", bundle: nil).instantiateViewController(withIdentifier: ReminderPopViewController.identifier) as! ReminderPopViewController
+        let reminderPopupViewController = UIStoryboard(name: "PopUp", bundle: nil).instantiateViewController(withIdentifier: "reminderPopUpVC") as! ReminderPopViewController
         
         // MARK: - Display Brainstorming Rule Reminder Popup View Controller
         
@@ -120,7 +120,7 @@ class HostProjectWaitingViewController: UIViewController {
     
     @IBAction func projectStartButtonDidPress(_ sender: UIButton) {
         
-        let hostRoundSettingVC = UIStoryboard.init(name: "ProjectForHost", bundle: nil).instantiateViewController(withIdentifier: HostRoundSettingViewController.identifier)
+        let hostRoundSettingVC = UIStoryboard.init(name: "ProjectForHost", bundle: nil).instantiateViewController(withIdentifier: "hostRoundSettingVC")
         hostRoundSettingVC.modalTransitionStyle = .coverVertical
         self.present(hostRoundSettingVC, animated: false, completion: nil)
         
