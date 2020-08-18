@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Lottie
 
 class LogInViewController: UIViewController, UITextFieldDelegate {
     
@@ -25,6 +26,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     // MARK:- 변수
     
     var isAutoLogiIn: Bool = false
+    let animationView = AnimationView()
     
     // MARK:- viewDidLoad
     
@@ -32,7 +34,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         // hide navigationbar
-        self.navigationController?.navigationBar.barTintColor = .white
+        //self.navigationController?.navigationBar.barTintColor = .clear
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         
         // shadow, radius
@@ -51,6 +54,12 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         pwdTextField.clearButtonMode = .whileEditing
     }
     
+    // MARK:- viewDidAppear
+    
+    override func viewDidAppear(_ animated: Bool) {
+        setup()
+    }
+    
     // MARK:- IBAction
     
     @IBAction func loginButtonDidPressed(_ sender: UIButton) {
@@ -58,6 +67,11 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         // 일치하지 않으면 "이메일/비밀번호를 확인해주세요" 문장 뜨도록 분기 처리
         guard let inputID = emailTextField.text else { return }
         guard let inputPWD = pwdTextField.text else { return }
+        
+        if let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainVC") as? UINavigationController {
+            mainVC.modalPresentationStyle = .fullScreen
+            self.present(mainVC, animated: true, completion: nil)
+        }
     }
     
     @IBAction func signUpButtonDidPressed(_ sender: UIButton) {
@@ -84,7 +98,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    // MARK:- textfieldShouldReturn
+    // MARK:- 함수
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == self.emailTextField {
@@ -94,6 +108,15 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
+    
+    func setup(){
+        animationView.frame = view.bounds
+        animationView.animation = Animation.named("login_0816")
+        animationView.contentMode = .scaleAspectFit
+        animationView.loopMode = .loop
+        animationView.play()
+        view.insertSubview(animationView, at: 0)
+       }
     
     
     

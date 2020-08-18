@@ -22,6 +22,11 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var menuTableView: UITableView!
     
     
+    @IBOutlet weak var purpleButton: UIButton!
+    @IBOutlet weak var yellowButton: UIButton!
+    @IBOutlet weak var redButton: UIButton!
+    
+    
     
     // MARK:- 변수 선언
     
@@ -44,7 +49,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         // 테이블뷰 악세서리
         
         // 사용자 이미지, 이미지 변경 버튼 동그랗게
-        userImageContainerView.addShadow(cornerRadus: userImageContainerView.frame.width / 2, shadowOffset: CGSize(width: 1, height: 1), shadowOpacity: 0.3, shadowRadius: 7)
+        userImageContainerView.addShadow(cornerRadus: userImageContainerView.frame.width / 2, shadowOffset: CGSize(width: 0, height: 0), shadowOpacity: 0.3, shadowRadius: 7)
         userImageView.makeCircle()
         
         editPhotoButton.addShadow(cornerRadus: editPhotoButton.frame.width / 2, shadowOffset: CGSize(width: 1, height: 1), shadowOpacity: 0.2, shadowRadius: 4)
@@ -52,12 +57,15 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         // whiteView 모서리 radius
         whiteView.roundCorners(corners: [.topLeft, .topRight], radius: 30.0)
         
+        // 유저 이미지
+        userImageView.contentMode = .scaleAspectFill
+        
         // 텍스트 필드
         userNameTextField.isUserInteractionEnabled = false
         userNameTextField.delegate = self
         
         // 이름 밑 회색 바
-        separatorView = UIView(frame: CGRect(x: 37, y: (self.view.frame.height * 0.53) , width: self.view.frame.width * 0.8, height: 2.0))
+        separatorView = UIView(frame: CGRect(x: 37, y: (self.view.frame.height * 0.475) , width: self.view.frame.width * 0.8, height: 2.0))
         separatorView.backgroundColor = UIColor(red: 234/255, green: 234/255, blue: 234/255, alpha: 1)
         self.view.addSubview(separatorView)
     }
@@ -93,6 +101,50 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         separatorView.backgroundColor = .stormRed
     }
     
+    @IBAction func colorButtonDidPressed(_ sender: UIButton) {
+        if sender.isSelected == false {
+            
+            if sender == purpleButton {
+                
+                sender.setImage(UIImage(named: "purple"), for: .normal)
+                yellowButton.setImage(UIImage(named: "yellowCircle"), for: .normal)
+                redButton.setImage(UIImage(named: "redCircle"), for: .normal)
+                
+                self.userImageView.image = UIImage(named: "purpleCircle")
+                
+                yellowButton.isSelected = false
+                redButton.isSelected = false
+                
+                
+            } else if sender == yellowButton {
+                
+                sender.setImage(UIImage(named: "yellow"), for: .normal)
+                purpleButton.setImage(UIImage(named: "purpleCircle"), for: .normal)
+                redButton.setImage(UIImage(named: "redCircle"), for: .normal)
+                
+                self.userImageView.image = UIImage(named: "yellowCircle")
+                
+                purpleButton.isSelected = false
+                redButton.isSelected = false
+                
+            } else {
+                
+                sender.setImage(UIImage(named: "red"), for: .normal)
+                yellowButton.setImage(UIImage(named: "yellowCircle"), for: .normal)
+                purpleButton.setImage(UIImage(named: "purpleCircle"), for: .normal)
+                
+                self.userImageView.image = UIImage(named: "redCircle")
+                
+                purpleButton.isSelected = false
+                yellowButton.isSelected = false
+                
+            }
+            
+            sender.isSelected = true
+        }
+    }
+    
+    
     
     // MARK:- 함수 선언
     
@@ -112,6 +164,13 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             userImageView.image = image
+            
+            yellowButton.setImage(UIImage(named: "yellowCircle"), for: .normal)
+            yellowButton.isSelected = false
+            purpleButton.setImage(UIImage(named: "purpleCircle"), for: .normal)
+            purpleButton.isSelected = false
+            redButton.setImage(UIImage(named: "redCircle"), for: .normal)
+            redButton.isSelected = false
         }
         dismiss(animated: true, completion: nil)
     }
@@ -132,12 +191,6 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         
         switch indexPath.section {
             
-        /*case 0:
-            let cell1 = tableView.dequeueReusableCell(withIdentifier: "menuCell1", for:
-            indexPath)
-            
-            return cell1*/
-            
         case 0:
             let cell1 = tableView.dequeueReusableCell(withIdentifier: "menuCell1", for:
             indexPath)
@@ -153,6 +206,16 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             indexPath)
 
             return cell3
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            let popupStoryBoard: UIStoryboard = UIStoryboard(name: "PopUp", bundle: nil)
+            guard let logoutPopUp = popupStoryBoard.instantiateViewController(withIdentifier: "LogOutPopUp") as? LogoutPopUpViewController else {return}
+            
+            logoutPopUp.modalPresentationStyle = .overCurrentContext
+            self.present(logoutPopUp, animated: false, completion: nil)
         }
     }
     
