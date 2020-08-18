@@ -77,6 +77,17 @@ extension AllProjectViewController: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return self.view.frame.width * 0.072
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let projectIndex = data[indexPath.row].project_idx
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = storyboard.instantiateViewController(withIdentifier: "projectFinalViewController") as? ProjectFinalViewController else {return}
+        
+        vc.projectIndex = projectIndex
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 
 }
 
