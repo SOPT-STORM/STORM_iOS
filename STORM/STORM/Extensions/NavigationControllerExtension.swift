@@ -19,10 +19,6 @@ extension UINavigationController {
         self.navigationItem.titleView = imageView
     }
     
-    func setSignUpNaviBar() {
-        guard let navigationBar = self.navigationController?.navigationBar else {return}
-    }
-    
     func setNaviBar() {
         guard let navigationBar = self.navigationController?.navigationBar else { return }
                

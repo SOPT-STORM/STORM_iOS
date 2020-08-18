@@ -74,7 +74,7 @@ extension UIView {
             layer.render(in: rendererContext.cgContext)
         })
     }
-    
+    /*
     func showAnimate()
     {
         self.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
@@ -96,7 +96,7 @@ extension UIView {
                     self.removeFromSuperview()
                 }
         });
-    }
+    }*/
     
     @IBInspectable var cornerRadius: CGFloat {
         get {

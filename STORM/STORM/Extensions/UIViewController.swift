@@ -44,9 +44,26 @@ extension UIViewController {
         let img = UIImage(named: "red_navigation_bar")
         navigationController?.navigationBar.setBackgroundImage(img, for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.topItem?.title = " "
+        navigationController?.navigationBar.tintColor = .white
         
         let titmeImg = UIImage(named: "img_logo")
         let imageView = UIImageView(image:titmeImg)
         navigationItem.titleView = imageView
+    }
+    
+    func setSignUpNavi() {
+        // 수정 필요 ㅠㅜ
+        guard let navigationBar = self.navigationController?.navigationBar else { return }
+        
+        navigationBar.barTintColor = .white
+        navigationBar.shadowImage = UIImage()
+
+        navigationBar.backIndicatorImage = UIImage(named: "backBtn")
+        navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "backBtn")
+        navigationBar.tintColor = .gray
+        
+        navigationItem.title = "회원가입"
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
 }

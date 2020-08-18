@@ -24,10 +24,12 @@ class LogoutPopUpViewController: UIViewController {
     
     @IBAction func logoutButtonDidTap(_ sender: UIButton) {
         
+        self.view.window?.rootViewController?.dismiss(animated: false, completion: nil)
+        
     }
     
     @IBAction func logoutCancelDidTap(_ sender: UIButton) {
-        
+        self.dismiss(animated: false, completion: nil)
     }
     
 }
