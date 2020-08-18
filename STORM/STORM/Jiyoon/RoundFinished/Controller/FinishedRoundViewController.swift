@@ -13,8 +13,8 @@ class FinishedRoundViewController: UIViewController, UICollectionViewDelegate {
     
     //    let projectIndex = UserDefaults.standard.object(forKey: "projectIndex")
     
-    var numberOfRounds = 0
-    var numberOfCards = 0
+    var numberOfRounds = 9
+    var numberOfCards = 9
     
     var cardInfos: ProjectInfo?
     
@@ -61,8 +61,8 @@ class FinishedRoundViewController: UIViewController, UICollectionViewDelegate {
             mediumDotSizeRatio: 0.7
         )
         pageControl.setConfig(config)
-        getFinalRoundInfo()
-        fetchCardList()
+//        getFinalRoundInfo()
+//        fetchCardList()
         
     }
     
@@ -81,7 +81,7 @@ class FinishedRoundViewController: UIViewController, UICollectionViewDelegate {
 
     
     func fetchCardList() {
-        NetworkManager.shared.fetchCardList(projectIdx: 1, roundIdx: 1) { (response) in
+        NetworkManager.shared.fetchCardList(projectIdx: ProjectSetting.shared.projectIdx!, roundIdx: ProjectSetting.shared.roundIdx!) { (response) in
             print(response?.message)
             self.numberOfCards = response?.data?.card_list.count as! Int
             print("카드 수: \(self.numberOfCards)")
@@ -163,6 +163,7 @@ extension FinishedRoundViewController: UICollectionViewDelegateFlowLayout {
             return 27
         }
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         if collectionView.tag == 0 {
             return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)

@@ -10,8 +10,6 @@ import UIKit
 
 class HostProjectSettingViewController: UIViewController {
     
-    static let identifier = "HostProjectSettingViewController"
-    
     @IBOutlet weak var projectNameTextField: UITextField!
     @IBOutlet weak var hostMessageTextView: UITextView!
     
@@ -38,42 +36,55 @@ class HostProjectSettingViewController: UIViewController {
         hostMessageTextView.font = UIFont(name: "NotoSansCJKkr-Medium", size: 13)
         hostMessageTextView.delegate = self
         
-//        self.navigationController?.setNaviBar()
-        self.setNaviTitle()
+        toolbarSetup()
+        setNaviTitle()
     }
     
     // MARK: - IBAction
     
     @IBAction func addButtonDidPress(_ sender: UIButton) {
-        
         if projectNameTextField.text!.isEmpty == false {
-            let settingCodePopViewController = UIStoryboard(name: "PopUp", bundle: nil).instantiateViewController(withIdentifier: SettingCodePopViewController.identifier) as! SettingCodePopViewController
-            
-            self.addChild(settingCodePopViewController)
-            settingCodePopViewController.view.frame = UIApplication.shared.keyWindow!.frame
-            settingCodePopViewController.didMove(toParent: self.navigationController)
-            self.view.addSubview(settingCodePopViewController.view)
-            //self.modalPresentationStyle = .fullScreen
-            postProjectSetting()
+            addProject()
         }
-//        else {
-//            // TODO: 토스트 띄워 말아
-//        }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    func postProjectSetting() {
+    func addProject() {
         guard let projectName = projectName, let comment = projectComment else { return }
         NetworkManager.shared.addProject(projectName: projectName, projectComment: comment, userIdx: self.userId) { (response) in
+            
             print(response?.status)
-            print(response?.message)
-            print(response!.data?.project_idx)
-            print(response!.data?.project_code!)
-            UserDefaults.standard.set(response!.data!.project_idx, forKey: "projectIndex")
-            UserDefaults.standard.set(response!.data?.project_code!, forKey: "projectCode")
+            
+            guard let status = response?.status else {return}
+            
+            if status == 200 {
+                ProjectSetting.shared.projectIdx = response?.data?.project_idx
+                ProjectSetting.shared.projectCode = response?.data?.project_code
+                ProjectSetting.shared.projectName = projectName
+                
+                SocketIOManager.shared.socket.emit("joinRoom", ProjectSetting.shared.projectCode!)
+                
+                let settingCodePopViewController = UIStoryboard(name: "PopUp", bundle: nil).instantiateViewController(withIdentifier: "settingCodePopVC") as! SettingCodePopViewController
+                
+                settingCodePopViewController.delegate = self
+                settingCodePopViewController.modalPresentationStyle = .overCurrentContext
+                
+                self.present(settingCodePopViewController, animated: false, completion: nil)
+            }
+            
+//            print(response?.status)
+//            print(response?.message)
+//            print(response!.data?.project_idx)
+//            print(response!.data?.project_code!)
+//            ProjectSetting.shared.projectIdx = response?.data?.project_idx
+//            ProjectSetting.shared.projectCode = response?.data?.project_code
+//            UserDefaults.standard.set(response!.data!.project_idx, forKey: "projectIndex")
+//            UserDefaults.standard.set(response!.data?.project_code!, forKey: "projectCode")
+//            print(UserDefaults.standard.value(forKey: "projectCode"))
+//            print(UserDefaults.standard.value(forKey: "projectIndex"))
         }
     }
     
@@ -133,7 +144,9 @@ extension HostProjectSettingViewController: UITextViewDelegate {
     
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        if hostMessageTextView.text.isEmpty {
+        print(hostMessageTextView.text.count)
+        
+        if hostMessageTextView.text.count == 0 {
             hostMessageTextView.text = "대기방의 참가자들에게 보여집니다."
             hostMessageTextView.textColor = UIColor.placeholderColor
         }
@@ -172,8 +185,18 @@ extension HostProjectSettingViewController: UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print("return key pressed")
         textField.resignFirstResponder()
         return true
+    }
+}
+
+extension HostProjectSettingViewController: PresentVC {
+    func presentVC() {
+//        let projectWaitingViewController = UIStoryboard(name: "ProjectForHost", bundle: nil).instantiateViewController(withIdentifier: "hostRoundSettingVC") as! HostRoundSettingViewController
+        
+        let roundSettingNaviController = UIStoryboard(name: "ProjectForHost", bundle: nil).instantiateViewController(withIdentifier: "roundSettingNavi") as! UINavigationController
+        
+        roundSettingNaviController.modalPresentationStyle = .fullScreen
+        self.present(roundSettingNaviController, animated: false, completion: nil)
     }
 }

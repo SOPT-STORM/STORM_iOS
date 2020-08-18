@@ -8,6 +8,7 @@
 
 import UIKit
 import Lottie
+import Kingfisher
 
 extension NSNotification.Name {
     static let buttonClickInPopup = NSNotification.Name(rawValue: "buttonClickpopup")
@@ -32,8 +33,10 @@ class MemberRoundSettingViewController: UIViewController {
     
     private var childVC: ReminderPopViewController?
     
+    var projectCode = ""
     var projectIndex = 1
     var roundIndex = 1
+    var dataList:[Member] = []
     
     private var shadowLayer: CAShapeLayer!
     
@@ -57,39 +60,75 @@ class MemberRoundSettingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let vc = storyboard.instantiateViewController(withIdentifier: "allRoundViewController") as! AllRoundViewController
+//
+//        let naviController = UINavigationController(rootViewController: vc)
+//        self.present(naviController, animated: true, completion: nil)
         
         // MARK: TABLE VIEW
 
-         projectWaitingTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
-         projectWaitingTableView.register(UINib(nibName: "ProjectWaitingTableViewCell", bundle: nil), forCellReuseIdentifier: ProjectWaitingTableViewCell.identifier)
-        projectWaitingTableView.delegate = self
-        projectWaitingTableView.dataSource = self
-         projectWaitingTableView.setRadius(radius: 15)
-        projectWaitingTableView.dropShadow(color: .darkGray, opacity: 0.2, offSet: CGSize(width: 0, height: 3), radius: 2.5)
-        
-        // MARK: LOTTIE
-        
-        let animation = Animation.named("loading3")
-        loadingView.animation = animation
-        loadingView.contentMode = .scaleAspectFit
-        loadingView.play()
-        loadingView.isHidden = false
-        
-        // MARK: 팝업
-        
-        addObserver()
-        
-        // MARK: 프로젝트 이름 통신
-        
-        fetchProjectInfo()
-        fetchRoundInfo()
-        
-        // MARK: RADIUS, SHADOW
-
-        ruleButton.cornerRadius = 8.0
-        ruleButton.clipsToBounds = true
-        
-        
+//         projectWaitingTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+//         projectWaitingTableView.register(UINib(nibName: "ProjectWaitingTableViewCell", bundle: nil), forCellReuseIdentifier: ProjectWaitingTableViewCell.identifier)
+//        projectWaitingTableView.delegate = self
+//        projectWaitingTableView.dataSource = self
+//         projectWaitingTableView.setRadius(radius: 15)
+//        projectWaitingTableView.dropShadow(color: .darkGray, opacity: 0.2, offSet: CGSize(width: 0, height: 3), radius: 2.5)
+//        
+//        projectWaitingTableView.clipsToBounds = true
+//        
+//        
+//        // MARK: LOTTIE
+//        
+//        let animation = Animation.named("loading3")
+//        loadingView.animation = animation
+//        loadingView.contentMode = .scaleAspectFit
+//        loadingView.play()
+//        loadingView.isHidden = false
+//        
+//        // MARK: 팝업
+//        
+//        addObserver()
+//        
+//        // MARK: 프로젝트 이름 통신
+//        
+//        fetchProjectInfo()
+//        fetchRoundInfo()
+//        
+//        // MARK: RADIUS, SHADOW
+//
+//        ruleButton.cornerRadius = 8.0
+//        ruleButton.clipsToBounds = true
+////        
+//        SocketIOManager.shared.socket.emit("joinRoom", projectCode)
+//        
+//        SocketIOManager.shared.sendData(roomCode: projectCode)
+//        
+////        SocketIOManager.shared.socket.on("roundComplete"){ (dataArray, SocketAckEmitter) in
+////            print("소켓 실행")
+////
+////            NetworkManager.shared.fetchMemberList(roundIdx: 1) { (result) in
+////                    print("get통신")
+////                    print(result)
+////
+////                    guard let data = result?.data else {return}
+////
+////                    self.dataList = data
+////                    self.projectWaitingTableView.reloadData()
+////                }
+////        }
+//
+//        
+//        SocketIOManager.shared.socket.on("roundStartMember"){ (dataArray, SocketAckEmitter) in
+//                    print("소켓 실행")
+//            
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            let vc = storyboard.instantiateViewController(withIdentifier: "allRoundViewController") as! AllRoundViewController
+//            
+//            let navController = UINavigationController(rootViewController: vc)
+//            self.present(navController, animated: true, completion: nil)
+//                }
         }
     
     // MARK:- IBAction
@@ -123,11 +162,16 @@ class MemberRoundSettingViewController: UIViewController {
 
 extension MemberRoundSettingViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return dataList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ProjectWaitingTableViewCell.identifier, for: indexPath) as! ProjectWaitingTableViewCell
+        
+        cell.nameLabel.text = dataList[indexPath.row].user_name
+        
+        let imgUrl = dataList[indexPath.row].user_img
+        cell.profileImage.kf.setImage(with:URL(string: imgUrl))
         return cell
     }
     

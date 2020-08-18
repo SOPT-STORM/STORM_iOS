@@ -20,8 +20,9 @@ class AddCardViewController: UIViewController {
     let projectIndex = UserDefaults.standard.integer(forKey: "projectIndex")
     let roundIndex = UserDefaults.standard.integer(forKey: "roundIndex")
 
-    @IBOutlet weak var projectName: UILabel!
-    @IBOutlet weak var round: UILabel!
+    @IBOutlet weak var shadowView: UIView!
+    @IBOutlet weak var projectNameLabel: UILabel!
+    @IBOutlet weak var roundLabel: UILabel!
     @IBOutlet weak var remainingTime: UILabel!
     @IBOutlet weak var canvasView: Canvas!
     @IBOutlet weak var memoView: UITextView!
@@ -38,19 +39,58 @@ class AddCardViewController: UIViewController {
     
     var mode: mode = .drawing
     var memoViewHeight: CGFloat!
+    var projectName = "프로젝트 이름"
+    var roundGoal = "라운드 목표"
+    var round = "round"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        projectNameLabel.text = projectName
+        roundGoalLabel.text = roundGoal
+        roundLabel.text = round
+            
         self.setNaviTitle()
-
+        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         
         toolbarSetup()
-        canvasSetup()
         memoSetup()
-        fetchRoundInfo()
-        fetchProjectNaem()
+
+        shadowView.addRoundShadow(contentView: memoView, cornerRadius: 15)
+        shadowView.addRoundShadow(contentView: canvasView, cornerRadius: 15)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        TimeManager.shared.makeAndFireTimer { (endTime) in
+            let startTime = Date(timeIntervalSinceNow: 0)
+            let time = Int(endTime.timeIntervalSince(startTime))
+            
+            if time >= 0 {
+                let minute = time/60
+                let second = time - minute*60
+                self.remainingTime.text = String(format: "총 %02d:%02d 남음", minute, second)
+            }
+            
+            if time == 0 {
+                TimeManager.shared.invalidateTimer()
+                
+                let storyboard = UIStoryboard(name: "PopUp", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "roundFinishedPopup") as! RoundFinishedPopup
+                
+                vc.delegate = self
+                vc.modalPresentationStyle = .overCurrentContext
+                self.present(vc, animated: false, completion: nil)
+            }
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        if self.isMovingFromParent {
+            TimeManager.shared.invalidateTimer()
+        }
     }
         
     @IBAction func didPressText(_ sender: UIButton) {
@@ -102,14 +142,17 @@ class AddCardViewController: UIViewController {
                 return
             }
             
-            let content = memoView.text!
+            guard let content = memoView.text else {return}
             
-            NetworkManager.shared.addCard(projectIdx: 1, roundIdx: 1, cardImg: nil, cardTxt: content) {
+            NetworkManager.shared.addCard(projectIdx: ProjectSetting.shared.projectIdx!, roundIdx: ProjectSetting.shared.roundIdx!, cardImg: nil, cardTxt: content) {
+                
+                guard let vc = self.navigationController?.viewControllers.first as? AllRoundViewController else {return}
+                
                 self.showToast(message: "카드가 추가되었습니다.", frame: toastFrame)
+                let card = addedCard(card_drawing: nil, card_text: content)
+                vc.cardList.insert(card, at: 0)
                 self.memoView.text = ""
             }
-            
-            
         } else {
             if canvasView.lines.isEmpty {
                 self.showToast(message: "카드를 입력해주세요.", frame: toastFrame)
@@ -122,45 +165,16 @@ class AddCardViewController: UIViewController {
             self.showToast(message: "카드가 추가되었습니다.", frame: toastFrame)
             self.canvasView.clear()
             
-            NetworkManager.shared.addCard(projectIdx: projectIndex, roundIdx: roundIndex, cardImg: img, cardTxt: nil) {
+            NetworkManager.shared.addCard(projectIdx: ProjectSetting.shared.projectIdx!, roundIdx: ProjectSetting.shared.roundIdx!, cardImg: img, cardTxt: nil) {
+                
+                guard let vc = self.navigationController?.viewControllers.first as? AllRoundViewController else {return}
+                
+                let card = addedCard(card_drawing: img, card_text: nil)
+                vc.cardList.insert(card, at: 0)
             }
         }
     }
-    
-    func fetchRoundInfo() {
-        NetworkManager.shared.fetchRoundInfo(projectIdx: self.projectIndex) { (response) in
-            self.round.text = "ROUND\(String(describing: response?.data!.round_number))"
-            self.roundGoalLabel.text = response?.data!.round_purpose
-        }
-    }
-    
-    func fetchProjectNaem() {
-        NetworkManager.shared.fetchProjectInfo(projectIdx: self.projectIndex) { (response) in
-            self.projectName.text = response?.data.project_name
-        }
-    }
-    
-    //    URLSession.shared.dataTask(with: url) { data, response, error in
-    //        guard let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
-    //              let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
-    //              let data = data, error == nil,
-    //              let image = UIImage(data: data) else {
-    //              DispatchQueue.main.async {
-    //                 self.present(alert, animated: false, completion: nil)
-    //                }
-    //              return
-    //        }
-    //
-    //            let imgID = ImageManager.saveImage(img: image)
-    //            self.imgList.append(image)
-    //            self.imgIDs.append(imgID)
-    //
-    //            DispatchQueue.main.async {
-    //                self.imgCollectionView.reloadData()
-    //                self.changeModeReadToModify()
-    //            }
-    //            }.resume()
-    
+        
     @objc func hideKeyboard(_ sender: Any){
         self.view.endEditing(true)
         botConstOfMemoView.constant = 0
@@ -191,16 +205,12 @@ class AddCardViewController: UIViewController {
         toolbar.setItems([flexibleSpace, hideKeybrd], animated: true)
         memoView.inputAccessoryView = toolbar
     }
-    
-    func canvasSetup() {
-//        canvasView.addRoundShadow(cornerRadius: 10)
-    }
-    
+        
     func memoSetup() {
         memoView.isHidden = true
         memoView.delegate = self
         memoViewHeight = memoView.frame.size.height
-        memoView.contentInset = UIEdgeInsets(top: 29, left: 32, bottom: 29, right: 32)
+        memoView.textContainerInset = UIEdgeInsets(top: 29, left: 32, bottom: 29, right: 32)
         memoView.tintColor = UIColor(red: 112/255, green: 112/255, blue: 112/255, alpha: 1)
         memoView.font = UIFont(name: "NotoSansCJKkr-Medium", size: 17)
         memoView.textColor = UIColor(red: 112/255, green: 112/255, blue: 112/255, alpha: 1)
@@ -215,7 +225,7 @@ class AddCardViewController: UIViewController {
 extension AddCardViewController: UITextViewDelegate {
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        
+
         let lines = Int(memoView.contentSize.height / memoView.font!.lineHeight)
         let maxOfContentsLine = Int(((memoViewHeight - 29*2) / memoView.font!.lineHeight))
 
@@ -227,6 +237,18 @@ extension AddCardViewController: UITextViewDelegate {
             return true
         } else {
             return false
+        }
+    }
+}
+
+extension AddCardViewController: PresentVC {
+    func presentVC() {
+    if let roundMeetingVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "roundMeetingVC") as? RoundMeetingViewController {
+
+    let naviController = UINavigationController(rootViewController: roundMeetingVC)
+    naviController.modalPresentationStyle = .fullScreen
+    
+    self.present(naviController, animated: false, completion: nil)
         }
     }
 }
