@@ -21,16 +21,8 @@
 		B84697EA24D325A000E56804 /* NotoSansCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B84697EC24D325A000E56804 /* NotoSansCJKkr-Bold.otf */; };
 		B84697ED24D325A500E56804 /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = B84697EF24D325A500E56804 /* NotoSansCJKkr-Medium.otf */; };
 		B84697F024D325A800E56804 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B84697F224D325A800E56804 /* NotoSansCJKkr-Regular.otf */; };
-		B849814B24E11FB2003A7F59 /* ProjectFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849814A24E11FB2003A7F59 /* ProjectFinishedViewController.swift */; };
-		B849815224E12707003A7F59 /* ScrapCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849815124E12707003A7F59 /* ScrapCardCell.swift */; };
-		B849815424E1271B003A7F59 /* RoundCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849815324E1271B003A7F59 /* RoundCardCell.swift */; };
-		B852371A24EA8C690028E602 /* ProjectCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B852371924EA8C690028E602 /* ProjectCollectionViewController.swift */; };
-		B863018E24C22D2E0081D8A6 /* ProjectFinished.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B863018D24C22D2E0081D8A6 /* ProjectFinished.storyboard */; };
 		B878A01224D9692400A8C19F /* CameraPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B878A01124D9692400A8C19F /* CameraPopUpViewController.swift */; };
 		B878A01424DA051A00A8C19F /* EnsureDeleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B878A01324DA051A00A8C19F /* EnsureDeleteViewController.swift */; };
-		B87BB3EC24E3CE230021DB0C /* ScrapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BB3EA24E3CE230021DB0C /* ScrapCell.swift */; };
-		B87BB3ED24E3CE230021DB0C /* ScrapCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B87BB3EB24E3CE230021DB0C /* ScrapCell.xib */; };
-		B87BB3F124E3DB7F0021DB0C /* ProjectSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BB3F024E3DB7F0021DB0C /* ProjectSummaryViewController.swift */; };
 		B8D7DB6D24BF711700DE9D02 /* ScrappedCardTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D7DB6C24BF711700DE9D02 /* ScrappedCardTextCell.swift */; };
 		B8D7DB6F24BF712B00DE9D02 /* ScrappedCardImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D7DB6E24BF712B00DE9D02 /* ScrappedCardImageCell.swift */; };
 		B8E34D5924E438C7003538A8 /* LogIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E34D5824E438C7003538A8 /* LogIn.storyboard */; };
@@ -46,7 +38,6 @@
 		B8E9FA8824BA5A8700A97235 /* SelectNextPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9FA8724BA5A8700A97235 /* SelectNextPopViewController.swift */; };
 		B8E9FA8A24BA5C8E00A97235 /* EndProjectPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9FA8924BA5C8E00A97235 /* EndProjectPopViewController.swift */; };
 		B8F5636024DB1AD40036C768 /* LogoutPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F5635F24DB1AD40036C768 /* LogoutPopUpViewController.swift */; };
-		B8F5636224DBF3480036C768 /* CollectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F5636124DBF3480036C768 /* CollectionHeader.swift */; };
 		D12EC23E24AB4070007E5896 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12EC23D24AB4070007E5896 /* AppDelegate.swift */; };
 		D12EC24824AB4070007E5896 /* STORM.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D12EC24624AB4070007E5896 /* STORM.xcdatamodeld */; };
 		D12EC24A24AB4072007E5896 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D12EC24924AB4072007E5896 /* Assets.xcassets */; };
@@ -123,16 +114,8 @@
 		B84697F324D3261200E56804 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = "en.lproj/NotoSansCJKkr-Bold.otf"; sourceTree = "<group>"; };
 		B84697F424D3261700E56804 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = "en.lproj/NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
 		B84697F524D3261A00E56804 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = "en.lproj/NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
-		B849814A24E11FB2003A7F59 /* ProjectFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFinishedViewController.swift; sourceTree = "<group>"; };
-		B849815124E12707003A7F59 /* ScrapCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapCardCell.swift; sourceTree = "<group>"; };
-		B849815324E1271B003A7F59 /* RoundCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCardCell.swift; sourceTree = "<group>"; };
-		B852371924EA8C690028E602 /* ProjectCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCollectionViewController.swift; sourceTree = "<group>"; };
-		B863018D24C22D2E0081D8A6 /* ProjectFinished.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProjectFinished.storyboard; sourceTree = "<group>"; };
 		B878A01124D9692400A8C19F /* CameraPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPopUpViewController.swift; sourceTree = "<group>"; };
 		B878A01324DA051A00A8C19F /* EnsureDeleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnsureDeleteViewController.swift; sourceTree = "<group>"; };
-		B87BB3EA24E3CE230021DB0C /* ScrapCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapCell.swift; sourceTree = "<group>"; };
-		B87BB3EB24E3CE230021DB0C /* ScrapCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScrapCell.xib; sourceTree = "<group>"; };
-		B87BB3F024E3DB7F0021DB0C /* ProjectSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSummaryViewController.swift; sourceTree = "<group>"; };
 		B8D7DB6C24BF711700DE9D02 /* ScrappedCardTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrappedCardTextCell.swift; sourceTree = "<group>"; };
 		B8D7DB6E24BF712B00DE9D02 /* ScrappedCardImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrappedCardImageCell.swift; sourceTree = "<group>"; };
 		B8E2B65124B254890098F677 /* NotoSansCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Bold.otf"; path = "/Downloads/NotoSansCJKkr-Bold.otf"; sourceTree = "<absolute>"; };
@@ -151,7 +134,6 @@
 		B8E9FA8724BA5A8700A97235 /* SelectNextPopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectNextPopViewController.swift; sourceTree = "<group>"; };
 		B8E9FA8924BA5C8E00A97235 /* EndProjectPopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndProjectPopViewController.swift; sourceTree = "<group>"; };
 		B8F5635F24DB1AD40036C768 /* LogoutPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutPopUpViewController.swift; sourceTree = "<group>"; };
-		B8F5636124DBF3480036C768 /* CollectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionHeader.swift; sourceTree = "<group>"; };
 		D12EC23A24AB4070007E5896 /* STORM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = STORM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D12EC23D24AB4070007E5896 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D12EC24724AB4070007E5896 /* STORM.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = STORM.xcdatamodel; sourceTree = "<group>"; };
@@ -264,27 +246,6 @@
 			path = SignUp;
 			sourceTree = "<group>";
 		};
-		B825FA2624BCB91F0098463D /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				B8F5636124DBF3480036C768 /* CollectionHeader.swift */,
-				B849814A24E11FB2003A7F59 /* ProjectFinishedViewController.swift */,
-				B87BB3F024E3DB7F0021DB0C /* ProjectSummaryViewController.swift */,
-				B852371924EA8C690028E602 /* ProjectCollectionViewController.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		B82C5D7224B768C00016DB68 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				B863018D24C22D2E0081D8A6 /* ProjectFinished.storyboard */,
-				B825FA2624BCB91F0098463D /* Controller */,
-				B849814C24E126BC003A7F59 /* Cell */,
-			);
-			path = Main;
-			sourceTree = "<group>";
-		};
 		B84697E024D30F6A00E56804 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -302,17 +263,6 @@
 				B878A01324DA051A00A8C19F /* EnsureDeleteViewController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		B849814C24E126BC003A7F59 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				B849815124E12707003A7F59 /* ScrapCardCell.swift */,
-				B849815324E1271B003A7F59 /* RoundCardCell.swift */,
-				B87BB3EA24E3CE230021DB0C /* ScrapCell.swift */,
-				B87BB3EB24E3CE230021DB0C /* ScrapCell.xib */,
-			);
-			path = Cell;
 			sourceTree = "<group>";
 		};
 		B84BE19E24BB8C7D0048BE9C /* ScrappedCard */ = {
@@ -403,7 +353,6 @@
 				B84BE19F24BB8C8F0048BE9C /* Round */,
 				B84BE19E24BB8C7D0048BE9C /* ScrappedCard */,
 				D781D6EA24B4A66F00AAE389 /* RoundFinished */,
-				B82C5D7224B768C00016DB68 /* Main */,
 				D1E5838D24BC964E0013FB7C /* Signin */,
 				D743C56D24AF5B7300FF6ED4 /* Extensions */,
 				D17935D324B2484D00811173 /* AddCard */,
@@ -661,9 +610,7 @@
 				B8255E8E24D492A700749B62 /* example.jpg in Resources */,
 				B8E9FA7424B9B7FC00A97235 /* PopUp.storyboard in Resources */,
 				D12EC24A24AB4072007E5896 /* Assets.xcassets in Resources */,
-				B87BB3ED24E3CE230021DB0C /* ScrapCell.xib in Resources */,
 				D1E5839824BC96C00013FB7C /* Main.storyboard in Resources */,
-				B863018E24C22D2E0081D8A6 /* ProjectFinished.storyboard in Resources */,
 				D781D70724B4A66F00AAE389 /* RoundCollectionViewCell.xib in Resources */,
 				D7EB706524B7459F0041B9CA /* loading3.json in Resources */,
 				D781D70324B4A66F00AAE389 /* ProjectWaitingTableViewCell.xib in Resources */,
@@ -738,7 +685,6 @@
 				D761569324BB005A00D4D484 /* HostProjectWaitingViewController.swift in Sources */,
 				D7EB706A24B8B75A0041B9CA /* HostRoundSettingViewController.swift in Sources */,
 				D12EC23E24AB4070007E5896 /* AppDelegate.swift in Sources */,
-				B852371A24EA8C690028E602 /* ProjectCollectionViewController.swift in Sources */,
 				D12EC24824AB4070007E5896 /* STORM.xcdatamodeld in Sources */,
 				B8D7DB6D24BF711700DE9D02 /* ScrappedCardTextCell.swift in Sources */,
 				D781D6FC24B4A66F00AAE389 /* LayerExtension.swift in Sources */,
@@ -756,10 +702,8 @@
 				D1E5839524BC965C0013FB7C /* Project.swift in Sources */,
 				D186F00324BFAE3E00D67FAD /* AllProjectViewController.swift in Sources */,
 				D1E5838724BC95990013FB7C /* SocketIOManager.swift in Sources */,
-				B87BB3EC24E3CE230021DB0C /* ScrapCell.swift in Sources */,
 				B8E9FA8424BA50EA00A97235 /* ChangeToTextPopViewController.swift in Sources */,
 				D1E5838F24BC964F0013FB7C /* User.swift in Sources */,
-				B849815224E12707003A7F59 /* ScrapCardCell.swift in Sources */,
 				D1E5838524BC95990013FB7C /* RoundMeetingViewController.swift in Sources */,
 				B8D7DB6F24BF712B00DE9D02 /* ScrappedCardImageCell.swift in Sources */,
 				D1E5837F24BC95990013FB7C /* CollecViewController2.swift in Sources */,
@@ -773,15 +717,12 @@
 				B878A01424DA051A00A8C19F /* EnsureDeleteViewController.swift in Sources */,
 				D1E5838024BC95990013FB7C /* UPCarouselFlow.swift in Sources */,
 				D186EFF924BF5E4F00D67FAD /* AllRoundViewController.swift in Sources */,
-				B8F5636224DBF3480036C768 /* CollectionHeader.swift in Sources */,
 				D1E5838324BC95990013FB7C /* CollecViewController.swift in Sources */,
 				D15EA3EE24BF3FD900D3017F /* MemoCell.swift in Sources */,
 				D147B40324BDABAA0064B026 /* Card.swift in Sources */,
-				B87BB3F124E3DB7F0021DB0C /* ProjectSummaryViewController.swift in Sources */,
 				B8E9FA7A24B9FC0500A97235 /* ReminderPopViewController.swift in Sources */,
 				D147598524AB4DA3006C4122 /* SceneDelegate.swift in Sources */,
 				B806015B24E51254006AA9EF /* LogInViewController.swift in Sources */,
-				B849814B24E11FB2003A7F59 /* ProjectFinishedViewController.swift in Sources */,
 				B878A01224D9692400A8C19F /* CameraPopUpViewController.swift in Sources */,
 				D781D70624B4A66F00AAE389 /* CardCollectionViewCell.swift in Sources */,
 				D781D70024B4A66F00AAE389 /* ScrapCardMemoViewController.swift in Sources */,
@@ -799,7 +740,6 @@
 				B84697E524D313FB00E56804 /* ProfileViewController.swift in Sources */,
 				D781D6FD24B4A66F00AAE389 /* ProjectWaitingViewController.swift in Sources */,
 				B8E9FA8A24BA5C8E00A97235 /* EndProjectPopViewController.swift in Sources */,
-				B849815424E1271B003A7F59 /* RoundCardCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
