@@ -36,13 +36,13 @@ class MemoCell: UICollectionViewCell {
     }
     
     override func layoutSubviews() {
-        self.shadowRoundedView.layer.cornerRadius = 15
-        self.shadowRoundedView.layer.backgroundColor = UIColor.white.cgColor  //UIColor.clear.cgColor
-        self.shadowRoundedView.layer.shadowColor = UIColor.black.cgColor
-        self.shadowRoundedView.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
-        self.shadowRoundedView.layer.shadowOpacity = 0.16 // 0.16
-        self.shadowRoundedView.layer.shadowRadius = 3
-        
-        self.shadowRoundedView.layer.cornerRadius = 15
+//        self.shadowRoundedView.layer.cornerRadius = 15
+//        self.shadowRoundedView.layer.backgroundColor = UIColor.white.cgColor  //UIColor.clear.cgColor
+//        self.shadowRoundedView.layer.shadowColor = UIColor.black.cgColor
+//        self.shadowRoundedView.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
+//        self.shadowRoundedView.layer.shadowOpacity = 0.16 // 0.16
+//        self.shadowRoundedView.layer.shadowRadius = 3
+//        
+//        self.shadowRoundedView.layer.cornerRadius = 15
     }
 }
