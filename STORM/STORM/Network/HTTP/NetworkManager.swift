@@ -58,18 +58,6 @@ class NetworkManager {
             print("Error description is: \(error.localizedDescription)")
            }
         }
-//
-//        // 가라 데이터
-//        let card1 = Card(card_idx: 12, card_img: nil, card_txt: "인라ㅓ니아러니마어리ㅏㄴㅁ얼ㄴ")
-//        let card2 = Card(card_idx: 13, card_img: nil, card_txt: "인라ㅓ니아러니마어리ㅏㄴㅁ얼ㄴ")
-//        let card3 = Card(card_idx: 23, card_img: nil, card_txt: "인라ㅓ니아러니마어리ㅏㄴㅁ얼ㄴ")
-//        let card4 = Card(card_idx: 30, card_img: nil, card_txt: "인라ㅓㄴㅇㄹㄴㅁㅇㅏㄴㅁ얼ㄴ")
-//
-//        let detail1 = ProjectWithDetail(project_idx: 1, project_name: "프로젝트1", card_list: [card1, card2, card3, card4])
-//        let detail2 = ProjectWithDetail(project_idx: 2, project_name: "프로젝트2", card_list: [card1, card2, card3, card4])
-//        let detail3 = ProjectWithDetail(project_idx: 3, project_name: "프로젝트3", card_list: [card1, card2, card3, card4])
-//        let response = Response(status: 200, success: true, message: "성공", data: [detail1, detail2, detail3])
-//        completion(response)
     }
     
     // MARK:- (POST) 프로젝트 참여하기
@@ -92,11 +80,6 @@ class NetworkManager {
              print("Error description is: \(error.localizedDescription)")
             }
          }
-        
-//        // 가라 데이터 - 나중에 빼기
-//        let project = ProjectWithIdx(project_idx: 57, project_code: "WEFAJE1209")
-//        let result = ProjectIdxResponse(status: 200, success: true, message: "프로젝트 참여 등록 완료!", data: project)
-//        completion(result)
     }
     
     // MARK:- (GET) 라운드 참여자 목록
@@ -115,15 +98,6 @@ class NetworkManager {
             print("Error description is: \(error.localizedDescription)")
            }
         }
-        
-        // 가라 데이터
-//        let member1 = Member(user_name: "수지", user_img: "")
-//        let member2 = Member(user_name: "종욱", user_img: "")
-//        let member3 = Member(user_name: "은지", user_img: "")
-//        let member4 = Member(user_name: "지윤", user_img: "")
-//        let member5 = Member(user_name: "양희", user_img: "")
-//        let result = MemberResponse(status: 200, success: true, message: "멤버 가져오기 성공!", data: [member1, member2, member3, member4, member5])
-//        completion(result)
     }
     
     // MARK:- (POST) 프로젝트 추가하기
@@ -147,10 +121,6 @@ class NetworkManager {
              print("Error description is: \(error.localizedDescription)")
             }
          }
-        
-//        // 가라 데이터
-//        let result = ProjectIdxResponse(status: 200, success: true, message: "완료!!", data: ProjectWithIdx(project_idx: 20, project_code: "WEFAE123"))
-//        completion(result)
     }
     
     // MARK:- (GET) 프로젝트 정보
@@ -432,7 +402,7 @@ class NetworkManager {
     // MARK:- (GET) 라운드 별 정보
     
     func fetchAllRoundInfo(projectIdx: Int, completion: @escaping (RoundFinalResponse?) -> Void) {
-        let url = baseURL + "/round/roundFinalInfo/" + "\(projectIdx)"
+        let url = baseURL + "/round/roundFinalInfo/\(user_idx)/" + "\(projectIdx)"
         
         let request = AF.request(url)
         
@@ -445,4 +415,70 @@ class NetworkManager {
            }
         }
     }
+    
+    // MARK:- (GET) 스크랩 카드 조회
+    
+    func fetchAllScrapCard(projectIdx: Int, completion: @escaping (ScrappedCardResponse?) -> Void) {
+        let url = baseURL + "/project/finalScarpList/\(user_idx)/" + "\(projectIdx)"
+        
+        let request = AF.request(url)
+        
+        request.responseDecodable(of: ScrappedCardResponse.self) { response in
+           switch response.result {
+           case let .success(result):
+            completion(result)
+           case let .failure(error):
+            print("Error description is: \(error.localizedDescription)")
+           }
+        }
+    }
+    
+    
+    // MARK:- (POST) 카드 스크랩
+    
+    func scrapCard(cardIdx: Int, completion: @escaping (Response?) -> Void) {
+        let url = baseURL + "/card/scrap"
+        
+        let parameters = CardWithMemo(user_idx: user_idx, card_idx: cardIdx, memo_content: nil)
+        
+        let request = AF.request(url,
+                    method: .post,
+                    parameters: parameters,
+                    encoder: JSONParameterEncoder.default,
+                    headers: nil)
+         
+         request.responseDecodable(of: Response.self) { response in
+            switch response.result {
+            case let .success(result):
+             completion(result)
+            case let .failure(error):
+             print("Error description is: \(error.localizedDescription)")
+            }
+         }
+    }
+    
+    // MARK:- (Delete) 카드 스크랩 취소
+    
+    func cancelScrap(cardIdx: Int, completion: @escaping (Response?) -> Void) {
+        
+        let url = baseURL + "/card/scrap/\(user_idx)/\(cardIdx)"
+        
+        let request = AF.request(url,
+        method: .delete
+        )
+        
+         request.responseDecodable(of: Response.self) { response in
+            switch response.result {
+            case let .success(result):
+             completion(result)
+            case let .failure(error):
+             print("Error description is: \(error.localizedDescription)")
+            }
+         }
+    }
+    
+    
+    
+    
+    
 }
