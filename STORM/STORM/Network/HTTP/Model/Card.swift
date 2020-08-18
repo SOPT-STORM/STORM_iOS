@@ -18,10 +18,19 @@ struct Card: Codable {
 struct CardWithMemo: Codable {
     let user_idx: Int
     let card_idx: Int
-    let memo_content: String
+    let memo_content: String?
 }
 
 struct addedCard {
     let card_drawing: UIImage?
     let card_text: String?
+}
+
+struct scrappedCard: Codable {
+    let round_number: Int
+    let round_purpose: String
+    let round_time: Int
+    let card_idx: Int
+    let card_img: String?
+    let card_txt: String?
 }

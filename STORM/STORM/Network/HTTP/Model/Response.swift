@@ -69,4 +69,11 @@ struct RoundCountResponse: Codable {
     let data: Int?
 }
 
+struct ScrappedCardResponse: Codable {
+    let status: Int
+    let success: Bool
+    let message: String
+    let data: ProjectWithScrap
+}
+
 
