@@ -10,9 +10,7 @@ import UIKit
 import Lottie
 
 class RoundStartPopViewController: UIViewController {
-    
-    static let identifier = "RoundStartPopViewController"
-    
+        
     // MARK:- 변수 선언
     
     let animationView = AnimationView()
@@ -22,6 +20,8 @@ class RoundStartPopViewController: UIViewController {
     @IBOutlet weak var lottieView: UIView!
     @IBOutlet weak var startPopView: UIView!
     
+    var delegate: PresentVC!
+    
     // MARK:- viewDidLoad 선언
     
     override func viewDidLoad() {
@@ -30,10 +30,9 @@ class RoundStartPopViewController: UIViewController {
         startPopView.layer.cornerRadius = 15
 //        startPopView.addShadow(width: 1, height: 3, 0.2, 5)
         startPopView.clipsToBounds = false
-        
-        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
-        self.showAnimate()
-        sleep(5)
+
+//        self.showAnimate()
+//        sleep(5)
         
         // TODO: 투명배경 설정이 왜 안되지..?ㅠㅠ
     }
@@ -44,14 +43,8 @@ class RoundStartPopViewController: UIViewController {
         setupAnimation()
       //If you are using Storyboard
         DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-
-            //If your first viewController is NOT in Navigation stack
-            if let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AllRoundViewController") as? AllRoundViewController {
-                
-            self.removeAnimate()
-            mainVC.modalPresentationStyle = .fullScreen
-                // TODO: dismiss 추가했더니 이전뷰로 돌아가벌임... 머지 이후 라운드 진행뷰로 넘어가기
-            self.present(mainVC, animated: false, completion: nil)
+            self.dismiss(animated: false) {
+                self.delegate.presentVC()
             }
         }
     }

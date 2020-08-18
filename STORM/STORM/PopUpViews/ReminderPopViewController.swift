@@ -10,10 +10,6 @@ import UIKit
 
 class ReminderPopViewController: UIViewController {
 
-
-    static let identifier = "ReminderPopViewController"
-
-    
     // MARK:- IBOutlet 선언
 
     
@@ -29,7 +25,7 @@ class ReminderPopViewController: UIViewController {
             self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
             reminderView.setRadius(radius: 15)
             reminderView.dropShadow(color: .black, offSet: CGSize(width: 0, height: 3))
-            self.showAnimate()
+//            self.showAnimate()
             
             // Do any additional setup after loading the view.
         }
@@ -42,9 +38,9 @@ class ReminderPopViewController: UIViewController {
         
         @IBAction func confirmButtonDidPress(_ sender: UIButton) {
 //            pressButton?()
-            self.removeAnimate()
+//            self.removeAnimate()
+            self.dismiss(animated: false, completion: nil)
 
-            
         }
         
         

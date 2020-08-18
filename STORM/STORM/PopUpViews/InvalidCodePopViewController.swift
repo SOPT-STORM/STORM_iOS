@@ -9,9 +9,7 @@
 import UIKit
 
 class InvalidCodePopViewController: UIViewController {
-    
-    static let identifier = "InvalidCodePopViewController"
-    
+
     // MARK:- IBOutlet 선언
 
     @IBOutlet weak var invalidCodePopView: UIView!
@@ -27,17 +25,14 @@ class InvalidCodePopViewController: UIViewController {
 //        invalidCodePopView.addRoundShadow(cornerRadius: 15)
         invalidCodePopView.clipsToBounds = true
         
-        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
-        self.showAnimate()
+//        self.showAnimate()
     }
     
     // MARK:- IBAction 선언
     
     @IBAction func okButtonDidTap(_ sender: UIButton) {
-        NotificationCenter.default.post(name: .buttonClickInPopup, object: nil)
-        self.removeAnimate()
+        self.dismiss(animated: false, completion: nil)
+//        self.removeAnimate()
     }
-    
-    // MARK:- 함수 선언
     
 }

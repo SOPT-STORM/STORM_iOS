@@ -24,7 +24,7 @@ class RoundEndPopViewController: UIViewController {
         // Do any additional setup after loading the view.
 //        roundEndPopView.layer.cornerRadius = 15
 //        roundEndPopView.addShadow(width: 1, height: 3, 0.2, 5)
-        roundEndPopView.addRoundShadow(cornerRadius: 15)
+//        roundEndPopView.addRoundShadow(cornerRadius: 15)
         roundEndPopView.clipsToBounds = true
         
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)

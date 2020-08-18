@@ -8,15 +8,19 @@
 
 import UIKit
 
+protocol PresentVC {
+    func presentVC()
+}
+
 class SettingCodePopViewController: UIViewController {
-    
-    static let identifier = "SettingCodePopViewController"
     
     // MARK:- 변수 선언
 
     @IBOutlet weak var projectCodeTextField: UITextField!
     @IBOutlet weak var settingCodePopView: UIView!
     @IBOutlet weak var copyButton: UIButton!
+    
+    var delegate: PresentVC!
     
     // MARK:- viewDidLoad 선언
     
@@ -29,9 +33,9 @@ class SettingCodePopViewController: UIViewController {
         //settingCodePopView.addRoundShadow(cornerRadius: 15)
         settingCodePopView.clipsToBounds = true
         
-        projectCodeTextField.text = (UserDefaults.standard.value(forKey: "projectCode") as! String)
-        
-        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        projectCodeTextField.text = ProjectSetting.shared.projectCode!
+//        self.view.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.6)
+//        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         self.showAnimate()
     }
     
@@ -39,10 +43,15 @@ class SettingCodePopViewController: UIViewController {
      
      @IBAction func createOkButtonDidTap(_ sender: UIButton) {
         self.removeAnimate()
+        
+        self.dismiss(animated: false) {
+            self.delegate.presentVC()
+        }
+        
 
-        let projectWaitingViewController = UIStoryboard(name: "ProjectForHost", bundle: nil).instantiateViewController(withIdentifier: HostRoundSettingViewController.identifier) as! HostRoundSettingViewController
-         projectWaitingViewController.modalTransitionStyle = .coverVertical
-         self.present(projectWaitingViewController, animated: false, completion: nil)
+//        let projectWaitingViewController = UIStoryboard(name: "ProjectForHost", bundle: nil).instantiateViewController(withIdentifier: "hostRoundSettingVC") as! HostRoundSettingViewController
+//         projectWaitingViewController.modalTransitionStyle = .coverVertical
+//         self.present(projectWaitingViewController, animated: true, completion: nil)
 
          
      }
