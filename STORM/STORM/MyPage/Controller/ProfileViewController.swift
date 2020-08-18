@@ -14,6 +14,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
 
     @IBOutlet weak var userImageContainerView: UIView!
     @IBOutlet weak var userImageView: UIImageView!
+    @IBOutlet weak var userNameLabel: UILabel!
+    
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var editNameButton: UIButton!
     @IBOutlet weak var editPhotoButton: UIButton!
@@ -63,6 +65,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         // 텍스트 필드
         userNameTextField.isUserInteractionEnabled = false
         userNameTextField.delegate = self
+        // 그림 위 텍스트 필드
+        //userNameLabel.text = userNameTextField.text
         
         // 이름 밑 회색 바
         separatorView = UIView(frame: CGRect(x: 37, y: (self.view.frame.height * 0.475) , width: self.view.frame.width * 0.8, height: 2.0))
@@ -154,11 +158,28 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         separatorView.backgroundColor = UIColor(red: 234/255, green: 234/255, blue: 234/255, alpha: 1)
         userNameTextField.isUserInteractionEnabled = false
         
+        
         // 배경 눌렀을 때 키보드 내려가도록 코드 추가
         
         // 이름 서버에 저장
         
         return true
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+
+        let currentCharacterCount = textField.text?.count ?? 0
+        let newLength = currentCharacterCount + string.count - range.length
+        
+        if range.length + range.location > currentCharacterCount {
+            return false
+        } else if range.location < 3 && range.length == 0 {
+            userNameLabel.text = textField.text
+        }
+        
+        
+        return newLength <= 10
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {

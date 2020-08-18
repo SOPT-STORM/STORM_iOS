@@ -214,11 +214,19 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지금" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gf2-Sz-6Jg">
+                                        <rect key="frame" x="40.000000000000007" y="54.333333333333314" width="86.666666666666686" height="58.333333333333343"/>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="50"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Wvt-3S-HKp" secondAttribute="height" multiplier="1:1" id="9CN-nZ-Ztz"/>
                                     <constraint firstAttribute="trailing" secondItem="w1i-WT-cg1" secondAttribute="trailing" id="AaU-EA-KIq"/>
+                                    <constraint firstItem="Gf2-Sz-6Jg" firstAttribute="centerY" secondItem="Wvt-3S-HKp" secondAttribute="centerY" id="GGw-b9-6a2"/>
+                                    <constraint firstItem="Gf2-Sz-6Jg" firstAttribute="centerX" secondItem="Wvt-3S-HKp" secondAttribute="centerX" id="MWp-oM-EMo"/>
                                     <constraint firstItem="w1i-WT-cg1" firstAttribute="top" secondItem="Wvt-3S-HKp" secondAttribute="top" id="bat-ic-4YN"/>
                                     <constraint firstAttribute="bottom" secondItem="w1i-WT-cg1" secondAttribute="bottom" id="jpz-VS-c4f"/>
                                     <constraint firstItem="w1i-WT-cg1" firstAttribute="leading" secondItem="Wvt-3S-HKp" secondAttribute="leading" id="lwW-qz-WH6"/>
@@ -261,6 +269,7 @@
                         <outlet property="redButton" destination="ABE-1V-nDT" id="Ql2-La-I8F"/>
                         <outlet property="userImageContainerView" destination="Wvt-3S-HKp" id="wBP-fQ-isI"/>
                         <outlet property="userImageView" destination="w1i-WT-cg1" id="8R9-aj-e7a"/>
+                        <outlet property="userNameLabel" destination="Gf2-Sz-6Jg" id="bzA-ar-x5z"/>
                         <outlet property="userNameTextField" destination="tRq-wu-gH7" id="BKS-fv-8Qv"/>
                         <outlet property="whiteView" destination="khl-8E-7Nv" id="PTw-pn-SF1"/>
                         <outlet property="yellowButton" destination="gfN-ud-aCU" id="Fgz-YJ-fFR"/>
