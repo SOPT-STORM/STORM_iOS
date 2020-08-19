@@ -17,9 +17,9 @@ class NetworkManager {
     
     private init() {}
 
-    private let baseURL = "http://3.34.179.75:3000"
+//    private let baseURL = "http://3.34.179.75:3000"
 
-//    private let baseURL = "http://6cc8b8f248dd.ngrok.io" // 임시 url
+    private let baseURL = "http://5e8a43a83849.ngrok.io" // 임시 url
 //    
     // userImg - String 일지 File일지 아직 미정 (연동 끝나야 확인 가능)
 //    func signIn(userName: String, googleToken: String?, KakaoToken: String?, userImg: String, completion: @escaping (Response?) -> Void) {
@@ -44,6 +44,25 @@ class NetworkManager {
 //        }
 //    }
     
+    // MARK:- (Get) 프로젝트 팝업
+    
+    func fetchProjectStatus(projectCode: String, completion: @escaping (ProjectInfoResponse?) -> Void) {
+        let url = baseURL + "/project/info/" + "\(projectCode)"
+        
+        let request = AF.request(url,
+        method: .get
+        )
+         
+         request.responseDecodable(of: ProjectInfoResponse.self) { response in
+            switch response.result {
+            case let .success(result):
+             completion(result)
+            case let .failure(error):
+             print("Error description is: \(error.localizedDescription)")
+            }
+        }
+    }
+    
     func fetchProjectList(completion: @escaping (Response?) -> Void) {
 
         let url = baseURL + "/project/user/" + "\(user_idx)"
@@ -61,10 +80,10 @@ class NetworkManager {
     }
     
     // MARK:- (POST) 프로젝트 참여하기
-    func enterProject(projectCode: String, completion: @escaping (ProjectIdxResponse?) -> Void) {
+    func enterProject(projectIndex: Int, completion: @escaping (IntegerResponse?) -> Void) {
         let url = baseURL + "/project/enter"
         
-        let parameters = ProjectWithCode(user_idx: user_idx, project_code: projectCode)
+        let parameters = ProjectWithCode(user_idx: user_idx, project_idx: projectIndex)
          
          let request = AF.request(url,
                     method: .post,
@@ -72,7 +91,7 @@ class NetworkManager {
                     encoder: JSONParameterEncoder.default,
                     headers: nil)
          
-         request.responseDecodable(of: ProjectIdxResponse.self) { response in
+         request.responseDecodable(of: IntegerResponse.self) { response in
             switch response.result {
             case let .success(result):
              completion(result)
@@ -83,8 +102,8 @@ class NetworkManager {
     }
     
     // MARK:- (GET) 라운드 참여자 목록
-    func fetchMemberList(roundIdx: Int, completion: @escaping (MemberResponse?) -> Void) {
-        let url = baseURL + "/round/memberList/" + "\(roundIdx)"
+    func fetchMemberList(roundIdx: Int, projectIdx: Int, completion: @escaping (MemberResponse?) -> Void) {
+        let url = baseURL + "/round/memberList/\(projectIdx)/\(roundIdx)"
         
         print(url)
         
@@ -105,7 +124,7 @@ class NetworkManager {
         
         let url = baseURL + "/project"
         
-        let parameters = Project(project_name: projectName, project_comment: projectComment, user_idx: user_idx, project_code: nil)
+        let parameters = Project(project_name: projectName, project_comment: projectComment, user_idx: user_idx, project_idx: nil, project_code: nil)
         
         let request = AF.request(url,
                     method: .post,
@@ -176,12 +195,12 @@ class NetworkManager {
     }
     
     // MARK:- (GET) 라운드 카운트 정보 출력 - Host
-    func fetchRoundCountInfo(projectIdx: Int, completion: @escaping (RoundCountResponse?) -> Void) {
+    func fetchRoundCountInfo(projectIdx: Int, completion: @escaping (IntegerResponse?) -> Void) {
         let url = baseURL + "/round/count/" + "\(projectIdx)"
         
         let request = AF.request(url)
         
-        request.responseDecodable(of: RoundCountResponse.self) { response in
+        request.responseDecodable(of: IntegerResponse.self) { response in
            switch response.result {
            case let .success(result):
             completion(result)
@@ -192,11 +211,11 @@ class NetworkManager {
     }
     
     // MARK:- (POST) 라운드 설정 - Host
-    func setRound(projectIdx: Int, roundPurpose: String, roundTime: Int, completion: @escaping (RoundCountResponse?) -> Void) {
+    func setRound(projectIdx: Int, roundPurpose: String, roundTime: Int, completion: @escaping (IntegerResponse?) -> Void) {
         
         let url = baseURL + "/round/setting"
         
-        let parameters = Round(project_idx: projectIdx, round_purpose: roundPurpose, round_time: roundTime)
+        let parameters = Round(project_idx: projectIdx, round_purpose: roundPurpose, round_time: roundTime, user_idx: user_idx)
 
         let request = AF.request(url,
                     method: .post,
@@ -204,7 +223,7 @@ class NetworkManager {
                     encoder: JSONParameterEncoder.default,
                     headers: nil)
          
-         request.responseDecodable(of: RoundCountResponse.self) { response in
+         request.responseDecodable(of: IntegerResponse.self) { response in
             switch response.result {
             case let .success(result):
              completion(result)
@@ -215,8 +234,8 @@ class NetworkManager {
     }
     
     // MARK:- (GET) 라운드 정보
-    func fetchRoundInfo(projectIdx: Int, completion: @escaping (RoundResponse?) -> Void) {
-        let url = baseURL + "/round/info/" + "\(projectIdx)"
+    func fetchRoundInfo(roundIdx: Int, completion: @escaping (RoundResponse?) -> Void) {
+        let url = baseURL + "/round/info/" + "\(roundIdx)"
         
         let request = AF.request(url)
         
@@ -254,16 +273,14 @@ class NetworkManager {
     }
     
     // MARK:- (DELETE) 라운드 나가기
-    func exitRound(roundIdx: Int, completion: @escaping (RoundResponse?) -> Void) {
-        let url = baseURL + "/round/leave"
+    func exitRound(completion: @escaping (RoundResponse?) -> Void) {
         
-        let parameters = RoundWithMemberIdx(user_idx: user_idx, round_idx: roundIdx)
+        guard let roundIndex = ProjectSetting.shared.roundIdx, let projectIndex = ProjectSetting.shared.projectIdx else {return}
         
+        let url = baseURL + "/round/leave/\(user_idx)/\(projectIndex)/\(roundIndex)"
+
         let request = AF.request(url,
-                    method: .delete,
-                    parameters: parameters,
-                    encoder: JSONParameterEncoder.default,
-                    headers: nil)
+                    method: .delete)
          
          request.responseDecodable(of: RoundResponse.self) { response in
             switch response.result {
@@ -323,7 +340,7 @@ class NetworkManager {
     
     // MARK:- (GET) 라운드 카드 리스트
     func fetchCardList(projectIdx: Int, roundIdx: Int, completion: @escaping (CardResponse?) -> Void) {
-        let url = baseURL + "/round/cardList/" + "\(projectIdx)" + "/" + "\(roundIdx)"
+        let url = baseURL + "/round/cardList/\(projectIdx)/\(roundIdx)/\(user_idx)"
         
         let request = AF.request(url)
         
@@ -477,6 +494,31 @@ class NetworkManager {
          }
     }
     
+    // MARK:- (Put) 프로젝트 종료
+    
+    
+    func finishProject(ccompletion: @escaping (Response?) -> Void) {
+        let url = baseURL + "/project/finish"
+        
+        guard let projectIndex = ProjectSetting.shared.projectIdx else {return}
+        
+        let parameters = ["project_idx":projectIndex]
+        
+        let request = AF.request(url,
+                    method: .put,
+                    parameters: parameters,
+                    encoder: JSONParameterEncoder.default,
+                    headers: nil)
+        
+        request.responseDecodable(of: Response.self) { response in
+           switch response.result {
+           case let .success(result):
+            ccompletion(result)
+           case let .failure(error):
+            print("Error description is: \(error.localizedDescription)")
+           }
+        }
+    }
     
     
     
