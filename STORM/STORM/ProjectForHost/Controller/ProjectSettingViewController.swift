@@ -1,5 +1,5 @@
 //
-//  HostProjectSettingViewController.swift
+//  ProjectSettingViewController.swift
 //  STORM
 //
 //  Created by 이지윤 on 2020/07/09.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HostProjectSettingViewController: UIViewController {
+class ProjectSettingViewController: UIViewController {
     
     @IBOutlet weak var projectNameTextField: UITextField!
     @IBOutlet weak var hostMessageTextView: UITextView!
@@ -56,8 +56,6 @@ class HostProjectSettingViewController: UIViewController {
         guard let projectName = projectName, let comment = projectComment else { return }
         NetworkManager.shared.addProject(projectName: projectName, projectComment: comment, userIdx: self.userId) { (response) in
             
-            print(response?.status)
-            
             guard let status = response?.status else {return}
             
             if status == 200 {
@@ -74,17 +72,6 @@ class HostProjectSettingViewController: UIViewController {
                 
                 self.present(settingCodePopViewController, animated: false, completion: nil)
             }
-            
-//            print(response?.status)
-//            print(response?.message)
-//            print(response!.data?.project_idx)
-//            print(response!.data?.project_code!)
-//            ProjectSetting.shared.projectIdx = response?.data?.project_idx
-//            ProjectSetting.shared.projectCode = response?.data?.project_code
-//            UserDefaults.standard.set(response!.data!.project_idx, forKey: "projectIndex")
-//            UserDefaults.standard.set(response!.data?.project_code!, forKey: "projectCode")
-//            print(UserDefaults.standard.value(forKey: "projectCode"))
-//            print(UserDefaults.standard.value(forKey: "projectIndex"))
         }
     }
     
@@ -117,23 +104,7 @@ class HostProjectSettingViewController: UIViewController {
         }
     }
 
-/*
- @IBAction func projectNameTextFieldEditingChanged(_ sender: UITextField) {
- if sender.text?.isEmpty ?? true {
- //placeholder text size set here
- projectNameTextField.textColor = UIColor.placeholderColor
- projectNameTextField.font = UIFont(name: "Noto Sans CJK KR Medium", size: 13)!
- } else {
- // When user starting typing
- projectNameTextField.textColor = UIColor.textDefaultColor
- projectNameTextField.font = UIFont(name: "Noto Sans CJK KR Medium", size: 13)!
- }
- }*/
-
-
-// MARK: - Extension
-
-extension HostProjectSettingViewController: UITextViewDelegate {
+extension ProjectSettingViewController: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         if hostMessageTextView.textColor == UIColor.placeholderColor {
@@ -166,7 +137,7 @@ extension HostProjectSettingViewController: UITextViewDelegate {
     
 }
 
-extension HostProjectSettingViewController: UITextFieldDelegate {
+extension ProjectSettingViewController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
@@ -190,11 +161,10 @@ extension HostProjectSettingViewController: UITextFieldDelegate {
     }
 }
 
-extension HostProjectSettingViewController: PresentVC {
+extension ProjectSettingViewController: PresentVC {
     func presentVC() {
-//        let projectWaitingViewController = UIStoryboard(name: "ProjectForHost", bundle: nil).instantiateViewController(withIdentifier: "hostRoundSettingVC") as! HostRoundSettingViewController
-        
-        let roundSettingNaviController = UIStoryboard(name: "ProjectForHost", bundle: nil).instantiateViewController(withIdentifier: "roundSettingNavi") as! UINavigationController
+
+        let roundSettingNaviController = UIStoryboard(name: "ProjectRound", bundle: nil).instantiateViewController(withIdentifier: "roundSettingNavi") as! UINavigationController
         
         roundSettingNaviController.modalPresentationStyle = .fullScreen
         self.present(roundSettingNaviController, animated: false, completion: nil)

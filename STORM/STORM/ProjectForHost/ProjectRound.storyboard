@@ -2,16 +2,15 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Host Project Setting View Controller-->
+        <!--Project Setting View Controller-->
         <scene sceneID="5Vu-KV-Yad">
             <objects>
-                <viewController storyboardIdentifier="hostProjectSettingVC" id="Cxj-Tf-mrD" customClass="HostProjectSettingViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProjectSettingVC" id="Cxj-Tf-mrD" customClass="ProjectSettingViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tI7-sy-2im">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -187,18 +186,18 @@
                         <viewLayoutGuide key="safeArea" id="fCt-Hb-DVh"/>
                     </view>
                     <connections>
-                        <outlet property="hostMessageTextView" destination="Jbk-ll-8Mf" id="HFG-Hd-snH"/>
-                        <outlet property="projectNameTextField" destination="sWu-B1-lcw" id="Cr6-Ht-stv"/>
+                        <outlet property="hostMessageTextView" destination="Jbk-ll-8Mf" id="B6B-OJ-0xg"/>
+                        <outlet property="projectNameTextField" destination="sWu-B1-lcw" id="79b-I5-qyv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sDN-mn-X7K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-262" y="810"/>
         </scene>
-        <!--Host Round Setting View Controller-->
+        <!--Round Setting View Controller-->
         <scene sceneID="t5I-yr-xci">
             <objects>
-                <viewController storyboardIdentifier="hostRoundSettingVC" modalPresentationStyle="fullScreen" id="Psq-kw-DSE" customClass="HostRoundSettingViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RoundSettingVC" modalPresentationStyle="fullScreen" id="Psq-kw-DSE" customClass="RoundSettingViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9dl-Gl-B1c">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -443,10 +442,10 @@
             </objects>
             <point key="canvasLocation" x="1353" y="810"/>
         </scene>
-        <!--Host Round Start View Controller-->
+        <!--Round Start View Controller-->
         <scene sceneID="SuJ-1H-Maz">
             <objects>
-                <viewController storyboardIdentifier="hostRoundStartVC" modalPresentationStyle="fullScreen" id="vSH-Fj-0r4" customClass="HostRoundStartViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RoundStartVC" modalPresentationStyle="fullScreen" id="vSH-Fj-0r4" customClass="RoundStartViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7k5-hS-RDe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -457,23 +456,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G1h-eZ-DA5">
                                 <rect key="frame" x="33.666666666666657" y="119.66666666666663" width="308" height="484"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="THm-aA-FP7">
-                                        <rect key="frame" x="84" y="114.33333333333334" width="140" height="23"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="23" id="CIt-xG-ApX"/>
-                                            <constraint firstAttribute="width" constant="140" id="Dtq-Ej-qGh"/>
-                                        </constraints>
-                                        <attributedString key="attributedText">
-                                            <fragment content="ROUND10 설정 완료">
-                                                <attributes>
-                                                    <color key="NSColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <font key="NSFont" metaFont="system" size="15"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rdy-4D-TfN">
                                         <rect key="frame" x="89" y="153.33333333333334" width="130" height="33"/>
                                         <color key="backgroundColor" red="0.92549019610000005" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -543,7 +525,24 @@
                                             <fragment content="시작 버튼을 누르면 ROUND가 시작됩니다">
                                                 <attributes>
                                                     <color key="NSColor" red="0.92549019610000005" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <font key="NSFont" metaFont="message" size="11"/>
+                                                    <font key="NSFont" metaFont="label" size="11"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="THm-aA-FP7">
+                                        <rect key="frame" x="84" y="114.33333333333334" width="140" height="23"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="23" id="CIt-xG-ApX"/>
+                                            <constraint firstAttribute="width" constant="140" id="Dtq-Ej-qGh"/>
+                                        </constraints>
+                                        <attributedString key="attributedText">
+                                            <fragment content="ROUND10 설정 완료">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <font key="NSFont" metaFont="system" size="15"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
@@ -612,7 +611,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="projectStartButtonDidPress:" destination="vSH-Fj-0r4" eventType="touchUpInside" id="J4e-w0-tld"/>
+                                    <action selector="didPressRoundStart:" destination="vSH-Fj-0r4" eventType="touchUpInside" id="y2D-iI-qFu"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="라운드 정보" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U11-J4-dfZ">
@@ -720,10 +719,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="bJ2-Vc-CxJ"/>
                     <connections>
+                        <outlet property="participantsTableView" destination="vym-0i-fPL" id="wdG-EQ-ZPA"/>
                         <outlet property="pasteCodeImage" destination="O37-qv-7lG" id="gvY-Kj-ZoH"/>
                         <outlet property="projectNameLabel" destination="TtN-bJ-wyh" id="wzo-AG-9kM"/>
                         <outlet property="projectStartButton" destination="1qI-5V-E3l" id="JWS-Vq-hGc"/>
-                        <outlet property="projectWaitingTableView" destination="vym-0i-fPL" id="3kL-Qh-KiN"/>
                         <outlet property="roundInfoLabel" destination="U11-J4-dfZ" id="Y5s-Tx-jde"/>
                         <outlet property="roundStartInfoLabel" destination="Ejt-2S-mg9" id="xYq-r9-W3I"/>
                         <outlet property="roundStateLabel" destination="THm-aA-FP7" id="NaQ-CJ-iIe"/>

@@ -1,5 +1,5 @@
 //
-//  InvalidCodePopViewController.swift
+//  OneLineMessagePopViewController.swift
 //  STORM
 //
 //  Created by 김지현 on 2020/07/11.
@@ -8,31 +8,27 @@
 
 import UIKit
 
-class InvalidCodePopViewController: UIViewController {
-
-    // MARK:- IBOutlet 선언
+class OneLineMessagePopViewController: UIViewController {
 
     @IBOutlet weak var invalidCodePopView: UIView!
     
-    // MARK:- viewDidLoad 선언
+    @IBOutlet weak var messageLabel: UILabel!
+    
+    var message: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        invalidCodePopView.layer.cornerRadius = 15
-//        invalidCodePopView.addShadow(width: 1, height: 3, 0.2, 5)
-//        invalidCodePopView.addRoundShadow(cornerRadius: 15)
-        invalidCodePopView.clipsToBounds = true
         
-//        self.showAnimate()
+        messageLabel.text = message
+        
+        invalidCodePopView.layer.cornerRadius = 15
+        invalidCodePopView.clipsToBounds = true
     }
     
     // MARK:- IBAction 선언
     
     @IBAction func okButtonDidTap(_ sender: UIButton) {
         self.dismiss(animated: false, completion: nil)
-//        self.removeAnimate()
     }
     
 }
