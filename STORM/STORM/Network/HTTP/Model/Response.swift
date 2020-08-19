@@ -59,10 +59,10 @@ struct ProjectInfoResponse: Codable {
     let status: Int
     let success: Bool
     let message: String
-    let data: Project
+    let data: Project?
 }
 
-struct RoundCountResponse: Codable {
+struct IntegerResponse: Codable {
     let status: Int
     let success: Bool
     let message: String

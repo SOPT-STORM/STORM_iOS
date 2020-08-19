@@ -10,6 +10,7 @@ struct Round: Codable {
     let project_idx: Int
     let round_purpose: String
     let round_time: Int
+    let user_idx: Int
 }
 
 struct RoundInfo: Codable {
