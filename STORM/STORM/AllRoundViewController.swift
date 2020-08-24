@@ -43,7 +43,7 @@ class AllRoundViewController: UIViewController {
                 self.timeLimitLabel.text = String(format: "총 %02d:%02d 남음", minute, second)
             }
             
-            if time == 0 {
+            if time <= 0 {
                 TimeManager.shared.invalidateTimer()
                 
                 let storyboard = UIStoryboard(name: "PopUp", bundle: nil)
@@ -80,10 +80,8 @@ class AllRoundViewController: UIViewController {
     func setProjectInfo() {
         let projectSetting = ProjectSetting.shared
         
-        print("여기 실행 되야 하는데")
-        
         guard let roundNumb = projectSetting.roundNumb else {return}
-        print("머냐 여기 실행 안됨?")
+
         self.roundNumberLabel.text = "ROUND\(roundNumb)"
         self.roundGoalLabel.text = projectSetting.roundPurpose
         self.projectNameLabel.text = projectSetting.projectName
