@@ -23,7 +23,7 @@ class AllProjectViewController: UIViewController {
         self.setNaviTitle()
 
         collectionView.reloadData()
-    }
+   }
 }
 
 extension AllProjectViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
