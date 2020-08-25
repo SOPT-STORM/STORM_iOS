@@ -31,7 +31,7 @@ class DeleteAccountViewController: UIViewController, UITextFieldDelegate, UIText
         // 네비게이션 바
         self.setNaviTitle()
         self.view.tintColor = .stormRed
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "13" ), style: .plain, target: self, action: #selector(back)) // 이 방법 밖에 없나....
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "myprojectBtnBack" ), style: .plain, target: self, action: #selector(back)) // 이 방법 밖에 없나....
         
         // whiteView radius
         whiteView.roundCorners(corners: [.topRight, .topLeft], radius: 30.0)

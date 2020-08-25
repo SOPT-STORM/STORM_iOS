@@ -57,7 +57,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         self.view.tintColor = .stormRed
         
         // 사용자 이미지, 이미지 변경 버튼 동그랗게
-        userImageContainerView.addShadow(cornerRadus: userImageContainerView.frame.width / 2, shadowOffset: CGSize(width: 0, height: 5), shadowOpacity: 0.3, shadowRadius: 7)
+        userImageContainerView.addShadow(cornerRadus: userImageContainerView.frame.width / 2, shadowOffset: CGSize(width: 0, height: -1.5), shadowOpacity: 0.16, shadowRadius: 4)
         userImageView.makeCircle()
         
         editPhotoButton.addShadow(cornerRadus: editPhotoButton.frame.width / 2, shadowOffset: CGSize(width: 0, height: 3), shadowOpacity: 0.16, shadowRadius: 9)
@@ -91,7 +91,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         previousColor = userImageContainerView.backgroundColor
         
         //navigationItem.backBarButtonItem?.action = #selector(didPressBack)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "13" ), style: .plain, target: self, action: #selector(didPressBack))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "myprojectBtnBack" ), style: .plain, target: self, action: #selector(didPressBack))
     }
     
     override func viewWillAppear(_ animated: Bool) {
