@@ -83,10 +83,11 @@ struct LogInResponse: Codable {
     let data: Int?
 }
 
-struct SignInResponse: Codable {
+struct SignUpResponse: Codable {
     let status: Int
     let success: Bool
     let message: String
+    let data: Int?
 }
 
 struct MyPageResponse: Codable {

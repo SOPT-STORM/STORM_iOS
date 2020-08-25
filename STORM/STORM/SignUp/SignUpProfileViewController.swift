@@ -36,6 +36,8 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
     var userEmail: String?
     var userPwd: String?
     var img_flag: Int?
+    var circleImage: UIImage?
+    var serverImage: UIImage?
     
     // MARK:- viewDidLoad
     
@@ -159,9 +161,8 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
     
     
     @IBAction func doneButtonDidPressed(_ sender: UIButton) {
-        // 이미 사용 중인 이름입니다 (서버 연결)
-        
-        if nameTextField.text?.count ?? 0 >= 2 {
+        guard let name = nameTextField.text else {return}
+        if name.count >= 2 {
             signUp()
         } else {
             print("????")
@@ -237,8 +238,19 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
     }
     
     func signUp() {
-        guard let userName = nameTextField.text, let profileImg = self.profileImage.image, let imgFlag = img_flag, let useremail = userEmail, let userpwd = userPwd else { return }
+        
+        if img_flag != 0 {
+            circleImage = userImageContainerView.asImage()
+            serverImage = circleImage
+        } else {
+            serverImage = profileImage.image
+        }
+        
+        guard let userName = nameTextField.text, let profileImg = serverImage, let imgFlag = img_flag, let useremail = userEmail, let userpwd = userPwd else { return }
+        
         NetworkManager.shared.signUp(userImg: profileImg, userName: userName, userEmail: useremail, userPwd: userpwd, userImgFlag: imgFlag){ (response) in
+            
+            print(response)
             
             if response.status == 200 {
                 self.navigationController?.popToRootViewController(animated: true)

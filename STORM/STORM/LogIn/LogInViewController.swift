@@ -151,10 +151,10 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                     print("로그인 유저 인덱스 \(userIndex)")
                 }
                 
-                if let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC") as? UINavigationController {
-                    mainVC.modalPresentationStyle = .fullScreen
-                    self.present(mainVC, animated: true, completion: nil)
-                }
+                guard let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainVC") as? MainViewController else {return}
+                let naviController = UINavigationController(rootViewController: mainVC)
+                naviController.modalPresentationStyle = .fullScreen
+                self.present(naviController, animated: true, completion: nil)
             } else if status == 600 {
                 self.errorLabel.isHidden = false
             }
@@ -174,15 +174,13 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                     print(userIndex)
                 }
                 
-                if let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC") as? UINavigationController {
-                    mainVC.modalPresentationStyle = .fullScreen
-                    self.present(mainVC, animated: true, completion: nil)
-                    print("auto login")
-                    
-                } else if response.status == 600 {
-                    
-                    self.errorLabel.isHidden = false
-                }
+                guard let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainVC") as? MainViewController else {return}
+                let naviController = UINavigationController(rootViewController: mainVC)
+                naviController.modalPresentationStyle = .fullScreen
+                self.present(naviController, animated: true, completion: nil)
+            } else if response.status == 600 {
+                
+                self.errorLabel.isHidden = false
             }
         }
     }

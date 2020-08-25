@@ -45,6 +45,7 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
         
         pwdTextField.clearButtonMode = .always
         pwdTextField.clearButtonMode = .whileEditing
+        pwdTextField.autocorrectionType = .no
         
         pwdConfirmTextField.clearButtonMode = .always
         pwdConfirmTextField.clearButtonMode = .whileEditing
