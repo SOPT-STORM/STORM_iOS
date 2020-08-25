@@ -27,6 +27,9 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     
     var isAutoLogiIn: Bool = false
     let animationView = AnimationView()
+    var autoEmail: String?
+    var autoPwd: String?
+    var userIndex: Int?
     
     // MARK:- viewDidLoad
     
@@ -52,6 +55,12 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         
         pwdTextField.clearButtonMode = .always
         pwdTextField.clearButtonMode = .whileEditing
+        
+        // 자동 로그인
+        isAutoLogiIn = false
+        if let email = UserDefaults.standard.string(forKey: "email"), let pwd = UserDefaults.standard.string(forKey: "pwd") {
+            autoLogin(userEmail: email, userPwd: pwd)
+        }
     }
     
     // MARK:- viewDidAppear
@@ -64,18 +73,12 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func loginButtonDidPressed(_ sender: UIButton) {
         // 일치하면 로그인 성공, 뷰 넘어감
-        // 일치하지 않으면 "이메일/비밀번호를 확인해주세요" 문장 뜨도록 분기 처리
-        guard let inputID = emailTextField.text else { return }
-        guard let inputPWD = pwdTextField.text else { return }
-        
-        if let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainVC") as? UINavigationController {
-            mainVC.modalPresentationStyle = .fullScreen
-            self.present(mainVC, animated: true, completion: nil)
-        }
+        logIn()
     }
     
     @IBAction func signUpButtonDidPressed(_ sender: UIButton) {
         
+        // ishidden == true && nil 아니여야 함
         if let signUpVC = UIStoryboard(name: "SignUp", bundle: nil).instantiateViewController(withIdentifier: "SignUpVC") as? SignUpViewController {
             signUpVC.modalPresentationStyle = .fullScreen
             self.navigationController?.pushViewController(signUpVC, animated: true)
@@ -87,7 +90,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         // 분기처리 안에 내용 추가하기 
         
         if sender.isSelected == false {
-            sender.setImage(UIImage(named: "loginMaintainIcn"), for: .normal)
+            sender.setImage(UIImage(named: "loginMaintainIcn"), for: .selected)
             sender.isSelected = true
             self.isAutoLogiIn = true
         }
@@ -99,6 +102,15 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     }
     
     // MARK:- 함수
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        // 서버 연결 후
+        // ishidden == true && nil 아니여야 함
+    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == self.emailTextField {
@@ -117,6 +129,63 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         animationView.play()
         view.insertSubview(animationView, at: 0)
        }
+    
+    func logIn() {
+        guard let userEmail = emailTextField.text, let userPwd = pwdTextField.text else { return }
+
+        NetworkManager.shared.login(userEmail: userEmail, userPwd: userPwd) { (response) in
+            
+            let status = response.status
+            print(status)
+            
+            if status == 200 {
+                if self.isAutoLogiIn {
+                    UserDefaults.standard.set(userEmail, forKey: "email")
+                    UserDefaults.standard.set(userPwd, forKey: "pwd")
+                }
+                
+                self.errorLabel.isHidden = true
+                
+                if let userIndex = response.data {
+                    UserDefaults.standard.set(userIndex, forKey: "index")
+                    print("로그인 유저 인덱스 \(userIndex)")
+                }
+                
+                if let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC") as? UINavigationController {
+                    mainVC.modalPresentationStyle = .fullScreen
+                    self.present(mainVC, animated: true, completion: nil)
+                }
+            } else if status == 600 {
+                self.errorLabel.isHidden = false
+            }
+        }
+    }
+    
+    func autoLogin(userEmail: String, userPwd: String) { // 없대도 될듯
+        
+        NetworkManager.shared.login(userEmail: userEmail, userPwd: userPwd) { (response) in
+            
+            if response.status == 200 {
+                
+                self.errorLabel.isHidden = true
+                
+                if let userIndex = response.data {
+                    UserDefaults.standard.set(userIndex, forKey: "index")
+                    print(userIndex)
+                }
+                
+                if let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC") as? UINavigationController {
+                    mainVC.modalPresentationStyle = .fullScreen
+                    self.present(mainVC, animated: true, completion: nil)
+                    print("auto login")
+                    
+                } else if response.status == 600 {
+                    
+                    self.errorLabel.isHidden = false
+                }
+            }
+        }
+    }
     
     
     
