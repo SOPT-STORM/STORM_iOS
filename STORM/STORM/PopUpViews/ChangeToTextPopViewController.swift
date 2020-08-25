@@ -30,7 +30,7 @@ class ChangeToTextPopViewController: UIViewController {
         changeToTextPopView.clipsToBounds = true
         
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
-        self.showAnimate()
+
     }
     
     // MARK:- IBAction 선언

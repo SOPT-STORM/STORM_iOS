@@ -28,13 +28,8 @@ class RoundStartPopViewController: UIViewController {
         super.viewDidLoad()
 
         startPopView.layer.cornerRadius = 15
-//        startPopView.addShadow(width: 1, height: 3, 0.2, 5)
         startPopView.clipsToBounds = false
 
-//        self.showAnimate()
-//        sleep(5)
-        
-        // TODO: 투명배경 설정이 왜 안되지..?ㅠㅠ
     }
     
     // MARK:- viewDidAppear 선언

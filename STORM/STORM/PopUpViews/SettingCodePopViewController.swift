@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol PresentVC {
-    func presentVC()
-}
-
 class SettingCodePopViewController: UIViewController {
     
     // MARK:- 변수 선언
@@ -36,13 +32,13 @@ class SettingCodePopViewController: UIViewController {
         projectCodeTextField.text = ProjectSetting.shared.projectCode!
 //        self.view.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.6)
 //        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
-        self.showAnimate()
+       
     }
     
      // MARK:- IBAction 선언
      
      @IBAction func createOkButtonDidTap(_ sender: UIButton) {
-        self.removeAnimate()
+       
         
         self.dismiss(animated: false) {
             self.delegate.presentVC()

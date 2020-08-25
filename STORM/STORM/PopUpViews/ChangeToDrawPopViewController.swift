@@ -29,7 +29,7 @@ class ChangeToDrawPopViewController: UIViewController {
         changeToDrawPopView.clipsToBounds = true
         
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
-        self.showAnimate()
+      
     }
     
     
