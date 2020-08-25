@@ -17,9 +17,9 @@ class NetworkManager {
     
     private init() {}
 
-//    private let baseURL = "http://3.34.179.75:3000"
+    private let baseURL = "http://3.34.179.75:3000"
 
-    private let baseURL = "http://5e8a43a83849.ngrok.io" // 임시 url
+//    private let baseURL = "http://7e6e1aac001a.ngrok.io" // 임시 url
 //    
     // userImg - String 일지 File일지 아직 미정 (연동 끝나야 확인 가능)
 //    func signIn(userName: String, googleToken: String?, KakaoToken: String?, userImg: String, completion: @escaping (Response?) -> Void) {
@@ -100,6 +100,29 @@ class NetworkManager {
             }
          }
     }
+    
+    // MARK:- (Put) 프로젝트 상태 변경
+    
+    func changeProjectStatus(completion: @escaping (Response?) -> Void) {
+        
+        guard let projectIndex = ProjectSetting.shared.projectIdx else {return}
+        
+        let url = baseURL + "/project/status/\(projectIndex)"
+    
+        let request = AF.request(url,
+                    method: .put)
+        
+        request.responseDecodable(of: Response.self) { response in
+           switch response.result {
+           case let .success(result):
+            completion(result)
+           case let .failure(error):
+            print("Error description is: \(error.localizedDescription)")
+           }
+        }
+    }
+    
+    
     
     // MARK:- (GET) 라운드 참여자 목록
     func fetchMemberList(roundIdx: Int, projectIdx: Int, completion: @escaping (MemberResponse?) -> Void) {
@@ -250,11 +273,12 @@ class NetworkManager {
     }
     
     // MARK:- (POST) 라운드 참여
-    func enterRound(roundIdx: Int, completion: @escaping (RoundResponse?) -> Void) {
+    func enterRound(completion: @escaping (IntegerResponse) -> Void) {
         let url = baseURL + "/round/enter"
         
-        let parameters = RoundWithMemberIdx(user_idx: user_idx, round_idx: roundIdx)
-        print(user_idx, roundIdx)
+        guard let projectIndex = ProjectSetting.shared.projectIdx else {return}
+        
+        let parameters = RoundWithMemberIdx(user_idx: user_idx, project_idx: projectIndex)
         
         let request = AF.request(url,
                     method: .post,
@@ -262,7 +286,7 @@ class NetworkManager {
                     encoder: JSONParameterEncoder.default,
                     headers: nil)
         
-        request.responseDecodable(of: RoundResponse.self) { response in
+        request.responseDecodable(of: IntegerResponse.self) { response in
            switch response.result {
            case let .success(result):
             completion(result)
@@ -327,14 +351,14 @@ class NetworkManager {
                     print("Upload Progress: \(progress.fractionCompleted)")
                 }).responseJSON(completionHandler: { data in
                 }).response { (response) in
-                    switch response.result {
-                    case .success(_):
-//                        print("upload success result: \(result)")
-//                        print("code: \(response.response?.statusCode)")
-                        completion()
-                    case .failure(let err):
-                        print("upload err: \(err)")
-                    }
+                        switch response.result {
+                            case .success(_):
+                //                        print("upload success result: \(result)")
+                //                        print("code: \(response.response?.statusCode)")
+                                completion()
+                            case .failure(let err):
+                                print("upload err: \(err)")
+            }
         }
     }
     
@@ -498,17 +522,13 @@ class NetworkManager {
     
     
     func finishProject(ccompletion: @escaping (Response?) -> Void) {
-        let url = baseURL + "/project/finish"
         
         guard let projectIndex = ProjectSetting.shared.projectIdx else {return}
         
-        let parameters = ["project_idx":projectIndex]
+        let url = baseURL + "/project/finish/\(projectIndex)"
         
         let request = AF.request(url,
-                    method: .put,
-                    parameters: parameters,
-                    encoder: JSONParameterEncoder.default,
-                    headers: nil)
+                    method: .put)
         
         request.responseDecodable(of: Response.self) { response in
            switch response.result {
