@@ -13,10 +13,12 @@ class SelectNextPopViewController: UIViewController {
     @IBOutlet weak var roundInfoLabel: UILabel!
     @IBOutlet weak var popupView: UIView!
     
+    lazy var roundNumb = 1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.popupView.cornerRadius = 10 
-        
+        self.popupView.cornerRadius = 10
+        roundInfoLabel.text = "ROUND \(roundNumb) 종료"
     }
     
     @IBAction func didPressCancel(_ sender: UIButton) {
@@ -25,40 +27,59 @@ class SelectNextPopViewController: UIViewController {
     
     
     @IBAction func didPressNextRound(_ sender: UIButton) {
-        dismissViewControllers()
         
         guard let projectCode = ProjectSetting.shared.projectCode else {return}
         
-        SocketIOManager.shared.socket.emit("nextRound", projectCode)
+        SocketIOManager.shared.socket.emit("prepareNextRound", projectCode)
+        
+        dismissViewControllers()
     }
     
     @IBAction func didPressFinishProject(_ sender: UIButton) {
         guard let projectCode = ProjectSetting.shared.projectCode else {return}
         
-        print("실행1111")
         SocketIOManager.shared.socket.emit("finishProject", projectCode)
+        
+        NetworkManager.shared.finishProject { (response) in
+            print(response)
+        }
         
         guard let presentingVc = self.presentingViewController else {return}
         
-        print("실행2222")
         self.dismiss(animated: false) {
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             guard let vc = storyboard.instantiateViewController(withIdentifier: "projectFinalViewController") as? ProjectFinalViewController else {return}
             
-            print("실행333333")
             let naviController = UINavigationController(rootViewController: vc)
+            naviController.modalPresentationStyle = .fullScreen
             
             presentingVc.present(naviController, animated: false, completion: nil)
         }
-        
     }
     
     func dismissViewControllers() {
-        self.presentingViewController?.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: false, completion: nil)
+//    self.presentingViewController?.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: false, completion: nil)
+        
+        
+        let rootVC = self.view.window?.rootViewController
+
+        self.view.window?.rootViewController?.dismiss(animated: false, completion: {
+            guard let navi = rootVC as? UINavigationController else {return}
+            navi.popToRootViewController(animated: false)
+            
+            let roundSettingNaviController = UIStoryboard(name: "ProjectRound", bundle: nil).instantiateViewController(withIdentifier: "roundSettingNavi") as! UINavigationController
+            
+            roundSettingNaviController.modalPresentationStyle = .fullScreen
+            navi.present(roundSettingNaviController, animated: false, completion: nil)
+        })
+        
+//        self.view.window?.rootViewController?.dismiss(animated: false, completion: nil)
+        
+        
 
 //        guard let vc = self.presentingViewController else { return }
-//
+
 //        while (vc.presentingViewController != nil) {
 //            print(vc)
 //            print(vc.presentingViewController is HostRoundSettingViewController)
