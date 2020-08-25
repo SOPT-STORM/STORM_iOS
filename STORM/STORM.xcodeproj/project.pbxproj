@@ -9,9 +9,7 @@
 /* Begin PBXBuildFile section */
 		0BE507DF34E6144C923BB667 /* Pods_STORM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F413571526ADC3ABE1F9D186 /* Pods_STORM.framework */; };
 		B82094D524BCE25700DB543F /* real_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = B82094D424BCE25700DB543F /* real_loading.json */; };
-		B8D7DB6D24BF711700DE9D02 /* ScrappedCardTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D7DB6C24BF711700DE9D02 /* ScrappedCardTextCell.swift */; };
-		B8D7DB6F24BF712B00DE9D02 /* ScrappedCardImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D7DB6E24BF712B00DE9D02 /* ScrappedCardImageCell.swift */; };
-		B8E9FA7224B9B7CB00A97235 /* InvalidCodePopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9FA7124B9B7CB00A97235 /* InvalidCodePopViewController.swift */; };
+		B8E9FA7224B9B7CB00A97235 /* OneLineMessagePopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9FA7124B9B7CB00A97235 /* OneLineMessagePopViewController.swift */; };
 		B8E9FA7424B9B7FC00A97235 /* PopUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E9FA7324B9B7FC00A97235 /* PopUp.storyboard */; };
 		B8E9FA7A24B9FC0500A97235 /* ReminderPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9FA7924B9FC0500A97235 /* ReminderPopViewController.swift */; };
 		B8E9FA7C24B9FC3B00A97235 /* RoundStartPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9FA7B24B9FC3B00A97235 /* RoundStartPopViewController.swift */; };
@@ -19,13 +17,16 @@
 		B8E9FA8024BA3D2E00A97235 /* CancelCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9FA7F24BA3D2E00A97235 /* CancelCardViewController.swift */; };
 		B8E9FA8224BA50D800A97235 /* ChangeToDrawPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9FA8124BA50D800A97235 /* ChangeToDrawPopViewController.swift */; };
 		B8E9FA8424BA50EA00A97235 /* ChangeToTextPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9FA8324BA50EA00A97235 /* ChangeToTextPopViewController.swift */; };
-		B8E9FA8624BA551E00A97235 /* RoundEndPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9FA8524BA551E00A97235 /* RoundEndPopViewController.swift */; };
 		B8E9FA8824BA5A8700A97235 /* SelectNextPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9FA8724BA5A8700A97235 /* SelectNextPopViewController.swift */; };
 		B8E9FA8A24BA5C8E00A97235 /* EndProjectPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9FA8924BA5C8E00A97235 /* EndProjectPopViewController.swift */; };
 		D12EC23E24AB4070007E5896 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12EC23D24AB4070007E5896 /* AppDelegate.swift */; };
 		D12EC24824AB4070007E5896 /* STORM.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D12EC24624AB4070007E5896 /* STORM.xcdatamodeld */; };
 		D12EC24A24AB4072007E5896 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D12EC24924AB4072007E5896 /* Assets.xcassets */; };
 		D12EC24D24AB4072007E5896 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D12EC24B24AB4072007E5896 /* LaunchScreen.storyboard */; };
+		D13DD4EC24F2D10C005C569F /* ParticipantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13DD4EB24F2D10C005C569F /* ParticipantCell.swift */; };
+		D13DD4EE24F3EC60005C569F /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13DD4ED24F3EC60005C569F /* TestViewController.swift */; };
+		D13DD4F024F44832005C569F /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = D13DD4EF24F44832005C569F /* splash.json */; };
+		D13EA00824ED4644001392A8 /* ProjectInfoPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13EA00724ED4644001392A8 /* ProjectInfoPopUp.swift */; };
 		D1469A6E24DDDFE100D337F1 /* ProjectSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1469A6D24DDDFE100D337F1 /* ProjectSetting.swift */; };
 		D147598524AB4DA3006C4122 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D147598424AB4DA3006C4122 /* SceneDelegate.swift */; };
 		D147B40324BDABAA0064B026 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = D147B40224BDABAA0064B026 /* Card.swift */; };
@@ -34,6 +35,7 @@
 		D149795A24E168B00021CA32 /* MemoCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D149795824E168B00021CA32 /* MemoCarouselCell.swift */; };
 		D149795B24E168B00021CA32 /* MemoCarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D149795924E168B00021CA32 /* MemoCarouselCell.xib */; };
 		D149795D24E17AB90021CA32 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D149795C24E17AB90021CA32 /* CALayer.swift */; };
+		D14A633A24EC436E00212B37 /* ScrapDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14A633924EC436E00212B37 /* ScrapDetailViewController.swift */; };
 		D14B131E24C1E6D6002E87F2 /* AllRoundCarouselViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14B131D24C1E6D6002E87F2 /* AllRoundCarouselViewController.swift */; };
 		D14B132024C1E92B002E87F2 /* CarouselFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14B131F24C1E92B002E87F2 /* CarouselFlowLayout.swift */; };
 		D14BC39524EADA240075F026 /* ProjectInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14BC39324EADA240075F026 /* ProjectInfoCell.swift */; };
@@ -45,6 +47,7 @@
 		D14BC3A124EAEFAA0075F026 /* ProjectFinishFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14BC39F24EAEFAA0075F026 /* ProjectFinishFooterView.swift */; };
 		D14BC3A224EAEFAA0075F026 /* ProjectFinishFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D14BC3A024EAEFAA0075F026 /* ProjectFinishFooterView.xib */; };
 		D14BC3A424EB17CF0075F026 /* ProjectFinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14BC3A324EB17CF0075F026 /* ProjectFinalViewController.swift */; };
+		D14D357124EBD540008E7581 /* ViewTransitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14D357024EBD540008E7581 /* ViewTransitionDelegate.swift */; };
 		D14FE22924E43A6400DACF8E /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14FE22824E43A6400DACF8E /* CustomNavigationBar.swift */; };
 		D15088AB24BD98DD007D9596 /* Round.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15088AA24BD98DC007D9596 /* Round.swift */; };
 		D154C46424BEECF700FC95C9 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D154C46324BEECF700FC95C9 /* UIImage.swift */; };
@@ -71,40 +74,27 @@
 		D1E5839C24BCA1010013FB7C /* NotoSansCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D1E5839924BCA0FF0013FB7C /* NotoSansCJKkr-Bold.otf */; };
 		D1E5839D24BCA1010013FB7C /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D1E5839A24BCA1000013FB7C /* NotoSansCJKkr-Regular.otf */; };
 		D1E5839E24BCA1010013FB7C /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = D1E5839B24BCA1010013FB7C /* NotoSansCJKkr-Medium.otf */; };
-		D756DF8A24B5908900551E12 /* PopupAnimationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D756DF8924B5908900551E12 /* PopupAnimationExtension.swift */; };
-		D75ECBE424B6443B00CB46C3 /* MemberRoundSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75ECBE324B6443B00CB46C3 /* MemberRoundSettingViewController.swift */; };
 		D75ECBE624B6BD2500CB46C3 /* RoundStartAlertPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75ECBE524B6BD2500CB46C3 /* RoundStartAlertPopupViewController.swift */; };
-		D75ECBE924B6C7A900CB46C3 /* ProjectForHost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D75ECBE824B6C7A900CB46C3 /* ProjectForHost.storyboard */; };
-		D75ECBEC24B6C7EF00CB46C3 /* HostProjectSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75ECBEB24B6C7EF00CB46C3 /* HostProjectSettingViewController.swift */; };
+		D75ECBE924B6C7A900CB46C3 /* ProjectRound.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D75ECBE824B6C7A900CB46C3 /* ProjectRound.storyboard */; };
+		D75ECBEC24B6C7EF00CB46C3 /* ProjectSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75ECBEB24B6C7EF00CB46C3 /* ProjectSettingViewController.swift */; };
 		D761568F24B8D4AD00D4D484 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D761568E24B8D4AD00D4D484 /* UITextField.swift */; };
-		D761569124BADDEC00D4D484 /* HostRoundStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D761569024BADDEC00D4D484 /* HostRoundStartViewController.swift */; };
-		D761569324BB005A00D4D484 /* HostProjectWaitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D761569224BB005A00D4D484 /* HostProjectWaitingViewController.swift */; };
+		D761569124BADDEC00D4D484 /* RoundStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D761569024BADDEC00D4D484 /* RoundStartViewController.swift */; };
 		D761569524BB487600D4D484 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D761569424BB487600D4D484 /* UIColor+Extensions.swift */; };
 		D781D6FB24B4A66F00AAE389 /* RoundFinished.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D781D6EB24B4A66F00AAE389 /* RoundFinished.storyboard */; };
 		D781D6FC24B4A66F00AAE389 /* LayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781D6EC24B4A66F00AAE389 /* LayerExtension.swift */; };
-		D781D6FD24B4A66F00AAE389 /* ProjectWaitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781D6EE24B4A66F00AAE389 /* ProjectWaitingViewController.swift */; };
 		D781D6FF24B4A66F00AAE389 /* ReminderPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781D6F024B4A66F00AAE389 /* ReminderPopupViewController.swift */; };
 		D781D70024B4A66F00AAE389 /* ScrapCardMemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781D6F124B4A66F00AAE389 /* ScrapCardMemoViewController.swift */; };
 		D781D70124B4A66F00AAE389 /* ScrapCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781D6F224B4A66F00AAE389 /* ScrapCardViewController.swift */; };
 		D781D70224B4A66F00AAE389 /* RoundCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781D6F424B4A66F00AAE389 /* RoundCollectionViewCell.swift */; };
-		D781D70324B4A66F00AAE389 /* ProjectWaitingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D781D6F524B4A66F00AAE389 /* ProjectWaitingTableViewCell.xib */; };
-		D781D70424B4A66F00AAE389 /* CardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D781D6F624B4A66F00AAE389 /* CardCollectionViewCell.xib */; };
-		D781D70524B4A66F00AAE389 /* ProjectWaitingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781D6F724B4A66F00AAE389 /* ProjectWaitingTableViewCell.swift */; };
-		D781D70624B4A66F00AAE389 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781D6F824B4A66F00AAE389 /* CardCollectionViewCell.swift */; };
 		D781D70724B4A66F00AAE389 /* RoundCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D781D6F924B4A66F00AAE389 /* RoundCollectionViewCell.xib */; };
 		D781D70F24B4B07100AAE389 /* FinishedRoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781D70E24B4B07100AAE389 /* FinishedRoundViewController.swift */; };
-		D781D71324B4E3D600AAE389 /* NavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781D71224B4E3D600AAE389 /* NavigationControllerExtension.swift */; };
-		D781D71624B5131C00AAE389 /* ProjectForMember.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D781D71524B5131C00AAE389 /* ProjectForMember.storyboard */; };
-		D7EB706524B7459F0041B9CA /* loading3.json in Resources */ = {isa = PBXBuildFile; fileRef = D7EB706424B7459E0041B9CA /* loading3.json */; };
-		D7EB706A24B8B75A0041B9CA /* HostRoundSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EB706924B8B75A0041B9CA /* HostRoundSettingViewController.swift */; };
+		D7EB706A24B8B75A0041B9CA /* RoundSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EB706924B8B75A0041B9CA /* RoundSettingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		446905E67F662B2207C7B0E7 /* Pods-STORM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STORM.debug.xcconfig"; path = "Target Support Files/Pods-STORM/Pods-STORM.debug.xcconfig"; sourceTree = "<group>"; };
 		B82094D424BCE25700DB543F /* real_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = real_loading.json; sourceTree = "<group>"; };
-		B8D7DB6C24BF711700DE9D02 /* ScrappedCardTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrappedCardTextCell.swift; sourceTree = "<group>"; };
-		B8D7DB6E24BF712B00DE9D02 /* ScrappedCardImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrappedCardImageCell.swift; sourceTree = "<group>"; };
-		B8E9FA7124B9B7CB00A97235 /* InvalidCodePopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvalidCodePopViewController.swift; sourceTree = "<group>"; };
+		B8E9FA7124B9B7CB00A97235 /* OneLineMessagePopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneLineMessagePopViewController.swift; sourceTree = "<group>"; };
 		B8E9FA7324B9B7FC00A97235 /* PopUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PopUp.storyboard; sourceTree = "<group>"; };
 		B8E9FA7924B9FC0500A97235 /* ReminderPopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderPopViewController.swift; sourceTree = "<group>"; };
 		B8E9FA7B24B9FC3B00A97235 /* RoundStartPopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundStartPopViewController.swift; sourceTree = "<group>"; };
@@ -112,7 +102,6 @@
 		B8E9FA7F24BA3D2E00A97235 /* CancelCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelCardViewController.swift; sourceTree = "<group>"; };
 		B8E9FA8124BA50D800A97235 /* ChangeToDrawPopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeToDrawPopViewController.swift; sourceTree = "<group>"; };
 		B8E9FA8324BA50EA00A97235 /* ChangeToTextPopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeToTextPopViewController.swift; sourceTree = "<group>"; };
-		B8E9FA8524BA551E00A97235 /* RoundEndPopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundEndPopViewController.swift; sourceTree = "<group>"; };
 		B8E9FA8724BA5A8700A97235 /* SelectNextPopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectNextPopViewController.swift; sourceTree = "<group>"; };
 		B8E9FA8924BA5C8E00A97235 /* EndProjectPopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndProjectPopViewController.swift; sourceTree = "<group>"; };
 		D12EC23A24AB4070007E5896 /* STORM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = STORM.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,6 +110,10 @@
 		D12EC24924AB4072007E5896 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D12EC24C24AB4072007E5896 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D12EC24E24AB4072007E5896 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D13DD4EB24F2D10C005C569F /* ParticipantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantCell.swift; sourceTree = "<group>"; };
+		D13DD4ED24F3EC60005C569F /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		D13DD4EF24F44832005C569F /* splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash.json; sourceTree = "<group>"; };
+		D13EA00724ED4644001392A8 /* ProjectInfoPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectInfoPopUp.swift; sourceTree = "<group>"; };
 		D1469A6D24DDDFE100D337F1 /* ProjectSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSetting.swift; sourceTree = "<group>"; };
 		D147598424AB4DA3006C4122 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D147B40224BDABAA0064B026 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
@@ -129,6 +122,7 @@
 		D149795824E168B00021CA32 /* MemoCarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCarouselCell.swift; sourceTree = "<group>"; };
 		D149795924E168B00021CA32 /* MemoCarouselCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemoCarouselCell.xib; sourceTree = "<group>"; };
 		D149795C24E17AB90021CA32 /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
+		D14A633924EC436E00212B37 /* ScrapDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapDetailViewController.swift; sourceTree = "<group>"; };
 		D14B131D24C1E6D6002E87F2 /* AllRoundCarouselViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRoundCarouselViewController.swift; sourceTree = "<group>"; };
 		D14B131F24C1E92B002E87F2 /* CarouselFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselFlowLayout.swift; sourceTree = "<group>"; };
 		D14BC39324EADA240075F026 /* ProjectInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectInfoCell.swift; sourceTree = "<group>"; };
@@ -140,6 +134,7 @@
 		D14BC39F24EAEFAA0075F026 /* ProjectFinishFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFinishFooterView.swift; sourceTree = "<group>"; };
 		D14BC3A024EAEFAA0075F026 /* ProjectFinishFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectFinishFooterView.xib; sourceTree = "<group>"; };
 		D14BC3A324EB17CF0075F026 /* ProjectFinalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFinalViewController.swift; sourceTree = "<group>"; };
+		D14D357024EBD540008E7581 /* ViewTransitionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTransitionDelegate.swift; sourceTree = "<group>"; };
 		D14FE22824E43A6400DACF8E /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		D15088AA24BD98DC007D9596 /* Round.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Round.swift; sourceTree = "<group>"; };
 		D154C46324BEECF700FC95C9 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
@@ -156,7 +151,7 @@
 		D19533B624BCB072008DB22F /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		D1E5837124BC95690013FB7C /* Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
 		D1E5837224BC95690013FB7C /* AddCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCardViewController.swift; sourceTree = "<group>"; };
-		D1E5837B24BC95980013FB7C /* RoundMeetingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundMeetingViewController.swift; sourceTree = "<group>"; };
+		D1E5837B24BC95980013FB7C /* RoundMeetingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundMeetingViewController.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		D1E5837D24BC95990013FB7C /* SocketIOManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
 		D1E5838B24BC96270013FB7C /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		D1E5839124BC965C0013FB7C /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -166,32 +161,21 @@
 		D1E5839924BCA0FF0013FB7C /* NotoSansCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Bold.otf"; sourceTree = "<group>"; };
 		D1E5839A24BCA1000013FB7C /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		D1E5839B24BCA1010013FB7C /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
-		D756DF8924B5908900551E12 /* PopupAnimationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupAnimationExtension.swift; sourceTree = "<group>"; };
-		D75ECBE324B6443B00CB46C3 /* MemberRoundSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberRoundSettingViewController.swift; sourceTree = "<group>"; };
 		D75ECBE524B6BD2500CB46C3 /* RoundStartAlertPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundStartAlertPopupViewController.swift; sourceTree = "<group>"; };
-		D75ECBE824B6C7A900CB46C3 /* ProjectForHost.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProjectForHost.storyboard; sourceTree = "<group>"; };
-		D75ECBEB24B6C7EF00CB46C3 /* HostProjectSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostProjectSettingViewController.swift; sourceTree = "<group>"; };
+		D75ECBE824B6C7A900CB46C3 /* ProjectRound.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProjectRound.storyboard; sourceTree = "<group>"; };
+		D75ECBEB24B6C7EF00CB46C3 /* ProjectSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSettingViewController.swift; sourceTree = "<group>"; };
 		D761568E24B8D4AD00D4D484 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
-		D761569024BADDEC00D4D484 /* HostRoundStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostRoundStartViewController.swift; sourceTree = "<group>"; };
-		D761569224BB005A00D4D484 /* HostProjectWaitingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostProjectWaitingViewController.swift; sourceTree = "<group>"; };
+		D761569024BADDEC00D4D484 /* RoundStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundStartViewController.swift; sourceTree = "<group>"; };
 		D761569424BB487600D4D484 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		D781D6EB24B4A66F00AAE389 /* RoundFinished.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RoundFinished.storyboard; sourceTree = "<group>"; };
 		D781D6EC24B4A66F00AAE389 /* LayerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayerExtension.swift; sourceTree = "<group>"; };
-		D781D6EE24B4A66F00AAE389 /* ProjectWaitingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectWaitingViewController.swift; sourceTree = "<group>"; };
 		D781D6F024B4A66F00AAE389 /* ReminderPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderPopupViewController.swift; sourceTree = "<group>"; };
 		D781D6F124B4A66F00AAE389 /* ScrapCardMemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrapCardMemoViewController.swift; sourceTree = "<group>"; };
 		D781D6F224B4A66F00AAE389 /* ScrapCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrapCardViewController.swift; sourceTree = "<group>"; };
 		D781D6F424B4A66F00AAE389 /* RoundCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundCollectionViewCell.swift; sourceTree = "<group>"; };
-		D781D6F524B4A66F00AAE389 /* ProjectWaitingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectWaitingTableViewCell.xib; sourceTree = "<group>"; };
-		D781D6F624B4A66F00AAE389 /* CardCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardCollectionViewCell.xib; sourceTree = "<group>"; };
-		D781D6F724B4A66F00AAE389 /* ProjectWaitingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectWaitingTableViewCell.swift; sourceTree = "<group>"; };
-		D781D6F824B4A66F00AAE389 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		D781D6F924B4A66F00AAE389 /* RoundCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoundCollectionViewCell.xib; sourceTree = "<group>"; };
 		D781D70E24B4B07100AAE389 /* FinishedRoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedRoundViewController.swift; sourceTree = "<group>"; };
-		D781D71224B4E3D600AAE389 /* NavigationControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerExtension.swift; sourceTree = "<group>"; };
-		D781D71524B5131C00AAE389 /* ProjectForMember.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProjectForMember.storyboard; sourceTree = "<group>"; };
-		D7EB706424B7459E0041B9CA /* loading3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading3.json; sourceTree = "<group>"; };
-		D7EB706924B8B75A0041B9CA /* HostRoundSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostRoundSettingViewController.swift; sourceTree = "<group>"; };
+		D7EB706924B8B75A0041B9CA /* RoundSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundSettingViewController.swift; sourceTree = "<group>"; };
 		F413571526ADC3ABE1F9D186 /* Pods_STORM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_STORM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F68B1EA2A7FA6388C84C951E /* Pods-STORM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STORM.release.xcconfig"; path = "Target Support Files/Pods-STORM/Pods-STORM.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -225,28 +209,20 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		B84BE19E24BB8C7D0048BE9C /* ScrappedCard */ = {
-			isa = PBXGroup;
-			children = (
-				B8D7DB6C24BF711700DE9D02 /* ScrappedCardTextCell.swift */,
-				B8D7DB6E24BF712B00DE9D02 /* ScrappedCardImageCell.swift */,
-			);
-			path = ScrappedCard;
-			sourceTree = "<group>";
-		};
 		B8E9FA6E24B9B6EB00A97235 /* PopUpViews */ = {
 			isa = PBXGroup;
 			children = (
 				B82094D424BCE25700DB543F /* real_loading.json */,
+				D13DD4EF24F44832005C569F /* splash.json */,
 				B8E9FA7324B9B7FC00A97235 /* PopUp.storyboard */,
-				B8E9FA7124B9B7CB00A97235 /* InvalidCodePopViewController.swift */,
+				D13EA00724ED4644001392A8 /* ProjectInfoPopUp.swift */,
+				B8E9FA7124B9B7CB00A97235 /* OneLineMessagePopViewController.swift */,
 				B8E9FA7924B9FC0500A97235 /* ReminderPopViewController.swift */,
 				B8E9FA7B24B9FC3B00A97235 /* RoundStartPopViewController.swift */,
 				B8E9FA7D24BA059600A97235 /* SettingCodePopViewController.swift */,
 				B8E9FA7F24BA3D2E00A97235 /* CancelCardViewController.swift */,
 				B8E9FA8124BA50D800A97235 /* ChangeToDrawPopViewController.swift */,
 				B8E9FA8324BA50EA00A97235 /* ChangeToTextPopViewController.swift */,
-				B8E9FA8524BA551E00A97235 /* RoundEndPopViewController.swift */,
 				B8E9FA8724BA5A8700A97235 /* SelectNextPopViewController.swift */,
 				B8E9FA8924BA5C8E00A97235 /* EndProjectPopViewController.swift */,
 				D1559FBF24DBEEFA0026F6F7 /* RoundFinishedPopup.swift */,
@@ -279,9 +255,7 @@
 			children = (
 				D1E5839024BC965C0013FB7C /* Network */,
 				B8E9FA6E24B9B6EB00A97235 /* PopUpViews */,
-				D75ECBE724B6C78800CB46C3 /* ProjectForHost */,
-				D781D71424B512FE00AAE389 /* ProjectForMember */,
-				B84BE19E24BB8C7D0048BE9C /* ScrappedCard */,
+				D75ECBE724B6C78800CB46C3 /* ProjectRound */,
 				D781D6EA24B4A66F00AAE389 /* RoundFinished */,
 				D743C56D24AF5B7300FF6ED4 /* Extensions */,
 				D17935D324B2484D00811173 /* AddCard */,
@@ -291,6 +265,7 @@
 				D15EA3ED24BF3FD900D3017F /* MemoCell.swift */,
 				D15EA3EF24BF3FE800D3017F /* DrawingCell.swift */,
 				D1E5839724BC96C00013FB7C /* Main.storyboard */,
+				D13DD4ED24F3EC60005C569F /* TestViewController.swift */,
 				D14B131D24C1E6D6002E87F2 /* AllRoundCarouselViewController.swift */,
 				D186EFF824BF5E4F00D67FAD /* AllRoundViewController.swift */,
 				D186EFFC24BF840000D67FAD /* MainViewController.swift */,
@@ -314,6 +289,7 @@
 				D14BC39C24EAE3620075F026 /* RoundInfoCell.xib */,
 				D14BC39F24EAEFAA0075F026 /* ProjectFinishFooterView.swift */,
 				D14BC3A024EAEFAA0075F026 /* ProjectFinishFooterView.xib */,
+				D14D357024EBD540008E7581 /* ViewTransitionDelegate.swift */,
 				D17935B824B1D73600811173 /* Fonts */,
 				D7EB706624B75C320041B9CA /* SupportingFiles */,
 				D12EC24924AB4072007E5896 /* Assets.xcassets */,
@@ -388,8 +364,6 @@
 				D1E5838B24BC96270013FB7C /* UIViewController.swift */,
 				D761568E24B8D4AD00D4D484 /* UITextField.swift */,
 				D781D6EC24B4A66F00AAE389 /* LayerExtension.swift */,
-				D781D71224B4E3D600AAE389 /* NavigationControllerExtension.swift */,
-				D756DF8924B5908900551E12 /* PopupAnimationExtension.swift */,
 				D761569424BB487600D4D484 /* UIColor+Extensions.swift */,
 				D154C46324BEECF700FC95C9 /* UIImage.swift */,
 				D149795C24E17AB90021CA32 /* CALayer.swift */,
@@ -397,22 +371,22 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		D75ECBE724B6C78800CB46C3 /* ProjectForHost */ = {
+		D75ECBE724B6C78800CB46C3 /* ProjectRound */ = {
 			isa = PBXGroup;
 			children = (
-				D75ECBE824B6C7A900CB46C3 /* ProjectForHost.storyboard */,
+				D75ECBE824B6C7A900CB46C3 /* ProjectRound.storyboard */,
 				D75ECBEA24B6C7B500CB46C3 /* Controller */,
 			);
-			path = ProjectForHost;
+			path = ProjectRound;
 			sourceTree = "<group>";
 		};
 		D75ECBEA24B6C7B500CB46C3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D75ECBEB24B6C7EF00CB46C3 /* HostProjectSettingViewController.swift */,
-				D7EB706924B8B75A0041B9CA /* HostRoundSettingViewController.swift */,
-				D761569024BADDEC00D4D484 /* HostRoundStartViewController.swift */,
-				D761569224BB005A00D4D484 /* HostProjectWaitingViewController.swift */,
+				D75ECBEB24B6C7EF00CB46C3 /* ProjectSettingViewController.swift */,
+				D7EB706924B8B75A0041B9CA /* RoundSettingViewController.swift */,
+				D761569024BADDEC00D4D484 /* RoundStartViewController.swift */,
+				D13DD4EB24F2D10C005C569F /* ParticipantCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -434,6 +408,7 @@
 				D781D70E24B4B07100AAE389 /* FinishedRoundViewController.swift */,
 				D781D6F124B4A66F00AAE389 /* ScrapCardMemoViewController.swift */,
 				D781D6F224B4A66F00AAE389 /* ScrapCardViewController.swift */,
+				D14A633924EC436E00212B37 /* ScrapDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -443,36 +418,13 @@
 			children = (
 				D781D6F424B4A66F00AAE389 /* RoundCollectionViewCell.swift */,
 				D781D6F924B4A66F00AAE389 /* RoundCollectionViewCell.xib */,
-				D781D6F724B4A66F00AAE389 /* ProjectWaitingTableViewCell.swift */,
-				D781D6F524B4A66F00AAE389 /* ProjectWaitingTableViewCell.xib */,
-				D781D6F824B4A66F00AAE389 /* CardCollectionViewCell.swift */,
-				D781D6F624B4A66F00AAE389 /* CardCollectionViewCell.xib */,
 			);
 			path = Cell;
-			sourceTree = "<group>";
-		};
-		D781D71424B512FE00AAE389 /* ProjectForMember */ = {
-			isa = PBXGroup;
-			children = (
-				D781D71524B5131C00AAE389 /* ProjectForMember.storyboard */,
-				D781D71724B5133A00AAE389 /* Controller */,
-			);
-			path = ProjectForMember;
-			sourceTree = "<group>";
-		};
-		D781D71724B5133A00AAE389 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				D781D6EE24B4A66F00AAE389 /* ProjectWaitingViewController.swift */,
-				D75ECBE324B6443B00CB46C3 /* MemberRoundSettingViewController.swift */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		D7EB706624B75C320041B9CA /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				D7EB706424B7459E0041B9CA /* loading3.json */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -537,13 +489,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D75ECBE924B6C7A900CB46C3 /* ProjectForHost.storyboard in Resources */,
+				D75ECBE924B6C7A900CB46C3 /* ProjectRound.storyboard in Resources */,
 				D1E5839D24BCA1010013FB7C /* NotoSansCJKkr-Regular.otf in Resources */,
 				D1E5839C24BCA1010013FB7C /* NotoSansCJKkr-Bold.otf in Resources */,
-				D781D70424B4A66F00AAE389 /* CardCollectionViewCell.xib in Resources */,
 				D14BC3A224EAEFAA0075F026 /* ProjectFinishFooterView.xib in Resources */,
 				D12EC24D24AB4072007E5896 /* LaunchScreen.storyboard in Resources */,
 				D149795B24E168B00021CA32 /* MemoCarouselCell.xib in Resources */,
+				D13DD4F024F44832005C569F /* splash.json in Resources */,
 				B8E9FA7424B9B7FC00A97235 /* PopUp.storyboard in Resources */,
 				D149795724E1689D0021CA32 /* DrawingCarouselCell.xib in Resources */,
 				D12EC24A24AB4072007E5896 /* Assets.xcassets in Resources */,
@@ -551,10 +503,7 @@
 				D1E5839824BC96C00013FB7C /* Main.storyboard in Resources */,
 				D781D70724B4A66F00AAE389 /* RoundCollectionViewCell.xib in Resources */,
 				D14BC39624EADA240075F026 /* ProjectInfoCell.xib in Resources */,
-				D7EB706524B7459F0041B9CA /* loading3.json in Resources */,
 				D14BC39E24EAE3620075F026 /* RoundInfoCell.xib in Resources */,
-				D781D70324B4A66F00AAE389 /* ProjectWaitingTableViewCell.xib in Resources */,
-				D781D71624B5131C00AAE389 /* ProjectForMember.storyboard in Resources */,
 				D781D6FB24B4A66F00AAE389 /* RoundFinished.storyboard in Resources */,
 				D1E5839E24BCA1010013FB7C /* NotoSansCJKkr-Medium.otf in Resources */,
 				B82094D524BCE25700DB543F /* real_loading.json in Resources */,
@@ -612,41 +561,38 @@
 			files = (
 				D781D70124B4A66F00AAE389 /* ScrapCardViewController.swift in Sources */,
 				D761569524BB487600D4D484 /* UIColor+Extensions.swift in Sources */,
-				D781D71324B4E3D600AAE389 /* NavigationControllerExtension.swift in Sources */,
 				D149795624E1689D0021CA32 /* DrawingCarouselCell.swift in Sources */,
 				D1E5837324BC95690013FB7C /* Canvas.swift in Sources */,
 				D14FE22924E43A6400DACF8E /* CustomNavigationBar.swift in Sources */,
 				D781D70F24B4B07100AAE389 /* FinishedRoundViewController.swift in Sources */,
 				D14BC39524EADA240075F026 /* ProjectInfoCell.swift in Sources */,
-				D756DF8A24B5908900551E12 /* PopupAnimationExtension.swift in Sources */,
+				D13EA00824ED4644001392A8 /* ProjectInfoPopUp.swift in Sources */,
+				D14D357124EBD540008E7581 /* ViewTransitionDelegate.swift in Sources */,
 				D149795D24E17AB90021CA32 /* CALayer.swift in Sources */,
 				D18D89B624B3A6FF00D8779E /* UIView.swift in Sources */,
 				D1E5839424BC965C0013FB7C /* NetworkManager.swift in Sources */,
 				D1E5837424BC95690013FB7C /* AddCardViewController.swift in Sources */,
-				D761569124BADDEC00D4D484 /* HostRoundStartViewController.swift in Sources */,
-				D761569324BB005A00D4D484 /* HostProjectWaitingViewController.swift in Sources */,
-				D7EB706A24B8B75A0041B9CA /* HostRoundSettingViewController.swift in Sources */,
+				D761569124BADDEC00D4D484 /* RoundStartViewController.swift in Sources */,
+				D7EB706A24B8B75A0041B9CA /* RoundSettingViewController.swift in Sources */,
 				D12EC23E24AB4070007E5896 /* AppDelegate.swift in Sources */,
 				D12EC24824AB4070007E5896 /* STORM.xcdatamodeld in Sources */,
-				B8D7DB6D24BF711700DE9D02 /* ScrappedCardTextCell.swift in Sources */,
 				D781D6FC24B4A66F00AAE389 /* LayerExtension.swift in Sources */,
 				D15EA3F024BF3FE800D3017F /* DrawingCell.swift in Sources */,
 				B8E9FA7C24B9FC3B00A97235 /* RoundStartPopViewController.swift in Sources */,
 				B8E9FA7E24BA059600A97235 /* SettingCodePopViewController.swift in Sources */,
-				B8E9FA8624BA551E00A97235 /* RoundEndPopViewController.swift in Sources */,
 				D19533B724BCB072008DB22F /* Member.swift in Sources */,
 				B8E9FA7E24BA059600A97235 /* SettingCodePopViewController.swift in Sources */,
 				D149795A24E168B00021CA32 /* MemoCarouselCell.swift in Sources */,
-				B8E9FA8624BA551E00A97235 /* RoundEndPopViewController.swift in Sources */,
 				D15088AB24BD98DD007D9596 /* Round.swift in Sources */,
 				D18D89B624B3A6FF00D8779E /* UIView.swift in Sources */,
 				D186EFFD24BF840000D67FAD /* MainViewController.swift in Sources */,
+				D13DD4EE24F3EC60005C569F /* TestViewController.swift in Sources */,
+				D13DD4EC24F2D10C005C569F /* ParticipantCell.swift in Sources */,
 				D761568F24B8D4AD00D4D484 /* UITextField.swift in Sources */,
 				D14BC3A424EB17CF0075F026 /* ProjectFinalViewController.swift in Sources */,
 				D12EC23E24AB4070007E5896 /* AppDelegate.swift in Sources */,
-				D75ECBE424B6443B00CB46C3 /* MemberRoundSettingViewController.swift in Sources */,
 				D12EC24824AB4070007E5896 /* STORM.xcdatamodeld in Sources */,
-				D75ECBEC24B6C7EF00CB46C3 /* HostProjectSettingViewController.swift in Sources */,
+				D75ECBEC24B6C7EF00CB46C3 /* ProjectSettingViewController.swift in Sources */,
 				D1559FC024DBEEFA0026F6F7 /* RoundFinishedPopup.swift in Sources */,
 				D16635A824D8A86D00B881AB /* Timer.swift in Sources */,
 				D1E5839524BC965C0013FB7C /* Project.swift in Sources */,
@@ -655,7 +601,6 @@
 				B8E9FA8424BA50EA00A97235 /* ChangeToTextPopViewController.swift in Sources */,
 				D1E5838524BC95990013FB7C /* RoundMeetingViewController.swift in Sources */,
 				D1E5838524BC95990013FB7C /* RoundMeetingViewController.swift in Sources */,
-				B8D7DB6F24BF712B00DE9D02 /* ScrappedCardImageCell.swift in Sources */,
 				D1E5838524BC95990013FB7C /* RoundMeetingViewController.swift in Sources */,
 				D1469A6E24DDDFE100D337F1 /* ProjectSetting.swift in Sources */,
 				B8E9FA8224BA50D800A97235 /* ChangeToDrawPopViewController.swift in Sources */,
@@ -663,7 +608,7 @@
 				D1E5839624BC965C0013FB7C /* Response.swift in Sources */,
 				D12EC23E24AB4070007E5896 /* AppDelegate.swift in Sources */,
 				B8E9FA8024BA3D2E00A97235 /* CancelCardViewController.swift in Sources */,
-				B8E9FA7224B9B7CB00A97235 /* InvalidCodePopViewController.swift in Sources */,
+				B8E9FA7224B9B7CB00A97235 /* OneLineMessagePopViewController.swift in Sources */,
 				D14BC3A124EAEFAA0075F026 /* ProjectFinishFooterView.swift in Sources */,
 				D12EC24824AB4070007E5896 /* STORM.xcdatamodeld in Sources */,
 				B8E9FA8824BA5A8700A97235 /* SelectNextPopViewController.swift in Sources */,
@@ -673,19 +618,17 @@
 				D147B40324BDABAA0064B026 /* Card.swift in Sources */,
 				B8E9FA7A24B9FC0500A97235 /* ReminderPopViewController.swift in Sources */,
 				D147598524AB4DA3006C4122 /* SceneDelegate.swift in Sources */,
-				D781D70624B4A66F00AAE389 /* CardCollectionViewCell.swift in Sources */,
 				D14B132024C1E92B002E87F2 /* CarouselFlowLayout.swift in Sources */,
 				D781D70024B4A66F00AAE389 /* ScrapCardMemoViewController.swift in Sources */,
 				D781D70224B4A66F00AAE389 /* RoundCollectionViewCell.swift in Sources */,
 				D781D6FF24B4A66F00AAE389 /* ReminderPopupViewController.swift in Sources */,
 				D154C46424BEECF700FC95C9 /* UIImage.swift in Sources */,
-				D781D70524B4A66F00AAE389 /* ProjectWaitingTableViewCell.swift in Sources */,
 				D75ECBE624B6BD2500CB46C3 /* RoundStartAlertPopupViewController.swift in Sources */,
 				D1E5838C24BC96270013FB7C /* UIViewController.swift in Sources */,
 				D14BC39924EAE2180075F026 /* ScrapCell.swift in Sources */,
 				D160AFAC24E3FD9F00ED09C7 /* ShadowRoundedView.swift in Sources */,
 				D14B131E24C1E6D6002E87F2 /* AllRoundCarouselViewController.swift in Sources */,
-				D781D6FD24B4A66F00AAE389 /* ProjectWaitingViewController.swift in Sources */,
+				D14A633A24EC436E00212B37 /* ScrapDetailViewController.swift in Sources */,
 				B8E9FA8A24BA5C8E00A97235 /* EndProjectPopViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
