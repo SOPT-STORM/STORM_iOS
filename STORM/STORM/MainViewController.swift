@@ -45,7 +45,8 @@ class MainViewController: UIViewController {
     }
     
     @objc func didPressMyPage() {
-        print("마이페이지~")
+        guard let myPageVC = UIStoryboard(name: "MyPage", bundle: nil).instantiateViewController(withIdentifier: "MyPageVC") as? ProfileViewController else {return}
+        self.navigationController?.pushViewController(myPageVC, animated: true)
     }
     
     @IBAction func didPressAddProject(_ sender: UIButton) {

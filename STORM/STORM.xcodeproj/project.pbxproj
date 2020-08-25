@@ -46,6 +46,8 @@
 		D1469A6E24DDDFE100D337F1 /* ProjectSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1469A6D24DDDFE100D337F1 /* ProjectSetting.swift */; };
 		D147598524AB4DA3006C4122 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D147598424AB4DA3006C4122 /* SceneDelegate.swift */; };
 		D147B40324BDABAA0064B026 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = D147B40224BDABAA0064B026 /* Card.swift */; };
+		D1489D9A24F53D0B001D4F17 /* NotoSansCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B84697EC24D325A000E56804 /* NotoSansCJKkr-Bold.otf */; };
+		D1489D9B24F53D11001D4F17 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B84697F224D325A800E56804 /* NotoSansCJKkr-Regular.otf */; };
 		D149795624E1689D0021CA32 /* DrawingCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D149795424E1689D0021CA32 /* DrawingCarouselCell.swift */; };
 		D149795724E1689D0021CA32 /* DrawingCarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D149795524E1689D0021CA32 /* DrawingCarouselCell.xib */; };
 		D149795A24E168B00021CA32 /* MemoCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D149795824E168B00021CA32 /* MemoCarouselCell.swift */; };
@@ -119,6 +121,7 @@
 		B84697E824D3141D00E56804 /* DeleteAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountViewController.swift; sourceTree = "<group>"; };
 		B84697F324D3261200E56804 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = "en.lproj/NotoSansCJKkr-Bold.otf"; sourceTree = "<group>"; };
 		B84697F424D3261700E56804 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = "en.lproj/NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
+		B84697F524D3261A00E56804 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = "en.lproj/NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		B84C530E24ED54BE00B4CF1D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B878A01124D9692400A8C19F /* CameraPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPopUpViewController.swift; sourceTree = "<group>"; };
 		B878A01324DA051A00A8C19F /* EnsureDeleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnsureDeleteViewController.swift; sourceTree = "<group>"; };
@@ -422,6 +425,7 @@
 			children = (
 				B84697EC24D325A000E56804 /* NotoSansCJKkr-Bold.otf */,
 				B84697EF24D325A500E56804 /* NotoSansCJKkr-Medium.otf */,
+				B84697F224D325A800E56804 /* NotoSansCJKkr-Regular.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -581,6 +585,8 @@
 				B84697E224D30FAA00E56804 /* MyPage.storyboard in Resources */,
 				B800D24624E86D960024CE2F /* login_0816.json in Resources */,
 				D12EC24D24AB4072007E5896 /* LaunchScreen.storyboard in Resources */,
+				D1489D9B24F53D11001D4F17 /* NotoSansCJKkr-Regular.otf in Resources */,
+				D1489D9A24F53D0B001D4F17 /* NotoSansCJKkr-Bold.otf in Resources */,
 				B8255E8E24D492A700749B62 /* example.jpg in Resources */,
 				D75ECBE924B6C7A900CB46C3 /* ProjectRound.storyboard in Resources */,
 				D14BC3A224EAEFAA0075F026 /* ProjectFinishFooterView.xib in Resources */,
@@ -754,6 +760,14 @@
 				B84697F424D3261700E56804 /* en */,
 			);
 			name = "NotoSansCJKkr-Medium.otf";
+			sourceTree = "<group>";
+		};
+		B84697F224D325A800E56804 /* NotoSansCJKkr-Regular.otf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B84697F524D3261A00E56804 /* en */,
+			);
+			name = "NotoSansCJKkr-Regular.otf";
 			sourceTree = "<group>";
 		};
 		D12EC24B24AB4072007E5896 /* LaunchScreen.storyboard */ = {
