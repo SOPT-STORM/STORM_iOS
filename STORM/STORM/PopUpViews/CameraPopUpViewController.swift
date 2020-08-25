@@ -109,6 +109,14 @@ class CameraPopUpViewController: UIViewController,UIImagePickerControllerDelegat
         }
     }
     
+    @IBAction func selectBasicImage(_ sender: UIButton) {
+        NotificationCenter.default.post(
+        name: NSNotification.Name(rawValue: "SetBasicImage"),
+        object: nil)
+        self.dismiss(animated: false)
+    }
+    
+    
     
     // MARK:- 함수
     func showCard() {

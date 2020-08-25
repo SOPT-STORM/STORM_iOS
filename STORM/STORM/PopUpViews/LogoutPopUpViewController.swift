@@ -11,6 +11,7 @@ import UIKit
 class LogoutPopUpViewController: UIViewController {
     
     // MARK:- IBOutlet
+    
     @IBOutlet weak var popUpView: UIView!
     
     // MARK:- viewDidLoad
@@ -23,7 +24,10 @@ class LogoutPopUpViewController: UIViewController {
     // MARK:- IBAction
     
     @IBAction func logoutButtonDidTap(_ sender: UIButton) {
-        
+        print("delete email,pwd")
+        UserDefaults.standard.removeObject(forKey: "email")
+        UserDefaults.standard.removeObject(forKey: "pwd")
+        UserDefaults.standard.removeObject(forKey: "index")
         self.view.window?.rootViewController?.dismiss(animated: false, completion: nil)
         
     }
