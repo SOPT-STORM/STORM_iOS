@@ -3,17 +3,17 @@
     {
       "scale" : "1x",
       "idiom" : "universal",
-      "filename" : "yellowCircle.png"
+      "filename" : "myprojectBgRed.png"
     },
     {
+      "scale" : "2x",
       "idiom" : "universal",
-      "filename" : "yellowCircle@2x.png",
-      "scale" : "2x"
+      "filename" : "myprojectBgRed@2x.png"
     },
     {
-      "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "yellowCircle@3x.png"
+      "idiom" : "universal",
+      "filename" : "myprojectBgRed@3x.png"
     }
   ],
   "info" : {
