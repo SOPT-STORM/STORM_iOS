@@ -76,4 +76,40 @@ struct ScrappedCardResponse: Codable {
     let data: ProjectWithScrap
 }
 
+struct LogInResponse: Codable {
+    let status: Int
+    let success: Bool
+    let message: String
+    let data: Int?
+}
 
+struct SignInResponse: Codable {
+    let status: Int
+    let success: Bool
+    let message: String
+}
+
+struct MyPageResponse: Codable {
+    let status: Int
+    let success: Bool
+    let message: String
+    let data: MyPage?
+}
+
+struct ConfirmResponse: Codable {
+    let status: Int
+    let success: Bool
+    let message: String
+}
+
+struct WithdrawalResponse: Codable {
+    let status: Int
+    let success: Bool
+    let message: String
+}
+
+struct ModifyResponse: Codable {
+    let status: Int
+    let success: Bool
+    let message: String
+}
