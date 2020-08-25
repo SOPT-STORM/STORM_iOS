@@ -13,8 +13,8 @@
 		B806015B24E51254006AA9EF /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B806015A24E51254006AA9EF /* LogInViewController.swift */; };
 		B806015D24E5207E006AA9EF /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B806015C24E5207E006AA9EF /* SignUpViewController.swift */; };
 		B806015F24E527B7006AA9EF /* SignUpProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B806015E24E527B7006AA9EF /* SignUpProfileViewController.swift */; };
+		B81720B324ED39E600DB085D /* GoBackPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81720B224ED39E600DB085D /* GoBackPopUpViewController.swift */; };
 		B82094D524BCE25700DB543F /* real_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = B82094D424BCE25700DB543F /* real_loading.json */; };
-
 		B8255E8E24D492A700749B62 /* example.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B8255E8D24D492A700749B62 /* example.jpg */; };
 		B84697E224D30FAA00E56804 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B84697E124D30FAA00E56804 /* MyPage.storyboard */; };
 		B84697E524D313FB00E56804 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84697E424D313FB00E56804 /* ProfileViewController.swift */; };
@@ -22,15 +22,12 @@
 		B84697EA24D325A000E56804 /* NotoSansCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B84697EC24D325A000E56804 /* NotoSansCJKkr-Bold.otf */; };
 		B84697ED24D325A500E56804 /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = B84697EF24D325A500E56804 /* NotoSansCJKkr-Medium.otf */; };
 		B84697F024D325A800E56804 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B84697F224D325A800E56804 /* NotoSansCJKkr-Regular.otf */; };
+		B84C530F24ED54BE00B4CF1D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84C530E24ED54BE00B4CF1D /* User.swift */; };
 		B878A01224D9692400A8C19F /* CameraPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B878A01124D9692400A8C19F /* CameraPopUpViewController.swift */; };
 		B878A01424DA051A00A8C19F /* EnsureDeleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B878A01324DA051A00A8C19F /* EnsureDeleteViewController.swift */; };
 		B8D7DB6D24BF711700DE9D02 /* ScrappedCardTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D7DB6C24BF711700DE9D02 /* ScrappedCardTextCell.swift */; };
 		B8D7DB6F24BF712B00DE9D02 /* ScrappedCardImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D7DB6E24BF712B00DE9D02 /* ScrappedCardImageCell.swift */; };
 		B8E34D5924E438C7003538A8 /* LogIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E34D5824E438C7003538A8 /* LogIn.storyboard */; };
-
-		B8D7DB6D24BF711700DE9D02 /* ScrappedCardTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D7DB6C24BF711700DE9D02 /* ScrappedCardTextCell.swift */; };
-		B8D7DB6F24BF712B00DE9D02 /* ScrappedCardImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D7DB6E24BF712B00DE9D02 /* ScrappedCardImageCell.swift */; };
-
 		B8E9FA7224B9B7CB00A97235 /* InvalidCodePopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9FA7124B9B7CB00A97235 /* InvalidCodePopViewController.swift */; };
 		B8E9FA7424B9B7FC00A97235 /* PopUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E9FA7324B9B7FC00A97235 /* PopUp.storyboard */; };
 		B8E9FA7A24B9FC0500A97235 /* ReminderPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9FA7924B9FC0500A97235 /* ReminderPopViewController.swift */; };
@@ -124,8 +121,8 @@
 		B806015A24E51254006AA9EF /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		B806015C24E5207E006AA9EF /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		B806015E24E527B7006AA9EF /* SignUpProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpProfileViewController.swift; sourceTree = "<group>"; };
+		B81720B224ED39E600DB085D /* GoBackPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoBackPopUpViewController.swift; sourceTree = "<group>"; };
 		B82094D424BCE25700DB543F /* real_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = real_loading.json; sourceTree = "<group>"; };
-
 		B8255E8D24D492A700749B62 /* example.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = example.jpg; path = Assets.xcassets/example.jpg; sourceTree = "<group>"; };
 		B84697E124D30FAA00E56804 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		B84697E424D313FB00E56804 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -133,18 +130,12 @@
 		B84697F324D3261200E56804 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = "en.lproj/NotoSansCJKkr-Bold.otf"; sourceTree = "<group>"; };
 		B84697F424D3261700E56804 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = "en.lproj/NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
 		B84697F524D3261A00E56804 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = "en.lproj/NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
+		B84C530E24ED54BE00B4CF1D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B878A01124D9692400A8C19F /* CameraPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPopUpViewController.swift; sourceTree = "<group>"; };
 		B878A01324DA051A00A8C19F /* EnsureDeleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnsureDeleteViewController.swift; sourceTree = "<group>"; };
 		B8D7DB6C24BF711700DE9D02 /* ScrappedCardTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrappedCardTextCell.swift; sourceTree = "<group>"; };
 		B8D7DB6E24BF712B00DE9D02 /* ScrappedCardImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrappedCardImageCell.swift; sourceTree = "<group>"; };
-		B8E2B65124B254890098F677 /* NotoSansCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Bold.otf"; path = "/Downloads/NotoSansCJKkr-Bold.otf"; sourceTree = "<absolute>"; };
-		B8E2B65224B254890098F677 /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Medium.otf"; path = "/Downloads/NotoSansCJKkr-Medium.otf"; sourceTree = "<absolute>"; };
-		B8E2B65324B254890098F677 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Regular.otf"; path = "/Downloads/NotoSansCJKkr-Regular.otf"; sourceTree = "<absolute>"; };
 		B8E34D5824E438C7003538A8 /* LogIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogIn.storyboard; sourceTree = "<group>"; };
-
-		B8D7DB6C24BF711700DE9D02 /* ScrappedCardTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrappedCardTextCell.swift; sourceTree = "<group>"; };
-		B8D7DB6E24BF712B00DE9D02 /* ScrappedCardImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrappedCardImageCell.swift; sourceTree = "<group>"; };
-
 		B8E9FA7124B9B7CB00A97235 /* InvalidCodePopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvalidCodePopViewController.swift; sourceTree = "<group>"; };
 		B8E9FA7324B9B7FC00A97235 /* PopUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PopUp.storyboard; sourceTree = "<group>"; };
 		B8E9FA7924B9FC0500A97235 /* ReminderPopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderPopViewController.swift; sourceTree = "<group>"; };
@@ -205,14 +196,6 @@
 		D1E5839224BC965C0013FB7C /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		D1E5839324BC965C0013FB7C /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		D1E5839724BC96C00013FB7C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-
-		D743C56E24AF5D8C00FF6ED4 /* RoundCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCollectionViewCell.swift; sourceTree = "<group>"; };
-		D743C57224AF5F8600FF6ED4 /* FinalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalViewController.swift; sourceTree = "<group>"; };
-
-		D1E5839924BCA0FF0013FB7C /* NotoSansCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Bold.otf"; sourceTree = "<group>"; };
-		D1E5839A24BCA1000013FB7C /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
-		D1E5839B24BCA1010013FB7C /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
-
 		D756DF8924B5908900551E12 /* PopupAnimationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupAnimationExtension.swift; sourceTree = "<group>"; };
 		D75ECBE324B6443B00CB46C3 /* MemberRoundSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberRoundSettingViewController.swift; sourceTree = "<group>"; };
 		D75ECBE524B6BD2500CB46C3 /* RoundStartAlertPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundStartAlertPopupViewController.swift; sourceTree = "<group>"; };
@@ -272,7 +255,6 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-
 		B806015724E502A6006AA9EF /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
@@ -302,8 +284,6 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-
-
 		B84BE19E24BB8C7D0048BE9C /* ScrappedCard */ = {
 			isa = PBXGroup;
 			children = (
@@ -311,22 +291,6 @@
 				B8D7DB6E24BF712B00DE9D02 /* ScrappedCardImageCell.swift */,
 			);
 			path = ScrappedCard;
-			sourceTree = "<group>";
-		};
-
-		B84BE19F24BB8C8F0048BE9C /* Round */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Round;
-			sourceTree = "<group>";
-		};
-		B8A25EA524B4B81900C07092 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				D17935C724B1DCF500811173 /* NotoSansCJKkr-Bold.otf */,
-			);
-			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		B8E34D5724E438A9003538A8 /* LogIn */ = {
@@ -339,7 +303,6 @@
 			path = LogIn;
 			sourceTree = "<group>";
 		};
-
 		B8E9FA6E24B9B6EB00A97235 /* PopUpViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -355,14 +318,12 @@
 				B8E9FA8524BA551E00A97235 /* RoundEndPopViewController.swift */,
 				B8E9FA8724BA5A8700A97235 /* SelectNextPopViewController.swift */,
 				B8E9FA8924BA5C8E00A97235 /* EndProjectPopViewController.swift */,
-
 				B878A01124D9692400A8C19F /* CameraPopUpViewController.swift */,
 				B8F5635F24DB1AD40036C768 /* LogoutPopUpViewController.swift */,
-
 				D1559FBF24DBEEFA0026F6F7 /* RoundFinishedPopup.swift */,
 				D781D6F024B4A66F00AAE389 /* ReminderPopupViewController.swift */,
 				D75ECBE524B6BD2500CB46C3 /* RoundStartAlertPopupViewController.swift */,
-
+				B81720B224ED39E600DB085D /* GoBackPopUpViewController.swift */,
 			);
 			path = PopUpViews;
 			sourceTree = "<group>";
@@ -388,21 +349,15 @@
 		D12EC23C24AB4070007E5896 /* STORM */ = {
 			isa = PBXGroup;
 			children = (
-
 				B806015724E502A6006AA9EF /* SignUp */,
 				B8E34D5724E438A9003538A8 /* LogIn */,
 				B84697E024D30F6A00E56804 /* MyPage */,
-				B8E9FA6E24B9B6EB00A97235 /* PopUpViews */,
-
 				D1E5839024BC965C0013FB7C /* Network */,
 				B8E9FA6E24B9B6EB00A97235 /* PopUpViews */,
 				D75ECBE724B6C78800CB46C3 /* ProjectForHost */,
 				D781D71424B512FE00AAE389 /* ProjectForMember */,
 				B84BE19E24BB8C7D0048BE9C /* ScrappedCard */,
 				D781D6EA24B4A66F00AAE389 /* RoundFinished */,
-
-				D1E5838D24BC964E0013FB7C /* Signin */,
-
 				D743C56D24AF5B7300FF6ED4 /* Extensions */,
 				D17935D324B2484D00811173 /* AddCard */,
 				D1E5837B24BC95980013FB7C /* RoundMeetingViewController.swift */,
@@ -462,6 +417,7 @@
 				D19533B624BCB072008DB22F /* Member.swift */,
 				D15088AA24BD98DC007D9596 /* Round.swift */,
 				D147B40224BDABAA0064B026 /* Card.swift */,
+				B84C530E24ED54BE00B4CF1D /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -662,17 +618,14 @@
 				B84697F024D325A800E56804 /* NotoSansCJKkr-Regular.otf in Resources */,
 				B84697EA24D325A000E56804 /* NotoSansCJKkr-Bold.otf in Resources */,
 				D781D70424B4A66F00AAE389 /* CardCollectionViewCell.xib in Resources */,
-
 				B8E34D5924E438C7003538A8 /* LogIn.storyboard in Resources */,
 				B84697E224D30FAA00E56804 /* MyPage.storyboard in Resources */,
 				B800D24624E86D960024CE2F /* login_0816.json in Resources */,
 				D12EC24D24AB4072007E5896 /* LaunchScreen.storyboard in Resources */,
 				B8255E8E24D492A700749B62 /* example.jpg in Resources */,
-
 				D14BC3A224EAEFAA0075F026 /* ProjectFinishFooterView.xib in Resources */,
 				D12EC24D24AB4072007E5896 /* LaunchScreen.storyboard in Resources */,
 				D149795B24E168B00021CA32 /* MemoCarouselCell.xib in Resources */,
-
 				B8E9FA7424B9B7FC00A97235 /* PopUp.storyboard in Resources */,
 				D149795724E1689D0021CA32 /* DrawingCarouselCell.xib in Resources */,
 				D12EC24A24AB4072007E5896 /* Assets.xcassets in Resources */,
@@ -686,9 +639,7 @@
 				D781D71624B5131C00AAE389 /* ProjectForMember.storyboard in Resources */,
 				B806015924E50318006AA9EF /* SignUp.storyboard in Resources */,
 				D781D6FB24B4A66F00AAE389 /* RoundFinished.storyboard in Resources */,
-
 				B84697ED24D325A500E56804 /* NotoSansCJKkr-Medium.otf in Resources */,
-
 				B82094D524BCE25700DB543F /* real_loading.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -749,9 +700,7 @@
 				D1E5837324BC95690013FB7C /* Canvas.swift in Sources */,
 				D14FE22924E43A6400DACF8E /* CustomNavigationBar.swift in Sources */,
 				D781D70F24B4B07100AAE389 /* FinishedRoundViewController.swift in Sources */,
-
 				D14BC39524EADA240075F026 /* ProjectInfoCell.swift in Sources */,
-
 				D756DF8A24B5908900551E12 /* PopupAnimationExtension.swift in Sources */,
 				D149795D24E17AB90021CA32 /* CALayer.swift in Sources */,
 				D18D89B624B3A6FF00D8779E /* UIView.swift in Sources */,
@@ -770,18 +719,14 @@
 				B8E9FA7E24BA059600A97235 /* SettingCodePopViewController.swift in Sources */,
 				B8E9FA8624BA551E00A97235 /* RoundEndPopViewController.swift in Sources */,
 				D19533B724BCB072008DB22F /* Member.swift in Sources */,
-
 				B8E9FA7E24BA059600A97235 /* SettingCodePopViewController.swift in Sources */,
 				D149795A24E168B00021CA32 /* MemoCarouselCell.swift in Sources */,
 				B8E9FA8624BA551E00A97235 /* RoundEndPopViewController.swift in Sources */,
-
 				D15088AB24BD98DD007D9596 /* Round.swift in Sources */,
 				D186EFFD24BF840000D67FAD /* MainViewController.swift in Sources */,
 				D761568F24B8D4AD00D4D484 /* UITextField.swift in Sources */,
-
 				D75ECBE424B6443B00CB46C3 /* MemberRoundSettingViewController.swift in Sources */,
 				D75ECBEC24B6C7EF00CB46C3 /* HostProjectSettingViewController.swift in Sources */,
-
 				D14BC3A424EB17CF0075F026 /* ProjectFinalViewController.swift in Sources */,
 				D12EC23E24AB4070007E5896 /* AppDelegate.swift in Sources */,
 				D75ECBE424B6443B00CB46C3 /* MemberRoundSettingViewController.swift in Sources */,
@@ -789,7 +734,6 @@
 				D75ECBEC24B6C7EF00CB46C3 /* HostProjectSettingViewController.swift in Sources */,
 				D1559FC024DBEEFA0026F6F7 /* RoundFinishedPopup.swift in Sources */,
 				D16635A824D8A86D00B881AB /* Timer.swift in Sources */,
-
 				D1E5839524BC965C0013FB7C /* Project.swift in Sources */,
 				D186F00324BFAE3E00D67FAD /* AllProjectViewController.swift in Sources */,
 				D1E5838724BC95990013FB7C /* SocketIOManager.swift in Sources */,
@@ -797,33 +741,28 @@
 				D1E5838524BC95990013FB7C /* RoundMeetingViewController.swift in Sources */,
 				D1E5838524BC95990013FB7C /* RoundMeetingViewController.swift in Sources */,
 				B8D7DB6F24BF712B00DE9D02 /* ScrappedCardImageCell.swift in Sources */,
-
 				D1E5838524BC95990013FB7C /* RoundMeetingViewController.swift in Sources */,
 				D1469A6E24DDDFE100D337F1 /* ProjectSetting.swift in Sources */,
-
 				B8E9FA8224BA50D800A97235 /* ChangeToDrawPopViewController.swift in Sources */,
 				D186EFFF24BF863100D67FAD /* ProjectSummaryCell.swift in Sources */,
 				D1E5839624BC965C0013FB7C /* Response.swift in Sources */,
 				B8E9FA8024BA3D2E00A97235 /* CancelCardViewController.swift in Sources */,
 				B8E9FA7224B9B7CB00A97235 /* InvalidCodePopViewController.swift in Sources */,
-
 				B8E9FA8824BA5A8700A97235 /* SelectNextPopViewController.swift in Sources */,
-				D1E5838224BC95990013FB7C /* CollectionFlowLayout.swift in Sources */,
 				B878A01424DA051A00A8C19F /* EnsureDeleteViewController.swift in Sources */,
-				D1E5838024BC95990013FB7C /* UPCarouselFlow.swift in Sources */,
-
 				D14BC3A124EAEFAA0075F026 /* ProjectFinishFooterView.swift in Sources */,
 				D12EC24824AB4070007E5896 /* STORM.xcdatamodeld in Sources */,
 				B8E9FA8824BA5A8700A97235 /* SelectNextPopViewController.swift in Sources */,
-
 				D186EFF924BF5E4F00D67FAD /* AllRoundViewController.swift in Sources */,
 				D15EA3EE24BF3FD900D3017F /* MemoCell.swift in Sources */,
 				D14BC39D24EAE3620075F026 /* RoundInfoCell.swift in Sources */,
+				B84C530F24ED54BE00B4CF1D /* User.swift in Sources */,
 				D147B40324BDABAA0064B026 /* Card.swift in Sources */,
 				B8E9FA7A24B9FC0500A97235 /* ReminderPopViewController.swift in Sources */,
 				D147598524AB4DA3006C4122 /* SceneDelegate.swift in Sources */,
 				B806015B24E51254006AA9EF /* LogInViewController.swift in Sources */,
 				B878A01224D9692400A8C19F /* CameraPopUpViewController.swift in Sources */,
+				B81720B324ED39E600DB085D /* GoBackPopUpViewController.swift in Sources */,
 				D781D70624B4A66F00AAE389 /* CardCollectionViewCell.swift in Sources */,
 				D14B132024C1E92B002E87F2 /* CarouselFlowLayout.swift in Sources */,
 				D781D70024B4A66F00AAE389 /* ScrapCardMemoViewController.swift in Sources */,
@@ -834,17 +773,13 @@
 				D154C46424BEECF700FC95C9 /* UIImage.swift in Sources */,
 				D781D70524B4A66F00AAE389 /* ProjectWaitingTableViewCell.swift in Sources */,
 				D75ECBE624B6BD2500CB46C3 /* RoundStartAlertPopupViewController.swift in Sources */,
-
 				B806015D24E5207E006AA9EF /* SignUpViewController.swift in Sources */,
-			
 				D1E5838C24BC96270013FB7C /* UIViewController.swift in Sources */,
 				B84697E524D313FB00E56804 /* ProfileViewController.swift in Sources */,
-
 				D1E5838C24BC96270013FB7C /* UIViewController.swift in Sources */,
 				D14BC39924EAE2180075F026 /* ScrapCell.swift in Sources */,
 				D160AFAC24E3FD9F00ED09C7 /* ShadowRoundedView.swift in Sources */,
 				D14B131E24C1E6D6002E87F2 /* AllRoundCarouselViewController.swift in Sources */,
-
 				D781D6FD24B4A66F00AAE389 /* ProjectWaitingViewController.swift in Sources */,
 				B8E9FA8A24BA5C8E00A97235 /* EndProjectPopViewController.swift in Sources */,
 			);
