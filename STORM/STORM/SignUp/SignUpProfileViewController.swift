@@ -163,6 +163,8 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
         
         if nameTextField.text?.count ?? 0 >= 2 {
             signUp()
+        } else {
+            print("????")
         }
         
         
@@ -173,6 +175,14 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         self.view.endEditing(true)
+        if nameTextField.text?.count ?? 0 < 2 {
+            doneButton.backgroundColor = UIColor(red: 152/255, green: 152/255, blue: 152/255, alpha: 1)
+            errorLabel.isHidden = false
+            
+        } else if nameTextField.text?.count ?? 0 >= 2{
+            doneButton.backgroundColor = .stormRed
+            errorLabel.isHidden = true
+        }
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {

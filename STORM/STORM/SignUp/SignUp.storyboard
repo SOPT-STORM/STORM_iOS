@@ -176,7 +176,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="wbY-1b-G1u">
-                                <rect key="frame" x="141" y="397.66666666666669" width="93" height="21"/>
+                                <rect key="frame" x="141" y="398" width="93" height="21"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u4i-yX-MzC">
                                         <rect key="frame" x="0.0" y="0.0" width="21" height="21"/>
@@ -263,7 +263,7 @@
                             <constraint firstItem="wbY-1b-G1u" firstAttribute="centerX" secondItem="L4I-hI-NqX" secondAttribute="centerX" id="4of-2i-1OM"/>
                             <constraint firstItem="f7C-YR-I21" firstAttribute="width" secondItem="L4I-hI-NqX" secondAttribute="width" multiplier="0.797333" id="B4W-1N-pZ1"/>
                             <constraint firstItem="hzs-ND-jVi" firstAttribute="centerY" secondItem="L4I-hI-NqX" secondAttribute="centerY" multiplier="0.75" id="Pdg-ZU-jTv"/>
-                            <constraint firstItem="wbY-1b-G1u" firstAttribute="top" secondItem="vTF-aG-mzu" secondAttribute="bottom" constant="22" id="Qdf-vF-dU4"/>
+                            <constraint firstItem="wbY-1b-G1u" firstAttribute="top" secondItem="vTF-aG-mzu" secondAttribute="bottom" multiplier="1.06" id="Qdf-vF-dU4"/>
                             <constraint firstItem="bpK-bw-z7Y" firstAttribute="width" secondItem="L4I-hI-NqX" secondAttribute="width" multiplier="0.797333" id="Qf4-Og-1tR"/>
                             <constraint firstItem="vTF-aG-mzu" firstAttribute="centerX" secondItem="L4I-hI-NqX" secondAttribute="centerX" multiplier="1.25" id="X1g-Jr-ZKu"/>
                             <constraint firstItem="bpK-bw-z7Y" firstAttribute="centerY" secondItem="L4I-hI-NqX" secondAttribute="centerY" multiplier="1.2" id="ZsI-Ni-YBy"/>
@@ -275,7 +275,7 @@
                             <constraint firstItem="vTF-aG-mzu" firstAttribute="width" secondItem="L4I-hI-NqX" secondAttribute="width" multiplier="0.109333" id="mdH-eE-4C2"/>
                             <constraint firstItem="f7C-YR-I21" firstAttribute="centerX" secondItem="L4I-hI-NqX" secondAttribute="centerX" id="p7A-do-s1p"/>
                             <constraint firstItem="Gss-yb-OlZ" firstAttribute="centerX" secondItem="L4I-hI-NqX" secondAttribute="centerX" id="qVI-e7-SVx"/>
-                            <constraint firstItem="wbY-1b-G1u" firstAttribute="top" secondItem="hzs-ND-jVi" secondAttribute="bottom" constant="22" id="qpg-iO-J0F"/>
+                            <constraint firstItem="wbY-1b-G1u" firstAttribute="top" secondItem="hzs-ND-jVi" secondAttribute="bottom" multiplier="1.06" id="qpg-iO-J0F"/>
                             <constraint firstItem="bpK-bw-z7Y" firstAttribute="centerX" secondItem="L4I-hI-NqX" secondAttribute="centerX" id="rjD-aP-nBi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="h0e-SS-Yev"/>
