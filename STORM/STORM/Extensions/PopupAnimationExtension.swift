@@ -12,6 +12,7 @@ import UIKit
 extension UIViewController {
     func showAnimate()
     {
+        print("전달받음")
         self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
         self.view.alpha = 0.0;
         UIView.animate(withDuration: 0.25, animations: {

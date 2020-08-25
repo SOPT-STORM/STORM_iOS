@@ -12,7 +12,7 @@ class AllProjectViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var data: [ProjectWithDetail] = []
+    lazy var data: [ProjectWithDetail] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,7 @@ class AllProjectViewController: UIViewController {
         self.setNaviTitle()
 
         collectionView.reloadData()
-    }
+   }
 }
 
 extension AllProjectViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -38,9 +38,7 @@ extension AllProjectViewController: UICollectionViewDelegate, UICollectionViewDa
 
         let data = self.data[indexPath.row]
 
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "projectSummaryCell", for: indexPath) as! ProjectSummaryCell
-        
-        cell.addRoundShadow(cornerRadius: 10)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "projectSummaryCell", for: indexPath) as? ProjectSummaryCell else {return UICollectionViewCell()}
         
         cell.projectName.text = data.project_name
         
@@ -78,6 +76,17 @@ extension AllProjectViewController: UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return self.view.frame.width * 0.072
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let projectIndex = data[indexPath.row].project_idx
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = storyboard.instantiateViewController(withIdentifier: "projectFinalViewController") as? ProjectFinalViewController else {return}
+        
+        vc.projectIndex = projectIndex
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
 }

@@ -9,9 +9,6 @@
 import UIKit
 
 class RoundCollectionViewCell: UICollectionViewCell {
-
-    
-    static let identifier : String = "roundCollectionViewCell"
     
     @IBOutlet weak var roundView: UIView!
     @IBOutlet weak var roundIndexLabel: UILabel!

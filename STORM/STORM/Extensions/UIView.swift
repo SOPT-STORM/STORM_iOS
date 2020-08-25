@@ -10,42 +10,59 @@ import UIKit
 
 extension UIView {
     
-    func addRoundShadow(cornerRadius: CGFloat) {
+    func addRoundShadow(contentView: UIView, cornerRadius: CGFloat) {
         
-      self.layer.cornerRadius = cornerRadius
+        self.layer.cornerRadius = cornerRadius
+        self.layer.backgroundColor = UIColor.white.cgColor  //UIColor.clear.cgColor
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
+        self.layer.shadowOpacity = 0.16 // 0.16
+        self.layer.shadowRadius = 3
         
-      let containerView = UIView()
-      
-      layer.backgroundColor = UIColor.clear.cgColor
-      layer.shadowColor = UIColor.black.cgColor
-      layer.shadowOffset = CGSize(width: 0, height: 3.0)
-      layer.shadowOpacity = 0.16
-      layer.shadowRadius = 2.5
-        
-      containerView.layer.cornerRadius = cornerRadius
-      containerView.layer.masksToBounds = true
-      
-      self.addSubview(containerView)
-      
-      containerView.translatesAutoresizingMaskIntoConstraints = false
-      
-      containerView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-      containerView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-      containerView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-      containerView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        contentView.layer.cornerRadius = cornerRadius
+        contentView.layer.masksToBounds = true
     }
     
     func setRound(_ radius: CGFloat) {
         self.layer.cornerRadius = radius
     }
     
-    func asImage() -> UIImage {
-        let renderer = UIGraphicsImageRenderer(bounds: bounds)
-        return renderer.image { rendererContext in
-            layer.render(in: rendererContext.cgContext)
-        }
+    /* 8/3 추가 */
+    
+    func roundCorners(corners: UIRectCorner, radius: CGFloat) {
+        let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        layer.mask = mask
     }
     
+    func makeCircle() {
+        self.layer.cornerRadius = self.frame.width / 2
+        self.layer.masksToBounds = true
+    }
+    
+    func addShadow(cornerRadus: CGFloat, shadowOffset: CGSize, shadowOpacity: Float, shadowRadius: CGFloat, shadowColor: UIColor = .black ) {
+        self.layer.cornerRadius = cornerRadus
+        self.layer.shadowOffset = shadowOffset
+        self.layer.shadowColor = shadowColor.cgColor
+        self.layer.shadowOpacity = shadowOpacity
+        self.layer.shadowRadius = shadowRadius
+        self.layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius).cgPath
+        // 마지막 이해 x
+    }
+    
+    
+    
+    /* 8/3 추가 */
+    
+    
+    func asImage() -> UIImage {
+        let renderer = UIGraphicsImageRenderer(bounds: bounds)
+        return renderer.image(actions: { rendererContext in
+            layer.render(in: rendererContext.cgContext)
+        })
+    }
+    /*
     func showAnimate()
     {
         self.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
@@ -67,7 +84,7 @@ extension UIView {
                     self.removeFromSuperview()
                 }
         });
-    }
+    }*/
     
     @IBInspectable var cornerRadius: CGFloat {
         get {
@@ -124,11 +141,4 @@ extension UIView {
             }
         }
     }
-    
-    /*func showAnimate() {
-        self.layer.transform = CGAffineTransform(1.3,1.3)
-    }*/
-    
-    
-    
 }

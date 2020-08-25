@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="projectFinishFooterView" id="U6b-Vx-4bR" customClass="ProjectFinishFooterView" customModule="STORM" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="33"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9uW-HC-JTq">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="33"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스크랩한 카드" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Eh-tm-N6c">
+                            <rect key="frame" x="29" y="5" width="93" height="23"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dDy-6I-aFa">
+                            <rect key="frame" x="304.5" y="7.5" width="40.5" height="18"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40.5" id="5ad-Nt-x4G"/>
+                                <constraint firstAttribute="height" constant="18" id="UVg-Nv-NJK"/>
+                            </constraints>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Button" image="projectBtnAll"/>
+                            <connections>
+                                <action selector="didPressMoreScrappedCard:" destination="U6b-Vx-4bR" eventType="touchUpInside" id="AbC-a8-eco"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="7Eh-tm-N6c" secondAttribute="bottom" constant="5" id="QRd-RT-3tN"/>
+                        <constraint firstItem="dDy-6I-aFa" firstAttribute="centerY" secondItem="7Eh-tm-N6c" secondAttribute="centerY" id="cKB-Ye-PdA"/>
+                        <constraint firstItem="7Eh-tm-N6c" firstAttribute="top" secondItem="9uW-HC-JTq" secondAttribute="top" constant="5" id="rTT-Dg-1y9"/>
+                        <constraint firstItem="7Eh-tm-N6c" firstAttribute="leading" secondItem="9uW-HC-JTq" secondAttribute="leading" constant="29" id="rvB-PQ-ooo"/>
+                        <constraint firstAttribute="trailing" secondItem="dDy-6I-aFa" secondAttribute="trailing" constant="30" id="zjN-Ur-Hl6"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="9uW-HC-JTq" secondAttribute="bottom" id="D2S-3O-Fc3"/>
+                <constraint firstItem="9uW-HC-JTq" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="E2u-s4-5v8"/>
+                <constraint firstAttribute="trailing" secondItem="9uW-HC-JTq" secondAttribute="trailing" id="LBa-wo-n0v"/>
+                <constraint firstItem="9uW-HC-JTq" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="s8g-Iy-owZ"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
+            <point key="canvasLocation" x="138.40579710144928" y="99.441964285714278"/>
+        </collectionReusableView>
+    </objects>
+    <resources>
+        <image name="projectBtnAll" width="41" height="18"/>
+    </resources>
+</document>

@@ -24,21 +24,22 @@ class EndProjectPopViewController: UIViewController {
         // Do any additional setup after loading the view.
 //        endProjectPopView.layer.cornerRadius = 15
 //        endProjectPopView.addShadow(width: 1, height: 3, 0.2, 5)
-        endProjectPopView.addRoundShadow(cornerRadius: 15)
+        
+//        endProjectPopView.addRoundShadow(cornerRadius: 15)
         endProjectPopView.clipsToBounds = true
         
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
-        self.showAnimate()
+     
     }
     
     // MARK:- IBAction 선언
     
     @IBAction func endConfirmButtonDidTap(_ sender: UIButton) {
-        self.removeAnimate()
+       
     }
     
     @IBAction func endCancelButtonDidTap(_ sender: UIButton) {
-        self.removeAnimate()
+      
     }
     
     // MARK:- 함수 선언

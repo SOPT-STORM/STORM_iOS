@@ -9,34 +9,89 @@
 import UIKit
 
 class SelectNextPopViewController: UIViewController {
+ 
+    @IBOutlet weak var roundInfoLabel: UILabel!
+    @IBOutlet weak var popupView: UIView!
     
-    static let identifier = "SelectNextPopViewController"
-    
-    // MARK:- IBOutlet 선언
-
-    @IBOutlet weak var selectNextPopView: UIView!
-    
-    // MARK:- viewDidLoad 선언
+    lazy var roundNumb = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-//        selectNextPopView.layer.cornerRadius = 15
-//        selectNextPopView.addShadow(width: 1, height: 3, 0.2, 5)
-        selectNextPopView.addRoundShadow(cornerRadius: 15)
-        selectNextPopView.clipsToBounds = true
+        self.popupView.cornerRadius = 10
+        roundInfoLabel.text = "ROUND \(roundNumb) 종료"
+    }
+    
+    @IBAction func didPressCancel(_ sender: UIButton) {
+        self.dismiss(animated: false, completion: nil)
+    }
+    
+    
+    @IBAction func didPressNextRound(_ sender: UIButton) {
         
-        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
-        self.showAnimate()
+        guard let projectCode = ProjectSetting.shared.projectCode else {return}
+        
+        SocketIOManager.shared.socket.emit("prepareNextRound", projectCode)
+        
+        dismissViewControllers()
     }
     
-    // MARK:- IBAction 선언
-    
-    @IBAction func cancelNextButtonDidTap(_ sender: UIButton) {
-        self.removeAnimate()
+    @IBAction func didPressFinishProject(_ sender: UIButton) {
+        guard let projectCode = ProjectSetting.shared.projectCode else {return}
+        
+        SocketIOManager.shared.socket.emit("finishProject", projectCode)
+        
+        NetworkManager.shared.finishProject { (response) in
+            print(response)
+        }
+        
+        guard let presentingVc = self.presentingViewController else {return}
+        
+        self.dismiss(animated: false) {
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            guard let vc = storyboard.instantiateViewController(withIdentifier: "projectFinalViewController") as? ProjectFinalViewController else {return}
+            
+            let naviController = UINavigationController(rootViewController: vc)
+            naviController.modalPresentationStyle = .fullScreen
+            
+            presentingVc.present(naviController, animated: false, completion: nil)
+        }
     }
     
-    // MARK:- 함수 선언
+    func dismissViewControllers() {
+//    self.presentingViewController?.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: false, completion: nil)
+        
+        
+        let rootVC = self.view.window?.rootViewController
 
+        self.view.window?.rootViewController?.dismiss(animated: false, completion: {
+            guard let navi = rootVC as? UINavigationController else {return}
+            navi.popToRootViewController(animated: false)
+            
+            let roundSettingNaviController = UIStoryboard(name: "ProjectRound", bundle: nil).instantiateViewController(withIdentifier: "roundSettingNavi") as! UINavigationController
+            
+            roundSettingNaviController.modalPresentationStyle = .fullScreen
+            navi.present(roundSettingNaviController, animated: false, completion: nil)
+        })
+        
+//        self.view.window?.rootViewController?.dismiss(animated: false, completion: nil)
+        
+        
+
+//        guard let vc = self.presentingViewController else { return }
+
+//        while (vc.presentingViewController != nil) {
+//            print(vc)
+//            print(vc.presentingViewController is HostRoundSettingViewController)
+//            vc.dismiss(animated: true, completion: nil)
+//        }
+        
+//        guard let vc = self.presentingViewController else { return }
+//
+//        while !(vc.presentingViewController is HostRoundSettingViewController) {
+//            vc.dismiss(animated: true, completion: nil)
+//        }
+    }
 }
+    
+

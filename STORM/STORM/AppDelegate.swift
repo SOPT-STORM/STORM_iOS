@@ -11,7 +11,6 @@ import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -36,13 +35,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
-        print("실행1")
-        SocketIOManager.shared.closeConnection()
+        // 소켓 연결 해제
+//        SocketIOManager.shared.closeConnection()
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
-        print("실행2")
-        SocketIOManager.shared.openConnection()
+//         소켓 연결
+        SocketIOManager.shared.establishConnection()
     }
     
     // MARK: - Core Data stack

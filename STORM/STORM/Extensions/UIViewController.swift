@@ -12,25 +12,19 @@ extension UIViewController {
     
     func showToast(message : String, frame: CGRect) {
         
-//        let view = UIView(frame: frame)
-//        view.setRound(5)
-//        view.addShadow(width: 1, height: 1, 0.5, 3)
-//        view.backgroundColor = .white
-        
-        let toastMessage = UILabel(frame: frame)
+        let toastMessage = UIView(frame: frame)
         toastMessage.center.x = frame.origin.x
-//        toastMessage.setRound(5)
-//        toastMessage.addShadow(width: 1, height: 1, 0.16, 3)
-        toastMessage.addRoundShadow(cornerRadius: 5)
-        toastMessage.backgroundColor = .white
-        toastMessage.font = UIFont(name: "NotoSansCJKkr-Medium", size: 11)
-        toastMessage.textColor = UIColor(red: 142/256, green: 142/256, blue: 142/256, alpha: 1)
-        toastMessage.textAlignment = .center
-        toastMessage.text = message
-//        toastMessage.clipsToBounds = true
         
-//        view.addSubview(toastMessage)
+        let content = UILabel(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
+        content.backgroundColor = .white
+        content.font = UIFont(name: "NotoSansCJKkr-Medium", size: 11)
+        content.textColor = UIColor(red: 142/256, green: 142/256, blue: 142/256, alpha: 1)
+        content.textAlignment = .center
+        content.text = message
         
+        toastMessage.addSubview(content)
+        toastMessage.addRoundShadow(contentView: content, cornerRadius: 10)
+
         self.view.addSubview(toastMessage)
         
         UIView.animate(withDuration: 1.0, delay: 0.5, options: .curveEaseOut, animations: {
@@ -44,10 +38,27 @@ extension UIViewController {
         let img = UIImage(named: "red_navigation_bar")
         navigationController?.navigationBar.setBackgroundImage(img, for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.topItem?.title = " "
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "13" ), style: .plain, target: self, action: #selector(back))
         
         let titmeImg = UIImage(named: "img_logo")
         let imageView = UIImageView(image:titmeImg)
         navigationItem.titleView = imageView
     }
+    
+    @objc func back() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func setSignUpNavi() {
+        // 수정 필요 ㅠㅜ
+        guard let navigationBar = self.navigationController?.navigationBar else { return }
+        
+        navigationBar.barTintColor = .white
+        navigationBar.shadowImage = UIImage()
+        
+        navigationItem.title = "회원가입"
+        navigationController?.navigationBar.tintColor = UIColor(red: 112/255, green: 112/255, blue: 112/255, alpha: 1)
+    }
 }
-

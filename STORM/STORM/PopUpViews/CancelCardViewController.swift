@@ -24,23 +24,23 @@ class CancelCardViewController: UIViewController {
         // Do any additional setup after loading the view.
         cancelCardPopView.layer.cornerRadius = 15
 //        cancelCardPopView.addShadow(width: 1, height: 3, 0.2, 5)
-        cancelCardPopView.addRoundShadow(cornerRadius: 10)
+//        cancelCardPopView.addRoundShadow(cornerRadius: 10)
         cancelCardPopView.clipsToBounds = true
         
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
-        self.showAnimate()
+        
     }
     
     // MARK:- IBAction 선언
     
     @IBAction func cardCancelButtonDidTap(_ sender: UIButton) {
-        NotificationCenter.default.post(name: .buttonClickInPopup, object: nil)
-        self.removeAnimate()
+//        NotificationCenter.default.post(name: .buttonClickInPopup, object: nil)
+        
     }
     
     @IBAction func cardConfirmButtonDidTap(_ sender: UIButton) {
-        NotificationCenter.default.post(name: .buttonClickInPopup, object: nil)
-        self.removeAnimate()
+//        NotificationCenter.default.post(name: .buttonClickInPopup, object: nil)
+        
     }
     
     // MARK:- 함수 선언

@@ -8,114 +8,111 @@
 
 import UIKit
 
-public enum CarouselFlowLayoutSpacingMode {
-    case fixed(spacing: CGFloat)
-    case overlap(visibleOffset: CGFloat)
-}
-
-class CarouselFlowLayout: UICollectionViewFlowLayout {
-
-    private struct LayoutState {
-        var size: CGSize
-        var direction: UICollectionView.ScrollDirection
-        func isEqual(otherState: LayoutState) -> Bool {
-            return self.size.equalTo(otherState.size) && self.direction == otherState.direction
-        }
-    }
-
-    @IBInspectable public var sideItemScale: CGFloat = 0.849//0.757
-    @IBInspectable public var sideItemAlpha: CGFloat = 0.5
-    public var spacingMode = CarouselFlowLayoutSpacingMode.fixed(spacing: 5)
-
-    private var state = LayoutState(size: .zero, direction: .horizontal)
-
+class CarouselLayout: UICollectionViewFlowLayout {
+    
+    public var sideItemScale: CGFloat = 0.698
+    public var sideItemAlpha: CGFloat = 0.4
+    public var spacing: CGFloat = 10
+    public var isPagingEnabled: Bool = false
+    
+    private var isSetup: Bool = false
+    
     override public func prepare() {
         super.prepare()
-        
-        let currentState = LayoutState(size: self.collectionView!.bounds.size, direction: self.scrollDirection)
-
-        if !self.state.isEqual(otherState: currentState) {
-
-//            self.setupCollectionView()
-            self.updateLayout()
-            self.state = currentState
+        if isSetup == false {
+            setupLayout()
+            isSetup = true
         }
-    }
-
-    private func updateLayout() {
-        guard let collectionView = self.collectionView else { return }
-
-        let collectionSize = collectionView.bounds.size
-        
-        let yInset = (collectionSize.height - self.itemSize.height) / 2
-        let xInset = (collectionSize.width - self.itemSize.width) / 2
-        self.sectionInset = UIEdgeInsets(top: yInset, left: xInset, bottom: yInset, right: xInset)
-
-        let side = self.itemSize.width
-        let scaledItemOffset =  (side - side*self.sideItemScale) / 2
-        switch self.spacingMode {
-        case .fixed(let spacing):
-            self.minimumLineSpacing = spacing - scaledItemOffset
-        case .overlap(let visibleOffset):
-            let fullSizeSideItemOverlap = visibleOffset + scaledItemOffset
-            let inset = xInset
-            self.minimumLineSpacing = inset - fullSizeSideItemOverlap
-        }
-        print("미니멈 라인 스페이싱\(self.minimumLineSpacing)")
     }
     
+    private func setupLayout() {
+        guard let collectionView = self.collectionView else {return}
+        
+        let collectionViewSize = collectionView.frame.size // collectionView.bounds.size
+        
+        let xInset = (collectionViewSize.width - self.itemSize.width) / 2
+        let yInset = (collectionViewSize.height - self.itemSize.height) / 2
+        
+        print(collectionViewSize.height, collectionView.frame.height, self.itemSize.height, yInset) // 371
+        
+        self.sectionInset = UIEdgeInsets(top: yInset, left: xInset, bottom: yInset, right: xInset)
+        
+//        self.itemSize = CGSize(width: collectionViewSize.width*0.796, height: collectionViewSize.height)
+        
+        let itemWidth = self.itemSize.width
+        
+        let scaledItemOffset =  (itemWidth - (itemWidth*(self.sideItemScale + (1 - self.sideItemScale)/2))) / 2
+        self.minimumLineSpacing = spacing - scaledItemOffset
+
+        self.scrollDirection = .horizontal
+    }
     
     public override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
         return true
     }
     
-    public override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+     public override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         guard let superAttributes = super.layoutAttributesForElements(in: rect),
             let attributes = NSArray(array: superAttributes, copyItems: true) as? [UICollectionViewLayoutAttributes]
             else { return nil }
         return attributes.map({ self.transformLayoutAttributes(attributes: $0) })
     }
-
+    
     private func transformLayoutAttributes(attributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-        guard let collectionView = self.collectionView else { return attributes }
-//        let isHorizontal = (self.scrollDirection == .horizontal)
-
-        let collectionCenter = collectionView.frame.size.width/2
-        let offset = collectionView.contentOffset.x
-        let normalizedCenter = attributes.center.x - offset
         
-//        print(attributes,attributes.center.x)
-//        print(collectionCenter,offset,normalizedCenter)
+        guard let collectionView = self.collectionView else {return attributes}
+        
+        let collectionCenter = collectionView.frame.size.width / 2
+        let contentOffset = collectionView.contentOffset.x
+        let center = attributes.center.x - contentOffset
+        
+        let maxDistance = 2*(self.itemSize.width + self.minimumLineSpacing)
+        
+        let distance = min(abs(collectionCenter - center), maxDistance)
 
-        let maxDistance = self.itemSize.width + self.minimumLineSpacing
-        let distance = min(abs(collectionCenter - normalizedCenter), maxDistance)
         let ratio = (maxDistance - distance)/maxDistance
-        
-//        if normalizedCenter < distance * 3 + 5 {
-//            test = normalizedCenter
-//        }
-        
+
         let alpha = ratio * (1 - self.sideItemAlpha) + self.sideItemAlpha
         let scale = ratio * (1 - self.sideItemScale) + self.sideItemScale
         
         attributes.alpha = alpha
         
-        print("maxDistance: \(maxDistance), 절대값: \(abs(collectionCenter - normalizedCenter))")
-        print("레이시오 \(ratio) \(scale)")
+        if abs(collectionCenter - center) > maxDistance + 1 {
+            attributes.alpha = 0
+        }
         
-//        attributes.transform3D = CATransform3DScale(CATransform3DIdentity, scale, scale, 1)
-        
-        let visibleRect = CGRect(origin: self.collectionView!.contentOffset, size: self.collectionView!.bounds.size)
+        let visibleRect = CGRect(origin: collectionView.contentOffset, size: collectionView.bounds.size)
         let dist = attributes.frame.midX - visibleRect.midX
         var transform = CATransform3DScale(CATransform3DIdentity, scale, scale, 1)
         transform = CATransform3DTranslate(transform, 0, 0, -abs(dist/1000))
         attributes.transform3D = transform
         
-//        print(maxDistance, distance)
-//        print(offset, normalizedCenter, distance, abs(collectionCenter - normalizedCenter), ratio, scale  )
-//        print("scale \(ratio) \(scale) \(self.sideItemScale)")
-        
         return attributes
+    }
+    
+    override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
+
+        guard let collectionView = self.collectionView else {
+            let latestOffset = super.targetContentOffset(forProposedContentOffset: proposedContentOffset, withScrollingVelocity: velocity)
+            return latestOffset
+        }
+
+        let targetRect = CGRect(x: proposedContentOffset.x, y: 0, width: collectionView.frame.width, height: collectionView.frame.height)
+        guard let rectAttributes = super.layoutAttributesForElements(in: targetRect) else { return .zero }
+
+        var offsetAdjustment = CGFloat.greatestFiniteMagnitude
+        let horizontalCenter = proposedContentOffset.x + collectionView.frame.width / 2
+
+        for layoutAttributes in rectAttributes {
+            let itemHorizontalCenter = layoutAttributes.center.x
+            if (itemHorizontalCenter - horizontalCenter).magnitude < offsetAdjustment.magnitude {
+                offsetAdjustment = itemHorizontalCenter - horizontalCenter
+            }
+        }
+        
+        
+
+        return CGPoint(x: proposedContentOffset.x + offsetAdjustment, y: proposedContentOffset.y)
     }
 }
     
