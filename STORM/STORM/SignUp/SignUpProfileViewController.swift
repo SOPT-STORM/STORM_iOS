@@ -13,9 +13,12 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
     // MARK:- IBOutlet
     
     @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var errorLabel: UILabel!
     
     @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var userImageContainerView: UIView!
+    
     
     @IBOutlet weak var selectPhotoButton: UIButton!
     @IBOutlet weak var purpleButton: UIButton!
@@ -24,9 +27,15 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
     
     @IBOutlet weak var doneButton: UIButton!
     
+    @IBOutlet weak var basicImageStackView: UIStackView!
+    
+    
     // MARK:- 변수
     
     let myPicker = UIImagePickerController()
+    var userEmail: String?
+    var userPwd: String?
+    var img_flag: Int?
     
     // MARK:- viewDidLoad
     
@@ -34,7 +43,8 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
         super.viewDidLoad()
         
         // navigationbar
-//        setSignUpNavi()
+        setSignUpNavi()
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "backBtn"), style: .plain, target: self, action: #selector(back))
         
         // shadow, radius
         nameTextField.cornerRadius = 10
@@ -48,11 +58,35 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
         // error message
         errorLabel.isHidden = true
         
-        // photo
-        profileImage.cornerRadius = profileImage.frame.width / 2
+        // photo, photo button
+        userImageContainerView.makeCircle()
+        profileImage.makeCircle()
         selectPhotoButton.addShadow(cornerRadus: selectPhotoButton.frame.width / 2, shadowOffset: CGSize(width: 1, height: 1), shadowOpacity: 0.3, shadowRadius: 3)
         profileImage.contentMode = .scaleAspectFill
         
+        // basic image
+        basicImage()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // 기본이미지 노티
+        NotificationCenter.default.addObserver(self,
+        selector: #selector(basicImage),
+        name: NSNotification.Name(rawValue: "SetBasicImage"),
+        object: nil)
+    }
+    
+    // MARK:- @objc
+    
+    @objc func basicImage(){
+        basicImageStackView.isHidden = false
+        purpleButton.setImage(UIImage(named: "purple"), for: .normal)
+        purpleButton.isSelected = true
+        
+        userImageContainerView.backgroundColor = .stormPurple
+        userNameLabel.isHidden = false
+        profileImage.image = nil
+        img_flag = 1
     }
     
     // MARK:- IBAction
@@ -77,16 +111,20 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
     @IBAction func colorButtonDidPressed(_ sender: UIButton) {
         if sender.isSelected == false {
             
+            self.profileImage.image = nil
+            self.userNameLabel.isHidden = false
+            
             if sender == purpleButton {
                 
                 sender.setImage(UIImage(named: "purple"), for: .normal)
                 yellowButton.setImage(UIImage(named: "yellowCircle"), for: .normal)
                 redButton.setImage(UIImage(named: "redCircle"), for: .normal)
                 
-                self.profileImage.image = UIImage(named: "purpleCircle")
+                self.userImageContainerView.backgroundColor = .stormPurple
                 
                 yellowButton.isSelected = false
                 redButton.isSelected = false
+                img_flag = 1
                 
                 
             } else if sender == yellowButton {
@@ -95,10 +133,11 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
                 purpleButton.setImage(UIImage(named: "purpleCircle"), for: .normal)
                 redButton.setImage(UIImage(named: "redCircle"), for: .normal)
                 
-                self.profileImage.image = UIImage(named: "yellowCircle")
+                self.userImageContainerView.backgroundColor = .stormYellow
                 
                 purpleButton.isSelected = false
                 redButton.isSelected = false
+                img_flag = 2
                 
             } else {
                 
@@ -106,10 +145,11 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
                 yellowButton.setImage(UIImage(named: "yellowCircle"), for: .normal)
                 purpleButton.setImage(UIImage(named: "purpleCircle"), for: .normal)
                 
-                self.profileImage.image = UIImage(named: "redCircle")
+                self.userImageContainerView.backgroundColor = .stormRed
                 
                 purpleButton.isSelected = false
                 yellowButton.isSelected = false
+                img_flag = 3
                 
             }
             
@@ -119,13 +159,11 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
     
     
     @IBAction func doneButtonDidPressed(_ sender: UIButton) {
+        // 이미 사용 중인 이름입니다 (서버 연결)
         
-        /*if let loginVC = UIStoryboard(name: "LogIn", bundle: nil).instantiateViewController(withIdentifier: "LogInVC") as? LogInViewController {
-         loginVC.modalPresentationStyle = .fullScreen
-         self.navigationController?.popToViewController(loginVC, animated: true)
-         }*/
-        
-        self.navigationController?.popToRootViewController(animated: true)
+        if nameTextField.text?.count ?? 0 >= 2 {
+            signUp()
+        }
         
         
     }
@@ -133,10 +171,41 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
     
     // MARK:- 함수
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField.text?.count ?? 0 < 2 {
+            doneButton.backgroundColor = UIColor(red: 152/255, green: 152/255, blue: 152/255, alpha: 1)
+            errorLabel.isHidden = false
+            
+        } else if textField.text?.count ?? 0 >= 2{
+            doneButton.backgroundColor = .stormRed
+            errorLabel.isHidden = true
+        }
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         textField.resignFirstResponder()
         return true
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+
+        let currentCharacterCount = textField.text?.count ?? 0
+        let newLength = currentCharacterCount + string.count - range.length
+        
+        if range.length + range.location > currentCharacterCount {
+            return false
+        } else if range.location < 3 && range.length == 0 {
+            userNameLabel.text = textField.text
+        }
+        
+        
+        return newLength <= 10
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -149,8 +218,24 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
             purpleButton.isSelected = false
             redButton.setImage(UIImage(named: "redCircle"), for: .normal)
             redButton.isSelected = false
+            
+            basicImageStackView.isHidden = true
+            userNameLabel.isHidden = true
+            img_flag = 0
         }
         dismiss(animated: true, completion: nil)
+    }
+    
+    func signUp() {
+        guard let userName = nameTextField.text, let profileImg = self.profileImage.image, let imgFlag = img_flag, let useremail = userEmail, let userpwd = userPwd else { return }
+        NetworkManager.shared.signUp(userImg: profileImg, userName: userName, userEmail: useremail, userPwd: userpwd, userImgFlag: imgFlag){ (response) in
+            
+            if response.status == 200 {
+                self.navigationController?.popToRootViewController(animated: true)
+            } else {
+                print(response.status)
+            }
+        }
     }
 }
 

@@ -21,13 +21,16 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var emailErrorLabel: UILabel!
     @IBOutlet weak var pwdErrorLabel: UILabel!
     
+    var popViewDismissed: Bool?
+    
     // MARK:- viewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // navigationbar
-//        setSignUpNavi()
+        setSignUpNavi()
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "backBtn" ), style: .plain, target: self, action: #selector(didPressBackSignUp))
         
         // shadow, radius
         emailTextField.cornerRadius = 10
@@ -54,31 +57,111 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
         // error message
         emailErrorLabel.isHidden = true
         pwdErrorLabel.isHidden = true
+        
+        NotificationCenter.default.addObserver(self,
+        selector: #selector(popView),
+        name: NSNotification.Name(rawValue: "OKButton"),
+        object: nil)
+        
+        
+    }
+    
+    // MARK:- @objc
+    
+    @objc func didPressBackSignUp() {
+
+            guard let goBackPopUpVC = UIStoryboard(name: "PopUp", bundle: nil).instantiateViewController(withIdentifier: "GoBackPopUp") as? GoBackPopUpViewController else {return}
+            goBackPopUpVC.modalPresentationStyle = .overCurrentContext
+            self.present(goBackPopUpVC, animated: false, completion: nil)
+    }
+    
+    @objc func popView(){
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     // MARK:- IBAction
     
     @IBAction func nextButtonDidPressed(_ sender: UIButton) {
-        // 아무 이상 없이 다음 버튼 누르면 다음 화면으로 전환
-        // 이메일 형식이 올바르지 않거나
-        // 비밀번호가 8자리 미만이거나
-        // 비밀번호 확인에 실패하면
-        // errror message 띄우고 뷰 전환 x
-        if let nextVC = self.storyboard?.instantiateViewController(withIdentifier:
-            "SignUpProfileVC") {
-            nextVC.modalPresentationStyle = .fullScreen
-            self.navigationController?.pushViewController(nextVC, animated: true)
-        }
+        confirmEmailOverlap()
     }
     // MARK:- 함수
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
+    }
+    
+    func confirmEmailOverlap() {
+        guard let email = self.emailTextField.text else {return}
+        NetworkManager.shared.confirmEmail(userEmail: email) { (response) in
+            if response.status == 200 {
+                if let nextVC = self.storyboard?.instantiateViewController(withIdentifier:
+                    "SignUpProfileVC") as? SignUpProfileViewController {
+                    nextVC.userEmail = self.emailTextField.text
+                    nextVC.userPwd = self.pwdTextField.text
+                    self.navigationController?.pushViewController(nextVC, animated: true)
+                }
+            } else if response.status == 600 {
+                self.emailErrorLabel.text = "이미 사용 중인 이메일입니다."
+                self.emailErrorLabel.isHidden = false
+                self.nextButton.backgroundColor = UIColor(red: 152/255, green: 152/255, blue: 152/255, alpha: 1)
+            }
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        if textField == self.emailTextField {
+            if !(emailTextField.text?.contains("@") ?? false) {
+                emailErrorLabel.text = "이메일 형식이 올바르지 않습니다."
+                emailErrorLabel.isHidden = false
+            } else {
+                emailErrorLabel.isHidden = true
+            }
+            
+        } else {
+            if pwdTextField.text?.count ?? 0 < 8 {
+                pwdErrorLabel.text = "8자 이상 입력해주세요."
+                pwdErrorLabel.isHidden = false
+            } else if pwdTextField.text != pwdConfirmTextField.text {
+                pwdErrorLabel.text = "비밀번호가 일치하지 않습니다."
+                pwdErrorLabel.isHidden = false
+            } else {
+                pwdErrorLabel.isHidden = true
+            }
+        }
+        
+        if emailErrorLabel.isHidden == true && pwdErrorLabel.isHidden == true && emailTextField.text != "" && pwdTextField.text != "" {
+            nextButton.backgroundColor = .stormRed
+        } else {
+            nextButton.backgroundColor = UIColor(red: 152/255, green: 152/255, blue: 152/255, alpha: 1)
+        }
+        
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == self.pwdTextField {
-            textField.resignFirstResponder()
+        textField.resignFirstResponder()
+        
+        if textField == self.emailTextField {
+            self.pwdTextField.becomeFirstResponder()
+            
+        } else if textField == self.pwdTextField {
             self.pwdConfirmTextField.becomeFirstResponder()
         }
-        textField.resignFirstResponder()
         return true
+    }
+    
+    func errorMessage() {
+        
+        if !(emailTextField.text?.contains("@") ?? false) {
+            emailErrorLabel.isHidden = false
+        } else {
+            emailErrorLabel.isHidden = true
+        }
+        
+        if pwdTextField.text?.count ?? 0 < 8 {
+            pwdErrorLabel.text = "8자 이상 입력해주세요."
+            pwdErrorLabel.isHidden = false
+        }
     }
 }
 
