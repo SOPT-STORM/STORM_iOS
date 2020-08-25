@@ -28,19 +28,19 @@ class CancelCardViewController: UIViewController {
         cancelCardPopView.clipsToBounds = true
         
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
-        self.showAnimate()
+        
     }
     
     // MARK:- IBAction 선언
     
     @IBAction func cardCancelButtonDidTap(_ sender: UIButton) {
-        NotificationCenter.default.post(name: .buttonClickInPopup, object: nil)
-        self.removeAnimate()
+//        NotificationCenter.default.post(name: .buttonClickInPopup, object: nil)
+        
     }
     
     @IBAction func cardConfirmButtonDidTap(_ sender: UIButton) {
-        NotificationCenter.default.post(name: .buttonClickInPopup, object: nil)
-        self.removeAnimate()
+//        NotificationCenter.default.post(name: .buttonClickInPopup, object: nil)
+        
     }
     
     // MARK:- 함수 선언

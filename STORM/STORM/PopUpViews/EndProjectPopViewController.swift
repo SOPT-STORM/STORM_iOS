@@ -29,17 +29,17 @@ class EndProjectPopViewController: UIViewController {
         endProjectPopView.clipsToBounds = true
         
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
-        self.showAnimate()
+     
     }
     
     // MARK:- IBAction 선언
     
     @IBAction func endConfirmButtonDidTap(_ sender: UIButton) {
-        self.removeAnimate()
+       
     }
     
     @IBAction func endCancelButtonDidTap(_ sender: UIButton) {
-        self.removeAnimate()
+      
     }
     
     // MARK:- 함수 선언

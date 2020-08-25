@@ -9,7 +9,8 @@
 struct Project: Codable {
     let project_name: String
     let project_comment: String?
-    let user_idx: Int? 
+    let user_idx: Int?
+    let project_idx: Int?
     let project_code: String?
 }
 
@@ -21,7 +22,7 @@ struct ProjectWithDetail: Codable {
 
 struct ProjectWithCode: Codable {
     let user_idx: Int
-    let project_code: String
+    let project_idx: Int
 }
 
 struct ProjectInfo: Codable {

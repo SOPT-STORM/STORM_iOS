@@ -72,7 +72,7 @@ class AddCardViewController: UIViewController {
                 self.remainingTime.text = String(format: "총 %02d:%02d 남음", minute, second)
             }
             
-            if time == 0 {
+            if time <= 0 {
                 TimeManager.shared.invalidateTimer()
                 
                 let storyboard = UIStoryboard(name: "PopUp", bundle: nil)

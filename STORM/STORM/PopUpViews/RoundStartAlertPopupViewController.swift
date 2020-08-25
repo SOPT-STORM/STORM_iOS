@@ -20,7 +20,7 @@ class RoundStartAlertPopupViewController: UIViewController {
             popupView.layer.opacity = 0.6
             roundStartAlertView.setRadius(radius: 15)
             roundStartAlertView.dropShadow(color: .darkGray, offSet: CGSize(width: 0, height: 3))
-            self.showAnimate()
+      
                 
                 // Do any additional setup after loading the view.
             }
@@ -33,7 +33,7 @@ class RoundStartAlertPopupViewController: UIViewController {
             
             @IBAction func confirmButtonDidPress(_ sender: UIButton) {
                 pressButton?()
-                self.removeAnimate()
+         
             
          
             }

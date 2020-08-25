@@ -23,7 +23,7 @@ class ReminderPopupViewController: UIViewController {
         popupView.layer.opacity = 0.6
         reminderView.setRadius(radius: 15)
         reminderView.dropShadow(color: .darkGray, offSet: CGSize(width: 0, height: 3))
-        self.showAnimate()
+   
             
             // Do any additional setup after loading the view.
         }
@@ -35,7 +35,7 @@ class ReminderPopupViewController: UIViewController {
         }
         
         @IBAction func confirmButtonDidPress(_ sender: UIButton) {
-            self.removeAnimate()
+        
             self.dismiss(animated: true, completion: nil)
         
      

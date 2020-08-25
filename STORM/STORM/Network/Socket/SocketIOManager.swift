@@ -12,7 +12,7 @@ import SocketIO
 class SocketIOManager: NSObject {
     static let shared = SocketIOManager()
     
-    var manager = SocketManager(socketURL: URL(string: "http://3.34.179.75:3000")!, config: [.log(true), .compress])
+    var manager = SocketManager(socketURL: URL(string: "http://3.34.179.75:3000")!, config: [.log(false), .compress])
     //  서버의 주소와 포트를 맞춰줘야 통신 가능
     var socket: SocketIOClient!
     

@@ -8,10 +8,8 @@
 
 import UIKit
 
-class HostRoundSettingViewController: UIViewController {
+class RoundSettingViewController: UIViewController {
     
-    
-
     @IBOutlet weak var projectNameLabel: UILabel!
     @IBOutlet weak var roundGoalTextField: UITextField!
     @IBOutlet weak var timeLimitTextField: UITextField!
@@ -22,22 +20,21 @@ class HostRoundSettingViewController: UIViewController {
     
     @IBOutlet weak var inputViewBotConst: NSLayoutConstraint!
 
-    var minute = Int()
+    var minute:Int? = Int()
     var timeLimitPicker = UIPickerView()
-    var roundGoal: String? { return roundGoalTextField.text }
-    var roundTimeLimit: Int? { return minute }
-    lazy var botConst: CGFloat = 0
     
+    lazy var botConst: CGFloat = 0
+    lazy var roundNumb = 0
     
     // MARK: - ViewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchProjectInfo()
+        
         getRoundIndex()
+        fetchProjectInfo()
         roundGoalTextField.addTextFieldInset()
         timeLimitTextField.addTextFieldInset()
-//        timeLimitPickerView.isHidden = false
         
         roundGoalTextField.delegate = self
         
@@ -54,6 +51,7 @@ class HostRoundSettingViewController: UIViewController {
         toolbarSetup()
         setNaviTitle()
         
+        
         botConst = inputViewBotConst.constant
         
         let tapPasteCodeImage = UITapGestureRecognizer(target: self, action: #selector(handlePasteCodeImage))
@@ -62,8 +60,15 @@ class HostRoundSettingViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "exit" ), style: .plain, target: self, action: #selector(didPressExit))
     }
     
+//    override func viewWillAppear(_ animated: Bool) {
+//    
+//        getRoundIndex()
+//        minute = nil
+//        roundGoalTextField.text = nil
+//        timeLimitTextField.text = nil
+//    }
+    
     @objc func didPressExit() {
-
         let rootVC = self.view.window?.rootViewController
         
         self.view.window?.rootViewController?.dismiss(animated: false, completion: {
@@ -80,57 +85,53 @@ class HostRoundSettingViewController: UIViewController {
     
     @IBAction func confirmButton(_ sender: UIButton) {
         
+        print("2라운드 실행 \(roundGoalTextField.text) \(timeLimitTextField.text)")
         if roundGoalTextField.text?.isEmpty == false && timeLimitTextField.text?.isEmpty == false {
-//            NetworkManager.shared.enterRound(roundIdx: ProjectSetting.shared.roundIdx!) { (response) in
-//               print(response?.status)
-//
-//                if response?.status == 200 {
-//                    self.postRoundSetting()
-//                }
-//            }
             
+            print("2라운드 실행2")
             self.postRoundSetting()
-            
-//            let storyBoard: UIStoryboard = UIStoryboard(name: "ProjectForHost", bundle: nil)
-//            let viewController = storyBoard.instantiateViewController(withIdentifier: "hostRoundStartVC") as! HostRoundStartViewController
-//
-//            viewController.modalTransitionStyle = .coverVertical
-//            self.present(viewController, animated: false, completion: nil)
+ 
         }
     }
     
     
     // MARK: - Send Data
     
-    func postRoundSetting() { guard let roundGoal = roundGoal else { return }
-//        print(projectIndex, minute)
+    func postRoundSetting() { guard let roundGoal = roundGoalTextField.text, let time = minute, let projectIdx = ProjectSetting.shared.projectIdx else { return }
         
-        let projectIdx = ProjectSetting.shared.projectIdx!
-        
-        NetworkManager.shared.setRound(projectIdx: projectIdx, roundPurpose: roundGoal, roundTime: self.minute)
+        NetworkManager.shared.setRound(projectIdx: projectIdx, roundPurpose: roundGoal, roundTime: time)
         { (response) in
-//            UserDefaults.standard.set(response?.data!, forKey: "roundIndex")
             
-//            ProjectSetting.shared.roundIdx = response?.data
-//            print(response?.message)
-//            print(response?.status)
+            print(response)
             
             if response?.status == 200 {
-//                let storyBoard: UIStoryboard = UIStoryboard(name: "ProjectForHost", bundle: nil)
-//                let vc = storyBoard.instantiateViewController(withIdentifier: "hostRoundStartVC") as! HostRoundStartViewController
-//
-//                vc.modalTransitionStyle = .coverVertical
                 
-                let storyBoard: UIStoryboard = UIStoryboard(name: "ProjectForHost", bundle: nil)
+                let storyBoard: UIStoryboard = UIStoryboard(name: "ProjectRound", bundle: nil)
                 let vc = storyBoard.instantiateViewController(withIdentifier: "roundNavi") as! UINavigationController
                                 
                 vc.modalPresentationStyle = .fullScreen
                 
-                print("룸코드 \(ProjectSetting.shared.projectCode!)")
+                if self.roundNumb == 1 {
+                    print("호스트 조인룸 실행 \(ProjectSetting.shared.projectCode!), \(self.roundNumb)")
+//                SocketIOManager.shared.socket.emit("joinRoom", ProjectSetting.shared.projectCode!)
+                    
+                    SocketIOManager.shared.socket.emit("joinRoom", ProjectSetting.shared.projectCode!) {
+                        print("조인룸 실행")
+                        ProjectSetting.shared.roundIdx = response?.data!
+                        self.present(vc, animated: false, completion: nil)
+                    }
+                }
                 
-                SocketIOManager.shared.socket.emit("roundSetting", ProjectSetting.shared.projectCode!)
+                if self.roundNumb > 1 {
+                guard let projectCode = ProjectSetting.shared.projectCode else {return}
+                    SocketIOManager.shared.socket.emit("nextRound", projectCode) {
+                        ProjectSetting.shared.roundIdx = response?.data!
+                        self.present(vc, animated: false, completion: nil)
+                    }
+                }
                 
-                self.present(vc, animated: false, completion: nil)
+//                ProjectSetting.shared.roundIdx = response?.data!
+//                self.present(vc, animated: false, completion: nil)
             }
         }
     }
@@ -139,7 +140,7 @@ class HostRoundSettingViewController: UIViewController {
     
     func fetchProjectInfo() {
         NetworkManager.shared.fetchProjectInfo(projectIdx: ProjectSetting.shared.projectIdx!) { (response) in
-            self.projectNameLabel.text = response?.data.project_name
+            self.projectNameLabel.text = response?.data?.project_name
         }
     }
     
@@ -148,6 +149,7 @@ class HostRoundSettingViewController: UIViewController {
             
             guard let rooundIdx = response?.data else {return}
             self.roundIndexSetLabel.text = "ROUND\(rooundIdx) 설정"
+            self.roundNumb = rooundIdx
         }
     }
     
@@ -196,7 +198,7 @@ class HostRoundSettingViewController: UIViewController {
 
 // MARK: - Extension
 
-extension HostRoundSettingViewController: UITextFieldDelegate {
+extension RoundSettingViewController: UITextFieldDelegate {
         
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField == timeLimitTextField{
@@ -212,7 +214,7 @@ extension HostRoundSettingViewController: UITextFieldDelegate {
 }
 
 
-extension HostRoundSettingViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+extension RoundSettingViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -230,19 +232,19 @@ extension HostRoundSettingViewController: UIPickerViewDelegate, UIPickerViewData
         
         minute = Int(row+1)
         
-        return "\(minute)분"
+        return "\(minute!)분"
     }
     
     func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         minute = Int(row+1)
         
-        timeLimitTextField.text = "\(minute)분"
+        timeLimitTextField.text = "\(minute!)분"
         timeLimitTextField.resignFirstResponder()
     }
 }
 
-extension HostRoundSettingViewController {
+extension RoundSettingViewController {
     func registerKeyboardNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)

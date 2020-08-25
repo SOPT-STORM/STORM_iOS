@@ -30,6 +30,9 @@
                             </constraints>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="Button" image="projectBtnAll"/>
+                            <connections>
+                                <action selector="didPressMoreScrappedCard:" destination="U6b-Vx-4bR" eventType="touchUpInside" id="AbC-a8-eco"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

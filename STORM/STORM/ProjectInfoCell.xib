@@ -42,11 +42,14 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GYi-TN-dpL">
-                                        <rect key="frame" x="87.5" y="173" width="140" height="20"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="GYi-TN-dpL">
+                                        <rect key="frame" x="82.5" y="173" width="150" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="jGF-XK-Zjx"/>
+                                        </constraints>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ogt-dL-s9p">
-                                        <rect key="frame" x="235.5" y="173" width="30" height="20"/>
+                                        <rect key="frame" x="240.5" y="173" width="30" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="zbE-qK-rfa"/>
                                         </constraints>
@@ -54,9 +57,9 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="라운드 정보" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lcq-aJ-mzO">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="라운드 정보" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lcq-aJ-mzO">
                                         <rect key="frame" x="107.5" y="119" width="100" height="40"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -70,10 +73,9 @@
                                     <constraint firstItem="eRj-0I-rzV" firstAttribute="width" secondItem="qoj-ds-Wta" secondAttribute="width" multiplier="0.806349" id="XMo-FF-1yq"/>
                                     <constraint firstItem="Ogt-dL-s9p" firstAttribute="leading" secondItem="GYi-TN-dpL" secondAttribute="trailing" constant="8" id="XVe-2R-g8d"/>
                                     <constraint firstItem="Lcq-aJ-mzO" firstAttribute="width" secondItem="qoj-ds-Wta" secondAttribute="width" multiplier="0.31746" id="boc-No-7nz"/>
-                                    <constraint firstItem="GYi-TN-dpL" firstAttribute="width" secondItem="qoj-ds-Wta" secondAttribute="width" multiplier="0.444444" id="ck8-Px-jvk"/>
                                     <constraint firstItem="eRj-0I-rzV" firstAttribute="centerX" secondItem="qoj-ds-Wta" secondAttribute="centerX" id="gX2-gd-njc"/>
                                     <constraint firstItem="GYi-TN-dpL" firstAttribute="top" secondItem="Lcq-aJ-mzO" secondAttribute="bottom" constant="14" id="jve-Vi-t40"/>
-                                    <constraint firstItem="GYi-TN-dpL" firstAttribute="centerX" secondItem="qoj-ds-Wta" secondAttribute="centerX" id="neU-RE-H44"/>
+                                    <constraint firstItem="GYi-TN-dpL" firstAttribute="centerX" secondItem="qoj-ds-Wta" secondAttribute="centerX" id="p2f-Oe-vOs"/>
                                     <constraint firstItem="Lcq-aJ-mzO" firstAttribute="top" secondItem="eRj-0I-rzV" secondAttribute="bottom" constant="20" id="qDt-6B-zjx"/>
                                     <constraint firstAttribute="bottom" secondItem="GYi-TN-dpL" secondAttribute="bottom" constant="25" id="soO-4B-isY"/>
                                     <constraint firstItem="Ogt-dL-s9p" firstAttribute="height" secondItem="GYi-TN-dpL" secondAttribute="height" id="tow-wm-22h"/>
@@ -128,6 +130,7 @@
             <connections>
                 <outlet property="participantsCount" destination="Ogt-dL-s9p" id="gqr-ua-PaJ"/>
                 <outlet property="participantsProfile" destination="GYi-TN-dpL" id="a0E-bT-K6k"/>
+                <outlet property="participantsStackViewWidth" destination="jGF-XK-Zjx" id="nhZ-Dn-gCb"/>
                 <outlet property="projectName" destination="fjQ-a2-Ko7" id="fD6-me-HIA"/>
                 <outlet property="roundInfo" destination="Lcq-aJ-mzO" id="Ibg-QW-dJg"/>
             </connections>

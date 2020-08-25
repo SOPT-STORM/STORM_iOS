@@ -15,23 +15,12 @@ extension UIViewController {
         let toastMessage = UIView(frame: frame)
         toastMessage.center.x = frame.origin.x
         
-//        toastMessage.layer.cornerRadius = 10
-//        toastMessage.layer.backgroundColor = UIColor.clear.cgColor
-//        toastMessage.layer.shadowColor = UIColor.black.cgColor
-//        toastMessage.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
-//        toastMessage.layer.shadowOpacity = 0.16 // 0.16
-//        toastMessage.layer.shadowRadius = 5
-        
         let content = UILabel(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
         content.backgroundColor = .white
         content.font = UIFont(name: "NotoSansCJKkr-Medium", size: 11)
         content.textColor = UIColor(red: 142/256, green: 142/256, blue: 142/256, alpha: 1)
         content.textAlignment = .center
         content.text = message
-        
-//        content.layer.cornerRadius = 10
-//        content.layer.masksToBounds = true
-        
         
         toastMessage.addSubview(content)
         toastMessage.addRoundShadow(contentView: content, cornerRadius: 10)
@@ -51,25 +40,9 @@ extension UIViewController {
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.topItem?.title = " "
         navigationController?.navigationBar.tintColor = .white
-        navigationController?.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "13" ), style: .plain, target: self, action: #selector(back))
         
         let titmeImg = UIImage(named: "img_logo")
         let imageView = UIImageView(image:titmeImg)
         navigationItem.titleView = imageView
-    }
-    
-    @objc func back() {
-        self.navigationController?.popViewController(animated: true)
-    }
-    
-    func setSignUpNavi() {
-        // 수정 필요 ㅠㅜ
-        guard let navigationBar = self.navigationController?.navigationBar else { return }
-        
-        navigationBar.barTintColor = .white
-        navigationBar.shadowImage = UIImage()
-        
-        navigationItem.title = "회원가입"
-        navigationController?.navigationBar.tintColor = UIColor(red: 112/255, green: 112/255, blue: 112/255, alpha: 1)
     }
 }

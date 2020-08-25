@@ -36,11 +36,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidEnterBackground(_ application: UIApplication) {
         // 소켓 연결 해제
-        SocketIOManager.shared.closeConnection()
+//        SocketIOManager.shared.closeConnection()
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
-        // 소켓 연결
+//         소켓 연결
         SocketIOManager.shared.establishConnection()
     }
     

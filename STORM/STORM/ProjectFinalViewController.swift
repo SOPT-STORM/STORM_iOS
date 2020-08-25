@@ -23,7 +23,14 @@ class ProjectFinalViewController: UIViewController {
         
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
-
+        
+        
+        if self.presentingViewController != nil {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "exit"), style: .plain, target: self, action: #selector(didPressExit))
+            guard let projectIndex = ProjectSetting.shared.projectIdx else {return}
+            self.projectIndex = projectIndex
+        }
+        
         let projectInfoCell = UINib(nibName: "ProjectInfoCell", bundle: nil)
         let roundInfoCell = UINib(nibName: "RoundInfoCell", bundle: nil)
         let footer = UINib(nibName: "ProjectFinishFooterView", bundle: nil)
@@ -39,34 +46,45 @@ class ProjectFinalViewController: UIViewController {
         
         print("프로젝트 인덱스 \(projectIndex)")
         NetworkManager.shared.fetchFinalProjectInfo(projectIdx: projectIndex) { (response) in
+            
+            print(response)
+            
             self.projectInfo = response?.data
             
             guard self.projectInfo != nil && self.roundsInfo != nil && self.scrapCardInfo != nil else {return}
-            print("reload")
             self.collectionView.reloadData()
         }
         
         NetworkManager.shared.fetchAllRoundInfo(projectIdx: projectIndex) { (response) in
-            print(response)
-            
             self.roundsInfo = response?.data
             
-            guard self.projectInfo != nil && self.roundsInfo != nil && self.scrapCardInfo != nil else {return}
-            print("reload")
-            self.collectionView.reloadData()
-        }
-        
-        NetworkManager.shared.fetchAllScrapCard(projectIdx: projectIndex) { (response) in
-            self.scrapCardInfo = response?.data
+            print(response)
             
             guard self.projectInfo != nil && self.roundsInfo != nil && self.scrapCardInfo != nil else {return}
-            print("reload")
+            
             self.collectionView.reloadData()
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        self.collectionView.reloadData()
+        NetworkManager.shared.fetchAllScrapCard(projectIdx: projectIndex) { (response) in
+            self.scrapCardInfo = response?.data
+            
+            print(response)
+            
+            guard self.projectInfo != nil && self.roundsInfo != nil && self.scrapCardInfo != nil else {return}
+            
+            self.collectionView.reloadData()
+        }
+    }
+    
+    @objc func didPressExit() {
+        let rootVC = self.view.window?.rootViewController
+        
+        self.view.window?.rootViewController?.dismiss(animated: false, completion: {
+            guard let navi = rootVC as? UINavigationController else {return}
+            navi.popToRootViewController(animated: false)
+        })
     }
     
         func createLayout() -> UICollectionViewLayout {
@@ -102,12 +120,13 @@ class ProjectFinalViewController: UIViewController {
                     let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
 
                     let spacing = CGFloat(self.view.frame.width * 0.02)
-
+                    
                     let section = NSCollectionLayoutSection(group: group)
                     
                     section.interGroupSpacing = spacing
                     
                     section.contentInsets = NSDirectionalEdgeInsets(top: self.view.frame.height*0.0138, leading: self.view.frame.width*0.072, bottom: self.view.frame.height*0.010, trailing: self.view.frame.width*0.072)
+                    
                     
                     section.orthogonalScrollingBehavior = .continuous
                     return section
@@ -133,7 +152,6 @@ class ProjectFinalViewController: UIViewController {
                 }
 
             }
-
             return layout
         }
 
@@ -150,13 +168,9 @@ extension ProjectFinalViewController: UICollectionViewDelegate, UICollectionView
         if section == 0 {
             return 1
         } else if section == 1 {
-//            return self.scrapCardInfo.card_item.count
-            return 10
+            return self.scrapCardInfo?.card_item.count != nil ? scrapCardInfo!.card_item.count : 0
         } else {
-            print(roundsInfo)
-            print(roundsInfo?.count)
-            let count = self.roundsInfo?.count ?? 0
-            return count
+            return self.roundsInfo?.count != nil ? roundsInfo!.count : 0
         }
     }
     
@@ -164,30 +178,82 @@ extension ProjectFinalViewController: UICollectionViewDelegate, UICollectionView
         
         if indexPath.section == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "projectInfoCell", for: indexPath) as! ProjectInfoCell
-            cell.projectName.text = projectInfo?.project_name
-            cell.roundInfo.text = "\(projectInfo?.project_date) \n ROUND 총 \(projectInfo?.round_count)회"
+            
+            guard let projectInformation = projectInfo else {return cell}
+ 
+            cell.participants = projectInformation.project_participants_list
+            cell.projectName.text = projectInformation.project_name
+            cell.roundInfo.text = "\(projectInformation.project_date) \n ROUND 총 \(projectInformation.round_count)회"
             return cell
         } else if indexPath.section == 1 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "memoCell", for: indexPath) as! MemoCell
-            cell.heartBtn.isHidden = true
-            cell.memo.text = "테스트 테스트 테스트 테스트"
-            return cell
+            
+            guard let scrapCardInfo = scrapCardInfo?.card_item[indexPath.row] else {return UICollectionViewCell()}
+            
+            if scrapCardInfo.card_img != nil {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "drawingCell", for: indexPath) as! DrawingCell
+                cell.heartBtn.isHidden = true
+                
+                guard let url = scrapCardInfo.card_img,let imageURL = URL(string: url) else {return UICollectionViewCell()}
+                
+                cell.drawingImgView.kf.setImage(with: imageURL)
+                return cell
+            }else{
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "memoCell", for: indexPath) as! MemoCell
+                cell.heartBtn.isHidden = true
+                cell.memo.text = scrapCardInfo.card_txt!
+                return cell
+            }
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "roundInfoCell", for: indexPath) as! RoundInfoCell
-            cell.roundNumbLabel.text = "ROUND \(roundsInfo?[indexPath.row].round_number)"
-            cell.roundGoalLabel.text = roundsInfo?[indexPath.row].round_purpose!
-            cell.timeLabel.text = "총 \(roundsInfo?[indexPath.row].round_time)분 소요"
+            
+            guard let roundInfo = roundsInfo?[indexPath.row], let roundNumber = roundInfo.round_number, let roundPurpose = roundInfo.round_purpose, let roundTime = roundInfo.round_time else {return cell}
+            
+            cell.roundNumbLabel.text = "ROUND \(roundNumber)"
+            cell.roundGoalLabel.text = roundPurpose
+            cell.timeLabel.text = "총 \(roundTime)분 소요"
             return cell
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let footer = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "projectFinishFooterView", for: indexPath) as! ProjectFinishFooterView
+        
+        footer.delegate = self
         return footer
     }
 
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         return CGSize(width: self.view.frame.width, height: 33)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if indexPath.section == 2 {
+            
+            guard let vc = UIStoryboard(name: "RoundFinished", bundle: nil).instantiateViewController(withIdentifier: "finishedRoundViewController") as? FinishedRoundViewController else {return}
+            
+            guard let roundInformation = roundsInfo, let roundIdx = roundInformation[indexPath.row].round_idx else {return}
+            
+            vc.roundsInfo = roundInformation
+            vc.selectedIndex = indexPath.row
+            vc.projectIndex = projectIndex
+            vc.projectName = projectInfo!.project_name
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 }
+
+extension ProjectFinalViewController: PushVC {
+    func pushVC() {
+        
+        let storyboard = UIStoryboard(name: "RoundFinished", bundle: nil)
+        guard let vc = storyboard.instantiateViewController(withIdentifier: "scrapCardViewController") as? ScrapCardViewController else {return}
+        
+        guard let projectInformation = projectInfo, let cards = scrapCardInfo?.card_item else {return}
+        
+        vc.projectName = projectInformation.project_name
+        vc.scrappedCards = cards
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+

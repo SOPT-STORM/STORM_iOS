@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import Lottie
 
 class MainViewController: UIViewController {
     
@@ -21,8 +22,12 @@ class MainViewController: UIViewController {
     
     lazy var dataArray: [ProjectWithDetail] = []
     
+    var isFirstEnter: Bool = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        kingFisherSetup()
 
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -30,12 +35,13 @@ class MainViewController: UIViewController {
         
         toolbarSetup()
         self.setNaviTitle()
-        
-        fetchProjectList()
-                
-//        self.navigationController?.navigationBar.topItem?.title = " "
-        
+    
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "mypage_btn" ), style: .plain, target: self, action: #selector(didPressMyPage))
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        fetchProjectList()
+        loadSplashView()
     }
     
     @objc func didPressMyPage() {
@@ -44,8 +50,8 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func didPressAddProject(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "ProjectForHost", bundle: nil)
-        guard let vc = storyboard.instantiateViewController(withIdentifier: "hostProjectSettingVC") as? HostProjectSettingViewController else {return}
+        let storyboard = UIStoryboard(name: "ProjectRound", bundle: nil)
+        guard let vc = storyboard.instantiateViewController(withIdentifier: "ProjectSettingVC") as? ProjectSettingViewController else {return}
         
         ProjectSetting.shared.mode = .host
         self.navigationController?.pushViewController(vc, animated: true)
@@ -57,6 +63,35 @@ class MainViewController: UIViewController {
         
         vc.data = dataArray
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func kingFisherSetup() {
+        //        KingfisherManager.shared.cache.clearMemoryCache()
+        
+        // 캐싱 메모리 300mb로 사용 제한
+        KingfisherManager.shared.cache.memoryStorage.config.totalCostLimit = 30000
+    }
+    
+    func loadSplashView() {
+        
+        if isFirstEnter == true {
+            let animationView = AnimationView()
+        
+            animationView.frame = UIScreen.main.bounds //UIScreen.main.bounds
+        
+            animationView.animation = Animation.named("splash")
+        
+            animationView.contentMode = .scaleAspectFit
+        
+            animationView.play()
+        
+            self.navigationController?.view.addSubview(animationView)
+        
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.3) {
+                animationView.removeFromSuperview()
+                self.isFirstEnter = false
+            }
+        }
     }
     
     func toolbarSetup() {
@@ -162,33 +197,45 @@ extension MainViewController: UITextFieldDelegate {
         
         guard let code = textField.text else {return true}
         
-        NetworkManager.shared.enterProject(projectCode: code) { (response) in
-
-            if response?.status == 200 {
-
-                let storyboard = UIStoryboard(name: "ProjectForHost", bundle: nil)
-                guard let vc = storyboard.instantiateViewController(withIdentifier: "hostRoundStartVC") as? HostRoundStartViewController else {return}
+        NetworkManager.shared.fetchProjectStatus(projectCode: code) { (result) in
+            
+            guard let response = result else {return}
+            
+            if response.status == 200 {
+                let storyboard = UIStoryboard(name: "PopUp", bundle: nil)
+                guard let popup = storyboard.instantiateViewController(withIdentifier: "projectInfoPopUp") as? ProjectInfoPopUp else {return}
                 
-                ProjectSetting.shared.mode = .member
-                ProjectSetting.shared.projectIdx = response?.data?.project_idx
                 ProjectSetting.shared.projectCode = code
-                vc.modalPresentationStyle = .fullScreen
                 
-                SocketIOManager.shared.socket.emit("joinRoom", code)
+                popup.projectName = response.data!.project_name
+                popup.projectComment = response.data?.project_comment ?? ""
+                popup.projectIndex = (response.data?.project_idx)!
                 
-                self.present(vc, animated: true, completion: nil)
+                popup.modalPresentationStyle = .overCurrentContext
+                self.present(popup, animated: false, completion: nil)
+                } else {
+                let storyboard = UIStoryboard(name: "PopUp", bundle: nil)
+                guard let popup = storyboard.instantiateViewController(withIdentifier: "oneLineMessagePopVC") as? OneLineMessagePopViewController else {return}
                 
-            } else if response?.status == 600{
-                let popupStoryBoard: UIStoryboard = UIStoryboard(name: "PopUp", bundle: nil)
-                guard let invalidCodePopUp = popupStoryBoard.instantiateViewController(withIdentifier: "invalidCodePopUp") as? InvalidCodePopViewController else {return}
+                popup.modalPresentationStyle = .overCurrentContext
                 
-                invalidCodePopUp.modalPresentationStyle = .overCurrentContext
-                self.present(invalidCodePopUp, animated: false, completion: nil)
-            }else {
-                print("서버 오류")
+                switch response.status {
+                    case 202:
+                        popup.message = response.message
+                        self.present(popup, animated: false, completion: nil)
+                    case 409:
+                        popup.message = response.message
+                        self.present(popup, animated: false, completion: nil)
+                    case 400:
+                        popup.message = response.message
+                        self.present(popup, animated: false, completion: nil)
+                    default:
+                        popup.message = "오류가 발생했습니다"
+                        self.present(popup, animated: false, completion: nil)
+                }
             }
         }
-        
+
         textField.resignFirstResponder()
         return true
     }

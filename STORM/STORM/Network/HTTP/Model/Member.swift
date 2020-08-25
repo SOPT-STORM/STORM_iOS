@@ -7,6 +7,8 @@
 //
 
 struct Member: Codable {
+    let user_idx: Int?
     let user_name: String
     let user_img: String
+    let user_host_flag: Int? // Host = 1, member = 0
 }
