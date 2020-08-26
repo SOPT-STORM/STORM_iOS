@@ -41,11 +41,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         
-        // shadow, radius
-        emailView.cornerRadius = 10
-        pwdView.cornerRadius = 10
-        loginButton.addShadow(cornerRadus: 11, shadowOffset: CGSize(width: 0, height: 3), shadowOpacity: 0.2, shadowRadius: 3)
-        
         // error label
         errorLabel.isHidden = true
         
@@ -65,7 +60,11 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     
     // MARK:- viewDidAppear
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewDidLayoutSubviews() {
+        // shadow, radius
+        emailView.cornerRadius = 10
+        pwdView.cornerRadius = 10
+        loginButton.addShadow(cornerRadus: 11, shadowOffset: CGSize(width: 0, height: 3), shadowOpacity: 0.2, shadowRadius: 3)
         setup()
     }
     
@@ -105,11 +104,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         self.view.endEditing(true)
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        // 서버 연결 후
-        // ishidden == true && nil 아니여야 함
+        
+        if emailTextField.isEditing || pwdTextField.isEditing {self.view.endEditing(true)}
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -124,7 +120,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     func setup(){
         animationView.frame = view.bounds
         animationView.animation = Animation.named("login_0816")
-        animationView.contentMode = .scaleAspectFit
+        animationView.contentMode = .scaleAspectFill
         animationView.loopMode = .loop
         animationView.play()
         view.insertSubview(animationView, at: 0)
