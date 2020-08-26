@@ -36,6 +36,7 @@ class ProjectFinalViewController: UIViewController {
         let footer = UINib(nibName: "ProjectFinishFooterView", bundle: nil)
 
         self.collectionView.register(projectInfoCell, forCellWithReuseIdentifier: "projectInfoCell")
+        
         self.collectionView.register(roundInfoCell, forCellWithReuseIdentifier: "roundInfoCell")
         
         self.collectionView.register(footer, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "projectFinishFooterView")
@@ -177,13 +178,15 @@ extension ProjectFinalViewController: UICollectionViewDelegate, UICollectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if indexPath.section == 0 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "projectInfoCell", for: indexPath) as! ProjectInfoCell
             
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "projectInfoCell", for: indexPath) as! ProjectInfoCell
+
             guard let projectInformation = projectInfo else {return cell}
- 
+
             cell.participants = projectInformation.project_participants_list
             cell.projectName.text = projectInformation.project_name
             cell.roundInfo.text = "\(projectInformation.project_date) \n ROUND 총 \(projectInformation.round_count)회"
+
             return cell
         } else if indexPath.section == 1 {
             

@@ -13,13 +13,15 @@ class NetworkManager {
     // Singleton 객체
     static let shared = NetworkManager()
     
-    var user_idx = 0
+    var user_idx = UserDefaults.standard.integer(forKey: "index")
+//    var user_idx = 
     
     private init() {}
 
-//    private let baseURL = "http://3.34.179.75:3000"
+    
+    private let baseURL = "http://3.34.179.75:3000"
 
-    private let baseURL = "http://b7149f00729f.ngrok.io" // 임시 url
+//    private let baseURL = "http://9db52d4ff3f8.ngrok.io" // 임시 url
 //    
     // userImg - String 일지 File일지 아직 미정 (연동 끝나야 확인 가능)
 //    func signIn(userName: String, googleToken: String?, KakaoToken: String?, userImg: String, completion: @escaping (Response?) -> Void) {

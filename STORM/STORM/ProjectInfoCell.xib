@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -128,11 +128,11 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>
-                <outlet property="participantsCount" destination="Ogt-dL-s9p" id="gqr-ua-PaJ"/>
-                <outlet property="participantsProfile" destination="GYi-TN-dpL" id="a0E-bT-K6k"/>
-                <outlet property="participantsStackViewWidth" destination="jGF-XK-Zjx" id="nhZ-Dn-gCb"/>
-                <outlet property="projectName" destination="fjQ-a2-Ko7" id="fD6-me-HIA"/>
-                <outlet property="roundInfo" destination="Lcq-aJ-mzO" id="Ibg-QW-dJg"/>
+                <outlet property="participantsCount" destination="Ogt-dL-s9p" id="idU-XO-cKH"/>
+                <outlet property="participantsProfile" destination="GYi-TN-dpL" id="snh-nP-Dv4"/>
+                <outlet property="participantsStackViewWidth" destination="jGF-XK-Zjx" id="6fA-Zh-9Ie"/>
+                <outlet property="projectName" destination="fjQ-a2-Ko7" id="xE5-wX-waC"/>
+                <outlet property="roundInfo" destination="Lcq-aJ-mzO" id="CR1-On-TQL"/>
             </connections>
             <point key="canvasLocation" x="136.95652173913044" y="91.40625"/>
         </collectionViewCell>
