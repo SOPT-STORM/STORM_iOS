@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate { // 뒷화면 캡쳐 코드 아직. 안썼음
+class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // MARK:- IBOutlet
     
@@ -48,23 +48,12 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
         setSignUpNavi()
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "backBtn"), style: .plain, target: self, action: #selector(back))
         
-        // shadow, radius
-        nameTextField.cornerRadius = 10
-        doneButton.addShadow(cornerRadus: 10, shadowOffset: CGSize(width: 0, height: 3), shadowOpacity: 0.2, shadowRadius: 3)
-        
         // textfield cancel, padding
         nameTextField.clearButtonMode = .always
         nameTextField.clearButtonMode = .whileEditing
-        nameTextField.addLeftPadding()
         
         // error message
         errorLabel.isHidden = true
-        
-        // photo, photo button
-        userImageContainerView.makeCircle()
-        profileImage.makeCircle()
-        selectPhotoButton.addShadow(cornerRadus: selectPhotoButton.frame.width / 2, shadowOffset: CGSize(width: 1, height: 1), shadowOpacity: 0.3, shadowRadius: 3)
-        profileImage.contentMode = .scaleAspectFill
         
         // basic image
         basicImage()
@@ -76,6 +65,22 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
         selector: #selector(basicImage),
         name: NSNotification.Name(rawValue: "SetBasicImage"),
         object: nil)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        
+        // shadow, radius
+        nameTextField.cornerRadius = 10
+        doneButton.addShadow(cornerRadus: 10, shadowOffset: CGSize(width: 0, height: 3), shadowOpacity: 0.2, shadowRadius: 3)
+        
+        // photo, photo button
+        userImageContainerView.makeCircle()
+        profileImage.makeCircle()
+        selectPhotoButton.addShadow(cornerRadus: selectPhotoButton.frame.width / 2, shadowOffset: CGSize(width: 1, height: 1), shadowOpacity: 0.3, shadowRadius: 3)
+        profileImage.contentMode = .scaleAspectFill
+        
+        // textfield padding
+        nameTextField.addLeftPadding()
     }
     
     // MARK:- @objc
@@ -176,13 +181,16 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         self.view.endEditing(true)
-        if nameTextField.text?.count ?? 0 < 2 {
-            doneButton.backgroundColor = UIColor(red: 152/255, green: 152/255, blue: 152/255, alpha: 1)
-            errorLabel.isHidden = false
-            
-        } else if nameTextField.text?.count ?? 0 >= 2{
-            doneButton.backgroundColor = .stormRed
-            errorLabel.isHidden = true
+        
+        if nameTextField.isEditing {
+            if nameTextField.text?.count ?? 0 < 2 {
+                doneButton.backgroundColor = UIColor(red: 152/255, green: 152/255, blue: 152/255, alpha: 1)
+                errorLabel.isHidden = false
+                
+            } else if nameTextField.text?.count ?? 0 >= 2{
+                doneButton.backgroundColor = .stormRed
+                errorLabel.isHidden = true
+            }
         }
     }
     
