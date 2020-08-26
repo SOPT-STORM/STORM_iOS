@@ -1342,13 +1342,13 @@
                                 <rect key="frame" x="34" y="269" width="307" height="274"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mianview1NewPopupLogo" translatesAutoresizingMaskIntoConstraints="NO" id="krp-GD-N1a">
-                                        <rect key="frame" x="138" y="62.333333333333314" width="31" height="36"/>
+                                        <rect key="frame" x="138" y="63.666666666666686" width="31" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="krp-GD-N1a" secondAttribute="height" multiplier="31:36" id="VZn-Fv-Jc8"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="입력한 내용이 삭제됩니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qB9-9A-3NY">
-                                        <rect key="frame" x="73.333333333333329" y="115.33333333333331" width="160.33333333333337" height="23"/>
+                                        <rect key="frame" x="73.333333333333329" y="116.66666666666669" width="160.33333333333337" height="22.333333333333343"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="15"/>
                                         <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1379,7 +1379,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="뒤로 가시겠습니까?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQe-Qk-eDw">
-                                        <rect key="frame" x="92" y="138.33333333333331" width="123" height="23"/>
+                                        <rect key="frame" x="92.333333333333343" y="139" width="122.33333333333334" height="22.333333333333343"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="15"/>
                                         <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1391,7 +1391,6 @@
                                     <constraint firstItem="TQe-Qk-eDw" firstAttribute="top" secondItem="qB9-9A-3NY" secondAttribute="bottom" id="8XF-VJ-xD0"/>
                                     <constraint firstItem="krp-GD-N1a" firstAttribute="centerX" secondItem="Qok-xp-qaB" secondAttribute="centerX" id="IB7-Zg-LWg"/>
                                     <constraint firstItem="yPH-1H-bg5" firstAttribute="leading" secondItem="CwN-sL-zG5" secondAttribute="trailing" id="PlV-MD-27z"/>
-                                    <constraint firstAttribute="width" secondItem="Qok-xp-qaB" secondAttribute="height" multiplier="307:274" id="Qox-fD-G5j"/>
                                     <constraint firstAttribute="trailing" secondItem="yPH-1H-bg5" secondAttribute="trailing" id="STZ-WJ-oZp"/>
                                     <constraint firstItem="yPH-1H-bg5" firstAttribute="height" secondItem="CwN-sL-zG5" secondAttribute="height" id="TO3-fz-vRg"/>
                                     <constraint firstAttribute="bottom" secondItem="yPH-1H-bg5" secondAttribute="bottom" id="Uki-uY-plK"/>
@@ -1413,6 +1412,7 @@
                             <constraint firstItem="Sje-LD-X75" firstAttribute="leading" secondItem="3Qs-sH-7kI" secondAttribute="leading" id="fNd-5R-go4"/>
                             <constraint firstItem="Qok-xp-qaB" firstAttribute="centerY" secondItem="Gzd-X8-nOr" secondAttribute="centerY" id="n1m-m5-bRg"/>
                             <constraint firstItem="Qok-xp-qaB" firstAttribute="centerX" secondItem="Gzd-X8-nOr" secondAttribute="centerX" id="qYa-Pk-Ium"/>
+                            <constraint firstItem="Qok-xp-qaB" firstAttribute="height" secondItem="Gzd-X8-nOr" secondAttribute="height" multiplier="0.337438" id="qs7-Bl-XKe"/>
                             <constraint firstItem="Sje-LD-X75" firstAttribute="trailing" secondItem="3Qs-sH-7kI" secondAttribute="trailing" id="zbi-KV-XKA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3Qs-sH-7kI"/>
@@ -1491,7 +1491,6 @@
                                     <constraint firstItem="M8Y-y1-yOf" firstAttribute="leading" secondItem="z1b-WB-BhK" secondAttribute="trailing" id="gRu-qR-JwG"/>
                                     <constraint firstItem="vRg-rz-78r" firstAttribute="width" secondItem="47L-ml-Ykt" secondAttribute="width" multiplier="0.100977" id="mnK-Zd-VWv"/>
                                     <constraint firstItem="z1b-WB-BhK" firstAttribute="top" secondItem="nrw-bO-hWA" secondAttribute="bottom" multiplier="1.24" id="msf-um-8ae"/>
-                                    <constraint firstAttribute="width" secondItem="47L-ml-Ykt" secondAttribute="height" multiplier="307:230" id="xKL-IM-jhZ"/>
                                     <constraint firstItem="nrw-bO-hWA" firstAttribute="centerX" secondItem="47L-ml-Ykt" secondAttribute="centerX" id="zYY-fg-ppn"/>
                                 </constraints>
                             </view>
@@ -1505,6 +1504,7 @@
                             <constraint firstItem="KjL-Wc-a3C" firstAttribute="leading" secondItem="kzA-tf-i2f" secondAttribute="leading" id="eUL-AI-kv8"/>
                             <constraint firstItem="47L-ml-Ykt" firstAttribute="width" secondItem="Mr0-IZ-bHe" secondAttribute="width" multiplier="0.818667" id="ji7-tj-qRN"/>
                             <constraint firstItem="KjL-Wc-a3C" firstAttribute="top" secondItem="Mr0-IZ-bHe" secondAttribute="top" id="kpe-Fs-Qwn"/>
+                            <constraint firstItem="47L-ml-Ykt" firstAttribute="height" secondItem="Mr0-IZ-bHe" secondAttribute="height" multiplier="0.283251" id="qfa-72-VdQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kzA-tf-i2f"/>
                     </view>
