@@ -20,11 +20,11 @@
 		B84697E524D313FB00E56804 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84697E424D313FB00E56804 /* ProfileViewController.swift */; };
 		B84697E924D3141D00E56804 /* DeleteAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84697E824D3141D00E56804 /* DeleteAccountViewController.swift */; };
 		B84697ED24D325A500E56804 /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = B84697EF24D325A500E56804 /* NotoSansCJKkr-Medium.otf */; };
-		B84B87D424F50C1600E45C35 /* NotoSansCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B84B87D024F50C1600E45C35 /* NotoSansCJKkr-Bold.otf */; };
-		B84B87D524F50C1600E45C35 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B84B87D224F50C1600E45C35 /* NotoSansCJKkr-Regular.otf */; };
 		B84C530F24ED54BE00B4CF1D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84C530E24ED54BE00B4CF1D /* User.swift */; };
 		B878A01224D9692400A8C19F /* CameraPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B878A01124D9692400A8C19F /* CameraPopUpViewController.swift */; };
 		B878A01424DA051A00A8C19F /* EnsureDeleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B878A01324DA051A00A8C19F /* EnsureDeleteViewController.swift */; };
+		B89AA8AD24F53D6A00FAA189 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B84697F224D325A800E56804 /* NotoSansCJKkr-Regular.otf */; };
+		B89AA8AE24F53D6F00FAA189 /* NotoSansCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B84697EC24D325A000E56804 /* NotoSansCJKkr-Bold.otf */; };
 		B8E34D5924E438C7003538A8 /* LogIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E34D5824E438C7003538A8 /* LogIn.storyboard */; };
 		B8E9FA7224B9B7CB00A97235 /* OneLineMessagePopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9FA7124B9B7CB00A97235 /* OneLineMessagePopViewController.swift */; };
 		B8E9FA7424B9B7FC00A97235 /* PopUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E9FA7324B9B7FC00A97235 /* PopUp.storyboard */; };
@@ -122,8 +122,6 @@
 		B84697F324D3261200E56804 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = "en.lproj/NotoSansCJKkr-Bold.otf"; sourceTree = "<group>"; };
 		B84697F424D3261700E56804 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = "en.lproj/NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
 		B84697F524D3261A00E56804 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = "en.lproj/NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
-		B84B87D124F50C1600E45C35 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = "STORM/Fonts/en.lproj/NotoSansCJKkr-Bold.otf"; sourceTree = "<group>"; };
-		B84B87D324F50C1600E45C35 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = "STORM/Fonts/en.lproj/NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		B84C530E24ED54BE00B4CF1D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B878A01124D9692400A8C19F /* CameraPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPopUpViewController.swift; sourceTree = "<group>"; };
 		B878A01324DA051A00A8C19F /* EnsureDeleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnsureDeleteViewController.swift; sourceTree = "<group>"; };
@@ -322,8 +320,6 @@
 		D12EC23124AB4070007E5896 = {
 			isa = PBXGroup;
 			children = (
-				B84B87D024F50C1600E45C35 /* NotoSansCJKkr-Bold.otf */,
-				B84B87D224F50C1600E45C35 /* NotoSansCJKkr-Regular.otf */,
 				D12EC23C24AB4070007E5896 /* STORM */,
 				D12EC23B24AB4070007E5896 /* Products */,
 				86663522A806D89569C56231 /* Pods */,
@@ -585,18 +581,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				D75ECBE924B6C7A900CB46C3 /* ProjectRound.storyboard in Resources */,
+				B89AA8AD24F53D6A00FAA189 /* NotoSansCJKkr-Regular.otf in Resources */,
 				B8E34D5924E438C7003538A8 /* LogIn.storyboard in Resources */,
 				B84697E224D30FAA00E56804 /* MyPage.storyboard in Resources */,
 				B800D24624E86D960024CE2F /* login_0816.json in Resources */,
 				D12EC24D24AB4072007E5896 /* LaunchScreen.storyboard in Resources */,
+				B89AA8AE24F53D6F00FAA189 /* NotoSansCJKkr-Bold.otf in Resources */,
 				B8255E8E24D492A700749B62 /* example.jpg in Resources */,
 				D75ECBE924B6C7A900CB46C3 /* ProjectRound.storyboard in Resources */,
 				D14BC3A224EAEFAA0075F026 /* ProjectFinishFooterView.xib in Resources */,
 				D12EC24D24AB4072007E5896 /* LaunchScreen.storyboard in Resources */,
 				D149795B24E168B00021CA32 /* MemoCarouselCell.xib in Resources */,
 				D13DD4F024F44832005C569F /* splash.json in Resources */,
-				B84B87D424F50C1600E45C35 /* NotoSansCJKkr-Bold.otf in Resources */,
-				B84B87D524F50C1600E45C35 /* NotoSansCJKkr-Regular.otf in Resources */,
 				B8E9FA7424B9B7FC00A97235 /* PopUp.storyboard in Resources */,
 				D149795724E1689D0021CA32 /* DrawingCarouselCell.xib in Resources */,
 				D12EC24A24AB4072007E5896 /* Assets.xcassets in Resources */,
@@ -770,22 +766,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				B84697F524D3261A00E56804 /* en */,
-			);
-			name = "NotoSansCJKkr-Regular.otf";
-			sourceTree = "<group>";
-		};
-		B84B87D024F50C1600E45C35 /* NotoSansCJKkr-Bold.otf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B84B87D124F50C1600E45C35 /* en */,
-			);
-			name = "NotoSansCJKkr-Bold.otf";
-			sourceTree = "<group>";
-		};
-		B84B87D224F50C1600E45C35 /* NotoSansCJKkr-Regular.otf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B84B87D324F50C1600E45C35 /* en */,
 			);
 			name = "NotoSansCJKkr-Regular.otf";
 			sourceTree = "<group>";
