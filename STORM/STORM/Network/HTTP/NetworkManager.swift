@@ -17,9 +17,9 @@ class NetworkManager {
     
     private init() {}
 
-//    private let baseURL = "http://3.34.179.75:3000"
+    private let baseURL = "http://3.34.179.75:3000"
 
-    private let baseURL = "http://b7149f00729f.ngrok.io" // 임시 url
+//    private let baseURL = "http://b7149f00729f.ngrok.io" // 임시 url
 //    
     // userImg - String 일지 File일지 아직 미정 (연동 끝나야 확인 가능)
 //    func signIn(userName: String, googleToken: String?, KakaoToken: String?, userImg: String, completion: @escaping (Response?) -> Void) {
