@@ -25,7 +25,9 @@ class EnsureDeleteViewController: UIViewController {
         self.setNaviTitle()
         self.view.tintColor = .stormRed
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "myprojectBtnBack" ), style: .plain, target: self, action: #selector(back))
-        
+    }
+    
+    override func viewDidLayoutSubviews() {
         whiteView.roundCorners(corners: [.topRight, .topLeft], radius: 30.0)
         
         deleteAccountButton.addShadow(cornerRadus: 7, shadowOffset: CGSize(width: 0, height: 3), shadowOpacity: 0.2, shadowRadius: 2)
