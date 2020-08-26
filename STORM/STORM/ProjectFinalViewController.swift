@@ -25,7 +25,7 @@ class ProjectFinalViewController: UIViewController {
         self.collectionView.dataSource = self
         
         
-        if self.presentingViewController != nil {
+        if self.presentingViewController != nil && !(self.presentingViewController is LogInViewController) {
             navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "exit"), style: .plain, target: self, action: #selector(didPressExit))
             guard let projectIndex = ProjectSetting.shared.projectIdx else {return}
             self.projectIndex = projectIndex
