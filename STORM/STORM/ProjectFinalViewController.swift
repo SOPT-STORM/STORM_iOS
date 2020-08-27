@@ -21,23 +21,23 @@ class ProjectFinalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print(projectIndex)
+        
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
-        
-        
-        /*
-        if self.presentingViewController != nil && !(self.presentingViewController is LogInViewController) {
+
+        if self.presentingViewController != nil {
             navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "exit"), style: .plain, target: self, action: #selector(didPressExit))
             guard let projectIndex = ProjectSetting.shared.projectIdx else {return}
             self.projectIndex = projectIndex
         }
-         */
         
         let projectInfoCell = UINib(nibName: "ProjectInfoCell", bundle: nil)
         let roundInfoCell = UINib(nibName: "RoundInfoCell", bundle: nil)
         let footer = UINib(nibName: "ProjectFinishFooterView", bundle: nil)
 
         self.collectionView.register(projectInfoCell, forCellWithReuseIdentifier: "projectInfoCell")
+        
         self.collectionView.register(roundInfoCell, forCellWithReuseIdentifier: "roundInfoCell")
         
         self.collectionView.register(footer, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "projectFinishFooterView")
@@ -46,7 +46,6 @@ class ProjectFinalViewController: UIViewController {
         
         self.setNaviTitle()
         
-        print("프로젝트 인덱스 \(projectIndex)")
         NetworkManager.shared.fetchFinalProjectInfo(projectIdx: projectIndex) { (response) in
             
             print(response)
@@ -170,8 +169,7 @@ extension ProjectFinalViewController: UICollectionViewDelegate, UICollectionView
         if section == 0 {
             return 1
         } else if section == 1 {
-            guard let cardItemCount = scrapCardInfo?.card_item?.count else {return 0}
-            return self.scrapCardInfo?.card_item?.count != nil ? cardItemCount : 0
+            return self.scrapCardInfo?.card_item?.count != nil ? scrapCardInfo!.card_item!.count : 0
         } else {
             return self.roundsInfo?.count != nil ? roundsInfo!.count : 0
         }
@@ -180,13 +178,15 @@ extension ProjectFinalViewController: UICollectionViewDelegate, UICollectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if indexPath.section == 0 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "projectInfoCell", for: indexPath) as! ProjectInfoCell
             
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "projectInfoCell", for: indexPath) as! ProjectInfoCell
+
             guard let projectInformation = projectInfo else {return cell}
- 
+
             cell.participants = projectInformation.project_participants_list
             cell.projectName.text = projectInformation.project_name
             cell.roundInfo.text = "\(projectInformation.project_date) \n ROUND 총 \(projectInformation.round_count)회"
+
             return cell
         } else if indexPath.section == 1 {
             

@@ -37,7 +37,9 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         // hide navigationbar
-        //self.navigationController?.navigationBar.barTintColor = .clear
+        self.navigationController?.navigationBar.barTintColor = .clear
+        
+        
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         
@@ -58,13 +60,20 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    // MARK:- viewDidAppear
+    override func viewWillAppear(_ animated: Bool) {
+        loadSplashView()
+    }
     
     override func viewDidLayoutSubviews() {
         // shadow, radius
         emailView.cornerRadius = 10
         pwdView.cornerRadius = 10
         loginButton.addShadow(cornerRadus: 11, shadowOffset: CGSize(width: 0, height: 3), shadowOpacity: 0.2, shadowRadius: 3)
+    }
+    
+    // MARK:- viewDidAppear
+    
+    override func viewDidAppear(_ animated: Bool) {
         setup()
     }
     
@@ -104,8 +113,11 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         self.view.endEditing(true)
-        
-        if emailTextField.isEditing || pwdTextField.isEditing {self.view.endEditing(true)}
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        // 서버 연결 후
+        // ishidden == true && nil 아니여야 함
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -116,11 +128,11 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-    
+
     func setup(){
         animationView.frame = view.bounds
         animationView.animation = Animation.named("login_0816")
-        animationView.contentMode = .scaleAspectFill
+        animationView.contentMode = .scaleAspectFit
         animationView.loopMode = .loop
         animationView.play()
         view.insertSubview(animationView, at: 0)
@@ -149,8 +161,10 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                 
                 guard let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainVC") as? MainViewController else {return}
                 let naviController = UINavigationController(rootViewController: mainVC)
-                naviController.modalPresentationStyle = .fullScreen
-                self.present(naviController, animated: true, completion: nil)
+
+                let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+                window?.rootViewController = naviController
+                
             } else if status == 600 {
                 self.errorLabel.isHidden = false
             }
@@ -172,8 +186,10 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                 
                 guard let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainVC") as? MainViewController else {return}
                 let naviController = UINavigationController(rootViewController: mainVC)
-                naviController.modalPresentationStyle = .fullScreen
-                self.present(naviController, animated: true, completion: nil)
+                
+                let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+                window?.rootViewController = naviController
+    
             } else if response.status == 600 {
                 
                 self.errorLabel.isHidden = false

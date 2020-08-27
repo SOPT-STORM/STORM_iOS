@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -486,7 +486,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgReal" translatesAutoresizingMaskIntoConstraints="NO" id="QXh-nn-FWE">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="QXh-nn-FWE">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kTH-Do-P8a">
@@ -745,7 +745,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="IHp-gQ-jFR">
-                                <rect key="frame" x="0.0" y="152" width="375" height="660"/>
+                                <rect key="frame" x="0.0" y="183.66666666666669" width="375" height="628.33333333333326"/>
                                 <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HTH-iQ-KwD" customClass="AlignedCollectionViewFlowLayout" customModule="STORM" customModuleProvider="target">
                                     <size key="itemSize" width="128" height="128"/>
@@ -912,22 +912,19 @@
                                 </cells>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QNj-w9-lyL">
-                                <rect key="frame" x="0.0" y="44" width="375" height="108"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="139.66666666666666"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="스크랩한 카드" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6eM-iu-dPH">
-                                        <rect key="frame" x="26" y="11" width="93" height="24"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="스크랩한 카드" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6eM-iu-dPH">
+                                        <rect key="frame" x="26.000000000000007" y="27" width="87.666666666666686" height="24"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f0Q-WH-OVx">
-                                        <rect key="frame" x="26" y="51" width="322" height="40"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f0Q-WH-OVx">
+                                        <rect key="frame" x="27" y="67" width="321" height="40"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XC8-HU-zat">
-                                                <rect key="frame" x="14" y="10" width="75.666666666666671" height="20"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XC8-HU-zat">
+                                                <rect key="frame" x="13" y="12.333333333333329" width="71.333333333333329" height="15.666666666666664"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="프로젝트 제목">
                                                         <attributes>
@@ -939,13 +936,12 @@
                                                 </attributedString>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WiN-OH-vnS">
-                                                <rect key="frame" x="224" y="10" width="82" height="20"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WiN-OH-vnS">
+                                                <rect key="frame" x="227.33333333333334" y="12.333333333333329" width="77.666666666666657" height="15.666666666666664"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="총 10개의 카드">
                                                         <attributes>
-                                                            <color key="NSColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="NSColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                                             <font key="NSFont" metaFont="system"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
@@ -955,6 +951,13 @@
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="WiN-OH-vnS" firstAttribute="centerY" secondItem="XC8-HU-zat" secondAttribute="centerY" id="cqc-qx-crF"/>
+                                            <constraint firstItem="GI9-7B-jQO" firstAttribute="trailing" secondItem="WiN-OH-vnS" secondAttribute="trailing" constant="16" id="ge7-kI-oqo"/>
+                                            <constraint firstItem="XC8-HU-zat" firstAttribute="centerY" secondItem="GI9-7B-jQO" secondAttribute="centerY" id="obe-BT-GvW"/>
+                                            <constraint firstItem="XC8-HU-zat" firstAttribute="leading" secondItem="GI9-7B-jQO" secondAttribute="leading" constant="13" id="pu2-3A-fMV"/>
+                                        </constraints>
+                                        <viewLayoutGuide key="safeArea" id="GI9-7B-jQO"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="10"/>
@@ -976,7 +979,13 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.92549019610000005" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="108" id="NO6-iH-8jp"/>
+                                    <constraint firstAttribute="trailing" secondItem="f0Q-WH-OVx" secondAttribute="trailing" constant="27" id="6Hj-02-FCW"/>
+                                    <constraint firstItem="6eM-iu-dPH" firstAttribute="leading" secondItem="QNj-w9-lyL" secondAttribute="leading" constant="26" id="YlX-fo-cXE"/>
+                                    <constraint firstItem="f0Q-WH-OVx" firstAttribute="top" secondItem="6eM-iu-dPH" secondAttribute="bottom" constant="16" id="a26-gZ-FTG"/>
+                                    <constraint firstItem="6eM-iu-dPH" firstAttribute="height" secondItem="QNj-w9-lyL" secondAttribute="height" multiplier="0.171838" id="d7u-7n-39x"/>
+                                    <constraint firstItem="f0Q-WH-OVx" firstAttribute="height" secondItem="QNj-w9-lyL" secondAttribute="height" multiplier="0.286396" id="esX-Fd-Ll0"/>
+                                    <constraint firstItem="f0Q-WH-OVx" firstAttribute="leading" secondItem="QNj-w9-lyL" secondAttribute="leading" constant="27" id="o2v-0O-XVb"/>
+                                    <constraint firstItem="6eM-iu-dPH" firstAttribute="top" secondItem="QNj-w9-lyL" secondAttribute="top" constant="27" id="wc9-dB-jXz"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
@@ -996,12 +1005,13 @@
                         </subviews>
                         <color key="backgroundColor" red="0.92549019610000005" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="QNj-w9-lyL" firstAttribute="height" secondItem="psa-Tb-CXt" secondAttribute="height" multiplier="0.172" id="Gqr-Tj-rR2"/>
+                            <constraint firstItem="IHp-gQ-jFR" firstAttribute="top" secondItem="QNj-w9-lyL" secondAttribute="bottom" id="IpL-Jm-65o"/>
                             <constraint firstItem="QNj-w9-lyL" firstAttribute="trailing" secondItem="A2x-fB-Tlb" secondAttribute="trailing" id="KxI-oc-gMf"/>
                             <constraint firstAttribute="bottom" secondItem="IHp-gQ-jFR" secondAttribute="bottom" id="MJs-aF-ytT"/>
                             <constraint firstItem="QNj-w9-lyL" firstAttribute="leading" secondItem="A2x-fB-Tlb" secondAttribute="leading" id="cmS-5K-TNH"/>
                             <constraint firstItem="QNj-w9-lyL" firstAttribute="top" secondItem="A2x-fB-Tlb" secondAttribute="top" id="e26-H3-A4O"/>
                             <constraint firstItem="IHp-gQ-jFR" firstAttribute="leading" secondItem="A2x-fB-Tlb" secondAttribute="leading" id="igR-Dh-yUv"/>
-                            <constraint firstItem="IHp-gQ-jFR" firstAttribute="top" secondItem="QNj-w9-lyL" secondAttribute="bottom" id="lY4-GV-edK"/>
                             <constraint firstItem="IHp-gQ-jFR" firstAttribute="trailing" secondItem="A2x-fB-Tlb" secondAttribute="trailing" id="oYp-Qy-pKz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="A2x-fB-Tlb"/>
@@ -1016,10 +1026,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f8V-id-XyX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4439" y="2"/>
+            <point key="canvasLocation" x="4437.6000000000004" y="1.4778325123152709"/>
         </scene>
     </scenes>
     <resources>
+        <image name="background" width="375" height="724"/>
         <image name="before" width="13.666666984558105" height="24.333333969116211"/>
         <image name="bgReal" width="375" height="706"/>
         <image name="btn_heart" width="48" height="48"/>

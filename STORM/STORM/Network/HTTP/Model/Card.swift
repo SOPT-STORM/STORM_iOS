@@ -30,9 +30,11 @@ struct scrappedCard: Codable {
     let round_number: Int
     let round_purpose: String
     let round_time: Int
+    let user_img: String
     let card_idx: Int
     let card_img: String?
     let card_txt: String?
+    let memo_content: String?
 }
 
 struct CardItem: Codable {

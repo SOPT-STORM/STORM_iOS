@@ -8,7 +8,6 @@
 
 import UIKit
 import Kingfisher
-import Lottie
 
 class MainViewController: UIViewController {
     
@@ -21,8 +20,6 @@ class MainViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     lazy var dataArray: [ProjectWithDetail] = []
-    
-    var isFirstEnter: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +39,10 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         fetchProjectList()
         loadSplashView()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        codeText.text = nil
     }
     
     @objc func didPressMyPage() {
@@ -70,28 +71,6 @@ class MainViewController: UIViewController {
         
         // 캐싱 메모리 300mb로 사용 제한
         KingfisherManager.shared.cache.memoryStorage.config.totalCostLimit = 30000
-    }
-    
-    func loadSplashView() {
-        
-        if isFirstEnter == true {
-            let animationView = AnimationView()
-        
-            animationView.frame = UIScreen.main.bounds //UIScreen.main.bounds
-        
-            animationView.animation = Animation.named("splash")
-        
-            animationView.contentMode = .scaleAspectFit
-        
-            animationView.play()
-        
-            self.navigationController?.view.addSubview(animationView)
-        
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.3) {
-                animationView.removeFromSuperview()
-                self.isFirstEnter = false
-            }
-        }
     }
     
     func toolbarSetup() {
@@ -166,8 +145,8 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = self.view.frame.width * 0.347
-        return CGSize(width: width, height: width * 1.3385)
+        let height = self.collectionView.frame.height
+        return CGSize(width: height * 0.742, height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -180,13 +159,14 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        print("여기 실행")
         let projectIndex = self.dataArray[indexPath.row].project_idx
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let vc = storyboard.instantiateViewController(withIdentifier: "projectFinalViewController") as? ProjectFinalViewController else {return}
         
         vc.projectIndex = projectIndex
+        
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
@@ -196,7 +176,7 @@ extension MainViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         guard let code = textField.text else {return true}
-        
+    
         NetworkManager.shared.fetchProjectStatus(projectCode: code) { (result) in
             
             guard let response = result else {return}
@@ -223,6 +203,9 @@ extension MainViewController: UITextFieldDelegate {
                     case 202:
                         popup.message = response.message
                         self.present(popup, animated: false, completion: nil)
+                    case 204:
+                        popup.message = response.message
+                        self.present(popup, animated: false, completion: nil)
                     case 409:
                         popup.message = response.message
                         self.present(popup, animated: false, completion: nil)
@@ -235,8 +218,12 @@ extension MainViewController: UITextFieldDelegate {
                 }
             }
         }
-
         textField.resignFirstResponder()
         return true
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        textField.text = (textField.text! as NSString).replacingCharacters(in: range, with: string.uppercased())
+        return false
     }
 }

@@ -32,7 +32,6 @@ class AllRoundCarouselViewController: UIViewController {
         
         memoView.delegate = self
         
-        
         memoView.font = UIFont(name: "NotoSansCJKkr-Regular", size: 11)
         memoView.textColor = UIColor.placeholderColor
         memoView.text = "Memo"
@@ -105,12 +104,12 @@ class AllRoundCarouselViewController: UIViewController {
         let layout = CarouselLayout()
                 
         layout.itemSize = CGSize(width: collectionView.frame.size.width*0.796, height: collectionView.frame.height)
+        
         print(collectionView.frame.size.height, collectionView.bounds.size.height)
         
         layout.sideItemScale = 0.698
         layout.spacing = -collectionView.frame.size.width*0.796*0.7848
         layout.isPagingEnabled = true
-        
         
         collectionView.collectionViewLayout = layout
         

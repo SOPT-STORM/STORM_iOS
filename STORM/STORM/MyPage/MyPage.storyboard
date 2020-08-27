@@ -279,10 +279,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rH2-dZ-Mek">
-                                <rect key="frame" x="0.0" y="120.33333333333331" width="375" height="691.66666666666674"/>
+                                <rect key="frame" x="0.0" y="162.33333333333331" width="375" height="649.66666666666674"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GbD-js-Abg">
-                                        <rect key="frame" x="146" y="539.66666666666663" width="83" height="48"/>
+                                        <rect key="frame" x="146" y="505.33333333333326" width="83" height="48"/>
                                         <color key="backgroundColor" red="0.96078431369999995" green="0.79215686269999996" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="GbD-js-Abg" secondAttribute="height" multiplier="83:48" id="0ig-f0-xca"/>
@@ -389,7 +389,7 @@
                             <constraint firstAttribute="bottom" secondItem="ZR8-cl-gU4" secondAttribute="bottom" id="LTB-Py-uRT"/>
                             <constraint firstItem="t0S-5q-bUy" firstAttribute="top" secondItem="TBL-ac-IPO" secondAttribute="top" constant="76.333333333333314" id="Ly2-nX-gbF"/>
                             <constraint firstItem="rH2-dZ-Mek" firstAttribute="leading" secondItem="TBL-ac-IPO" secondAttribute="leading" id="MxC-DB-UV1"/>
-                            <constraint firstItem="rH2-dZ-Mek" firstAttribute="height" secondItem="hFT-us-JYZ" secondAttribute="height" multiplier="0.852" id="Og1-hS-qzo"/>
+                            <constraint firstItem="rH2-dZ-Mek" firstAttribute="height" secondItem="hFT-us-JYZ" secondAttribute="height" multiplier="0.8" id="Og1-hS-qzo"/>
                             <constraint firstItem="t0S-5q-bUy" firstAttribute="trailing" secondItem="TBL-ac-IPO" secondAttribute="trailing" id="V0R-DO-w4f"/>
                             <constraint firstItem="ZR8-cl-gU4" firstAttribute="leading" secondItem="TBL-ac-IPO" secondAttribute="leading" id="XmY-eB-wjB"/>
                             <constraint firstItem="t0S-5q-bUy" firstAttribute="leading" secondItem="TBL-ac-IPO" secondAttribute="leading" id="qhF-F3-Xdk"/>
@@ -424,19 +424,19 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="geR-5Z-wIk">
-                                <rect key="frame" x="0.0" y="120.33333333333331" width="375" height="691.66666666666674"/>
+                                <rect key="frame" x="0.0" y="162.33333333333331" width="375" height="649.66666666666674"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="탈퇴 하시겠습니까?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGK-ic-E3t">
-                                        <rect key="frame" x="126.66666666666669" y="308.66666666666669" width="122" height="22.333333333333314"/>
+                                        <rect key="frame" x="126.66666666666669" y="290" width="122" height="22.333333333333314"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="15"/>
                                         <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hRoundsettingLogo" translatesAutoresizingMaskIntoConstraints="NO" id="iFk-km-tcw">
-                                        <rect key="frame" x="169.66666666666666" y="199.33333333333337" width="36" height="71.333333333333314"/>
+                                        <rect key="frame" x="169.66666666666666" y="187.33333333333334" width="36" height="67"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YZA-gr-t5B">
-                                        <rect key="frame" x="146" y="431.66666666666669" width="83" height="48"/>
+                                        <rect key="frame" x="146" y="412.33333333333326" width="83" height="48"/>
                                         <color key="backgroundColor" red="0.96078431369999995" green="0.79215686269999996" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="YZA-gr-t5B" secondAttribute="height" multiplier="83:48" id="ZPY-v8-Z4P"/>
@@ -450,13 +450,13 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="회원 탈퇴" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xdp-vN-fx1">
-                                        <rect key="frame" x="44.666666666666664" y="42.333333333333329" width="67.333333333333343" height="25.666666666666671"/>
+                                        <rect key="frame" x="44.666666666666664" y="39.333333333333314" width="67.333333333333343" height="25.666666666666671"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="17"/>
                                         <color key="textColor" red="0.92549019610000005" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="계정을 탈퇴하면 회원님의 프로젝트 및 카드를 되돌릴 수 없게 됩니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yvv-HK-E0L">
-                                        <rect key="frame" x="62.666666666666657" y="351.66666666666669" width="249.99999999999997" height="50"/>
+                                        <rect key="frame" x="62.666666666666657" y="333.66666666666663" width="249.99999999999997" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="IPi-fr-pBb"/>
                                             <constraint firstAttribute="width" constant="250" id="nyZ-I1-eNC"/>
@@ -490,7 +490,7 @@
                             <constraint firstAttribute="bottom" secondItem="geR-5Z-wIk" secondAttribute="bottom" id="HGM-nk-tX1"/>
                             <constraint firstItem="RSf-hF-k60" firstAttribute="top" secondItem="k4K-tE-8oa" secondAttribute="top" id="HsH-2e-99Q"/>
                             <constraint firstItem="geR-5Z-wIk" firstAttribute="trailing" secondItem="7nd-K4-HXL" secondAttribute="trailing" id="McV-Vf-Ve5"/>
-                            <constraint firstItem="geR-5Z-wIk" firstAttribute="height" secondItem="k4K-tE-8oa" secondAttribute="height" multiplier="0.852" id="NNq-7O-Rkg"/>
+                            <constraint firstItem="geR-5Z-wIk" firstAttribute="height" secondItem="k4K-tE-8oa" secondAttribute="height" multiplier="0.8" id="NNq-7O-Rkg"/>
                             <constraint firstItem="geR-5Z-wIk" firstAttribute="width" secondItem="k4K-tE-8oa" secondAttribute="width" id="Py0-w1-BYy"/>
                             <constraint firstAttribute="bottom" secondItem="RSf-hF-k60" secondAttribute="bottom" id="Tws-1i-Q3B"/>
                             <constraint firstItem="RSf-hF-k60" firstAttribute="leading" secondItem="7nd-K4-HXL" secondAttribute="leading" id="cSB-yF-p54"/>
