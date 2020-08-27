@@ -18,7 +18,8 @@ class ScrapCardViewController: UIViewController {
     @IBOutlet weak var cardScrapCollectionView: UICollectionView!
     
     lazy var projectName = ""
-    lazy var scrappedCards: [scrappedCard] = []
+    //lazy var scrappedCards: [scrappedCard] = []
+    lazy var scrappedCards: [CardItem] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()

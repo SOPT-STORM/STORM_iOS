@@ -13,7 +13,7 @@ class NetworkManager {
     // Singleton 객체
     static let shared = NetworkManager()
     
-    var user_idx = 0
+    var user_idx = UserDefaults.standard.integer(forKey: "index")
     
     private init() {}
 

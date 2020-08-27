@@ -10,7 +10,8 @@ import UIKit
 
 class ScrapDetailViewController: UIViewController {
     
-    lazy var scrappedCards: [scrappedCard] = []
+    //lazy var scrappedCards: [scrappedCard] = []
+    lazy var scrappedCards: [CardItem] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()

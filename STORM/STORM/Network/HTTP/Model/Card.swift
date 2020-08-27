@@ -34,3 +34,14 @@ struct scrappedCard: Codable {
     let card_img: String?
     let card_txt: String?
 }
+
+struct CardItem: Codable {
+    let round_number: Int
+    let round_purpose: String
+    let round_time: Int
+    let user_img: String?
+    let card_idx: Int
+    let card_img: String?
+    let card_txt: String?
+    let memo_content: String?
+}
