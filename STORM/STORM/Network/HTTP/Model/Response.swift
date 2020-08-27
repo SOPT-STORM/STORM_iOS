@@ -73,7 +73,7 @@ struct ScrappedCardResponse: Codable {
     let status: Int
     let success: Bool
     let message: String
-    let data: ProjectWithScrap
+    let data: ProjectWithScrap?
 }
 
 struct LogInResponse: Codable {
