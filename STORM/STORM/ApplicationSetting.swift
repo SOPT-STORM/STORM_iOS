@@ -6,4 +6,8 @@
 //  Copyright © 2020 Team STORM. All rights reserved.
 //
 
-import Foundation
+class ApplicationSetting {
+    static let shared = ApplicationSetting()
+    
+    var isFirstEnter: Bool = true
+}
