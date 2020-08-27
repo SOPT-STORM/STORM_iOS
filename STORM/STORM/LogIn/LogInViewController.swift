@@ -37,10 +37,12 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         // hide navigationbar
-        //self.navigationController?.navigationBar.barTintColor = .clear
+        self.navigationController?.navigationBar.barTintColor = .clear
+        
+        
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        
+//
         // shadow, radius
         emailView.cornerRadius = 10
         pwdView.cornerRadius = 10
@@ -61,6 +63,10 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         if let email = UserDefaults.standard.string(forKey: "email"), let pwd = UserDefaults.standard.string(forKey: "pwd") {
             autoLogin(userEmail: email, userPwd: pwd)
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadSplashView()
     }
     
     // MARK:- viewDidAppear
@@ -120,7 +126,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-    
+
     func setup(){
         animationView.frame = view.bounds
         animationView.animation = Animation.named("login_0816")
@@ -153,8 +159,10 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                 
                 guard let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainVC") as? MainViewController else {return}
                 let naviController = UINavigationController(rootViewController: mainVC)
-                naviController.modalPresentationStyle = .fullScreen
-                self.present(naviController, animated: true, completion: nil)
+
+                let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+                window?.rootViewController = naviController
+                
             } else if status == 600 {
                 self.errorLabel.isHidden = false
             }
@@ -176,8 +184,10 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                 
                 guard let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainVC") as? MainViewController else {return}
                 let naviController = UINavigationController(rootViewController: mainVC)
-                naviController.modalPresentationStyle = .fullScreen
-                self.present(naviController, animated: true, completion: nil)
+                
+                let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+                window?.rootViewController = naviController
+    
             } else if response.status == 600 {
                 
                 self.errorLabel.isHidden = false
