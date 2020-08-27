@@ -63,8 +63,7 @@ extension UIViewController {
         
             animationView.animation = Animation.named("splash")
         
-            animationView.contentMode = .scaleAspectFit
-        
+            animationView.contentMode = .scaleAspectFill
             animationView.play()
         
             self.navigationController?.view.addSubview(animationView)
