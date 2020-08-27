@@ -71,6 +71,12 @@ class RoundSettingViewController: UIViewController {
     @objc func didPressExit() {
         let rootVC = self.view.window?.rootViewController
         
+//        guard let mainVC = self.view.window?.rootViewController?.children[0] else {return}
+//        
+//        print(mainVC)
+//        
+//        print("실행됨요")
+        
         self.view.window?.rootViewController?.dismiss(animated: false, completion: {
             guard let navi = rootVC as? UINavigationController else {return}
             navi.popToRootViewController(animated: false)

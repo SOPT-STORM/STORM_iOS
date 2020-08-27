@@ -21,10 +21,11 @@ class ProjectFinalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print(projectIndex)
+        
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
-        
-        
+
         if self.presentingViewController != nil {
             navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "exit"), style: .plain, target: self, action: #selector(didPressExit))
             guard let projectIndex = ProjectSetting.shared.projectIdx else {return}
@@ -45,7 +46,6 @@ class ProjectFinalViewController: UIViewController {
         
         self.setNaviTitle()
         
-        print("프로젝트 인덱스 \(projectIndex)")
         NetworkManager.shared.fetchFinalProjectInfo(projectIdx: projectIndex) { (response) in
             
             print(response)
