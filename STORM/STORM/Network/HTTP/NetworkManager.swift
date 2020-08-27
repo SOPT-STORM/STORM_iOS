@@ -13,36 +13,14 @@ class NetworkManager {
     // Singleton 객체
     static let shared = NetworkManager()
     
-    var user_idx = 0
+    var user_idx = UserDefaults.standard.integer(forKey: "index")
     
     private init() {}
 
-//    private let baseURL = "http://3.34.179.75:3000"
+    
+    private let baseURL = "http://3.34.179.75:3000"
 
-    private let baseURL = "http://b7149f00729f.ngrok.io" // 임시 url
-//    
-    // userImg - String 일지 File일지 아직 미정 (연동 끝나야 확인 가능)
-//    func signIn(userName: String, googleToken: String?, KakaoToken: String?, userImg: String, completion: @escaping (Response?) -> Void) {
-//    
-//        let url = baseURL + "/user"
-//        
-//        let parameters = User(user_name: userName, user_token_google: googleToken, user_token_kakao: KakaoToken, user_img: userImg, user_idx: nil)
-//        
-//        let request = AF.request(url,
-//                   method: .post,
-//                   parameters: parameters,
-//                   encoder: JSONParameterEncoder.default,
-//                   headers: nil)
-//        
-//        request.responseDecodable(of: Response.self) { response in
-//           switch response.result {
-//           case let .success(result):
-//            completion(result)
-//           case let .failure(error):
-//            print("Error description is: \(error.localizedDescription)")
-//           }
-//        }
-//    }
+//    private let baseURL = "http://9db52d4ff3f8.ngrok.io" // 임시 url
     
     // MARK:- (Get) 프로젝트 팝업
     
@@ -64,7 +42,7 @@ class NetworkManager {
     }
     
     func fetchProjectList(completion: @escaping (Response?) -> Void) {
-        user_idx = UserDefaults.standard.integer(forKey: "index")
+        
         let url = baseURL + "/project/user/" + "\(user_idx)"
         
         let request = AF.request(url)
@@ -82,7 +60,7 @@ class NetworkManager {
     // MARK:- (POST) 프로젝트 참여하기
     func enterProject(projectIndex: Int, completion: @escaping (IntegerResponse?) -> Void) {
         let url = baseURL + "/project/enter"
-        user_idx = UserDefaults.standard.integer(forKey: "index")
+
         let parameters = ProjectWithCode(user_idx: user_idx, project_idx: projectIndex)
          
          let request = AF.request(url,
@@ -146,7 +124,7 @@ class NetworkManager {
     func addProject(projectName: String, projectComment: String?, userIdx: Int, completion: @escaping (ProjectIdxResponse?) -> Void) {
         
         let url = baseURL + "/project"
-        user_idx = UserDefaults.standard.integer(forKey: "index")
+
         let parameters = Project(project_name: projectName, project_comment: projectComment, user_idx: user_idx, project_idx: nil, project_code: nil)
         
         let request = AF.request(url,
@@ -201,7 +179,7 @@ class NetworkManager {
     
     // MARK:- (DELETE) 프로젝트 나가기
     func exitProject(projectIdx: Int, completion: @escaping (Response?) -> Void) {
-        user_idx = UserDefaults.standard.integer(forKey: "index")
+
         let url = baseURL + "/project/" + "\(user_idx)/"  + "\(projectIdx)"
         
         let request = AF.request(url,
@@ -238,7 +216,7 @@ class NetworkManager {
     func setRound(projectIdx: Int, roundPurpose: String, roundTime: Int, completion: @escaping (IntegerResponse?) -> Void) {
         
         let url = baseURL + "/round/setting"
-        user_idx = UserDefaults.standard.integer(forKey: "index")
+
         let parameters = Round(project_idx: projectIdx, round_purpose: roundPurpose, round_time: roundTime, user_idx: user_idx)
 
         let request = AF.request(url,
@@ -278,7 +256,7 @@ class NetworkManager {
         let url = baseURL + "/round/enter"
         
         guard let projectIndex = ProjectSetting.shared.projectIdx else {return}
-        user_idx = UserDefaults.standard.integer(forKey: "index")
+
         let parameters = RoundWithMemberIdx(user_idx: user_idx, project_idx: projectIndex)
         
         let request = AF.request(url,
@@ -301,7 +279,7 @@ class NetworkManager {
     func exitRound(completion: @escaping (RoundResponse?) -> Void) {
         
         guard let roundIndex = ProjectSetting.shared.roundIdx, let projectIndex = ProjectSetting.shared.projectIdx else {return}
-        user_idx = UserDefaults.standard.integer(forKey: "index")
+
         let url = baseURL + "/round/leave/\(user_idx)/\(projectIndex)/\(roundIndex)"
 
         let request = AF.request(url,
@@ -320,7 +298,7 @@ class NetworkManager {
     // MARK:- (POST) 카드 추가하기
     func addCard(projectIdx: Int, roundIdx: Int, cardImg: UIImage?, cardTxt: String?,completion: @escaping () -> Void) {
         let url = baseURL + "/card"
-        user_idx = UserDefaults.standard.integer(forKey: "index")
+
         var parameters: [String:Any] = [:]
         
         if cardTxt != nil {
@@ -365,7 +343,7 @@ class NetworkManager {
     
     // MARK:- (GET) 라운드 카드 리스트
     func fetchCardList(projectIdx: Int, roundIdx: Int, completion: @escaping (CardResponse?) -> Void) {
-        user_idx = UserDefaults.standard.integer(forKey: "index")
+
         let url = baseURL + "/round/cardList/\(projectIdx)/\(roundIdx)/\(user_idx)"
         
         let request = AF.request(url)
@@ -385,7 +363,7 @@ class NetworkManager {
     // MARK:- (POST) 카드 메모 추가
     func addCardMemo(cardIdx: Int, memoContent: String, completion: @escaping (CardResponse?) -> Void) {
         let url = baseURL + "/card/memo"
-        user_idx = UserDefaults.standard.integer(forKey: "index")
+
         let parameters = CardWithMemo(user_idx: user_idx, card_idx: cardIdx, memo_content: memoContent)
         
         let request = AF.request(url,
@@ -407,7 +385,7 @@ class NetworkManager {
     // MARK:- (PUT) 카드 메모 수정
     func modifyCardMemo(cardIdx: Int, memoContent: String, completion: @escaping (CardResponse?) -> Void) {
         let url = baseURL + "/card/memo"
-        user_idx = UserDefaults.standard.integer(forKey: "index")
+
         let parameters = CardWithMemo(user_idx: user_idx, card_idx: cardIdx, memo_content: memoContent)
         
         let request = AF.request(url,
@@ -445,7 +423,7 @@ class NetworkManager {
     // MARK:- (GET) 라운드 별 정보
     
     func fetchAllRoundInfo(projectIdx: Int, completion: @escaping (RoundFinalResponse?) -> Void) {
-        user_idx = UserDefaults.standard.integer(forKey: "index")
+
         let url = baseURL + "/round/roundFinalInfo/\(user_idx)/" + "\(projectIdx)"
         
         let request = AF.request(url)
@@ -463,8 +441,8 @@ class NetworkManager {
     // MARK:- (GET) 스크랩 카드 조회
     
     func fetchAllScrapCard(projectIdx: Int, completion: @escaping (ScrappedCardResponse?) -> Void) {
-        user_idx = UserDefaults.standard.integer(forKey: "index")
-        let url = baseURL + "/project/finalScarpList/\(user_idx)/" + "\(projectIdx)"
+
+        let url = baseURL + "/project/finalScrapList/\(user_idx)/" + "\(projectIdx)"
         
         let request = AF.request(url)
         
@@ -483,7 +461,7 @@ class NetworkManager {
     
     func scrapCard(cardIdx: Int, completion: @escaping (Response?) -> Void) {
         let url = baseURL + "/card/scrap"
-        user_idx = UserDefaults.standard.integer(forKey: "index")
+
         let parameters = CardWithMemo(user_idx: user_idx, card_idx: cardIdx, memo_content: nil)
         
         let request = AF.request(url,
@@ -505,7 +483,7 @@ class NetworkManager {
     // MARK:- (Delete) 카드 스크랩 취소
     
     func cancelScrap(cardIdx: Int, completion: @escaping (Response?) -> Void) {
-        user_idx = UserDefaults.standard.integer(forKey: "index")
+
         let url = baseURL + "/card/scrap/\(user_idx)/\(cardIdx)"
         
         let request = AF.request(url,
@@ -632,7 +610,7 @@ class NetworkManager {
     // MARK:- (POST) 회원 탈퇴
     
     func withDrawal(userPwd: String, userReason: String?, completion: @escaping (WithdrawalResponse) -> Void) {
-        user_idx = UserDefaults.standard.integer(forKey: "index")
+
         guard let reason = userReason else {return}
         let url = baseURL + "/user/withdrawal"
 
@@ -657,7 +635,7 @@ class NetworkManager {
     // MARK:- (GET) 마이페이지 조회 // 햇당
     
     func fetchMyPageInfo(completion: @escaping (MyPageResponse?) -> Void) {
-        user_idx = UserDefaults.standard.integer(forKey: "index")
+    
         let url = baseURL + "/user/mypage/" + "\(user_idx)"
         print(user_idx)
         
@@ -675,7 +653,7 @@ class NetworkManager {
     
     // MARK:- (PUT) 프로필 이미지 수정
     func modifyProfileImage(userImg: UIImage?, userImgFlag: Int, completion: @escaping () -> Void) {
-        user_idx = UserDefaults.standard.integer(forKey: "index")
+  
         guard let user_img = userImg else {return}
         let url = baseURL + "/user/mypage/img"
         
@@ -717,7 +695,7 @@ class NetworkManager {
     
     // MARK:- (PUT) 프로필 이름 수정
     func modifyProfileName(userName: String, completion: @escaping (ModifyResponse?) -> Void) {
-        user_idx = UserDefaults.standard.integer(forKey: "index")
+   
         let url = baseURL + "/user/mypage/name"
         
         let parameters = UserName(user_idx: user_idx, user_name: userName)
@@ -760,6 +738,4 @@ class NetworkManager {
            }
         }
     }
-    
-    
 }

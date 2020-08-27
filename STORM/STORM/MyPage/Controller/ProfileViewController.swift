@@ -56,26 +56,12 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         self.setNaviTitle()
         self.view.tintColor = .stormRed
         
-        // 사용자 이미지, 이미지 변경 버튼 동그랗게
-        userImageContainerView.addShadow(cornerRadus: userImageContainerView.frame.width / 2, shadowOffset: CGSize(width: 0, height: -1.5), shadowOpacity: 0.16, shadowRadius: 4)
-        userImageView.makeCircle()
-        
-        editPhotoButton.addShadow(cornerRadus: editPhotoButton.frame.width / 2, shadowOffset: CGSize(width: 0, height: 3), shadowOpacity: 0.16, shadowRadius: 9)
-        
-        // whiteView 모서리 radius
-        whiteView.roundCorners(corners: [.topLeft, .topRight], radius: 30.0)
-        
         // 유저 이미지
         userImageView.contentMode = .scaleAspectFill
         
         // 텍스트 필드
         userNameTextField.isUserInteractionEnabled = false
         userNameTextField.delegate = self
-        
-        // 이름 밑 회색 바
-        separatorView = UIView(frame: CGRect(x: 37, y: (self.view.frame.height * 0.475) , width: self.view.frame.width * 0.8, height: 2.0))
-        separatorView.backgroundColor = UIColor(red: 234/255, green: 234/255, blue: 234/255, alpha: 1)
-        self.view.addSubview(separatorView)
         
         // 2자 이상 입력해주세요.
         errorMessage.isHidden = true
@@ -100,6 +86,24 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                                                selector: #selector(basicImage),
                                                name: NSNotification.Name(rawValue: "SetBasicImage"),
                                                object: nil)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        
+        // 사용자 이미지, 이미지 변경 버튼 동그랗게
+        userImageContainerView.addShadow(cornerRadus: userImageContainerView.frame.width / 2, shadowOffset: CGSize(width: 0, height: -1.5), shadowOpacity: 0.16, shadowRadius: 4)
+        userImageView.makeCircle()
+        userImageView.layer.masksToBounds = true
+        
+        editPhotoButton.addShadow(cornerRadus: editPhotoButton.frame.width / 2, shadowOffset: CGSize(width: 0, height: 1), shadowOpacity: 0.16, shadowRadius: 2)
+        
+        // whiteView 모서리 radius
+        whiteView.roundCorners(corners: [.topLeft, .topRight], radius: 30.0)
+        
+        // 이름 밑 회색 바
+        separatorView = UIView(frame: CGRect(x: 37, y: (self.view.frame.height * 0.455) , width: self.view.frame.width * 0.8, height: 2.0))
+        separatorView.backgroundColor = UIColor(red: 234/255, green: 234/255, blue: 234/255, alpha: 1)
+        self.view.addSubview(separatorView)
     }
     
     // MARK:- @objc
@@ -211,7 +215,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     // MARK:- 함수 선언
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
-        self.view.endEditing(true)
+        if userNameTextField.isEditing {self.view.endEditing(true)}
     }
     
     // 프로필 가져오기

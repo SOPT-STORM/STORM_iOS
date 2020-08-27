@@ -48,7 +48,7 @@
                                     <constraint firstAttribute="width" secondItem="kei-ry-8e5" secondAttribute="height" multiplier="299:40" id="GJz-he-Uy4"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="fFs-5m-tGv" id="zCl-68-Kts"/>
                                 </connections>
@@ -60,7 +60,7 @@
                                     <constraint firstAttribute="width" secondItem="IX7-hg-tle" secondAttribute="height" multiplier="299:40" id="WrH-pC-5TI"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="fFs-5m-tGv" id="7dW-IV-Q1S"/>
                                 </connections>

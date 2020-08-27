@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Lottie
 
 extension UIViewController {
     
@@ -14,8 +15,9 @@ extension UIViewController {
         
         let toastMessage = UIView(frame: frame)
         toastMessage.center.x = frame.origin.x
+        toastMessage.backgroundColor = .purple
         
-        let content = UILabel(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
+        let content = UILabel(frame: CGRect(x: 0, y: 0, width: round(frame.width), height: round(frame.height)))
         content.backgroundColor = .white
         content.font = UIFont(name: "NotoSansCJKkr-Medium", size: 11)
         content.textColor = UIColor(red: 142/256, green: 142/256, blue: 142/256, alpha: 1)
@@ -35,16 +37,43 @@ extension UIViewController {
     }
     
     func setNaviTitle() {
-        let img = UIImage(named: "red_navigation_bar")
-        navigationController?.navigationBar.setBackgroundImage(img, for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.topItem?.title = " "
         navigationController?.navigationBar.tintColor = .white
-        navigationController?.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "13" ), style: .plain, target: self, action: #selector(back))
+        
+//        navigationController?.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "13" ), style: .plain, target: self, action: #selector(back))
+        
+        let appearance = UINavigationBarAppearance()
+        
+        appearance.backgroundColor = UIColor(red: 236/255, green: 101/255, blue: 101/255, alpha: 1)
+        appearance.shadowColor = .clear
+        
+        navigationController?.navigationBar.standardAppearance = appearance
         
         let titmeImg = UIImage(named: "img_logo")
         let imageView = UIImageView(image:titmeImg)
         navigationItem.titleView = imageView
+    }
+    
+    func loadSplashView() {
+
+        if ApplicationSetting.shared.isFirstEnter == true {
+            let animationView = AnimationView()
+        
+            animationView.frame = UIScreen.main.bounds //UIScreen.main.bounds
+        
+            animationView.animation = Animation.named("splash")
+        
+            animationView.contentMode = .scaleAspectFit
+        
+            animationView.play()
+        
+            self.navigationController?.view.addSubview(animationView)
+        
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.3) {
+                animationView.removeFromSuperview()
+                ApplicationSetting.shared.isFirstEnter = false
+            }
+        }
     }
     
     @objc func back() {
