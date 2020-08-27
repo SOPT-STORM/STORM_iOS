@@ -48,11 +48,11 @@ class RoundStartPopViewController: UIViewController {
     
     func setupAnimation(){
         
-        let width = lottieView.bounds.size.width
-        let height = lottieView.bounds.size.height
         
-        animationView.frame = lottieView.bounds
-        animationView.frame(forAlignmentRect: CGRect(x: 0, y: 0, width: width, height: height))
+        let animationView = AnimationView()
+        
+        animationView.frame = CGRect(x: 0, y: 0, width: lottieView.bounds.width, height: lottieView.bounds.height) //lottieView.bounds
+
         //어떤 jsonv파일을 쓸지
         animationView.animation = Animation.named("real_loading")
         //화면에 적합하게
@@ -62,7 +62,9 @@ class RoundStartPopViewController: UIViewController {
         //실행
         animationView.play()
         //view안에 Subview로 넣어준다
-        lottieView.insertSubview(animationView, at: 0)
+//        lottieView.insertSubview(animationView, at: 0)
+        
+        lottieView.addSubview(animationView)
     }
 
 }
