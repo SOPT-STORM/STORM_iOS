@@ -48,5 +48,6 @@ struct ProjectWithIdx: Codable {
 struct ProjectWithScrap: Codable {
     let project_name: String
     let scrap_count: Int
-    let card_item: [scrappedCard]
+    //let card_item: [scrappedCard]
+    let card_item: [CardItem]?
 }

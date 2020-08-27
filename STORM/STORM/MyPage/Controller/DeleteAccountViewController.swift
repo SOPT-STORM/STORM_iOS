@@ -33,6 +33,24 @@ class DeleteAccountViewController: UIViewController, UITextFieldDelegate, UIText
         self.view.tintColor = .stormRed
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "myprojectBtnBack" ), style: .plain, target: self, action: #selector(back)) // 이 방법 밖에 없나....
         
+        // 화면 가리는 문제
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        topConst = topConstOfIndex.constant
+        
+        // error label
+        errorMessageLabel.isHidden = true
+        
+        //툴바
+        toolbarSetup()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        errorMessageLabel.isHidden = true
+    }
+    
+    override func viewDidLayoutSubviews() {
+        
         // whiteView radius
         whiteView.roundCorners(corners: [.topRight, .topLeft], radius: 30.0)
         moveView.roundCorners(corners: [.topRight, .topLeft], radius: 30.0)
@@ -51,22 +69,8 @@ class DeleteAccountViewController: UIViewController, UITextFieldDelegate, UIText
         pwdTextField.clearButtonMode = .always
         pwdTextField.clearButtonMode = .whileEditing
         pwdTextField.cornerRadius = 8
-        
-        // 화면 가리는 문제
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        topConst = topConstOfIndex.constant
-        
-        // error label
-        errorMessageLabel.isHidden = true
-        
-        //툴바
-        toolbarSetup()
-        
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        errorMessageLabel.isHidden = true
-    }
     // MARK:- @objc
     
     @objc func keyboardShow(notification: NSNotification) {

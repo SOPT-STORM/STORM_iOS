@@ -18,7 +18,8 @@ class LogoutPopUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        popUpView.roundCorners(corners: .allCorners, radius: 15.0)
+        popUpView.layer.cornerRadius = 15
+        popUpView.clipsToBounds = true
     }
     
     // MARK:- IBAction

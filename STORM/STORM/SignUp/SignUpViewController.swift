@@ -22,6 +22,7 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var pwdErrorLabel: UILabel!
     
     var popViewDismissed: Bool?
+    var canGoToNext: Bool?
     
     // MARK:- viewDidLoad
     
@@ -31,13 +32,6 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
         // navigationbar
         setSignUpNavi()
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "backBtn" ), style: .plain, target: self, action: #selector(didPressBackSignUp))
-        
-        // shadow, radius
-        emailTextField.cornerRadius = 10
-        pwdTextField.cornerRadius = 10
-        pwdConfirmTextField.cornerRadius = 10
-        
-        nextButton.addShadow(cornerRadus: 11, shadowOffset: CGSize(width: 0, height: 3), shadowOpacity: 0.2, shadowRadius: 3)
         
         // textfield cancel button
         emailTextField.clearButtonMode = .always
@@ -50,11 +44,6 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
         pwdConfirmTextField.clearButtonMode = .always
         pwdConfirmTextField.clearButtonMode = .whileEditing
         
-        // textfield padding
-        emailTextField.addLeftPadding()
-        pwdTextField.addLeftPadding()
-        pwdConfirmTextField.addLeftPadding()
-        
         // error message
         emailErrorLabel.isHidden = true
         pwdErrorLabel.isHidden = true
@@ -64,16 +53,38 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
         name: NSNotification.Name(rawValue: "OKButton"),
         object: nil)
         
+        // 다음뷰 넘어갈 수 있는지
+        canGoToNext = false
         
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        
+        // shadow, radius
+        emailTextField.cornerRadius = 10
+        pwdTextField.cornerRadius = 10
+        pwdConfirmTextField.cornerRadius = 10
+        
+        nextButton.addShadow(cornerRadus: 11, shadowOffset: CGSize(width: 0, height: 3), shadowOpacity: 0.2, shadowRadius: 3)
+        
+        // textfield padding
+        emailTextField.addLeftPadding()
+        pwdTextField.addLeftPadding()
+        pwdConfirmTextField.addLeftPadding()
     }
     
     // MARK:- @objc
     
     @objc func didPressBackSignUp() {
-
+        
+        if emailTextField.text != "" || pwdTextField.text != "" || pwdConfirmTextField.text != "" {
             guard let goBackPopUpVC = UIStoryboard(name: "PopUp", bundle: nil).instantiateViewController(withIdentifier: "GoBackPopUp") as? GoBackPopUpViewController else {return}
             goBackPopUpVC.modalPresentationStyle = .overCurrentContext
             self.present(goBackPopUpVC, animated: false, completion: nil)
+        } else {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     @objc func popView(){
@@ -83,12 +94,20 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
     // MARK:- IBAction
     
     @IBAction func nextButtonDidPressed(_ sender: UIButton) {
+        if canGoToNext == true {
         confirmEmailOverlap()
+        }
     }
     // MARK:- 함수
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
-        self.view.endEditing(true)
+        if emailTextField.isEditing || pwdTextField.isEditing || pwdConfirmTextField.isEditing {self.view.endEditing(true)}
+    }
+    
+    func isValidEmail(_ email: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: email)
     }
     
     func confirmEmailOverlap() {
@@ -112,7 +131,8 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         
         if textField == self.emailTextField {
-            if !(emailTextField.text?.contains("@") ?? false) {
+            guard let email = textField.text else {return}
+            if !isValidEmail(email) {
                 emailErrorLabel.text = "이메일 형식이 올바르지 않습니다."
                 emailErrorLabel.isHidden = false
             } else {
@@ -133,8 +153,10 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
         
         if emailErrorLabel.isHidden == true && pwdErrorLabel.isHidden == true && emailTextField.text != "" && pwdTextField.text != "" {
             nextButton.backgroundColor = .stormRed
+            canGoToNext = true
         } else {
             nextButton.backgroundColor = UIColor(red: 152/255, green: 152/255, blue: 152/255, alpha: 1)
+            canGoToNext = false
         }
         
     }

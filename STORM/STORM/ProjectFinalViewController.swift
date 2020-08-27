@@ -169,7 +169,7 @@ extension ProjectFinalViewController: UICollectionViewDelegate, UICollectionView
         if section == 0 {
             return 1
         } else if section == 1 {
-            return self.scrapCardInfo?.card_item.count != nil ? scrapCardInfo!.card_item.count : 0
+            return self.scrapCardInfo?.card_item?.count != nil ? scrapCardInfo!.card_item!.count : 0
         } else {
             return self.roundsInfo?.count != nil ? roundsInfo!.count : 0
         }
@@ -190,7 +190,7 @@ extension ProjectFinalViewController: UICollectionViewDelegate, UICollectionView
             return cell
         } else if indexPath.section == 1 {
             
-            guard let scrapCardInfo = scrapCardInfo?.card_item[indexPath.row] else {return UICollectionViewCell()}
+            guard let scrapCardInfo = scrapCardInfo?.card_item?[indexPath.row] else {return UICollectionViewCell()}
             
             if scrapCardInfo.card_img != nil {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "drawingCell", for: indexPath) as! DrawingCell

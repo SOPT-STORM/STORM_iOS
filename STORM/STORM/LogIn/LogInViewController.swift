@@ -42,11 +42,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-//
-        // shadow, radius
-        emailView.cornerRadius = 10
-        pwdView.cornerRadius = 10
-        loginButton.addShadow(cornerRadus: 11, shadowOffset: CGSize(width: 0, height: 3), shadowOpacity: 0.2, shadowRadius: 3)
         
         // error label
         errorLabel.isHidden = true
@@ -67,6 +62,13 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         loadSplashView()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        // shadow, radius
+        emailView.cornerRadius = 10
+        pwdView.cornerRadius = 10
+        loginButton.addShadow(cornerRadus: 11, shadowOffset: CGSize(width: 0, height: 3), shadowOpacity: 0.2, shadowRadius: 3)
     }
     
     // MARK:- viewDidAppear
