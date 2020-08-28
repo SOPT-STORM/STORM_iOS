@@ -74,7 +74,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     // MARK:- viewDidAppear
     
     override func viewDidAppear(_ animated: Bool) {
-        setup()
+        lottieSetup()
     }
     
     // MARK:- IBAction
@@ -86,7 +86,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func signUpButtonDidPressed(_ sender: UIButton) {
         
-        // ishidden == true && nil 아니여야 함
         if let signUpVC = UIStoryboard(name: "SignUp", bundle: nil).instantiateViewController(withIdentifier: "SignUpVC") as? SignUpViewController {
             signUpVC.modalPresentationStyle = .fullScreen
             self.navigationController?.pushViewController(signUpVC, animated: true)
@@ -129,7 +128,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         return true
     }
 
-    func setup(){
+    func lottieSetup(){
         animationView.frame = view.bounds
         animationView.animation = Animation.named("login_0816")
         animationView.contentMode = .scaleAspectFit
@@ -171,7 +170,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func autoLogin(userEmail: String, userPwd: String) { // 없대도 될듯
+    func autoLogin(userEmail: String, userPwd: String) { 
         
         NetworkManager.shared.login(userEmail: userEmail, userPwd: userPwd) { (response) in
             
