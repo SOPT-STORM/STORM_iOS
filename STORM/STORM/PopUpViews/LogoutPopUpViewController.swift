@@ -33,9 +33,11 @@ class LogoutPopUpViewController: UIViewController {
 //        self.view.window?.rootViewController?.dismiss(animated: false, completion: nil)
         
         guard let loginVC = UIStoryboard(name: "LogIn", bundle: nil).instantiateViewController(withIdentifier: "LogInVC") as? LogInViewController else {return}
-        
+    
+        let naviController = UINavigationController(rootViewController: loginVC)
+
         let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
-        window?.rootViewController = loginVC
+        window?.rootViewController = naviController
     }
     
     @IBAction func logoutCancelDidTap(_ sender: UIButton) {
