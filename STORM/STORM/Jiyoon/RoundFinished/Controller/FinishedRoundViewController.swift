@@ -16,19 +16,17 @@ class FinishedRoundViewController: UIViewController {
     lazy var projectIndex: Int = 0
     lazy var cards: [Card] = []
     lazy var projectName = ""
+    lazy var cellIndexPath = IndexPath()
     
     @IBOutlet weak var roundCollectionView: UICollectionView!
     @IBOutlet weak var cardListCollectionView: UICollectionView!
     
     @IBOutlet weak var pageControl: FlexiblePageControl!
     
-    @IBAction func myPageButtonDidPress(_ sender: UIBarButtonItem) {
-        
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         roundCollectionView.register(UINib(nibName: "RoundCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "roundCollectionViewCell")
+        
         roundCollectionView.delegate = self
         roundCollectionView.dataSource = self
         
@@ -63,6 +61,12 @@ class FinishedRoundViewController: UIViewController {
             self.cards = cardList
             self.cardListCollectionView.reloadData()
         }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+            let indexPath = IndexPath(row: self.cellIndexPath.row, section: 0)
+            
+            self.roundCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
+        })
     }
 }
 
@@ -79,12 +83,18 @@ extension FinishedRoundViewController: UICollectionViewDataSource, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView.tag == 0 {
+            print("인덱스패뜨 \(indexPath)")
+            
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "roundCollectionViewCell", for: indexPath) as! RoundCollectionViewCell
+        
+            guard let roundNumb = roundsInfo[indexPath.row].round_number, let roundTime = roundsInfo[indexPath.row].round_time, let roundParticipants = roundsInfo[indexPath.row].round_participant else {return cell}
             
             cell.projectNameLabel.text = projectName
             cell.roundGoalLabel.text = roundsInfo[indexPath.row].round_purpose
-            cell.roundIndexLabel.text = "ROUND \(roundsInfo[indexPath.row].round_number)"
-            cell.timeLimitLabel.text = "총 \(roundsInfo[indexPath.row].round_time)분 소요"
+            cell.roundIndexLabel.text = "ROUND \(roundNumb)"
+            cell.timeLimitLabel.text = "총 \(roundTime)분 소요"
+            cell.participants = roundParticipants
+            
             return cell
         } else {
             let card = cards[indexPath.row]
@@ -96,12 +106,14 @@ extension FinishedRoundViewController: UICollectionViewDataSource, UICollectionV
 
                 cell.drawingImgView.kf.setImage(with: imageURL)
                 cell.index = card.card_idx
+                
                 return cell
             }else{
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "memoCell", for: indexPath) as! MemoCell
 
                 cell.memo.text = card.card_txt!
                 cell.index = card.card_idx
+                
                 return cell
             }
         }
