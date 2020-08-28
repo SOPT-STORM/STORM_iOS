@@ -22,6 +22,7 @@ class RoundMeetingViewController: UIViewController {
     @IBOutlet weak var botConstOfnextRoundNoti: NSLayoutConstraint!
     
     lazy var cards: [Card] = []
+    lazy var isWaitNextRound: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,18 +33,14 @@ class RoundMeetingViewController: UIViewController {
         self.setNaviTitle()
         setupLayout()
         setupInfo()
-        fetchCardList()
-        
-        setupMemberSocket()
         
         nextRoundNotificationView.cornerRadius = 20
         nextRoundNotificationView.layer.maskedCorners = [.layerMinXMinYCorner, . layerMaxXMinYCorner]
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        SocketIOManager.shared.socket.off("waitNextRound")
-        SocketIOManager.shared.socket.off("memberNextRound")
-        SocketIOManager.shared.socket.off("memberFinishProject")
+    override func viewWillAppear(_ animated: Bool) {
+        setupMemberSocket()
+        fetchCardList()
     }
     
     @IBAction func didPressFinishBtn(_ sender: UIButton) {
@@ -92,6 +89,8 @@ class RoundMeetingViewController: UIViewController {
         guard let projectIndex = projectInfo.projectIdx, let roundIndex = projectInfo.roundIdx else {return}
         
         NetworkManager.shared.fetchCardList(projectIdx: projectIndex , roundIdx: roundIndex) { (response) in
+            
+            print("리스폰스~ \(response)")
              
             guard let cardList = response?.data?.card_list else {return}
             self.cards = cardList
@@ -113,6 +112,12 @@ class RoundMeetingViewController: UIViewController {
                     self.botConstOfnextRoundNoti.constant = 0
                     self.view.layoutIfNeeded()
                 }
+                
+                guard let carouselView = self.navigationController?.visibleViewController as? AllRoundCarouselViewController else {return}
+                
+                print("여기 실행됨~~~!!")
+                carouselView.showUpNextRoundNoti()
+                self.isWaitNextRound = true
             }
             
             SocketIOManager.shared.socket.on("memberNextRound") { (dataArray, SocketAckEmitter) in
@@ -128,6 +133,7 @@ class RoundMeetingViewController: UIViewController {
                         
                         SocketIOManager.shared.socket.emit("enterNextRound", projectCode) {
                             print("enterNextRound 실행")
+                            self.socketOff()
                             self.presentingViewController?.presentingViewController?.dismiss(animated: false, completion: nil)
                         }
                     }
@@ -144,11 +150,18 @@ class RoundMeetingViewController: UIViewController {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 guard let vc = storyboard.instantiateViewController(withIdentifier: "projectFinalViewController") as? ProjectFinalViewController else {return}
                 
+                self.socketOff()
                 let naviController = UINavigationController(rootViewController: vc)
                 naviController.modalPresentationStyle = .fullScreen
                 self.present(naviController, animated: true, completion: nil)
             }
         }
+    }
+    
+    func socketOff() {
+        SocketIOManager.shared.socket.off("waitNextRound")
+        SocketIOManager.shared.socket.off("memberNextRound")
+        SocketIOManager.shared.socket.off("memberFinishProject")
     }
 }
 
@@ -206,6 +219,10 @@ extension RoundMeetingViewController: UICollectionViewDataSource, UICollectionVi
         
         allRoundCarouselVC.cards = cards
         allRoundCarouselVC.cellIndexPath = indexPath
+        
+        if isWaitNextRound == true {
+            
+        }
         
         self.navigationController?.pushViewController(allRoundCarouselVC, animated: true)
     }
