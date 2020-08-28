@@ -38,10 +38,9 @@
                                 <rect key="frame" x="27" y="97" width="321" height="428"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8D2-nF-4me">
-                                        <rect key="frame" x="27" y="41" width="69" height="22.333333333333329"/>
+                                        <rect key="frame" x="27" y="41" width="69" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="69" id="sGw-Pc-NP0"/>
-                                            <constraint firstAttribute="height" constant="22.329999999999998" id="t22-hM-pFf"/>
                                         </constraints>
                                         <attributedString key="attributedText">
                                             <fragment content="프로젝트명">
@@ -54,8 +53,8 @@
                                         </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="프로젝트명을 입력해주세요." adjustsFontForContentSizeCategory="YES" minimumFontSize="12" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="sWu-B1-lcw">
-                                        <rect key="frame" x="26.666666666666657" y="78.333333333333343" width="274" height="39.333333333333343"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="프로젝트명을 입력해주세요." adjustsFontForContentSizeCategory="YES" minimumFontSize="12" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="sWu-B1-lcw">
+                                        <rect key="frame" x="26.666666666666657" y="78" width="274" height="39.333333333333343"/>
                                         <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
                                         <attributedString key="attributedText"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -66,13 +65,12 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPx-Gh-gvd">
-                                        <rect key="frame" x="27" y="137.66666666666666" width="101" height="22.333333333333343"/>
+                                        <rect key="frame" x="27" y="137.33333333333334" width="101" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="101" id="R6A-px-WaZ"/>
-                                            <constraint firstAttribute="height" constant="22.329999999999998" id="bPc-Uq-O62"/>
                                         </constraints>
                                         <attributedString key="attributedText">
-                                            <fragment content="호스트의 한마디">
+                                            <fragment content="프로젝트 소개">
                                                 <attributes>
                                                     <color key="NSColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <font key="NSFont" metaFont="system" size="15"/>
@@ -83,7 +81,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jbk-ll-8Mf">
-                                        <rect key="frame" x="23.666666666666657" y="174" width="274" height="182"/>
+                                        <rect key="frame" x="23.666666666666657" y="173.33333333333331" width="274" height="103"/>
                                         <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
                                         <attributedString key="attributedText"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -93,45 +91,6 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="25p-2u-Zg7">
-                                        <rect key="frame" x="119" y="406" width="83" height="48"/>
-                                        <color key="backgroundColor" red="0.96078431369999995" green="0.79215686269999996" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="48" id="chD-2z-32m"/>
-                                            <constraint firstAttribute="width" constant="83" id="soQ-Oq-RyQ"/>
-                                        </constraints>
-                                        <state key="normal">
-                                            <attributedString key="attributedTitle">
-                                                <fragment content="추가">
-                                                    <attributes>
-                                                        <color key="NSColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <font key="NSFont" metaFont="system" size="15"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="7"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                <real key="value" value="3"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                <real key="value" value="0.14999999999999999"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                                <size key="value" width="0.0" height="3"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                                <color key="value" cocoaTouchSystemColor="darkTextColor"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="addButtonDidPress:" destination="Cxj-Tf-mrD" eventType="touchUpInside" id="EAN-aL-OdN"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
@@ -140,13 +99,13 @@
                                     <constraint firstItem="Jbk-ll-8Mf" firstAttribute="centerX" secondItem="RzE-Ml-PyI" secondAttribute="centerX" id="5PE-i1-bld"/>
                                     <constraint firstItem="8D2-nF-4me" firstAttribute="leading" secondItem="RzE-Ml-PyI" secondAttribute="leading" constant="27" id="5U7-RF-zVZ"/>
                                     <constraint firstItem="sWu-B1-lcw" firstAttribute="centerX" secondItem="RzE-Ml-PyI" secondAttribute="centerX" multiplier="1.02" id="74y-q0-E8N"/>
-                                    <constraint firstItem="25p-2u-Zg7" firstAttribute="top" secondItem="Jbk-ll-8Mf" secondAttribute="bottom" constant="50" id="AQ3-dU-u7z"/>
-                                    <constraint firstItem="25p-2u-Zg7" firstAttribute="centerX" secondItem="RzE-Ml-PyI" secondAttribute="centerX" id="B4U-PP-OZA"/>
+                                    <constraint firstItem="cPx-Gh-gvd" firstAttribute="height" secondItem="RzE-Ml-PyI" secondAttribute="height" multiplier="0.0514019" id="C2f-xa-3eu"/>
                                     <constraint firstItem="Jbk-ll-8Mf" firstAttribute="top" secondItem="cPx-Gh-gvd" secondAttribute="bottom" constant="14" id="Cdv-JR-e0h"/>
                                     <constraint firstItem="cPx-Gh-gvd" firstAttribute="top" secondItem="sWu-B1-lcw" secondAttribute="bottom" constant="20" id="Khz-4M-ESt"/>
+                                    <constraint firstItem="8D2-nF-4me" firstAttribute="height" secondItem="RzE-Ml-PyI" secondAttribute="height" multiplier="0.0514019" id="TnF-aW-txJ"/>
+                                    <constraint firstItem="sWu-B1-lcw" firstAttribute="height" secondItem="RzE-Ml-PyI" secondAttribute="height" multiplier="0.0919003" id="Vb1-as-0el"/>
                                     <constraint firstItem="cPx-Gh-gvd" firstAttribute="leading" secondItem="RzE-Ml-PyI" secondAttribute="leading" constant="27" id="kDM-AN-dHH"/>
-                                    <constraint firstItem="cPx-Gh-gvd" firstAttribute="top" secondItem="8D2-nF-4me" secondAttribute="bottom" constant="74.3333333333334" id="sbR-p5-oyE"/>
-                                    <constraint firstAttribute="bottom" secondItem="Jbk-ll-8Mf" secondAttribute="bottom" constant="72" id="z94-44-zZw"/>
+                                    <constraint firstItem="Jbk-ll-8Mf" firstAttribute="height" secondItem="RzE-Ml-PyI" secondAttribute="height" multiplier="0.240654" id="pQT-Vc-xi6"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -166,14 +125,55 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="25p-2u-Zg7">
+                                <rect key="frame" x="146" y="501" width="83" height="48"/>
+                                <color key="backgroundColor" red="0.96078431369999995" green="0.79215686269999996" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="25p-2u-Zg7" secondAttribute="height" multiplier="83:48" id="QZ3-HK-vBP"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="추가">
+                                            <attributes>
+                                                <color key="NSColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" metaFont="system" size="15"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.14999999999999999"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="0.0" height="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" cocoaTouchSystemColor="darkTextColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="addButtonDidPress:" destination="Cxj-Tf-mrD" eventType="touchUpInside" id="EAN-aL-OdN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="RzE-Ml-PyI" firstAttribute="leading" secondItem="fCt-Hb-DVh" secondAttribute="leading" constant="27" id="0Le-dq-PgP"/>
+                            <constraint firstItem="25p-2u-Zg7" firstAttribute="centerY" secondItem="RzE-Ml-PyI" secondAttribute="bottom" id="15y-AQ-IQf"/>
+                            <constraint firstItem="25p-2u-Zg7" firstAttribute="width" secondItem="RzE-Ml-PyI" secondAttribute="width" multiplier="0.258567" id="1TK-lG-MpQ"/>
                             <constraint firstItem="sWu-B1-lcw" firstAttribute="width" secondItem="tI7-sy-2im" secondAttribute="width" multiplier="0.730667" id="1as-cK-fZK"/>
                             <constraint firstItem="FD6-Et-mek" firstAttribute="top" secondItem="fCt-Hb-DVh" secondAttribute="top" constant="10" id="6R0-Sw-tUQ"/>
                             <constraint firstItem="FD6-Et-mek" firstAttribute="leading" secondItem="fCt-Hb-DVh" secondAttribute="leading" constant="27" id="EXW-0d-iEW"/>
                             <constraint firstItem="Jbk-ll-8Mf" firstAttribute="width" secondItem="tI7-sy-2im" secondAttribute="width" multiplier="0.730667" id="HJa-8O-Lsc"/>
+                            <constraint firstItem="25p-2u-Zg7" firstAttribute="centerX" secondItem="tI7-sy-2im" secondAttribute="centerX" id="HMI-6o-Xvp"/>
                             <constraint firstItem="dh0-ra-mwH" firstAttribute="top" secondItem="tI7-sy-2im" secondAttribute="top" id="JZc-C8-cZK"/>
                             <constraint firstAttribute="bottom" secondItem="dh0-ra-mwH" secondAttribute="bottom" id="WTi-vi-q49"/>
                             <constraint firstAttribute="trailing" secondItem="dh0-ra-mwH" secondAttribute="trailing" id="cX0-lZ-Mci"/>
@@ -344,7 +344,7 @@
                                             <fragment content="탭하여 참여코드 복사하기">
                                                 <attributes>
                                                     <color key="NSColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <font key="NSFont" size="10" name=".AppleSDGothicNeoI-Regular"/>
+                                                    <font key="NSFont" metaFont="system" size="10"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
