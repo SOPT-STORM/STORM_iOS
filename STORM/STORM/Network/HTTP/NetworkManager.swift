@@ -17,7 +17,6 @@ class NetworkManager {
     
     private init() {}
 
-    
     private let baseURL = "http://3.34.179.75:3000"
 
 //    private let baseURL = "http://9db52d4ff3f8.ngrok.io" // 임시 url
