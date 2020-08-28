@@ -18,15 +18,31 @@ class AllRoundCarouselViewController: UIViewController {
     @IBOutlet weak var topConstOfIndex: NSLayoutConstraint!
     @IBOutlet weak var cardIndexLabel: UILabel!
     
+    @IBOutlet weak var memoTextLabel: UILabel!
+    
+    @IBOutlet weak var nextRoundNotificationView: UIView!
+    
+    @IBOutlet weak var botConstOfnextRoundNoti: NSLayoutConstraint!
+    
     lazy var cards: [Card] = []
     lazy var cellIndexPath = IndexPath()
     lazy var contentOffsetForIdx: CGFloat = 0
+    lazy var isWaitNextRound: Bool = false
     
     var topConst: CGFloat!
     var isInit: Bool = false
+    var cardIdx = 0
+    lazy var cardsMemo: [Int:String] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if isWaitNextRound == true {
+            botConstOfnextRoundNoti.constant = 0
+        }
+        
+        nextRoundNotificationView.cornerRadius = 20
+        nextRoundNotificationView.layer.maskedCorners = [.layerMinXMinYCorner, . layerMaxXMinYCorner]
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         
@@ -43,18 +59,40 @@ class AllRoundCarouselViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
             self.collectionView.scrollToItem(at: self.cellIndexPath, at: .centeredHorizontally, animated: false)
             
-            self.cardIndexLabel.text = "(\(self.cellIndexPath.row)/\(self.cards.count))"
+            self.cardIndexLabel.text = "(\(self.cellIndexPath.row + 1)/\(self.cards.count))"
+            
+            self.cardIdx = self.cellIndexPath.row
+            
+            self.memoView.text = self.cardsMemo[self.cardIdx]
+            
+            if self.cardsMemo[self.cardIdx] == nil {
+                self.memoTextLabel.isHidden = false
+            } else {
+                self.memoTextLabel.isHidden = true
+            }
         })
         
         self.setNaviTitle()
     }
     
     @IBAction func didPressSave(_ sender: UIButton) {
-        let toastFrame = CGRect(x: self.view.center.x, y: self.memoBackgroundView.frame.origin.y - self.memoBackgroundView.frame.height*0.3851, width: self.memoView.frame.width * 0.856, height: self.memoView.frame.height * 0.362)
+        print(memoView.text.count,cardsMemo[cardIdx], memoView.text, memoView.text.isEmpty)
         
-        self.showToast(message: "메모가 저장되었습니다", frame: toastFrame)
+        if memoView.text.isEmpty == true {
+            return
+        } else if cardsMemo[cardIdx] == nil {
+            addCardMemo()
+        } else {
+            modifyMemo()
+        }
     }
     
+    func showUpNextRoundNoti() {
+        UIView.animate(withDuration: 1) {
+            self.botConstOfnextRoundNoti.constant = 0
+            self.view.layoutIfNeeded()
+        }
+    }
     
     override func viewDidLayoutSubviews() {
         if isInit == false {
@@ -75,6 +113,39 @@ class AllRoundCarouselViewController: UIViewController {
             let keyboardHeight = keyboardRectangle.height
             topConstOfIndex.constant = -keyboardHeight + 69  //-(keyboardHeight + 81)
             self.collectionView.isScrollEnabled = false
+        }
+    }
+    
+    func addCardMemo() {
+        guard let content = memoView.text, let idx = cards[cardIdx].card_idx else {return}
+        
+        NetworkManager.shared.addCardMemo(cardIdx: idx, memoContent: content) { (response) in
+            
+            let toastFrame = CGRect(x: self.view.center.x, y: self.memoBackgroundView.frame.origin.y - self.memoBackgroundView.frame.height*0.3851, width: self.memoView.frame.width * 0.856, height: self.memoView.frame.height * 0.362)
+            
+            if response?.status == 200 {
+                self.cardsMemo[self.cardIdx] = content
+                self.showToast(message: "메모가 저장되었습니다", frame: toastFrame)
+            } else {
+                self.showToast(message: "메모가 저장 실패", frame: toastFrame)
+            }
+        }
+    }
+    
+    func modifyMemo() {
+        guard let content = memoView.text, let idx = cards[cardIdx].card_idx else {return}
+        
+        print("카드 메모 수정")
+        NetworkManager.shared.modifyCardMemo(cardIdx: idx, memoContent: content) { (response) in
+            
+            let toastFrame = CGRect(x: self.view.center.x, y: self.memoBackgroundView.frame.origin.y - self.memoBackgroundView.frame.height*0.3851, width: self.memoView.frame.width * 0.856, height: self.memoView.frame.height * 0.362)
+            
+            if response?.status == 200 {
+                self.cardsMemo[self.cardIdx] = content
+                self.showToast(message: "메모가 수정 되었습니다", frame: toastFrame)
+            } else {
+                self.showToast(message: "메모가 수정 실패", frame: toastFrame)
+            }
         }
     }
 
@@ -129,22 +200,6 @@ class AllRoundCarouselViewController: UIViewController {
         contentOffsetForIdx = layout.itemSize.width + itemSpacing
     }
     
-//    @objc func keyboardWillShow(_ notification: Notification) {
-//        guard let userInfo = notification.userInfo else { return }
-//        let duration = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
-//        let curve = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as! UInt
-//        let keyboardSize = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-//        let keyboardHeight = keyboardSize.height
-//        
-//        textFieldYConstraint.constant = -keyboardHeight/2
-//        roundIndexSetLabel.isHidden = true
-//        stormLogoImage.isHidden = true
-//        
-//        UIView.animate(withDuration: duration, delay: 0, options: .init(rawValue: curve), animations: {
-//            self.view.layoutIfNeeded()
-//        })
-//    }
-    
 }
 
 extension AllRoundCarouselViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -160,6 +215,8 @@ extension AllRoundCarouselViewController: UICollectionViewDelegate, UICollection
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let card = cards[indexPath.row]
+        
+        cardsMemo[indexPath.row] = card.memo_content
         
         if card.card_img != nil {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "drawingCarouselCell", for: indexPath) as! DrawingCarouselCell
@@ -185,28 +242,30 @@ extension AllRoundCarouselViewController: UICollectionViewDelegate, UICollection
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let cardIdx = Int(round(self.collectionView.contentOffset.x / self.contentOffsetForIdx)) + 1
-        cardIndexLabel.text = "(\(cardIdx)/\(cards.count))"
+        print("카드 인덱스~~ \(cardIdx)")
+        cardIdx = Int(round(self.collectionView.contentOffset.x / self.contentOffsetForIdx))
+        cardIndexLabel.text = "(\(cardIdx + 1)/\(cards.count))"
+        
+        memoView.text = cardsMemo[cardIdx]
+        
+        if cardsMemo[self.cardIdx] == nil {
+            memoTextLabel.isHidden = false
+        } else {
+            memoTextLabel.isHidden = true
+        }
     }
 }
 
 extension AllRoundCarouselViewController: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.textColor == UIColor.placeholderColor {
-            textView.text = nil
-            textView.font = UIFont(name: "NotoSansCJKkr-Regular", size: 13)
-            textView.textColor = UIColor.textDefaultColor
-        }
+        memoTextLabel.isHidden = true
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            textView.font = UIFont(name: "NotoSansCJKkr-Regular", size: 11)
-            textView.textColor = UIColor.placeholderColor
-            textView.text = "Memo"
+            memoTextLabel.isHidden = false
         }
-        
     }
     
 }
