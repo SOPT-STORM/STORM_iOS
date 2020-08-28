@@ -15,11 +15,11 @@ protocol presentPhotoLibrary {
 class CameraPopUpViewController: UIViewController,UIImagePickerControllerDelegate {
     
     // MARK:- IBOutlet
-    @IBOutlet weak var backImageView: UIImageView!
-    @IBOutlet weak var dimmerView: UIView!
+    //@IBOutlet weak var backImageView: UIImageView!
     @IBOutlet weak var cardView: UIView!
-    
+    @IBOutlet weak var backImageView: UIImageView!
     @IBOutlet weak var cardViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var dimmerView: UIView!
     
     
     
@@ -34,10 +34,8 @@ class CameraPopUpViewController: UIViewController,UIImagePickerControllerDelegat
         
         // 뒷배경
         backImageView.image = backImage
-        dimmerView.alpha = 0.0
         
-        // 카드뷰 radius
-        cardView.roundCorners(corners: [.topLeft, .topRight], radius: 10.0)
+        
         
         // 카드뷰 숨겨놓기
         if let safeAreaHeight = UIApplication.shared.keyWindow?.safeAreaLayoutGuide.layoutFrame.size.height,
@@ -46,9 +44,10 @@ class CameraPopUpViewController: UIViewController,UIImagePickerControllerDelegat
         }
         
         // 뒷배경 tap gestureRecognizer
-        let dimmerViewTap = UITapGestureRecognizer(target: self, action: #selector(dimmerViewTapped(_:)))
+        let  dimmerViewTap = UITapGestureRecognizer(target: self, action: #selector(dimmerViewTapped(_:)))
         dimmerView.addGestureRecognizer(dimmerViewTap)
         dimmerView.isUserInteractionEnabled = true
+        
         
         // 전체VC gestureRecognizer
         let viewPan = UIPanGestureRecognizer(target: self, action: #selector(viewPanned(_:)))
@@ -58,20 +57,26 @@ class CameraPopUpViewController: UIViewController,UIImagePickerControllerDelegat
         
         self.view.addGestureRecognizer(viewPan)
         
+        
     }
     
-    // MARK:- viewDidAppear
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
         // 카드뷰 보이기
         showCard()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        // 카드뷰 radius
+        cardView.roundCorners(corners: [.topLeft, .topRight], radius: 15.0)
     }
     
     // MARK:-
     @IBAction func dimmerViewTapped(_ tapRecognizer: UITapGestureRecognizer) {
         
         // 카드뷰 숨기기
+        print("배경눌림")
         hideCard()
     }
     
@@ -127,7 +132,7 @@ class CameraPopUpViewController: UIViewController,UIImagePickerControllerDelegat
             cardViewTopConstraint.constant = (safeAreaHeight + bottomPadding) * 0.77
         }
         
-        let showCard = UIViewPropertyAnimator(duration: 0.25, curve: .easeIn, animations: { self.view.layoutIfNeeded()})
+        let showCard = UIViewPropertyAnimator(duration: 0.3, curve: .easeIn, animations: { self.view.layoutIfNeeded()})
         
         showCard.addAnimations({
              self.dimmerView.alpha = 0.6
@@ -144,7 +149,7 @@ class CameraPopUpViewController: UIViewController,UIImagePickerControllerDelegat
             cardViewTopConstraint.constant = safeAreaHeight + bottomPadding
         }
         
-        let hideCard = UIViewPropertyAnimator(duration: 0.25, curve: .easeIn, animations: { self.view.layoutIfNeeded()})
+        let hideCard = UIViewPropertyAnimator(duration: 0.1, curve: .easeOut, animations: { self.view.layoutIfNeeded()})
         
         hideCard.addAnimations({
              self.dimmerView.alpha = 0.0

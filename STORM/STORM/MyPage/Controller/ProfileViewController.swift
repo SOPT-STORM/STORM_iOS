@@ -101,7 +101,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         whiteView.roundCorners(corners: [.topLeft, .topRight], radius: 30.0)
         
         // 이름 밑 회색 바
-        separatorView = UIView(frame: CGRect(x: 37, y: (self.view.frame.height * 0.455) , width: self.view.frame.width * 0.8, height: 2.0))
+        separatorView = UIView(frame: CGRect(x: 37, y: (self.view.frame.height * 0.54) , width: self.view.frame.width * 0.8, height: 2.0))
         separatorView.backgroundColor = UIColor(red: 234/255, green: 234/255, blue: 234/255, alpha: 1)
         self.view.addSubview(separatorView)
     }
@@ -121,8 +121,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     @objc func didPressBack() {
         self.navigationController?.popViewController(animated: true)
-        // 이름, 이미지 수정
-        print("이게 안되는건가")
         if userNameTextField.text != previousName {
             modifyName()
         }
@@ -141,15 +139,17 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         // 0.1 초 늦게 캡쳐 (버튼 회색으로 캡쳐되는 것 방지)
         // 네비게이션 바까지 캡쳐
         // 네비게이션 바 제외하려면 self.view.asImage()
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
             cameraPopUpVC.backImage = self.navigationController?.view.asImage()
-            
-            cameraPopUpVC.modalPresentationStyle = .fullScreen
-            
+         
+            cameraPopUpVC.modalPresentationStyle = .overCurrentContext
+            print(cameraPopUpVC.view.frame.width)
             cameraPopUpVC.delegate = self
-            
             self.present(cameraPopUpVC, animated: false, completion: nil)
         })
+        
+        
     }
     
     // 이름변경
