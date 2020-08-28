@@ -78,7 +78,7 @@ class DeleteAccountViewController: UIViewController, UITextFieldDelegate, UIText
             if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
                 let keyboardRectangle = keyboardFrame.cgRectValue
                 let keyboardHeight = keyboardRectangle.height
-                topConstOfIndex.constant = -keyboardHeight+350
+                topConstOfIndex.constant = -keyboardHeight+250
             }
         }
     }

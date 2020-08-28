@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SWY-1L-96H">
-    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,9 +15,6 @@
         <array key="NotoSansCJKkr-Medium.otf">
             <string>NotoSansCJKkr-Medium</string>
         </array>
-        <array key="NotoSansCJKkr-Regular.otf">
-            <string>NotoSansCJKkr-Regular</string>
-        </array>
     </customFonts>
     <scenes>
         <!--Log In View Controller-->
@@ -23,32 +22,32 @@
             <objects>
                 <viewController storyboardIdentifier="LogInVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gc0-36-Baq" customClass="LogInViewController" customModule="STORM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ldz-cK-7Yr">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginStormLogo" translatesAutoresizingMaskIntoConstraints="NO" id="cvJ-IA-VZG">
-                                <rect key="frame" x="186.66666666666666" y="154.66666666666666" width="40.666666666666657" height="72.666666666666657"/>
+                                <rect key="frame" x="169" y="190.33333333333334" width="37" height="66.000000000000028"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="cvJ-IA-VZG" secondAttribute="height" multiplier="37:66" id="gie-rT-vt1"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stormTextLogo" translatesAutoresizingMaskIntoConstraints="NO" id="XGV-dL-iSh">
-                                <rect key="frame" x="148" y="255.33333333333334" width="118" height="26.666666666666657"/>
+                                <rect key="frame" x="134" y="284.33333333333331" width="107" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="XGV-dL-iSh" secondAttribute="height" multiplier="107:24" id="z1n-pT-pJi"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QxQ-bh-rdo">
-                                <rect key="frame" x="53" y="319" width="308" height="44"/>
+                                <rect key="frame" x="48" y="366.66666666666669" width="279" height="40"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginIcEmail" translatesAutoresizingMaskIntoConstraints="NO" id="Pi9-Jj-IyM">
-                                        <rect key="frame" x="11.000000000000002" y="15.333333333333314" width="16.666666666666671" height="13.333333333333336"/>
+                                        <rect key="frame" x="11" y="14" width="15" height="12"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Pi9-Jj-IyM" secondAttribute="height" multiplier="5:4" id="shb-w8-vA9"/>
                                         </constraints>
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="이메일을 입력하세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r0Z-fx-Gfx">
-                                        <rect key="frame" x="44.666666666666671" y="0.0" width="255.33333333333331" height="44"/>
+                                        <rect key="frame" x="43" y="0.0" width="228" height="40"/>
                                         <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="13"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -71,18 +70,18 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j8b-OG-0zC">
-                                <rect key="frame" x="53" y="379" width="308" height="44.333333333333314"/>
+                                <rect key="frame" x="48" y="422.66666666666669" width="279" height="40"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginIcPassword" translatesAutoresizingMaskIntoConstraints="NO" id="m9I-Pk-d6G">
-                                        <rect key="frame" x="11.000000000000002" y="12.333333333333316" width="16.666666666666671" height="19.666666666666671"/>
+                                        <rect key="frame" x="11" y="11" width="15" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="m9I-Pk-d6G" secondAttribute="height" multiplier="5:6" id="x4n-XS-VgQ"/>
                                         </constraints>
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="비밀번호를 입력하세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ABL-kY-Iuv">
-                                        <rect key="frame" x="44.666666666666671" y="0.0" width="255.33333333333331" height="44.333333333333336"/>
+                                        <rect key="frame" x="43" y="0.0" width="228" height="40"/>
                                         <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="13"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                         <connections>
                                             <outlet property="delegate" destination="gc0-36-Baq" id="3J3-y6-YMF"/>
@@ -103,7 +102,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Swr-PB-zuu">
-                                <rect key="frame" x="53.000000000000014" y="439.33333333333331" width="156.33333333333337" height="18.666666666666686"/>
+                                <rect key="frame" x="48" y="478.66666666666669" width="141.66666666666666" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Swr-PB-zuu" secondAttribute="height" multiplier="25:3" id="brr-rB-DD3"/>
                                 </constraints>
@@ -117,7 +116,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hA-yF-p3a">
-                                <rect key="frame" x="116.33333333333333" y="594.66666666666663" width="181.33333333333337" height="18.666666666666629"/>
+                                <rect key="frame" x="105.66666666666669" y="649.66666666666663" width="164" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="7hA-yF-p3a" secondAttribute="height" multiplier="164:17" id="wnm-UL-BzT"/>
                                 </constraints>
@@ -130,7 +129,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qDw-kY-yc3">
-                                <rect key="frame" x="47.333333333333343" y="529.66666666666663" width="319.33333333333326" height="52"/>
+                                <rect key="frame" x="43" y="589.66666666666663" width="289" height="47"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="qDw-kY-yc3" secondAttribute="height" multiplier="289:47" id="ha5-Sz-Qds"/>
@@ -144,7 +143,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아직 회원이 아니신가요?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FXd-4R-Sld">
-                                <rect key="frame" x="116.33333333333333" y="594.66666666666663" width="181.33333333333337" height="18.666666666666629"/>
+                                <rect key="frame" x="105.66666666666669" y="649.66666666666663" width="164" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="FXd-4R-Sld" secondAttribute="height" multiplier="164:17" id="v92-2F-ueM"/>
                                 </constraints>
@@ -153,7 +152,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이메일/비밀번호를 확인해주세요" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KSJ-jW-Q24">
-                                <rect key="frame" x="188.66666666666663" y="423.33333333333331" width="172.33333333333337" height="18.666666666666686"/>
+                                <rect key="frame" x="171" y="462.66666666666669" width="156" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="KSJ-jW-Q24" secondAttribute="height" multiplier="156:17" id="2E8-vy-S5J"/>
                                 </constraints>
@@ -214,7 +213,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SWY-1L-96H" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="K6G-y1-2mq">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

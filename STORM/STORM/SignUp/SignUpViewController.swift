@@ -17,12 +17,16 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var pwdConfirmTextField: UITextField!
     
     @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var serviceAgreeButton: UIButton!
+    @IBOutlet weak var infoAgreeButton: UIButton!
     
     @IBOutlet weak var emailErrorLabel: UILabel!
     @IBOutlet weak var pwdErrorLabel: UILabel!
     
     var popViewDismissed: Bool?
     var canGoToNext: Bool?
+    var serviceAgree: Bool?
+    var infoAgree: Bool?
     
     // MARK:- viewDidLoad
     
@@ -93,8 +97,36 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
     
     // MARK:- IBAction
     
+    @IBAction func serviceAgreeButtonClicked(_ sender: UIButton) {
+        if sender.isSelected == false {
+            sender.setImage(UIImage(named: "loginMaintainIcn"), for: .selected)
+            sender.isSelected = true
+            self.serviceAgree = true
+        }
+        else {
+            sender.setImage(UIImage(named: "loginCheckboxIcn"), for: .normal)
+            sender.isSelected = false
+            self.serviceAgree = false
+        }
+        buttonActivation()
+    }
+    
+    @IBAction func infoAgreeButtonClicked(_ sender: UIButton) {
+        if sender.isSelected == false {
+            sender.setImage(UIImage(named: "loginMaintainIcn"), for: .selected)
+            sender.isSelected = true
+            self.infoAgree = true
+        }
+        else {
+            sender.setImage(UIImage(named: "loginCheckboxIcn"), for: .normal)
+            sender.isSelected = false
+            self.infoAgree = false
+        }
+        buttonActivation()
+    }
+    
     @IBAction func nextButtonDidPressed(_ sender: UIButton) {
-        if canGoToNext == true {
+        if canGoToNext == true && serviceAgree == true && infoAgree == true {
         confirmEmailOverlap()
         }
     }
@@ -132,7 +164,7 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
         
         if textField == self.emailTextField {
             guard let email = textField.text else {return}
-            if !isValidEmail(email) {
+            if !isValidEmail(email) && emailTextField.text != "" {
                 emailErrorLabel.text = "이메일 형식이 올바르지 않습니다."
                 emailErrorLabel.isHidden = false
             } else {
@@ -140,7 +172,7 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
             }
             
         } else {
-            if pwdTextField.text?.count ?? 0 < 8 {
+            if pwdTextField.text?.count ?? 0 < 8 || pwdTextField.text == "" {
                 pwdErrorLabel.text = "8자 이상 입력해주세요."
                 pwdErrorLabel.isHidden = false
             } else if pwdTextField.text != pwdConfirmTextField.text {
@@ -151,14 +183,18 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
             }
         }
         
-        if emailErrorLabel.isHidden == true && pwdErrorLabel.isHidden == true && emailTextField.text != "" && pwdTextField.text != "" {
+        buttonActivation()
+        
+    }
+    
+    func buttonActivation() {
+        if emailErrorLabel.isHidden == true && pwdErrorLabel.isHidden == true && emailErrorLabel.text != "" && pwdTextField.text != "" && pwdConfirmTextField.text != "" && serviceAgree == true && infoAgree == true {
             nextButton.backgroundColor = .stormRed
             canGoToNext = true
         } else {
             nextButton.backgroundColor = UIColor(red: 152/255, green: 152/255, blue: 152/255, alpha: 1)
             canGoToNext = false
         }
-        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
