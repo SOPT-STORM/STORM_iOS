@@ -10,9 +10,12 @@ import UIKit
 
 struct Card: Codable {
     let card_idx: Int?
+    let scrap_flag: Int?
     let card_img: String?
     let card_txt: String?
     let user_img: String?
+    let user_idx: Int?
+    let memo_content: String?
 }
 
 struct CardWithMemo: Codable {

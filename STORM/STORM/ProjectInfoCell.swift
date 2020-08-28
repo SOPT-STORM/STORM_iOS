@@ -27,7 +27,6 @@ class ProjectInfoCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-
     }
     
     override func layoutSubviews() {
@@ -61,6 +60,7 @@ class ProjectInfoCell: UICollectionViewCell {
             guard let imageURL = URL(string: url) else {return}
             
             imageView.kf.setImage(with: imageURL)
+            imageView.contentMode = .scaleAspectFill
             imageView.translatesAutoresizingMaskIntoConstraints = false
 
             participantsProfile.addArrangedSubview(imageView)

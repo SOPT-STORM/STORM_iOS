@@ -128,6 +128,9 @@ class ProjectFinalViewController: UIViewController {
                     
                     section.contentInsets = NSDirectionalEdgeInsets(top: self.view.frame.height*0.0138, leading: self.view.frame.width*0.072, bottom: self.view.frame.height*0.010, trailing: self.view.frame.width*0.072)
                     
+                    let backgroundItem = NSCollectionLayoutDecorationItem.background(elementKind: "background")
+                    
+                    section.decorationItems = [backgroundItem]
                     
                     section.orthogonalScrollingBehavior = .continuous
                     return section
@@ -153,6 +156,10 @@ class ProjectFinalViewController: UIViewController {
                 }
 
             }
+            
+            layout.register(ProjectFinishFooterView.self,
+            forDecorationViewOfKind: "background")
+            
             return layout
         }
 
@@ -236,11 +243,12 @@ extension ProjectFinalViewController: UICollectionViewDelegate, UICollectionView
             guard let vc = UIStoryboard(name: "RoundFinished", bundle: nil).instantiateViewController(withIdentifier: "finishedRoundViewController") as? FinishedRoundViewController else {return}
             
             guard let roundInformation = roundsInfo, let roundIdx = roundInformation[indexPath.row].round_idx else {return}
-            
+             
             vc.roundsInfo = roundInformation
             vc.selectedIndex = indexPath.row
             vc.projectIndex = projectIndex
             vc.projectName = projectInfo!.project_name
+            vc.cellIndexPath = indexPath
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

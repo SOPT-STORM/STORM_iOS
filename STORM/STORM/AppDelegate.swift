@@ -44,6 +44,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SocketIOManager.shared.establishConnection()
     }
     
+    func applicationWillTerminate(_ application: UIApplication) {
+
+    }
+    
     // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentContainer = {

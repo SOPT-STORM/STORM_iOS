@@ -17,6 +17,7 @@
             <string>NotoSansCJKkr-Regular</string>
         </array>
     </customFonts>
+
     <scenes>
         <!--Project Setting View Controller-->
         <scene sceneID="5Vu-KV-Yad">
@@ -40,19 +41,24 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RzE-Ml-PyI">
                                 <rect key="frame" x="27" y="101.66666666666669" width="321" height="428.00000000000006"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="프로젝트명" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8D2-nF-4me">
-                                        <rect key="frame" x="27" y="40.999999999999986" width="69" height="22.333333333333329"/>
+				
+<subviews>
+                                
+
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8D2-nF-4me">
+                                        <rect key="frame" x="27" y="41" width="69" height="22"/>
+
                                         <constraints>
                                             <constraint firstAttribute="width" constant="69" id="sGw-Pc-NP0"/>
-                                            <constraint firstAttribute="height" constant="22.329999999999998" id="t22-hM-pFf"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="15"/>
                                         <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="프로젝트명을 입력해주세요." adjustsFontForContentSizeCategory="YES" minimumFontSize="12" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="sWu-B1-lcw">
-                                        <rect key="frame" x="26.666666666666657" y="78.333333333333329" width="274" height="39.333333333333329"/>
+
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="프로젝트명을 입력해주세요." adjustsFontForContentSizeCategory="YES" minimumFontSize="12" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="sWu-B1-lcw">
+                                        <rect key="frame" x="26.666666666666657" y="78" width="274" height="39.333333333333343"/>
+
                                         <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="13"/>
@@ -63,18 +69,21 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="프로젝트 소개" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPx-Gh-gvd">
-                                        <rect key="frame" x="27" y="137.66666666666669" width="101" height="22.333333333333343"/>
+
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPx-Gh-gvd">
+                                        <rect key="frame" x="27" y="137.33333333333334" width="101" height="22"/>
+
                                         <constraints>
                                             <constraint firstAttribute="width" constant="101" id="R6A-px-WaZ"/>
-                                            <constraint firstAttribute="height" constant="22.329999999999998" id="bPc-Uq-O62"/>
                                         </constraints>
+
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="15"/>
                                         <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jbk-ll-8Mf">
                                         <rect key="frame" x="23.666666666666657" y="174" width="274" height="182"/>
+
                                         <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="13"/>
@@ -85,6 +94,9 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textView>
+</subviews>
+</view>
+
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25p-2u-Zg7">
                                         <rect key="frame" x="119" y="406" width="83" height="48"/>
                                         <color key="backgroundColor" red="0.96078431369999995" green="0.79215686269999996" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -117,48 +129,18 @@
                                             <action selector="addButtonDidPress:" destination="Cxj-Tf-mrD" eventType="touchUpInside" id="EAN-aL-OdN"/>
                                         </connections>
                                     </button>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstItem="8D2-nF-4me" firstAttribute="top" secondItem="RzE-Ml-PyI" secondAttribute="top" constant="41" id="0cF-GW-bUj"/>
-                                    <constraint firstItem="sWu-B1-lcw" firstAttribute="top" secondItem="8D2-nF-4me" secondAttribute="bottom" constant="15" id="5Bz-Ws-QKE"/>
-                                    <constraint firstItem="Jbk-ll-8Mf" firstAttribute="centerX" secondItem="RzE-Ml-PyI" secondAttribute="centerX" id="5PE-i1-bld"/>
-                                    <constraint firstItem="8D2-nF-4me" firstAttribute="leading" secondItem="RzE-Ml-PyI" secondAttribute="leading" constant="27" id="5U7-RF-zVZ"/>
-                                    <constraint firstItem="sWu-B1-lcw" firstAttribute="centerX" secondItem="RzE-Ml-PyI" secondAttribute="centerX" multiplier="1.02" id="74y-q0-E8N"/>
-                                    <constraint firstItem="25p-2u-Zg7" firstAttribute="top" secondItem="Jbk-ll-8Mf" secondAttribute="bottom" constant="50" id="AQ3-dU-u7z"/>
-                                    <constraint firstItem="25p-2u-Zg7" firstAttribute="centerX" secondItem="RzE-Ml-PyI" secondAttribute="centerX" id="B4U-PP-OZA"/>
-                                    <constraint firstItem="Jbk-ll-8Mf" firstAttribute="top" secondItem="cPx-Gh-gvd" secondAttribute="bottom" constant="14" id="Cdv-JR-e0h"/>
-                                    <constraint firstItem="cPx-Gh-gvd" firstAttribute="top" secondItem="sWu-B1-lcw" secondAttribute="bottom" constant="20" id="Khz-4M-ESt"/>
-                                    <constraint firstItem="cPx-Gh-gvd" firstAttribute="leading" secondItem="RzE-Ml-PyI" secondAttribute="leading" constant="27" id="kDM-AN-dHH"/>
-                                    <constraint firstItem="cPx-Gh-gvd" firstAttribute="top" secondItem="8D2-nF-4me" secondAttribute="bottom" constant="74.3333333333334" id="sbR-p5-oyE"/>
-                                    <constraint firstAttribute="bottom" secondItem="Jbk-ll-8Mf" secondAttribute="bottom" constant="72" id="z94-44-zZw"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                        <real key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                        <real key="value" value="0.16"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                        <color key="value" cocoaTouchSystemColor="darkTextColor"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                        <size key="value" width="0.0" height="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
+
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="RzE-Ml-PyI" firstAttribute="leading" secondItem="fCt-Hb-DVh" secondAttribute="leading" constant="27" id="0Le-dq-PgP"/>
+                            <constraint firstItem="25p-2u-Zg7" firstAttribute="centerY" secondItem="RzE-Ml-PyI" secondAttribute="bottom" id="15y-AQ-IQf"/>
+                            <constraint firstItem="25p-2u-Zg7" firstAttribute="width" secondItem="RzE-Ml-PyI" secondAttribute="width" multiplier="0.258567" id="1TK-lG-MpQ"/>
                             <constraint firstItem="sWu-B1-lcw" firstAttribute="width" secondItem="tI7-sy-2im" secondAttribute="width" multiplier="0.730667" id="1as-cK-fZK"/>
                             <constraint firstItem="FD6-Et-mek" firstAttribute="top" secondItem="fCt-Hb-DVh" secondAttribute="top" constant="10" id="6R0-Sw-tUQ"/>
                             <constraint firstItem="FD6-Et-mek" firstAttribute="leading" secondItem="fCt-Hb-DVh" secondAttribute="leading" constant="27" id="EXW-0d-iEW"/>
                             <constraint firstItem="Jbk-ll-8Mf" firstAttribute="width" secondItem="tI7-sy-2im" secondAttribute="width" multiplier="0.730667" id="HJa-8O-Lsc"/>
+                            <constraint firstItem="25p-2u-Zg7" firstAttribute="centerX" secondItem="tI7-sy-2im" secondAttribute="centerX" id="HMI-6o-Xvp"/>
                             <constraint firstItem="dh0-ra-mwH" firstAttribute="top" secondItem="tI7-sy-2im" secondAttribute="top" id="JZc-C8-cZK"/>
                             <constraint firstAttribute="bottom" secondItem="dh0-ra-mwH" secondAttribute="bottom" id="WTi-vi-q49"/>
                             <constraint firstAttribute="trailing" secondItem="dh0-ra-mwH" secondAttribute="trailing" id="cX0-lZ-Mci"/>
@@ -311,8 +293,10 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="10" id="zrM-Mv-Z4Y"/>
                                         </constraints>
+
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="10"/>
                                         <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
