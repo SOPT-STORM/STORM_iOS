@@ -52,6 +52,7 @@ class FinishedRoundViewController: UIViewController {
         pageControl.setConfig(config)
         
         self.setNaviTitle()
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "myprojectBtnBack" ), style: .plain, target: self, action: #selector(back))
         
         guard let roundIndex = roundsInfo[selectedIndex].round_idx else {return}
 
