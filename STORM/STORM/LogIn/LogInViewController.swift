@@ -153,6 +153,10 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                 
                 if let userIndex = response.data {
                     UserDefaults.standard.set(userIndex, forKey: "index")
+
+                    NetworkManager.shared.user_idx = userIndex
+                    print("로그인 유저 인덱스 \(userIndex)")
+
                 }
                 
                 guard let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainVC") as? MainViewController else {return}
@@ -177,6 +181,10 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                 
                 if let userIndex = response.data {
                     UserDefaults.standard.set(userIndex, forKey: "index")
+
+                    NetworkManager.shared.user_idx = userIndex
+                    print(userIndex)
+
                 }
                 
                 guard let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainVC") as? MainViewController else {return}

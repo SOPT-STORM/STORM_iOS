@@ -10,7 +10,7 @@
 
 import UIKit
 
-enum mode {
+enum CardMode {
     case drawing
     case memo
 }
@@ -33,11 +33,10 @@ class AddCardViewController: UIViewController {
     @IBOutlet weak var undoBtn: UIButton!
     @IBOutlet weak var redoBtn: UIButton!
     
-    
     @IBOutlet weak var applicationBtn: UIButton!
     @IBOutlet weak var botConstOfMemoView: NSLayoutConstraint!
     
-    var mode: mode = .drawing
+    var mode: CardMode = .drawing
     var memoViewHeight: CGFloat!
     var projectName = "프로젝트 이름"
     var roundGoal = "라운드 목표"
