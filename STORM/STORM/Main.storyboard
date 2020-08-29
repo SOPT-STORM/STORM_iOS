@@ -85,14 +85,14 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="td2-gT-b3J">
-                                <rect key="frame" x="27.666666666666657" y="192" width="320" height="473"/>
+                                <rect key="frame" x="27" y="191.99999999999997" width="321" height="499.33333333333326"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uDN-2U-GzJ" customClass="Canvas" customModule="STORM" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="473"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="321" height="499.33333333333331"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </view>
                                     <textView multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wR4-Ot-dpB">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="473"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="321" height="499.33333333333331"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <attributedString key="attributedText"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
@@ -108,7 +108,6 @@
                                     <constraint firstAttribute="trailing" secondItem="wR4-Ot-dpB" secondAttribute="trailing" id="mpj-4C-lPs"/>
                                     <constraint firstItem="wR4-Ot-dpB" firstAttribute="top" secondItem="td2-gT-b3J" secondAttribute="top" id="rgo-su-hat"/>
                                     <constraint firstAttribute="bottom" secondItem="uDN-2U-GzJ" secondAttribute="bottom" id="tb0-fF-nUa"/>
-                                    <constraint firstAttribute="width" secondItem="td2-gT-b3J" secondAttribute="height" multiplier="320:473" id="tzW-ER-jN4"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -150,7 +149,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="92h-Xq-Hdh">
-                                <rect key="frame" x="148.66666666666666" y="640.66666666666663" width="78" height="49"/>
+                                <rect key="frame" x="148.33333333333334" y="666.66666666666663" width="78.333333333333343" height="49.333333333333371"/>
                                 <color key="backgroundColor" red="0.92728167770000003" green="0.7940285802" blue="0.48228800300000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="92h-Xq-Hdh" secondAttribute="height" multiplier="78:49" id="CSK-ps-h0b"/>
@@ -182,7 +181,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VID-bI-v5I" secondAttribute="trailing" constant="27" id="0Nz-I7-801"/>
-                            <constraint firstItem="td2-gT-b3J" firstAttribute="height" secondItem="CQw-lr-l1b" secondAttribute="height" multiplier="0.615885" id="0X2-rK-y9p"/>
+                            <constraint firstItem="td2-gT-b3J" firstAttribute="height" secondItem="CQw-lr-l1b" secondAttribute="height" multiplier="0.65" id="0X2-rK-y9p"/>
                             <constraint firstItem="W8U-4Q-ZfM" firstAttribute="leading" secondItem="LLc-Eo-UlX" secondAttribute="trailing" id="1rO-qt-IND"/>
                             <constraint firstItem="LLc-Eo-UlX" firstAttribute="centerY" secondItem="W8U-4Q-ZfM" secondAttribute="centerY" id="5Th-lJ-90z"/>
                             <constraint firstItem="kjt-Lc-3ob" firstAttribute="leading" secondItem="wd1-kf-TkN" secondAttribute="trailing" id="7YL-LH-fbd"/>
@@ -207,6 +206,8 @@
                             <constraint firstItem="1Gc-mj-MmE" firstAttribute="leading" secondItem="vWt-6k-B56" secondAttribute="leading" id="dmR-b2-FZt"/>
                             <constraint firstItem="vWt-6k-B56" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="27" id="dnN-U8-65I"/>
                             <constraint firstItem="92h-Xq-Hdh" firstAttribute="top" secondItem="td2-gT-b3J" secondAttribute="bottom" constant="-24.5" id="jt0-SF-oFf"/>
+                            <constraint firstItem="td2-gT-b3J" firstAttribute="leading" secondItem="1Gc-mj-MmE" secondAttribute="leading" id="lK1-Ag-Emw"/>
+                            <constraint firstItem="td2-gT-b3J" firstAttribute="trailing" secondItem="sMK-ax-9CI" secondAttribute="trailing" id="lRR-J8-W4H"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="W8U-4Q-ZfM" secondAttribute="trailing" constant="12" id="mF8-Dc-bTP"/>
                             <constraint firstItem="VID-bI-v5I" firstAttribute="leading" secondItem="vWt-6k-B56" secondAttribute="trailing" constant="50" id="qYd-uf-fzT"/>
                             <constraint firstItem="kjt-Lc-3ob" firstAttribute="centerY" secondItem="wd1-kf-TkN" secondAttribute="centerY" id="wGE-cV-pdO"/>
@@ -430,17 +431,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VMW-C3-dxy">
                                 <rect key="frame" x="0.0" y="812" width="375" height="92"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J1R-El-Q3z">
-                                        <rect key="frame" x="112.33333333333333" y="35.666666666666629" width="150.66666666666669" height="21"/>
-                                        <attributedString key="attributedText">
-                                            <fragment content="다음 ROUND 준비중">
-                                                <attributes>
-                                                    <color key="NSColor" red="0.92549019610000005" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <font key="NSFont" metaFont="system" size="18"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="다음 ROUND 준비중" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J1R-El-Q3z">
+                                        <rect key="frame" x="111.33333333333333" y="35.666666666666629" width="152.66666666666669" height="21"/>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="18"/>
+                                        <color key="textColor" red="0.92549019610000005" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -529,7 +523,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="라운드 목표" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TfY-0J-WS5">
-                                <rect key="frame" x="27" y="142" width="60" height="20"/>
+                                <rect key="frame" x="27" y="142" width="161" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="anj-Y1-QVI"/>
                                 </constraints>
@@ -548,9 +542,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="총 00:00 남음" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWt-0D-dv7">
-                                <rect key="frame" x="274.33333333333331" y="142" width="73.666666666666686" height="20"/>
+                                <rect key="frame" x="268" y="142" width="80" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="0lh-MN-IfE"/>
+                                    <constraint firstAttribute="width" constant="80" id="eFu-rQ-L0p"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="13"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -716,6 +711,7 @@
                             <constraint firstItem="GHo-ac-sPz" firstAttribute="leading" secondItem="yWd-tY-Wga" secondAttribute="leading" constant="27" id="1sb-M9-T3J"/>
                             <constraint firstItem="6BR-31-ikr" firstAttribute="leading" secondItem="GHo-ac-sPz" secondAttribute="trailing" constant="50" id="27D-Ay-kcJ"/>
                             <constraint firstItem="6BR-31-ikr" firstAttribute="top" secondItem="GHo-ac-sPz" secondAttribute="top" id="4AH-qJ-WoS"/>
+                            <constraint firstItem="EWt-0D-dv7" firstAttribute="leading" secondItem="TfY-0J-WS5" secondAttribute="trailing" constant="80" id="4Xi-yC-c0A"/>
                             <constraint firstItem="yQg-vV-orI" firstAttribute="top" secondItem="buA-1G-wt3" secondAttribute="bottom" constant="30" id="7Lz-UN-yUM"/>
                             <constraint firstItem="tro-2E-189" firstAttribute="trailing" secondItem="yWd-tY-Wga" secondAttribute="trailing" id="8I5-d2-xBT"/>
                             <constraint firstItem="buA-1G-wt3" firstAttribute="top" secondItem="TfY-0J-WS5" secondAttribute="bottom" constant="38" id="AE9-5M-Q5r"/>
@@ -799,8 +795,8 @@
                                     </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Memo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3b-pX-ygj">
                                         <rect key="frame" x="17.000000000000004" y="15.000000000000057" width="48.333333333333343" height="20"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="17"/>
+                                        <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -856,17 +852,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Okw-oZ-QCN">
                                 <rect key="frame" x="0.0" y="812" width="375" height="92"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gr-Ve-T0U">
-                                        <rect key="frame" x="112.33333333333333" y="35.666666666666629" width="150.66666666666669" height="21"/>
-                                        <attributedString key="attributedText">
-                                            <fragment content="다음 ROUND 준비중">
-                                                <attributes>
-                                                    <color key="NSColor" red="0.92549019610000005" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <font key="NSFont" metaFont="system" size="18"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="다음 ROUND 준비중" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gr-Ve-T0U">
+                                        <rect key="frame" x="111.33333333333333" y="35.666666666666629" width="152.66666666666669" height="21"/>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="18"/>
+                                        <color key="textColor" red="0.92549019610000005" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -1011,8 +1000,8 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="참여한 프로젝트" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NxQ-ts-jIO">
-                                <rect key="frame" x="26.000000000000007" y="388.33333333333331" width="88.666666666666686" height="24"/>
-                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="14"/>
+                                <rect key="frame" x="25.999999999999993" y="388.33333333333331" width="101.33333333333331" height="24"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="16"/>
                                 <color key="textColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>

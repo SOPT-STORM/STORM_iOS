@@ -32,12 +32,13 @@ class ProjectSettingViewController: UIViewController {
         
         hostMessageTextView.textContainerInset = UIEdgeInsets(top: 10, left: 12, bottom: 0, right: 0)
         hostMessageTextView.text = "대기방의 참가자들에게 보여집니다."
-        hostMessageTextView.textColor = UIColor.placeholderColor
+        hostMessageTextView.textColor = UIColor(red: 152/255, green: 152/255, blue: 152/255, alpha: 1)
         hostMessageTextView.font = UIFont(name: "NotoSansCJKkr-Medium", size: 13)
         hostMessageTextView.delegate = self
         
         toolbarSetup()
         setNaviTitle()
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "myprojectBtnBack" ), style: .plain, target: self, action: #selector(back))
     }
     
     // MARK: - IBAction

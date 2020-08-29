@@ -169,10 +169,7 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
         guard let name = nameTextField.text else {return}
         if name.count >= 2 {
             signUp()
-        } else {
-            print("????")
         }
-        
         
     }
     
@@ -257,8 +254,6 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
         guard let userName = nameTextField.text, let profileImg = serverImage, let imgFlag = img_flag, let useremail = userEmail, let userpwd = userPwd else { return }
         
         NetworkManager.shared.signUp(userImg: profileImg, userName: userName, userEmail: useremail, userPwd: userpwd, userImgFlag: imgFlag){ (response) in
-            
-            print(response)
             
             if response.status == 200 {
                 self.navigationController?.popToRootViewController(animated: true)

@@ -125,6 +125,18 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
         buttonActivation()
     }
     
+    @IBAction func goToServiceLink(_ sender: UIButton) {
+        guard let url = URL(string: "https://stormbrainstorming.creatorlink.net/이용약관") else {return}
+        UIApplication.shared.open(url)
+    }
+    
+    @IBAction func goToInfoLink(_ sender: UIButton) {
+        guard let url = URL(string: "https://stormbrainstorming.creatorlink.net/개인정보처리방침") else {return}
+        UIApplication.shared.open(url)
+    }
+    
+    
+    
     @IBAction func nextButtonDidPressed(_ sender: UIButton) {
         if canGoToNext == true && serviceAgree == true && infoAgree == true {
         confirmEmailOverlap()

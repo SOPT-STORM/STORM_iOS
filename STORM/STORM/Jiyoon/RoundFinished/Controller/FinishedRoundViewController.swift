@@ -25,6 +25,9 @@ class FinishedRoundViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("라운드 콜렉션뷰 프레임 사이즈~ \(roundCollectionView.frame.size)")
+        
+        
         roundCollectionView.register(UINib(nibName: "RoundCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "roundCollectionViewCell")
         
         roundCollectionView.delegate = self
@@ -52,6 +55,7 @@ class FinishedRoundViewController: UIViewController {
         pageControl.setConfig(config)
         
         self.setNaviTitle()
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "myprojectBtnBack" ), style: .plain, target: self, action: #selector(back))
         
         guard let roundIndex = roundsInfo[selectedIndex].round_idx else {return}
 

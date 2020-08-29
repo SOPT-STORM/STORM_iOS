@@ -21,6 +21,7 @@
 		B84C530F24ED54BE00B4CF1D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84C530E24ED54BE00B4CF1D /* User.swift */; };
 		B878A01224D9692400A8C19F /* CameraPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B878A01124D9692400A8C19F /* CameraPopUpViewController.swift */; };
 		B878A01424DA051A00A8C19F /* EnsureDeleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B878A01324DA051A00A8C19F /* EnsureDeleteViewController.swift */; };
+		B882FCA924F95ACB0016DD74 /* ProjectRound.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B882FCA824F95ACB0016DD74 /* ProjectRound.storyboard */; };
 		B8E9FA7224B9B7CB00A97235 /* OneLineMessagePopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9FA7124B9B7CB00A97235 /* OneLineMessagePopViewController.swift */; };
 		B8E9FA7424B9B7FC00A97235 /* PopUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E9FA7324B9B7FC00A97235 /* PopUp.storyboard */; };
 		B8E9FA7A24B9FC0500A97235 /* ReminderPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9FA7924B9FC0500A97235 /* ReminderPopViewController.swift */; };
@@ -117,6 +118,7 @@
 		B84C530E24ED54BE00B4CF1D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B878A01124D9692400A8C19F /* CameraPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPopUpViewController.swift; sourceTree = "<group>"; };
 		B878A01324DA051A00A8C19F /* EnsureDeleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnsureDeleteViewController.swift; sourceTree = "<group>"; };
+		B882FCA824F95ACB0016DD74 /* ProjectRound.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProjectRound.storyboard; sourceTree = "<group>"; };
 		B8E34D5824E438C7003538A8 /* LogIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogIn.storyboard; sourceTree = "<group>"; };
 		B8E9FA7124B9B7CB00A97235 /* OneLineMessagePopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneLineMessagePopViewController.swift; sourceTree = "<group>"; };
 		B8E9FA7324B9B7FC00A97235 /* PopUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PopUp.storyboard; sourceTree = "<group>"; };
@@ -448,7 +450,9 @@
 		D75ECBE724B6C78800CB46C3 /* ProjectRound */ = {
 			isa = PBXGroup;
 			children = (
-				D117DD3124F92DAC0017A602 /* ProjectRound.storyboard */,
+
+				B882FCA824F95ACB0016DD74 /* ProjectRound.storyboard */,
+
 				D75ECBEA24B6C7B500CB46C3 /* Controller */,
 			);
 			path = ProjectRound;
@@ -566,7 +570,9 @@
 				D10C547724F80CC600077C29 /* NotoSansCJKkr-Regular.otf in Resources */,
 				B800D24624E86D960024CE2F /* login_0816.json in Resources */,
 				D1FCDB6324F5A7F700EF8A71 /* MemoCarouselCell.xib in Resources */,
-				D117DD3224F92DAC0017A602 /* ProjectRound.storyboard in Resources */,
+
+				B882FCA924F95ACB0016DD74 /* ProjectRound.storyboard in Resources */,
+
 				D15BBB7724F5A19900477589 /* LogIn.storyboard in Resources */,
 				D1FCDB6224F5A7F200EF8A71 /* DrawingCarouselCell.xib in Resources */,
 				D1FCDB7124F5F8E600EF8A71 /* LaunchScreen.storyboard in Resources */,

@@ -679,13 +679,16 @@
                                         <rect key="frame" x="27" y="67" width="321" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="프로젝트 제목" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XC8-HU-zat">
-                                                <rect key="frame" x="13" y="12.333333333333329" width="71.333333333333329" height="15.333333333333336"/>
+                                                <rect key="frame" x="13" y="12.333333333333329" width="162" height="15.333333333333336"/>
                                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="13"/>
                                                 <color key="textColor" red="0.92549019610000005" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="총 10개의 카드" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WiN-OH-vnS">
-                                                <rect key="frame" x="227" y="12.333333333333329" width="78" height="15.333333333333336"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="총 00개의 카드" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WiN-OH-vnS">
+                                                <rect key="frame" x="225" y="12.333333333333329" width="80" height="15.333333333333336"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="80" id="cIM-gS-uWt"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="13"/>
                                                 <color key="textColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -693,6 +696,7 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
+                                            <constraint firstItem="WiN-OH-vnS" firstAttribute="leading" secondItem="XC8-HU-zat" secondAttribute="trailing" constant="50" id="MGd-Fa-HGX"/>
                                             <constraint firstItem="WiN-OH-vnS" firstAttribute="centerY" secondItem="XC8-HU-zat" secondAttribute="centerY" id="cqc-qx-crF"/>
                                             <constraint firstItem="GI9-7B-jQO" firstAttribute="trailing" secondItem="WiN-OH-vnS" secondAttribute="trailing" constant="16" id="ge7-kI-oqo"/>
                                             <constraint firstItem="XC8-HU-zat" firstAttribute="centerY" secondItem="GI9-7B-jQO" secondAttribute="centerY" id="obe-BT-GvW"/>
