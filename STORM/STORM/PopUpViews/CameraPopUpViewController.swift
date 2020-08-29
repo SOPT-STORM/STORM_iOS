@@ -38,8 +38,8 @@ class CameraPopUpViewController: UIViewController,UIImagePickerControllerDelegat
         
         
         // 카드뷰 숨겨놓기
-        if let safeAreaHeight = UIApplication.shared.keyWindow?.safeAreaLayoutGuide.layoutFrame.size.height,
-            let bottomPadding = UIApplication.shared.keyWindow?.safeAreaInsets.bottom {
+        if let safeAreaHeight = UIApplication.shared.windows.last?.safeAreaLayoutGuide.layoutFrame.size.height,
+            let bottomPadding = UIApplication.shared.windows.last?.safeAreaInsets.bottom {
             cardViewTopConstraint.constant = safeAreaHeight + bottomPadding
         }
         
@@ -91,8 +91,8 @@ class CameraPopUpViewController: UIViewController,UIImagePickerControllerDelegat
                 self.cardViewTopConstraint.constant = self.cardStartingTopConstant + translation.y
             }
         case .ended:
-            if let safeAreaHeight = UIApplication.shared.keyWindow?.safeAreaLayoutGuide.layoutFrame.size.height,
-                let bottomPadding = UIApplication.shared.keyWindow?.safeAreaInsets.bottom {
+            if let safeAreaHeight = UIApplication.shared.windows.last?.safeAreaLayoutGuide.layoutFrame.size.height,
+                let bottomPadding = UIApplication.shared.windows.last?.safeAreaInsets.bottom {
                 if self.cardViewTopConstraint.constant < (safeAreaHeight + bottomPadding) * 0.79 {
                     showCard()
                 } else {
@@ -127,8 +127,8 @@ class CameraPopUpViewController: UIViewController,UIImagePickerControllerDelegat
     func showCard() {
         self.view.layoutIfNeeded()
         
-        if let safeAreaHeight = UIApplication.shared.keyWindow?.safeAreaLayoutGuide.layoutFrame.size.height,
-            let bottomPadding = UIApplication.shared.keyWindow?.safeAreaInsets.bottom {
+        if let safeAreaHeight = UIApplication.shared.windows.last?.safeAreaLayoutGuide.layoutFrame.size.height,
+            let bottomPadding = UIApplication.shared.windows.last?.safeAreaInsets.bottom {
             cardViewTopConstraint.constant = (safeAreaHeight + bottomPadding) * 0.77
         }
         
@@ -144,8 +144,7 @@ class CameraPopUpViewController: UIViewController,UIImagePickerControllerDelegat
     func hideCard() {
         self.view.layoutIfNeeded()
         
-        if let safeAreaHeight = UIApplication.shared.keyWindow?.safeAreaLayoutGuide.layoutFrame.size.height,
-            let bottomPadding = UIApplication.shared.keyWindow?.safeAreaInsets.bottom {
+        if let safeAreaHeight = UIApplication.shared.windows.last?.safeAreaLayoutGuide.layoutFrame.size.height, let bottomPadding = UIApplication.shared.windows.last?.safeAreaInsets.bottom {
             cardViewTopConstraint.constant = safeAreaHeight + bottomPadding
         }
         

@@ -52,6 +52,7 @@ class FinishedRoundViewController: UIViewController {
         pageControl.setConfig(config)
         
         self.setNaviTitle()
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "myprojectBtnBack" ), style: .plain, target: self, action: #selector(back))
         
         guard let roundIndex = roundsInfo[selectedIndex].round_idx else {return}
 
@@ -154,10 +155,12 @@ extension FinishedRoundViewController: UICollectionViewDataSource, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-//        guard let vc = UIStoryboard(name: "RoundFinished", bundle: nil).instantiateViewController(withIdentifier: "scrapDetailViewController") as? ScrapDetailViewController else {return}
-//        vc.scrappedCards = scrappedCards
-//
-//        self.navigationController?.pushViewController(vc, animated: true)
+        
+        guard let vc = UIStoryboard(name: "RoundFinished", bundle: nil).instantiateViewController(withIdentifier: "cardDetailViewController") as? CardDetailViewController, collectionView == cardListCollectionView else {return}
+        vc.cards = cards
+        vc.index = indexPath.row
+
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

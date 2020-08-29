@@ -88,7 +88,7 @@ extension ScrapCardViewController: UICollectionViewDelegateFlowLayout, UICollect
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        guard let vc = UIStoryboard(name: "RoundFinished", bundle: nil).instantiateViewController(withIdentifier: "scrapDetailViewController") as? ScrapDetailViewController else {return}
+        guard let vc = UIStoryboard(name: "RoundFinished", bundle: nil).instantiateViewController(withIdentifier: "cardDetailViewController") as? CardDetailViewController else {return}
         vc.scrappedCards = scrappedCards
 
         self.navigationController?.pushViewController(vc, animated: true)

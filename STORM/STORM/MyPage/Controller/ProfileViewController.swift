@@ -41,6 +41,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     var previousColor: UIColor?
     var img_flag: Int?
     var myPageInfo: MyPage?
+    var isPhotoChanged: Bool?
     
         
     // MARK:- viewDidLoad 선언
@@ -65,16 +66,13 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         // 2자 이상 입력해주세요.
         errorMessage.isHidden = true
-        // basic image
-        basicImageStackView.isHidden = true
+        
+        // 사진 변경 여부
+        isPhotoChanged = false
         
         // 프로필 불러오기
         getProfile()
-        // 전 이름
-        previousName = userNameTextField.text
-        // 전 사진
-        previousImage = userImageView.image
-        previousColor = userImageContainerView.backgroundColor
+        
         
         //navigationItem.backBarButtonItem?.action = #selector(didPressBack)
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "myprojectBtnBack" ), style: .plain, target: self, action: #selector(didPressBack))
@@ -86,6 +84,13 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                                                selector: #selector(basicImage),
                                                name: NSNotification.Name(rawValue: "SetBasicImage"),
                                                object: nil)
+        if let length = userNameTextField.text?.count {
+            if length <= 2 {
+                userNameTextField.addTarget(self, action: #selector(didChangeText), for: .editingChanged)
+            } else {
+                userNameTextField.removeTarget(self, action: #selector(didChangeText), for: .editingChanged)
+            }
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -115,19 +120,31 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         userImageContainerView.backgroundColor = .stormPurple
         userNameLabel.isHidden = false
-        userImageView.image = nil
+        userImageView.isHidden = true
+        isPhotoChanged = true
         img_flag = 1
+        
+        if let name = userNameTextField.text {
+            setTwoWords(name: name)
+        }
     }
     
     @objc func didPressBack() {
         self.navigationController?.popViewController(animated: true)
         if userNameTextField.text != previousName {
             modifyName()
+            if userImageContainerView.backgroundColor != previousColor {
+                modifyImage()
+            }
         }
-        if userImageView.image != previousImage || userImageContainerView.backgroundColor != previousColor {
+        if isPhotoChanged == true {
             modifyImage()
         }
         
+    }
+    
+    @objc func didChangeText() {
+        userNameLabel.text = userNameTextField.text
     }
     
     // MARK:- IBAction 선언
@@ -144,7 +161,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             cameraPopUpVC.backImage = self.navigationController?.view.asImage()
          
             cameraPopUpVC.modalPresentationStyle = .overCurrentContext
-            print(cameraPopUpVC.view.frame.width)
+            
             cameraPopUpVC.delegate = self
             self.present(cameraPopUpVC, animated: false, completion: nil)
         })
@@ -165,7 +182,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBAction func colorButtonDidPressed(_ sender: UIButton) {
         if sender.isSelected == false {
             
-            self.userImageView.image = nil
+            self.userImageView.isHidden = true
             self.userNameLabel.isHidden = false
             
             if sender == purpleButton {
@@ -214,6 +231,12 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     // MARK:- 함수 선언
     
+    func setTwoWords(name: String) {
+        let firstIndex = name.index(name.startIndex, offsetBy: 0)
+        let lastIndex = name.index(name.startIndex, offsetBy: 2)
+        self.userNameLabel.text = String(name[firstIndex..<lastIndex])
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         if userNameTextField.isEditing {self.view.endEditing(true)}
     }
@@ -225,20 +248,23 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 self.myPageInfo = response?.data
                 
                 guard let userName = self.myPageInfo?.user_name, let userImageFlag = self.myPageInfo?.user_img_flag else {return}
+                
                 self.userNameTextField.text = userName
+                self.previousName = userName
                 self.img_flag = userImageFlag
                 
                 if userImageFlag == 0 {
                     
+                    self.basicImageStackView.isHidden = true
+                    self.userNameLabel.isHidden = true
+                    
                     guard let userImage = self.myPageInfo?.user_img else {return}
                     self.userImageView.kf.setImage(with: URL(string: userImage))
-                    self.userNameLabel.isHidden = true
                     
                 } else {
                     
-                    let firstIndex = userName.index(userName.startIndex, offsetBy: 0)
-                    let lastIndex = userName.index(userName.startIndex, offsetBy: 2)
-                    self.userNameLabel.text = String(userName[firstIndex..<lastIndex])
+                    self.basicImageStackView.isHidden = false
+                    self.setTwoWords(name: userName)
                     self.userNameLabel.isHidden = false
                     
                     if userImageFlag == 1 {
@@ -249,12 +275,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                         self.userImageContainerView.backgroundColor = .stormRed
                     }
                     
-                }
-                print("조회 유저 인덱스, 이름, 플래그 \(userName),\(userImageFlag)")
-                
-                guard let status = response?.status else {return}
-                print(status)
-                
+                    self.previousColor = self.userImageContainerView.backgroundColor
+                    
+                }   
             }
         }
         
@@ -262,18 +285,23 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     // 사진 변경 저장
     func modifyImage() {
-        let userIdx = UserDefaults.standard.integer(forKey: "index")
-        guard let imgFlag = self.img_flag, let img = self.userImageView.image else {return}
-        NetworkManager.shared.modifyProfileImage(userImg: img, userImgFlag: imgFlag) {}
+        
+        guard let imgFlag = self.img_flag  else {return}
+        
+        if userImageView.isHidden { //기본
+            let img = self.userImageContainerView.asImage()
+            NetworkManager.shared.modifyProfileImage(userImg: img, userImgFlag: imgFlag) {}
+        } else if basicImageStackView.isHidden { //이미지
+            guard let img = self.userImageView.image else {return}
+            NetworkManager.shared.modifyProfileImage(userImg: img, userImgFlag: imgFlag) {}
+        }
+        
     }
 
     // 이름 변경 저장
     func modifyName() {
-        print("함수호출")
         guard let userName = userNameTextField.text else {return}
         NetworkManager.shared.modifyProfileName(userName: userName) { (response) in
-            let status = response?.status
-            print("이름 수정 \(status ?? 0)")
         }
     }
     
@@ -305,17 +333,23 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         if range.length + range.location > currentCharacterCount {
             return false
-        } else if range.location < 3 && range.length == 0 {
-            userNameLabel.text = textField.text
+        } /*else if currentCharacterCount < 2 || (currentCharacterCount == 2 && range.length == 1)  {
+            
+        } else if currentCharacterCount > 2 || (currentCharacterCount == 2 && range.length == 0) {
+            textField.removeTarget(self, action: #selector(didChangeText), for: .editingChanged)
         }
         
-        
+        if currentCharacterCount == 1 || currentCharacterCount == 2 {
+            userNameLabel.text = userNameTextField.text
+        }*/
+
         return newLength <= 10
     }
     
     // 사용자 선택 이미지 가져오기
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            userImageView.isHidden = false
             userImageView.image = image
             
             yellowButton.setImage(UIImage(named: "yellowCircle"), for: .normal)

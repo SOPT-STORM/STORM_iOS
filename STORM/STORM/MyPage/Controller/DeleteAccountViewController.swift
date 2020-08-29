@@ -147,7 +147,6 @@ class DeleteAccountViewController: UIViewController, UITextFieldDelegate, UIText
         NetworkManager.shared.confirmPassword(userPwd: userPwd) { (response) in
             
             let status = response.status
-            print(status)
             
             if status == 200 {
                 self.errorMessageLabel.isHidden = true

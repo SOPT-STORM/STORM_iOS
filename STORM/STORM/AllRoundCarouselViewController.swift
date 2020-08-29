@@ -48,7 +48,7 @@ class AllRoundCarouselViewController: UIViewController {
         
         memoView.delegate = self
         
-        memoView.font = UIFont(name: "NotoSansCJKkr-Regular", size: 11)
+        memoView.font = UIFont(name: "NotoSansCJKkr-Regular", size: 13)
         memoView.textColor = UIColor.placeholderColor
         memoView.text = "Memo"
         
@@ -73,6 +73,7 @@ class AllRoundCarouselViewController: UIViewController {
         })
         
         self.setNaviTitle()
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "myprojectBtnBack" ), style: .plain, target: self, action: #selector(back))
     }
     
     @IBAction func didPressSave(_ sender: UIButton) {
