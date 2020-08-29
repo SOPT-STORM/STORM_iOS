@@ -89,7 +89,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         if let signUpVC = UIStoryboard(name: "SignUp", bundle: nil).instantiateViewController(withIdentifier: "SignUpVC") as? SignUpViewController {
             signUpVC.modalPresentationStyle = .fullScreen
             self.navigationController?.pushViewController(signUpVC, animated: true)
-            print("다음뷰!")
         }
     }
     
@@ -143,7 +142,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         NetworkManager.shared.login(userEmail: userEmail, userPwd: userPwd) { (response) in
             
             let status = response.status
-            print(status)
             
             if status == 200 {
                 if self.isAutoLogiIn {
@@ -155,7 +153,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                 
                 if let userIndex = response.data {
                     UserDefaults.standard.set(userIndex, forKey: "index")
-                    print("로그인 유저 인덱스 \(userIndex)")
                 }
                 
                 guard let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainVC") as? MainViewController else {return}
@@ -180,7 +177,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                 
                 if let userIndex = response.data {
                     UserDefaults.standard.set(userIndex, forKey: "index")
-                    print(userIndex)
                 }
                 
                 guard let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainVC") as? MainViewController else {return}
