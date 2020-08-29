@@ -238,7 +238,15 @@ extension ProjectFinalViewController: UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        if indexPath.section == 2 {
+        if indexPath.section == 1 {
+            guard let vc = UIStoryboard(name: "RoundFinished", bundle: nil).instantiateViewController(withIdentifier: "cardDetailViewController") as? CardDetailViewController, let scrappedCards = scrapCardInfo?.card_item else {return}
+            
+            vc.scrappedCards = scrappedCards
+            vc.index = indexPath.row
+
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        } else if indexPath.section == 2 {
             
             guard let vc = UIStoryboard(name: "RoundFinished", bundle: nil).instantiateViewController(withIdentifier: "finishedRoundViewController") as? FinishedRoundViewController else {return}
             

@@ -24,6 +24,8 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("유저 인덱스 \(NetworkManager.shared.user_idx)")
+        
         kingFisherSetup()
 
         collectionView.delegate = self

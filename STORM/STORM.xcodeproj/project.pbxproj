@@ -47,7 +47,7 @@
 		D149795624E1689D0021CA32 /* DrawingCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D149795424E1689D0021CA32 /* DrawingCarouselCell.swift */; };
 		D149795A24E168B00021CA32 /* MemoCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D149795824E168B00021CA32 /* MemoCarouselCell.swift */; };
 		D149795D24E17AB90021CA32 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D149795C24E17AB90021CA32 /* CALayer.swift */; };
-		D14A633A24EC436E00212B37 /* ScrapDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14A633924EC436E00212B37 /* ScrapDetailViewController.swift */; };
+		D14A633A24EC436E00212B37 /* CardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14A633924EC436E00212B37 /* CardDetailViewController.swift */; };
 		D14B131E24C1E6D6002E87F2 /* AllRoundCarouselViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14B131D24C1E6D6002E87F2 /* AllRoundCarouselViewController.swift */; };
 		D14B132024C1E92B002E87F2 /* CarouselFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14B131F24C1E92B002E87F2 /* CarouselFlowLayout.swift */; };
 		D14BC39524EADA240075F026 /* ProjectInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14BC39324EADA240075F026 /* ProjectInfoCell.swift */; };
@@ -147,7 +147,7 @@
 		D149795824E168B00021CA32 /* MemoCarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCarouselCell.swift; sourceTree = "<group>"; };
 		D149795924E168B00021CA32 /* MemoCarouselCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemoCarouselCell.xib; sourceTree = "<group>"; };
 		D149795C24E17AB90021CA32 /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
-		D14A633924EC436E00212B37 /* ScrapDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapDetailViewController.swift; sourceTree = "<group>"; };
+		D14A633924EC436E00212B37 /* CardDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewController.swift; sourceTree = "<group>"; };
 		D14B131D24C1E6D6002E87F2 /* AllRoundCarouselViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRoundCarouselViewController.swift; sourceTree = "<group>"; };
 		D14B131F24C1E92B002E87F2 /* CarouselFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselFlowLayout.swift; sourceTree = "<group>"; };
 		D14BC39324EADA240075F026 /* ProjectInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectInfoCell.swift; sourceTree = "<group>"; };
@@ -481,7 +481,7 @@
 			children = (
 				D781D70E24B4B07100AAE389 /* FinishedRoundViewController.swift */,
 				D781D6F224B4A66F00AAE389 /* ScrapCardViewController.swift */,
-				D14A633924EC436E00212B37 /* ScrapDetailViewController.swift */,
+				D14A633924EC436E00212B37 /* CardDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -704,7 +704,7 @@
 				B84697E524D313FB00E56804 /* ProfileViewController.swift in Sources */,
 				D160AFAC24E3FD9F00ED09C7 /* ShadowRoundedView.swift in Sources */,
 				D14B131E24C1E6D6002E87F2 /* AllRoundCarouselViewController.swift in Sources */,
-				D14A633A24EC436E00212B37 /* ScrapDetailViewController.swift in Sources */,
+				D14A633A24EC436E00212B37 /* CardDetailViewController.swift in Sources */,
 				B8E9FA8A24BA5C8E00A97235 /* EndProjectPopViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
