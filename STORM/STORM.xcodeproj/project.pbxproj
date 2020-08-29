@@ -21,6 +21,7 @@
 		B84C530F24ED54BE00B4CF1D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84C530E24ED54BE00B4CF1D /* User.swift */; };
 		B878A01224D9692400A8C19F /* CameraPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B878A01124D9692400A8C19F /* CameraPopUpViewController.swift */; };
 		B878A01424DA051A00A8C19F /* EnsureDeleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B878A01324DA051A00A8C19F /* EnsureDeleteViewController.swift */; };
+		B882FCA924F95ACB0016DD74 /* ProjectRound.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B882FCA824F95ACB0016DD74 /* ProjectRound.storyboard */; };
 		B8E9FA7224B9B7CB00A97235 /* OneLineMessagePopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9FA7124B9B7CB00A97235 /* OneLineMessagePopViewController.swift */; };
 		B8E9FA7424B9B7FC00A97235 /* PopUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E9FA7324B9B7FC00A97235 /* PopUp.storyboard */; };
 		B8E9FA7A24B9FC0500A97235 /* ReminderPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9FA7924B9FC0500A97235 /* ReminderPopViewController.swift */; };
@@ -78,7 +79,6 @@
 		D1E5839524BC965C0013FB7C /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5839224BC965C0013FB7C /* Project.swift */; };
 		D1E5839624BC965C0013FB7C /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5839324BC965C0013FB7C /* Response.swift */; };
 		D1E5839824BC96C00013FB7C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1E5839724BC96C00013FB7C /* Main.storyboard */; };
-		D1FCDB6124F5A7AD00EF8A71 /* ProjectRound.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D75ECBE824B6C7A900CB46C3 /* ProjectRound.storyboard */; };
 		D1FCDB6224F5A7F200EF8A71 /* DrawingCarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D149795524E1689D0021CA32 /* DrawingCarouselCell.xib */; };
 		D1FCDB6324F5A7F700EF8A71 /* MemoCarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D149795924E168B00021CA32 /* MemoCarouselCell.xib */; };
 		D1FCDB6724F5F3E700EF8A71 /* ProjectInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D14BC39424EADA240075F026 /* ProjectInfoCell.xib */; };
@@ -117,6 +117,7 @@
 		B84C530E24ED54BE00B4CF1D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B878A01124D9692400A8C19F /* CameraPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPopUpViewController.swift; sourceTree = "<group>"; };
 		B878A01324DA051A00A8C19F /* EnsureDeleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnsureDeleteViewController.swift; sourceTree = "<group>"; };
+		B882FCA824F95ACB0016DD74 /* ProjectRound.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProjectRound.storyboard; sourceTree = "<group>"; };
 		B8E34D5824E438C7003538A8 /* LogIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogIn.storyboard; sourceTree = "<group>"; };
 		B8E9FA7124B9B7CB00A97235 /* OneLineMessagePopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneLineMessagePopViewController.swift; sourceTree = "<group>"; };
 		B8E9FA7324B9B7FC00A97235 /* PopUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PopUp.storyboard; sourceTree = "<group>"; };
@@ -185,7 +186,6 @@
 		D1FCDB6C24F5F57D00EF8A71 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		D1FCDB7224F63CDB00EF8A71 /* ApplicationSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationSetting.swift; sourceTree = "<group>"; };
 		D75ECBE524B6BD2500CB46C3 /* RoundStartAlertPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundStartAlertPopupViewController.swift; sourceTree = "<group>"; };
-		D75ECBE824B6C7A900CB46C3 /* ProjectRound.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProjectRound.storyboard; sourceTree = "<group>"; };
 		D75ECBEB24B6C7EF00CB46C3 /* ProjectSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSettingViewController.swift; sourceTree = "<group>"; };
 		D761568E24B8D4AD00D4D484 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		D761569024BADDEC00D4D484 /* RoundStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundStartViewController.swift; sourceTree = "<group>"; };
@@ -448,7 +448,7 @@
 		D75ECBE724B6C78800CB46C3 /* ProjectRound */ = {
 			isa = PBXGroup;
 			children = (
-				D75ECBE824B6C7A900CB46C3 /* ProjectRound.storyboard */,
+				B882FCA824F95ACB0016DD74 /* ProjectRound.storyboard */,
 				D75ECBEA24B6C7B500CB46C3 /* Controller */,
 			);
 			path = ProjectRound;
@@ -565,8 +565,8 @@
 				B84697E224D30FAA00E56804 /* MyPage.storyboard in Resources */,
 				D10C547724F80CC600077C29 /* NotoSansCJKkr-Regular.otf in Resources */,
 				B800D24624E86D960024CE2F /* login_0816.json in Resources */,
-				D1FCDB6124F5A7AD00EF8A71 /* ProjectRound.storyboard in Resources */,
 				D1FCDB6324F5A7F700EF8A71 /* MemoCarouselCell.xib in Resources */,
+				B882FCA924F95ACB0016DD74 /* ProjectRound.storyboard in Resources */,
 				D15BBB7724F5A19900477589 /* LogIn.storyboard in Resources */,
 				D1FCDB6224F5A7F200EF8A71 /* DrawingCarouselCell.xib in Resources */,
 				D1FCDB7124F5F8E600EF8A71 /* LaunchScreen.storyboard in Resources */,
