@@ -73,6 +73,7 @@ class AllRoundCarouselViewController: UIViewController {
         })
         
         self.setNaviTitle()
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "myprojectBtnBack" ), style: .plain, target: self, action: #selector(back))
     }
     
     @IBAction func didPressSave(_ sender: UIButton) {

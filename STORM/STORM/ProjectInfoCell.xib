@@ -66,7 +66,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="라운드 정보" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lcq-aJ-mzO">
-                                        <rect key="frame" x="107.5" y="119" width="100" height="40"/>
+                                        <rect key="frame" x="63" y="119" width="189" height="40"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="13"/>
                                         <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -80,7 +80,7 @@
                                     <constraint firstItem="Lcq-aJ-mzO" firstAttribute="height" secondItem="qoj-ds-Wta" secondAttribute="height" multiplier="0.183486" id="U5V-OC-aQx"/>
                                     <constraint firstItem="eRj-0I-rzV" firstAttribute="width" secondItem="qoj-ds-Wta" secondAttribute="width" multiplier="0.806349" id="XMo-FF-1yq"/>
                                     <constraint firstItem="Ogt-dL-s9p" firstAttribute="leading" secondItem="GYi-TN-dpL" secondAttribute="trailing" constant="8" id="XVe-2R-g8d"/>
-                                    <constraint firstItem="Lcq-aJ-mzO" firstAttribute="width" secondItem="qoj-ds-Wta" secondAttribute="width" multiplier="0.31746" id="boc-No-7nz"/>
+                                    <constraint firstItem="Lcq-aJ-mzO" firstAttribute="width" secondItem="qoj-ds-Wta" secondAttribute="width" multiplier="0.6" id="boc-No-7nz"/>
                                     <constraint firstItem="eRj-0I-rzV" firstAttribute="centerX" secondItem="qoj-ds-Wta" secondAttribute="centerX" id="gX2-gd-njc"/>
                                     <constraint firstItem="GYi-TN-dpL" firstAttribute="top" secondItem="Lcq-aJ-mzO" secondAttribute="bottom" constant="14" id="jve-Vi-t40"/>
                                     <constraint firstItem="GYi-TN-dpL" firstAttribute="centerX" secondItem="qoj-ds-Wta" secondAttribute="centerX" id="p2f-Oe-vOs"/>
