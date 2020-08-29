@@ -155,6 +155,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                 
                 if let userIndex = response.data {
                     UserDefaults.standard.set(userIndex, forKey: "index")
+                    NetworkManager.shared.user_idx = userIndex
                     print("로그인 유저 인덱스 \(userIndex)")
                 }
                 
@@ -180,6 +181,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                 
                 if let userIndex = response.data {
                     UserDefaults.standard.set(userIndex, forKey: "index")
+                    NetworkManager.shared.user_idx = userIndex
                     print(userIndex)
                 }
                 
