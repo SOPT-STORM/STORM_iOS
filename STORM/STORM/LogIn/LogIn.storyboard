@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SWY-1L-96H">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
-
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -115,19 +113,6 @@
                                     <action selector="maintainLoginButtonDidPressed:" destination="gc0-36-Baq" eventType="touchUpInside" id="7Ux-93-SPX"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hA-yF-p3a">
-                                <rect key="frame" x="105.66666666666669" y="649.66666666666663" width="164" height="17"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="7hA-yF-p3a" secondAttribute="height" multiplier="164:17" id="wnm-UL-BzT"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="11"/>
-                                <state key="normal" title="가입하기">
-                                    <color key="titleColor" red="0.59607843137254901" green="0.59607843137254901" blue="0.59607843137254901" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="signUpButtonDidPressed:" destination="gc0-36-Baq" eventType="touchUpInside" id="cch-St-RtP"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qDw-kY-yc3">
                                 <rect key="frame" x="43" y="589.66666666666663" width="289" height="47"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -142,15 +127,6 @@
                                     <action selector="loginButtonDidPressed:" destination="gc0-36-Baq" eventType="touchUpInside" id="ptv-WV-bbM"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아직 회원이 아니신가요?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FXd-4R-Sld">
-                                <rect key="frame" x="105.66666666666669" y="649.66666666666663" width="164" height="17"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="FXd-4R-Sld" secondAttribute="height" multiplier="164:17" id="v92-2F-ueM"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="11"/>
-                                <color key="textColor" red="0.59607843137254901" green="0.59607843137254901" blue="0.59607843137254901" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이메일/비밀번호를 확인해주세요" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KSJ-jW-Q24">
                                 <rect key="frame" x="171" y="462.66666666666669" width="156" height="17"/>
                                 <constraints>
@@ -160,31 +136,62 @@
                                 <color key="textColor" red="0.92549019610000005" green="0.40801423790000002" blue="0.42743539809999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mbE-Gx-UZe">
+                                <rect key="frame" x="102.66666666666669" y="649.66666666666663" width="170" height="20"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아직 회원이 아니신가요?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FXd-4R-Sld">
+                                        <rect key="frame" x="0.0" y="0.0" width="107.66666666666667" height="20"/>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="11"/>
+                                        <color key="textColor" red="0.59607843137254901" green="0.59607843137254901" blue="0.59607843137254901" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hA-yF-p3a">
+                                        <rect key="frame" x="125" y="0.0" width="45" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="45" id="7mm-nS-EAj"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="11"/>
+                                        <state key="normal" title="가입하기">
+                                            <color key="titleColor" red="0.59607843137254901" green="0.59607843137254901" blue="0.59607843137254901" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="signUpButtonDidPressed:" destination="gc0-36-Baq" eventType="touchUpInside" id="cch-St-RtP"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="FXd-4R-Sld" firstAttribute="leading" secondItem="mbE-Gx-UZe" secondAttribute="leading" id="0O2-J4-Lhx"/>
+                                    <constraint firstAttribute="height" constant="20" id="4aH-4P-QzA"/>
+                                    <constraint firstAttribute="trailing" secondItem="7hA-yF-p3a" secondAttribute="trailing" id="7Jh-zc-2gc"/>
+                                    <constraint firstItem="7hA-yF-p3a" firstAttribute="top" secondItem="mbE-Gx-UZe" secondAttribute="top" id="Imc-bS-cSz"/>
+                                    <constraint firstAttribute="bottom" secondItem="FXd-4R-Sld" secondAttribute="bottom" id="Ngb-ro-ORV"/>
+                                    <constraint firstItem="FXd-4R-Sld" firstAttribute="top" secondItem="mbE-Gx-UZe" secondAttribute="top" id="W36-v2-FhW"/>
+                                    <constraint firstAttribute="bottom" secondItem="7hA-yF-p3a" secondAttribute="bottom" id="i1M-TQ-hMP"/>
+                                    <constraint firstAttribute="width" constant="170" id="yxT-oQ-Z30"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="7hA-yF-p3a" firstAttribute="top" secondItem="qDw-kY-yc3" secondAttribute="bottom" constant="13" id="04Q-tD-M5N"/>
-                            <constraint firstItem="FXd-4R-Sld" firstAttribute="centerX" secondItem="Ldz-cK-7Yr" secondAttribute="centerX" id="0qm-sS-lJA"/>
                             <constraint firstItem="j8b-OG-0zC" firstAttribute="top" secondItem="QxQ-bh-rdo" secondAttribute="bottom" constant="16" id="3HV-mB-kPW"/>
-                            <constraint firstItem="7hA-yF-p3a" firstAttribute="width" secondItem="Ldz-cK-7Yr" secondAttribute="width" multiplier="0.437333" id="3Th-xo-qt2"/>
                             <constraint firstItem="XGV-dL-iSh" firstAttribute="centerX" secondItem="Ldz-cK-7Yr" secondAttribute="centerX" id="44N-ww-aVh"/>
                             <constraint firstItem="XGV-dL-iSh" firstAttribute="top" secondItem="cvJ-IA-VZG" secondAttribute="bottom" constant="28" id="6SD-Yb-GPm"/>
                             <constraint firstItem="Swr-PB-zuu" firstAttribute="leading" secondItem="j8b-OG-0zC" secondAttribute="leading" id="6pd-Na-Nsg"/>
+                            <constraint firstItem="mbE-Gx-UZe" firstAttribute="centerX" secondItem="Ldz-cK-7Yr" secondAttribute="centerX" id="FPV-BO-gQd"/>
                             <constraint firstItem="cvJ-IA-VZG" firstAttribute="centerX" secondItem="Ldz-cK-7Yr" secondAttribute="centerX" id="I5t-7D-Aq3"/>
                             <constraint firstItem="QxQ-bh-rdo" firstAttribute="centerX" secondItem="Ldz-cK-7Yr" secondAttribute="centerX" id="ImY-4u-u10"/>
                             <constraint firstItem="XGV-dL-iSh" firstAttribute="centerY" secondItem="Ldz-cK-7Yr" secondAttribute="centerY" multiplier="0.73" id="MBd-pg-Ap9"/>
                             <constraint firstItem="j8b-OG-0zC" firstAttribute="centerX" secondItem="Ldz-cK-7Yr" secondAttribute="centerX" id="PjB-v7-xrN"/>
-                            <constraint firstItem="7hA-yF-p3a" firstAttribute="centerX" secondItem="Ldz-cK-7Yr" secondAttribute="centerX" id="T7g-0o-agY"/>
                             <constraint firstItem="QxQ-bh-rdo" firstAttribute="width" secondItem="Ldz-cK-7Yr" secondAttribute="width" multiplier="0.744" id="Tau-cc-g7s"/>
                             <constraint firstItem="qDw-kY-yc3" firstAttribute="width" secondItem="Ldz-cK-7Yr" secondAttribute="width" multiplier="0.770667" id="WOC-Re-8DM"/>
                             <constraint firstItem="Swr-PB-zuu" firstAttribute="width" secondItem="Ldz-cK-7Yr" secondAttribute="width" multiplier="0.377778" id="XRH-A1-vdj"/>
                             <constraint firstItem="qDw-kY-yc3" firstAttribute="centerX" secondItem="Ldz-cK-7Yr" secondAttribute="centerX" id="XVk-cE-UF8"/>
-                            <constraint firstItem="FXd-4R-Sld" firstAttribute="width" secondItem="Ldz-cK-7Yr" secondAttribute="width" multiplier="0.437333" id="aJs-Sl-h68"/>
                             <constraint firstItem="j8b-OG-0zC" firstAttribute="centerY" secondItem="Ldz-cK-7Yr" secondAttribute="centerY" multiplier="1.09" id="ad3-yA-lKh"/>
-                            <constraint firstItem="FXd-4R-Sld" firstAttribute="top" secondItem="qDw-kY-yc3" secondAttribute="bottom" constant="13" id="bOg-Tf-9IF"/>
                             <constraint firstItem="KSJ-jW-Q24" firstAttribute="width" secondItem="Ldz-cK-7Yr" secondAttribute="width" multiplier="0.416" id="bYl-8i-3pt"/>
                             <constraint firstItem="KSJ-jW-Q24" firstAttribute="trailing" secondItem="j8b-OG-0zC" secondAttribute="trailing" id="bgh-lY-8Yy"/>
                             <constraint firstItem="j8b-OG-0zC" firstAttribute="width" secondItem="Ldz-cK-7Yr" secondAttribute="width" multiplier="0.744" id="fue-mM-JMS"/>
+                            <constraint firstItem="mbE-Gx-UZe" firstAttribute="top" secondItem="qDw-kY-yc3" secondAttribute="bottom" constant="13" id="hmV-zS-9GS"/>
                             <constraint firstItem="Swr-PB-zuu" firstAttribute="top" secondItem="j8b-OG-0zC" secondAttribute="bottom" constant="16" id="n7c-dK-aaI"/>
                             <constraint firstItem="XGV-dL-iSh" firstAttribute="width" secondItem="Ldz-cK-7Yr" secondAttribute="width" multiplier="0.285333" id="nPE-UF-gpW"/>
                             <constraint firstItem="KSJ-jW-Q24" firstAttribute="top" secondItem="j8b-OG-0zC" secondAttribute="bottom" id="oeP-73-May"/>
