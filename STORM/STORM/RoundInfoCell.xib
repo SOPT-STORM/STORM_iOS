@@ -28,7 +28,7 @@
                         <rect key="frame" x="5" y="5" width="311" height="105"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Round " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQQ-9c-vCb">
-                                <rect key="frame" x="26" y="13" width="259" height="15.5"/>
+                                <rect key="frame" x="26" y="13" width="42.5" height="15.5"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="13"/>
                                 <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -45,14 +45,21 @@
                                 <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="프로젝트 제목" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UZi-rN-dVr">
+                                <rect key="frame" x="220.5" y="13" width="71.5" height="15.5"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="13"/>
+                                <color key="textColor" red="0.92549019610000005" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="uQQ-9c-vCb" secondAttribute="trailing" constant="26" id="6qG-jd-6sZ"/>
+                            <constraint firstAttribute="trailing" secondItem="UZi-rN-dVr" secondAttribute="trailing" constant="19" id="1It-Xh-EFm"/>
                             <constraint firstItem="uQQ-9c-vCb" firstAttribute="top" secondItem="K7w-aY-Qg8" secondAttribute="top" constant="13" id="9VP-B5-JVK"/>
                             <constraint firstItem="35I-do-Wl1" firstAttribute="leading" secondItem="uQQ-9c-vCb" secondAttribute="leading" id="Cgj-Fv-dQh"/>
                             <constraint firstItem="uQQ-9c-vCb" firstAttribute="leading" secondItem="K7w-aY-Qg8" secondAttribute="leading" constant="26" id="IhL-zX-tRK"/>
                             <constraint firstAttribute="trailing" secondItem="35I-do-Wl1" secondAttribute="trailing" constant="26" id="JWB-pL-ebo"/>
+                            <constraint firstItem="UZi-rN-dVr" firstAttribute="centerY" secondItem="uQQ-9c-vCb" secondAttribute="centerY" id="PA3-7P-Zps"/>
                             <constraint firstAttribute="bottom" secondItem="APq-pN-5aE" secondAttribute="bottom" constant="15" id="SB3-eP-tK2"/>
                             <constraint firstAttribute="trailing" secondItem="APq-pN-5aE" secondAttribute="trailing" constant="26" id="po1-ew-Mo4"/>
                             <constraint firstItem="APq-pN-5aE" firstAttribute="leading" secondItem="35I-do-Wl1" secondAttribute="leading" id="ryO-zw-JE0"/>

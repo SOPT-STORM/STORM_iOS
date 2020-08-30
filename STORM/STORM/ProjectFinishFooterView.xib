@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -22,19 +22,19 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="33"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스크랩한 카드" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Eh-tm-N6c">
-                            <rect key="frame" x="29" y="5" width="87" height="23"/>
+                            <rect key="frame" x="29" y="5" width="82.5" height="23"/>
                             <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="15"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dDy-6I-aFa">
-                            <rect key="frame" x="304.5" y="7.5" width="40.5" height="18"/>
+                            <rect key="frame" x="280" y="0.0" width="73" height="33"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="40.5" id="5ad-Nt-x4G"/>
-                                <constraint firstAttribute="height" constant="18" id="UVg-Nv-NJK"/>
+                                <constraint firstAttribute="width" constant="73" id="5ad-Nt-x4G"/>
+                                <constraint firstAttribute="height" constant="33" id="UVg-Nv-NJK"/>
                             </constraints>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <state key="normal" title="Button" image="projectBtnAll"/>
+                            <state key="normal" title="Button" image="allBtnWhite"/>
                             <connections>
                                 <action selector="didPressMoreScrappedCard:" destination="U6b-Vx-4bR" eventType="touchUpInside" id="AbC-a8-eco"/>
                             </connections>
@@ -46,7 +46,7 @@
                         <constraint firstItem="dDy-6I-aFa" firstAttribute="centerY" secondItem="7Eh-tm-N6c" secondAttribute="centerY" id="cKB-Ye-PdA"/>
                         <constraint firstItem="7Eh-tm-N6c" firstAttribute="top" secondItem="9uW-HC-JTq" secondAttribute="top" constant="5" id="rTT-Dg-1y9"/>
                         <constraint firstItem="7Eh-tm-N6c" firstAttribute="leading" secondItem="9uW-HC-JTq" secondAttribute="leading" constant="29" id="rvB-PQ-ooo"/>
-                        <constraint firstAttribute="trailing" secondItem="dDy-6I-aFa" secondAttribute="trailing" constant="30" id="zjN-Ur-Hl6"/>
+                        <constraint firstAttribute="trailing" secondItem="dDy-6I-aFa" secondAttribute="trailing" constant="22" id="zjN-Ur-Hl6"/>
                     </constraints>
                 </view>
             </subviews>
@@ -61,6 +61,6 @@
         </collectionReusableView>
     </objects>
     <resources>
-        <image name="projectBtnAll" width="41" height="18"/>
+        <image name="allBtnWhite" width="73" height="33"/>
     </resources>
 </document>

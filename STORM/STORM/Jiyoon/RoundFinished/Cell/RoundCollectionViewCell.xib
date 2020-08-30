@@ -34,7 +34,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="라운드 목표" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hxv-r9-xVh">
-                                <rect key="frame" x="19" y="34" width="60" height="17"/>
+                                <rect key="frame" x="19" y="34" width="138" height="17"/>
                                 <viewLayoutGuide key="safeArea" id="W3L-Cb-bgR"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="13"/>
                                 <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -68,17 +68,32 @@
                             <constraint firstItem="n91-XS-8hW" firstAttribute="centerY" secondItem="PMK-LK-zAK" secondAttribute="centerY" id="Edc-Z3-viT"/>
                             <constraint firstItem="pgm-Rp-6QQ" firstAttribute="height" secondItem="FdN-dZ-KwW" secondAttribute="height" multiplier="0.13913" id="IL8-Em-vjt"/>
                             <constraint firstItem="MSk-hi-Md9" firstAttribute="centerY" secondItem="pgm-Rp-6QQ" secondAttribute="centerY" id="JRe-ra-dMB"/>
-                            <constraint firstAttribute="width" constant="307" id="QKM-Xu-BV3"/>
                             <constraint firstItem="Hxv-r9-xVh" firstAttribute="top" secondItem="pgm-Rp-6QQ" secondAttribute="bottom" id="WH1-i5-uSs"/>
                             <constraint firstItem="pgm-Rp-6QQ" firstAttribute="top" secondItem="FdN-dZ-KwW" secondAttribute="top" constant="18" id="X5J-VB-3Mn"/>
                             <constraint firstAttribute="trailing" secondItem="n91-XS-8hW" secondAttribute="trailing" constant="19" id="ZgZ-bq-e6V"/>
                             <constraint firstAttribute="bottom" secondItem="PMK-LK-zAK" secondAttribute="bottom" constant="19" id="btp-uQ-TLJ"/>
+                            <constraint firstAttribute="width" constant="307" id="dfX-LF-YRB"/>
                             <constraint firstItem="MSk-hi-Md9" firstAttribute="height" secondItem="pgm-Rp-6QQ" secondAttribute="height" id="dqw-Zh-rXV"/>
                             <constraint firstItem="Hxv-r9-xVh" firstAttribute="height" secondItem="FdN-dZ-KwW" secondAttribute="height" multiplier="0.147826" id="gRF-2k-HeB"/>
+                            <constraint firstAttribute="height" constant="115" id="juE-LB-pas"/>
                             <constraint firstItem="n91-XS-8hW" firstAttribute="height" secondItem="FdN-dZ-KwW" secondAttribute="height" multiplier="0.156522" id="lgR-2m-gtE"/>
-                            <constraint firstAttribute="height" constant="115" id="p0Q-MV-KXy"/>
+                            <constraint firstAttribute="trailing" secondItem="Hxv-r9-xVh" secondAttribute="trailing" constant="150" id="pDq-FN-A1w"/>
                             <constraint firstAttribute="trailing" secondItem="MSk-hi-Md9" secondAttribute="trailing" constant="19" id="yNa-AE-83r"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="15"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                <real key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                <real key="value" value="0.16"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                <size key="value" width="0.0" height="3"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>
@@ -91,16 +106,16 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                    <real key="value" value="15"/>
+                    <real key="value" value="0.0"/>
                 </userDefinedRuntimeAttribute>
                 <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                    <real key="value" value="3"/>
+                    <real key="value" value="0.0"/>
                 </userDefinedRuntimeAttribute>
                 <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                    <real key="value" value="0.20000000000000001"/>
+                    <real key="value" value="0.0"/>
                 </userDefinedRuntimeAttribute>
                 <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                    <size key="value" width="0.0" height="3"/>
+                    <size key="value" width="0.0" height="0.0"/>
                 </userDefinedRuntimeAttribute>
                 <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
                     <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
