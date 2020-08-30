@@ -19,6 +19,7 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var userImageContainerView: UIView!
     
+    @IBOutlet weak var topConstOfIndex: NSLayoutConstraint!
     
     @IBOutlet weak var selectPhotoButton: UIButton!
     @IBOutlet weak var purpleButton: UIButton!
@@ -33,11 +34,13 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
     // MARK:- 변수
     
     let myPicker = UIImagePickerController()
+    let MAX_LENGTH = 2
     var userEmail: String?
     var userPwd: String?
     var img_flag: Int?
     var circleImage: UIImage?
     var serverImage: UIImage?
+    var topConst: CGFloat = 0
     
     // MARK:- viewDidLoad
     
@@ -57,6 +60,13 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
         
         // basic image
         basicImage()
+        
+        // username 사진 위 두글자 제한
+        nameTextField.addTarget(self, action: #selector(self.textFieldTextDidChange), for: .editingChanged)
+        
+        // 화면 가리는 문제
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        topConst = topConstOfIndex.constant
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -94,6 +104,47 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
         userNameLabel.isHidden = false
         profileImage.image = nil
         img_flag = 1
+    }
+    
+    @objc func textFieldTextDidChange() {
+        
+        guard let name = nameTextField.text else {return}
+    
+        if name.count > 2 {
+            let nameTwoWord = String(name.prefix(2))
+            userNameLabel.text = nameTwoWord
+        } else {
+            if nameTextField.text != "" && name.count < 2 {
+                errorLabel.isHidden = false
+            } else {
+                errorLabel.isHidden = true
+            }
+            userNameLabel.text = name
+        }
+        
+        // 이름 10글자 제한
+        if name.count > 10 {
+            let nameTenWord = String(name.prefix(10))
+            nameTextField.text = nameTenWord
+        }
+        
+        // cangotonext
+        if errorLabel.isHidden == true  {
+            doneButton.backgroundColor = .stormRed
+        } else {
+            doneButton.backgroundColor = UIColor(red: 152/255, green: 152/255, blue: 152/255, alpha: 1)
+        }
+     }
+    
+    @objc func keyboardShow(notification: NSNotification) {
+        if nameTextField.isEditing == true {
+            topConstOfIndex.constant = -(self.view.frame.height * 0.08)
+        }
+    }
+    
+    @objc func hideKeyboard(_ sender: UITextField){
+        self.view.endEditing(true)
+        topConstOfIndex.constant = topConst
     }
     
     // MARK:- IBAction
@@ -177,51 +228,17 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
     // MARK:- 함수
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
-        self.view.endEditing(true)
-        
         if nameTextField.isEditing {
-            if nameTextField.text?.count ?? 0 < 2 {
-                doneButton.backgroundColor = UIColor(red: 152/255, green: 152/255, blue: 152/255, alpha: 1)
-                errorLabel.isHidden = false
-                
-            } else if nameTextField.text?.count ?? 0 >= 2{
-                doneButton.backgroundColor = .stormRed
-                errorLabel.isHidden = true
-            }
-        }
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField.text?.count ?? 0 < 2 {
-            doneButton.backgroundColor = UIColor(red: 152/255, green: 152/255, blue: 152/255, alpha: 1)
-            errorLabel.isHidden = false
-            
-        } else if textField.text?.count ?? 0 >= 2{
-            doneButton.backgroundColor = .stormRed
-            errorLabel.isHidden = true
+            self.view.endEditing(true)
+            hideKeyboard(nameTextField)
         }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         textField.resignFirstResponder()
+        hideKeyboard(textField)
         return true
-    }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
-                   replacementString string: String) -> Bool {
-
-        let currentCharacterCount = textField.text?.count ?? 0
-        let newLength = currentCharacterCount + string.count - range.length
-        
-        if range.length + range.location > currentCharacterCount {
-            return false
-        } else if range.location < 3 && range.length == 0 {
-            userNameLabel.text = textField.text
-        }
-        
-        
-        return newLength <= 10
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -256,7 +273,11 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
         NetworkManager.shared.signUp(userImg: profileImg, userName: userName, userEmail: useremail, userPwd: userpwd, userImgFlag: imgFlag){ (response) in
             
             if response.status == 200 {
-                self.navigationController?.popToRootViewController(animated: true)
+       
+                guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "doneSignUpVC") as? DoneSignUpViewController else {return}
+                nextVC.modalPresentationStyle = .fullScreen
+                self.present(nextVC, animated: true, completion: nil)
+                
             } else {
                 print(response.status)
             }
