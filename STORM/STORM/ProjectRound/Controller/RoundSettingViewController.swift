@@ -154,7 +154,7 @@ class RoundSettingViewController: UIViewController {
         NetworkManager.shared.fetchRoundCountInfo(projectIdx: ProjectSetting.shared.projectIdx!) { (response) in
             
             guard let rooundIdx = response?.data else {return}
-            self.roundIndexSetLabel.text = "ROUND\(rooundIdx) 설정"
+            self.roundIndexSetLabel.text = "ROUND \(rooundIdx) 설정"
             self.roundNumb = rooundIdx
         }
     }
@@ -177,7 +177,7 @@ class RoundSettingViewController: UIViewController {
     
     @objc func handlePasteCodeImage(sender: UITapGestureRecognizer) {
         UIPasteboard.general.string = ProjectSetting.shared.projectCode!
-        self.showToast(message: "참여코드가 복사되었습니다.", frame: CGRect(x: self.view.center.x, y: self.view.frame.height * (200/812) , width: self.view.frame.width * (215/375), height: self.view.frame.height * (49/812)))
+        self.showToast(message: "참여코드가 복사되었습니다", frame: CGRect(x: self.view.center.x, y: self.view.frame.height * (200/812) , width: self.view.frame.width * (215/375), height: self.view.frame.height * (49/812)))
         getCopiedText()
     }
     

@@ -141,9 +141,9 @@ class RoundStartViewController: UIViewController {
             ProjectSetting.shared.roundNumb = roundNumb
             
             if ProjectSetting.shared.mode == .host {
-                self.roundStateLabel.text = "ROUND\(roundNumb) 설정 완료"
+                self.roundStateLabel.text = "ROUND \(roundNumb) 설정 완료"
             }else {
-                self.roundStateLabel.text = "ROUND\(roundNumb) 준비 완료"
+                self.roundStateLabel.text = "ROUND \(roundNumb) 준비 완료"
                 self.roundStartInfoLabel.isHidden = true
             }
             
@@ -204,7 +204,7 @@ class RoundStartViewController: UIViewController {
     // MARK: - Display Toast Popup
     
     @objc func handlePasteCodeImage(sender: UITapGestureRecognizer) {
-        self.showToast(message: "참여코드가 복사되었습니다.", frame: CGRect(x: self.view.center.x, y: self.view.frame.height * (200/812) , width: self.view.frame.width * (215/375), height: self.view.frame.height * (49/812)))
+        self.showToast(message: "참여코드가 복사되었습니다", frame: CGRect(x: self.view.center.x, y: self.view.frame.height * (200/812) , width: self.view.frame.width * (215/375), height: self.view.frame.height * (49/812)))
         getCopiedText()
     }
 }

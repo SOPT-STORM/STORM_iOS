@@ -159,7 +159,6 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstItem="FXd-4R-Sld" firstAttribute="leading" secondItem="mbE-Gx-UZe" secondAttribute="leading" id="0O2-J4-Lhx"/>
                                     <constraint firstAttribute="height" constant="20" id="4aH-4P-QzA"/>

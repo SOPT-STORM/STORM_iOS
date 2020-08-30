@@ -138,7 +138,7 @@ class AddCardViewController: UIViewController {
         
         if mode == .memo {
             if memoView.text == "" {
-                self.showToast(message: "카드를 입력해주세요.", frame: toastFrame)
+                self.showToast(message: "카드를 입력해주세요", frame: toastFrame)
                 return
             }
             
@@ -148,21 +148,21 @@ class AddCardViewController: UIViewController {
                 
                 guard let vc = self.navigationController?.viewControllers.first as? AllRoundViewController else {return}
                 
-                self.showToast(message: "카드가 추가되었습니다.", frame: toastFrame)
+                self.showToast(message: "카드가 추가되었습니다", frame: toastFrame)
                 let card = addedCard(card_drawing: nil, card_text: content)
                 vc.cardList.insert(card, at: 0)
                 self.memoView.text = ""
             }
         } else {
             if canvasView.lines.isEmpty {
-                self.showToast(message: "카드를 입력해주세요.", frame: toastFrame)
+                self.showToast(message: "카드를 입력해주세요", frame: toastFrame)
                 return
             }
                 
             let img = canvasView.asImage()
 //            let scaledImg = UIImage.scale(image: img, by: 0.7)
             
-            self.showToast(message: "카드가 추가되었습니다.", frame: toastFrame)
+            self.showToast(message: "카드가 추가되었습니다", frame: toastFrame)
             self.canvasView.clear()
             
             NetworkManager.shared.addCard(projectIdx: ProjectSetting.shared.projectIdx!, roundIdx: ProjectSetting.shared.roundIdx!, cardImg: img, cardTxt: nil) {

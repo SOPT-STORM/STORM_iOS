@@ -82,7 +82,7 @@ class AllRoundViewController: UIViewController {
         
         guard let roundNumb = projectSetting.roundNumb else {return}
 
-        self.roundNumberLabel.text = "ROUND\(roundNumb)"
+        self.roundNumberLabel.text = "ROUND \(roundNumb)"
         self.roundGoalLabel.text = projectSetting.roundPurpose
         self.projectNameLabel.text = projectSetting.projectName
     }
