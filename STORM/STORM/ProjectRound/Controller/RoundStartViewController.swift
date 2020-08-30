@@ -50,8 +50,17 @@ class RoundStartViewController: UIViewController {
             projectStartButton.isHidden = true
 
             SocketIOManager.shared.socket.on("roundStartMember") { (dataArray, SocketAckEmitter) in
-
-                self.presentRoundStartPopup()
+                
+                print(self.presentedViewController)
+                
+                if self.presentedViewController == nil {
+                    self.presentRoundStartPopup()
+                } else {
+                    self.presentedViewController?.dismiss(animated: true, completion: {
+                        print("d")
+                        self.presentRoundStartPopup()
+                    })
+                }
             }
         }
         
@@ -69,6 +78,8 @@ class RoundStartViewController: UIViewController {
     }
     
     override func viewDidDisappear(_ animated: Bool) {
+        
+        print("뷰 사라짐~~~~")
         if ProjectSetting.shared.mode == .member {
             SocketIOManager.shared.socket.off("roundStartMember")
         }

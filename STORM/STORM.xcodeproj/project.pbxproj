@@ -36,7 +36,6 @@
 		D10C547524F80CBD00077C29 /* NotoSansCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D1FCDB6A24F5F57C00EF8A71 /* NotoSansCJKkr-Bold.otf */; };
 		D10C547624F80CC000077C29 /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = D1FCDB6B24F5F57D00EF8A71 /* NotoSansCJKkr-Medium.otf */; };
 		D10C547724F80CC600077C29 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D1FCDB6C24F5F57D00EF8A71 /* NotoSansCJKkr-Regular.otf */; };
-		D117DD3224F92DAC0017A602 /* ProjectRound.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D117DD3124F92DAC0017A602 /* ProjectRound.storyboard */; };
 		D12EC23E24AB4070007E5896 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12EC23D24AB4070007E5896 /* AppDelegate.swift */; };
 		D12EC24A24AB4072007E5896 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D12EC24924AB4072007E5896 /* Assets.xcassets */; };
 		D13DD4EC24F2D10C005C569F /* ParticipantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13DD4EB24F2D10C005C569F /* ParticipantCell.swift */; };
@@ -131,7 +130,6 @@
 		B8E9FA8724BA5A8700A97235 /* SelectNextPopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectNextPopViewController.swift; sourceTree = "<group>"; };
 		B8E9FA8924BA5C8E00A97235 /* EndProjectPopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndProjectPopViewController.swift; sourceTree = "<group>"; };
 		B8F5635F24DB1AD40036C768 /* LogoutPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutPopUpViewController.swift; sourceTree = "<group>"; };
-		D117DD3124F92DAC0017A602 /* ProjectRound.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProjectRound.storyboard; sourceTree = "<group>"; };
 		D12EC23A24AB4070007E5896 /* STORM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = STORM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D12EC23D24AB4070007E5896 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D12EC24724AB4070007E5896 /* STORM.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = STORM.xcdatamodel; sourceTree = "<group>"; };
@@ -272,7 +270,6 @@
 		B8E34D5724E438A9003538A8 /* LogIn */ = {
 			isa = PBXGroup;
 			children = (
-				B800D24524E86D960024CE2F /* login_0816.json */,
 				B8E34D5824E438C7003538A8 /* LogIn.storyboard */,
 				B806015A24E51254006AA9EF /* LogInViewController.swift */,
 			);
@@ -282,8 +279,6 @@
 		B8E9FA6E24B9B6EB00A97235 /* PopUpViews */ = {
 			isa = PBXGroup;
 			children = (
-				B82094D424BCE25700DB543F /* real_loading.json */,
-				D13DD4EF24F44832005C569F /* splash.json */,
 				B8E9FA7324B9B7FC00A97235 /* PopUp.storyboard */,
 				D13EA00724ED4644001392A8 /* ProjectInfoPopUp.swift */,
 				B8E9FA7124B9B7CB00A97235 /* OneLineMessagePopViewController.swift */,
@@ -368,6 +363,9 @@
 				D17935B824B1D73600811173 /* Fonts */,
 				D7EB706624B75C320041B9CA /* SupportingFiles */,
 				D12EC24924AB4072007E5896 /* Assets.xcassets */,
+				B82094D424BCE25700DB543F /* real_loading.json */,
+				D13DD4EF24F44832005C569F /* splash.json */,
+				B800D24524E86D960024CE2F /* login_0816.json */,
 				D12EC24B24AB4072007E5896 /* LaunchScreen.storyboard */,
 				D12EC24E24AB4072007E5896 /* Info.plist */,
 				D12EC24624AB4070007E5896 /* STORM.xcdatamodeld */,
@@ -450,9 +448,7 @@
 		D75ECBE724B6C78800CB46C3 /* ProjectRound */ = {
 			isa = PBXGroup;
 			children = (
-
 				B882FCA824F95ACB0016DD74 /* ProjectRound.storyboard */,
-
 				D75ECBEA24B6C7B500CB46C3 /* Controller */,
 			);
 			path = ProjectRound;
@@ -570,9 +566,7 @@
 				D10C547724F80CC600077C29 /* NotoSansCJKkr-Regular.otf in Resources */,
 				B800D24624E86D960024CE2F /* login_0816.json in Resources */,
 				D1FCDB6324F5A7F700EF8A71 /* MemoCarouselCell.xib in Resources */,
-
 				B882FCA924F95ACB0016DD74 /* ProjectRound.storyboard in Resources */,
-
 				D15BBB7724F5A19900477589 /* LogIn.storyboard in Resources */,
 				D1FCDB6224F5A7F200EF8A71 /* DrawingCarouselCell.xib in Resources */,
 				D1FCDB7124F5F8E600EF8A71 /* LaunchScreen.storyboard in Resources */,
