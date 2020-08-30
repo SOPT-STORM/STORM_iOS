@@ -31,7 +31,7 @@ class DeleteAccountViewController: UIViewController, UITextFieldDelegate, UIText
         // 네비게이션 바
         self.setNaviTitle()
         self.view.tintColor = .stormRed
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "myprojectBtnBack" ), style: .plain, target: self, action: #selector(back)) // 이 방법 밖에 없나....
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "myprojectBtnBack" ), style: .plain, target: self, action: #selector(back))
         
         // 화면 가리는 문제
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -39,6 +39,9 @@ class DeleteAccountViewController: UIViewController, UITextFieldDelegate, UIText
         
         // error label
         errorMessageLabel.isHidden = true
+        
+        etcTextView.text = "탈퇴 사유를 입력해주세요 (선택)"
+        etcTextView.textColor = .systemGray2
         
         //툴바
         toolbarSetup()
@@ -60,8 +63,6 @@ class DeleteAccountViewController: UIViewController, UITextFieldDelegate, UIText
         
         // textView inset & radius
         etcTextView.textContainerInset = UIEdgeInsets(top: 12, left: 15, bottom: 12, right: 15)
-        etcTextView.text = "탈퇴 사유를 입력해주세요 (선택)"
-        etcTextView.textColor = .systemGray2
         etcTextView.cornerRadius = 8
         
         // textField inset & clear button & radius
@@ -101,9 +102,13 @@ class DeleteAccountViewController: UIViewController, UITextFieldDelegate, UIText
     
     // MARK:- 함수
     
+    // 엥 터치비긴 어디감
+    
     func textViewDidBeginEditing(_ textView: UITextView) {
-        textView.textColor = .systemGray
-        textView.text = nil
+        if textView.text == "탈퇴 사유를 입력해주세요 (선택)" {
+            textView.text = ""
+            textView.textColor = .placeholderColor
+        }
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {

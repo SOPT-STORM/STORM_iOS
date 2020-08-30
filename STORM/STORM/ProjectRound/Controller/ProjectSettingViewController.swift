@@ -31,8 +31,8 @@ class ProjectSettingViewController: UIViewController {
         projectNameTextField.textColor = UIColor.textDefaultColor
         
         hostMessageTextView.textContainerInset = UIEdgeInsets(top: 10, left: 12, bottom: 0, right: 0)
-        hostMessageTextView.text = "대기방의 참가자들에게 보여집니다."
-        hostMessageTextView.textColor = UIColor(red: 152/255, green: 152/255, blue: 152/255, alpha: 1)
+        hostMessageTextView.text = "프로젝트 소개 혹은 안내 사항을 입력해주세요"
+        hostMessageTextView.textColor = .systemGray2
         hostMessageTextView.font = UIFont(name: "NotoSansCJKkr-Medium", size: 13)
         hostMessageTextView.delegate = self
         
@@ -106,9 +106,9 @@ class ProjectSettingViewController: UIViewController {
 extension ProjectSettingViewController: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if hostMessageTextView.textColor == UIColor.placeholderColor {
-            hostMessageTextView.text = nil
-            hostMessageTextView.textColor = UIColor.textDefaultColor
+        if textView.text == "프로젝트 소개 혹은 안내 사항을 입력해주세요" {
+            textView.text = ""
+            textView.textColor = .placeholderColor
         }
     }
     
@@ -116,9 +116,9 @@ extension ProjectSettingViewController: UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
         print(hostMessageTextView.text.count)
         
-        if hostMessageTextView.text.count == 0 {
-            hostMessageTextView.text = "대기방의 참가자들에게 보여집니다."
-            hostMessageTextView.textColor = UIColor.placeholderColor
+        if textView.text.isEmpty {
+            textView.text = "프로젝트 소개 혹은 안내 사항을 입력해주세요"
+            textView.textColor = .systemGray2
         }
     }
     
