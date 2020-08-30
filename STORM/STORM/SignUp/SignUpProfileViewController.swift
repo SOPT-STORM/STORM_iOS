@@ -46,7 +46,7 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
         
         // navigationbar
         setSignUpNavi()
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "backBtn"), style: .plain, target: self, action: #selector(back))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "naviBackBtn"), style: .plain, target: self, action: #selector(back))
         
         // textfield cancel, padding
         nameTextField.clearButtonMode = .always
@@ -57,6 +57,10 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
         
         // basic image
         basicImage()
+        
+        userNameLabel.text = " "
+        
+        nameTextField.addTarget(self, action: #selector(textFieldTextDidChange), for: .editingChanged)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -84,6 +88,19 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
     }
     
     // MARK:- @objc
+    
+    @objc func textFieldTextDidChange() {
+        
+        let name = nameTextField.text!
+    
+        if name.count > 2 {
+            let name11 = String(name.prefix(2))
+            
+            userNameLabel.text = name11
+        } else {
+            userNameLabel.text = name
+        }
+     }
     
     @objc func basicImage(){
         basicImageStackView.isHidden = false
@@ -207,23 +224,7 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
         textField.resignFirstResponder()
         return true
     }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
-                   replacementString string: String) -> Bool {
 
-        let currentCharacterCount = textField.text?.count ?? 0
-        let newLength = currentCharacterCount + string.count - range.length
-        
-        if range.length + range.location > currentCharacterCount {
-            return false
-        } else if range.location < 3 && range.length == 0 {
-            userNameLabel.text = textField.text
-        }
-        
-        
-        return newLength <= 10
-    }
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             profileImage.image = image
