@@ -35,7 +35,7 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
         
         // navigationbar
         setSignUpNavi()
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "backBtn" ), style: .plain, target: self, action: #selector(didPressBackSignUp))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "naviBackBtn" ), style: .plain, target: self, action: #selector(didPressBackSignUp))
         
         // textfield cancel button
         emailTextField.clearButtonMode = .always

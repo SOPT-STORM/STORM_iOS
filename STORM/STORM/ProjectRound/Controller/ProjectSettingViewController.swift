@@ -38,7 +38,7 @@ class ProjectSettingViewController: UIViewController {
         
         toolbarSetup()
         setNaviTitle()
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "myprojectBtnBack" ), style: .plain, target: self, action: #selector(back))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "naviBackBtn" ), style: .plain, target: self, action: #selector(back))
     }
     
     // MARK: - IBAction

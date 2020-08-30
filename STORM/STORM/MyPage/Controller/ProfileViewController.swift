@@ -70,12 +70,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         // 사진 변경 여부
         isPhotoChanged = false
         
-        // 프로필 불러오기
-        getProfile()
-        
-        
         //navigationItem.backBarButtonItem?.action = #selector(didPressBack)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "myprojectBtnBack" ), style: .plain, target: self, action: #selector(didPressBack))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "naviBackBtn" ), style: .plain, target: self, action: #selector(didPressBack))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -91,6 +87,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 userNameTextField.removeTarget(self, action: #selector(didChangeText), for: .editingChanged)
             }
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        getProfile()
     }
     
     override func viewDidLayoutSubviews() {

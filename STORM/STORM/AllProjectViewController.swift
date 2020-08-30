@@ -21,7 +21,7 @@ class AllProjectViewController: UIViewController {
         collectionView.dataSource = self
         
         self.setNaviTitle()
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "myprojectBtnBack" ), style: .plain, target: self, action: #selector(back))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "naviBackBtn" ), style: .plain, target: self, action: #selector(back))
 
         collectionView.reloadData()
    }
@@ -85,10 +85,9 @@ extension AllProjectViewController: UICollectionViewDelegate, UICollectionViewDa
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let vc = storyboard.instantiateViewController(withIdentifier: "projectFinalViewController") as? ProjectFinalViewController else {return}
-        vc.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "myprojectBtnBack" ), style: .plain, target: self, action: #selector(back))
+        vc.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "naviBackBtn" ), style: .plain, target: self, action: #selector(back))
         vc.projectIndex = projectIndex
         self.navigationController?.pushViewController(vc, animated: true)
     }
-
 }
 
