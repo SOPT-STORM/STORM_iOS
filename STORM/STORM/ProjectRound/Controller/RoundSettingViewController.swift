@@ -58,6 +58,9 @@ class RoundSettingViewController: UIViewController {
         pasteCodeImage.addGestureRecognizer(tapPasteCodeImage)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "exit" ), style: .plain, target: self, action: #selector(didPressExit))
+        
+        // 지현 수정 라운드목표 24자 제한
+        roundGoalTextField.addTarget(self, action: #selector(self.limitRoundName), for: .editingChanged)
     }
     
 //    override func viewWillAppear(_ animated: Bool) {
@@ -82,6 +85,17 @@ class RoundSettingViewController: UIViewController {
             navi.popToRootViewController(animated: false)
         })
     }
+    
+    // 지현 수정 라운드목표 24자 제한
+    @objc func limitRoundName() {
+        
+        guard let name = roundGoalTextField.text else {return}
+
+        if name.count > 24 {
+            let limitName = String(name.prefix(10))
+            roundGoalTextField.text = limitName
+        }
+     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

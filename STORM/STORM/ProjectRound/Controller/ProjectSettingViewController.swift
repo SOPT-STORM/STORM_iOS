@@ -39,6 +39,9 @@ class ProjectSettingViewController: UIViewController {
         toolbarSetup()
         setNaviTitle()
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "myprojectBtnBack" ), style: .plain, target: self, action: #selector(back))
+        
+        // 지현 수정 프로젝트명 17자 제한
+        projectNameTextField.addTarget(self, action: #selector(self.limitProjectName), for: .editingChanged)
     }
     
     // MARK: - IBAction
@@ -101,12 +104,23 @@ class ProjectSettingViewController: UIViewController {
         @objc func hideKeyboard(_ sender: Any){
             self.view.endEditing(true)
         }
+    
+        // 지현 수정 프로젝트명 17자 제한
+        @objc func limitProjectName() {
+            
+            guard let name = projectNameTextField.text else {return}
+
+            if name.count > 17 {
+                let limitName = String(name.prefix(10))
+                projectNameTextField.text = limitName
+            }
+         }
     }
 
 extension ProjectSettingViewController: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.text == "프로젝트 소개 혹은 안내 사항을 입력해주세요" {
+        if textView.text == "프로젝트 소개 및 안내 사항을 입력해주세요" {
             textView.text = ""
             textView.textColor = .placeholderColor
         }
