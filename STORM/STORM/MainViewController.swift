@@ -19,13 +19,14 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var viewAllButton: UIButton!
+    
+    
     lazy var dataArray: [ProjectWithDetail] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print("유저 인덱스 \(NetworkManager.shared.user_idx)")
-        
+
         kingFisherSetup()
 
         collectionView.delegate = self
@@ -116,8 +117,15 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return self.dataArray.count
-
+        let numberOfItems = self.dataArray.count
+        
+//        if numberOfItems == 0 {
+//            viewAllButton.isHidden = true
+//        } else {
+//            viewAllButton.isHidden = false
+//        }
+        
+        return numberOfItems
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -161,7 +169,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("여기 실행")
+        
         let projectIndex = self.dataArray[indexPath.row].project_idx
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)

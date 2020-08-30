@@ -51,8 +51,6 @@ class RoundStartViewController: UIViewController {
 
             SocketIOManager.shared.socket.on("roundStartMember") { (dataArray, SocketAckEmitter) in
                 
-                print(self.presentedViewController)
-                
                 if self.presentedViewController == nil {
                     self.presentRoundStartPopup()
                 } else {

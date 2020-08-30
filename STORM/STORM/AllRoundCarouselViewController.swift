@@ -87,8 +87,6 @@ class AllRoundCarouselViewController: UIViewController {
     }
     
     @IBAction func didPressSave(_ sender: UIButton) {
-        print(memoView.text.count,cardsMemo[cardIdx], memoView.text, memoView.text.isEmpty)
-        
         if memoView.text.isEmpty == true {
             return
         } else if cardsMemo[cardIdx] == nil {
@@ -99,13 +97,14 @@ class AllRoundCarouselViewController: UIViewController {
     }
     
     @objc func didPressExit() {
-
-        let rootVC = self.view.window?.rootViewController
         
-        self.view.window?.rootViewController?.dismiss(animated: false, completion: {
-            guard let navi = rootVC as? UINavigationController else {return}
-            navi.popToRootViewController(animated: false)
-        })
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = storyboard.instantiateViewController(withIdentifier: "projectFinalViewController") as? ProjectFinalViewController else {return}
+        
+        let naviController = UINavigationController(rootViewController: vc)
+        naviController.modalPresentationStyle = .fullScreen
+        
+        self.present(naviController, animated: false, completion: nil)
     }
     
     func showUpNextRoundNoti() {

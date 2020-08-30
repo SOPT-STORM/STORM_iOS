@@ -35,8 +35,6 @@ class CameraPopUpViewController: UIViewController,UIImagePickerControllerDelegat
         // 뒷배경
         backImageView.image = backImage
         
-        
-        
         // 카드뷰 숨겨놓기
         if let safeAreaHeight = UIApplication.shared.windows.last?.safeAreaLayoutGuide.layoutFrame.size.height,
             let bottomPadding = UIApplication.shared.windows.last?.safeAreaInsets.bottom {

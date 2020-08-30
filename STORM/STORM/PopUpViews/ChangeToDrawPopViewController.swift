@@ -22,33 +22,12 @@ class ChangeToDrawPopViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         changeToDrawPopView.layer.cornerRadius = 15
-//        changeToDrawPopView.addShadow(width: 1, height: 3, 0.2, 5)
-//        changeToDrawPopView.addRoundShadow(cornerRadius: 15)
         changeToDrawPopView.clipsToBounds = true
         
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
       
     }
     
-    
-    // MARK:- IBAction 선언
-    
-    /*
-    @IBAction func cardCancelButtonDidTap(_ sender: UIButton) {
-        NotificationCenter.default.post(name: .buttonClickInPopup, object: nil)
-        self.removeAnimate()
-    }
-    
-    @IBAction func cardConfirmButtonDidTap(_ sender: UIButton) {
-        NotificationCenter.default.post(name: .buttonClickInPopup, object: nil)
-        self.removeAnimate()
-    }
-    액션 명 정하기 어려워서 남겨둠
-    */
-    
-    
-    // MARK:- 함수 선언
 
 }

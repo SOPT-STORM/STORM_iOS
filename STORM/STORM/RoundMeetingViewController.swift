@@ -74,12 +74,13 @@ class RoundMeetingViewController: UIViewController {
     
     @objc func didPressExit() {
 
-        let rootVC = self.view.window?.rootViewController
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = storyboard.instantiateViewController(withIdentifier: "projectFinalViewController") as? ProjectFinalViewController else {return}
         
-        self.view.window?.rootViewController?.dismiss(animated: false, completion: {
-            guard let navi = rootVC as? UINavigationController else {return}
-            navi.popToRootViewController(animated: false)
-        })
+        let naviController = UINavigationController(rootViewController: vc)
+        naviController.modalPresentationStyle = .fullScreen
+        
+        self.present(naviController, animated: false, completion: nil)
     }
     
     func setupLayout() {
@@ -108,9 +109,7 @@ class RoundMeetingViewController: UIViewController {
         guard let projectIndex = projectInfo.projectIdx, let roundIndex = projectInfo.roundIdx else {return}
         
         NetworkManager.shared.fetchCardList(projectIdx: projectIndex , roundIdx: roundIndex) { (response) in
-            
-            print("리스폰스~ \(response)")
-             
+
             guard let cardList = response?.data?.card_list else {return}
             self.cards = cardList
             self.collectionView.reloadData()
@@ -147,9 +146,7 @@ class RoundMeetingViewController: UIViewController {
                     NetworkManager.shared.enterRound { (response) in
                         guard let roundIndex = response.data, let projectCode = ProjectSetting.shared.projectCode else {return}
                         ProjectSetting.shared.roundIdx = roundIndex
-                        
-                        print("라운드 인덱스 \(roundIndex) \(ProjectSetting.shared.roundIdx)")
-                        
+  
                         SocketIOManager.shared.socket.emit("enterNextRound", projectCode) {
                             print("enterNextRound 실행")
                             self.socketOff()

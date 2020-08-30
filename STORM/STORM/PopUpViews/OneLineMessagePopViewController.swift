@@ -46,7 +46,6 @@ class OneLineMessagePopViewController: UIViewController {
             SocketIOManager.shared.socket.emit("finishProject", projectCode)
             
             NetworkManager.shared.finishProject { (response) in
-                print(response)
             }
             
             guard let presentingVc = self.presentingViewController else {return}

@@ -51,10 +51,7 @@ extension UIView {
         // 마지막 이해 x
     }
     
-    
-    
     /* 8/3 추가 */
-    
     
     func asImage() -> UIImage {
         let renderer = UIGraphicsImageRenderer(bounds: bounds)
@@ -62,30 +59,7 @@ extension UIView {
             layer.render(in: rendererContext.cgContext)
         })
     }
-    /*
-    func showAnimate()
-    {
-        self.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-        self.alpha = 0.0;
-        UIView.animate(withDuration: 0.25, animations: {
-            self.alpha = 1.0
-            self.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-        });
-    }
-    
-    func removeAnimate()
-    {
-        UIView.animate(withDuration: 0.25, animations: {
-            self.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-            self.alpha = 0.0;
-            }, completion:{(finished : Bool)  in
-                if (finished)
-                {
-                    self.removeFromSuperview()
-                }
-        });
-    }*/
-    
+
     @IBInspectable var cornerRadius: CGFloat {
         get {
             return layer.cornerRadius

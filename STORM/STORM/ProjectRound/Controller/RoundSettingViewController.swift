@@ -63,23 +63,9 @@ class RoundSettingViewController: UIViewController {
         roundGoalTextField.addTarget(self, action: #selector(self.limitRoundName), for: .editingChanged)
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//    
-//        getRoundIndex()
-//        minute = nil
-//        roundGoalTextField.text = nil
-//        timeLimitTextField.text = nil
-//    }
-    
     @objc func didPressExit() {
         let rootVC = self.view.window?.rootViewController
-        
-//        guard let mainVC = self.view.window?.rootViewController?.children[0] else {return}
-//        
-//        print(mainVC)
-//        
-//        print("실행됨요")
-        
+
         self.view.window?.rootViewController?.dismiss(animated: false, completion: {
             guard let navi = rootVC as? UINavigationController else {return}
             navi.popToRootViewController(animated: false)
@@ -105,12 +91,9 @@ class RoundSettingViewController: UIViewController {
     
     @IBAction func confirmButton(_ sender: UIButton) {
         
-        print("2라운드 실행 \(roundGoalTextField.text) \(timeLimitTextField.text)")
         if roundGoalTextField.text?.isEmpty == false && timeLimitTextField.text?.isEmpty == false {
             
-            print("2라운드 실행2")
             self.postRoundSetting()
- 
         }
     }
     
@@ -121,9 +104,7 @@ class RoundSettingViewController: UIViewController {
         
         NetworkManager.shared.setRound(projectIdx: projectIdx, roundPurpose: roundGoal, roundTime: time)
         { (response) in
-            
-            print(response)
-            
+
             if response?.status == 200 {
                 
                 let storyBoard: UIStoryboard = UIStoryboard(name: "ProjectRound", bundle: nil)
@@ -132,11 +113,9 @@ class RoundSettingViewController: UIViewController {
                 vc.modalPresentationStyle = .fullScreen
                 
                 if self.roundNumb == 1 {
-                    print("호스트 조인룸 실행 \(ProjectSetting.shared.projectCode!), \(self.roundNumb)")
-//                SocketIOManager.shared.socket.emit("joinRoom", ProjectSetting.shared.projectCode!)
-                    
+
                     SocketIOManager.shared.socket.emit("joinRoom", ProjectSetting.shared.projectCode!) {
-                        print("조인룸 실행")
+
                         ProjectSetting.shared.roundIdx = response?.data!
                         self.present(vc, animated: false, completion: nil)
                     }
@@ -149,9 +128,6 @@ class RoundSettingViewController: UIViewController {
                         self.present(vc, animated: false, completion: nil)
                     }
                 }
-                
-//                ProjectSetting.shared.roundIdx = response?.data!
-//                self.present(vc, animated: false, completion: nil)
             }
         }
     }
@@ -175,7 +151,6 @@ class RoundSettingViewController: UIViewController {
     
     func getCopiedText() {
         let pasteboard = UIPasteboard.general
-//        pasteboard.string = (UserDefaults.standard.value(forKey: "projectCode") as! String)
         pasteboard.string = ProjectSetting.shared.projectCode!
     }
     

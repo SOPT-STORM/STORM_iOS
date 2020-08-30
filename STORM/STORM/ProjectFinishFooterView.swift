@@ -14,7 +14,6 @@ class ProjectFinishFooterView: UICollectionReusableView {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     @IBAction func didPressMoreScrappedCard(_ sender: UIButton) {
