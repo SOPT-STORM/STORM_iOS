@@ -37,6 +37,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     let myPicker = UIImagePickerController()
     var separatorView: UIView!
     var previousName: String?
+    var pName: String?
     var previousImage: UIImage?
     var previousColor: UIColor?
     var img_flag: Int?
@@ -72,6 +73,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         // 프로필 불러오기
         getProfile()
+        
+        pName = ""
         
         
         // navigationItem.backBarButtonItem?.action = #selector(didPressBack)
@@ -126,17 +129,23 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @objc func didPressBack() {
-        self.navigationController?.popViewController(animated: true)
-        if userNameTextField.text != previousName {
-            modifyName()
+        guard let userNameCount = userNameTextField.text?.count else {return}
+        if userNameCount >= 2 {
+            self.navigationController?.popViewController(animated: true)
+            
+            if userNameTextField.text != previousName || pName != "" {
+                modifyName()
+                if userImageView.isHidden {
+                    modifyImage()
+                }
+            }
+            
             if userImageContainerView.backgroundColor != previousColor {
+                modifyImage()
+            } else if isPhotoChanged == true {
                 modifyImage()
             }
         }
-        if isPhotoChanged == true {
-            modifyImage()
-        }
-        
     }
     
     @objc func textFieldTextDidChange() {
@@ -246,10 +255,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         self.userNameLabel.text = String(name[firstIndex..<lastIndex])
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
-        if userNameTextField.isEditing {self.view.endEditing(true)}
-    }
-    
     // 프로필 가져오기
     func getProfile() {
         NetworkManager.shared.fetchMyPageInfo() { (response) in
@@ -278,10 +283,13 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                     
                     if userImageFlag == 1 {
                         self.userImageContainerView.backgroundColor = .stormPurple
+                        self.purpleButton.setImage(UIImage(named: "purple"), for: .normal)
                     } else if userImageFlag == 2 {
                         self.userImageContainerView.backgroundColor = .stormYellow
+                        self.yellowButton.setImage(UIImage(named: "yellow"), for: .normal)
                     } else if userImageFlag == 3 {
                         self.userImageContainerView.backgroundColor = .stormRed
+                        self.redButton.setImage(UIImage(named: "red"), for: .normal)
                     }
                     
                     self.previousColor = self.userImageContainerView.backgroundColor
@@ -314,6 +322,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        if userNameTextField.isEditing {self.view.endEditing(true)}
+    }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         userNameTextField.textColor = UIColor(red: 112/255, green: 112/255, blue: 112/255, alpha: 1)
         separatorView.backgroundColor = UIColor(red: 234/255, green: 234/255, blue: 234/255, alpha: 1)
@@ -325,6 +337,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             textField.text = previousName
         } else {
             errorMessage.isHidden = true
+            if userNameTextField.text != previousName || userNameTextField.text != pName {
+                self.showToast(message: "사용자 이름이 변경되었습니다", frame: CGRect(x: self.view.center.x, y: self.view.frame.height * (690/812) , width: self.view.frame.width * (215/375), height: self.view.frame.height * (49/812)))
+                pName = userNameTextField.text
+            }
         }
     }
     
@@ -351,6 +367,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             userNameLabel.isHidden = true
             img_flag = 0
         }
+        isPhotoChanged = true
         dismiss(animated: true, completion: nil)
     }
     
