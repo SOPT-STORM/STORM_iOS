@@ -78,10 +78,11 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         
         // navigationItem.backBarButtonItem?.action = #selector(didPressBack)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "myprojectBtnBack" ), style: .plain, target: self, action: #selector(didPressBack))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "naviBackBtn" ), style: .plain, target: self, action: #selector(didPressBack))
         
         // username 사진 위 두글자 제한
         userNameTextField.addTarget(self, action: #selector(textFieldTextDidChange), for: .editingChanged)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -90,6 +91,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                                                selector: #selector(basicImage),
                                                name: NSNotification.Name(rawValue: "SetBasicImage"),
                                                object: nil)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        getProfile()
     }
     
     override func viewDidLayoutSubviews() {

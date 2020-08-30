@@ -26,6 +26,8 @@ class RoundCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        print("라운드 콜렉션뷰 셀 사이즈\(self.frame.size)")
     }
     
     override func layoutSubviews() {

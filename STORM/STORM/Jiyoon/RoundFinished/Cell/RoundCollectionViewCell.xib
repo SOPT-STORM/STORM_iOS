@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -27,39 +27,33 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FdN-dZ-KwW">
                         <rect key="frame" x="0.0" y="0.0" width="307" height="115"/>
                         <subviews>
-
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="라운드 소요 시간" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMK-LK-zAK">
-                                <rect key="frame" x="19" y="76.5" width="91" height="19.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="라운드 소요 시간" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMK-LK-zAK">
+                                <rect key="frame" x="19" y="80.5" width="86" height="15.5"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="13"/>
                                 <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="라운드 목표" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hxv-r9-xVh">
-                                <rect key="frame" x="19" y="34" width="63.5" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="라운드 목표" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hxv-r9-xVh">
+                                <rect key="frame" x="19" y="34" width="138" height="17"/>
                                 <viewLayoutGuide key="safeArea" id="W3L-Cb-bgR"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="13"/>
                                 <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="프로젝트 제목" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSk-hi-Md9">
-                                <rect key="frame" x="212.5" y="18" width="75.5" height="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="프로젝트 제목" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSk-hi-Md9">
+                                <rect key="frame" x="216.5" y="18" width="71.5" height="16"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="13"/>
                                 <color key="textColor" red="0.92549019607843142" green="0.396078431372549" blue="0.396078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ROUND" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pgm-Rp-6QQ">
-                                <rect key="frame" x="19" y="18" width="48" height="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ROUND" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pgm-Rp-6QQ">
+                                <rect key="frame" x="19" y="18" width="47" height="16"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="13"/>
                                 <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="n91-XS-8hW">
-
-                                <rect key="frame" x="188" y="77.5" width="100" height="18"/>
-
+                                <rect key="frame" x="188" y="79.5" width="100" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="2aa-Bf-NMg"/>
                                 </constraints>
@@ -74,17 +68,32 @@
                             <constraint firstItem="n91-XS-8hW" firstAttribute="centerY" secondItem="PMK-LK-zAK" secondAttribute="centerY" id="Edc-Z3-viT"/>
                             <constraint firstItem="pgm-Rp-6QQ" firstAttribute="height" secondItem="FdN-dZ-KwW" secondAttribute="height" multiplier="0.13913" id="IL8-Em-vjt"/>
                             <constraint firstItem="MSk-hi-Md9" firstAttribute="centerY" secondItem="pgm-Rp-6QQ" secondAttribute="centerY" id="JRe-ra-dMB"/>
-                            <constraint firstAttribute="width" constant="307" id="QKM-Xu-BV3"/>
                             <constraint firstItem="Hxv-r9-xVh" firstAttribute="top" secondItem="pgm-Rp-6QQ" secondAttribute="bottom" id="WH1-i5-uSs"/>
                             <constraint firstItem="pgm-Rp-6QQ" firstAttribute="top" secondItem="FdN-dZ-KwW" secondAttribute="top" constant="18" id="X5J-VB-3Mn"/>
                             <constraint firstAttribute="trailing" secondItem="n91-XS-8hW" secondAttribute="trailing" constant="19" id="ZgZ-bq-e6V"/>
                             <constraint firstAttribute="bottom" secondItem="PMK-LK-zAK" secondAttribute="bottom" constant="19" id="btp-uQ-TLJ"/>
+                            <constraint firstAttribute="width" constant="307" id="dfX-LF-YRB"/>
                             <constraint firstItem="MSk-hi-Md9" firstAttribute="height" secondItem="pgm-Rp-6QQ" secondAttribute="height" id="dqw-Zh-rXV"/>
                             <constraint firstItem="Hxv-r9-xVh" firstAttribute="height" secondItem="FdN-dZ-KwW" secondAttribute="height" multiplier="0.147826" id="gRF-2k-HeB"/>
+                            <constraint firstAttribute="height" constant="115" id="juE-LB-pas"/>
                             <constraint firstItem="n91-XS-8hW" firstAttribute="height" secondItem="FdN-dZ-KwW" secondAttribute="height" multiplier="0.156522" id="lgR-2m-gtE"/>
-                            <constraint firstAttribute="height" constant="115" id="p0Q-MV-KXy"/>
+                            <constraint firstAttribute="trailing" secondItem="Hxv-r9-xVh" secondAttribute="trailing" constant="150" id="pDq-FN-A1w"/>
                             <constraint firstAttribute="trailing" secondItem="MSk-hi-Md9" secondAttribute="trailing" constant="19" id="yNa-AE-83r"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="15"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                <real key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                <real key="value" value="0.16"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                <size key="value" width="0.0" height="3"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>
@@ -97,16 +106,16 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                    <real key="value" value="15"/>
+                    <real key="value" value="0.0"/>
                 </userDefinedRuntimeAttribute>
                 <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                    <real key="value" value="3"/>
+                    <real key="value" value="0.0"/>
                 </userDefinedRuntimeAttribute>
                 <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                    <real key="value" value="0.20000000000000001"/>
+                    <real key="value" value="0.0"/>
                 </userDefinedRuntimeAttribute>
                 <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                    <size key="value" width="0.0" height="3"/>
+                    <size key="value" width="0.0" height="0.0"/>
                 </userDefinedRuntimeAttribute>
                 <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
                     <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

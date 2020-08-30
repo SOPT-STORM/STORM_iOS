@@ -25,6 +25,9 @@ class FinishedRoundViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("라운드 콜렉션뷰 프레임 사이즈~ \(roundCollectionView.frame.size)")
+        
+        
         roundCollectionView.register(UINib(nibName: "RoundCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "roundCollectionViewCell")
         
         roundCollectionView.delegate = self
@@ -52,7 +55,7 @@ class FinishedRoundViewController: UIViewController {
         pageControl.setConfig(config)
         
         self.setNaviTitle()
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "myprojectBtnBack" ), style: .plain, target: self, action: #selector(back))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "naviBackBtn" ), style: .plain, target: self, action: #selector(back))
         
         guard let roundIndex = roundsInfo[selectedIndex].round_idx else {return}
 
@@ -71,6 +74,7 @@ class FinishedRoundViewController: UIViewController {
     }
 }
 
+
 extension FinishedRoundViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -84,8 +88,7 @@ extension FinishedRoundViewController: UICollectionViewDataSource, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView.tag == 0 {
-            print("인덱스패뜨 \(indexPath)")
-            
+
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "roundCollectionViewCell", for: indexPath) as! RoundCollectionViewCell
         
             guard let roundNumb = roundsInfo[indexPath.row].round_number, let roundTime = roundsInfo[indexPath.row].round_time, let roundParticipants = roundsInfo[indexPath.row].round_participant else {return cell}
@@ -99,6 +102,12 @@ extension FinishedRoundViewController: UICollectionViewDataSource, UICollectionV
             return cell
         } else {
             let card = cards[indexPath.row]
+            
+            if card.scrap_flag == 1 {
+                ProjectSetting.shared.scrapCards[indexPath.row] = true
+            } else{
+                ProjectSetting.shared.scrapCards[indexPath.row] = false
+            }
 
             if card.card_img != nil {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "drawingCell", for: indexPath) as! DrawingCell
@@ -106,14 +115,34 @@ extension FinishedRoundViewController: UICollectionViewDataSource, UICollectionV
                 guard let url = card.card_img,let imageURL = URL(string: url) else {return UICollectionViewCell()}
 
                 cell.drawingImgView.kf.setImage(with: imageURL)
-                cell.index = card.card_idx
+                cell.cardIndex = card.card_idx
+                
+                if card.scrap_flag == 1 {
+                     cell.heartBtn.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                     cell.heartBtn.tintColor = UIColor(red: 236/255, green: 101/255, blue: 101/255, alpha: 1)
+                     cell.isScrapped = true
+                 } else {
+                     cell.heartBtn.setImage(UIImage(systemName: "heart"), for: .normal)
+                     cell.heartBtn.tintColor = UIColor(red: 112/255, green: 112/255, blue: 112/255, alpha: 1)
+                     cell.isScrapped = false
+                 }
                 
                 return cell
             }else{
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "memoCell", for: indexPath) as! MemoCell
 
                 cell.memo.text = card.card_txt!
-                cell.index = card.card_idx
+                cell.cardIndex = card.card_idx
+                
+                if card.scrap_flag == 1 {
+                     cell.heartBtn.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                     cell.heartBtn.tintColor = UIColor(red: 236/255, green: 101/255, blue: 101/255, alpha: 1)
+                     cell.isScrapped = true
+                 } else {
+                     cell.heartBtn.setImage(UIImage(systemName: "heart"), for: .normal)
+                     cell.heartBtn.tintColor = UIColor(red: 112/255, green: 112/255, blue: 112/255, alpha: 1)
+                     cell.isScrapped = false
+                 }
                 
                 return cell
             }
@@ -155,10 +184,11 @@ extension FinishedRoundViewController: UICollectionViewDataSource, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        
         guard let vc = UIStoryboard(name: "RoundFinished", bundle: nil).instantiateViewController(withIdentifier: "cardDetailViewController") as? CardDetailViewController, collectionView == cardListCollectionView else {return}
         vc.cards = cards
         vc.index = indexPath.row
+        vc.viewMode = .round
+        vc.projectName = projectName
 
         self.navigationController?.pushViewController(vc, animated: true)
     }

@@ -31,7 +31,9 @@ class DeleteAccountViewController: UIViewController, UITextFieldDelegate, UIText
         // 네비게이션 바
         self.setNaviTitle()
         self.view.tintColor = .stormRed
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "myprojectBtnBack" ), style: .plain, target: self, action: #selector(back))
+
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "naviBackBtn" ), style: .plain, target: self, action: #selector(back)) // 이 방법 밖에 없나....
+
         
         // 화면 가리는 문제
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardShow), name: UIResponder.keyboardWillShowNotification, object: nil)

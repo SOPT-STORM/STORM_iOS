@@ -273,7 +273,6 @@
 		B8E34D5724E438A9003538A8 /* LogIn */ = {
 			isa = PBXGroup;
 			children = (
-				B800D24524E86D960024CE2F /* login_0816.json */,
 				B8E34D5824E438C7003538A8 /* LogIn.storyboard */,
 				B806015A24E51254006AA9EF /* LogInViewController.swift */,
 			);
@@ -283,8 +282,6 @@
 		B8E9FA6E24B9B6EB00A97235 /* PopUpViews */ = {
 			isa = PBXGroup;
 			children = (
-				B82094D424BCE25700DB543F /* real_loading.json */,
-				D13DD4EF24F44832005C569F /* splash.json */,
 				B8E9FA7324B9B7FC00A97235 /* PopUp.storyboard */,
 				D13EA00724ED4644001392A8 /* ProjectInfoPopUp.swift */,
 				B8E9FA7124B9B7CB00A97235 /* OneLineMessagePopViewController.swift */,
@@ -368,6 +365,9 @@
 				D14D357024EBD540008E7581 /* ViewTransitionDelegate.swift */,
 				D17935B824B1D73600811173 /* Fonts */,
 				D12EC24924AB4072007E5896 /* Assets.xcassets */,
+				B82094D424BCE25700DB543F /* real_loading.json */,
+				D13DD4EF24F44832005C569F /* splash.json */,
+				B800D24524E86D960024CE2F /* login_0816.json */,
 				D12EC24B24AB4072007E5896 /* LaunchScreen.storyboard */,
 				D12EC24E24AB4072007E5896 /* Info.plist */,
 				D12EC24624AB4070007E5896 /* STORM.xcdatamodeld */,

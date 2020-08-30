@@ -73,7 +73,10 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="HO4-ym-Al7" secondAttribute="height" multiplier="1:1" id="y4g-Jj-y7S"/>
                                                     </constraints>
-                                                    <state key="normal" image="btn_heart"/>
+                                                    <color key="tintColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <state key="normal" image="heart" catalog="system">
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="didPressHeart:" destination="xWp-Eh-ziw" eventType="touchUpInside" id="dX8-hU-qKa"/>
                                                     </connections>
@@ -139,7 +142,10 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="L8K-wy-b9U" secondAttribute="height" multiplier="1:1" id="cdH-Kd-9RG"/>
                                                     </constraints>
-                                                    <state key="normal" image="btn_heart"/>
+                                                    <color key="tintColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <state key="normal" image="heart" catalog="system">
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="didPressHeart:" destination="jjH-eb-oJd" eventType="touchUpInside" id="ymD-5q-uJL"/>
                                                     </connections>
@@ -153,6 +159,7 @@
                                                 <constraint firstItem="A6s-uP-HXE" firstAttribute="top" secondItem="QUJ-ks-vI5" secondAttribute="top" constant="3" id="Yz6-Qr-LEW"/>
                                                 <constraint firstAttribute="trailing" secondItem="A6s-uP-HXE" secondAttribute="trailing" constant="3" id="ZNJ-jA-a0t"/>
                                                 <constraint firstItem="A6s-uP-HXE" firstAttribute="leading" secondItem="QUJ-ks-vI5" secondAttribute="leading" constant="3" id="e9A-hs-tDI"/>
+                                                <constraint firstItem="L8K-wy-b9U" firstAttribute="width" secondItem="QUJ-ks-vI5" secondAttribute="width" multiplier="0.326531" id="hVE-lQ-o7L"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -171,6 +178,10 @@
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8DU-yT-RvF">
                                         <rect key="frame" x="34" y="33.666666666666671" width="307" height="115.00000000000001"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="115" id="GhT-rv-hF7"/>
+                                            <constraint firstAttribute="width" constant="307" id="OD6-7g-IHH"/>
+                                        </constraints>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="QkZ-Ri-5lh">
                                             <size key="itemSize" width="307" height="115"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -193,7 +204,6 @@
                                     <constraint firstAttribute="bottom" secondItem="8FG-zH-1BW" secondAttribute="bottom" constant="20" id="M8b-Do-xuY"/>
                                     <constraint firstItem="8DU-yT-RvF" firstAttribute="centerY" secondItem="Z3v-db-5Bz" secondAttribute="centerY" multiplier="0.9" id="OAg-Cp-fbz"/>
                                     <constraint firstItem="8FG-zH-1BW" firstAttribute="centerX" secondItem="Z3v-db-5Bz" secondAttribute="centerX" id="aZy-mu-cMa"/>
-                                    <constraint firstItem="8DU-yT-RvF" firstAttribute="height" secondItem="Z3v-db-5Bz" secondAttribute="height" multiplier="0.567434" id="gce-cV-KkT"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
@@ -213,7 +223,6 @@
                         </subviews>
                         <color key="backgroundColor" red="0.92549019610000005" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="8DU-yT-RvF" firstAttribute="width" secondItem="tj9-yo-5AH" secondAttribute="width" multiplier="0.818667" id="031-SB-ngm"/>
                             <constraint firstItem="Z3v-db-5Bz" firstAttribute="width" secondItem="tj9-yo-5AH" secondAttribute="width" id="0Sr-ib-gvF"/>
                             <constraint firstItem="Z3v-db-5Bz" firstAttribute="top" secondItem="jAc-FE-gqw" secondAttribute="top" id="5LK-4A-NU4"/>
                             <constraint firstItem="8FG-zH-1BW" firstAttribute="width" secondItem="tj9-yo-5AH" secondAttribute="width" multiplier="0.213333" id="7oN-bQ-OKw"/>
@@ -327,9 +336,16 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NWZ-i0-DfH">
                                         <rect key="frame" x="214" y="13" width="48" height="48"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="NWZ-i0-DfH" secondAttribute="height" multiplier="1:1" id="5xv-yD-eLp"/>
+                                            <constraint firstAttribute="width" constant="48" id="hT1-vd-Rkk"/>
+                                            <constraint firstAttribute="height" constant="48" id="rvs-aq-Pjf"/>
                                         </constraints>
-                                        <state key="normal" image="roundviewBtnHeart2"/>
+                                        <color key="tintColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" image="suit.heart" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                        </state>
+                                        <state key="selected" image="heart.fill" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                        </state>
                                         <connections>
                                             <action selector="didPressHeartBtn:" destination="gnc-YB-F2E" eventType="touchUpInside" id="0Bc-5G-0gF"/>
                                         </connections>
@@ -400,23 +416,21 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sa6-zb-EhB">
-                                <rect key="frame" x="342" y="324.33333333333331" width="14" height="25"/>
+                                <rect key="frame" x="324" y="312.66666666666669" width="48" height="48"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="14" id="Bs6-4X-hsk"/>
-                                    <constraint firstAttribute="height" constant="25" id="vAV-IE-igV"/>
+                                    <constraint firstAttribute="width" secondItem="Sa6-zb-EhB" secondAttribute="height" multiplier="1:1" id="R9i-L7-k3T"/>
                                 </constraints>
-                                <state key="normal" image="next"/>
+                                <state key="normal" image="next_btn"/>
                                 <connections>
                                     <action selector="didPressRightBtn:" destination="gnc-YB-F2E" eventType="touchUpInside" id="dys-CN-vWY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RxY-Tk-0DL">
-                                <rect key="frame" x="19" y="324.33333333333331" width="14" height="25"/>
+                                <rect key="frame" x="3" y="312.66666666666669" width="48" height="48"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="Q0f-hR-eRu"/>
-                                    <constraint firstAttribute="width" constant="14" id="ZcB-aL-qi1"/>
+                                    <constraint firstAttribute="width" secondItem="RxY-Tk-0DL" secondAttribute="height" multiplier="1:1" id="9Wf-ww-xt7"/>
                                 </constraints>
-                                <state key="normal" image="before"/>
+                                <state key="normal" image="back_btn"/>
                                 <connections>
                                     <action selector="didPressLeftBtn:" destination="gnc-YB-F2E" eventType="touchUpInside" id="5QR-pd-VMr"/>
                                 </connections>
@@ -463,18 +477,20 @@
                             <constraint firstItem="0BM-Gg-Qc7" firstAttribute="width" secondItem="QXh-nn-FWE" secondAttribute="width" multiplier="0.717333" id="Cn7-hL-N0y"/>
                             <constraint firstItem="RxY-Tk-0DL" firstAttribute="centerY" secondItem="0BM-Gg-Qc7" secondAttribute="centerY" id="GaB-un-hUz"/>
                             <constraint firstItem="0BM-Gg-Qc7" firstAttribute="height" secondItem="QXh-nn-FWE" secondAttribute="height" multiplier="0.489327" id="Gwe-0v-jNF"/>
+                            <constraint firstItem="RxY-Tk-0DL" firstAttribute="leading" secondItem="cKX-lI-8pK" secondAttribute="leading" constant="3" id="NnS-1w-fFM"/>
                             <constraint firstItem="i3E-jL-3JF" firstAttribute="centerX" secondItem="QXh-nn-FWE" secondAttribute="centerX" id="Pns-Wh-fvf"/>
                             <constraint firstAttribute="bottom" secondItem="QXh-nn-FWE" secondAttribute="bottom" id="QF4-6Q-65u"/>
                             <constraint firstItem="kTH-Do-P8a" firstAttribute="top" secondItem="cKX-lI-8pK" secondAttribute="top" constant="27" id="TPq-LC-Pe7"/>
                             <constraint firstItem="0BM-Gg-Qc7" firstAttribute="top" secondItem="kTH-Do-P8a" secondAttribute="bottom" constant="25" id="VwO-yp-LO5"/>
+                            <constraint firstItem="cKX-lI-8pK" firstAttribute="trailing" secondItem="Sa6-zb-EhB" secondAttribute="trailing" constant="3" id="YxD-DZ-VcC"/>
                             <constraint firstItem="Sa6-zb-EhB" firstAttribute="centerY" secondItem="0BM-Gg-Qc7" secondAttribute="centerY" id="bgD-3H-lgy"/>
-                            <constraint firstItem="Sa6-zb-EhB" firstAttribute="leading" secondItem="0BM-Gg-Qc7" secondAttribute="trailing" constant="20" id="hb1-rZ-Tfi"/>
+                            <constraint firstItem="Sa6-zb-EhB" firstAttribute="leading" secondItem="0BM-Gg-Qc7" secondAttribute="trailing" constant="2" id="hb1-rZ-Tfi"/>
                             <constraint firstItem="QXh-nn-FWE" firstAttribute="top" secondItem="OfM-GI-B7Z" secondAttribute="top" id="rz3-fI-7Cx"/>
                             <constraint firstItem="xxW-1Y-oSm" firstAttribute="centerY" secondItem="i3E-jL-3JF" secondAttribute="bottom" id="sgW-y0-9ac"/>
                             <constraint firstItem="i3E-jL-3JF" firstAttribute="top" secondItem="0BM-Gg-Qc7" secondAttribute="bottom" constant="25" id="t6M-z7-1VW"/>
                             <constraint firstItem="xxW-1Y-oSm" firstAttribute="width" secondItem="i3E-jL-3JF" secondAttribute="width" multiplier="0.330677" id="uhR-rV-oAB"/>
                             <constraint firstItem="0BM-Gg-Qc7" firstAttribute="centerX" secondItem="QXh-nn-FWE" secondAttribute="centerX" id="vRc-ZR-baA"/>
-                            <constraint firstItem="0BM-Gg-Qc7" firstAttribute="leading" secondItem="RxY-Tk-0DL" secondAttribute="trailing" constant="20" id="y3L-a9-3kF"/>
+                            <constraint firstItem="0BM-Gg-Qc7" firstAttribute="leading" secondItem="RxY-Tk-0DL" secondAttribute="trailing" constant="2" id="y3L-a9-3kF"/>
                             <constraint firstItem="xxW-1Y-oSm" firstAttribute="centerX" secondItem="i3E-jL-3JF" secondAttribute="centerX" id="yIR-Jd-zG9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cKX-lI-8pK"/>
@@ -482,6 +498,7 @@
                     <connections>
                         <outlet property="contentView" destination="BYG-Nu-xfD" id="k93-Vu-Qum"/>
                         <outlet property="drawingImageView" destination="PxW-jp-L3i" id="sIB-D5-DnK"/>
+                        <outlet property="heartButton" destination="NWZ-i0-DfH" id="nVu-Cz-6YE"/>
                         <outlet property="memoView" destination="5f2-TS-2QR" id="vf9-9W-aB4"/>
                         <outlet property="profileImageView" destination="Sew-B8-FmE" id="e2R-Wv-pHB"/>
                         <outlet property="projectNameLabel" destination="SpX-Y0-dP0" id="sPV-LP-MK1"/>
@@ -551,7 +568,10 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="gAz-L7-4wJ" secondAttribute="height" multiplier="1:1" id="nYt-3z-fXk"/>
                                                     </constraints>
-                                                    <state key="normal" image="btn_heart_fill"/>
+                                                    <color key="tintColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <state key="normal" image="heart" catalog="system">
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="didPressHeart:" destination="bAL-qG-8WZ" eventType="touchUpInside" id="gpq-xM-KsK"/>
                                                     </connections>
@@ -626,7 +646,10 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Xaq-h2-d8V" secondAttribute="height" multiplier="1:1" id="13p-A5-ggm"/>
                                                     </constraints>
-                                                    <state key="normal" image="btn_heart_fill"/>
+                                                    <color key="tintColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <state key="normal" image="heart" catalog="system">
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="didPressHeart:" destination="u1i-UQ-1JN" eventType="touchUpInside" id="PnU-30-LCf"/>
                                                     </connections>
@@ -639,6 +662,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="Pk6-wO-I7g" secondAttribute="bottom" constant="3" id="ctK-B6-Xpf"/>
                                                 <constraint firstItem="Pk6-wO-I7g" firstAttribute="top" secondItem="5Jn-zk-4bj" secondAttribute="top" constant="3" id="fx2-of-uRP"/>
                                                 <constraint firstItem="Xaq-h2-d8V" firstAttribute="top" secondItem="5Jn-zk-4bj" secondAttribute="top" id="hRH-Hm-e2z"/>
+                                                <constraint firstItem="Xaq-h2-d8V" firstAttribute="width" secondItem="5Jn-zk-4bj" secondAttribute="width" multiplier="0.326531" id="idm-5k-ADb"/>
                                                 <constraint firstAttribute="trailing" secondItem="Xaq-h2-d8V" secondAttribute="trailing" id="ori-AJ-SZB"/>
                                             </constraints>
                                         </collectionViewCellContentView>
@@ -679,13 +703,16 @@
                                         <rect key="frame" x="27" y="67" width="321" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="프로젝트 제목" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XC8-HU-zat">
-                                                <rect key="frame" x="13" y="12.333333333333329" width="71.333333333333329" height="15.333333333333336"/>
+                                                <rect key="frame" x="13" y="12.333333333333329" width="162" height="15.333333333333336"/>
                                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="13"/>
                                                 <color key="textColor" red="0.92549019610000005" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="총 10개의 카드" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WiN-OH-vnS">
-                                                <rect key="frame" x="227" y="12.333333333333329" width="78" height="15.333333333333336"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="총 00개의 카드" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WiN-OH-vnS">
+                                                <rect key="frame" x="225" y="12.333333333333329" width="80" height="15.333333333333336"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="80" id="cIM-gS-uWt"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="13"/>
                                                 <color key="textColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -693,6 +720,7 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
+                                            <constraint firstItem="WiN-OH-vnS" firstAttribute="leading" secondItem="XC8-HU-zat" secondAttribute="trailing" constant="50" id="MGd-Fa-HGX"/>
                                             <constraint firstItem="WiN-OH-vnS" firstAttribute="centerY" secondItem="XC8-HU-zat" secondAttribute="centerY" id="cqc-qx-crF"/>
                                             <constraint firstItem="GI9-7B-jQO" firstAttribute="trailing" secondItem="WiN-OH-vnS" secondAttribute="trailing" constant="16" id="ge7-kI-oqo"/>
                                             <constraint firstItem="XC8-HU-zat" firstAttribute="centerY" secondItem="GI9-7B-jQO" secondAttribute="centerY" id="obe-BT-GvW"/>
@@ -771,11 +799,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="back_btn" width="48" height="48"/>
         <image name="background" width="375" height="724"/>
-        <image name="before" width="13.666666984558105" height="24.333333969116211"/>
-        <image name="btn_heart" width="48" height="48"/>
-        <image name="btn_heart_fill" width="48" height="48"/>
-        <image name="next" width="13.666666984558105" height="24.333333969116211"/>
-        <image name="roundviewBtnHeart2" width="48" height="48"/>
+        <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
+        <image name="next_btn" width="48" height="48"/>
+        <image name="suit.heart" catalog="system" width="128" height="109"/>
     </resources>
 </document>

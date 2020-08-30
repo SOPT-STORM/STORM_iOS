@@ -40,11 +40,14 @@
                         </constraints>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R8M-Jh-W5D">
-                        <rect key="frame" x="200" y="1" width="48" height="48"/>
+                        <rect key="frame" x="196" y="1" width="52" height="52"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="R8M-Jh-W5D" secondAttribute="height" multiplier="1:1" id="tgz-Ca-cwF"/>
                         </constraints>
-                        <state key="normal" image="btn_heart"/>
+                        <color key="tintColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <state key="normal" image="heart" catalog="system">
+                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                        </state>
                         <connections>
                             <action selector="didPressHeartBtn:" destination="gTV-IL-0wX" eventType="touchUpInside" id="INc-el-DbQ"/>
                         </connections>
@@ -54,6 +57,7 @@
             <constraints>
                 <constraint firstItem="XYe-Hf-2oQ" firstAttribute="top" secondItem="R8M-Jh-W5D" secondAttribute="top" constant="3" id="0f7-gS-idO"/>
                 <constraint firstAttribute="trailing" secondItem="XYe-Hf-2oQ" secondAttribute="trailing" constant="3" id="2Hl-ov-Ilh"/>
+                <constraint firstItem="R8M-Jh-W5D" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.207171" id="BJV-Qz-ixG"/>
                 <constraint firstItem="XYe-Hf-2oQ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="3" id="IFl-il-JMh"/>
                 <constraint firstAttribute="bottom" secondItem="XYe-Hf-2oQ" secondAttribute="bottom" constant="3" id="ZAV-um-SoQ"/>
                 <constraint firstItem="tNM-DW-OXs" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="15" id="d3U-q8-WHI"/>
@@ -65,6 +69,7 @@
             <size key="customSize" width="273" height="378"/>
             <connections>
                 <outlet property="drawingImgView" destination="qHK-Yk-MWr" id="4Zh-W6-y6q"/>
+                <outlet property="heartButton" destination="R8M-Jh-W5D" id="jQm-f8-dIf"/>
                 <outlet property="shadowView" destination="XYe-Hf-2oQ" id="pab-Mt-1zA"/>
                 <outlet property="userImgView" destination="tNM-DW-OXs" id="Xl4-js-qei"/>
             </connections>
@@ -72,6 +77,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="btn_heart" width="48" height="48"/>
+        <image name="heart" catalog="system" width="128" height="109"/>
     </resources>
 </document>

@@ -49,7 +49,7 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
         
         // navigationbar
         setSignUpNavi()
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "backBtn"), style: .plain, target: self, action: #selector(back))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "naviBackBtn"), style: .plain, target: self, action: #selector(back))
         
         // textfield cancel, padding
         nameTextField.clearButtonMode = .always
@@ -61,12 +61,14 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
         // basic image
         basicImage()
         
+
         // username 사진 위 두글자 제한
-        nameTextField.addTarget(self, action: #selector(self.textFieldTextDidChange), for: .editingChanged)
+        nameTextField.addTarget(self, action: #selector(self.textFieldTextDid), for: .editingChanged)
         
         // 화면 가리는 문제
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         topConst = topConstOfIndex.constant
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -95,6 +97,19 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
     
     // MARK:- @objc
     
+    @objc func textFieldTextDidChange() {
+        
+        let name = nameTextField.text!
+    
+        if name.count > 2 {
+            let name11 = String(name.prefix(2))
+            
+            userNameLabel.text = name11
+        } else {
+            userNameLabel.text = name
+        }
+     }
+    
     @objc func basicImage(){
         basicImageStackView.isHidden = false
         purpleButton.setImage(UIImage(named: "purple"), for: .normal)
@@ -106,7 +121,7 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
         img_flag = 1
     }
     
-    @objc func textFieldTextDidChange() {
+    @objc func textFieldTextDid() {
         
         guard let name = nameTextField.text else {return}
     
@@ -240,7 +255,7 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
         hideKeyboard(textField)
         return true
     }
-    
+
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             profileImage.image = image

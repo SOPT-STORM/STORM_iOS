@@ -24,7 +24,7 @@ class EnsureDeleteViewController: UIViewController {
         // 디자인
         self.setNaviTitle()
         self.view.tintColor = .stormRed
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "myprojectBtnBack" ), style: .plain, target: self, action: #selector(back))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "naviBackBtn" ), style: .plain, target: self, action: #selector(back))
     }
     
     override func viewDidLayoutSubviews() {

@@ -38,10 +38,12 @@ class ProjectSettingViewController: UIViewController {
         
         toolbarSetup()
         setNaviTitle()
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "myprojectBtnBack" ), style: .plain, target: self, action: #selector(back))
-        
+
         // 지현 수정 프로젝트명 17자 제한
         projectNameTextField.addTarget(self, action: #selector(self.limitProjectName), for: .editingChanged)
+
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "naviBackBtn" ), style: .plain, target: self, action: #selector(back))
+
     }
     
     // MARK: - IBAction
