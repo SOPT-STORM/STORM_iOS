@@ -20,6 +20,7 @@ class ScrapCardViewController: UIViewController {
     lazy var projectName = ""
     //lazy var scrappedCards: [scrappedCard] = []
     lazy var scrappedCards: [CardItem] = []
+    lazy var projectIndex: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,9 +33,18 @@ class ScrapCardViewController: UIViewController {
         
         self.setNaviTitle()
     }
-    
 
+    override func viewWillAppear(_ animated: Bool) {
+        NetworkManager.shared.fetchAllScrapCard(projectIdx: projectIndex) { (response) in
+            guard let scrapCards = response?.data?.card_item else {return}
+            
+            self.scrappedCards = scrapCards
+
+            self.cardScrapCollectionView.reloadData()
+        }
+    }
 }
+
 
 extension ScrapCardViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -44,6 +54,7 @@ extension ScrapCardViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let card = scrappedCards[indexPath.row]
+        ProjectSetting.shared.scrapCards[indexPath.row] = true
     
         if card.card_img != nil {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "drawingCell", for: indexPath) as! DrawingCell
@@ -51,13 +62,23 @@ extension ScrapCardViewController: UICollectionViewDataSource {
             guard let url = card.card_img,let imageURL = URL(string: url) else {return UICollectionViewCell()}
             
             cell.drawingImgView.kf.setImage(with: imageURL)
-            cell.index = card.card_idx
+            cell.cardIndex = card.card_idx
+            
+            cell.heartBtn.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            cell.heartBtn.tintColor = UIColor(red: 236/255, green: 101/255, blue: 101/255, alpha: 1)
+            cell.isScrapped = true
+            
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "memoCell", for: indexPath) as! MemoCell
  
             cell.memo.text = card.card_txt!
-            cell.index = card.card_idx
+            cell.cardIndex = card.card_idx
+            
+            cell.heartBtn.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            cell.heartBtn.tintColor = UIColor(red: 236/255, green: 101/255, blue: 101/255, alpha: 1)
+            cell.isScrapped = true
+            
             return cell
         }
     }
@@ -89,7 +110,11 @@ extension ScrapCardViewController: UICollectionViewDelegateFlowLayout, UICollect
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         guard let vc = UIStoryboard(name: "RoundFinished", bundle: nil).instantiateViewController(withIdentifier: "cardDetailViewController") as? CardDetailViewController else {return}
+        
         vc.scrappedCards = scrappedCards
+        vc.index = indexPath.row
+        vc.viewMode = .scrap
+        vc.projectName = projectName
 
         self.navigationController?.pushViewController(vc, animated: true)
     }

@@ -34,12 +34,23 @@ class RoundMeetingViewController: UIViewController {
         setupLayout()
         setupInfo()
         
-        nextRoundNotificationView.cornerRadius = 20
+        if ProjectSetting.shared.mode == .member {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "exit" ), style: .plain, target: self, action: #selector(didPressExit))
+        }
+        
+        ProjectSetting.shared.scrapCards.removeAll()
+        
         nextRoundNotificationView.layer.maskedCorners = [.layerMinXMinYCorner, . layerMaxXMinYCorner]
+        
+        nextRoundNotificationView.cornerRadius = 20
+        nextRoundNotificationView.layer.shadowColor = UIColor.black.cgColor
+        nextRoundNotificationView.shadowOffset = CGSize(width: 0, height: -1.0)
+        nextRoundNotificationView.layer.shadowOpacity = 0.16
+        nextRoundNotificationView.layer.shadowRadius = 2.5
+        setupMemberSocket()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        setupMemberSocket()
         fetchCardList()
     }
     
@@ -59,8 +70,16 @@ class RoundMeetingViewController: UIViewController {
             selectNextPopVC.modalPresentationStyle = .overCurrentContext
             self.present(selectNextPopVC, animated: false, completion: nil)
         }
-        
+    }
+    
+    @objc func didPressExit() {
 
+        let rootVC = self.view.window?.rootViewController
+        
+        self.view.window?.rootViewController?.dismiss(animated: false, completion: {
+            guard let navi = rootVC as? UINavigationController else {return}
+            navi.popToRootViewController(animated: false)
+        })
     }
     
     func setupLayout() {
@@ -106,6 +125,7 @@ class RoundMeetingViewController: UIViewController {
                 print("소켓 실행")
                 print("데이터 \(dataArray)")
                 print("소켓 \(SocketAckEmitter)")
+                self.isWaitNextRound = true
                 
                 //  호스트가 다음 라운드를 세팅중이라는 안내문구를 띄우기
                 UIView.animate(withDuration: 1) {
@@ -117,7 +137,6 @@ class RoundMeetingViewController: UIViewController {
                 
                 print("여기 실행됨~~~!!")
                 carouselView.showUpNextRoundNoti()
-                self.isWaitNextRound = true
             }
             
             SocketIOManager.shared.socket.on("memberNextRound") { (dataArray, SocketAckEmitter) in
@@ -181,14 +200,37 @@ extension RoundMeetingViewController: UICollectionViewDataSource, UICollectionVi
             guard let url = card.card_img,let imageURL = URL(string: url) else {return UICollectionViewCell()}
             cell.drawingImgView.kf.setImage(with: imageURL)
             
-            cell.index = card.card_idx
+            cell.cardIndex = card.card_idx
+            cell.cellIndex = indexPath.row
+            
+            if card.scrap_flag == 1 {
+                cell.heartBtn.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                cell.heartBtn.tintColor = UIColor(red: 236/255, green: 101/255, blue: 101/255, alpha: 1)
+                cell.isScrapped = true
+            } else {
+                cell.heartBtn.setImage(UIImage(systemName: "heart"), for: .normal)
+                cell.heartBtn.tintColor = UIColor(red: 112/255, green: 112/255, blue: 112/255, alpha: 1)
+                cell.isScrapped = false
+            }
+            
             
             return cell
             
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "memoCell", for: indexPath) as! MemoCell
             cell.memo.text = card.card_txt!
-            cell.index = card.card_idx
+            cell.cardIndex = card.card_idx
+            cell.cellIndex = indexPath.row
+            
+            if card.scrap_flag == 1 {
+                cell.heartBtn.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                cell.heartBtn.tintColor = UIColor(red: 236/255, green: 101/255, blue: 101/255, alpha: 1)
+                cell.isScrapped = true
+            } else {
+                cell.heartBtn.setImage(UIImage(systemName: "heart"), for: .normal)
+                cell.heartBtn.tintColor = UIColor(red: 112/255, green: 112/255, blue: 112/255, alpha: 1)
+                cell.isScrapped = false
+            }
             
             return cell
         }
@@ -215,14 +257,13 @@ extension RoundMeetingViewController: UICollectionViewDataSource, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        print("눌리는 셀 \(indexPath.row)")
+        
         guard let allRoundCarouselVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "allRoundCarouselVC") as? AllRoundCarouselViewController else {return}
         
         allRoundCarouselVC.cards = cards
         allRoundCarouselVC.cellIndexPath = indexPath
-        
-        if isWaitNextRound == true {
-            
-        }
+        allRoundCarouselVC.isWaitNextRound = isWaitNextRound
         
         self.navigationController?.pushViewController(allRoundCarouselVC, animated: true)
     }
