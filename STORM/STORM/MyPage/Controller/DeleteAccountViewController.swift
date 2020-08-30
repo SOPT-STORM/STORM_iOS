@@ -89,11 +89,6 @@ class DeleteAccountViewController: UIViewController, UITextFieldDelegate, UIText
         topConstOfIndex.constant = topConst
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
-        self.view.endEditing(true)
-        topConstOfIndex.constant = topConst
-    }
-    
     // MARK:- IBAction
     
     @IBAction func toNextPage(_ sender: UIButton) {
@@ -102,13 +97,22 @@ class DeleteAccountViewController: UIViewController, UITextFieldDelegate, UIText
     
     // MARK:- 함수
     
-    // 엥 터치비긴 어디감
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        if userNameTextField.isEditing {
+            self.view.endEditing(true)
+            topConstOfIndex.constant = topConst
+        }
+        
+    }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.text == "탈퇴 사유를 입력해주세요 (선택)" {
             textView.text = ""
             textView.textColor = .placeholderColor
         }
+        
+        let range = NSMakeRange(textView.text.count - 1, 0)
+        textView.scrollRangeToVisible(range)
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
