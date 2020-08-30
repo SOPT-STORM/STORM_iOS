@@ -28,7 +28,6 @@ class LogoutPopUpViewController: UIViewController {
         print("delete email,pwd")
         UserDefaults.standard.removeObject(forKey: "email")
         UserDefaults.standard.removeObject(forKey: "pwd")
-        UserDefaults.standard.removeObject(forKey: "index")
         
 //        self.view.window?.rootViewController?.dismiss(animated: false, completion: nil)
         

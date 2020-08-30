@@ -77,6 +77,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         lottieSetup()
     }
     
+    // MARK:- @objc
+    
     // MARK:- IBAction
     
     @IBAction func loginButtonDidPressed(_ sender: UIButton) {
@@ -152,8 +154,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                 self.errorLabel.isHidden = true
                 
                 if let userIndex = response.data {
-                    UserDefaults.standard.set(userIndex, forKey: "index")
-
                     NetworkManager.shared.user_idx = userIndex
                     print("로그인 유저 인덱스 \(userIndex)")
 
@@ -180,8 +180,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                 self.errorLabel.isHidden = true
                 
                 if let userIndex = response.data {
-                    UserDefaults.standard.set(userIndex, forKey: "index")
-
                     NetworkManager.shared.user_idx = userIndex
                     print(userIndex)
 
