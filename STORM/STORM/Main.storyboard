@@ -127,7 +127,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TXg-g9-Uq2">
                                 <rect key="frame" x="219" y="144" width="48" height="48"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="all_round_drawing_selected_btn_drawing_back"/>
+                                <state key="normal" image="btn_drawing_back"/>
                                 <connections>
                                     <action selector="didPressUnDo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FMU-Rf-In4"/>
                                 </connections>
@@ -323,7 +323,10 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="FQd-7b-S1s" secondAttribute="height" multiplier="1:1" id="BKP-pI-GC6"/>
                                                     </constraints>
-                                                    <state key="normal" image="btn_heart"/>
+                                                    <color key="tintColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <state key="normal" image="heart" catalog="system">
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="didPressHeart:" destination="rEI-OE-TJx" eventType="touchUpInside" id="AAQ-oM-peR"/>
                                                     </connections>
@@ -347,6 +350,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <size key="customSize" width="147" height="158"/>
                                         <connections>
+                                            <outlet property="heartBtn" destination="FQd-7b-S1s" id="GvU-81-RNY"/>
                                             <outlet property="memo" destination="qnl-oH-sLE" id="TE7-fV-jSY"/>
                                             <outlet property="shadowRoundedView" destination="ghd-Jb-Xav" id="ApP-Ok-pTd"/>
                                         </connections>
@@ -383,7 +387,10 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="P5x-F9-crs" secondAttribute="height" multiplier="1:1" id="Sjx-JO-JNZ"/>
                                                     </constraints>
-                                                    <state key="normal" image="btn_heart"/>
+                                                    <color key="tintColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <state key="normal" image="heart" catalog="system">
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="didPressHeart:" destination="jDH-fu-mBj" eventType="touchUpInside" id="NFw-EA-brR"/>
                                                     </connections>
@@ -391,6 +398,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
+                                                <constraint firstItem="P5x-F9-crs" firstAttribute="width" secondItem="CUL-2M-IbP" secondAttribute="width" multiplier="0.326531" id="Jvn-a7-ORh"/>
                                                 <constraint firstAttribute="trailing" secondItem="P5x-F9-crs" secondAttribute="trailing" id="N7I-Hq-ghY"/>
                                                 <constraint firstItem="Xc5-gC-uFU" firstAttribute="leading" secondItem="CUL-2M-IbP" secondAttribute="leading" constant="3" id="Yr2-lL-mYF"/>
                                                 <constraint firstItem="Xc5-gC-uFU" firstAttribute="top" secondItem="CUL-2M-IbP" secondAttribute="top" constant="3" id="coQ-6c-EqT"/>
@@ -403,6 +411,7 @@
                                         <size key="customSize" width="147" height="158"/>
                                         <connections>
                                             <outlet property="drawingImgView" destination="IgC-fz-qhT" id="qhl-lN-Zqg"/>
+                                            <outlet property="heartBtn" destination="P5x-F9-crs" id="3b7-c2-kt9"/>
                                             <outlet property="shadowView" destination="Xc5-gC-uFU" id="Lgf-4p-slP"/>
                                         </connections>
                                     </collectionViewCell>
@@ -451,7 +460,10 @@
                                         <real key="value" value="0.16"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                        <size key="value" width="1" height="1"/>
+                                        <size key="value" width="0.0" height="-2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -613,7 +625,10 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="0UQ-ss-8L3" secondAttribute="height" multiplier="1:1" id="4cE-CQ-gJd"/>
                                                     </constraints>
-                                                    <state key="normal" image="btn_heart"/>
+                                                    <color key="tintColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <state key="normal" image="heart" catalog="system">
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="didPressHeart:" destination="111-4w-NV2" eventType="touchUpInside" id="gCS-9T-0Uy"/>
                                                     </connections>
@@ -679,7 +694,10 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="U2l-ii-IeV" secondAttribute="height" multiplier="1:1" id="tg8-2N-AqC"/>
                                                     </constraints>
-                                                    <state key="normal" image="btn_heart"/>
+                                                    <color key="tintColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <state key="normal" image="heart" catalog="system">
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="didPressHeart:" destination="gky-Xl-der" eventType="touchUpInside" id="jBy-nZ-3w5"/>
                                                     </connections>
@@ -687,6 +705,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
+                                                <constraint firstItem="U2l-ii-IeV" firstAttribute="width" secondItem="8Mr-Mz-TE9" secondAttribute="width" multiplier="0.326531" id="2nd-o9-upm"/>
                                                 <constraint firstItem="BOT-Ye-hku" firstAttribute="top" secondItem="8Mr-Mz-TE9" secondAttribute="top" constant="3" id="7Ny-oG-78j"/>
                                                 <constraint firstItem="BOT-Ye-hku" firstAttribute="leading" secondItem="8Mr-Mz-TE9" secondAttribute="leading" constant="3" id="FGF-C4-hrO"/>
                                                 <constraint firstItem="U2l-ii-IeV" firstAttribute="top" secondItem="8Mr-Mz-TE9" secondAttribute="top" id="SCG-Ov-z5Y"/>
@@ -866,13 +885,13 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                        <real key="value" value="3"/>
+                                        <real key="value" value="2"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
                                         <real key="value" value="0.16"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                        <size key="value" width="1" height="1"/>
+                                        <size key="value" width="1" height="-2"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -946,12 +965,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C6t-YZ-bb2">
                                 <rect key="frame" x="27" y="58.666666666666657" width="321" height="41"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainviewIcSearch" translatesAutoresizingMaskIntoConstraints="NO" id="Z0k-WT-Z7l">
-                                        <rect key="frame" x="15.000000000000002" y="12.333333333333345" width="16.666666666666671" height="16.666666666666671"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Z0k-WT-Z7l">
+                                        <rect key="frame" x="15.000000000000002" y="11.000000000000005" width="16.666666666666671" height="19"/>
+                                        <color key="tintColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="16.670000000000002" id="SLc-sH-zHl"/>
                                             <constraint firstAttribute="height" constant="16.670000000000002" id="pCO-iy-nXM"/>
                                         </constraints>
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="medium"/>
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="참여 코드 입력" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="soR-oq-AJf">
                                         <rect key="frame" x="45" y="3.6666666666666856" width="266" height="34"/>
@@ -999,18 +1020,18 @@
                                     <action selector="didPressAddProject:" destination="7Q2-1p-HeP" eventType="touchUpInside" id="YVi-iS-Ifl"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="참여한 프로젝트" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NxQ-ts-jIO">
-                                <rect key="frame" x="25.999999999999993" y="388.33333333333331" width="101.33333333333331" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최근 참여한 프로젝트" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NxQ-ts-jIO">
+                                <rect key="frame" x="26" y="388.33333333333331" width="133.66666666666666" height="24"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="16"/>
                                 <color key="textColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCA-XB-YSo">
-                                <rect key="frame" x="258.66666666666669" y="381.33333333333331" width="76" height="38"/>
+                                <rect key="frame" x="280" y="381.33333333333331" width="76" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="QCA-XB-YSo" secondAttribute="height" multiplier="2:1" id="BRQ-Ug-XT3"/>
                                 </constraints>
-                                <state key="normal" image="mainview_btn_all"/>
+                                <state key="normal" image="allBtn"/>
                                 <connections>
                                     <action selector="didPressMoreProject:" destination="7Q2-1p-HeP" eventType="touchUpInside" id="7O9-wq-bQU"/>
                                 </connections>
@@ -1135,7 +1156,7 @@
                             <constraint firstItem="drp-fd-QcZ" firstAttribute="trailing" secondItem="C6t-YZ-bb2" secondAttribute="trailing" constant="27" id="TXP-F4-axI"/>
                             <constraint firstItem="C6t-YZ-bb2" firstAttribute="leading" secondItem="drp-fd-QcZ" secondAttribute="leading" constant="27" id="WyQ-rr-wMN"/>
                             <constraint firstItem="Rzj-ls-tAk" firstAttribute="height" secondItem="jSk-1a-Xwt" secondAttribute="height" multiplier="0.0331492" id="ZFs-v1-eWH"/>
-                            <constraint firstItem="drp-fd-QcZ" firstAttribute="trailing" secondItem="QCA-XB-YSo" secondAttribute="trailing" constant="40.5" id="g3W-sp-Ulc"/>
+                            <constraint firstItem="drp-fd-QcZ" firstAttribute="trailing" secondItem="QCA-XB-YSo" secondAttribute="trailing" constant="19" id="g3W-sp-Ulc"/>
                             <constraint firstItem="jSk-1a-Xwt" firstAttribute="top" secondItem="cLT-OS-cyK" secondAttribute="top" id="ghd-ld-lm0"/>
                             <constraint firstItem="Ogv-nf-8h7" firstAttribute="centerX" secondItem="jSk-1a-Xwt" secondAttribute="centerX" id="iKj-5q-Mf1"/>
                             <constraint firstAttribute="bottom" secondItem="jSk-1a-Xwt" secondAttribute="bottom" id="kLU-X0-0ft"/>
@@ -1355,7 +1376,10 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="rXQ-hV-UXc" secondAttribute="height" multiplier="1:1" id="dHK-Nf-Haz"/>
                                                     </constraints>
-                                                    <state key="normal" image="btn_heart"/>
+                                                    <color key="tintColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <state key="normal" image="heart" catalog="system">
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="didPressHeart:" destination="RIK-be-oIW" eventType="touchUpInside" id="CLo-YU-ruE"/>
                                                     </connections>
@@ -1422,7 +1446,10 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="L1m-y6-i9Q" secondAttribute="height" multiplier="1:1" id="iF5-pZ-7d2"/>
                                                     </constraints>
-                                                    <state key="normal" image="btn_heart"/>
+                                                    <color key="tintColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <state key="normal" image="heart" catalog="system">
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="didPressHeart:" destination="ST7-hH-TJ4" eventType="touchUpInside" id="e15-F3-B4F"/>
                                                     </connections>
@@ -1433,6 +1460,7 @@
                                                 <constraint firstItem="Byo-qL-ozO" firstAttribute="top" secondItem="EGu-eq-08F" secondAttribute="top" constant="3" id="3Ei-o2-8ns"/>
                                                 <constraint firstAttribute="trailing" secondItem="Byo-qL-ozO" secondAttribute="trailing" constant="3" id="ELy-Xh-aeo"/>
                                                 <constraint firstItem="Byo-qL-ozO" firstAttribute="leading" secondItem="EGu-eq-08F" secondAttribute="leading" constant="3" id="V4e-iq-EwJ"/>
+                                                <constraint firstItem="L1m-y6-i9Q" firstAttribute="width" secondItem="EGu-eq-08F" secondAttribute="width" multiplier="0.326531" id="XHG-Na-pj2"/>
                                                 <constraint firstAttribute="bottom" secondItem="Byo-qL-ozO" secondAttribute="bottom" constant="3" id="eBB-zO-fcT"/>
                                                 <constraint firstAttribute="trailing" secondItem="L1m-y6-i9Q" secondAttribute="trailing" id="ohZ-Tg-gAV"/>
                                                 <constraint firstItem="L1m-y6-i9Q" firstAttribute="top" secondItem="EGu-eq-08F" secondAttribute="top" id="xry-mO-kOP"/>
@@ -1510,18 +1538,18 @@
         </scene>
     </scenes>
     <resources>
-        <image name="all_round_drawing_selected_btn_drawing_back" width="48" height="48"/>
+        <image name="allBtn" width="76" height="38"/>
         <image name="all_round_drawing_selected_btn_return" width="48" height="48"/>
         <image name="all_round_drawing_selected_clean" width="48" height="48"/>
         <image name="all_round_tab" width="269" height="171"/>
         <image name="background" width="375" height="724"/>
         <image name="bg_red" width="375" height="103"/>
-        <image name="btn_heart" width="48" height="48"/>
+        <image name="btn_drawing_back" width="48" height="48"/>
         <image name="card_add_img" width="112" height="112"/>
         <image name="drawing_selected" width="48" height="48"/>
+        <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="mainviewBtnProject" width="320" height="203"/>
-        <image name="mainviewIcSearch" width="18" height="18"/>
-        <image name="mainview_btn_all" width="76" height="38"/>
         <image name="no_project_img" width="164" height="100"/>
         <image name="text_deselected" width="48" height="48"/>
     </resources>
