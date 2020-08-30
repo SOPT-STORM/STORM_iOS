@@ -31,7 +31,7 @@ class ProjectSettingViewController: UIViewController {
         projectNameTextField.textColor = UIColor.textDefaultColor
         
         hostMessageTextView.textContainerInset = UIEdgeInsets(top: 10, left: 12, bottom: 0, right: 0)
-        hostMessageTextView.text = "프로젝트 소개 혹은 안내 사항을 입력해주세요"
+        hostMessageTextView.text = "프로젝트 소개 및 안내 사항을 입력해주세요"
         hostMessageTextView.textColor = .systemGray2
         hostMessageTextView.font = UIFont(name: "NotoSansCJKkr-Medium", size: 13)
         hostMessageTextView.delegate = self
@@ -113,7 +113,7 @@ class ProjectSettingViewController: UIViewController {
             guard let name = projectNameTextField.text else {return}
 
             if name.count > 17 {
-                let limitName = String(name.prefix(10))
+                let limitName = String(name.prefix(17))
                 projectNameTextField.text = limitName
             }
          }
@@ -133,7 +133,7 @@ extension ProjectSettingViewController: UITextViewDelegate {
         print(hostMessageTextView.text.count)
         
         if textView.text.isEmpty {
-            textView.text = "프로젝트 소개 혹은 안내 사항을 입력해주세요"
+            textView.text = "프로젝트 소개 및 안내 사항을 입력해주세요"
             textView.textColor = .systemGray2
         }
     }

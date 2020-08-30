@@ -92,7 +92,7 @@ class RoundSettingViewController: UIViewController {
         guard let name = roundGoalTextField.text else {return}
 
         if name.count > 24 {
-            let limitName = String(name.prefix(10))
+            let limitName = String(name.prefix(24))
             roundGoalTextField.text = limitName
         }
      }
