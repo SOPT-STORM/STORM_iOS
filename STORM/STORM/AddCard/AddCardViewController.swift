@@ -95,6 +95,7 @@ class AddCardViewController: UIViewController {
         
     @IBAction func didPressText(_ sender: UIButton) {
         mode = .memo
+        canvasView.isHidden = true
         memoView.isHidden = false
 
         textBtn.setImage(UIImage(named: "text_selected"), for: .normal)
@@ -105,7 +106,11 @@ class AddCardViewController: UIViewController {
     }
     
     @IBAction func didPressDrawing(_ sender: UIButton) {
+        self.view.endEditing(true)
+        botConstOfMemoView.constant = 0
+        
         mode = .drawing
+        canvasView.isHidden = false
         memoView.isHidden = true
         
         drawingBtn.setImage(UIImage(named: "drawing_selected"), for: .normal)
@@ -184,10 +189,9 @@ class AddCardViewController: UIViewController {
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             let keyboardRectangle = keyboardFrame.cgRectValue
             let keyboardHeight = keyboardRectangle.height
-            botConstOfMemoView.constant = keyboardHeight - (self.view.frame.height - canvasView.frame.origin.y - canvasView.frame.height)
+
+            botConstOfMemoView.constant = keyboardHeight - (self.view.frame.height - (shadowView.frame.origin.y + shadowView.frame.height))
             
-            print(self.view.frame.height,canvasView.frame.origin.y,memoView.frame.height)
-            print(keyboardHeight, botConstOfMemoView.constant)
         }
     }
     
