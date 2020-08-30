@@ -74,8 +74,11 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         getProfile()
         
         
-        //navigationItem.backBarButtonItem?.action = #selector(didPressBack)
+        // navigationItem.backBarButtonItem?.action = #selector(didPressBack)
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "myprojectBtnBack" ), style: .plain, target: self, action: #selector(didPressBack))
+        
+        // username 사진 위 두글자 제한
+        userNameTextField.addTarget(self, action: #selector(textFieldTextDidChange), for: .editingChanged)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -84,13 +87,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                                                selector: #selector(basicImage),
                                                name: NSNotification.Name(rawValue: "SetBasicImage"),
                                                object: nil)
-        if let length = userNameTextField.text?.count {
-            if length <= 2 {
-                userNameTextField.addTarget(self, action: #selector(didChangeText), for: .editingChanged)
-            } else {
-                userNameTextField.removeTarget(self, action: #selector(didChangeText), for: .editingChanged)
-            }
-        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -143,9 +139,22 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
     }
     
-    @objc func didChangeText() {
-        userNameLabel.text = userNameTextField.text
-    }
+    @objc func textFieldTextDidChange() {
+        
+        guard let name = userNameTextField.text else {return}
+    
+        if name.count > 2 {
+            let nameTwoWord = String(name.prefix(2))
+            userNameLabel.text = nameTwoWord
+        } else {
+            userNameLabel.text = name
+        }
+        
+        if name.count > 10 {
+            let nameTenWord = String(name.prefix(10))
+            userNameTextField.text = nameTenWord
+        }
+     }
     
     // MARK:- IBAction 선언
     
@@ -323,27 +332,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         userNameTextField.resignFirstResponder()
         return true
-    }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
-                   replacementString string: String) -> Bool {
-
-        let currentCharacterCount = textField.text?.count ?? 0
-        let newLength = currentCharacterCount + string.count - range.length
-        
-        if range.length + range.location > currentCharacterCount {
-            return false
-        } /*else if currentCharacterCount < 2 || (currentCharacterCount == 2 && range.length == 1)  {
-            
-        } else if currentCharacterCount > 2 || (currentCharacterCount == 2 && range.length == 0) {
-            textField.removeTarget(self, action: #selector(didChangeText), for: .editingChanged)
-        }
-        
-        if currentCharacterCount == 1 || currentCharacterCount == 2 {
-            userNameLabel.text = userNameTextField.text
-        }*/
-
-        return newLength <= 10
     }
     
     // 사용자 선택 이미지 가져오기
