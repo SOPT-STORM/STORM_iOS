@@ -98,10 +98,8 @@ class DeleteAccountViewController: UIViewController, UITextFieldDelegate, UIText
     // MARK:- 함수
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
-        if userNameTextField.isEditing {
-            self.view.endEditing(true)
-            topConstOfIndex.constant = topConst
-        }
+        self.view.endEditing(true)
+        topConstOfIndex.constant = topConst
         
     }
     
@@ -110,9 +108,6 @@ class DeleteAccountViewController: UIViewController, UITextFieldDelegate, UIText
             textView.text = ""
             textView.textColor = .placeholderColor
         }
-        
-        let range = NSMakeRange(textView.text.count - 1, 0)
-        textView.scrollRangeToVisible(range)
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {

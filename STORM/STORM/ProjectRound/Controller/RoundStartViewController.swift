@@ -143,7 +143,7 @@ class RoundStartViewController: UIViewController {
             if ProjectSetting.shared.mode == .host {
                 self.roundStateLabel.text = "ROUND \(roundNumb) 설정 완료"
             }else {
-                self.roundStateLabel.text = "ROUND \(roundNumb) 준비 완료"
+                self.roundStateLabel.text = "ROUND \(roundNumb) 대기 중"
                 self.roundStartInfoLabel.isHidden = true
             }
             
