@@ -47,7 +47,7 @@ class Canvas: UIView {
         super.draw(rect)
         guard let context = UIGraphicsGetCurrentContext() else {return} // 2D그림을 그리기 위한 context
         
-        let color = UIColor(red: 70/255, green: 70/255, blue: 70/255, alpha: 1).cgColor // 78 78 78 
+        let color = UIColor(red: 78/255, green: 78/255, blue: 78/255, alpha: 1).cgColor // 78 78 78 
         context.setStrokeColor(color) // 색상 검정 설정
         context.setLineWidth(5) // 선 굵기 5 설정
         context.setLineCap(.round) // line의 endpoint 라운드 설정
