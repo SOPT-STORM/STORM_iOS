@@ -271,6 +271,13 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
         hideKeyboard(textField)
         return true
     }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if (string == " ") {
+          return false
+        }
+        return true
+    }
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
