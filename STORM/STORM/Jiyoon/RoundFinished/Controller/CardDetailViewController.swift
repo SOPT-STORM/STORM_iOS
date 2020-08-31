@@ -282,7 +282,7 @@ class CardDetailViewController: UIViewController {
         
         NetworkManager.shared.modifyCardMemo(cardIdx: cardIndex, memoContent: content) { (response) in
             
-            let toastFrame = CGRect(x: self.view.center.x, y: self.shadowView.frame.origin.y + self.shadowView.frame.height + 10, width: self.memoView.frame.width * 0.856, height: self.memoView.frame.height * 0.362)
+            let toastFrame = CGRect(x: self.view.center.x, y: self.view.frame.height * (314/812) , width: self.view.frame.width * (215/375), height: self.view.frame.height * (49/812))
             
             if response?.status == 200 {
                 self.cardsMemo[self.index] = content
