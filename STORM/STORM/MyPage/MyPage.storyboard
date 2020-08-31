@@ -196,8 +196,12 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="김지" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gf2-Sz-6Jg">
-                                        <rect key="frame" x="46.666666666666664" y="61" width="86.666666666666686" height="58.333333333333343"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="김지" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gf2-Sz-6Jg">
+                                        <rect key="frame" x="30" y="30" width="120" height="120"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="K0G-hv-4k2"/>
+                                            <constraint firstAttribute="height" constant="120" id="dgy-WL-7VH"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="50"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -214,13 +218,13 @@
                                     <constraint firstItem="w1i-WT-cg1" firstAttribute="leading" secondItem="Wvt-3S-HKp" secondAttribute="leading" id="lwW-qz-WH6"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KUc-eL-qWa">
-                                <rect key="frame" x="221.33333333333334" y="186" width="41.000000000000028" height="40.666666666666657"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KUc-eL-qWa">
+                                <rect key="frame" x="97.666666666666686" y="53.333333333333343" width="180" height="183"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="KUc-eL-qWa" secondAttribute="height" multiplier="1:1" id="ziz-3A-MN3"/>
+                                    <constraint firstAttribute="width" secondItem="KUc-eL-qWa" secondAttribute="height" multiplier="60:61" id="oDb-Gm-IXG"/>
                                 </constraints>
-                                <state key="normal" image="mypageIcPhotoEdit"/>
+                                <state key="normal" image="realMypageIcPhotoEdit"/>
                                 <connections>
                                     <action selector="editPhoto:" destination="4bg-pK-hbd" eventType="touchUpInside" id="yCg-vz-Y4j"/>
                                 </connections>
@@ -228,8 +232,8 @@
                         </subviews>
                         <color key="backgroundColor" red="0.92549019607843142" green="0.40801423790000002" blue="0.42743539809999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="KUc-eL-qWa" firstAttribute="centerX" secondItem="zPU-1K-pth" secondAttribute="centerX" id="6t8-p9-imH"/>
                             <constraint firstAttribute="bottom" secondItem="khl-8E-7Nv" secondAttribute="bottom" id="Exk-In-3nO"/>
-                            <constraint firstItem="KUc-eL-qWa" firstAttribute="centerX" secondItem="zPU-1K-pth" secondAttribute="centerX" multiplier="1.29" id="Fe5-TT-7w6"/>
                             <constraint firstItem="khl-8E-7Nv" firstAttribute="leading" secondItem="gyy-0K-PhF" secondAttribute="leading" id="GPK-A3-8XP"/>
                             <constraint firstItem="Wvt-3S-HKp" firstAttribute="centerY" secondItem="zPU-1K-pth" secondAttribute="centerY" multiplier="0.4" id="Lzn-Hj-bsj"/>
                             <constraint firstItem="Ti9-0V-c3F" firstAttribute="leading" secondItem="gyy-0K-PhF" secondAttribute="leading" id="MGK-Tw-2fj"/>
@@ -237,9 +241,9 @@
                             <constraint firstItem="khl-8E-7Nv" firstAttribute="trailing" secondItem="gyy-0K-PhF" secondAttribute="trailing" id="Xwr-Jq-Af7"/>
                             <constraint firstItem="Wvt-3S-HKp" firstAttribute="height" secondItem="zPU-1K-pth" secondAttribute="height" multiplier="0.248619" id="aq1-XV-YWt"/>
                             <constraint firstItem="Ti9-0V-c3F" firstAttribute="trailing" secondItem="gyy-0K-PhF" secondAttribute="trailing" id="cyO-wZ-BvU"/>
-                            <constraint firstItem="KUc-eL-qWa" firstAttribute="height" secondItem="khl-8E-7Nv" secondAttribute="height" multiplier="0.0649762" id="k0f-x9-6E4"/>
+                            <constraint firstItem="KUc-eL-qWa" firstAttribute="height" secondItem="zPU-1K-pth" secondAttribute="height" multiplier="0.252762" id="jYu-J5-nZ9"/>
                             <constraint firstItem="Ti9-0V-c3F" firstAttribute="top" secondItem="zPU-1K-pth" secondAttribute="top" id="kff-3e-d9v"/>
-                            <constraint firstItem="KUc-eL-qWa" firstAttribute="centerY" secondItem="zPU-1K-pth" secondAttribute="centerY" multiplier="0.57" id="ub0-P4-2cz"/>
+                            <constraint firstItem="KUc-eL-qWa" firstAttribute="centerY" secondItem="zPU-1K-pth" secondAttribute="centerY" multiplier="0.4" id="uxh-ec-9gp"/>
                             <constraint firstAttribute="bottom" secondItem="Ti9-0V-c3F" secondAttribute="bottom" id="vdk-1x-f2N"/>
                             <constraint firstItem="khl-8E-7Nv" firstAttribute="width" secondItem="zPU-1K-pth" secondAttribute="width" id="w0n-F6-dHq"/>
                             <constraint firstItem="Wvt-3S-HKp" firstAttribute="centerX" secondItem="zPU-1K-pth" secondAttribute="centerX" id="wvs-QZ-Hrv"/>
@@ -538,9 +542,9 @@
     <resources>
         <image name="mypageAlignNext" width="8" height="15.333333015441895"/>
         <image name="mypageIcEdit" width="15" height="15"/>
-        <image name="mypageIcPhotoEdit" width="20" height="15"/>
         <image name="myprojectBgRed" width="375" height="706"/>
         <image name="purpleCircle" width="13" height="13"/>
+        <image name="realMypageIcPhotoEdit" width="180" height="183"/>
         <image name="redCircle" width="13" height="13"/>
         <image name="stormLogo" width="36" height="65"/>
         <image name="yellowCircle" width="13" height="13"/>

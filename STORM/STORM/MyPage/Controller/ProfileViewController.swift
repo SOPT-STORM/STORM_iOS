@@ -99,7 +99,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         userImageView.makeCircle()
         userImageView.layer.masksToBounds = true
         
-        editPhotoButton.addShadow(cornerRadus: editPhotoButton.frame.width / 2, shadowOffset: CGSize(width: 0, height: 1), shadowOpacity: 0.16, shadowRadius: 2)
+        //editPhotoButton.cornerRadius = editPhotoButton.frame.width / 2
         
         // whiteView 모서리 radius
         whiteView.roundCorners(corners: [.topLeft, .topRight], radius: 30.0)

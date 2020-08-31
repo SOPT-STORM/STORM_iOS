@@ -88,7 +88,6 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
         // photo, photo button
         userImageContainerView.makeCircle()
         profileImage.makeCircle()
-        selectPhotoButton.addShadow(cornerRadus: selectPhotoButton.frame.width / 2, shadowOffset: CGSize(width: 1, height: 1), shadowOpacity: 0.3, shadowRadius: 3)
         profileImage.contentMode = .scaleAspectFill
         
         // textfield padding
