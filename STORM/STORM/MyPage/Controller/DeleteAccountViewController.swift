@@ -140,6 +140,7 @@ class DeleteAccountViewController: UIViewController, UITextFieldDelegate, UIText
         let hideKeybrd = UIBarButtonItem(image: btnImg, style: .done, target: self, action: #selector(hideKeyboard))
 
         toolbar.setItems([flexibleSpace, hideKeybrd], animated: true)
+        pwdTextField.inputAccessoryView = toolbar
         etcTextView.inputAccessoryView = toolbar
     }
     

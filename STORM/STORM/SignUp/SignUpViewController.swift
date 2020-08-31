@@ -64,6 +64,8 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
         pwdTextField.addTarget(self, action: #selector(emailPasswordEditing), for: .editingChanged)
         pwdConfirmTextField.addTarget(self, action: #selector(emailPasswordEditing), for: .editingChanged)
         
+        toolbarSetup()
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -102,6 +104,10 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
         errorLabelCondition()
         buttonActivation()
      }
+    
+    @objc func hideKeyboard(_ sender: Any){
+        self.view.endEditing(true)
+    }
     
     // MARK:- IBAction
     
@@ -212,6 +218,23 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
             nextButton.backgroundColor = UIColor(red: 152/255, green: 152/255, blue: 152/255, alpha: 1)
             canGoToNext = false
         }
+    }
+    
+    func toolbarSetup() {
+        let toolbar = UIToolbar()
+        toolbar.frame = CGRect(x: 0, y: 0, width: 0, height: 38)
+        toolbar.barTintColor = UIColor.white
+                    
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+                    
+        let btnImg = UIImage.init(named: "Input_keyboard_icn")!.withRenderingMode(.alwaysOriginal)
+            
+        let hideKeybrd = UIBarButtonItem(image: btnImg, style: .done, target: self, action: #selector(hideKeyboard))
+
+        toolbar.setItems([flexibleSpace, hideKeybrd], animated: true)
+        emailTextField.inputAccessoryView = toolbar
+        pwdTextField.inputAccessoryView = toolbar
+        pwdConfirmTextField.inputAccessoryView = toolbar
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

@@ -58,6 +58,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         if let email = UserDefaults.standard.string(forKey: "email"), let pwd = UserDefaults.standard.string(forKey: "pwd") {
             autoLogin(userEmail: email, userPwd: pwd)
         }
+        
+        toolbarSetup()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -78,6 +80,10 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     }
     
     // MARK:- @objc
+    
+    @objc func hideKeyboard(_ sender: UITextField){
+        self.view.endEditing(true)
+    }
     
     // MARK:- IBAction
     
@@ -109,6 +115,22 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     }
     
     // MARK:- 함수
+    
+    func toolbarSetup() {
+        let toolbar = UIToolbar()
+        toolbar.frame = CGRect(x: 0, y: 0, width: 0, height: 38)
+        toolbar.barTintColor = UIColor.white
+                    
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+                    
+        let btnImg = UIImage.init(named: "Input_keyboard_icn")!.withRenderingMode(.alwaysOriginal)
+            
+        let hideKeybrd = UIBarButtonItem(image: btnImg, style: .done, target: self, action: #selector(hideKeyboard))
+
+        toolbar.setItems([flexibleSpace, hideKeybrd], animated: true)
+        emailTextField.inputAccessoryView = toolbar
+        pwdTextField.inputAccessoryView = toolbar
+    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         self.view.endEditing(true)

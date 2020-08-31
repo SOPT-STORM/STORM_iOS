@@ -68,6 +68,8 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
         // 화면 가리는 문제
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         topConst = topConstOfIndex.constant
+        
+        toolbarSetup()
 
     }
     
@@ -240,6 +242,21 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
     
     
     // MARK:- 함수
+    
+    func toolbarSetup() {
+        let toolbar = UIToolbar()
+        toolbar.frame = CGRect(x: 0, y: 0, width: 0, height: 38)
+        toolbar.barTintColor = UIColor.white
+                    
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+                    
+        let btnImg = UIImage.init(named: "Input_keyboard_icn")!.withRenderingMode(.alwaysOriginal)
+            
+        let hideKeybrd = UIBarButtonItem(image: btnImg, style: .done, target: self, action: #selector(hideKeyboard))
+
+        toolbar.setItems([flexibleSpace, hideKeybrd], animated: true)
+        nameTextField.inputAccessoryView = toolbar
+    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         if nameTextField.isEditing {
