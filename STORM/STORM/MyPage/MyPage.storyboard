@@ -23,9 +23,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="myprojectBgRed" translatesAutoresizingMaskIntoConstraints="NO" id="Ti9-0V-c3F">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="khl-8E-7Nv">
                                 <rect key="frame" x="0.0" y="166.66666666666669" width="375" height="557.33333333333326"/>
                                 <subviews>
@@ -226,21 +223,17 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.92549019607843142" green="0.40801423790000002" blue="0.42743539809999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.92549019610000005" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="khl-8E-7Nv" secondAttribute="bottom" id="Exk-In-3nO"/>
                             <constraint firstItem="KUc-eL-qWa" firstAttribute="centerX" secondItem="zPU-1K-pth" secondAttribute="centerX" multiplier="1.3" id="Fe5-TT-7w6"/>
                             <constraint firstItem="khl-8E-7Nv" firstAttribute="leading" secondItem="gyy-0K-PhF" secondAttribute="leading" id="GPK-A3-8XP"/>
                             <constraint firstItem="Wvt-3S-HKp" firstAttribute="centerY" secondItem="zPU-1K-pth" secondAttribute="centerY" multiplier="0.59" id="Lzn-Hj-bsj"/>
-                            <constraint firstItem="Ti9-0V-c3F" firstAttribute="leading" secondItem="gyy-0K-PhF" secondAttribute="leading" id="MGK-Tw-2fj"/>
                             <constraint firstItem="khl-8E-7Nv" firstAttribute="height" secondItem="zPU-1K-pth" secondAttribute="height" multiplier="0.77" id="WLD-PK-wC2"/>
                             <constraint firstItem="khl-8E-7Nv" firstAttribute="trailing" secondItem="gyy-0K-PhF" secondAttribute="trailing" id="Xwr-Jq-Af7"/>
                             <constraint firstItem="Wvt-3S-HKp" firstAttribute="height" secondItem="zPU-1K-pth" secondAttribute="height" multiplier="0.23" id="coK-e4-BLr"/>
-                            <constraint firstItem="Ti9-0V-c3F" firstAttribute="trailing" secondItem="gyy-0K-PhF" secondAttribute="trailing" id="cyO-wZ-BvU"/>
                             <constraint firstItem="KUc-eL-qWa" firstAttribute="height" secondItem="khl-8E-7Nv" secondAttribute="height" multiplier="0.0649762" id="k0f-x9-6E4"/>
-                            <constraint firstItem="Ti9-0V-c3F" firstAttribute="top" secondItem="zPU-1K-pth" secondAttribute="top" id="kff-3e-d9v"/>
                             <constraint firstItem="KUc-eL-qWa" firstAttribute="centerY" secondItem="zPU-1K-pth" secondAttribute="centerY" multiplier="0.75" id="ub0-P4-2cz"/>
-                            <constraint firstAttribute="bottom" secondItem="Ti9-0V-c3F" secondAttribute="bottom" id="vdk-1x-f2N"/>
                             <constraint firstItem="khl-8E-7Nv" firstAttribute="width" secondItem="zPU-1K-pth" secondAttribute="width" id="w0n-F6-dHq"/>
                             <constraint firstItem="Wvt-3S-HKp" firstAttribute="centerX" secondItem="zPU-1K-pth" secondAttribute="centerX" id="wvs-QZ-Hrv"/>
                         </constraints>
@@ -275,9 +268,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="myprojectBgRed" translatesAutoresizingMaskIntoConstraints="NO" id="ZR8-cl-gU4">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rH2-dZ-Mek">
                                 <rect key="frame" x="0.0" y="186.66666666666669" width="375" height="625.33333333333326"/>
                                 <subviews>
@@ -381,20 +371,16 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.92549019610000005" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.92549019610000005" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="t0S-5q-bUy" firstAttribute="height" secondItem="hFT-us-JYZ" secondAttribute="height" multiplier="0.6" id="7Zr-R3-3vX"/>
-                            <constraint firstItem="ZR8-cl-gU4" firstAttribute="top" secondItem="hFT-us-JYZ" secondAttribute="top" id="AR8-eq-Jch"/>
                             <constraint firstAttribute="bottom" secondItem="rH2-dZ-Mek" secondAttribute="bottom" id="Jjd-N3-dyQ"/>
                             <constraint firstItem="rH2-dZ-Mek" firstAttribute="trailing" secondItem="TBL-ac-IPO" secondAttribute="trailing" id="Kpz-ds-Xea"/>
-                            <constraint firstAttribute="bottom" secondItem="ZR8-cl-gU4" secondAttribute="bottom" id="LTB-Py-uRT"/>
                             <constraint firstItem="t0S-5q-bUy" firstAttribute="top" secondItem="TBL-ac-IPO" secondAttribute="top" constant="95" id="Ly2-nX-gbF"/>
                             <constraint firstItem="rH2-dZ-Mek" firstAttribute="leading" secondItem="TBL-ac-IPO" secondAttribute="leading" id="MxC-DB-UV1"/>
                             <constraint firstItem="rH2-dZ-Mek" firstAttribute="height" secondItem="hFT-us-JYZ" secondAttribute="height" multiplier="0.77" id="Og1-hS-qzo"/>
                             <constraint firstItem="t0S-5q-bUy" firstAttribute="trailing" secondItem="TBL-ac-IPO" secondAttribute="trailing" id="V0R-DO-w4f"/>
-                            <constraint firstItem="ZR8-cl-gU4" firstAttribute="leading" secondItem="TBL-ac-IPO" secondAttribute="leading" id="XmY-eB-wjB"/>
                             <constraint firstItem="t0S-5q-bUy" firstAttribute="leading" secondItem="TBL-ac-IPO" secondAttribute="leading" id="qhF-F3-Xdk"/>
-                            <constraint firstItem="ZR8-cl-gU4" firstAttribute="trailing" secondItem="TBL-ac-IPO" secondAttribute="trailing" id="uKC-B8-ONS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TBL-ac-IPO"/>
                     </view>
@@ -421,9 +407,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="myprojectBgRed" translatesAutoresizingMaskIntoConstraints="NO" id="RSf-hF-k60">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="geR-5Z-wIk">
                                 <rect key="frame" x="0.0" y="186.66666666666669" width="375" height="625.33333333333326"/>
                                 <subviews>
@@ -486,17 +469,13 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.92549019610000005" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.92549019610000005" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="RSf-hF-k60" firstAttribute="trailing" secondItem="7nd-K4-HXL" secondAttribute="trailing" id="6Hs-cM-Vud"/>
                             <constraint firstItem="geR-5Z-wIk" firstAttribute="leading" secondItem="7nd-K4-HXL" secondAttribute="leading" id="GzF-Jn-l4o"/>
                             <constraint firstAttribute="bottom" secondItem="geR-5Z-wIk" secondAttribute="bottom" id="HGM-nk-tX1"/>
-                            <constraint firstItem="RSf-hF-k60" firstAttribute="top" secondItem="k4K-tE-8oa" secondAttribute="top" id="HsH-2e-99Q"/>
                             <constraint firstItem="geR-5Z-wIk" firstAttribute="trailing" secondItem="7nd-K4-HXL" secondAttribute="trailing" id="McV-Vf-Ve5"/>
                             <constraint firstItem="geR-5Z-wIk" firstAttribute="height" secondItem="k4K-tE-8oa" secondAttribute="height" multiplier="0.77" id="NNq-7O-Rkg"/>
                             <constraint firstItem="geR-5Z-wIk" firstAttribute="width" secondItem="k4K-tE-8oa" secondAttribute="width" id="Py0-w1-BYy"/>
-                            <constraint firstAttribute="bottom" secondItem="RSf-hF-k60" secondAttribute="bottom" id="Tws-1i-Q3B"/>
-                            <constraint firstItem="RSf-hF-k60" firstAttribute="leading" secondItem="7nd-K4-HXL" secondAttribute="leading" id="cSB-yF-p54"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7nd-K4-HXL"/>
                     </view>
@@ -539,7 +518,6 @@
         <image name="mypageAlignNext" width="8" height="15.333333015441895"/>
         <image name="mypageIcEdit" width="15" height="15"/>
         <image name="mypageIcPhotoEdit" width="20" height="15"/>
-        <image name="myprojectBgRed" width="375" height="706"/>
         <image name="purpleCircle" width="13" height="13"/>
         <image name="redCircle" width="13" height="13"/>
         <image name="stormLogo" width="36" height="65"/>

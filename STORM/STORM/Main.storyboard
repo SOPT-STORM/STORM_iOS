@@ -243,12 +243,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_red" translatesAutoresizingMaskIntoConstraints="NO" id="SAQ-tM-E67">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ay9-Q5-kk9">
                                 <rect key="frame" x="0.0" y="44" width="375" height="101"/>
+                                <color key="backgroundColor" red="0.92549019610000005" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="101" id="5jB-gu-8jT"/>
+                                    <constraint firstAttribute="height" constant="101" id="CP1-00-75E"/>
                                 </constraints>
-                            </imageView>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="라운드 목표" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x4h-96-OEt">
                                 <rect key="frame" x="27" y="97" width="60" height="20"/>
                                 <constraints>
@@ -471,21 +472,20 @@
                         <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="osp-XM-hQY" secondAttribute="bottom" id="3YX-yJ-1ut"/>
-                            <constraint firstItem="SAQ-tM-E67" firstAttribute="leading" secondItem="Qw8-4N-kGa" secondAttribute="leading" id="4gZ-9u-RUu"/>
                             <constraint firstItem="x4h-96-OEt" firstAttribute="top" secondItem="4pK-7q-b6d" secondAttribute="bottom" constant="4" id="7LP-D5-3dC"/>
                             <constraint firstItem="VMW-C3-dxy" firstAttribute="trailing" secondItem="Qw8-4N-kGa" secondAttribute="trailing" id="8VC-AF-DTl"/>
                             <constraint firstAttribute="bottom" secondItem="VMW-C3-dxy" secondAttribute="bottom" constant="-92" id="9gm-qa-xcm"/>
                             <constraint firstItem="x4h-96-OEt" firstAttribute="leading" secondItem="4pK-7q-b6d" secondAttribute="leading" id="BQD-7u-mud"/>
-                            <constraint firstItem="osp-XM-hQY" firstAttribute="top" secondItem="SAQ-tM-E67" secondAttribute="bottom" id="C0J-52-rvj"/>
                             <constraint firstItem="Qw8-4N-kGa" firstAttribute="trailing" secondItem="Yk0-yg-KKu" secondAttribute="trailing" id="Hee-hR-4jA"/>
-                            <constraint firstItem="Qw8-4N-kGa" firstAttribute="trailing" secondItem="SAQ-tM-E67" secondAttribute="trailing" id="Hl5-JG-nGI"/>
                             <constraint firstItem="VMW-C3-dxy" firstAttribute="width" secondItem="osp-XM-hQY" secondAttribute="width" id="IjU-B5-at9"/>
                             <constraint firstItem="8Tf-7z-WP2" firstAttribute="top" secondItem="BSo-Wb-YXZ" secondAttribute="bottom" constant="4" id="Ik7-U2-iza"/>
                             <constraint firstItem="4pK-7q-b6d" firstAttribute="top" secondItem="Qw8-4N-kGa" secondAttribute="top" constant="29" id="NAy-HG-Aht"/>
                             <constraint firstItem="Qw8-4N-kGa" firstAttribute="trailing" secondItem="BSo-Wb-YXZ" secondAttribute="trailing" constant="27" id="NIt-2N-pES"/>
                             <constraint firstItem="Yk0-yg-KKu" firstAttribute="leading" secondItem="Qw8-4N-kGa" secondAttribute="leading" id="Q4p-5h-rao"/>
-                            <constraint firstItem="SAQ-tM-E67" firstAttribute="top" secondItem="Qw8-4N-kGa" secondAttribute="top" id="Vb1-Yb-0RE"/>
+                            <constraint firstItem="Ay9-Q5-kk9" firstAttribute="top" secondItem="Qw8-4N-kGa" secondAttribute="top" id="ZTx-Ea-rbL"/>
+                            <constraint firstItem="osp-XM-hQY" firstAttribute="top" secondItem="Ay9-Q5-kk9" secondAttribute="bottom" id="c9c-gR-7H2"/>
                             <constraint firstAttribute="bottom" secondItem="Yk0-yg-KKu" secondAttribute="bottom" id="dfT-bq-oTk"/>
+                            <constraint firstItem="Ay9-Q5-kk9" firstAttribute="leading" secondItem="Qw8-4N-kGa" secondAttribute="leading" id="e1G-BL-hiP"/>
                             <constraint firstItem="osp-XM-hQY" firstAttribute="leading" secondItem="Qw8-4N-kGa" secondAttribute="leading" id="fxg-yX-X7n"/>
                             <constraint firstItem="4pK-7q-b6d" firstAttribute="leading" secondItem="Qw8-4N-kGa" secondAttribute="leading" constant="27" id="gfN-yi-4jF"/>
                             <constraint firstItem="BSo-Wb-YXZ" firstAttribute="top" secondItem="4pK-7q-b6d" secondAttribute="top" id="h7v-F6-jbH"/>
@@ -493,6 +493,7 @@
                             <constraint firstItem="VMW-C3-dxy" firstAttribute="leading" secondItem="Qw8-4N-kGa" secondAttribute="leading" id="xlp-uU-daD"/>
                             <constraint firstItem="osp-XM-hQY" firstAttribute="trailing" secondItem="Qw8-4N-kGa" secondAttribute="trailing" id="xtE-dY-PEt"/>
                             <constraint firstItem="VMW-C3-dxy" firstAttribute="height" secondItem="osp-XM-hQY" secondAttribute="height" multiplier="0.137931" id="ykD-YO-R4q"/>
+                            <constraint firstItem="Qw8-4N-kGa" firstAttribute="trailing" secondItem="Ay9-Q5-kk9" secondAttribute="trailing" id="zVx-gI-LgH"/>
                             <constraint firstItem="Yk0-yg-KKu" firstAttribute="height" secondItem="osp-XM-hQY" secondAttribute="height" multiplier="0.137931" id="zYp-hV-6Ye"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Qw8-4N-kGa"/>
@@ -810,7 +811,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                     </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Memo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3b-pX-ygj">
                                         <rect key="frame" x="17.000000000000004" y="15.000000000000057" width="48.333333333333343" height="20"/>
@@ -1544,7 +1545,6 @@
         <image name="all_round_drawing_selected_btn_return" width="48" height="48"/>
         <image name="all_round_drawing_selected_clean" width="48" height="48"/>
         <image name="background" width="375" height="724"/>
-        <image name="bg_red" width="375" height="103"/>
         <image name="btn_drawing_back" width="48" height="48"/>
         <image name="card_add_img" width="112" height="112"/>
         <image name="drawing_selected" width="48" height="48"/>

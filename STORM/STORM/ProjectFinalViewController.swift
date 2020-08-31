@@ -21,8 +21,6 @@ class ProjectFinalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(projectIndex)
-        
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
 

@@ -41,6 +41,7 @@ class AddCardViewController: UIViewController {
     var projectName = "프로젝트 이름"
     var roundGoal = "라운드 목표"
     var round = "round"
+    var isAdding = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -137,46 +138,8 @@ class AddCardViewController: UIViewController {
     }
     
     @IBAction func didPressApplication(_ sender: UIButton) {
-        
-        let toastWidth = self.view.frame.width*0.573
-        let toastFrame = CGRect(x: self.view.center.x, y: self.view.frame.height*0.674, width: toastWidth, height: toastWidth*0.227)
-        
-        if mode == .memo {
-            if memoView.text == "" {
-                self.showToast(message: "카드를 입력해주세요", frame: toastFrame)
-                return
-            }
-            
-            guard let content = memoView.text else {return}
-            
-            NetworkManager.shared.addCard(projectIdx: ProjectSetting.shared.projectIdx!, roundIdx: ProjectSetting.shared.roundIdx!, cardImg: nil, cardTxt: content) {
-                
-                guard let vc = self.navigationController?.viewControllers.first as? AllRoundViewController else {return}
-                
-                self.showToast(message: "카드가 추가되었습니다", frame: toastFrame)
-                let card = addedCard(card_drawing: nil, card_text: content)
-                vc.cardList.insert(card, at: 0)
-                self.memoView.text = ""
-            }
-        } else {
-            if canvasView.lines.isEmpty {
-                self.showToast(message: "카드를 입력해주세요", frame: toastFrame)
-                return
-            }
-                
-            let img = canvasView.asImage()
-//            let scaledImg = UIImage.scale(image: img, by: 0.7)
-            
-            self.showToast(message: "카드가 추가되었습니다", frame: toastFrame)
-            self.canvasView.clear()
-            
-            NetworkManager.shared.addCard(projectIdx: ProjectSetting.shared.projectIdx!, roundIdx: ProjectSetting.shared.roundIdx!, cardImg: img, cardTxt: nil) {
-                
-                guard let vc = self.navigationController?.viewControllers.first as? AllRoundViewController else {return}
-                
-                let card = addedCard(card_drawing: img, card_text: nil)
-                vc.cardList.insert(card, at: 0)
-            }
+        if isAdding == false {
+            addCard()
         }
     }
         
@@ -192,6 +155,55 @@ class AddCardViewController: UIViewController {
 
             botConstOfMemoView.constant = keyboardHeight - (self.view.frame.height - (shadowView.frame.origin.y + shadowView.frame.height))
             
+        }
+    }
+    
+    func addCard() {
+        isAdding = true
+        
+        let toastWidth = self.view.frame.width*0.573
+        let toastFrame = CGRect(x: self.view.center.x, y: self.view.frame.height*0.674, width: toastWidth, height: toastWidth*0.227)
+                
+        if mode == .memo {
+            if memoView.text == "" {
+                self.showToast(message: "카드를 입력해주세요", frame: toastFrame)
+                isAdding = false
+                return
+            }
+                    
+            guard let content = memoView.text else {return}
+                    
+            NetworkManager.shared.addCard(projectIdx: ProjectSetting.shared.projectIdx!, roundIdx: ProjectSetting.shared.roundIdx!, cardImg: nil, cardTxt: content) {
+                        
+                guard let vc = self.navigationController?.viewControllers.first as? AllRoundViewController else {return}
+                        
+                self.showToast(message: "카드가 추가되었습니다", frame: toastFrame)
+                let card = addedCard(card_drawing: nil, card_text: content)
+                vc.cardList.insert(card, at: 0)
+                self.memoView.text = ""
+                self.isAdding = false
+            }
+        } else {
+            if canvasView.lines.isEmpty {
+                self.showToast(message: "카드를 입력해주세요", frame: toastFrame)
+                isAdding = false
+                return
+            }
+                        
+            let img = canvasView.asImage()
+//            let scaledImg = UIImage.scale(image: img, by: 0.7)
+
+            NetworkManager.shared.addCard(projectIdx: ProjectSetting.shared.projectIdx!, roundIdx: ProjectSetting.shared.roundIdx!, cardImg: img, cardTxt: nil) {
+                        
+                self.showToast(message: "카드가 추가되었습니다", frame: toastFrame)
+                self.canvasView.clear()
+                        
+                guard let vc = self.navigationController?.viewControllers.first as? AllRoundViewController else {return}
+                        
+                let card = addedCard(card_drawing: img, card_text: nil)
+                vc.cardList.insert(card, at: 0)
+                self.isAdding = false
+            }
         }
     }
     
@@ -231,7 +243,7 @@ extension AddCardViewController: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
 
         let lines = Int(memoView.contentSize.height / memoView.font!.lineHeight)
-        let maxOfContentsLine = Int(((memoViewHeight - 29*2) / memoView.font!.lineHeight))
+        let maxOfContentsLine = Int(((memoViewHeight - 29*2) / memoView.font!.lineHeight)) - 3
 
         if text == "" {
             return true

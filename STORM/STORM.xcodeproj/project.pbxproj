@@ -55,7 +55,6 @@
 		D14BC3A124EAEFAA0075F026 /* ProjectFinishFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14BC39F24EAEFAA0075F026 /* ProjectFinishFooterView.swift */; };
 		D14BC3A424EB17CF0075F026 /* ProjectFinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14BC3A324EB17CF0075F026 /* ProjectFinalViewController.swift */; };
 		D14D357124EBD540008E7581 /* ViewTransitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14D357024EBD540008E7581 /* ViewTransitionDelegate.swift */; };
-		D14FE22924E43A6400DACF8E /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14FE22824E43A6400DACF8E /* CustomNavigationBar.swift */; };
 		D15088AB24BD98DD007D9596 /* Round.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15088AA24BD98DC007D9596 /* Round.swift */; };
 		D154C46424BEECF700FC95C9 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D154C46324BEECF700FC95C9 /* UIImage.swift */; };
 		D1559FC024DBEEFA0026F6F7 /* RoundFinishedPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1559FBF24DBEEFA0026F6F7 /* RoundFinishedPopup.swift */; };
@@ -157,7 +156,6 @@
 		D14BC3A024EAEFAA0075F026 /* ProjectFinishFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectFinishFooterView.xib; sourceTree = "<group>"; };
 		D14BC3A324EB17CF0075F026 /* ProjectFinalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFinalViewController.swift; sourceTree = "<group>"; };
 		D14D357024EBD540008E7581 /* ViewTransitionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTransitionDelegate.swift; sourceTree = "<group>"; };
-		D14FE22824E43A6400DACF8E /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		D15088AA24BD98DC007D9596 /* Round.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Round.swift; sourceTree = "<group>"; };
 		D154C46324BEECF700FC95C9 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		D1559FBF24DBEEFA0026F6F7 /* RoundFinishedPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundFinishedPopup.swift; sourceTree = "<group>"; };
@@ -319,18 +317,18 @@
 		D12EC23C24AB4070007E5896 /* STORM */ = {
 			isa = PBXGroup;
 			children = (
+				D12EC23D24AB4070007E5896 /* AppDelegate.swift */,
+				D147598424AB4DA3006C4122 /* SceneDelegate.swift */,
+				D1E5839024BC965C0013FB7C /* Network */,
+				B8E9FA6E24B9B6EB00A97235 /* PopUpViews */,
 				B806015724E502A6006AA9EF /* SignUp */,
 				B8E34D5724E438A9003538A8 /* LogIn */,
 				B84697E024D30F6A00E56804 /* MyPage */,
-				D1E5839024BC965C0013FB7C /* Network */,
-				B8E9FA6E24B9B6EB00A97235 /* PopUpViews */,
 				D75ECBE724B6C78800CB46C3 /* ProjectRound */,
 				D16811DB24FC18D000B27643 /* RoundFinished */,
 				D743C56D24AF5B7300FF6ED4 /* Extensions */,
 				D17935D324B2484D00811173 /* AddCard */,
 				D1E5837B24BC95980013FB7C /* RoundMeetingViewController.swift */,
-				D147598424AB4DA3006C4122 /* SceneDelegate.swift */,
-				D12EC23D24AB4070007E5896 /* AppDelegate.swift */,
 				D15EA3ED24BF3FD900D3017F /* MemoCell.swift */,
 				D15EA3EF24BF3FE800D3017F /* DrawingCell.swift */,
 				D1E5839724BC96C00013FB7C /* Main.storyboard */,
@@ -348,7 +346,6 @@
 				D149795824E168B00021CA32 /* MemoCarouselCell.swift */,
 				D149795924E168B00021CA32 /* MemoCarouselCell.xib */,
 				D160AFAB24E3FD9F00ED09C7 /* ShadowRoundedView.swift */,
-				D14FE22824E43A6400DACF8E /* CustomNavigationBar.swift */,
 				D14BC3A324EB17CF0075F026 /* ProjectFinalViewController.swift */,
 				D14BC39324EADA240075F026 /* ProjectInfoCell.swift */,
 				D14BC39424EADA240075F026 /* ProjectInfoCell.xib */,
@@ -627,7 +624,6 @@
 				D149795624E1689D0021CA32 /* DrawingCarouselCell.swift in Sources */,
 				D16811E924FC191200B27643 /* RoundCollectionViewCell.swift in Sources */,
 				D1E5837324BC95690013FB7C /* Canvas.swift in Sources */,
-				D14FE22924E43A6400DACF8E /* CustomNavigationBar.swift in Sources */,
 				D14BC39524EADA240075F026 /* ProjectInfoCell.swift in Sources */,
 				D13EA00824ED4644001392A8 /* ProjectInfoPopUp.swift in Sources */,
 				D14D357124EBD540008E7581 /* ViewTransitionDelegate.swift in Sources */,

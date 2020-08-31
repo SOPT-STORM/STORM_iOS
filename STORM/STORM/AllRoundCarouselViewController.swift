@@ -155,7 +155,6 @@ class AllRoundCarouselViewController: UIViewController {
     func modifyMemo() {
         guard let content = memoView.text, let idx = cards[cardIdx].card_idx else {return}
         
-        print("카드 메모 수정")
         NetworkManager.shared.modifyCardMemo(cardIdx: idx, memoContent: content) { (response) in
             
             let toastFrame = CGRect(x: self.view.center.x, y: self.memoBackgroundView.frame.origin.y - self.memoBackgroundView.frame.height*0.3851, width: self.memoView.frame.width * 0.856, height: self.memoView.frame.height * 0.362)
@@ -195,8 +194,6 @@ class AllRoundCarouselViewController: UIViewController {
         let layout = CarouselLayout()
                 
         layout.itemSize = CGSize(width: collectionView.frame.size.width*0.796, height: collectionView.frame.height)
-        
-        print(collectionView.frame.size.height, collectionView.bounds.size.height)
         
         layout.sideItemScale = 0.698
         layout.spacing = -collectionView.frame.size.width*0.796*0.7848
@@ -290,7 +287,7 @@ extension AllRoundCarouselViewController: UICollectionViewDelegate, UICollection
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        print("카드 인덱스~~ \(cardIdx)")
+ 
         cardIdx = Int(round(self.collectionView.contentOffset.x / self.contentOffsetForIdx))
         cardIndexLabel.text = "(\(cardIdx + 1)/\(cards.count))"
         
@@ -315,7 +312,6 @@ extension AllRoundCarouselViewController: UITextViewDelegate {
             memoTextLabel.isHidden = false
         }
     }
-    
 }
 
 

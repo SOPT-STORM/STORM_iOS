@@ -130,8 +130,7 @@ extension ProjectSettingViewController: UITextViewDelegate {
     
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        print(hostMessageTextView.text.count)
-        
+
         if textView.text.isEmpty {
             textView.text = "프로젝트 소개 및 안내 사항을 입력해주세요"
             textView.textColor = .systemGray2

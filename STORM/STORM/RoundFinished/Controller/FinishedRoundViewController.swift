@@ -25,9 +25,7 @@ class FinishedRoundViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("라운드 콜렉션뷰 프레임 사이즈~ \(roundCollectionView.frame.size)")
-        
-        
+
         roundCollectionView.register(UINib(nibName: "RoundCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "roundCollectionViewCell")
         
         roundCollectionView.delegate = self
@@ -184,11 +182,15 @@ extension FinishedRoundViewController: UICollectionViewDataSource, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        guard let vc = UIStoryboard(name: "RoundFinished", bundle: nil).instantiateViewController(withIdentifier: "cardDetailViewController") as? CardDetailViewController, collectionView == cardListCollectionView else {return}
+        guard let vc = UIStoryboard(name: "RoundFinished", bundle: nil).instantiateViewController(withIdentifier: "cardDetailViewController") as? CardDetailViewController, collectionView == cardListCollectionView, let roundNumb = roundsInfo[selectedIndex].round_number, let roundTime = roundsInfo[selectedIndex].round_time, let roundPurpose = roundsInfo[selectedIndex].round_purpose else {return}
+
         vc.cards = cards
         vc.index = indexPath.row
         vc.viewMode = .round
         vc.projectName = projectName
+        vc.roundPurpose = roundPurpose
+        vc.roundNumber = roundNumb
+        vc.roundTime = roundTime
 
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -202,18 +204,15 @@ extension FinishedRoundViewController: UICollectionViewDataSource, UICollectionV
         if scrollView == roundCollectionView {
             guard let roundIndex = roundsInfo[pageControl.currentPage].round_idx else {return}
             
+            self.selectedIndex = pageControl.currentPage
+            
             NetworkManager.shared.fetchCardList(projectIdx: projectIndex, roundIdx: roundIndex) { (response) in
 
                 guard let cardList = response?.data?.card_list else {return}
                 self.cards = cardList
                 self.cardListCollectionView.reloadData()
-                print("실행")
             }
         }
-    }
-    
-    func updateCardList() {
-        
     }
 }
 
