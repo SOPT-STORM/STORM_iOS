@@ -128,7 +128,6 @@ extension ProjectSettingViewController: UITextViewDelegate {
         }
     }
     
-    
     func textViewDidEndEditing(_ textView: UITextView) {
 
         if textView.text.isEmpty {
