@@ -32,6 +32,8 @@ class ScrapCardViewController: UIViewController {
         cardScrapCollectionView.dataSource = self
         
         self.setNaviTitle()
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "naviBackBtn" ), style: .plain, target: self, action: #selector(back))
     }
 
     override func viewWillAppear(_ animated: Bool) {

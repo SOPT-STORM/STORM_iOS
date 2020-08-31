@@ -140,6 +140,8 @@ class CardDetailViewController: UIViewController {
         topConst = topConstOfInfoView.constant
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "naviBackBtn" ), style: .plain, target: self, action: #selector(back))
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
