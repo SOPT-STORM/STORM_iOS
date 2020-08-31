@@ -82,7 +82,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     // MARK:- IBAction
     
     @IBAction func loginButtonDidPressed(_ sender: UIButton) {
-        // 일치하면 로그인 성공, 뷰 넘어감
         logIn()
     }
     
@@ -113,11 +112,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         self.view.endEditing(true)
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        // 서버 연결 후
-        // ishidden == true && nil 아니여야 함
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -155,8 +149,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                 
                 if let userIndex = response.data {
                     NetworkManager.shared.user_idx = userIndex
-                    print("로그인 유저 인덱스 \(userIndex)")
-
                 }
                 
                 guard let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainVC") as? MainViewController else {return}
@@ -181,8 +173,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                 
                 if let userIndex = response.data {
                     NetworkManager.shared.user_idx = userIndex
-                    print(userIndex)
-
                 }
                 
                 guard let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainVC") as? MainViewController else {return}
