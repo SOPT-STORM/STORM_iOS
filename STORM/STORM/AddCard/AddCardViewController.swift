@@ -243,7 +243,7 @@ extension AddCardViewController: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
 
         let lines = Int(memoView.contentSize.height / memoView.font!.lineHeight)
-        let maxOfContentsLine = Int(((memoViewHeight - 29*2) / memoView.font!.lineHeight)) - 3
+        let maxOfContentsLine = Int(((memoViewHeight - 29*2) / memoView.font!.lineHeight)) - 4
 
         if text == "" {
             return true
