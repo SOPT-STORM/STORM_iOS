@@ -535,13 +535,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="라운드 목표" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TfY-0J-WS5">
-
                                 <rect key="frame" x="27" y="142" width="161" height="20"/>
-
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="anj-Y1-QVI"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="13"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="13"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -555,15 +553,13 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="총 00:00 남음" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWt-0D-dv7">
-
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="총 00:00 남음" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWt-0D-dv7">
                                 <rect key="frame" x="268" y="142" width="80" height="20"/>
-
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="0lh-MN-IfE"/>
                                     <constraint firstAttribute="width" constant="80" id="eFu-rQ-L0p"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="13"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="13"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -817,10 +813,8 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Memo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3b-pX-ygj">
-
-                                        <rect key="frame" x="17.000000000000004" y="15.000000000000057" width="48.333333333333343" height="20"/>
+                                        <rect key="frame" x="17.000000000000004" y="15.000000000000055" width="48.333333333333343" height="25.333333333333329"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="17"/>
-
                                         <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -877,10 +871,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Okw-oZ-QCN">
                                 <rect key="frame" x="0.0" y="812" width="375" height="92"/>
                                 <subviews>
-
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="다음 ROUND 준비중" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gr-Ve-T0U">
-                                        <rect key="frame" x="111.33333333333333" y="35.666666666666629" width="152.66666666666669" height="21"/>
-
+                                        <rect key="frame" x="109" y="32.666666666666629" width="157" height="26.666666666666671"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="18"/>
                                         <color key="textColor" red="0.92549019610000005" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1029,9 +1021,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최근 참여한 프로젝트" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NxQ-ts-jIO">
-
-                                <rect key="frame" x="26" y="388.33333333333331" width="133.66666666666666" height="24"/>
-
+                                <rect key="frame" x="26" y="388.33333333333331" width="141.66666666666666" height="24"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="16"/>
                                 <color key="textColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1041,9 +1031,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="QCA-XB-YSo" secondAttribute="height" multiplier="2:1" id="BRQ-Ug-XT3"/>
                                 </constraints>
-
                                 <state key="normal" image="allBtn"/>
-
                                 <connections>
                                     <action selector="didPressMoreProject:" destination="7Q2-1p-HeP" eventType="touchUpInside" id="7O9-wq-bQU"/>
                                 </connections>
@@ -1550,9 +1538,8 @@
         </scene>
     </scenes>
     <resources>
-
         <image name="allBtn" width="76" height="38"/>
-
+        <image name="allRoundTab" width="269" height="171"/>
         <image name="all_round_drawing_selected_btn_return" width="48" height="48"/>
         <image name="all_round_drawing_selected_clean" width="48" height="48"/>
         <image name="background" width="375" height="724"/>
@@ -1560,11 +1547,9 @@
         <image name="btn_drawing_back" width="48" height="48"/>
         <image name="card_add_img" width="112" height="112"/>
         <image name="drawing_selected" width="48" height="48"/>
-
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
-        <image name="mainviewBtnProject" width="320" height="203"/>
-
+        <image name="mainviewBtnProject" width="338" height="221"/>
         <image name="no_project_img" width="164" height="100"/>
         <image name="text_deselected" width="48" height="48"/>
     </resources>
