@@ -57,6 +57,11 @@ class RoundSettingViewController: UIViewController {
         let tapPasteCodeImage = UITapGestureRecognizer(target: self, action: #selector(handlePasteCodeImage))
         pasteCodeImage.addGestureRecognizer(tapPasteCodeImage)
         
+        NotificationCenter.default.addObserver(self,
+        selector: #selector(popToFinish),
+        name: NSNotification.Name(rawValue: "ok"),
+        object: nil)
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "exit" ), style: .plain, target: self, action: #selector(didPressExit))
         
         // 지현 수정 라운드목표 24자 제한
@@ -71,20 +76,24 @@ class RoundSettingViewController: UIViewController {
 //        timeLimitTextField.text = nil
 //    }
     
+    // 팝뷰로 이동
     @objc func didPressExit() {
+        guard let exitPopUpVC = UIStoryboard(name: "PopUp", bundle: nil).instantiateViewController(withIdentifier: "EndProjectPopViewController") as? EndProjectPopViewController else {return}
+        exitPopUpVC.modalPresentationStyle = .overCurrentContext
+        self.present(exitPopUpVC, animated: false, completion: nil)
+    }
+    
+    // 최종정리뷰로 이동
+    @objc func popToFinish(){
         let rootVC = self.view.window?.rootViewController
-        
-//        guard let mainVC = self.view.window?.rootViewController?.children[0] else {return}
-//        
-//        print(mainVC)
-//        
-//        print("실행됨요")
         
         self.view.window?.rootViewController?.dismiss(animated: false, completion: {
             guard let navi = rootVC as? UINavigationController else {return}
             navi.popToRootViewController(animated: false)
         })
     }
+    
+    
     
     // 지현 수정 라운드목표 24자 제한
     @objc func limitRoundName() {
