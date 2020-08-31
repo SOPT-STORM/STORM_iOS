@@ -49,7 +49,6 @@ class DrawingCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
     
 }

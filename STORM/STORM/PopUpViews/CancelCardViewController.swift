@@ -21,10 +21,9 @@ class CancelCardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+
         cancelCardPopView.layer.cornerRadius = 15
-//        cancelCardPopView.addShadow(width: 1, height: 3, 0.2, 5)
-//        cancelCardPopView.addRoundShadow(cornerRadius: 10)
+
         cancelCardPopView.clipsToBounds = true
         
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
@@ -43,7 +42,7 @@ class CancelCardViewController: UIViewController {
         
     }
     
-    // MARK:- 함수 선언
+    
     
 
 }

@@ -16,6 +16,8 @@ class OneLineMessagePopViewController: UIViewController {
     
     @IBOutlet weak var button: UIButton!
     
+    @IBOutlet weak var dismissButton: UIButton!
+    
     var message: String = ""
     
     lazy var presentingVC = ""
@@ -35,10 +37,12 @@ class OneLineMessagePopViewController: UIViewController {
     
     // MARK:- IBAction 선언
     
+    @IBAction func didPressDismiss(_ sender: UIButton) {
+        self.dismiss(animated: false, completion: nil)
+    }
+    
     @IBAction func okButtonDidTap(_ sender: UIButton) {
-        
-//        self.dismiss(animated: false, completion: nil)
-        
+
         if presentingVC == "roundMeetingVC" {
             
             guard let projectCode = ProjectSetting.shared.projectCode else {return}
@@ -46,7 +50,6 @@ class OneLineMessagePopViewController: UIViewController {
             SocketIOManager.shared.socket.emit("finishProject", projectCode)
             
             NetworkManager.shared.finishProject { (response) in
-                print(response)
             }
             
             guard let presentingVc = self.presentingViewController else {return}

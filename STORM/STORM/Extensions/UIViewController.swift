@@ -37,6 +37,7 @@ extension UIViewController {
     }
     
     func setNaviTitle() {
+        
         navigationController?.navigationBar.topItem?.title = " "
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.isTranslucent = false
@@ -47,7 +48,6 @@ extension UIViewController {
         appearance.shadowColor = .clear
         
         navigationController?.navigationBar.standardAppearance = appearance
-//        navigationController?.navigationItem.rightBarButtonItem?.tintColor = .white
         
         let titmeImg = UIImage(named: "imgLogo")
         let imageView = UIImageView(image:titmeImg)

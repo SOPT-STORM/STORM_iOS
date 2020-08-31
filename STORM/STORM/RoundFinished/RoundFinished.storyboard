@@ -179,10 +179,9 @@
                                         <rect key="frame" x="34" y="33.666666666666671" width="307" height="115.00000000000001"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="115" id="GhT-rv-hF7"/>
-                                            <constraint firstAttribute="width" constant="307" id="OD6-7g-IHH"/>
+                                            <constraint firstAttribute="width" secondItem="8DU-yT-RvF" secondAttribute="height" multiplier="307:115" id="7Hy-7y-1U1"/>
                                         </constraints>
-                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="QkZ-Ri-5lh">
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="QkZ-Ri-5lh">
                                             <size key="itemSize" width="307" height="115"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -203,6 +202,7 @@
                                     <constraint firstItem="8DU-yT-RvF" firstAttribute="centerX" secondItem="Z3v-db-5Bz" secondAttribute="centerX" id="LII-Nc-XdI"/>
                                     <constraint firstAttribute="bottom" secondItem="8FG-zH-1BW" secondAttribute="bottom" constant="20" id="M8b-Do-xuY"/>
                                     <constraint firstItem="8DU-yT-RvF" firstAttribute="centerY" secondItem="Z3v-db-5Bz" secondAttribute="centerY" multiplier="0.9" id="OAg-Cp-fbz"/>
+                                    <constraint firstItem="8DU-yT-RvF" firstAttribute="width" secondItem="Z3v-db-5Bz" secondAttribute="width" multiplier="0.818667" id="ROT-Je-MTV"/>
                                     <constraint firstItem="8FG-zH-1BW" firstAttribute="centerX" secondItem="Z3v-db-5Bz" secondAttribute="centerX" id="aZy-mu-cMa"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -255,7 +255,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="QXh-nn-FWE">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="QXh-nn-FWE">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kTH-Do-P8a">
@@ -307,7 +307,7 @@
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PxW-jp-L3i">
                                                 <rect key="frame" x="0.0" y="0.0" width="269" height="397.33333333333331"/>
                                             </imageView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4MZ-g0-nN2">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4MZ-g0-nN2">
                                                 <rect key="frame" x="36.666666666666686" y="65" width="196" height="294"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -364,18 +364,6 @@
                                     <constraint firstItem="NWZ-i0-DfH" firstAttribute="top" secondItem="0BM-Gg-Qc7" secondAttribute="top" constant="13" id="sVy-d8-25U"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                        <real key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                        <real key="value" value="0.16"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                        <size key="value" width="0.0" height="3"/>
-                                    </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
                                         <color key="value" cocoaTouchSystemColor="darkTextColor"/>
                                     </userDefinedRuntimeAttribute>
@@ -384,20 +372,30 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i3E-jL-3JF">
                                 <rect key="frame" x="53" y="560.33333333333337" width="269" height="108"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Memo" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5f2-TS-2QR">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5f2-TS-2QR">
                                         <rect key="frame" x="19.666666666666671" y="15.000000000000004" width="229.66666666666663" height="63.333333333333343"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+
                                     </textView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Memo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P6X-33-rH5">
+                                        <rect key="frame" x="17.000000000000004" y="15" width="48.333333333333343" height="20"/>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="17"/>
+                                        <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="5f2-TS-2QR" firstAttribute="height" secondItem="i3E-jL-3JF" secondAttribute="height" multiplier="0.585185" id="AdN-Md-G37"/>
+                                    <constraint firstItem="P6X-33-rH5" firstAttribute="top" secondItem="i3E-jL-3JF" secondAttribute="top" constant="15" id="FYm-pb-Ogg"/>
                                     <constraint firstItem="5f2-TS-2QR" firstAttribute="top" secondItem="i3E-jL-3JF" secondAttribute="top" constant="15" id="LQ5-oh-GNb"/>
                                     <constraint firstAttribute="width" secondItem="i3E-jL-3JF" secondAttribute="height" multiplier="269:108" id="WqU-Di-WAj"/>
                                     <constraint firstItem="5f2-TS-2QR" firstAttribute="width" secondItem="i3E-jL-3JF" secondAttribute="width" multiplier="0.85259" id="kn5-Dr-oQk"/>
+                                    <constraint firstItem="P6X-33-rH5" firstAttribute="leading" secondItem="i3E-jL-3JF" secondAttribute="leading" constant="17" id="qFE-l7-fTD"/>
                                     <constraint firstItem="5f2-TS-2QR" firstAttribute="centerX" secondItem="i3E-jL-3JF" secondAttribute="centerX" id="vpA-MR-4AE"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -499,9 +497,10 @@
                         <outlet property="contentView" destination="BYG-Nu-xfD" id="k93-Vu-Qum"/>
                         <outlet property="drawingImageView" destination="PxW-jp-L3i" id="sIB-D5-DnK"/>
                         <outlet property="heartButton" destination="NWZ-i0-DfH" id="nVu-Cz-6YE"/>
+                        <outlet property="memoTextLabel" destination="P6X-33-rH5" id="46I-Cp-e4s"/>
                         <outlet property="memoView" destination="5f2-TS-2QR" id="vf9-9W-aB4"/>
                         <outlet property="profileImageView" destination="Sew-B8-FmE" id="e2R-Wv-pHB"/>
-                        <outlet property="projectNameLabel" destination="SpX-Y0-dP0" id="sPV-LP-MK1"/>
+                        <outlet property="projectNameLabel" destination="SpX-Y0-dP0" id="1sQ-Il-hnu"/>
                         <outlet property="roundLabel" destination="wHP-vT-0vj" id="07M-Lg-rmG"/>
                         <outlet property="roundPurposeLabel" destination="Mt0-Ii-dnp" id="ai9-d9-Wpv"/>
                         <outlet property="shadowView" destination="0BM-Gg-Qc7" id="q31-zV-1zt"/>

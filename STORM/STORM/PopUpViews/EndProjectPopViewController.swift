@@ -21,7 +21,9 @@ class EndProjectPopViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+
         endProjectPopView.layer.cornerRadius = 15
+
         endProjectPopView.clipsToBounds = true
         
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)

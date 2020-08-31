@@ -87,8 +87,6 @@ class AllRoundCarouselViewController: UIViewController {
     }
     
     @IBAction func didPressSave(_ sender: UIButton) {
-        print(memoView.text.count,cardsMemo[cardIdx], memoView.text, memoView.text.isEmpty)
-        
         if memoView.text.isEmpty == true {
             return
         } else if cardsMemo[cardIdx] == nil {
@@ -99,13 +97,14 @@ class AllRoundCarouselViewController: UIViewController {
     }
     
     @objc func didPressExit() {
-
-        let rootVC = self.view.window?.rootViewController
         
-        self.view.window?.rootViewController?.dismiss(animated: false, completion: {
-            guard let navi = rootVC as? UINavigationController else {return}
-            navi.popToRootViewController(animated: false)
-        })
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = storyboard.instantiateViewController(withIdentifier: "projectFinalViewController") as? ProjectFinalViewController else {return}
+        
+        let naviController = UINavigationController(rootViewController: vc)
+        naviController.modalPresentationStyle = .fullScreen
+        
+        self.present(naviController, animated: false, completion: nil)
     }
     
     func showUpNextRoundNoti() {
@@ -156,7 +155,6 @@ class AllRoundCarouselViewController: UIViewController {
     func modifyMemo() {
         guard let content = memoView.text, let idx = cards[cardIdx].card_idx else {return}
         
-        print("카드 메모 수정")
         NetworkManager.shared.modifyCardMemo(cardIdx: idx, memoContent: content) { (response) in
             
             let toastFrame = CGRect(x: self.view.center.x, y: self.memoBackgroundView.frame.origin.y - self.memoBackgroundView.frame.height*0.3851, width: self.memoView.frame.width * 0.856, height: self.memoView.frame.height * 0.362)
@@ -196,8 +194,6 @@ class AllRoundCarouselViewController: UIViewController {
         let layout = CarouselLayout()
                 
         layout.itemSize = CGSize(width: collectionView.frame.size.width*0.796, height: collectionView.frame.height)
-        
-        print(collectionView.frame.size.height, collectionView.bounds.size.height)
         
         layout.sideItemScale = 0.698
         layout.spacing = -collectionView.frame.size.width*0.796*0.7848
@@ -291,7 +287,7 @@ extension AllRoundCarouselViewController: UICollectionViewDelegate, UICollection
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        print("카드 인덱스~~ \(cardIdx)")
+ 
         cardIdx = Int(round(self.collectionView.contentOffset.x / self.contentOffsetForIdx))
         cardIndexLabel.text = "(\(cardIdx + 1)/\(cards.count))"
         
@@ -316,7 +312,6 @@ extension AllRoundCarouselViewController: UITextViewDelegate {
             memoTextLabel.isHidden = false
         }
     }
-    
 }
 
 

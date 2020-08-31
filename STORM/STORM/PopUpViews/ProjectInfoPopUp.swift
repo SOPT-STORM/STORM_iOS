@@ -54,8 +54,7 @@ class ProjectInfoPopUp: UIViewController {
                     presentingVC.present(naviController, animated: true, completion: nil)
             
                 } else {
-                    print(response?.status)
-                    print("서버 오류")
+                    
                 }
             }
             

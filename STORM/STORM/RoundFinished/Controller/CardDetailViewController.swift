@@ -29,6 +29,9 @@ class CardDetailViewController: UIViewController {
     @IBOutlet weak var heartButton: UIButton!
     
     @IBOutlet weak var topConstOfInfoView: NSLayoutConstraint!
+
+    @IBOutlet weak var memoTextLabel: UILabel!
+    
     
     lazy var cards: [Card] = []
     lazy var scrappedCards: [CardItem] = []
@@ -36,9 +39,12 @@ class CardDetailViewController: UIViewController {
     lazy var isEdit: Bool = false
     lazy var viewMode: ViewMode = .round
     lazy var cardsMemo: [Int:String] = [:]
-    lazy var isScrapped: Bool = false
     lazy var cardIndex: Int = 0
     lazy var projectName = ""
+    lazy var roundPurpose = ""
+    lazy var roundNumber: Int = 0
+    lazy var roundTime: Int = 0
+    
     var topConst: CGFloat!
     
     @IBAction func didPressLeftBtn(_ sender: UIButton) {
@@ -51,8 +57,13 @@ class CardDetailViewController: UIViewController {
             if viewMode == .round {
                 updateRoundCard(index: index)
             } else {
-                print("좌측 버튼 \(index)")
                 updateScrapCard(index: index)
+            }
+            
+            if self.cardsMemo[self.index] == nil {
+                self.memoTextLabel.isHidden = false
+            } else {
+                self.memoTextLabel.isHidden = true
             }
         }
     }
@@ -67,8 +78,13 @@ class CardDetailViewController: UIViewController {
             if viewMode == .round {
                 updateRoundCard(index: index)
             } else {
-                print("우측 버튼 \(index)")
                 updateScrapCard(index: index)
+            }
+            
+            if self.cardsMemo[self.index] == nil {
+                self.memoTextLabel.isHidden = false
+            } else {
+                self.memoTextLabel.isHidden = true
             }
         }
     }
@@ -80,7 +96,7 @@ class CardDetailViewController: UIViewController {
                 sender.setImage(heartFillImage, for: .normal)
                 sender.tintColor = UIColor(red: 236/255, green: 101/255, blue: 101/255, alpha: 1)
                 ProjectSetting.shared.scrapCards[self.index] = true
-//                self.isScrapped = true
+
             }
         } else {
             NetworkManager.shared.cancelScrap(cardIdx: cardIndex) { (response) in
@@ -88,53 +104,74 @@ class CardDetailViewController: UIViewController {
                 sender.setImage(heartImage, for: .normal)
                 sender.tintColor = UIColor(red: 112/255, green: 112/255, blue: 112/255, alpha: 1)
                 ProjectSetting.shared.scrapCards[self.index] = false
-//                self.isScrapped = false
             }
         }
     }
     
     @IBAction func didPressSave(_ sender: UIButton) {
-        print("메모뷰 텍스트~ \(memoView.text)")
-        
+     
         if memoView.text.isEmpty == true {
             return
         } else if cardsMemo[index] == nil {
-            addCardMemo(cardIndex: index)
+            
+            if viewMode == .round {
+                guard let cardIdx = cards[index].card_idx else {return}
+                addCardMemo(cardIndex: cardIdx)
+            } else {
+                addCardMemo(cardIndex: scrappedCards[index].card_idx)
+            }
         } else {
-            modifyMemo(cardIndex: index)
+            if viewMode == .round {
+                guard let cardIdx = cards[index].card_idx else {return}
+                modifyMemo(cardIndex: cardIdx)
+            } else {
+                modifyMemo(cardIndex: scrappedCards[index].card_idx)
+            }
         }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        memoView.delegate = self
+
+        createCardMemo()
+        
         if viewMode == .round {
             updateRoundCard(index: index)
-            guard let content = cards[index].memo_content else {return}
-            memoView.text = content
+            
+            roundLabel.text = "ROUND \(roundNumber)"
+            roundPurposeLabel.text = roundPurpose
+            timeLabel.text = "총 \(roundTime)분 소요"
+
+            self.memoView.text = self.cardsMemo[index]
+            
+            if self.cardsMemo[self.index] == nil {
+                self.memoTextLabel.isHidden = false
+            } else {
+                self.memoTextLabel.isHidden = true
+            }
         } else {
-            
-            print("여기 실행")
-            print(scrappedCards)
-            print(index)
-            
             updateScrapCard(index: index)
-            guard let content = scrappedCards[index].memo_content else {return}
-            memoView.text = content
+            
+            self.memoView.text = self.cardsMemo[index]
+            
+            if self.cardsMemo[self.index] == nil {
+                self.memoTextLabel.isHidden = false
+            } else {
+                self.memoTextLabel.isHidden = true
+            }
         }
         
         shadowView.addRoundShadow(contentView: contentView, cornerRadius: 15)
-        
+
         profileImageView.layer.cornerRadius = profileImageView.frame.width / 2
-        
+
         self.setNaviTitle()
         
         memoView.font = UIFont(name: "NotoSansCJKkr-Regular", size: 13)
         memoView.textColor = UIColor.placeholderColor
-//        memoView.text =
-        
-        
-        
+
         projectNameLabel.text = projectName
         
         topConst = topConstOfInfoView.constant
@@ -158,6 +195,18 @@ class CardDetailViewController: UIViewController {
             isEdit = true
         }
     }
+
+    func createCardMemo() {
+        if viewMode == .round {
+            for index in 0..<cards.count {
+                cardsMemo[index] = cards[index].memo_content
+            }
+        }else {
+            for index in 0..<scrappedCards.count {
+                cardsMemo[index] = scrappedCards[index].memo_content
+            }
+        }
+    }
     
     func updateRoundCard(index: Int) {
         
@@ -168,7 +217,7 @@ class CardDetailViewController: UIViewController {
         guard let cardIdx = card.card_idx else {return}
         
         cardIndex = cardIdx
-        
+
         if card.card_img == nil {
             drawingImageView.isHidden = true
             textView.isHidden = false
@@ -187,28 +236,17 @@ class CardDetailViewController: UIViewController {
             drawingImageView.kf.setImage(with: URL(string: cardImageUrl))
             profileImageView.kf.setImage(with: URL(string: userImageUrl))
         }
-        
-//        if card.scrap_flag == 1 {
-//        }
-        
-        cardsMemo[index] = card.memo_content
-        
-        memoView.text = (card.memo_content != nil) ? card.memo_content! : ""
-        
-//        let heartFillImage = UIImage(systemName: "heart.fill")
-//        heartButton.setImage(heartFillImage, for: .normal)
-//        heartButton.tintColor = UIColor(red: 236/255, green: 101/255, blue: 101/255, alpha: 1)
+
+        memoView.text = cardsMemo[index]
         
         if ProjectSetting.shared.scrapCards[index] == true {
             let heartFillImage = UIImage(systemName: "heart.fill")
             heartButton.setImage(heartFillImage, for: .normal)
             heartButton.tintColor = UIColor(red: 236/255, green: 101/255, blue: 101/255, alpha: 1)
-        //            isScrapped = true
         } else {
             let heartImage = UIImage(systemName: "heart")
             heartButton.setImage(heartImage, for: .normal)
             heartButton.tintColor = UIColor(red: 112/255, green: 112/255, blue: 112/255, alpha: 1)
-        //            isScrapped = false
         }
     }
     
@@ -245,21 +283,16 @@ class CardDetailViewController: UIViewController {
             
         }
         
-        cardsMemo[index] = card.memo_content
-        
-        memoView.text = (card.memo_content != nil) ? card.memo_content! : ""
-        
+        memoView.text = cardsMemo[index]
         
         if ProjectSetting.shared.scrapCards[index] == true {
             let heartFillImage = UIImage(systemName: "heart.fill")
             heartButton.setImage(heartFillImage, for: .normal)
             heartButton.tintColor = UIColor(red: 236/255, green: 101/255, blue: 101/255, alpha: 1)
-//            isScrapped = true
         } else {
             let heartImage = UIImage(systemName: "heart")
             heartButton.setImage(heartImage, for: .normal)
             heartButton.tintColor = UIColor(red: 112/255, green: 112/255, blue: 112/255, alpha: 1)
-//            isScrapped = false
         }
     }
     
@@ -268,7 +301,7 @@ class CardDetailViewController: UIViewController {
         
         NetworkManager.shared.addCardMemo(cardIdx: cardIndex, memoContent: content) { (response) in
             
-            let toastFrame = CGRect(x: self.view.center.x, y: self.shadowView.frame.origin.y + self.shadowView.frame.height + 10, width: self.memoView.frame.width * 0.856, height: self.memoView.frame.height * 0.362)
+            let toastFrame = CGRect(x: self.view.center.x, y: self.view.frame.height * (280/812) , width: self.view.frame.width * (215/375), height: self.view.frame.height * (49/812))
             
             if response?.status == 200 {
                 self.cardsMemo[self.index] = content
@@ -284,7 +317,7 @@ class CardDetailViewController: UIViewController {
         
         NetworkManager.shared.modifyCardMemo(cardIdx: cardIndex, memoContent: content) { (response) in
             
-            let toastFrame = CGRect(x: self.view.center.x, y: self.view.frame.height * (314/812) , width: self.view.frame.width * (215/375), height: self.view.frame.height * (49/812))
+            let toastFrame = CGRect(x: self.view.center.x, y: self.view.frame.height * (280/812) , width: self.view.frame.width * (215/375), height: self.view.frame.height * (49/812))
             
             if response?.status == 200 {
                 self.cardsMemo[self.index] = content
@@ -292,6 +325,19 @@ class CardDetailViewController: UIViewController {
             } else {
                 self.showToast(message: "메모가 수정 실패", frame: toastFrame)
             }
+        }
+    }
+}
+
+extension CardDetailViewController: UITextViewDelegate {
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        memoTextLabel.isHidden = true
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            memoTextLabel.isHidden = false
         }
     }
 }

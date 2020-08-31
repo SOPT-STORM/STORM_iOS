@@ -14,7 +14,6 @@ class MemoCarouselCell: UICollectionViewCell {
     lazy var isScrapped: Bool = false
     lazy var cellIndex: Int = 0
     
-    
     @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var contetnt: UIView!
     @IBOutlet weak var textView: UITextView!

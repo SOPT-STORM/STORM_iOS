@@ -68,15 +68,7 @@ class RoundSettingViewController: UIViewController {
         roundGoalTextField.addTarget(self, action: #selector(self.limitRoundName), for: .editingChanged)
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//    
-//        getRoundIndex()
-//        minute = nil
-//        roundGoalTextField.text = nil
-//        timeLimitTextField.text = nil
-//    }
-    
-    // 팝뷰로 이동
+
     @objc func didPressExit() {
         guard let exitPopUpVC = UIStoryboard(name: "PopUp", bundle: nil).instantiateViewController(withIdentifier: "EndProjectPopViewController") as? EndProjectPopViewController else {return}
         exitPopUpVC.modalPresentationStyle = .overCurrentContext
@@ -86,7 +78,7 @@ class RoundSettingViewController: UIViewController {
     // 최종정리뷰로 이동
     @objc func popToFinish(){
         let rootVC = self.view.window?.rootViewController
-        
+
         self.view.window?.rootViewController?.dismiss(animated: false, completion: {
             guard let navi = rootVC as? UINavigationController else {return}
             navi.popToRootViewController(animated: false)
@@ -114,12 +106,9 @@ class RoundSettingViewController: UIViewController {
     
     @IBAction func confirmButton(_ sender: UIButton) {
         
-        print("2라운드 실행 \(roundGoalTextField.text) \(timeLimitTextField.text)")
         if roundGoalTextField.text?.isEmpty == false && timeLimitTextField.text?.isEmpty == false {
             
-            print("2라운드 실행2")
             self.postRoundSetting()
- 
         }
     }
     
@@ -130,9 +119,7 @@ class RoundSettingViewController: UIViewController {
         
         NetworkManager.shared.setRound(projectIdx: projectIdx, roundPurpose: roundGoal, roundTime: time)
         { (response) in
-            
-            print(response)
-            
+
             if response?.status == 200 {
                 
                 let storyBoard: UIStoryboard = UIStoryboard(name: "ProjectRound", bundle: nil)
@@ -141,11 +128,9 @@ class RoundSettingViewController: UIViewController {
                 vc.modalPresentationStyle = .fullScreen
                 
                 if self.roundNumb == 1 {
-                    print("호스트 조인룸 실행 \(ProjectSetting.shared.projectCode!), \(self.roundNumb)")
-//                SocketIOManager.shared.socket.emit("joinRoom", ProjectSetting.shared.projectCode!)
-                    
+
                     SocketIOManager.shared.socket.emit("joinRoom", ProjectSetting.shared.projectCode!) {
-                        print("조인룸 실행")
+
                         ProjectSetting.shared.roundIdx = response?.data!
                         self.present(vc, animated: false, completion: nil)
                     }
@@ -158,9 +143,6 @@ class RoundSettingViewController: UIViewController {
                         self.present(vc, animated: false, completion: nil)
                     }
                 }
-                
-//                ProjectSetting.shared.roundIdx = response?.data!
-//                self.present(vc, animated: false, completion: nil)
             }
         }
     }
@@ -184,7 +166,6 @@ class RoundSettingViewController: UIViewController {
     
     func getCopiedText() {
         let pasteboard = UIPasteboard.general
-//        pasteboard.string = (UserDefaults.standard.value(forKey: "projectCode") as! String)
         pasteboard.string = ProjectSetting.shared.projectCode!
     }
     
@@ -200,7 +181,7 @@ class RoundSettingViewController: UIViewController {
     
     @objc func handlePasteCodeImage(sender: UITapGestureRecognizer) {
         UIPasteboard.general.string = ProjectSetting.shared.projectCode!
-        self.showToast(message: "참여코드가 복사되었습니다", frame: CGRect(x: self.view.center.x, y: self.view.frame.height * (200/812) , width: self.view.frame.width * (215/375), height: self.view.frame.height * (49/812)))
+        self.showToast(message: "참여 코드가 복사되었습니다", frame: CGRect(x: self.view.center.x, y: self.view.frame.height * (200/812) , width: self.view.frame.width * (215/375), height: self.view.frame.height * (49/812)))
         getCopiedText()
     }
     
