@@ -57,13 +57,26 @@ class RoundSettingViewController: UIViewController {
         let tapPasteCodeImage = UITapGestureRecognizer(target: self, action: #selector(handlePasteCodeImage))
         pasteCodeImage.addGestureRecognizer(tapPasteCodeImage)
         
+        NotificationCenter.default.addObserver(self,
+        selector: #selector(popToFinish),
+        name: NSNotification.Name(rawValue: "ok"),
+        object: nil)
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "exit" ), style: .plain, target: self, action: #selector(didPressExit))
         
         // 지현 수정 라운드목표 24자 제한
         roundGoalTextField.addTarget(self, action: #selector(self.limitRoundName), for: .editingChanged)
     }
     
+
     @objc func didPressExit() {
+        guard let exitPopUpVC = UIStoryboard(name: "PopUp", bundle: nil).instantiateViewController(withIdentifier: "EndProjectPopViewController") as? EndProjectPopViewController else {return}
+        exitPopUpVC.modalPresentationStyle = .overCurrentContext
+        self.present(exitPopUpVC, animated: false, completion: nil)
+    }
+    
+    // 최종정리뷰로 이동
+    @objc func popToFinish(){
         let rootVC = self.view.window?.rootViewController
 
         self.view.window?.rootViewController?.dismiss(animated: false, completion: {
@@ -71,6 +84,8 @@ class RoundSettingViewController: UIViewController {
             navi.popToRootViewController(animated: false)
         })
     }
+    
+    
     
     // 지현 수정 라운드목표 24자 제한
     @objc func limitRoundName() {

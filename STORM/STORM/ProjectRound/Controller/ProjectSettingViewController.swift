@@ -12,6 +12,7 @@ class ProjectSettingViewController: UIViewController {
     
     @IBOutlet weak var projectNameTextField: UITextField!
     @IBOutlet weak var hostMessageTextView: UITextView!
+    @IBOutlet weak var placeHolderLabel: UILabel!
     
     var projectName: String? { return projectNameTextField.text }
     var projectComment: String? { return hostMessageTextView.text }
@@ -31,8 +32,6 @@ class ProjectSettingViewController: UIViewController {
         projectNameTextField.textColor = UIColor.textDefaultColor
         
         hostMessageTextView.textContainerInset = UIEdgeInsets(top: 10, left: 12, bottom: 0, right: 0)
-        hostMessageTextView.text = "프로젝트 소개 및 안내 사항을 입력해주세요"
-        hostMessageTextView.textColor = .systemGray2
         hostMessageTextView.font = UIFont(name: "NotoSansCJKkr-Medium", size: 13)
         hostMessageTextView.delegate = self
         
@@ -59,8 +58,9 @@ class ProjectSettingViewController: UIViewController {
     }
     
     func addProject() {
-        guard let projectName = projectName, let comment = projectComment else { return }
-        NetworkManager.shared.addProject(projectName: projectName, projectComment: comment, userIdx: self.userId) { (response) in
+        print(projectComment)
+        guard let projectName = projectName, placeHolderLabel.isHidden == true else { return }
+        NetworkManager.shared.addProject(projectName: projectName, projectComment: projectComment, userIdx: self.userId) { (response) in
             
             guard let status = response?.status else {return}
             
@@ -122,17 +122,13 @@ class ProjectSettingViewController: UIViewController {
 extension ProjectSettingViewController: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.text == "프로젝트 소개 및 안내 사항을 입력해주세요" {
-            textView.text = ""
-            textView.textColor = .placeholderColor
-        }
+        placeHolderLabel.isHidden = true
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
 
         if textView.text.isEmpty {
-            textView.text = "프로젝트 소개 및 안내 사항을 입력해주세요"
-            textView.textColor = .systemGray2
+            placeHolderLabel.isHidden = false
         }
     }
     

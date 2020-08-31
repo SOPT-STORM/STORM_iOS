@@ -32,20 +32,18 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     @IBOutlet weak var basicImageStackView: UIStackView!
     
-    // MARK:- 변수 선언
+    // MARK:- 변수
     
     let myPicker = UIImagePickerController()
     var separatorView: UIView!
     var previousName: String?
-    var pName: String?
     var previousImage: UIImage?
     var previousColor: UIColor?
     var img_flag: Int?
     var myPageInfo: MyPage?
     var isPhotoChanged: Bool?
-    
-        
-    // MARK:- viewDidLoad 선언
+
+    // MARK:- viewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,9 +72,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         // 프로필 불러오기
         getProfile()
         
-        pName = ""
-        
-        
         // navigationItem.backBarButtonItem?.action = #selector(didPressBack)
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "naviBackBtn" ), style: .plain, target: self, action: #selector(didPressBack))
         
@@ -104,13 +99,13 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         userImageView.makeCircle()
         userImageView.layer.masksToBounds = true
         
-        editPhotoButton.addShadow(cornerRadus: editPhotoButton.frame.width / 2, shadowOffset: CGSize(width: 0, height: 1), shadowOpacity: 0.16, shadowRadius: 2)
+        //editPhotoButton.cornerRadius = editPhotoButton.frame.width / 2
         
         // whiteView 모서리 radius
         whiteView.roundCorners(corners: [.topLeft, .topRight], radius: 30.0)
         
         // 이름 밑 회색 바
-        separatorView = UIView(frame: CGRect(x: 37, y: (self.view.frame.height * 0.54) , width: self.view.frame.width * 0.8, height: 2.0))
+        separatorView = UIView(frame: CGRect(x: 37, y: (self.view.frame.height * 0.48) , width: self.view.frame.width * 0.8, height: 2.0))
         separatorView.backgroundColor = UIColor(red: 234/255, green: 234/255, blue: 234/255, alpha: 1)
         self.view.addSubview(separatorView)
     }
@@ -134,15 +129,15 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @objc func didPressBack() {
+        // 이미지 저장 & 이름 저장 분기처리
         guard let userNameCount = userNameTextField.text?.count else {return}
         if userNameCount >= 2 {
             self.navigationController?.popViewController(animated: true)
             
-            if userNameTextField.text != previousName || pName != "" {
+            guard let now = userNameTextField.text, let previous = previousName else {return}
+            if now != previous {
                 modifyName()
-                if userImageView.isHidden {
-                    modifyImage()
-                }
+                modifyImage()
             }
             
             if userImageContainerView.backgroundColor != previousColor {
@@ -154,7 +149,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @objc func textFieldTextDidChange() {
-        
+        // 이미지 속 레이블은 2글자 제한, 텍스트필드는 10글자 제한
         guard let name = userNameTextField.text else {return}
     
         if name.count > 2 {
@@ -169,6 +164,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             userNameTextField.text = nameTenWord
         }
      }
+    
+    @objc func hideKeyboard(_ sender: UITextField){
+        self.view.endEditing(true)
+    }
     
     // MARK:- IBAction 선언
     
@@ -309,12 +308,11 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     func modifyImage() {
         
         guard let imgFlag = self.img_flag  else {return}
-        
-        if userImageView.isHidden { //기본
-            let img = self.userImageContainerView.asImage()
-            NetworkManager.shared.modifyProfileImage(userImg: img, userImgFlag: imgFlag) {}
-        } else if basicImageStackView.isHidden { //이미지
+        if basicImageStackView.isHidden { //이미지
             guard let img = self.userImageView.image else {return}
+            NetworkManager.shared.modifyProfileImage(userImg: img, userImgFlag: imgFlag) {}
+        } else {
+            let img = self.userImageContainerView.asImage()
             NetworkManager.shared.modifyProfileImage(userImg: img, userImgFlag: imgFlag) {}
         }
         
@@ -325,6 +323,21 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         guard let userName = userNameTextField.text else {return}
         NetworkManager.shared.modifyProfileName(userName: userName) { (response) in
         }
+    }
+    
+    func toolbarSetup() {
+        let toolbar = UIToolbar()
+        toolbar.frame = CGRect(x: 0, y: 0, width: 0, height: 38)
+        toolbar.barTintColor = UIColor.white
+                    
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+                    
+        let btnImg = UIImage.init(named: "Input_keyboard_icn")!.withRenderingMode(.alwaysOriginal)
+            
+        let hideKeybrd = UIBarButtonItem(image: btnImg, style: .done, target: self, action: #selector(hideKeyboard))
+
+        toolbar.setItems([flexibleSpace, hideKeybrd], animated: true)
+        userNameTextField.inputAccessoryView = toolbar
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
@@ -339,18 +352,23 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         // 에러메세지
         if textField.text?.count ?? 0 < 2 {
             errorMessage.isHidden = false
-            textField.text = previousName
         } else {
             errorMessage.isHidden = true
-            if userNameTextField.text != previousName || userNameTextField.text != pName {
+            guard let now = userNameTextField.text, let previous = previousName else {return}
+            if  now != previous {
                 self.showToast(message: "사용자 이름이 변경되었습니다", frame: CGRect(x: self.view.center.x, y: self.view.frame.height * (690/812) , width: self.view.frame.width * (215/375), height: self.view.frame.height * (49/812)))
-                pName = userNameTextField.text
             }
         }
     }
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if (string == " ") {
+          return false
+        }
+        return true
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
         userNameTextField.resignFirstResponder()
         return true
     }
@@ -394,12 +412,10 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             let cell1 = tableView.dequeueReusableCell(withIdentifier: "menuCell1", for:
             indexPath)
-
             return cell1
         default:
             let cell2 = tableView.dequeueReusableCell(withIdentifier: "menuCell2", for:
             indexPath)
-
             return cell2
         }
     }

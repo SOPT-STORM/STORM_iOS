@@ -78,11 +78,7 @@ class DeleteAccountViewController: UIViewController, UITextFieldDelegate, UIText
     
     @objc func keyboardShow(notification: NSNotification) {
         if pwdTextField.isEditing == true {
-            if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-                let keyboardRectangle = keyboardFrame.cgRectValue
-                let keyboardHeight = keyboardRectangle.height
-                topConstOfIndex.constant = -keyboardHeight+250
-            }
+            topConstOfIndex.constant = (self.view.frame.height * 0.05)
         }
     }
     
@@ -144,6 +140,7 @@ class DeleteAccountViewController: UIViewController, UITextFieldDelegate, UIText
         let hideKeybrd = UIBarButtonItem(image: btnImg, style: .done, target: self, action: #selector(hideKeyboard))
 
         toolbar.setItems([flexibleSpace, hideKeybrd], animated: true)
+        pwdTextField.inputAccessoryView = toolbar
         etcTextView.inputAccessoryView = toolbar
     }
     
