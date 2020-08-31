@@ -28,10 +28,7 @@ class LogoutPopUpViewController: UIViewController {
         print("delete email,pwd")
         UserDefaults.standard.removeObject(forKey: "email")
         UserDefaults.standard.removeObject(forKey: "pwd")
-        UserDefaults.standard.removeObject(forKey: "index")
-        
-//        self.view.window?.rootViewController?.dismiss(animated: false, completion: nil)
-        
+
         guard let loginVC = UIStoryboard(name: "LogIn", bundle: nil).instantiateViewController(withIdentifier: "LogInVC") as? LogInViewController else {return}
     
         let naviController = UINavigationController(rootViewController: loginVC)

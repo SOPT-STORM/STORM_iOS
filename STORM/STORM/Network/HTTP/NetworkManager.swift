@@ -521,7 +521,7 @@ class NetworkManager {
         }
     }
     
-    // MARK:- (POST) 회원 가입 // 햇당
+    // MARK:- (POST) 회원 가입
     
     func signUp(userImg: UIImage?, userName: String, userEmail: String, userPwd: String, userImgFlag: Int, completion: @escaping (SignUpResponse) -> Void) {
         let url = baseURL + "/user/signup"
@@ -559,7 +559,7 @@ class NetworkManager {
         }
     }
     
-    // MARK:- (POST) 로그인 // 햇당
+    // MARK:- (POST) 로그인
     
     func login(userEmail: String, userPwd: String, completion: @escaping (LogInResponse) -> Void) {
         let url = baseURL + "/user/signin"
@@ -582,10 +582,9 @@ class NetworkManager {
         }
     }
     
-    // MARK:- (POST) 비밀번호 확인 // 햇음
+    // MARK:- (POST) 비밀번호 확인
     
     func confirmPassword(userPwd: String, completion: @escaping (ConfirmResponse) -> Void) {
-        user_idx = UserDefaults.standard.integer(forKey: "index")
         let url = baseURL + "/user/checkPassword"
         
         let parameters = ConfirmPwd(user_idx: user_idx, user_password: userPwd)

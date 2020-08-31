@@ -34,12 +34,23 @@ class RoundMeetingViewController: UIViewController {
         setupLayout()
         setupInfo()
         
-        nextRoundNotificationView.cornerRadius = 20
+        if ProjectSetting.shared.mode == .member {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "exit" ), style: .plain, target: self, action: #selector(didPressExit))
+        }
+        
+        ProjectSetting.shared.scrapCards.removeAll()
+        
         nextRoundNotificationView.layer.maskedCorners = [.layerMinXMinYCorner, . layerMaxXMinYCorner]
+        
+        nextRoundNotificationView.cornerRadius = 20
+        nextRoundNotificationView.layer.shadowColor = UIColor.black.cgColor
+        nextRoundNotificationView.shadowOffset = CGSize(width: 0, height: -1.0)
+        nextRoundNotificationView.layer.shadowOpacity = 0.16
+        nextRoundNotificationView.layer.shadowRadius = 2.5
+        setupMemberSocket()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        setupMemberSocket()
         fetchCardList()
     }
     
@@ -51,6 +62,7 @@ class RoundMeetingViewController: UIViewController {
             oneLinePopVC.message = "ROUND \(roundNumb) 종료"
             oneLinePopVC.presentingVC = "roundMeetingVC"
             oneLinePopVC.modalPresentationStyle = .overCurrentContext
+            oneLinePopVC.dismissButton.isHidden = false
             self.present(oneLinePopVC, animated: false, completion: nil)
         } else {
             guard let selectNextPopVC = UIStoryboard.init(name: "PopUp", bundle: nil).instantiateViewController(withIdentifier: "selectNextPopVC") as? SelectNextPopViewController, let roundNumb = ProjectSetting.shared.roundNumb else {return}
@@ -59,8 +71,17 @@ class RoundMeetingViewController: UIViewController {
             selectNextPopVC.modalPresentationStyle = .overCurrentContext
             self.present(selectNextPopVC, animated: false, completion: nil)
         }
-        
+    }
+    
+    @objc func didPressExit() {
 
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = storyboard.instantiateViewController(withIdentifier: "projectFinalViewController") as? ProjectFinalViewController else {return}
+        
+        let naviController = UINavigationController(rootViewController: vc)
+        naviController.modalPresentationStyle = .fullScreen
+        
+        self.present(naviController, animated: false, completion: nil)
     }
     
     func setupLayout() {
@@ -89,9 +110,7 @@ class RoundMeetingViewController: UIViewController {
         guard let projectIndex = projectInfo.projectIdx, let roundIndex = projectInfo.roundIdx else {return}
         
         NetworkManager.shared.fetchCardList(projectIdx: projectIndex , roundIdx: roundIndex) { (response) in
-            
-            print("리스폰스~ \(response)")
-             
+
             guard let cardList = response?.data?.card_list else {return}
             self.cards = cardList
             self.collectionView.reloadData()
@@ -103,11 +122,9 @@ class RoundMeetingViewController: UIViewController {
             finishBtn.isHidden = true
             
             SocketIOManager.shared.socket.on("waitNextRound") { (dataArray, SocketAckEmitter) in
-                print("소켓 실행")
-                print("데이터 \(dataArray)")
-                print("소켓 \(SocketAckEmitter)")
+ 
+                self.isWaitNextRound = true
                 
-                //  호스트가 다음 라운드를 세팅중이라는 안내문구를 띄우기
                 UIView.animate(withDuration: 1) {
                     self.botConstOfnextRoundNoti.constant = 0
                     self.view.layoutIfNeeded()
@@ -115,24 +132,18 @@ class RoundMeetingViewController: UIViewController {
                 
                 guard let carouselView = self.navigationController?.visibleViewController as? AllRoundCarouselViewController else {return}
                 
-                print("여기 실행됨~~~!!")
+ 
                 carouselView.showUpNextRoundNoti()
-                self.isWaitNextRound = true
             }
             
             SocketIOManager.shared.socket.on("memberNextRound") { (dataArray, SocketAckEmitter) in
-                print("소켓 실행")
-                print("데이터 \(dataArray)")
-                print("소켓 \(SocketAckEmitter)")
-                
+
                     NetworkManager.shared.enterRound { (response) in
                         guard let roundIndex = response.data, let projectCode = ProjectSetting.shared.projectCode else {return}
                         ProjectSetting.shared.roundIdx = roundIndex
-                        
-                        print("라운드 인덱스 \(roundIndex) \(ProjectSetting.shared.roundIdx)")
-                        
+  
                         SocketIOManager.shared.socket.emit("enterNextRound", projectCode) {
-                            print("enterNextRound 실행")
+                            
                             self.socketOff()
                             self.presentingViewController?.presentingViewController?.dismiss(animated: false, completion: nil)
                         }
@@ -141,10 +152,7 @@ class RoundMeetingViewController: UIViewController {
             }
             
             SocketIOManager.shared.socket.on("memberFinishProject") { (dataArray, SocketAckEmitter) in
-                print("소켓 실행")
-                print("데이터 \(dataArray)")
-                print("소켓 \(SocketAckEmitter)")
-                
+   
                 // 프로젝트 최종 정리 뷰로 이동
                 
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -181,14 +189,37 @@ extension RoundMeetingViewController: UICollectionViewDataSource, UICollectionVi
             guard let url = card.card_img,let imageURL = URL(string: url) else {return UICollectionViewCell()}
             cell.drawingImgView.kf.setImage(with: imageURL)
             
-            cell.index = card.card_idx
+            cell.cardIndex = card.card_idx
+            cell.cellIndex = indexPath.row
+            
+            if card.scrap_flag == 1 {
+                cell.heartBtn.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                cell.heartBtn.tintColor = UIColor(red: 236/255, green: 101/255, blue: 101/255, alpha: 1)
+                cell.isScrapped = true
+            } else {
+                cell.heartBtn.setImage(UIImage(systemName: "heart"), for: .normal)
+                cell.heartBtn.tintColor = UIColor(red: 112/255, green: 112/255, blue: 112/255, alpha: 1)
+                cell.isScrapped = false
+            }
+            
             
             return cell
             
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "memoCell", for: indexPath) as! MemoCell
             cell.memo.text = card.card_txt!
-            cell.index = card.card_idx
+            cell.cardIndex = card.card_idx
+            cell.cellIndex = indexPath.row
+            
+            if card.scrap_flag == 1 {
+                cell.heartBtn.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                cell.heartBtn.tintColor = UIColor(red: 236/255, green: 101/255, blue: 101/255, alpha: 1)
+                cell.isScrapped = true
+            } else {
+                cell.heartBtn.setImage(UIImage(systemName: "heart"), for: .normal)
+                cell.heartBtn.tintColor = UIColor(red: 112/255, green: 112/255, blue: 112/255, alpha: 1)
+                cell.isScrapped = false
+            }
             
             return cell
         }
@@ -214,15 +245,12 @@ extension RoundMeetingViewController: UICollectionViewDataSource, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+
         guard let allRoundCarouselVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "allRoundCarouselVC") as? AllRoundCarouselViewController else {return}
         
         allRoundCarouselVC.cards = cards
         allRoundCarouselVC.cellIndexPath = indexPath
-        
-        if isWaitNextRound == true {
-            
-        }
+        allRoundCarouselVC.isWaitNextRound = isWaitNextRound
         
         self.navigationController?.pushViewController(allRoundCarouselVC, animated: true)
     }

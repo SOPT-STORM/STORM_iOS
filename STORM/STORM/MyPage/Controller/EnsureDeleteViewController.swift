@@ -24,7 +24,7 @@ class EnsureDeleteViewController: UIViewController {
         // 디자인
         self.setNaviTitle()
         self.view.tintColor = .stormRed
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "myprojectBtnBack" ), style: .plain, target: self, action: #selector(back))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "naviBackBtn" ), style: .plain, target: self, action: #selector(back))
     }
     
     override func viewDidLayoutSubviews() {
@@ -46,10 +46,17 @@ class EnsureDeleteViewController: UIViewController {
     }
     
     func deleteAccont() {
+
         guard let user_pwd = self.userPwd, let user_reason = self.reason else {return}
         NetworkManager.shared.withDrawal(userPwd: user_pwd, userReason: user_reason) { (response) in
-            // 클로져 없이 하면 계속 오류남 
-            self.view.window?.rootViewController?.dismiss(animated: false, completion: nil)
+            
+            guard let loginVC = UIStoryboard(name: "LogIn", bundle: nil).instantiateViewController(withIdentifier: "LogInVC") as? LogInViewController else {return}
+            
+                let naviController = UINavigationController(rootViewController: loginVC)
+
+                let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+                window?.rootViewController = naviController
+
         }
     }
     

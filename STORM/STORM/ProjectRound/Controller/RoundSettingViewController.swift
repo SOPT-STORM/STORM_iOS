@@ -57,31 +57,46 @@ class RoundSettingViewController: UIViewController {
         let tapPasteCodeImage = UITapGestureRecognizer(target: self, action: #selector(handlePasteCodeImage))
         pasteCodeImage.addGestureRecognizer(tapPasteCodeImage)
         
+        NotificationCenter.default.addObserver(self,
+        selector: #selector(popToFinish),
+        name: NSNotification.Name(rawValue: "ok"),
+        object: nil)
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "exit" ), style: .plain, target: self, action: #selector(didPressExit))
+        
+        // 지현 수정 라운드목표 24자 제한
+        roundGoalTextField.addTarget(self, action: #selector(self.limitRoundName), for: .editingChanged)
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//    
-//        getRoundIndex()
-//        minute = nil
-//        roundGoalTextField.text = nil
-//        timeLimitTextField.text = nil
-//    }
-    
+
     @objc func didPressExit() {
+        guard let exitPopUpVC = UIStoryboard(name: "PopUp", bundle: nil).instantiateViewController(withIdentifier: "EndProjectPopViewController") as? EndProjectPopViewController else {return}
+        exitPopUpVC.modalPresentationStyle = .overCurrentContext
+        self.present(exitPopUpVC, animated: false, completion: nil)
+    }
+    
+    // 최종정리뷰로 이동
+    @objc func popToFinish(){
         let rootVC = self.view.window?.rootViewController
-        
-//        guard let mainVC = self.view.window?.rootViewController?.children[0] else {return}
-//        
-//        print(mainVC)
-//        
-//        print("실행됨요")
-        
+
         self.view.window?.rootViewController?.dismiss(animated: false, completion: {
             guard let navi = rootVC as? UINavigationController else {return}
             navi.popToRootViewController(animated: false)
         })
     }
+    
+    
+    
+    // 지현 수정 라운드목표 24자 제한
+    @objc func limitRoundName() {
+        
+        guard let name = roundGoalTextField.text else {return}
+
+        if name.count > 24 {
+            let limitName = String(name.prefix(24))
+            roundGoalTextField.text = limitName
+        }
+     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -91,12 +106,9 @@ class RoundSettingViewController: UIViewController {
     
     @IBAction func confirmButton(_ sender: UIButton) {
         
-        print("2라운드 실행 \(roundGoalTextField.text) \(timeLimitTextField.text)")
         if roundGoalTextField.text?.isEmpty == false && timeLimitTextField.text?.isEmpty == false {
             
-            print("2라운드 실행2")
             self.postRoundSetting()
- 
         }
     }
     
@@ -107,9 +119,7 @@ class RoundSettingViewController: UIViewController {
         
         NetworkManager.shared.setRound(projectIdx: projectIdx, roundPurpose: roundGoal, roundTime: time)
         { (response) in
-            
-            print(response)
-            
+
             if response?.status == 200 {
                 
                 let storyBoard: UIStoryboard = UIStoryboard(name: "ProjectRound", bundle: nil)
@@ -118,11 +128,9 @@ class RoundSettingViewController: UIViewController {
                 vc.modalPresentationStyle = .fullScreen
                 
                 if self.roundNumb == 1 {
-                    print("호스트 조인룸 실행 \(ProjectSetting.shared.projectCode!), \(self.roundNumb)")
-//                SocketIOManager.shared.socket.emit("joinRoom", ProjectSetting.shared.projectCode!)
-                    
+
                     SocketIOManager.shared.socket.emit("joinRoom", ProjectSetting.shared.projectCode!) {
-                        print("조인룸 실행")
+
                         ProjectSetting.shared.roundIdx = response?.data!
                         self.present(vc, animated: false, completion: nil)
                     }
@@ -135,9 +143,6 @@ class RoundSettingViewController: UIViewController {
                         self.present(vc, animated: false, completion: nil)
                     }
                 }
-                
-//                ProjectSetting.shared.roundIdx = response?.data!
-//                self.present(vc, animated: false, completion: nil)
             }
         }
     }
@@ -154,14 +159,13 @@ class RoundSettingViewController: UIViewController {
         NetworkManager.shared.fetchRoundCountInfo(projectIdx: ProjectSetting.shared.projectIdx!) { (response) in
             
             guard let rooundIdx = response?.data else {return}
-            self.roundIndexSetLabel.text = "ROUND\(rooundIdx) 설정"
+            self.roundIndexSetLabel.text = "ROUND \(rooundIdx) 설정"
             self.roundNumb = rooundIdx
         }
     }
     
     func getCopiedText() {
         let pasteboard = UIPasteboard.general
-//        pasteboard.string = (UserDefaults.standard.value(forKey: "projectCode") as! String)
         pasteboard.string = ProjectSetting.shared.projectCode!
     }
     
@@ -177,7 +181,7 @@ class RoundSettingViewController: UIViewController {
     
     @objc func handlePasteCodeImage(sender: UITapGestureRecognizer) {
         UIPasteboard.general.string = ProjectSetting.shared.projectCode!
-        self.showToast(message: "참여코드가 복사되었습니다.", frame: CGRect(x: self.view.center.x, y: self.view.frame.height * (200/812) , width: self.view.frame.width * (215/375), height: self.view.frame.height * (49/812)))
+        self.showToast(message: "참여 코드가 복사되었습니다", frame: CGRect(x: self.view.center.x, y: self.view.frame.height * (200/812) , width: self.view.frame.width * (215/375), height: self.view.frame.height * (49/812)))
         getCopiedText()
     }
     

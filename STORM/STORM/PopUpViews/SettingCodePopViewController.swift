@@ -23,16 +23,10 @@ class SettingCodePopViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         settingCodePopView.layer.cornerRadius = 15
-//        settingCodePopView.addShadow(width: 1, height: 3, 0.2, 5)
-        //settingCodePopView.addRoundShadow(cornerRadius: 15)
         settingCodePopView.clipsToBounds = true
         
         projectCodeTextField.text = ProjectSetting.shared.projectCode!
-//        self.view.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.6)
-//        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
-       
     }
     
      // MARK:- IBAction 선언
@@ -43,13 +37,7 @@ class SettingCodePopViewController: UIViewController {
         self.dismiss(animated: false) {
             self.delegate.presentVC()
         }
-        
 
-//        let projectWaitingViewController = UIStoryboard(name: "ProjectForHost", bundle: nil).instantiateViewController(withIdentifier: "hostRoundSettingVC") as! HostRoundSettingViewController
-//         projectWaitingViewController.modalTransitionStyle = .coverVertical
-//         self.present(projectWaitingViewController, animated: true, completion: nil)
-
-         
      }
     
     @IBAction func copyButtonDidPress(_ sender: Any) {
@@ -61,19 +49,5 @@ class SettingCodePopViewController: UIViewController {
     func getCopiedText() {
         let pasteboard = UIPasteboard.general
         pasteboard.string = projectCodeTextField.text
-        print("copied")
-//
-//    @IBAction func createOkButtonDidTap(_ sender: UIButton) {
-//        NotificationCenter.default.post(name: .buttonClickInPopup, object: nil)
-//        self.removeAnimate()
-
     }
-    
-    // MARK:- 함수 선언
-    /*
-    func getProjectCode() {
-        NetworkManager.shared.fetchProjectInfo(projectIdx: <#T##Int#>, completion: <#T##(ProjectInfoResponse?) -> Void#>)
-    // TODO: projectWithCode 쓸지 projectWithIdx 쓸지 정하기.
-    } */
-
 }

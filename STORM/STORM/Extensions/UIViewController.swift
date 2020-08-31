@@ -37,8 +37,10 @@ extension UIViewController {
     }
     
     func setNaviTitle() {
+        
         navigationController?.navigationBar.topItem?.title = " "
         navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.isTranslucent = false
         
         let appearance = UINavigationBarAppearance()
         
@@ -47,9 +49,10 @@ extension UIViewController {
         
         navigationController?.navigationBar.standardAppearance = appearance
         
-        let titmeImg = UIImage(named: "img_logo")
+        let titmeImg = UIImage(named: "imgLogo")
         let imageView = UIImageView(image:titmeImg)
         navigationItem.titleView = imageView
+        
     }
     
     func loadSplashView() {

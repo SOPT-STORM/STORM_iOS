@@ -35,7 +35,7 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
         
         // navigationbar
         setSignUpNavi()
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "backBtn" ), style: .plain, target: self, action: #selector(didPressBackSignUp))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "naviBackBtn" ), style: .plain, target: self, action: #selector(didPressBackSignUp))
         
         // textfield cancel button
         emailTextField.clearButtonMode = .always
@@ -60,6 +60,11 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
         // 다음뷰 넘어갈 수 있는지
         canGoToNext = false
         
+        emailTextField.addTarget(self, action: #selector(emailPasswordEditing), for: .editingChanged)
+        pwdTextField.addTarget(self, action: #selector(emailPasswordEditing), for: .editingChanged)
+        pwdConfirmTextField.addTarget(self, action: #selector(emailPasswordEditing), for: .editingChanged)
+        
+        toolbarSetup()
         
     }
     
@@ -95,6 +100,15 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
         self.navigationController?.popToRootViewController(animated: true)
     }
     
+    @objc func emailPasswordEditing() {
+        errorLabelCondition()
+        buttonActivation()
+     }
+    
+    @objc func hideKeyboard(_ sender: Any){
+        self.view.endEditing(true)
+    }
+    
     // MARK:- IBAction
     
     @IBAction func serviceAgreeButtonClicked(_ sender: UIButton) {
@@ -124,14 +138,14 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
         }
         buttonActivation()
     }
-    
     @IBAction func goToServiceLink(_ sender: UIButton) {
-        guard let url = URL(string: "https://stormbrainstorming.creatorlink.net/이용약관") else {return}
+        guard let url = URL(string: "https://stormbrainstorming.creatorlink.net/%EC%9D%B4%EC%9A%A9%EC%95%BD%EA%B4%80"), UIApplication.shared.canOpenURL(url) else {return}
         UIApplication.shared.open(url)
+        
     }
     
     @IBAction func goToInfoLink(_ sender: UIButton) {
-        guard let url = URL(string: "https://stormbrainstorming.creatorlink.net/개인정보처리방침") else {return}
+        guard let url = URL(string: "https://stormbrainstorming.creatorlink.net/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EB%B0%A9%EC%B9%A8"), UIApplication.shared.canOpenURL(url) else {return}
         UIApplication.shared.open(url)
     }
     
@@ -148,10 +162,14 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
         if emailTextField.isEditing || pwdTextField.isEditing || pwdConfirmTextField.isEditing {self.view.endEditing(true)}
     }
     
-    func isValidEmail(_ email: String) -> Bool {
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
-        let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
-        return emailTest.evaluate(with: email)
+    func isValidEmail() -> Bool {
+        if let email = emailTextField.text {
+            let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+            let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
+            return emailTest.evaluate(with: email)
+        } else {
+            return false
+        }
     }
     
     func confirmEmailOverlap() {
@@ -165,38 +183,31 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
                     self.navigationController?.pushViewController(nextVC, animated: true)
                 }
             } else if response.status == 600 {
-                self.emailErrorLabel.text = "이미 사용 중인 이메일입니다."
+                self.emailErrorLabel.text = "이미 사용 중인 이메일입니다"
                 self.emailErrorLabel.isHidden = false
                 self.nextButton.backgroundColor = UIColor(red: 152/255, green: 152/255, blue: 152/255, alpha: 1)
             }
         }
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        
-        if textField == self.emailTextField {
-            guard let email = textField.text else {return}
-            if !isValidEmail(email) && emailTextField.text != "" {
-                emailErrorLabel.text = "이메일 형식이 올바르지 않습니다."
-                emailErrorLabel.isHidden = false
-            } else {
-                emailErrorLabel.isHidden = true
-            }
-            
+    func errorLabelCondition() {
+
+        if !isValidEmail() && emailTextField.text != "" {
+            emailErrorLabel.text = "이메일 형식이 올바르지 않습니다"
+            emailErrorLabel.isHidden = false
         } else {
-            if pwdTextField.text?.count ?? 0 < 8 || pwdTextField.text == "" {
-                pwdErrorLabel.text = "8자 이상 입력해주세요."
+            emailErrorLabel.isHidden = true
+        }
+        
+        if pwdTextField.text?.count ?? 0 < 8 && pwdTextField.text != "" {
+                pwdErrorLabel.text = "8자 이상 입력해주세요"
                 pwdErrorLabel.isHidden = false
-            } else if pwdTextField.text != pwdConfirmTextField.text {
-                pwdErrorLabel.text = "비밀번호가 일치하지 않습니다."
+        } else if pwdTextField.text != pwdConfirmTextField.text && pwdConfirmTextField.text != "" {
+                pwdErrorLabel.text = "비밀번호가 일치하지 않습니다"
                 pwdErrorLabel.isHidden = false
             } else {
                 pwdErrorLabel.isHidden = true
-            }
         }
-        
-        buttonActivation()
-        
     }
     
     func buttonActivation() {
@@ -207,6 +218,23 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
             nextButton.backgroundColor = UIColor(red: 152/255, green: 152/255, blue: 152/255, alpha: 1)
             canGoToNext = false
         }
+    }
+    
+    func toolbarSetup() {
+        let toolbar = UIToolbar()
+        toolbar.frame = CGRect(x: 0, y: 0, width: 0, height: 38)
+        toolbar.barTintColor = UIColor.white
+                    
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+                    
+        let btnImg = UIImage.init(named: "Input_keyboard_icn")!.withRenderingMode(.alwaysOriginal)
+            
+        let hideKeybrd = UIBarButtonItem(image: btnImg, style: .done, target: self, action: #selector(hideKeyboard))
+
+        toolbar.setItems([flexibleSpace, hideKeybrd], animated: true)
+        emailTextField.inputAccessoryView = toolbar
+        pwdTextField.inputAccessoryView = toolbar
+        pwdConfirmTextField.inputAccessoryView = toolbar
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -230,7 +258,7 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
         }
         
         if pwdTextField.text?.count ?? 0 < 8 {
-            pwdErrorLabel.text = "8자 이상 입력해주세요."
+            pwdErrorLabel.text = "8자 이상 입력해주세요"
             pwdErrorLabel.isHidden = false
         }
     }

@@ -58,6 +58,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         if let email = UserDefaults.standard.string(forKey: "email"), let pwd = UserDefaults.standard.string(forKey: "pwd") {
             autoLogin(userEmail: email, userPwd: pwd)
         }
+        
+        toolbarSetup()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -77,10 +79,15 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         lottieSetup()
     }
     
+    // MARK:- @objc
+    
+    @objc func hideKeyboard(_ sender: UITextField){
+        self.view.endEditing(true)
+    }
+    
     // MARK:- IBAction
     
     @IBAction func loginButtonDidPressed(_ sender: UIButton) {
-        // 일치하면 로그인 성공, 뷰 넘어감
         logIn()
     }
     
@@ -109,13 +116,24 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     
     // MARK:- 함수
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
-        self.view.endEditing(true)
+    func toolbarSetup() {
+        let toolbar = UIToolbar()
+        toolbar.frame = CGRect(x: 0, y: 0, width: 0, height: 38)
+        toolbar.barTintColor = UIColor.white
+                    
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+                    
+        let btnImg = UIImage.init(named: "Input_keyboard_icn")!.withRenderingMode(.alwaysOriginal)
+            
+        let hideKeybrd = UIBarButtonItem(image: btnImg, style: .done, target: self, action: #selector(hideKeyboard))
+
+        toolbar.setItems([flexibleSpace, hideKeybrd], animated: true)
+        emailTextField.inputAccessoryView = toolbar
+        pwdTextField.inputAccessoryView = toolbar
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        // 서버 연결 후
-        // ishidden == true && nil 아니여야 함
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -152,11 +170,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                 self.errorLabel.isHidden = true
                 
                 if let userIndex = response.data {
-                    UserDefaults.standard.set(userIndex, forKey: "index")
-
                     NetworkManager.shared.user_idx = userIndex
-                    print("로그인 유저 인덱스 \(userIndex)")
-
                 }
                 
                 guard let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainVC") as? MainViewController else {return}
@@ -180,11 +194,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                 self.errorLabel.isHidden = true
                 
                 if let userIndex = response.data {
-                    UserDefaults.standard.set(userIndex, forKey: "index")
-
                     NetworkManager.shared.user_idx = userIndex
-                    print(userIndex)
-
                 }
                 
                 guard let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainVC") as? MainViewController else {return}

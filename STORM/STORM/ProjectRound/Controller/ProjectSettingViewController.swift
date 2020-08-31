@@ -12,6 +12,7 @@ class ProjectSettingViewController: UIViewController {
     
     @IBOutlet weak var projectNameTextField: UITextField!
     @IBOutlet weak var hostMessageTextView: UITextView!
+    @IBOutlet weak var placeHolderLabel: UILabel!
     
     var projectName: String? { return projectNameTextField.text }
     var projectComment: String? { return hostMessageTextView.text }
@@ -31,14 +32,17 @@ class ProjectSettingViewController: UIViewController {
         projectNameTextField.textColor = UIColor.textDefaultColor
         
         hostMessageTextView.textContainerInset = UIEdgeInsets(top: 10, left: 12, bottom: 0, right: 0)
-        hostMessageTextView.text = "대기방의 참가자들에게 보여집니다."
-        hostMessageTextView.textColor = UIColor(red: 152/255, green: 152/255, blue: 152/255, alpha: 1)
         hostMessageTextView.font = UIFont(name: "NotoSansCJKkr-Medium", size: 13)
         hostMessageTextView.delegate = self
         
         toolbarSetup()
         setNaviTitle()
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "myprojectBtnBack" ), style: .plain, target: self, action: #selector(back))
+
+        // 지현 수정 프로젝트명 17자 제한
+        projectNameTextField.addTarget(self, action: #selector(self.limitProjectName), for: .editingChanged)
+
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "naviBackBtn" ), style: .plain, target: self, action: #selector(back))
+
     }
     
     // MARK: - IBAction
@@ -54,8 +58,9 @@ class ProjectSettingViewController: UIViewController {
     }
     
     func addProject() {
-        guard let projectName = projectName, let comment = projectComment else { return }
-        NetworkManager.shared.addProject(projectName: projectName, projectComment: comment, userIdx: self.userId) { (response) in
+        print(projectComment)
+        guard let projectName = projectName, placeHolderLabel.isHidden == true else { return }
+        NetworkManager.shared.addProject(projectName: projectName, projectComment: projectComment, userIdx: self.userId) { (response) in
             
             guard let status = response?.status else {return}
             
@@ -101,24 +106,30 @@ class ProjectSettingViewController: UIViewController {
         @objc func hideKeyboard(_ sender: Any){
             self.view.endEditing(true)
         }
+    
+        // 지현 수정 프로젝트명 17자 제한
+        @objc func limitProjectName() {
+            
+            guard let name = projectNameTextField.text else {return}
+
+            if name.count > 17 {
+                let limitName = String(name.prefix(17))
+                projectNameTextField.text = limitName
+            }
+         }
     }
 
 extension ProjectSettingViewController: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if hostMessageTextView.textColor == UIColor.placeholderColor {
-            hostMessageTextView.text = nil
-            hostMessageTextView.textColor = UIColor.textDefaultColor
-        }
+        placeHolderLabel.isHidden = true
     }
     
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        print(hostMessageTextView.text.count)
-        
-        if hostMessageTextView.text.count == 0 {
-            hostMessageTextView.text = "대기방의 참가자들에게 보여집니다."
-            hostMessageTextView.textColor = UIColor.placeholderColor
+
+        if textView.text.isEmpty {
+            placeHolderLabel.isHidden = false
         }
     }
     

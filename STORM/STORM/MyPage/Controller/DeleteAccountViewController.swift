@@ -31,7 +31,9 @@ class DeleteAccountViewController: UIViewController, UITextFieldDelegate, UIText
         // 네비게이션 바
         self.setNaviTitle()
         self.view.tintColor = .stormRed
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "myprojectBtnBack" ), style: .plain, target: self, action: #selector(back)) // 이 방법 밖에 없나....
+
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "naviBackBtn" ), style: .plain, target: self, action: #selector(back)) // 이 방법 밖에 없나....
+
         
         // 화면 가리는 문제
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -39,6 +41,9 @@ class DeleteAccountViewController: UIViewController, UITextFieldDelegate, UIText
         
         // error label
         errorMessageLabel.isHidden = true
+        
+        etcTextView.text = "탈퇴 사유를 입력해주세요 (선택)"
+        etcTextView.textColor = .systemGray2
         
         //툴바
         toolbarSetup()
@@ -60,8 +65,6 @@ class DeleteAccountViewController: UIViewController, UITextFieldDelegate, UIText
         
         // textView inset & radius
         etcTextView.textContainerInset = UIEdgeInsets(top: 12, left: 15, bottom: 12, right: 15)
-        etcTextView.text = "탈퇴 사유를 입력해주세요 (선택)"
-        etcTextView.textColor = .systemGray2
         etcTextView.cornerRadius = 8
         
         // textField inset & clear button & radius
@@ -75,20 +78,11 @@ class DeleteAccountViewController: UIViewController, UITextFieldDelegate, UIText
     
     @objc func keyboardShow(notification: NSNotification) {
         if pwdTextField.isEditing == true {
-            if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-                let keyboardRectangle = keyboardFrame.cgRectValue
-                let keyboardHeight = keyboardRectangle.height
-                topConstOfIndex.constant = -keyboardHeight+250
-            }
+            topConstOfIndex.constant = (self.view.frame.height * 0.05)
         }
     }
     
     @objc func hideKeyboard(_ sender: Any){
-        self.view.endEditing(true)
-        topConstOfIndex.constant = topConst
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         self.view.endEditing(true)
         topConstOfIndex.constant = topConst
     }
@@ -101,9 +95,17 @@ class DeleteAccountViewController: UIViewController, UITextFieldDelegate, UIText
     
     // MARK:- 함수
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
+        topConstOfIndex.constant = topConst
+        
+    }
+    
     func textViewDidBeginEditing(_ textView: UITextView) {
-        textView.textColor = .systemGray
-        textView.text = nil
+        if textView.text == "탈퇴 사유를 입력해주세요 (선택)" {
+            textView.text = ""
+            textView.textColor = .placeholderColor
+        }
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
@@ -138,6 +140,7 @@ class DeleteAccountViewController: UIViewController, UITextFieldDelegate, UIText
         let hideKeybrd = UIBarButtonItem(image: btnImg, style: .done, target: self, action: #selector(hideKeyboard))
 
         toolbar.setItems([flexibleSpace, hideKeybrd], animated: true)
+        pwdTextField.inputAccessoryView = toolbar
         etcTextView.inputAccessoryView = toolbar
     }
     

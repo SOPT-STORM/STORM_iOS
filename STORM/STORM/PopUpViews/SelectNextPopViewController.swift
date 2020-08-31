@@ -41,7 +41,6 @@ class SelectNextPopViewController: UIViewController {
         SocketIOManager.shared.socket.emit("finishProject", projectCode)
         
         NetworkManager.shared.finishProject { (response) in
-            print(response)
         }
         
         guard let presentingVc = self.presentingViewController else {return}
@@ -59,9 +58,7 @@ class SelectNextPopViewController: UIViewController {
     }
     
     func dismissViewControllers() {
-//    self.presentingViewController?.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: false, completion: nil)
-        
-        
+
         let rootVC = self.view.window?.rootViewController
 
         self.view.window?.rootViewController?.dismiss(animated: false, completion: {
@@ -73,24 +70,6 @@ class SelectNextPopViewController: UIViewController {
             roundSettingNaviController.modalPresentationStyle = .fullScreen
             navi.present(roundSettingNaviController, animated: false, completion: nil)
         })
-        
-//        self.view.window?.rootViewController?.dismiss(animated: false, completion: nil)
-        
-        
-
-//        guard let vc = self.presentingViewController else { return }
-
-//        while (vc.presentingViewController != nil) {
-//            print(vc)
-//            print(vc.presentingViewController is HostRoundSettingViewController)
-//            vc.dismiss(animated: true, completion: nil)
-//        }
-        
-//        guard let vc = self.presentingViewController else { return }
-//
-//        while !(vc.presentingViewController is HostRoundSettingViewController) {
-//            vc.dismiss(animated: true, completion: nil)
-//        }
     }
 }
     

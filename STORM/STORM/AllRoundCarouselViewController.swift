@@ -28,6 +28,7 @@ class AllRoundCarouselViewController: UIViewController {
     lazy var cellIndexPath = IndexPath()
     lazy var contentOffsetForIdx: CGFloat = 0
     lazy var isWaitNextRound: Bool = false
+    lazy var ScrappedCard: [Int:Bool] = [:]
     
     var topConst: CGFloat!
     var isInit: Bool = false
@@ -41,8 +42,17 @@ class AllRoundCarouselViewController: UIViewController {
             botConstOfnextRoundNoti.constant = 0
         }
         
-        nextRoundNotificationView.cornerRadius = 20
+        if ProjectSetting.shared.mode == .member {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "exit" ), style: .plain, target: self, action: #selector(didPressExit))
+        }
+        
         nextRoundNotificationView.layer.maskedCorners = [.layerMinXMinYCorner, . layerMaxXMinYCorner]
+        
+        nextRoundNotificationView.cornerRadius = 20
+        nextRoundNotificationView.layer.shadowColor = UIColor.black.cgColor
+        nextRoundNotificationView.shadowOffset = CGSize(width: 0, height: -1.0)
+        nextRoundNotificationView.layer.shadowOpacity = 0.16
+        nextRoundNotificationView.layer.shadowRadius = 2.5
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         
@@ -73,12 +83,10 @@ class AllRoundCarouselViewController: UIViewController {
         })
         
         self.setNaviTitle()
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "myprojectBtnBack" ), style: .plain, target: self, action: #selector(back))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "naviBackBtn" ), style: .plain, target: self, action: #selector(back))
     }
     
     @IBAction func didPressSave(_ sender: UIButton) {
-        print(memoView.text.count,cardsMemo[cardIdx], memoView.text, memoView.text.isEmpty)
-        
         if memoView.text.isEmpty == true {
             return
         } else if cardsMemo[cardIdx] == nil {
@@ -86,6 +94,17 @@ class AllRoundCarouselViewController: UIViewController {
         } else {
             modifyMemo()
         }
+    }
+    
+    @objc func didPressExit() {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = storyboard.instantiateViewController(withIdentifier: "projectFinalViewController") as? ProjectFinalViewController else {return}
+        
+        let naviController = UINavigationController(rootViewController: vc)
+        naviController.modalPresentationStyle = .fullScreen
+        
+        self.present(naviController, animated: false, completion: nil)
     }
     
     func showUpNextRoundNoti() {
@@ -136,7 +155,6 @@ class AllRoundCarouselViewController: UIViewController {
     func modifyMemo() {
         guard let content = memoView.text, let idx = cards[cardIdx].card_idx else {return}
         
-        print("카드 메모 수정")
         NetworkManager.shared.modifyCardMemo(cardIdx: idx, memoContent: content) { (response) in
             
             let toastFrame = CGRect(x: self.view.center.x, y: self.memoBackgroundView.frame.origin.y - self.memoBackgroundView.frame.height*0.3851, width: self.memoView.frame.width * 0.856, height: self.memoView.frame.height * 0.362)
@@ -176,8 +194,6 @@ class AllRoundCarouselViewController: UIViewController {
         let layout = CarouselLayout()
                 
         layout.itemSize = CGSize(width: collectionView.frame.size.width*0.796, height: collectionView.frame.height)
-        
-        print(collectionView.frame.size.height, collectionView.bounds.size.height)
         
         layout.sideItemScale = 0.698
         layout.spacing = -collectionView.frame.size.width*0.796*0.7848
@@ -227,6 +243,23 @@ extension AllRoundCarouselViewController: UICollectionViewDelegate, UICollection
             cell.userImgView.kf.setImage(with: userUrl)
             cell.drawingImgView.kf.setImage(with: drawingUrl )
             cell.index = card.card_idx
+            cell.cellIndex = indexPath.row
+            
+            if card.scrap_flag == 1 || ProjectSetting.shared.scrapCards[indexPath.row] == true {
+                cell.isScrapped = true
+            } else {
+                cell.isScrapped = false
+            }
+            
+            if card.scrap_flag == 1 || ProjectSetting.shared.scrapCards[indexPath.row] == true {
+                 cell.heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                 cell.heartButton.tintColor = UIColor(red: 236/255, green: 101/255, blue: 101/255, alpha: 1)
+                 cell.isScrapped = true
+             } else {
+                 cell.heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
+                 cell.heartButton.tintColor = UIColor(red: 112/255, green: 112/255, blue: 112/255, alpha: 1)
+                 cell.isScrapped = false
+             }
 
             return cell
         } else {
@@ -237,13 +270,24 @@ extension AllRoundCarouselViewController: UICollectionViewDelegate, UICollection
             cell.userImage.kf.setImage(with: userUrl)
             cell.textView.text = cardText
             cell.index = card.card_idx
+            cell.cellIndex = indexPath.row
+            
+            if card.scrap_flag == 1 || ProjectSetting.shared.scrapCards[indexPath.row] == true {
+                 cell.heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                 cell.heartButton.tintColor = UIColor(red: 236/255, green: 101/255, blue: 101/255, alpha: 1)
+                 cell.isScrapped = true
+             } else {
+                 cell.heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
+                 cell.heartButton.tintColor = UIColor(red: 112/255, green: 112/255, blue: 112/255, alpha: 1)
+                 cell.isScrapped = false
+             }
             
             return cell
         }
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        print("카드 인덱스~~ \(cardIdx)")
+ 
         cardIdx = Int(round(self.collectionView.contentOffset.x / self.contentOffsetForIdx))
         cardIndexLabel.text = "(\(cardIdx + 1)/\(cards.count))"
         
@@ -268,7 +312,6 @@ extension AllRoundCarouselViewController: UITextViewDelegate {
             memoTextLabel.isHidden = false
         }
     }
-    
 }
 
 

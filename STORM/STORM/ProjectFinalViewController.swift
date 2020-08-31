@@ -21,8 +21,6 @@ class ProjectFinalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(projectIndex)
-        
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
 
@@ -33,12 +31,14 @@ class ProjectFinalViewController: UIViewController {
         }
         
         let projectInfoCell = UINib(nibName: "ProjectInfoCell", bundle: nil)
-        let roundInfoCell = UINib(nibName: "RoundInfoCell", bundle: nil)
+
+        let roundCollectionViewCell = UINib(nibName: "RoundCollectionViewCell", bundle: nil)
+        
         let footer = UINib(nibName: "ProjectFinishFooterView", bundle: nil)
 
         self.collectionView.register(projectInfoCell, forCellWithReuseIdentifier: "projectInfoCell")
         
-        self.collectionView.register(roundInfoCell, forCellWithReuseIdentifier: "roundInfoCell")
+        self.collectionView.register(roundCollectionViewCell, forCellWithReuseIdentifier: "roundCollectionViewCell")
         
         self.collectionView.register(footer, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "projectFinishFooterView")
         
@@ -47,9 +47,7 @@ class ProjectFinalViewController: UIViewController {
         self.setNaviTitle()
         
         NetworkManager.shared.fetchFinalProjectInfo(projectIdx: projectIndex) { (response) in
-            
-            print(response)
-            
+
             self.projectInfo = response?.data
             
             guard self.projectInfo != nil && self.roundsInfo != nil && self.scrapCardInfo != nil else {return}
@@ -58,8 +56,6 @@ class ProjectFinalViewController: UIViewController {
         
         NetworkManager.shared.fetchAllRoundInfo(projectIdx: projectIndex) { (response) in
             self.roundsInfo = response?.data
-            
-            print(response)
             
             guard self.projectInfo != nil && self.roundsInfo != nil && self.scrapCardInfo != nil else {return}
             
@@ -70,9 +66,7 @@ class ProjectFinalViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         NetworkManager.shared.fetchAllScrapCard(projectIdx: projectIndex) { (response) in
             self.scrapCardInfo = response?.data
-            
-            print(response)
-            
+
             guard self.projectInfo != nil && self.roundsInfo != nil && self.scrapCardInfo != nil else {return}
             
             self.collectionView.reloadData()
@@ -197,6 +191,8 @@ extension ProjectFinalViewController: UICollectionViewDelegate, UICollectionView
             return cell
         } else if indexPath.section == 1 {
             
+            ProjectSetting.shared.scrapCards[indexPath.row] = true
+            
             guard let scrapCardInfo = scrapCardInfo?.card_item?[indexPath.row] else {return UICollectionViewCell()}
             
             if scrapCardInfo.card_img != nil {
@@ -214,13 +210,17 @@ extension ProjectFinalViewController: UICollectionViewDelegate, UICollectionView
                 return cell
             }
         } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "roundInfoCell", for: indexPath) as! RoundInfoCell
-            
-            guard let roundInfo = roundsInfo?[indexPath.row], let roundNumber = roundInfo.round_number, let roundPurpose = roundInfo.round_purpose, let roundTime = roundInfo.round_time else {return cell}
-            
-            cell.roundNumbLabel.text = "ROUND \(roundNumber)"
+
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "roundCollectionViewCell", for: indexPath) as! RoundCollectionViewCell
+
+            guard let roundInfo = roundsInfo?[indexPath.row], let roundNumb = roundInfo.round_number, let roundTime = roundInfo.round_time, let roundParticipants = roundInfo.round_participant, let roundPurpose = roundInfo.round_purpose else {return cell}
+
+            cell.projectNameLabel.isHidden = true
             cell.roundGoalLabel.text = roundPurpose
-            cell.timeLabel.text = "총 \(roundTime)분 소요"
+            cell.roundIndexLabel.text = "ROUND \(roundNumb)"
+            cell.timeLimitLabel.text = "총 \(roundTime)분 소요"
+            cell.participants = roundParticipants
+
             return cell
         }
     }
@@ -243,6 +243,8 @@ extension ProjectFinalViewController: UICollectionViewDelegate, UICollectionView
             
             vc.scrappedCards = scrappedCards
             vc.index = indexPath.row
+            vc.viewMode = .scrap
+            vc.projectName = projectInfo!.project_name
 
             self.navigationController?.pushViewController(vc, animated: true)
             
@@ -250,7 +252,7 @@ extension ProjectFinalViewController: UICollectionViewDelegate, UICollectionView
             
             guard let vc = UIStoryboard(name: "RoundFinished", bundle: nil).instantiateViewController(withIdentifier: "finishedRoundViewController") as? FinishedRoundViewController else {return}
             
-            guard let roundInformation = roundsInfo, let roundIdx = roundInformation[indexPath.row].round_idx else {return}
+            guard let roundInformation = roundsInfo else {return}
              
             vc.roundsInfo = roundInformation
             vc.selectedIndex = indexPath.row
@@ -272,6 +274,7 @@ extension ProjectFinalViewController: PushVC {
         
         vc.projectName = projectInformation.project_name
         vc.scrappedCards = cards
+        vc.projectIndex = projectIndex
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

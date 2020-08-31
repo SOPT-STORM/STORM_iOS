@@ -50,25 +50,29 @@ class RoundStartViewController: UIViewController {
             projectStartButton.isHidden = true
 
             SocketIOManager.shared.socket.on("roundStartMember") { (dataArray, SocketAckEmitter) in
-
-                self.presentRoundStartPopup()
+                
+                if self.presentedViewController == nil {
+                    self.presentRoundStartPopup()
+                } else {
+                    self.presentedViewController?.dismiss(animated: true, completion: {
+                        self.presentRoundStartPopup()
+                    })
+                }
             }
         }
         
         SocketIOManager.shared.socket.on("roundComplete") { (dataArray, SocketAckEmitter) in
-            print("라운드 컴플리트")
-            print("socket roundcomplete")
             
-            print("roundComplete \(dataArray)")
-            print("socket Emitter \(SocketAckEmitter)")
-            
+            print("라운드 컴플리트 실행이요~")
             self.fetchMemberList()
         }
         
         fetchRoundInfo()
+        fetchMemberList()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
+
         if ProjectSetting.shared.mode == .member {
             SocketIOManager.shared.socket.off("roundStartMember")
         }
@@ -111,7 +115,7 @@ class RoundStartViewController: UIViewController {
     
     func initialSetup() {
         fetchProjectInfo()
-        fetchMemberList()
+//        fetchMemberList()
         self.setNaviTitle()
         setupTableView()
 
@@ -141,9 +145,9 @@ class RoundStartViewController: UIViewController {
             ProjectSetting.shared.roundNumb = roundNumb
             
             if ProjectSetting.shared.mode == .host {
-                self.roundStateLabel.text = "ROUND\(roundNumb) 설정 완료"
+                self.roundStateLabel.text = "ROUND \(roundNumb) 설정 완료"
             }else {
-                self.roundStateLabel.text = "ROUND\(roundNumb) 준비 완료"
+                self.roundStateLabel.text = "ROUND \(roundNumb) 대기 중"
                 self.roundStartInfoLabel.isHidden = true
             }
             
@@ -188,7 +192,6 @@ class RoundStartViewController: UIViewController {
     func getCopiedText() {
         let pasteboard = UIPasteboard.general
         pasteboard.string = ProjectSetting.shared.projectCode!
-        print("copied")
     }
     
     func presentRoundStartPopup() {
@@ -204,7 +207,7 @@ class RoundStartViewController: UIViewController {
     // MARK: - Display Toast Popup
     
     @objc func handlePasteCodeImage(sender: UITapGestureRecognizer) {
-        self.showToast(message: "참여코드가 복사되었습니다.", frame: CGRect(x: self.view.center.x, y: self.view.frame.height * (200/812) , width: self.view.frame.width * (215/375), height: self.view.frame.height * (49/812)))
+        self.showToast(message: "참여 코드가 복사되었습니다", frame: CGRect(x: self.view.center.x, y: self.view.frame.height * (200/812) , width: self.view.frame.width * (215/375), height: self.view.frame.height * (49/812)))
         getCopiedText()
     }
 }
