@@ -32,20 +32,18 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     @IBOutlet weak var basicImageStackView: UIStackView!
     
-    // MARK:- 변수 선언
+    // MARK:- 변수
     
     let myPicker = UIImagePickerController()
     var separatorView: UIView!
     var previousName: String?
-    var pName: String?
     var previousImage: UIImage?
     var previousColor: UIColor?
     var img_flag: Int?
     var myPageInfo: MyPage?
     var isPhotoChanged: Bool?
-    
-        
-    // MARK:- viewDidLoad 선언
+
+    // MARK:- viewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,9 +71,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         // 프로필 불러오기
         getProfile()
-        
-        pName = ""
-        
         
         // navigationItem.backBarButtonItem?.action = #selector(didPressBack)
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "naviBackBtn" ), style: .plain, target: self, action: #selector(didPressBack))
@@ -110,7 +105,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         whiteView.roundCorners(corners: [.topLeft, .topRight], radius: 30.0)
         
         // 이름 밑 회색 바
-        separatorView = UIView(frame: CGRect(x: 37, y: (self.view.frame.height * 0.54) , width: self.view.frame.width * 0.8, height: 2.0))
+        separatorView = UIView(frame: CGRect(x: 37, y: (self.view.frame.height * 0.48) , width: self.view.frame.width * 0.8, height: 2.0))
         separatorView.backgroundColor = UIColor(red: 234/255, green: 234/255, blue: 234/255, alpha: 1)
         self.view.addSubview(separatorView)
     }
@@ -134,11 +129,13 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @objc func didPressBack() {
+        // 이미지 저장 & 이름 저장 분기처리
         guard let userNameCount = userNameTextField.text?.count else {return}
         if userNameCount >= 2 {
             self.navigationController?.popViewController(animated: true)
             
-            if userNameTextField.text != previousName || pName != "" {
+            guard let now = userNameTextField.text, let previous = previousName else {return}
+            if now != previous {
                 modifyName()
                 if userImageView.isHidden {
                     modifyImage()
@@ -154,7 +151,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @objc func textFieldTextDidChange() {
-        
+        // 이미지 속 레이블은 2글자 제한, 텍스트필드는 10글자 제한
         guard let name = userNameTextField.text else {return}
     
         if name.count > 2 {
@@ -339,18 +336,16 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         // 에러메세지
         if textField.text?.count ?? 0 < 2 {
             errorMessage.isHidden = false
-            textField.text = previousName
         } else {
             errorMessage.isHidden = true
-            if userNameTextField.text != previousName || userNameTextField.text != pName {
+            guard let now = userNameTextField.text, let previous = previousName else {return}
+            if  now != previous {
                 self.showToast(message: "사용자 이름이 변경되었습니다", frame: CGRect(x: self.view.center.x, y: self.view.frame.height * (690/812) , width: self.view.frame.width * (215/375), height: self.view.frame.height * (49/812)))
-                pName = userNameTextField.text
             }
         }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
         userNameTextField.resignFirstResponder()
         return true
     }
@@ -394,12 +389,10 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             let cell1 = tableView.dequeueReusableCell(withIdentifier: "menuCell1", for:
             indexPath)
-
             return cell1
         default:
             let cell2 = tableView.dequeueReusableCell(withIdentifier: "menuCell2", for:
             indexPath)
-
             return cell2
         }
     }
