@@ -137,9 +137,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             guard let now = userNameTextField.text, let previous = previousName else {return}
             if now != previous {
                 modifyName()
-                if userImageView.isHidden {
-                    modifyImage()
-                }
+                modifyImage()
             }
             
             if userImageContainerView.backgroundColor != previousColor {
@@ -310,12 +308,11 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     func modifyImage() {
         
         guard let imgFlag = self.img_flag  else {return}
-        
-        if userImageView.isHidden { //기본
-            let img = self.userImageContainerView.asImage()
-            NetworkManager.shared.modifyProfileImage(userImg: img, userImgFlag: imgFlag) {}
-        } else if basicImageStackView.isHidden { //이미지
+        if basicImageStackView.isHidden { //이미지
             guard let img = self.userImageView.image else {return}
+            NetworkManager.shared.modifyProfileImage(userImg: img, userImgFlag: imgFlag) {}
+        } else {
+            let img = self.userImageContainerView.asImage()
             NetworkManager.shared.modifyProfileImage(userImg: img, userImgFlag: imgFlag) {}
         }
         
