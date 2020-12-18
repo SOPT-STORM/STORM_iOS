@@ -18,15 +18,15 @@ class TimeManager {
         self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: {[unowned self] (timer: Timer) in
             
             timeHandler(self.endTime)
-
+            
         })
         self.timer.fire()
     }
     
     func invalidateTimer() {
         if timer != nil {
-        self.timer.invalidate()
-        self.timer = nil
+            self.timer.invalidate()
+            self.timer = nil
         }
     }
 }

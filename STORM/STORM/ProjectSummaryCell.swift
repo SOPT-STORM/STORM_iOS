@@ -14,7 +14,7 @@ class ProjectSummaryCell: UICollectionViewCell {
     @IBOutlet weak var projectName: UILabel!
     @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var gridView: UIView!
-   
+    
     @IBOutlet weak var columnBoundary: UIView!
     @IBOutlet weak var rowBoundary: UIView!
     
@@ -54,7 +54,7 @@ class ProjectSummaryCell: UICollectionViewCell {
             label.topAnchor.constraint(equalTo: self.gridView.topAnchor, constant: topAndBotConst).isActive = true
             label.trailingAnchor.constraint(equalTo: self.gridView.trailingAnchor, constant: -leadAndTrailConst).isActive = true
             label.bottomAnchor.constraint(equalTo: self.rowBoundary.topAnchor, constant: -topAndBotConst).isActive = true
-        
+            
         case 2:
             label.leadingAnchor.constraint(equalTo: self.gridView.leadingAnchor, constant: leadAndTrailConst).isActive = true
             label.topAnchor.constraint(equalTo: self.rowBoundary.bottomAnchor, constant: topAndBotConst).isActive = true
@@ -66,7 +66,7 @@ class ProjectSummaryCell: UICollectionViewCell {
             label.topAnchor.constraint(equalTo: self.rowBoundary.bottomAnchor, constant: topAndBotConst).isActive = true
             label.trailingAnchor.constraint(equalTo: self.gridView.trailingAnchor, constant: -leadAndTrailConst).isActive = true
             label.bottomAnchor.constraint(equalTo: self.gridView.bottomAnchor, constant: -topAndBotConst).isActive = true
-        
+            
         default:
             break
         }
@@ -74,6 +74,7 @@ class ProjectSummaryCell: UICollectionViewCell {
         label.font = UIFont(name: "NotoSansCJKkr-Medium", size: 11)
         label.text = text
         label.numberOfLines = 0
+        label.textColor = UIColor(red: 78/255, green: 78/255, blue: 78/255, alpha: 1)
     }
     
     func addDrawingImg(url: URL, index: Int) {
@@ -83,30 +84,30 @@ class ProjectSummaryCell: UICollectionViewCell {
         imageView.clipsToBounds = true
         self.gridView.addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
-
+        
         switch index{
-            case 0:
-                imageView.leadingAnchor.constraint(equalTo: self.gridView.leadingAnchor).isActive = true
-                imageView.topAnchor.constraint(equalTo: self.gridView.topAnchor).isActive = true
-                imageView.trailingAnchor.constraint(equalTo: self.columnBoundary.leadingAnchor).isActive = true
-                imageView.bottomAnchor.constraint(equalTo: self.rowBoundary.topAnchor).isActive = true
-            case 1:
-                imageView.leadingAnchor.constraint(equalTo: self.columnBoundary.trailingAnchor).isActive = true
-                imageView.topAnchor.constraint(equalTo: self.gridView.topAnchor).isActive = true
-                imageView.trailingAnchor.constraint(equalTo: self.gridView.trailingAnchor).isActive = true
-                imageView.bottomAnchor.constraint(equalTo: self.rowBoundary.topAnchor).isActive = true
-            case 2:
-                imageView.leadingAnchor.constraint(equalTo: self.gridView.leadingAnchor).isActive = true
-                imageView.topAnchor.constraint(equalTo: self.rowBoundary.bottomAnchor).isActive = true
-                imageView.trailingAnchor.constraint(equalTo: self.columnBoundary.leadingAnchor).isActive = true
-                imageView.bottomAnchor.constraint(equalTo: self.gridView.bottomAnchor).isActive = true
-            case 3:
-                imageView.leadingAnchor.constraint(equalTo: self.columnBoundary.trailingAnchor).isActive = true
-                imageView.topAnchor.constraint(equalTo: self.rowBoundary.bottomAnchor).isActive = true
-                imageView.trailingAnchor.constraint(equalTo: self.gridView.trailingAnchor).isActive = true
-                imageView.bottomAnchor.constraint(equalTo: self.gridView.bottomAnchor).isActive = true
-            default:
-                break
+        case 0:
+            imageView.leadingAnchor.constraint(equalTo: self.gridView.leadingAnchor).isActive = true
+            imageView.topAnchor.constraint(equalTo: self.gridView.topAnchor).isActive = true
+            imageView.trailingAnchor.constraint(equalTo: self.columnBoundary.leadingAnchor).isActive = true
+            imageView.bottomAnchor.constraint(equalTo: self.rowBoundary.topAnchor).isActive = true
+        case 1:
+            imageView.leadingAnchor.constraint(equalTo: self.columnBoundary.trailingAnchor).isActive = true
+            imageView.topAnchor.constraint(equalTo: self.gridView.topAnchor).isActive = true
+            imageView.trailingAnchor.constraint(equalTo: self.gridView.trailingAnchor).isActive = true
+            imageView.bottomAnchor.constraint(equalTo: self.rowBoundary.topAnchor).isActive = true
+        case 2:
+            imageView.leadingAnchor.constraint(equalTo: self.gridView.leadingAnchor).isActive = true
+            imageView.topAnchor.constraint(equalTo: self.rowBoundary.bottomAnchor).isActive = true
+            imageView.trailingAnchor.constraint(equalTo: self.columnBoundary.leadingAnchor).isActive = true
+            imageView.bottomAnchor.constraint(equalTo: self.gridView.bottomAnchor).isActive = true
+        case 3:
+            imageView.leadingAnchor.constraint(equalTo: self.columnBoundary.trailingAnchor).isActive = true
+            imageView.topAnchor.constraint(equalTo: self.rowBoundary.bottomAnchor).isActive = true
+            imageView.trailingAnchor.constraint(equalTo: self.gridView.trailingAnchor).isActive = true
+            imageView.bottomAnchor.constraint(equalTo: self.gridView.bottomAnchor).isActive = true
+        default:
+            break
         }
     }
 }

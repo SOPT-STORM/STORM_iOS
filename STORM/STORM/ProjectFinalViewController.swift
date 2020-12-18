@@ -9,7 +9,7 @@
 import UIKit
 
 class ProjectFinalViewController: UIViewController {
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     lazy var projectIndex = 0
@@ -23,7 +23,7 @@ class ProjectFinalViewController: UIViewController {
         
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
-
+        
         if self.presentingViewController != nil {
             navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "exit"), style: .plain, target: self, action: #selector(didPressExit))
             guard let projectIndex = ProjectSetting.shared.projectIdx else {return}
@@ -31,11 +31,11 @@ class ProjectFinalViewController: UIViewController {
         }
         
         let projectInfoCell = UINib(nibName: "ProjectInfoCell", bundle: nil)
-
+        
         let roundCollectionViewCell = UINib(nibName: "RoundCollectionViewCell", bundle: nil)
         
         let footer = UINib(nibName: "ProjectFinishFooterView", bundle: nil)
-
+        
         self.collectionView.register(projectInfoCell, forCellWithReuseIdentifier: "projectInfoCell")
         
         self.collectionView.register(roundCollectionViewCell, forCellWithReuseIdentifier: "roundCollectionViewCell")
@@ -47,7 +47,7 @@ class ProjectFinalViewController: UIViewController {
         self.setNaviTitle()
         
         NetworkManager.shared.fetchFinalProjectInfo(projectIdx: projectIndex) { (response) in
-
+            
             self.projectInfo = response?.data
             
             guard self.projectInfo != nil && self.roundsInfo != nil && self.scrapCardInfo != nil else {return}
@@ -66,7 +66,7 @@ class ProjectFinalViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         NetworkManager.shared.fetchAllScrapCard(projectIdx: projectIndex) { (response) in
             self.scrapCardInfo = response?.data
-
+            
             guard self.projectInfo != nil && self.roundsInfo != nil && self.scrapCardInfo != nil else {return}
             
             self.collectionView.reloadData()
@@ -82,81 +82,81 @@ class ProjectFinalViewController: UIViewController {
         })
     }
     
-        func createLayout() -> UICollectionViewLayout {
-            let layout = UICollectionViewCompositionalLayout {
-
-                (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
-
-                if sectionIndex == 0 {
-
+    func createLayout() -> UICollectionViewLayout {
+        let layout = UICollectionViewCompositionalLayout {
+            
+            (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
+            
+            if sectionIndex == 0 {
+                
                 let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                      heightDimension: .fractionalHeight(1.0)))
+                                                                                     heightDimension: .fractionalHeight(1.0)))
                 
                 let group = NSCollectionLayoutGroup.vertical(
                     layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                        heightDimension: .fractionalHeight(0.465)),
                     subitem: item, count: 1)
-
+                
                 let section = NSCollectionLayoutSection(group: group)
-                    
+                
                 let footerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(33))
-                    
+                
                 let sectionFooter = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: footerSize, elementKind: UICollectionView.elementKindSectionFooter, alignment: .bottom)
                 section.boundarySupplementaryItems = [sectionFooter]
-                    
+                
                 return section
-                } else if sectionIndex == 1 {
-
-                    let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                                                                         heightDimension: .fractionalWidth(1)))
-
-                    let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.32),
-                                                          heightDimension: .fractionalHeight(0.1892))
-                    let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
-
-                    let spacing = CGFloat(self.view.frame.width * 0.02)
-                    
-                    let section = NSCollectionLayoutSection(group: group)
-                    
-                    section.interGroupSpacing = spacing
-                    
-                    section.contentInsets = NSDirectionalEdgeInsets(top: self.view.frame.height*0.0138, leading: self.view.frame.width*0.072, bottom: self.view.frame.height*0.010, trailing: self.view.frame.width*0.072)
-                    
-                    let backgroundItem = NSCollectionLayoutDecorationItem.background(elementKind: "background")
-                    
-                    section.decorationItems = [backgroundItem]
-                    
-                    section.orthogonalScrollingBehavior = .continuous
-                    return section
-                } else {
-                    
-                    let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                                                                         heightDimension: .fractionalWidth(1)))
-
-                    let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                                          heightDimension: .fractionalHeight(0.172)) // width = 0.86 , 0.158
-                    let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitem: item, count: 1)
-
-                    let spacing = CGFloat(self.view.frame.height * 0.018)
-                    
-                    let section = NSCollectionLayoutSection(group: group)
-                    
-                    section.interGroupSpacing = spacing
-                    
-                    section.contentInsets = NSDirectionalEdgeInsets(top: self.view.frame.height * 0.018, leading: self.view.frame.width * 0.058, bottom: self.view.frame.height * 0.018, trailing: self.view.frame.width * 0.058)
-                    
-                    return section
-
-                }
-
+            } else if sectionIndex == 1 {
+                
+                let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                                                     heightDimension: .fractionalWidth(1)))
+                
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.32),
+                                                       heightDimension: .fractionalHeight(0.1892))
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
+                
+                let spacing = CGFloat(self.view.frame.width * 0.02)
+                
+                let section = NSCollectionLayoutSection(group: group)
+                
+                section.interGroupSpacing = spacing
+                
+                section.contentInsets = NSDirectionalEdgeInsets(top: self.view.frame.height*0.0138, leading: self.view.frame.width*0.072, bottom: self.view.frame.height*0.010, trailing: self.view.frame.width*0.072)
+                
+                let backgroundItem = NSCollectionLayoutDecorationItem.background(elementKind: "background")
+                
+                section.decorationItems = [backgroundItem]
+                
+                section.orthogonalScrollingBehavior = .continuous
+                return section
+            } else {
+                
+                let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                                                     heightDimension: .fractionalWidth(1)))
+                
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                       heightDimension: .fractionalHeight(0.172)) // width = 0.86 , 0.158
+                let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitem: item, count: 1)
+                
+                let spacing = CGFloat(self.view.frame.height * 0.018)
+                
+                let section = NSCollectionLayoutSection(group: group)
+                
+                section.interGroupSpacing = spacing
+                
+                section.contentInsets = NSDirectionalEdgeInsets(top: self.view.frame.height * 0.018, leading: self.view.frame.width * 0.058, bottom: self.view.frame.height * 0.018, trailing: self.view.frame.width * 0.058)
+                
+                return section
+                
             }
             
-            layout.register(ProjectFinishFooterView.self,
-            forDecorationViewOfKind: "background")
-            
-            return layout
         }
-
+        
+        layout.register(ProjectFinishFooterView.self,
+                        forDecorationViewOfKind: "background")
+        
+        return layout
+    }
+    
 }
 
 extension ProjectFinalViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -181,17 +181,15 @@ extension ProjectFinalViewController: UICollectionViewDelegate, UICollectionView
         if indexPath.section == 0 {
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "projectInfoCell", for: indexPath) as! ProjectInfoCell
-
+            
             guard let projectInformation = projectInfo else {return cell}
-
+            
             cell.participants = projectInformation.project_participants_list
             cell.projectName.text = projectInformation.project_name
             cell.roundInfo.text = "\(projectInformation.project_date) \n ROUND 총 \(projectInformation.round_count)회"
-
+            
             return cell
         } else if indexPath.section == 1 {
-            
-            ProjectSetting.shared.scrapCards[indexPath.row] = true
             
             guard let scrapCardInfo = scrapCardInfo?.card_item?[indexPath.row] else {return UICollectionViewCell()}
             
@@ -210,17 +208,17 @@ extension ProjectFinalViewController: UICollectionViewDelegate, UICollectionView
                 return cell
             }
         } else {
-
+            
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "roundCollectionViewCell", for: indexPath) as! RoundCollectionViewCell
-
+            
             guard let roundInfo = roundsInfo?[indexPath.row], let roundNumb = roundInfo.round_number, let roundTime = roundInfo.round_time, let roundParticipants = roundInfo.round_participant, let roundPurpose = roundInfo.round_purpose else {return cell}
-
+            
             cell.projectNameLabel.isHidden = true
             cell.roundGoalLabel.text = roundPurpose
             cell.roundIndexLabel.text = "ROUND \(roundNumb)"
             cell.timeLimitLabel.text = "총 \(roundTime)분 소요"
             cell.participants = roundParticipants
-
+            
             return cell
         }
     }
@@ -231,7 +229,7 @@ extension ProjectFinalViewController: UICollectionViewDelegate, UICollectionView
         footer.delegate = self
         return footer
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         return CGSize(width: self.view.frame.width, height: 33)
     }
@@ -242,10 +240,11 @@ extension ProjectFinalViewController: UICollectionViewDelegate, UICollectionView
             guard let vc = UIStoryboard(name: "RoundFinished", bundle: nil).instantiateViewController(withIdentifier: "cardDetailViewController") as? CardDetailViewController, let scrappedCards = scrapCardInfo?.card_item else {return}
             
             vc.scrappedCards = scrappedCards
+            vc.projectIdx = projectIndex
             vc.index = indexPath.row
             vc.viewMode = .scrap
             vc.projectName = projectInfo!.project_name
-
+            
             self.navigationController?.pushViewController(vc, animated: true)
             
         } else if indexPath.section == 2 {
@@ -253,7 +252,7 @@ extension ProjectFinalViewController: UICollectionViewDelegate, UICollectionView
             guard let vc = UIStoryboard(name: "RoundFinished", bundle: nil).instantiateViewController(withIdentifier: "finishedRoundViewController") as? FinishedRoundViewController else {return}
             
             guard let roundInformation = roundsInfo else {return}
-             
+            
             vc.roundsInfo = roundInformation
             vc.selectedIndex = indexPath.row
             vc.projectIndex = projectIndex

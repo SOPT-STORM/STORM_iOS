@@ -13,7 +13,7 @@ class DoneSignUpViewController: UIViewController {
     // MARK:- IBOutlet
     
     @IBOutlet weak var doneButton: UIButton!
-
+    
     // MARK:- viewDidLoad
     
     override func viewDidLoad() {
@@ -31,9 +31,9 @@ class DoneSignUpViewController: UIViewController {
     @IBAction func doneButtonDidPressed(_ sender: UIButton) {
         guard let loginVC = UIStoryboard(name: "LogIn", bundle: nil).instantiateViewController(withIdentifier: "LogInVC") as? LogInViewController else {return}
         
-            let naviController = UINavigationController(rootViewController: loginVC)
-
-            let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
-            window?.rootViewController = naviController
+        let naviController = UINavigationController(rootViewController: loginVC)
+        
+        let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+        window?.rootViewController = naviController
     }
 }

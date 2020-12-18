@@ -22,5 +22,4 @@ class ProjectSetting {
     var roundTime: Double = 0
     var roundPurpose: String = ""
     var projectName: String = ""
-    var scrapCards: [Int:Bool] = [:]
 }

@@ -26,20 +26,21 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         kingFisherSetup()
-
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         codeText.delegate = self
         
         toolbarSetup()
         self.setNaviTitle()
-    
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "mypage_btn" ), style: .plain, target: self, action: #selector(didPressMyPage))
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         fetchProjectList()
         loadSplashView()
     }
@@ -80,13 +81,13 @@ class MainViewController: UIViewController {
         let toolbar = UIToolbar()
         toolbar.frame = CGRect(x: 0, y: 0, width: 0, height: 38)
         toolbar.barTintColor = UIColor.white
-                
+        
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-                
+        
         let btnImg = UIImage.init(named: "Input_keyboard_icn")!.withRenderingMode(.alwaysOriginal)
         
         let hideKeybrd = UIBarButtonItem(image: btnImg, style: .done, target: self, action: #selector(hideKeyboard))
-
+        
         toolbar.setItems([flexibleSpace, hideKeybrd], animated: true)
         codeText.inputAccessoryView = toolbar
     }
@@ -102,11 +103,14 @@ class MainViewController: UIViewController {
     func fetchProjectList() {
         NetworkManager.shared.fetchProjectList { (response) in
             if response?.status != 200 || response?.data?.isEmpty == true {
+                
                 self.collectionView.isHidden = true
+            }else {
+                self.collectionView.isHidden = false
             }
-
+            
             guard let data = response?.data else {return}
-
+            
             self.dataArray = data
             self.collectionView.reloadData()
         }
@@ -119,11 +123,11 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         let numberOfItems = self.dataArray.count
         
-//        if numberOfItems == 0 {
-//            viewAllButton.isHidden = true
-//        } else {
-//            viewAllButton.isHidden = false
-//        }
+        //        if numberOfItems == 0 {
+        //            viewAllButton.isHidden = true
+        //        } else {
+        //            viewAllButton.isHidden = false
+        //        }
         
         return numberOfItems
     }
@@ -133,7 +137,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         var idx = 0
         
         let data = self.dataArray[indexPath.row]
-
+        
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "projectSummaryCell", for: indexPath) as? ProjectSummaryCell else {return UICollectionViewCell()}
         
         cell.projectName.text = data.project_name
@@ -148,9 +152,10 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             } else {
                 cell.addMemo(text: card.card_txt!, index: idx)
             }
-
+            
             idx += 1
         }
+        
         return cell
     }
     
@@ -160,8 +165,8 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-       let inset = self.view.frame.width * 0.0693
-       return UIEdgeInsets(top: 0, left: inset, bottom: 0, right: inset)
+        let inset = self.view.frame.width * 0.0693
+        return UIEdgeInsets(top: 0, left: inset, bottom: 0, right: inset)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -186,7 +191,7 @@ extension MainViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         guard let code = textField.text else {return true}
-    
+        
         NetworkManager.shared.fetchProjectStatus(projectCode: code) { (result) in
             
             guard let response = result else {return}
@@ -203,28 +208,28 @@ extension MainViewController: UITextFieldDelegate {
                 
                 popup.modalPresentationStyle = .overCurrentContext
                 self.present(popup, animated: false, completion: nil)
-                } else {
+            } else {
                 let storyboard = UIStoryboard(name: "PopUp", bundle: nil)
                 guard let popup = storyboard.instantiateViewController(withIdentifier: "oneLineMessagePopVC") as? OneLineMessagePopViewController else {return}
                 
                 popup.modalPresentationStyle = .overCurrentContext
                 
                 switch response.status {
-                    case 202:
-                        popup.message = response.message
-                        self.present(popup, animated: false, completion: nil)
-                    case 204:
-                        popup.message = response.message
-                        self.present(popup, animated: false, completion: nil)
-                    case 409:
-                        popup.message = response.message
-                        self.present(popup, animated: false, completion: nil)
-                    case 400:
-                        popup.message = response.message
-                        self.present(popup, animated: false, completion: nil)
-                    default:
-                        popup.message = "오류가 발생했습니다"
-                        self.present(popup, animated: false, completion: nil)
+                case 202:
+                    popup.message = response.message
+                    self.present(popup, animated: false, completion: nil)
+                case 204:
+                    popup.message = response.message
+                    self.present(popup, animated: false, completion: nil)
+                case 409:
+                    popup.message = response.message
+                    self.present(popup, animated: false, completion: nil)
+                case 400:
+                    popup.message = response.message
+                    self.present(popup, animated: false, completion: nil)
+                default:
+                    popup.message = "오류가 발생했습니다"
+                    self.present(popup, animated: false, completion: nil)
                 }
             }
         }

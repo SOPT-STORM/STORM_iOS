@@ -23,6 +23,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var errorLabel: UILabel!
     
+    @IBOutlet weak var passwdViewCenterY: NSLayoutConstraint!
+    
     // MARK:- 변수
     
     var isAutoLogiIn: Bool = false
@@ -58,6 +60,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         if let email = UserDefaults.standard.string(forKey: "email"), let pwd = UserDefaults.standard.string(forKey: "pwd") {
             autoLogin(userEmail: email, userPwd: pwd)
         }
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         
         toolbarSetup()
     }
@@ -81,7 +84,12 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     
     // MARK:- @objc
     
+    @objc func keyboardWillShow(_ notification: Notification) {
+        passwdViewCenterY.constant = -60
+    }
+    
     @objc func hideKeyboard(_ sender: UITextField){
+        passwdViewCenterY.constant = 0
         self.view.endEditing(true)
     }
     
@@ -120,19 +128,20 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         let toolbar = UIToolbar()
         toolbar.frame = CGRect(x: 0, y: 0, width: 0, height: 38)
         toolbar.barTintColor = UIColor.white
-                    
+        
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-                    
+        
         let btnImg = UIImage.init(named: "Input_keyboard_icn")!.withRenderingMode(.alwaysOriginal)
-            
+        
         let hideKeybrd = UIBarButtonItem(image: btnImg, style: .done, target: self, action: #selector(hideKeyboard))
-
+        
         toolbar.setItems([flexibleSpace, hideKeybrd], animated: true)
         emailTextField.inputAccessoryView = toolbar
         pwdTextField.inputAccessoryView = toolbar
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        passwdViewCenterY.constant = 0
         self.view.endEditing(true)
     }
     
@@ -144,7 +153,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-
+    
     func lottieSetup(){
         animationView.frame = view.bounds
         animationView.animation = Animation.named("login_0816")
@@ -152,11 +161,11 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         animationView.loopMode = .loop
         animationView.play()
         view.insertSubview(animationView, at: 0)
-       }
+    }
     
     func logIn() {
         guard let userEmail = emailTextField.text, let userPwd = pwdTextField.text else { return }
-
+        
         NetworkManager.shared.login(userEmail: userEmail, userPwd: userPwd) { (response) in
             
             let status = response.status
@@ -175,7 +184,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                 
                 guard let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainVC") as? MainViewController else {return}
                 let naviController = UINavigationController(rootViewController: mainVC)
-
+                
                 let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
                 window?.rootViewController = naviController
                 
@@ -202,14 +211,11 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                 
                 let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
                 window?.rootViewController = naviController
-    
+                
             } else if response.status == 600 {
                 
                 self.errorLabel.isHidden = false
             }
         }
     }
-    
-    
-    
 }

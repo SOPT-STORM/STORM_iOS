@@ -12,7 +12,7 @@ import Kingfisher
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     // MARK:- IBOutlet 선언
-
+    
     @IBOutlet weak var userImageContainerView: UIView!
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
@@ -42,7 +42,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     var img_flag: Int?
     var myPageInfo: MyPage?
     var isPhotoChanged: Bool?
-
+    
     // MARK:- viewDidLoad
     
     override func viewDidLoad() {
@@ -69,15 +69,14 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         // 사진 변경 여부
         isPhotoChanged = false
         
-        // 프로필 불러오기
-        getProfile()
-        
         // navigationItem.backBarButtonItem?.action = #selector(didPressBack)
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "naviBackBtn" ), style: .plain, target: self, action: #selector(didPressBack))
         
         // username 사진 위 두글자 제한
         userNameTextField.addTarget(self, action: #selector(textFieldTextDidChange), for: .editingChanged)
-
+        
+        self.basicImageStackView.isHidden = true
+        self.userNameLabel.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -110,6 +109,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         self.view.addSubview(separatorView)
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     // MARK:- @objc
     
     @objc func basicImage(){
@@ -135,13 +138,13 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             self.navigationController?.popViewController(animated: true)
             
             guard let now = userNameTextField.text, let previous = previousName else {return}
+            let nowTwoWord = String(now.prefix(2)), previousTwoWord = String(previous.prefix(2))
+            
             if now != previous {
                 modifyName()
-                modifyImage()
-            }
-            
-            if userImageContainerView.backgroundColor != previousColor {
-                modifyImage()
+                if userImageView.isHidden == true && nowTwoWord != previousTwoWord {
+                    modifyImage()
+                }
             } else if isPhotoChanged == true {
                 modifyImage()
             }
@@ -151,7 +154,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @objc func textFieldTextDidChange() {
         // 이미지 속 레이블은 2글자 제한, 텍스트필드는 10글자 제한
         guard let name = userNameTextField.text else {return}
-    
+        
         if name.count > 2 {
             let nameTwoWord = String(name.prefix(2))
             userNameLabel.text = nameTwoWord
@@ -163,7 +166,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             let nameTenWord = String(name.prefix(10))
             userNameTextField.text = nameTenWord
         }
-     }
+    }
     
     @objc func hideKeyboard(_ sender: UITextField){
         self.view.endEditing(true)
@@ -175,13 +178,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBAction func editPhoto(_ sender: UIButton) {
         guard let cameraPopUpVC = UIStoryboard(name: "PopUp", bundle: nil).instantiateViewController(withIdentifier: "CameraPopUp") as? CameraPopUpViewController else {return}
         
-        // 0.1 초 늦게 캡쳐 (버튼 회색으로 캡쳐되는 것 방지)
-        // 네비게이션 바까지 캡쳐
-        // 네비게이션 바 제외하려면 self.view.asImage()
-        
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
             cameraPopUpVC.backImage = self.navigationController?.view.asImage()
-         
+            
             cameraPopUpVC.modalPresentationStyle = .overCurrentContext
             
             cameraPopUpVC.delegate = self
@@ -244,7 +243,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 img_flag = 3
                 
             }
-            
+            isPhotoChanged = true
             sender.isSelected = true
         }
     }
@@ -272,9 +271,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 self.img_flag = userImageFlag
                 
                 if userImageFlag == 0 {
-                    
-                    self.basicImageStackView.isHidden = true
-                    self.userNameLabel.isHidden = true
                     
                     guard let userImage = self.myPageInfo?.user_img else {return}
                     self.userImageView.kf.setImage(with: URL(string: userImage))
@@ -315,9 +311,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             let img = self.userImageContainerView.asImage()
             NetworkManager.shared.modifyProfileImage(userImg: img, userImgFlag: imgFlag) {}
         }
-        
     }
-
+    
     // 이름 변경 저장
     func modifyName() {
         guard let userName = userNameTextField.text else {return}
@@ -329,13 +324,13 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         let toolbar = UIToolbar()
         toolbar.frame = CGRect(x: 0, y: 0, width: 0, height: 38)
         toolbar.barTintColor = UIColor.white
-                    
+        
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-                    
+        
         let btnImg = UIImage.init(named: "Input_keyboard_icn")!.withRenderingMode(.alwaysOriginal)
-            
+        
         let hideKeybrd = UIBarButtonItem(image: btnImg, style: .done, target: self, action: #selector(hideKeyboard))
-
+        
         toolbar.setItems([flexibleSpace, hideKeybrd], animated: true)
         userNameTextField.inputAccessoryView = toolbar
     }
@@ -363,7 +358,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if (string == " ") {
-          return false
+            return false
         }
         return true
     }
@@ -411,11 +406,11 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.section {
         case 0:
             let cell1 = tableView.dequeueReusableCell(withIdentifier: "menuCell1", for:
-            indexPath)
+                                                        indexPath)
             return cell1
         default:
             let cell2 = tableView.dequeueReusableCell(withIdentifier: "menuCell2", for:
-            indexPath)
+                                                        indexPath)
             return cell2
         }
     }
@@ -434,6 +429,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             deleteVC.modalPresentationStyle = .fullScreen
             self.navigationController?.pushViewController(deleteVC, animated: true)
         }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -13,12 +13,15 @@ class DrawingCarouselCell: UICollectionViewCell {
     var index: Int? = 0
     lazy var cellIndex: Int = 0
     lazy var isScrapped: Bool = false
-
+    
     @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var userImgView: UIImageView!
     @IBOutlet weak var drawingImgView: UIImageView!
     
     @IBOutlet weak var heartButton: UIButton!
+    
+    var cancelBlock: (() -> Void)? = nil
+    var scrapBlock: (() -> Void)? = nil
     
     
     @IBAction func didPressHeartBtn(_ sender: UIButton) {
@@ -30,8 +33,8 @@ class DrawingCarouselCell: UICollectionViewCell {
                 sender.setImage(heartFillImage, for: .normal)
                 sender.tintColor = UIColor(red: 236/255, green: 101/255, blue: 101/255, alpha: 1)
                 
-                ProjectSetting.shared.scrapCards[self.cellIndex] = true
                 self.isScrapped = true
+                self.scrapBlock?()
             }
         } else {
             
@@ -41,8 +44,8 @@ class DrawingCarouselCell: UICollectionViewCell {
                 sender.setImage(heartImage, for: .normal)
                 sender.tintColor = UIColor(red: 112/255, green: 112/255, blue: 112/255, alpha: 1)
                 
-                ProjectSetting.shared.scrapCards[self.cellIndex] = false
                 self.isScrapped = false
+                self.cancelBlock?()
             }
         }
     }

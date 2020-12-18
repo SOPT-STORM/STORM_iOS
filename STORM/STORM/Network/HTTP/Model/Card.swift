@@ -10,7 +10,7 @@ import UIKit
 
 struct Card: Codable {
     let card_idx: Int?
-    let scrap_flag: Int?
+    var scrap_flag: Int?
     let card_img: String?
     let card_txt: String?
     let user_img: String?

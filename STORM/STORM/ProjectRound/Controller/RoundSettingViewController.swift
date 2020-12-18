@@ -19,7 +19,7 @@ class RoundSettingViewController: UIViewController {
     @IBOutlet weak var pasteCodeImage: UIImageView!
     
     @IBOutlet weak var inputViewBotConst: NSLayoutConstraint!
-
+    
     var minute:Int? = Int()
     var timeLimitPicker = UIPickerView()
     
@@ -57,46 +57,32 @@ class RoundSettingViewController: UIViewController {
         let tapPasteCodeImage = UITapGestureRecognizer(target: self, action: #selector(handlePasteCodeImage))
         pasteCodeImage.addGestureRecognizer(tapPasteCodeImage)
         
-        NotificationCenter.default.addObserver(self,
-        selector: #selector(popToFinish),
-        name: NSNotification.Name(rawValue: "ok"),
-        object: nil)
-        
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "exit" ), style: .plain, target: self, action: #selector(didPressExit))
         
         // 지현 수정 라운드목표 24자 제한
         roundGoalTextField.addTarget(self, action: #selector(self.limitRoundName), for: .editingChanged)
     }
     
-
+    
     @objc func didPressExit() {
         guard let exitPopUpVC = UIStoryboard(name: "PopUp", bundle: nil).instantiateViewController(withIdentifier: "EndProjectPopViewController") as? EndProjectPopViewController else {return}
+        
+        exitPopUpVC.presentingVC = "roundSetting"
         exitPopUpVC.modalPresentationStyle = .overCurrentContext
         self.present(exitPopUpVC, animated: false, completion: nil)
     }
-    
-    // 최종정리뷰로 이동
-    @objc func popToFinish(){
-        let rootVC = self.view.window?.rootViewController
-
-        self.view.window?.rootViewController?.dismiss(animated: false, completion: {
-            guard let navi = rootVC as? UINavigationController else {return}
-            navi.popToRootViewController(animated: false)
-        })
-    }
-    
     
     
     // 지현 수정 라운드목표 24자 제한
     @objc func limitRoundName() {
         
         guard let name = roundGoalTextField.text else {return}
-
+        
         if name.count > 24 {
             let limitName = String(name.prefix(24))
             roundGoalTextField.text = limitName
         }
-     }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -119,25 +105,25 @@ class RoundSettingViewController: UIViewController {
         
         NetworkManager.shared.setRound(projectIdx: projectIdx, roundPurpose: roundGoal, roundTime: time)
         { (response) in
-
+            
             if response?.status == 200 {
                 
                 let storyBoard: UIStoryboard = UIStoryboard(name: "ProjectRound", bundle: nil)
                 let vc = storyBoard.instantiateViewController(withIdentifier: "roundNavi") as! UINavigationController
-                                
+                
                 vc.modalPresentationStyle = .fullScreen
                 
                 if self.roundNumb == 1 {
-
+                    
                     SocketIOManager.shared.socket.emit("joinRoom", ProjectSetting.shared.projectCode!) {
-
+                        
                         ProjectSetting.shared.roundIdx = response?.data!
                         self.present(vc, animated: false, completion: nil)
                     }
                 }
                 
                 if self.roundNumb > 1 {
-                guard let projectCode = ProjectSetting.shared.projectCode else {return}
+                    guard let projectCode = ProjectSetting.shared.projectCode else {return}
                     SocketIOManager.shared.socket.emit("nextRound", projectCode) {
                         ProjectSetting.shared.roundIdx = response?.data!
                         self.present(vc, animated: false, completion: nil)
@@ -189,13 +175,13 @@ class RoundSettingViewController: UIViewController {
         let toolbar = UIToolbar()
         toolbar.frame = CGRect(x: 0, y: 0, width: 0, height: 38)
         toolbar.barTintColor = UIColor.white
-                
+        
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-                
+        
         let btnImg = UIImage.init(named: "Input_keyboard_icn")!.withRenderingMode(.alwaysOriginal)
         
         let hideKeybrd = UIBarButtonItem(image: btnImg, style: .done, target: self, action: #selector(hideKeyboard))
-
+        
         toolbar.setItems([flexibleSpace, hideKeybrd], animated: true)
         roundGoalTextField.inputAccessoryView = toolbar
     }
@@ -209,7 +195,7 @@ class RoundSettingViewController: UIViewController {
 // MARK: - Extension
 
 extension RoundSettingViewController: UITextFieldDelegate {
-        
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField == timeLimitTextField{
             return false

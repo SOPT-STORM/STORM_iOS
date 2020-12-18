@@ -26,11 +26,11 @@ class ShadowRoundedView: UIView {
     
     private func addShadowAndRound() {
         self.layer.cornerRadius = cornerRadius
-                  
+        
         layer.backgroundColor = UIColor.clear.cgColor
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
-
+        
         layer.shadowOpacity = 0.3 // 0.16
         layer.shadowRadius = 15
         
@@ -39,7 +39,7 @@ class ShadowRoundedView: UIView {
         containerView.layer.masksToBounds = true
         containerView.translatesAutoresizingMaskIntoConstraints = false
         self.insertSubview(containerView, at: 0)
-
+        
         containerView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         containerView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         containerView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1).isActive = true
@@ -55,6 +55,6 @@ class ShadowRoundedView: UIView {
             }
         }
     }
-
+    
 }
 

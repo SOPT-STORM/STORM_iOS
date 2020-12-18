@@ -10,7 +10,7 @@ import UIKit
 import Kingfisher
 
 class ProjectInfoCell: UICollectionViewCell {
-
+    
     @IBOutlet weak var projectName: UILabel!
     
     @IBOutlet weak var roundInfo: UILabel!
@@ -32,19 +32,19 @@ class ProjectInfoCell: UICollectionViewCell {
     override func layoutSubviews() {
         
         if isUpdate == false {
-
-        if participants.count <= 5 {
-            participantsCount.isHidden = true
-        } else {
-            participantsCount.isHidden = false
-            let extraParticipants = participants.count - 5
-            participantsCount.text = "+\(extraParticipants)"
-        }
-
+            
+            if participants.count <= 5 {
+                participantsCount.isHidden = true
+            } else {
+                participantsCount.isHidden = false
+                let extraParticipants = participants.count - 5
+                participantsCount.text = "+\(extraParticipants)"
+            }
+            
             addProfileImage(imgURLs: participants)
             
             if !participants.isEmpty{
-            isUpdate = true
+                isUpdate = true
             }
         }
     }
@@ -54,7 +54,7 @@ class ProjectInfoCell: UICollectionViewCell {
         var count = 0
         
         for url in imgURLs {
-                    
+            
             let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: participantsProfile.frame.size.height, height: participantsProfile.frame.size.height))
             
             guard let imageURL = URL(string: url) else {return}
@@ -62,7 +62,7 @@ class ProjectInfoCell: UICollectionViewCell {
             imageView.kf.setImage(with: imageURL)
             imageView.contentMode = .scaleAspectFill
             imageView.translatesAutoresizingMaskIntoConstraints = false
-
+            
             participantsProfile.addArrangedSubview(imageView)
             
             imageView.layer.cornerRadius = imageView.frame.width / 2

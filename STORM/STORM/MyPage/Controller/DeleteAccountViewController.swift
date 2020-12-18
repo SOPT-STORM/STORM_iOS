@@ -31,9 +31,9 @@ class DeleteAccountViewController: UIViewController, UITextFieldDelegate, UIText
         // 네비게이션 바
         self.setNaviTitle()
         self.view.tintColor = .stormRed
-
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "naviBackBtn" ), style: .plain, target: self, action: #selector(back)) // 이 방법 밖에 없나....
-
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "naviBackBtn" ), style: .plain, target: self, action: #selector(back))
+        
         
         // 화면 가리는 문제
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -44,10 +44,6 @@ class DeleteAccountViewController: UIViewController, UITextFieldDelegate, UIText
         
         etcTextView.text = "탈퇴 사유를 입력해주세요 (선택)"
         etcTextView.textColor = .systemGray2
-        
-        //툴바
-        toolbarSetup()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -78,7 +74,7 @@ class DeleteAccountViewController: UIViewController, UITextFieldDelegate, UIText
     
     @objc func keyboardShow(notification: NSNotification) {
         if pwdTextField.isEditing == true {
-            topConstOfIndex.constant = (self.view.frame.height * 0.05)
+            topConstOfIndex.constant = 5 //(self.view.frame.height * 0.05)
         }
     }
     
@@ -128,25 +124,9 @@ class DeleteAccountViewController: UIViewController, UITextFieldDelegate, UIText
         return true
     }
     
-    func toolbarSetup() {
-        let toolbar = UIToolbar()
-        toolbar.frame = CGRect(x: 0, y: 0, width: 0, height: 38)
-        toolbar.barTintColor = UIColor.white
-                    
-        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-                    
-        let btnImg = UIImage.init(named: "Input_keyboard_icn")!.withRenderingMode(.alwaysOriginal)
-            
-        let hideKeybrd = UIBarButtonItem(image: btnImg, style: .done, target: self, action: #selector(hideKeyboard))
-
-        toolbar.setItems([flexibleSpace, hideKeybrd], animated: true)
-        pwdTextField.inputAccessoryView = toolbar
-        etcTextView.inputAccessoryView = toolbar
-    }
-    
     func confirmPassword() {
         guard let userPwd = pwdTextField.text else { return }
-
+        
         NetworkManager.shared.confirmPassword(userPwd: userPwd) { (response) in
             
             let status = response.status
@@ -163,5 +143,4 @@ class DeleteAccountViewController: UIViewController, UITextFieldDelegate, UIText
             }
         }
     }
-    
 }

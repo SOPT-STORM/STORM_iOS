@@ -19,7 +19,7 @@ class AddCardViewController: UIViewController {
     
     let projectIndex = UserDefaults.standard.integer(forKey: "projectIndex")
     let roundIndex = UserDefaults.standard.integer(forKey: "roundIndex")
-
+    
     @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var projectNameLabel: UILabel!
     @IBOutlet weak var roundLabel: UILabel!
@@ -49,7 +49,7 @@ class AddCardViewController: UIViewController {
         projectNameLabel.text = projectName
         roundGoalLabel.text = roundGoal
         roundLabel.text = round
-            
+        
         self.setNaviTitle()
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "naviBackBtn" ), style: .plain, target: self, action: #selector(back))
         
@@ -57,11 +57,11 @@ class AddCardViewController: UIViewController {
         
         toolbarSetup()
         memoSetup()
-
+        
         shadowView.addRoundShadow(contentView: memoView, cornerRadius: 15)
         shadowView.addRoundShadow(contentView: canvasView, cornerRadius: 15)
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         TimeManager.shared.makeAndFireTimer { (endTime) in
             let startTime = Date(timeIntervalSinceNow: 0)
@@ -88,17 +88,17 @@ class AddCardViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-
+        
         if self.isMovingFromParent {
             TimeManager.shared.invalidateTimer()
         }
     }
-        
+    
     @IBAction func didPressText(_ sender: UIButton) {
         mode = .memo
         canvasView.isHidden = true
         memoView.isHidden = false
-
+        
         textBtn.setImage(UIImage(named: "text_selected"), for: .normal)
         drawingBtn.setImage(UIImage(named: "drawing_deselected"), for: .normal)
         
@@ -142,7 +142,7 @@ class AddCardViewController: UIViewController {
             addCard()
         }
     }
-        
+    
     @objc func hideKeyboard(_ sender: Any){
         self.view.endEditing(true)
         botConstOfMemoView.constant = 0
@@ -152,7 +152,7 @@ class AddCardViewController: UIViewController {
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             let keyboardRectangle = keyboardFrame.cgRectValue
             let keyboardHeight = keyboardRectangle.height
-
+            
             botConstOfMemoView.constant = keyboardHeight - (self.view.frame.height - (shadowView.frame.origin.y + shadowView.frame.height))
             
         }
@@ -163,20 +163,20 @@ class AddCardViewController: UIViewController {
         
         let toastWidth = self.view.frame.width*0.573
         let toastFrame = CGRect(x: self.view.center.x, y: self.view.frame.height*0.674, width: toastWidth, height: toastWidth*0.227)
-                
+        
         if mode == .memo {
             if memoView.text == "" {
                 self.showToast(message: "카드를 입력해주세요", frame: toastFrame)
                 isAdding = false
                 return
             }
-                    
+            
             guard let content = memoView.text else {return}
-                    
+            
             NetworkManager.shared.addCard(projectIdx: ProjectSetting.shared.projectIdx!, roundIdx: ProjectSetting.shared.roundIdx!, cardImg: nil, cardTxt: content) {
-                        
+                
                 guard let vc = self.navigationController?.viewControllers.first as? AllRoundViewController else {return}
-                        
+                
                 self.showToast(message: "카드가 추가되었습니다", frame: toastFrame)
                 let card = addedCard(card_drawing: nil, card_text: content)
                 vc.cardList.insert(card, at: 0)
@@ -189,17 +189,17 @@ class AddCardViewController: UIViewController {
                 isAdding = false
                 return
             }
-                        
+            
             let img = canvasView.asImage()
-//            let scaledImg = UIImage.scale(image: img, by: 0.7)
-
+            //            let scaledImg = UIImage.scale(image: img, by: 0.7)
+            
             NetworkManager.shared.addCard(projectIdx: ProjectSetting.shared.projectIdx!, roundIdx: ProjectSetting.shared.roundIdx!, cardImg: img, cardTxt: nil) {
-                        
+                
                 self.showToast(message: "카드가 추가되었습니다", frame: toastFrame)
                 self.canvasView.clear()
-                        
+                
                 guard let vc = self.navigationController?.viewControllers.first as? AllRoundViewController else {return}
-                        
+                
                 let card = addedCard(card_drawing: img, card_text: nil)
                 vc.cardList.insert(card, at: 0)
                 self.isAdding = false
@@ -211,17 +211,17 @@ class AddCardViewController: UIViewController {
         let toolbar = UIToolbar()
         toolbar.frame = CGRect(x: 0, y: 0, width: 0, height: 38)
         toolbar.barTintColor = UIColor.white
-                
+        
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-                
+        
         let btnImg = UIImage.init(named: "Input_keyboard_icn")!.withRenderingMode(.alwaysOriginal)
         
         let hideKeybrd = UIBarButtonItem(image: btnImg, style: .done, target: self, action: #selector(hideKeyboard))
-
+        
         toolbar.setItems([flexibleSpace, hideKeybrd], animated: true)
         memoView.inputAccessoryView = toolbar
     }
-        
+    
     func memoSetup() {
         memoView.isHidden = true
         memoView.delegate = self
@@ -232,7 +232,7 @@ class AddCardViewController: UIViewController {
         memoView.textColor = UIColor(red: 112/255, green: 112/255, blue: 112/255, alpha: 1)
     }
     
-     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         self.memoView.endEditing(true)
         botConstOfMemoView.constant = 0
     }
@@ -241,14 +241,14 @@ class AddCardViewController: UIViewController {
 extension AddCardViewController: UITextViewDelegate {
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-
+        
         let lines = Int(memoView.contentSize.height / memoView.font!.lineHeight)
-        let maxOfContentsLine = Int(((memoViewHeight - 29*2) / memoView.font!.lineHeight)) - 3
-
+        let maxOfContentsLine = Int(((memoViewHeight - 29*2) / memoView.font!.lineHeight)) - 4
+        
         if text == "" {
             return true
         }
-
+        
         if lines <= maxOfContentsLine {
             return true
         } else {
@@ -259,12 +259,12 @@ extension AddCardViewController: UITextViewDelegate {
 
 extension AddCardViewController: PresentVC {
     func presentVC() {
-    if let roundMeetingVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "roundMeetingVC") as? RoundMeetingViewController {
-
-    let naviController = UINavigationController(rootViewController: roundMeetingVC)
-    naviController.modalPresentationStyle = .fullScreen
-    
-    self.present(naviController, animated: false, completion: nil)
+        if let roundMeetingVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "roundMeetingVC") as? RoundMeetingViewController {
+            
+            let naviController = UINavigationController(rootViewController: roundMeetingVC)
+            naviController.modalPresentationStyle = .fullScreen
+            
+            self.present(naviController, animated: false, completion: nil)
         }
     }
 }

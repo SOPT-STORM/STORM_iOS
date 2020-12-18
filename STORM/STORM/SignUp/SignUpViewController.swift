@@ -9,7 +9,7 @@
 import UIKit
 
 class SignUpViewController: UIViewController,UITextFieldDelegate {
-
+    
     // MARK:- IBOutlet
     
     @IBOutlet weak var emailTextField: UITextField!
@@ -22,6 +22,10 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
     
     @IBOutlet weak var emailErrorLabel: UILabel!
     @IBOutlet weak var pwdErrorLabel: UILabel!
+    
+    @IBOutlet weak var passwdViewCenterY: NSLayoutConstraint!
+    
+    @IBOutlet weak var emailViewCenterY: NSLayoutConstraint!
     
     var popViewDismissed: Bool?
     var canGoToNext: Bool?
@@ -53,9 +57,9 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
         pwdErrorLabel.isHidden = true
         
         NotificationCenter.default.addObserver(self,
-        selector: #selector(popView),
-        name: NSNotification.Name(rawValue: "OKButton"),
-        object: nil)
+                                               selector: #selector(popView),
+                                               name: NSNotification.Name(rawValue: "OKButton"),
+                                               object: nil)
         
         // 다음뷰 넘어갈 수 있는지
         canGoToNext = false
@@ -66,6 +70,7 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
         
         toolbarSetup()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
     }
     
     override func viewDidLayoutSubviews() {
@@ -103,11 +108,19 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
     @objc func emailPasswordEditing() {
         errorLabelCondition()
         buttonActivation()
-     }
+    }
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+        passwdViewCenterY.constant = -40
+        emailViewCenterY.constant = -40
+    }
     
     @objc func hideKeyboard(_ sender: Any){
+        passwdViewCenterY.constant = 0
+        emailViewCenterY.constant = 0
         self.view.endEditing(true)
     }
+    
     
     // MARK:- IBAction
     
@@ -153,13 +166,16 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
     
     @IBAction func nextButtonDidPressed(_ sender: UIButton) {
         if canGoToNext == true && serviceAgree == true && infoAgree == true {
-        confirmEmailOverlap()
+            confirmEmailOverlap()
         }
     }
     // MARK:- 함수
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         if emailTextField.isEditing || pwdTextField.isEditing || pwdConfirmTextField.isEditing {self.view.endEditing(true)}
+        
+        passwdViewCenterY.constant = 0
+        emailViewCenterY.constant = 0
     }
     
     func isValidEmail() -> Bool {
@@ -177,7 +193,7 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
         NetworkManager.shared.confirmEmail(userEmail: email) { (response) in
             if response.status == 200 {
                 if let nextVC = self.storyboard?.instantiateViewController(withIdentifier:
-                    "SignUpProfileVC") as? SignUpProfileViewController {
+                                                                            "SignUpProfileVC") as? SignUpProfileViewController {
                     nextVC.userEmail = self.emailTextField.text
                     nextVC.userPwd = self.pwdTextField.text
                     self.navigationController?.pushViewController(nextVC, animated: true)
@@ -191,7 +207,7 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
     }
     
     func errorLabelCondition() {
-
+        
         if !isValidEmail() && emailTextField.text != "" {
             emailErrorLabel.text = "이메일 형식이 올바르지 않습니다"
             emailErrorLabel.isHidden = false
@@ -200,13 +216,13 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
         }
         
         if pwdTextField.text?.count ?? 0 < 8 && pwdTextField.text != "" {
-                pwdErrorLabel.text = "8자 이상 입력해주세요"
-                pwdErrorLabel.isHidden = false
+            pwdErrorLabel.text = "8자 이상 입력해주세요"
+            pwdErrorLabel.isHidden = false
         } else if pwdTextField.text != pwdConfirmTextField.text && pwdConfirmTextField.text != "" {
-                pwdErrorLabel.text = "비밀번호가 일치하지 않습니다"
-                pwdErrorLabel.isHidden = false
-            } else {
-                pwdErrorLabel.isHidden = true
+            pwdErrorLabel.text = "비밀번호가 일치하지 않습니다"
+            pwdErrorLabel.isHidden = false
+        } else {
+            pwdErrorLabel.isHidden = true
         }
     }
     
@@ -224,13 +240,13 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
         let toolbar = UIToolbar()
         toolbar.frame = CGRect(x: 0, y: 0, width: 0, height: 38)
         toolbar.barTintColor = UIColor.white
-                    
+        
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-                    
+        
         let btnImg = UIImage.init(named: "Input_keyboard_icn")!.withRenderingMode(.alwaysOriginal)
-            
+        
         let hideKeybrd = UIBarButtonItem(image: btnImg, style: .done, target: self, action: #selector(hideKeyboard))
-
+        
         toolbar.setItems([flexibleSpace, hideKeybrd], animated: true)
         emailTextField.inputAccessoryView = toolbar
         pwdTextField.inputAccessoryView = toolbar
@@ -266,8 +282,8 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
 
 extension UITextField {
     func addLeftPadding() {
-      let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 13, height: self.frame.height))
-      self.leftView = paddingView
-      self.leftViewMode = ViewMode.always
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 13, height: self.frame.height))
+        self.leftView = paddingView
+        self.leftViewMode = ViewMode.always
     }
 }

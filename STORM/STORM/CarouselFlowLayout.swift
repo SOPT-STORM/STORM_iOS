@@ -34,12 +34,12 @@ class CarouselLayout: UICollectionViewFlowLayout {
         let yInset = (collectionViewSize.height - self.itemSize.height) / 2
         
         self.sectionInset = UIEdgeInsets(top: yInset, left: xInset, bottom: yInset, right: xInset)
-
+        
         let itemWidth = self.itemSize.width
         
         let scaledItemOffset =  (itemWidth - (itemWidth*(self.sideItemScale + (1 - self.sideItemScale)/2))) / 2
         self.minimumLineSpacing = spacing - scaledItemOffset
-
+        
         self.scrollDirection = .horizontal
     }
     
@@ -47,10 +47,10 @@ class CarouselLayout: UICollectionViewFlowLayout {
         return true
     }
     
-     public override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+    public override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         guard let superAttributes = super.layoutAttributesForElements(in: rect),
-            let attributes = NSArray(array: superAttributes, copyItems: true) as? [UICollectionViewLayoutAttributes]
-            else { return nil }
+              let attributes = NSArray(array: superAttributes, copyItems: true) as? [UICollectionViewLayoutAttributes]
+        else { return nil }
         return attributes.map({ self.transformLayoutAttributes(attributes: $0) })
     }
     
@@ -65,9 +65,9 @@ class CarouselLayout: UICollectionViewFlowLayout {
         let maxDistance = 2*(self.itemSize.width + self.minimumLineSpacing)
         
         let distance = min(abs(collectionCenter - center), maxDistance)
-
+        
         let ratio = (maxDistance - distance)/maxDistance
-
+        
         let alpha = ratio * (1 - self.sideItemAlpha) + self.sideItemAlpha
         let scale = ratio * (1 - self.sideItemScale) + self.sideItemScale
         
@@ -87,18 +87,18 @@ class CarouselLayout: UICollectionViewFlowLayout {
     }
     
     override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
-
+        
         guard let collectionView = self.collectionView else {
             let latestOffset = super.targetContentOffset(forProposedContentOffset: proposedContentOffset, withScrollingVelocity: velocity)
             return latestOffset
         }
-
+        
         let targetRect = CGRect(x: proposedContentOffset.x, y: 0, width: collectionView.frame.width, height: collectionView.frame.height)
         guard let rectAttributes = super.layoutAttributesForElements(in: targetRect) else { return .zero }
-
+        
         var offsetAdjustment = CGFloat.greatestFiniteMagnitude
         let horizontalCenter = proposedContentOffset.x + collectionView.frame.width / 2
-
+        
         for layoutAttributes in rectAttributes {
             let itemHorizontalCenter = layoutAttributes.center.x
             if (itemHorizontalCenter - horizontalCenter).magnitude < offsetAdjustment.magnitude {

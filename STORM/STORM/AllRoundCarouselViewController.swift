@@ -9,7 +9,7 @@
 import UIKit
 
 class AllRoundCarouselViewController: UIViewController {
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var memoBackgroundView: UIView!
@@ -28,7 +28,6 @@ class AllRoundCarouselViewController: UIViewController {
     lazy var cellIndexPath = IndexPath()
     lazy var contentOffsetForIdx: CGFloat = 0
     lazy var isWaitNextRound: Bool = false
-    lazy var ScrappedCard: [Int:Bool] = [:]
     
     var topConst: CGFloat!
     var isInit: Bool = false
@@ -38,12 +37,14 @@ class AllRoundCarouselViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        memoTextLabel.font = UIFont(name: "NotoSansCJKkr-Regular", size: 13)
+        
         if isWaitNextRound == true {
             botConstOfnextRoundNoti.constant = 0
         }
         
         if ProjectSetting.shared.mode == .member {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "exit" ), style: .plain, target: self, action: #selector(didPressExit))
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "exit" ), style: .plain, target: self, action: #selector(didPressExit))
         }
         
         nextRoundNotificationView.layer.maskedCorners = [.layerMinXMinYCorner, . layerMaxXMinYCorner]
@@ -64,7 +65,7 @@ class AllRoundCarouselViewController: UIViewController {
         
         topConst = topConstOfIndex.constant
         
-//        toolbarSetup()
+        toolbarSetup()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
             self.collectionView.scrollToItem(at: self.cellIndexPath, at: .centeredHorizontally, animated: false)
@@ -86,6 +87,10 @@ class AllRoundCarouselViewController: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "naviBackBtn" ), style: .plain, target: self, action: #selector(back))
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        //        fetchCardList()
+    }
+    
     @IBAction func didPressSave(_ sender: UIButton) {
         if memoView.text.isEmpty == true {
             return
@@ -97,14 +102,11 @@ class AllRoundCarouselViewController: UIViewController {
     }
     
     @objc func didPressExit() {
+        guard let exitPopUpVC = UIStoryboard(name: "PopUp", bundle: nil).instantiateViewController(withIdentifier: "EndProjectPopViewController") as? EndProjectPopViewController else {return}
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let vc = storyboard.instantiateViewController(withIdentifier: "projectFinalViewController") as? ProjectFinalViewController else {return}
-        
-        let naviController = UINavigationController(rootViewController: vc)
-        naviController.modalPresentationStyle = .fullScreen
-        
-        self.present(naviController, animated: false, completion: nil)
+        exitPopUpVC.presentingVC = "allRoundCarousel"
+        exitPopUpVC.modalPresentationStyle = .overCurrentContext
+        self.present(exitPopUpVC, animated: false, completion: nil)
     }
     
     func showUpNextRoundNoti() {
@@ -141,13 +143,13 @@ class AllRoundCarouselViewController: UIViewController {
         
         NetworkManager.shared.addCardMemo(cardIdx: idx, memoContent: content) { (response) in
             
-            let toastFrame = CGRect(x: self.view.center.x, y: self.memoBackgroundView.frame.origin.y - self.memoBackgroundView.frame.height*0.3851, width: self.memoView.frame.width * 0.856, height: self.memoView.frame.height * 0.362)
+            let toastFrame = CGRect(x: self.view.center.x, y: self.view.frame.height * (280/812) , width: self.view.frame.width * (215/375), height: self.view.frame.height * (49/812))
             
             if response?.status == 200 {
                 self.cardsMemo[self.cardIdx] = content
                 self.showToast(message: "메모가 저장되었습니다", frame: toastFrame)
             } else {
-                self.showToast(message: "메모가 저장 실패", frame: toastFrame)
+                self.showToast(message: "메모 저장을 실패했습니다", frame: toastFrame)
             }
         }
     }
@@ -157,28 +159,28 @@ class AllRoundCarouselViewController: UIViewController {
         
         NetworkManager.shared.modifyCardMemo(cardIdx: idx, memoContent: content) { (response) in
             
-            let toastFrame = CGRect(x: self.view.center.x, y: self.memoBackgroundView.frame.origin.y - self.memoBackgroundView.frame.height*0.3851, width: self.memoView.frame.width * 0.856, height: self.memoView.frame.height * 0.362)
+            let toastFrame = CGRect(x: self.view.center.x, y: self.view.frame.height * (280/812) , width: self.view.frame.width * (215/375), height: self.view.frame.height * (49/812))
             
             if response?.status == 200 {
                 self.cardsMemo[self.cardIdx] = content
-                self.showToast(message: "메모가 수정 되었습니다", frame: toastFrame)
+                self.showToast(message: "메모가 수정되었습니다", frame: toastFrame)
             } else {
-                self.showToast(message: "메모가 수정 실패", frame: toastFrame)
+                self.showToast(message: "메모 수정을 실패했습니다", frame: toastFrame)
             }
         }
     }
-
+    
     func toolbarSetup() {
         let toolbar = UIToolbar()
         toolbar.frame = CGRect(x: 0, y: 0, width: 0, height: 38)
         toolbar.barTintColor = UIColor.white
-                    
+        
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-                    
+        
         let btnImg = UIImage.init(named: "Input_keyboard_icn")!.withRenderingMode(.alwaysOriginal)
-            
+        
         let hideKeybrd = UIBarButtonItem(image: btnImg, style: .done, target: self, action: #selector(hideKeyboard))
-
+        
         toolbar.setItems([flexibleSpace, hideKeybrd], animated: true)
         memoView.inputAccessoryView = toolbar
     }
@@ -187,12 +189,12 @@ class AllRoundCarouselViewController: UIViewController {
         self.view.endEditing(true)
         topConstOfIndex.constant = topConst
         self.collectionView.isScrollEnabled = true
-       }
+    }
     
     func addCollectionView(){
-
+        
         let layout = CarouselLayout()
-                
+        
         layout.itemSize = CGSize(width: collectionView.frame.size.width*0.796, height: collectionView.frame.height)
         
         layout.sideItemScale = 0.698
@@ -206,7 +208,7 @@ class AllRoundCarouselViewController: UIViewController {
         
         let drawingCarouselCell = UINib(nibName: "DrawingCarouselCell", bundle: nil)
         let memoCarouselCell = UINib(nibName: "MemoCarouselCell", bundle: nil)
-
+        
         self.collectionView.register(drawingCarouselCell, forCellWithReuseIdentifier: "drawingCarouselCell")
         self.collectionView.register(memoCarouselCell, forCellWithReuseIdentifier: "memoCarouselCell")
         
@@ -217,6 +219,19 @@ class AllRoundCarouselViewController: UIViewController {
         contentOffsetForIdx = layout.itemSize.width + itemSpacing
     }
     
+    func fetchCardList() {
+        let projectInfo = ProjectSetting.shared
+        
+        guard let projectIndex = projectInfo.projectIdx, let roundIndex = projectInfo.roundIdx else {return}
+        
+        NetworkManager.shared.fetchCardList(projectIdx: projectIndex , roundIdx: roundIndex) { (response) in
+            
+            guard let cardList = response?.data?.card_list else {return}
+            self.cards = cardList
+            self.collectionView.reloadData()
+        }
+    }
+    
 }
 
 extension AllRoundCarouselViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -224,11 +239,11 @@ extension AllRoundCarouselViewController: UICollectionViewDelegate, UICollection
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cards.count
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let card = cards[indexPath.row]
@@ -245,22 +260,25 @@ extension AllRoundCarouselViewController: UICollectionViewDelegate, UICollection
             cell.index = card.card_idx
             cell.cellIndex = indexPath.row
             
-            if card.scrap_flag == 1 || ProjectSetting.shared.scrapCards[indexPath.row] == true {
+            //            if card.scrap_flag == 1 {
+            //                cell.isScrapped = true
+            //            } else {
+            //                cell.isScrapped = false
+            //            }
+            
+            if card.scrap_flag == 1 {
+                cell.heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                cell.heartButton.tintColor = UIColor(red: 236/255, green: 101/255, blue: 101/255, alpha: 1)
                 cell.isScrapped = true
             } else {
+                cell.heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
+                cell.heartButton.tintColor = UIColor(red: 112/255, green: 112/255, blue: 112/255, alpha: 1)
                 cell.isScrapped = false
             }
             
-            if card.scrap_flag == 1 || ProjectSetting.shared.scrapCards[indexPath.row] == true {
-                 cell.heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-                 cell.heartButton.tintColor = UIColor(red: 236/255, green: 101/255, blue: 101/255, alpha: 1)
-                 cell.isScrapped = true
-             } else {
-                 cell.heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
-                 cell.heartButton.tintColor = UIColor(red: 112/255, green: 112/255, blue: 112/255, alpha: 1)
-                 cell.isScrapped = false
-             }
-
+            cell.scrapBlock = {self.cards[indexPath.row].scrap_flag = 1}
+            cell.cancelBlock = {self.cards[indexPath.row].scrap_flag = 0}
+            
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "memoCarouselCell", for: indexPath) as! MemoCarouselCell
@@ -272,22 +290,25 @@ extension AllRoundCarouselViewController: UICollectionViewDelegate, UICollection
             cell.index = card.card_idx
             cell.cellIndex = indexPath.row
             
-            if card.scrap_flag == 1 || ProjectSetting.shared.scrapCards[indexPath.row] == true {
-                 cell.heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-                 cell.heartButton.tintColor = UIColor(red: 236/255, green: 101/255, blue: 101/255, alpha: 1)
-                 cell.isScrapped = true
-             } else {
-                 cell.heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
-                 cell.heartButton.tintColor = UIColor(red: 112/255, green: 112/255, blue: 112/255, alpha: 1)
-                 cell.isScrapped = false
-             }
+            if card.scrap_flag == 1 {
+                cell.heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                cell.heartButton.tintColor = UIColor(red: 236/255, green: 101/255, blue: 101/255, alpha: 1)
+                cell.isScrapped = true
+            } else {
+                cell.heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
+                cell.heartButton.tintColor = UIColor(red: 112/255, green: 112/255, blue: 112/255, alpha: 1)
+                cell.isScrapped = false
+            }
+            
+            cell.scrapBlock = {self.cards[indexPath.row].scrap_flag = 1}
+            cell.cancelBlock = {self.cards[indexPath.row].scrap_flag = 0}
             
             return cell
         }
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
- 
+        
         cardIdx = Int(round(self.collectionView.contentOffset.x / self.contentOffsetForIdx))
         cardIndexLabel.text = "(\(cardIdx + 1)/\(cards.count))"
         

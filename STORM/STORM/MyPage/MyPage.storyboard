@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3bE-5t-qUp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3bE-5t-qUp">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -73,7 +75,7 @@
                                                     </constraints>
                                                 </tableViewCellContentView>
                                             </tableViewCell>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="menuCell2" id="9Qf-Uj-zEi" userLabel="menuCell3">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="menuCell2" id="9Qf-Uj-zEi" userLabel="menuCell3">
                                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9Qf-Uj-zEi" id="Sje-BX-QQd">
@@ -99,6 +101,7 @@
                                                 </tableViewCellContentView>
                                             </tableViewCell>
                                         </prototypes>
+                                        <sections/>
                                         <connections>
                                             <outlet property="dataSource" destination="4bg-pK-hbd" id="Pa9-YW-PaL"/>
                                             <outlet property="delegate" destination="4bg-pK-hbd" id="Oja-cv-Rgx"/>
@@ -158,7 +161,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="TWT-Lf-sYp" firstAttribute="centerY" secondItem="khl-8E-7Nv" secondAttribute="centerY" multiplier="0.63" id="BsO-1w-GqN"/>
                                     <constraint firstItem="U2W-R1-l6q" firstAttribute="top" secondItem="tRq-wu-gH7" secondAttribute="bottom" constant="42" id="KGu-2z-eJs"/>
@@ -204,7 +207,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Wvt-3S-HKp" secondAttribute="height" multiplier="1:1" id="9CN-nZ-Ztz"/>
                                     <constraint firstAttribute="trailing" secondItem="w1i-WT-cg1" secondAttribute="trailing" id="AaU-EA-KIq"/>
@@ -227,6 +230,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="gyy-0K-PhF"/>
                         <color key="backgroundColor" red="0.92549019610000005" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="KUc-eL-qWa" firstAttribute="centerX" secondItem="zPU-1K-pth" secondAttribute="centerX" id="6t8-p9-imH"/>
@@ -244,7 +248,6 @@
                             <constraint firstItem="khl-8E-7Nv" firstAttribute="width" secondItem="zPU-1K-pth" secondAttribute="width" id="w0n-F6-dHq"/>
                             <constraint firstItem="Wvt-3S-HKp" firstAttribute="centerX" secondItem="zPU-1K-pth" secondAttribute="centerX" id="wvs-QZ-Hrv"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="gyy-0K-PhF"/>
                     </view>
                     <navigationItem key="navigationItem" id="VcQ-T9-faI"/>
                     <connections>
@@ -278,7 +281,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rH2-dZ-Mek">
                                 <rect key="frame" x="0.0" y="105.66666666666669" width="375" height="706.33333333333326"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GbD-js-Abg">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GbD-js-Abg">
                                         <rect key="frame" x="146" y="569.33333333333337" width="83" height="48"/>
                                         <color key="backgroundColor" red="0.96078431369999995" green="0.79215686269999996" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -304,13 +307,13 @@
                                 <rect key="frame" x="0.0" y="130.99999999999997" width="375" height="487.33333333333326"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="회원 탈퇴" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D2w-Sp-c8j">
-                                        <rect key="frame" x="44.666666666666664" y="35.333333333333343" width="71.333333333333343" height="26.666666666666671"/>
+                                        <rect key="frame" x="44.666666666666664" y="38.333333333333343" width="67.333333333333343" height="21"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="18"/>
                                         <color key="textColor" red="0.92549019610000005" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="탈퇴 사유 입력" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tbf-Ex-Brs">
-                                        <rect key="frame" x="44.666666666666664" y="109" width="91.333333333333343" height="22.333333333333343"/>
+                                        <rect key="frame" x="44.666666666666664" y="113.66666666666666" width="86.333333333333343" height="17.666666666666657"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="15"/>
                                         <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -334,13 +337,13 @@
                                         </connections>
                                     </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호 입력" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="981-E0-B5s">
-                                        <rect key="frame" x="44.666666666666657" y="327" width="87" height="22.333333333333314"/>
+                                        <rect key="frame" x="44.666666666666664" y="331.66666666666669" width="82.333333333333343" height="17.666666666666686"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="15"/>
                                         <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호가 일치하지 않습니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DI0-qQ-6pw">
-                                        <rect key="frame" x="191" y="412.33333333333337" width="138" height="16.333333333333314"/>
+                                        <rect key="frame" x="199" y="412.33333333333337" width="130" height="13"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="11"/>
                                         <color key="textColor" red="0.92549019610000005" green="0.40801423790000002" blue="0.42743539809999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -359,7 +362,7 @@
                                         </connections>
                                     </textField>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="DI0-qQ-6pw" secondAttribute="trailing" constant="46" id="3mO-vt-YaX"/>
                                     <constraint firstItem="cf5-A4-7L8" firstAttribute="width" secondItem="t0S-5q-bUy" secondAttribute="width" multiplier="0.765333" id="4DD-7i-K9u"/>
@@ -378,6 +381,7 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="TBL-ac-IPO"/>
                         <color key="backgroundColor" red="0.92549019610000005" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="t0S-5q-bUy" firstAttribute="height" secondItem="hFT-us-JYZ" secondAttribute="height" multiplier="0.6" id="7Zr-R3-3vX"/>
@@ -389,7 +393,6 @@
                             <constraint firstItem="t0S-5q-bUy" firstAttribute="trailing" secondItem="TBL-ac-IPO" secondAttribute="trailing" id="V0R-DO-w4f"/>
                             <constraint firstItem="t0S-5q-bUy" firstAttribute="leading" secondItem="TBL-ac-IPO" secondAttribute="leading" id="qhF-F3-Xdk"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="TBL-ac-IPO"/>
                     </view>
                     <navigationItem key="navigationItem" id="GuA-kI-2lJ"/>
                     <connections>
@@ -418,7 +421,7 @@
                                 <rect key="frame" x="0.0" y="105.66666666666669" width="375" height="706.33333333333326"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="탈퇴 하시겠습니까?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGK-ic-E3t">
-                                        <rect key="frame" x="126.33333333333334" y="315.33333333333331" width="122.33333333333334" height="22.333333333333314"/>
+                                        <rect key="frame" x="129.33333333333334" y="315.33333333333331" width="116.33333333333334" height="17.666666666666686"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="15"/>
                                         <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -426,7 +429,7 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stormLogo" translatesAutoresizingMaskIntoConstraints="NO" id="iFk-km-tcw">
                                         <rect key="frame" x="169.66666666666666" y="203.66666666666663" width="36" height="72.666666666666686"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YZA-gr-t5B">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YZA-gr-t5B">
                                         <rect key="frame" x="146" y="569.33333333333337" width="83" height="48"/>
                                         <color key="backgroundColor" red="0.96078431369999995" green="0.79215686269999996" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -441,13 +444,13 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="회원 탈퇴" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xdp-vN-fx1">
-                                        <rect key="frame" x="44.666666666666664" y="46.666666666666671" width="71.333333333333343" height="26.666666666666671"/>
+                                        <rect key="frame" x="44.666666666666664" y="49.333333333333329" width="67.333333333333343" height="21"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="18"/>
                                         <color key="textColor" red="0.92549019610000005" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yvv-HK-E0L">
-                                        <rect key="frame" x="82.666666666666686" y="358" width="210" height="50"/>
+                                        <rect key="frame" x="82.666666666666686" y="353.66666666666663" width="210" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="IPi-fr-pBb"/>
                                             <constraint firstAttribute="width" constant="210" id="nyZ-I1-eNC"/>
@@ -476,6 +479,7 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="7nd-K4-HXL"/>
                         <color key="backgroundColor" red="0.92549019610000005" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="geR-5Z-wIk" firstAttribute="leading" secondItem="7nd-K4-HXL" secondAttribute="leading" id="GzF-Jn-l4o"/>
@@ -484,7 +488,6 @@
                             <constraint firstItem="geR-5Z-wIk" firstAttribute="height" secondItem="k4K-tE-8oa" secondAttribute="height" multiplier="0.87" id="NNq-7O-Rkg"/>
                             <constraint firstItem="geR-5Z-wIk" firstAttribute="width" secondItem="k4K-tE-8oa" secondAttribute="width" id="Py0-w1-BYy"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="7nd-K4-HXL"/>
                     </view>
                     <navigationItem key="navigationItem" id="FfL-JZ-34W"/>
                     <connections>
@@ -529,5 +532,8 @@
         <image name="redCircle" width="13" height="13"/>
         <image name="stormLogo" width="36" height="65"/>
         <image name="yellowCircle" width="13" height="13"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

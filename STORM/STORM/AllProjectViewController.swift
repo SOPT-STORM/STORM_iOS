@@ -9,7 +9,7 @@
 import UIKit
 
 class AllProjectViewController: UIViewController {
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     lazy var data: [ProjectWithDetail] = []
@@ -22,9 +22,9 @@ class AllProjectViewController: UIViewController {
         
         self.setNaviTitle()
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "naviBackBtn" ), style: .plain, target: self, action: #selector(back))
-
+        
         collectionView.reloadData()
-   }
+    }
 }
 
 extension AllProjectViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -36,9 +36,9 @@ extension AllProjectViewController: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         var idx = 0
-
+        
         let data = self.data[indexPath.row]
-
+        
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "projectSummaryCell", for: indexPath) as? ProjectSummaryCell else {return UICollectionViewCell()}
         
         cell.projectName.text = data.project_name
@@ -53,7 +53,7 @@ extension AllProjectViewController: UICollectionViewDelegate, UICollectionViewDa
             } else {
                 cell.addMemo(text: card.card_txt!, index: idx)
             }
-
+            
             idx += 1
         }
         
@@ -67,8 +67,8 @@ extension AllProjectViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-       let inset = self.view.frame.width * 0.072
-       return UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
+        let inset = self.view.frame.width * 0.072
+        return UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

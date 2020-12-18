@@ -13,6 +13,8 @@ class MemoCell: UICollectionViewCell {
     lazy var cellIndex: Int = 0
     lazy var cardIndex: Int? = 0
     lazy var isScrapped: Bool = false
+    var cancelBlock: (() -> Void)? = nil
+    var scrapBlock: (() -> Void)? = nil
     
     @IBOutlet weak var memo: UILabel!
     @IBOutlet weak var heartBtn: UIButton!
@@ -26,8 +28,8 @@ class MemoCell: UICollectionViewCell {
                 let heartFillImage = UIImage(systemName: "heart.fill")
                 sender.setImage(heartFillImage, for: .normal)
                 sender.tintColor = UIColor(red: 236/255, green: 101/255, blue: 101/255, alpha: 1)
-                ProjectSetting.shared.scrapCards[self.cellIndex] = true
                 self.isScrapped = true
+                self.scrapBlock?()
             }
         } else {
             
@@ -36,18 +38,13 @@ class MemoCell: UICollectionViewCell {
                 let heartImage = UIImage(systemName: "heart")
                 sender.setImage(heartImage, for: .normal)
                 sender.tintColor = UIColor(red: 112/255, green: 112/255, blue: 112/255, alpha: 1)
-                ProjectSetting.shared.scrapCards[self.cellIndex] = false
                 self.isScrapped = false
+                self.cancelBlock?()
             }
         }
     }
     
-    override func layoutSubviews() {
-
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-
+    override func prepareForReuse() {
+        heartBtn.setImage(nil, for: .normal)
     }
 }
