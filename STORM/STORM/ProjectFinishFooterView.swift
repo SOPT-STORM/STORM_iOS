@@ -11,7 +11,7 @@ import UIKit
 class ProjectFinishFooterView: UICollectionReusableView {
     
     var delegate: PushVC!
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

@@ -20,9 +20,9 @@ class Canvas: UIView {
     }
     
     required init?(coder aDecoder: NSCoder) {
-       super.init(coder: aDecoder)
+        super.init(coder: aDecoder)
     }
-
+    
     func undo() {
         guard let line = lines.popLast() else {return}
         restoreLines.append(line)
@@ -43,7 +43,7 @@ class Canvas: UIView {
     }
     
     override func draw(_ rect: CGRect) {
-
+        
         super.draw(rect)
         guard let context = UIGraphicsGetCurrentContext() else {return} // 2D그림을 그리기 위한 context
         
@@ -61,14 +61,14 @@ class Canvas: UIView {
                 }
             }
         }
-    
+        
         context.strokePath()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         lines.append([CGPoint]()) // 사용자가 첫번째 화면 터치시 lines 배열에 CGPoint 배열 추가
     }
-
+    
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         guard let point = touches.first?.location(in: self) else {return} // 사용자의 touch move event 발생 시, point변수에 터치지점 좌표 저장

@@ -181,9 +181,9 @@
                             <constraint firstItem="mbE-Gx-UZe" firstAttribute="centerX" secondItem="Ldz-cK-7Yr" secondAttribute="centerX" id="FPV-BO-gQd"/>
                             <constraint firstItem="cvJ-IA-VZG" firstAttribute="centerX" secondItem="Ldz-cK-7Yr" secondAttribute="centerX" id="I5t-7D-Aq3"/>
                             <constraint firstItem="QxQ-bh-rdo" firstAttribute="centerX" secondItem="Ldz-cK-7Yr" secondAttribute="centerX" id="ImY-4u-u10"/>
-                            <constraint firstItem="XGV-dL-iSh" firstAttribute="centerY" secondItem="Ldz-cK-7Yr" secondAttribute="centerY" multiplier="0.73" id="MBd-pg-Ap9"/>
                             <constraint firstItem="j8b-OG-0zC" firstAttribute="centerX" secondItem="Ldz-cK-7Yr" secondAttribute="centerX" id="PjB-v7-xrN"/>
                             <constraint firstItem="QxQ-bh-rdo" firstAttribute="width" secondItem="Ldz-cK-7Yr" secondAttribute="width" multiplier="0.744" id="Tau-cc-g7s"/>
+                            <constraint firstItem="QxQ-bh-rdo" firstAttribute="top" secondItem="XGV-dL-iSh" secondAttribute="bottom" constant="58.329999999999998" id="UQ6-0f-zrF"/>
                             <constraint firstItem="qDw-kY-yc3" firstAttribute="width" secondItem="Ldz-cK-7Yr" secondAttribute="width" multiplier="0.770667" id="WOC-Re-8DM"/>
                             <constraint firstItem="Swr-PB-zuu" firstAttribute="width" secondItem="Ldz-cK-7Yr" secondAttribute="width" multiplier="0.377778" id="XRH-A1-vdj"/>
                             <constraint firstItem="qDw-kY-yc3" firstAttribute="centerX" secondItem="Ldz-cK-7Yr" secondAttribute="centerX" id="XVk-cE-UF8"/>
@@ -206,6 +206,7 @@
                         <outlet property="emailView" destination="QxQ-bh-rdo" id="x6d-gc-zVg"/>
                         <outlet property="errorLabel" destination="KSJ-jW-Q24" id="QYS-Mb-t2L"/>
                         <outlet property="loginButton" destination="qDw-kY-yc3" id="3Ny-Pu-JSo"/>
+                        <outlet property="passwdViewCenterY" destination="ad3-yA-lKh" id="Swt-mL-ppp"/>
                         <outlet property="pwdTextField" destination="ABL-kY-Iuv" id="AQh-uh-FYg"/>
                         <outlet property="pwdView" destination="j8b-OG-0zC" id="Y0n-22-Ehr"/>
                     </connections>

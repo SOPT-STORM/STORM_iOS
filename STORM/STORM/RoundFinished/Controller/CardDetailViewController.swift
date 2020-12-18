@@ -29,7 +29,7 @@ class CardDetailViewController: UIViewController {
     @IBOutlet weak var heartButton: UIButton!
     
     @IBOutlet weak var topConstOfInfoView: NSLayoutConstraint!
-
+    
     @IBOutlet weak var memoTextLabel: UILabel!
     
     
@@ -39,11 +39,14 @@ class CardDetailViewController: UIViewController {
     lazy var isEdit: Bool = false
     lazy var viewMode: ViewMode = .round
     lazy var cardsMemo: [Int:String] = [:]
+    lazy var scrapCards: [Int:Bool] = [:]
     lazy var cardIndex: Int = 0
     lazy var projectName = ""
     lazy var roundPurpose = ""
     lazy var roundNumber: Int = 0
     lazy var roundTime: Int = 0
+    lazy var roundIdx: Int = 0
+    lazy var projectIdx: Int = 0
     
     var topConst: CGFloat!
     
@@ -51,9 +54,9 @@ class CardDetailViewController: UIViewController {
         if isEdit == false {
             
             if index >= 1 {
-            index -= 1
+                index -= 1
             }
-        
+            
             if viewMode == .round {
                 updateRoundCard(index: index)
             } else {
@@ -74,7 +77,7 @@ class CardDetailViewController: UIViewController {
             if index < max(cards.count - 1, scrappedCards.count - 1) {
                 index += 1
             }
-
+            
             if viewMode == .round {
                 updateRoundCard(index: index)
             } else {
@@ -90,26 +93,25 @@ class CardDetailViewController: UIViewController {
     }
     
     @IBAction func didPressHeartBtn(_ sender: UIButton) {
-        if ProjectSetting.shared.scrapCards[self.index] == false {
+        if scrapCards[self.index] == false {
             NetworkManager.shared.scrapCard(cardIdx: cardIndex) { (response) in
                 let heartFillImage = UIImage(systemName: "heart.fill")
                 sender.setImage(heartFillImage, for: .normal)
                 sender.tintColor = UIColor(red: 236/255, green: 101/255, blue: 101/255, alpha: 1)
-                ProjectSetting.shared.scrapCards[self.index] = true
-
+                self.scrapCards[self.index] = true
             }
         } else {
             NetworkManager.shared.cancelScrap(cardIdx: cardIndex) { (response) in
                 let heartImage = UIImage(systemName: "heart")
                 sender.setImage(heartImage, for: .normal)
                 sender.tintColor = UIColor(red: 112/255, green: 112/255, blue: 112/255, alpha: 1)
-                ProjectSetting.shared.scrapCards[self.index] = false
+                self.scrapCards[self.index] = false
             }
         }
     }
     
     @IBAction func didPressSave(_ sender: UIButton) {
-     
+        
         if memoView.text.isEmpty == true {
             return
         } else if cardsMemo[index] == nil {
@@ -129,49 +131,25 @@ class CardDetailViewController: UIViewController {
             }
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         memoView.delegate = self
-
-        createCardMemo()
         
-        if viewMode == .round {
-            updateRoundCard(index: index)
-            
-            roundLabel.text = "ROUND \(roundNumber)"
-            roundPurposeLabel.text = roundPurpose
-            timeLabel.text = "총 \(roundTime)분 소요"
-
-            self.memoView.text = self.cardsMemo[index]
-            
-            if self.cardsMemo[self.index] == nil {
-                self.memoTextLabel.isHidden = false
-            } else {
-                self.memoTextLabel.isHidden = true
-            }
-        } else {
-            updateScrapCard(index: index)
-            
-            self.memoView.text = self.cardsMemo[index]
-            
-            if self.cardsMemo[self.index] == nil {
-                self.memoTextLabel.isHidden = false
-            } else {
-                self.memoTextLabel.isHidden = true
-            }
-        }
+        memoTextLabel.font = UIFont(name: "NotoSansCJKkr-Regular", size: 13)
+        
+        fetchCards()
         
         shadowView.addRoundShadow(contentView: contentView, cornerRadius: 15)
-
+        
         profileImageView.layer.cornerRadius = profileImageView.frame.width / 2
-
+        
         self.setNaviTitle()
         
         memoView.font = UIFont(name: "NotoSansCJKkr-Regular", size: 13)
         memoView.textColor = UIColor.placeholderColor
-
+        
         projectNameLabel.text = projectName
         
         topConst = topConstOfInfoView.constant
@@ -195,7 +173,53 @@ class CardDetailViewController: UIViewController {
             isEdit = true
         }
     }
-
+    
+    func fetchCards() {
+        if viewMode == .round {
+            NetworkManager.shared.fetchCardList(projectIdx: projectIdx, roundIdx: roundIdx) { (response) in
+                
+                guard let cardList = response?.data?.card_list else {return}
+                self.cards = cardList
+                
+                self.createCardMemo()
+                self.createScrapCards()
+                
+                self.updateRoundCard(index: self.index)
+                
+                self.roundLabel.text = "ROUND \(self.roundNumber)"
+                self.roundPurposeLabel.text = self.roundPurpose
+                self.timeLabel.text = "총 \(self.roundTime)분 소요"
+                
+                self.memoView.text = self.cardsMemo[self.index]
+                
+                if self.cardsMemo[self.index] == nil {
+                    self.memoTextLabel.isHidden = false
+                } else {
+                    self.memoTextLabel.isHidden = true
+                }
+            }
+        } else {
+            NetworkManager.shared.fetchAllScrapCard(projectIdx: projectIdx) { (response) in
+                guard let scrapCards = response?.data?.card_item else {return}
+                
+                self.scrappedCards = scrapCards
+                
+                self.createCardMemo()
+                self.createScrapCards()
+                
+                self.updateScrapCard(index: self.index)
+                
+                self.memoView.text = self.cardsMemo[self.index]
+                
+                if self.cardsMemo[self.index] == nil {
+                    self.memoTextLabel.isHidden = false
+                } else {
+                    self.memoTextLabel.isHidden = true
+                }
+            }
+        }
+    }
+    
     func createCardMemo() {
         if viewMode == .round {
             for index in 0..<cards.count {
@@ -204,6 +228,23 @@ class CardDetailViewController: UIViewController {
         }else {
             for index in 0..<scrappedCards.count {
                 cardsMemo[index] = scrappedCards[index].memo_content
+            }
+        }
+    }
+    
+    func createScrapCards() {
+        
+        if viewMode == .round {
+            for index in 0..<cards.count {
+                if cards[index].scrap_flag == 1{
+                    scrapCards[index] = true
+                }else{
+                    scrapCards[index] = false
+                }
+            }
+        } else{
+            for index in 0..<scrappedCards.count {
+                scrapCards[index] = true
             }
         }
     }
@@ -217,7 +258,7 @@ class CardDetailViewController: UIViewController {
         guard let cardIdx = card.card_idx else {return}
         
         cardIndex = cardIdx
-
+        
         if card.card_img == nil {
             drawingImageView.isHidden = true
             textView.isHidden = false
@@ -226,7 +267,7 @@ class CardDetailViewController: UIViewController {
             
             textView.text = cardText
             profileImageView.kf.setImage(with: URL(string: userImageUrl))
-
+            
         } else {
             textView.isHidden = true
             drawingImageView.isHidden = false
@@ -236,10 +277,10 @@ class CardDetailViewController: UIViewController {
             drawingImageView.kf.setImage(with: URL(string: cardImageUrl))
             profileImageView.kf.setImage(with: URL(string: userImageUrl))
         }
-
+        
         memoView.text = cardsMemo[index]
         
-        if ProjectSetting.shared.scrapCards[index] == true {
+        if scrapCards[index] == true {
             let heartFillImage = UIImage(systemName: "heart.fill")
             heartButton.setImage(heartFillImage, for: .normal)
             heartButton.tintColor = UIColor(red: 236/255, green: 101/255, blue: 101/255, alpha: 1)
@@ -270,7 +311,7 @@ class CardDetailViewController: UIViewController {
             
             textView.text = cardText
             profileImageView.kf.setImage(with: URL(string: userImageUrl))
-
+            
         } else {
             drawingImageView.isHidden = false
             textView.isHidden = true
@@ -285,7 +326,7 @@ class CardDetailViewController: UIViewController {
         
         memoView.text = cardsMemo[index]
         
-        if ProjectSetting.shared.scrapCards[index] == true {
+        if scrapCards[index] == true {
             let heartFillImage = UIImage(systemName: "heart.fill")
             heartButton.setImage(heartFillImage, for: .normal)
             heartButton.tintColor = UIColor(red: 236/255, green: 101/255, blue: 101/255, alpha: 1)
@@ -307,7 +348,7 @@ class CardDetailViewController: UIViewController {
                 self.cardsMemo[self.index] = content
                 self.showToast(message: "메모가 저장되었습니다", frame: toastFrame)
             } else {
-                self.showToast(message: "메모가 저장 실패", frame: toastFrame)
+                self.showToast(message: "메모 저장을 실패했습니다", frame: toastFrame)
             }
         }
     }
@@ -321,9 +362,9 @@ class CardDetailViewController: UIViewController {
             
             if response?.status == 200 {
                 self.cardsMemo[self.index] = content
-                self.showToast(message: "메모가 수정 되었습니다", frame: toastFrame)
+                self.showToast(message: "메모가 수정되었습니다", frame: toastFrame)
             } else {
-                self.showToast(message: "메모가 수정 실패", frame: toastFrame)
+                self.showToast(message: "메모 수정을 실패했습니다", frame: toastFrame)
             }
         }
     }

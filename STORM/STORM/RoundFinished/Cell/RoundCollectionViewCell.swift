@@ -26,13 +26,13 @@ class RoundCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-
+        
     }
     
     override func layoutSubviews() {
         
         if isUpdate == false {
-
+            
             addProfileImage(members: participants)
             
             if participants.count > 5 {
@@ -50,7 +50,7 @@ class RoundCollectionViewCell: UICollectionViewCell {
             }
             
             if !participants.isEmpty{
-            isUpdate = true
+                isUpdate = true
             }
         }
     }
@@ -70,7 +70,7 @@ class RoundCollectionViewCell: UICollectionViewCell {
             imageView.kf.setImage(with: imageURL)
             imageView.contentMode = .scaleAspectFill
             imageView.translatesAutoresizingMaskIntoConstraints = false
-
+            
             participantsProfile.addArrangedSubview(imageView)
             
             imageView.layer.cornerRadius = imageView.frame.width / 2
@@ -87,5 +87,4 @@ class RoundCollectionViewCell: UICollectionViewCell {
             }
         }
     }
-
 }

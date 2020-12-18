@@ -10,30 +10,30 @@ import Foundation
 import UIKit
 
 extension UIColor {
-
-  @nonobjc class var stormYellow: UIColor {
-    return UIColor(red: 245.0 / 255.0, green: 202.0 / 255.0, blue: 110.0 / 255.0, alpha: 1.0)
-  }
-
-  @nonobjc class var placeholderColor: UIColor {
-    return UIColor(red: 112.0 / 255.0, green: 112.0 / 255.0, blue: 112.0 / 255.0, alpha: 1)
-  }
-
-  @nonobjc class var textDefaultColor: UIColor {
-    return UIColor(white: 112.0 / 255.0, alpha: 1.0)
-  }
-
-  @nonobjc class var stormRed: UIColor {
-    return UIColor(red: 236.0 / 255.0, green: 101.0 / 255.0, blue: 101.0 / 255.0, alpha: 1.0)
-  }
     
-  @nonobjc class var stormPurple: UIColor {
-    return UIColor(red: 134.0 / 255.0, green: 109.0 / 255.0, blue: 201.0 / 255.0, alpha: 1.0)
-  }
-
-
-  @nonobjc class var bgPageControlColor: UIColor {
-    return UIColor(red: 245.0 / 255.0, green: 178.0 / 255.0, blue: 178.0 / 255.0, alpha: 1.0)
-  }
-
+    @nonobjc class var stormYellow: UIColor {
+        return UIColor(red: 245.0 / 255.0, green: 202.0 / 255.0, blue: 110.0 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var placeholderColor: UIColor {
+        return UIColor(red: 112.0 / 255.0, green: 112.0 / 255.0, blue: 112.0 / 255.0, alpha: 1)
+    }
+    
+    @nonobjc class var textDefaultColor: UIColor {
+        return UIColor(white: 112.0 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var stormRed: UIColor {
+        return UIColor(red: 236.0 / 255.0, green: 101.0 / 255.0, blue: 101.0 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var stormPurple: UIColor {
+        return UIColor(red: 134.0 / 255.0, green: 109.0 / 255.0, blue: 201.0 / 255.0, alpha: 1.0)
+    }
+    
+    
+    @nonobjc class var bgPageControlColor: UIColor {
+        return UIColor(red: 245.0 / 255.0, green: 178.0 / 255.0, blue: 178.0 / 255.0, alpha: 1.0)
+    }
+    
 }

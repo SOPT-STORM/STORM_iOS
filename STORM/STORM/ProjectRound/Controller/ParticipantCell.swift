@@ -9,7 +9,7 @@
 import UIKit
 
 class ParticipantCell: UITableViewCell {
-
+    
     @IBOutlet weak var profileImageView: UIImageView!
     
     @IBOutlet weak var userNameLabel: UILabel!
@@ -22,5 +22,4 @@ class ParticipantCell: UITableViewCell {
     override func layoutSubviews() {
         self.profileImageView.layer.cornerRadius = self.profileImageView.frame.width / 2
     }
-
 }

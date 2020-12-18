@@ -16,8 +16,6 @@ class ProjectSettingViewController: UIViewController {
     
     var projectName: String? { return projectNameTextField.text }
     var projectComment: String? { return hostMessageTextView.text }
-    var userId: Int = 1
-    var projectIndex: Int = 1
     var projectCode: String = ""
     
     // MARK: - viewDidLoad
@@ -37,12 +35,12 @@ class ProjectSettingViewController: UIViewController {
         
         toolbarSetup()
         setNaviTitle()
-
+        
         // 지현 수정 프로젝트명 17자 제한
         projectNameTextField.addTarget(self, action: #selector(self.limitProjectName), for: .editingChanged)
-
+        
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "naviBackBtn" ), style: .plain, target: self, action: #selector(back))
-
+        
     }
     
     // MARK: - IBAction
@@ -58,9 +56,8 @@ class ProjectSettingViewController: UIViewController {
     }
     
     func addProject() {
-        print(projectComment)
         guard let projectName = projectName, placeHolderLabel.isHidden == true else { return }
-        NetworkManager.shared.addProject(projectName: projectName, projectComment: projectComment, userIdx: self.userId) { (response) in
+        NetworkManager.shared.addProject(projectName: projectName, projectComment: projectComment) { (response) in
             
             guard let status = response?.status else {return}
             
@@ -82,42 +79,42 @@ class ProjectSettingViewController: UIViewController {
     // MARK: - Set Keyboard Toolbar
     
     func toolbarSetup() {
-            let toolbar = UIToolbar()
-            toolbar.frame = CGRect(x: 0, y: 0, width: 0, height: 38)
-            toolbar.barTintColor = UIColor.white
-                    
-            let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-                    
-            let btnImg = UIImage.init(named: "Input_keyboard_icn")!.withRenderingMode(.alwaysOriginal)
-            
-            let hideKeybrd = UIBarButtonItem(image: btnImg, style: .done, target: self, action: #selector(hideKeyboard))
-
-            toolbar.setItems([flexibleSpace, hideKeybrd], animated: true)
-            projectNameTextField.inputAccessoryView = toolbar
+        let toolbar = UIToolbar()
+        toolbar.frame = CGRect(x: 0, y: 0, width: 0, height: 38)
+        toolbar.barTintColor = UIColor.white
+        
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        
+        let btnImg = UIImage.init(named: "Input_keyboard_icn")!.withRenderingMode(.alwaysOriginal)
+        
+        let hideKeybrd = UIBarButtonItem(image: btnImg, style: .done, target: self, action: #selector(hideKeyboard))
+        
+        toolbar.setItems([flexibleSpace, hideKeybrd], animated: true)
+        projectNameTextField.inputAccessoryView = toolbar
         hostMessageTextView.inputAccessoryView = toolbar
         
-        }
-        
-        override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
-            self.projectNameTextField.endEditing(true)
-            self.hostMessageTextView.endEditing(true)
-        }
-        
-        @objc func hideKeyboard(_ sender: Any){
-            self.view.endEditing(true)
-        }
-    
-        // 지현 수정 프로젝트명 17자 제한
-        @objc func limitProjectName() {
-            
-            guard let name = projectNameTextField.text else {return}
-
-            if name.count > 17 {
-                let limitName = String(name.prefix(17))
-                projectNameTextField.text = limitName
-            }
-         }
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.projectNameTextField.endEditing(true)
+        self.hostMessageTextView.endEditing(true)
+    }
+    
+    @objc func hideKeyboard(_ sender: Any){
+        self.view.endEditing(true)
+    }
+    
+    // 지현 수정 프로젝트명 17자 제한
+    @objc func limitProjectName() {
+        
+        guard let name = projectNameTextField.text else {return}
+        
+        if name.count > 17 {
+            let limitName = String(name.prefix(17))
+            projectNameTextField.text = limitName
+        }
+    }
+}
 
 extension ProjectSettingViewController: UITextViewDelegate {
     
@@ -126,7 +123,7 @@ extension ProjectSettingViewController: UITextViewDelegate {
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-
+        
         if textView.text.isEmpty {
             placeHolderLabel.isHidden = false
         }
@@ -172,7 +169,7 @@ extension ProjectSettingViewController: UITextFieldDelegate {
 
 extension ProjectSettingViewController: PresentVC {
     func presentVC() {
-
+        
         let roundSettingNaviController = UIStoryboard(name: "ProjectRound", bundle: nil).instantiateViewController(withIdentifier: "roundSettingNavi") as! UINavigationController
         
         roundSettingNaviController.modalPresentationStyle = .fullScreen

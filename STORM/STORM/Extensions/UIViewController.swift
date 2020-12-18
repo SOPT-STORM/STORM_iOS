@@ -26,11 +26,11 @@ extension UIViewController {
         
         toastMessage.addSubview(content)
         toastMessage.addRoundShadow(contentView: content, cornerRadius: 10)
-
+        
         self.view.addSubview(toastMessage)
         
         UIView.animate(withDuration: 1.0, delay: 0.5, options: .curveEaseOut, animations: {
-             toastMessage.alpha = 0.0
+            toastMessage.alpha = 0.0
         }, completion: {(isCompleted) in
             toastMessage.removeFromSuperview()
         })
@@ -56,19 +56,19 @@ extension UIViewController {
     }
     
     func loadSplashView() {
-
+        
         if ApplicationSetting.shared.isFirstEnter == true {
             let animationView = AnimationView()
-        
+            
             animationView.frame = UIScreen.main.bounds //UIScreen.main.bounds
-        
+            
             animationView.animation = Animation.named("splash")
-        
+            
             animationView.contentMode = .scaleAspectFill
             animationView.play()
-        
+            
             self.navigationController?.view.addSubview(animationView)
-        
+            
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.3) {
                 animationView.removeFromSuperview()
                 ApplicationSetting.shared.isFirstEnter = false

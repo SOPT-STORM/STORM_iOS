@@ -17,11 +17,11 @@ class RoundStartViewController: UIViewController {
     @IBOutlet weak var projectStartButton: UIButton!
     @IBOutlet weak var participantsTableView: UITableView!
     @IBOutlet weak var pasteCodeImage: UIImageView!
-
+    
     @IBOutlet weak var ruleReminderButton: UIButton!
     
     @IBOutlet weak var roundStateLabel: UILabel!
-
+    
     @IBOutlet weak var roundInfoLabel: UILabel!
     @IBOutlet weak var roundStartInfoLabel: UILabel!
     
@@ -37,18 +37,20 @@ class RoundStartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         initialSetup()
         
         let tapPasteCodeImage = UITapGestureRecognizer(target: self, action: #selector(handlePasteCodeImage))
         pasteCodeImage.addGestureRecognizer(tapPasteCodeImage)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateParticipantsList), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
         if ProjectSetting.shared.mode == .member {
             projectStartButton.isHidden = true
-
+            
             SocketIOManager.shared.socket.on("roundStartMember") { (dataArray, SocketAckEmitter) in
                 
                 if self.presentedViewController == nil {
@@ -63,7 +65,6 @@ class RoundStartViewController: UIViewController {
         
         SocketIOManager.shared.socket.on("roundComplete") { (dataArray, SocketAckEmitter) in
             
-            print("라운드 컴플리트 실행이요~")
             self.fetchMemberList()
         }
         
@@ -72,7 +73,7 @@ class RoundStartViewController: UIViewController {
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-
+        
         if ProjectSetting.shared.mode == .member {
             SocketIOManager.shared.socket.off("roundStartMember")
         }
@@ -80,9 +81,17 @@ class RoundStartViewController: UIViewController {
         SocketIOManager.shared.socket.off("roundComplete")
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func updateParticipantsList() {
+        fetchMemberList()
+    }
+    
     @IBAction func ruleReminderButtonDidPress(_ sender: Any) {
         let reminderPopupViewController = UIStoryboard(name: "PopUp", bundle: nil).instantiateViewController(withIdentifier: "reminderPopUpVC") as! ReminderPopViewController
-
+        
         reminderPopupViewController.modalPresentationStyle = .overCurrentContext
         self.present(reminderPopupViewController, animated: false, completion: nil)
     }
@@ -98,27 +107,21 @@ class RoundStartViewController: UIViewController {
     }
     
     @objc func didPressExit() {
-        NetworkManager.shared.exitRound { (response) in
-            if response?.status == 200 {
-                guard let projectCode = ProjectSetting.shared.projectCode else {return}
-                SocketIOManager.shared.socket.emit("leaveRoom", projectCode)
-            }
-        }
-
-        let rootVC = self.view.window?.rootViewController
         
-        self.view.window?.rootViewController?.dismiss(animated: false, completion: {
-            guard let navi = rootVC as? UINavigationController else {return}
-            navi.popToRootViewController(animated: false)
-        })
+        guard let exitPopUpVC = UIStoryboard(name: "PopUp", bundle: nil).instantiateViewController(withIdentifier: "EndProjectPopViewController") as? EndProjectPopViewController else {return}
+        
+        exitPopUpVC.presentingVC = "roundStart"
+        exitPopUpVC.modalPresentationStyle = .overCurrentContext
+        self.present(exitPopUpVC, animated: false, completion: nil)
+    
     }
     
     func initialSetup() {
         fetchProjectInfo()
-//        fetchMemberList()
+        //        fetchMemberList()
         self.setNaviTitle()
         setupTableView()
-
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "exit" ), style: .plain, target: self, action: #selector(didPressExit))
         
         shadowView.addRoundShadow(contentView: contentView, cornerRadius: 15)
@@ -136,9 +139,9 @@ class RoundStartViewController: UIViewController {
     func fetchRoundInfo() {
         guard let roundIndex = ProjectSetting.shared.roundIdx else {return}
         NetworkManager.shared.fetchRoundInfo(roundIdx: roundIndex) { (response) in
-
+            
             guard let roundNumb = response?.data?.round_number, let roundTime = response?.data?.round_time, let roundPurpose = response?.data?.round_purpose, let roundIndex = ProjectSetting.shared.roundIdx  else {return}
-
+            
             ProjectSetting.shared.roundTime = Double(roundTime)
             ProjectSetting.shared.roundPurpose = roundPurpose
             ProjectSetting.shared.roundIdx = roundIndex
@@ -165,7 +168,7 @@ class RoundStartViewController: UIViewController {
                 
                 self.changeModeMemberToHost()
             }
-        
+            
             self.participantsTableView.reloadData()
         }
     }
@@ -175,7 +178,7 @@ class RoundStartViewController: UIViewController {
         projectStartButton.isHidden = false
         roundStartInfoLabel.isHidden = false
         guard let roundNumb = ProjectSetting.shared.roundNumb else {return}
-        self.roundStateLabel.text = "ROUND\(roundNumb) 설정 완료"
+        self.roundStateLabel.text = "ROUND \(roundNumb) 설정 완료"
         SocketIOManager.shared.socket.off("roundStartMember")
     }
     
@@ -231,7 +234,7 @@ extension RoundStartViewController: UITableViewDataSource, UITableViewDelegate {
         }
         
         guard let imageURL = URL(string: member.user_img) else {return UITableViewCell()}
-
+        
         cell.profileImageView.kf.setImage(with: imageURL)
         
         return cell
@@ -244,7 +247,7 @@ extension RoundStartViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension RoundStartViewController: PresentVC {
     func presentVC() {
-  
+        
         if let allRoundVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "allRoundVC") as? AllRoundViewController {
             
             let naviController = UINavigationController(rootViewController: allRoundVC)

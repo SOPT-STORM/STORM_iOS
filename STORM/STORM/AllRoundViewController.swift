@@ -21,7 +21,7 @@ class AllRoundViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -81,7 +81,7 @@ class AllRoundViewController: UIViewController {
         let projectSetting = ProjectSetting.shared
         
         guard let roundNumb = projectSetting.roundNumb else {return}
-
+        
         self.roundNumberLabel.text = "ROUND \(roundNumb)"
         self.roundGoalLabel.text = projectSetting.roundPurpose
         self.projectNameLabel.text = projectSetting.projectName
@@ -100,7 +100,7 @@ extension AllRoundViewController: UICollectionViewDataSource, UICollectionViewDe
         
         if card.card_drawing != nil {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "drawingCell", for: indexPath) as! DrawingCell
-        
+            
             cell.drawingImgView.image = card.card_drawing
             cell.heartBtn.isHidden = true
             return cell
@@ -135,12 +135,12 @@ extension AllRoundViewController: UICollectionViewDataSource, UICollectionViewDe
 
 extension AllRoundViewController: PresentVC {
     func presentVC() {
-    if let roundMeetingVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "roundMeetingVC") as? RoundMeetingViewController {
-
-    let naviController = UINavigationController(rootViewController: roundMeetingVC)
-    naviController.modalPresentationStyle = .fullScreen
-    
-    self.present(naviController, animated: false, completion: nil)
+        if let roundMeetingVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "roundMeetingVC") as? RoundMeetingViewController {
+            
+            let naviController = UINavigationController(rootViewController: roundMeetingVC)
+            naviController.modalPresentationStyle = .fullScreen
+            
+            self.present(naviController, animated: false, completion: nil)
         }
     }
 }

@@ -21,15 +21,13 @@ class GoBackPopUpViewController: UIViewController {
     
     @IBAction func okButtonDidTap(_ sender: UIButton) {
         NotificationCenter.default.post(
-        name: NSNotification.Name(rawValue: "OKButton"),
-        object: nil)
+            name: NSNotification.Name(rawValue: "OKButton"),
+            object: nil)
         self.dismiss(animated: false, completion: nil)
     }
-        
+    
     
     @IBAction func cancelButtonDidTap(_ sender: UIButton) {
         self.dismiss(animated: false, completion: nil)
     }
-    
-
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 class RoundMeetingViewController: UIViewController {
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var finishBtn: UIButton!
     @IBOutlet weak var projectNameLabel: UILabel!
@@ -29,16 +29,14 @@ class RoundMeetingViewController: UIViewController {
         
         collectionView.delegate = self
         collectionView.dataSource = self
-
+        
         self.setNaviTitle()
         setupLayout()
         setupInfo()
         
         if ProjectSetting.shared.mode == .member {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "exit" ), style: .plain, target: self, action: #selector(didPressExit))
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "exit" ), style: .plain, target: self, action: #selector(didPressExit))
         }
-        
-        ProjectSetting.shared.scrapCards.removeAll()
         
         nextRoundNotificationView.layer.maskedCorners = [.layerMinXMinYCorner, . layerMaxXMinYCorner]
         
@@ -55,7 +53,7 @@ class RoundMeetingViewController: UIViewController {
     }
     
     @IBAction func didPressFinishBtn(_ sender: UIButton) {
-
+        
         if ProjectSetting.shared.roundNumb == 9 {
             guard let oneLinePopVC = UIStoryboard.init(name: "PopUp", bundle: nil).instantiateViewController(withIdentifier: "oneLineMessagePopVC") as?         OneLineMessagePopViewController, let roundNumb = ProjectSetting.shared.roundNumb else {return}
             
@@ -74,14 +72,11 @@ class RoundMeetingViewController: UIViewController {
     }
     
     @objc func didPressExit() {
-
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let vc = storyboard.instantiateViewController(withIdentifier: "projectFinalViewController") as? ProjectFinalViewController else {return}
+        guard let exitPopUpVC = UIStoryboard(name: "PopUp", bundle: nil).instantiateViewController(withIdentifier: "EndProjectPopViewController") as? EndProjectPopViewController else {return}
         
-        let naviController = UINavigationController(rootViewController: vc)
-        naviController.modalPresentationStyle = .fullScreen
-        
-        self.present(naviController, animated: false, completion: nil)
+        exitPopUpVC.presentingVC = "roundMeeting"
+        exitPopUpVC.modalPresentationStyle = .overCurrentContext
+        self.present(exitPopUpVC, animated: false, completion: nil)
     }
     
     func setupLayout() {
@@ -98,7 +93,7 @@ class RoundMeetingViewController: UIViewController {
         roundGoalLabel.text = projectInfo.roundPurpose
         
         guard let roundNumb = projectInfo.roundNumb else {return}
-        roundNumbLabel.text = "ROUND\(roundNumb)"
+        roundNumbLabel.text = "ROUND \(roundNumb)"
         
         let roundTime = Int(ProjectSetting.shared.roundTime)
         timeLabel.text = "총 \(roundTime)분 소요"
@@ -110,7 +105,7 @@ class RoundMeetingViewController: UIViewController {
         guard let projectIndex = projectInfo.projectIdx, let roundIndex = projectInfo.roundIdx else {return}
         
         NetworkManager.shared.fetchCardList(projectIdx: projectIndex , roundIdx: roundIndex) { (response) in
-
+            
             guard let cardList = response?.data?.card_list else {return}
             self.cards = cardList
             self.collectionView.reloadData()
@@ -122,7 +117,7 @@ class RoundMeetingViewController: UIViewController {
             finishBtn.isHidden = true
             
             SocketIOManager.shared.socket.on("waitNextRound") { (dataArray, SocketAckEmitter) in
- 
+                
                 self.isWaitNextRound = true
                 
                 UIView.animate(withDuration: 1) {
@@ -132,27 +127,27 @@ class RoundMeetingViewController: UIViewController {
                 
                 guard let carouselView = self.navigationController?.visibleViewController as? AllRoundCarouselViewController else {return}
                 
- 
+                
                 carouselView.showUpNextRoundNoti()
             }
             
             SocketIOManager.shared.socket.on("memberNextRound") { (dataArray, SocketAckEmitter) in
-
-                    NetworkManager.shared.enterRound { (response) in
-                        guard let roundIndex = response.data, let projectCode = ProjectSetting.shared.projectCode else {return}
-                        ProjectSetting.shared.roundIdx = roundIndex
-  
-                        SocketIOManager.shared.socket.emit("enterNextRound", projectCode) {
-                            
-                            self.socketOff()
-                            self.presentingViewController?.presentingViewController?.dismiss(animated: false, completion: nil)
-                        }
+                
+                NetworkManager.shared.enterRound { (response) in
+                    guard let roundIndex = response.data, let projectCode = ProjectSetting.shared.projectCode else {return}
+                    ProjectSetting.shared.roundIdx = roundIndex
+                    
+                    SocketIOManager.shared.socket.emit("enterNextRound", projectCode) {
+                        
+                        self.socketOff()
+                        self.presentingViewController?.presentingViewController?.dismiss(animated: false, completion: nil)
                     }
+                }
                 
             }
             
             SocketIOManager.shared.socket.on("memberFinishProject") { (dataArray, SocketAckEmitter) in
-   
+                
                 // 프로젝트 최종 정리 뷰로 이동
                 
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -202,6 +197,8 @@ extension RoundMeetingViewController: UICollectionViewDataSource, UICollectionVi
                 cell.isScrapped = false
             }
             
+            cell.scrapBlock = {self.cards[indexPath.row].scrap_flag = 1}
+            cell.cancelBlock = {self.cards[indexPath.row].scrap_flag = 0}
             
             return cell
             
@@ -221,6 +218,9 @@ extension RoundMeetingViewController: UICollectionViewDataSource, UICollectionVi
                 cell.isScrapped = false
             }
             
+            cell.scrapBlock = {self.cards[indexPath.row].scrap_flag = 1}
+            cell.cancelBlock = {self.cards[indexPath.row].scrap_flag = 0}
+            
             return cell
         }
     }
@@ -232,8 +232,8 @@ extension RoundMeetingViewController: UICollectionViewDataSource, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-       let inset = self.view.frame.width * 0.072
-       return UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
+        let inset = self.view.frame.width * 0.072
+        return UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -245,7 +245,7 @@ extension RoundMeetingViewController: UICollectionViewDataSource, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
+        
         guard let allRoundCarouselVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "allRoundCarouselVC") as? AllRoundCarouselViewController else {return}
         
         allRoundCarouselVC.cards = cards

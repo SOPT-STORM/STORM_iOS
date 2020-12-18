@@ -47,14 +47,14 @@ extension UIView {
         self.layer.shadowRadius = shadowRadius
         self.layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius).cgPath
     }
-
+    
     func asImage() -> UIImage {
         let renderer = UIGraphicsImageRenderer(bounds: bounds)
         return renderer.image(actions: { rendererContext in
             layer.render(in: rendererContext.cgContext)
         })
     }
-
+    
     @IBInspectable var cornerRadius: CGFloat {
         get {
             return layer.cornerRadius
@@ -87,12 +87,12 @@ extension UIView {
     
     @IBInspectable var shadowOffset: CGSize {
         get {
-               return layer.shadowOffset
-           }
-           set {
-               layer.shadowOffset = newValue
-               layer.masksToBounds = false
-           }
+            return layer.shadowOffset
+        }
+        set {
+            layer.shadowOffset = newValue
+            layer.masksToBounds = false
+        }
     }
     
     @IBInspectable var shadowColor: UIColor? {

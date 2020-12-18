@@ -9,7 +9,7 @@
 import UIKit
 
 class OneLineMessagePopViewController: UIViewController {
-
+    
     @IBOutlet weak var invalidCodePopView: UIView!
     
     @IBOutlet weak var messageLabel: UILabel!
@@ -26,7 +26,7 @@ class OneLineMessagePopViewController: UIViewController {
         super.viewDidLoad()
         
         if presentingVC == "roundMeetingVC" {
-        self.button.setTitle("프로젝트 종료", for: .normal)
+            self.button.setTitle("프로젝트 종료", for: .normal)
         }
         
         messageLabel.text = message
@@ -42,7 +42,7 @@ class OneLineMessagePopViewController: UIViewController {
     }
     
     @IBAction func okButtonDidTap(_ sender: UIButton) {
-
+        
         if presentingVC == "roundMeetingVC" {
             
             guard let projectCode = ProjectSetting.shared.projectCode else {return}

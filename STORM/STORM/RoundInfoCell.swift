@@ -14,8 +14,7 @@ class RoundInfoCell: UICollectionViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     
     
-        override func awakeFromNib() {
+    override func awakeFromNib() {
         super.awakeFromNib()
     }
-
 }

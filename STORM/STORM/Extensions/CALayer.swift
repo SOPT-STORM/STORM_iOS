@@ -9,12 +9,12 @@
 import UIKit
 
 extension CALayer {
-   func roundCorners(radius: CGFloat) {
-       let roundPath = UIBezierPath(
-           roundedRect: self.bounds,
-           cornerRadius: radius)
-       let maskLayer = CAShapeLayer()
-       maskLayer.path = roundPath.cgPath
-       self.mask = maskLayer
-   }
+    func roundCorners(radius: CGFloat) {
+        let roundPath = UIBezierPath(
+            roundedRect: self.bounds,
+            cornerRadius: radius)
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = roundPath.cgPath
+        self.mask = maskLayer
+    }
 }

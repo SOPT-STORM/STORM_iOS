@@ -61,7 +61,7 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
         // basic image
         basicImage()
         
-
+        
         // username 사진 위 두글자 제한
         nameTextField.addTarget(self, action: #selector(self.textFieldTextDid), for: .editingChanged)
         
@@ -70,15 +70,15 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
         topConst = topConstOfIndex.constant
         
         toolbarSetup()
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         // 기본이미지 노티
         NotificationCenter.default.addObserver(self,
-        selector: #selector(basicImage),
-        name: NSNotification.Name(rawValue: "SetBasicImage"),
-        object: nil)
+                                               selector: #selector(basicImage),
+                                               name: NSNotification.Name(rawValue: "SetBasicImage"),
+                                               object: nil)
     }
     
     override func viewDidLayoutSubviews() {
@@ -96,12 +96,16 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
         nameTextField.addLeftPadding()
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     // MARK:- @objc
     
     @objc func textFieldTextDidChange() {
         
         let name = nameTextField.text!
-    
+        
         if name.count > 2 {
             let name11 = String(name.prefix(2))
             
@@ -109,7 +113,7 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
         } else {
             userNameLabel.text = name
         }
-     }
+    }
     
     @objc func basicImage(){
         basicImageStackView.isHidden = false
@@ -125,7 +129,7 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
     @objc func textFieldTextDid() {
         
         guard let name = nameTextField.text else {return}
-    
+        
         if name.count > 2 {
             let nameTwoWord = String(name.prefix(2))
             userNameLabel.text = nameTwoWord
@@ -150,7 +154,7 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
         } else {
             doneButton.backgroundColor = UIColor(red: 152/255, green: 152/255, blue: 152/255, alpha: 1)
         }
-     }
+    }
     
     @objc func keyboardShow(notification: NSNotification) {
         if nameTextField.isEditing == true {
@@ -247,13 +251,13 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
         let toolbar = UIToolbar()
         toolbar.frame = CGRect(x: 0, y: 0, width: 0, height: 38)
         toolbar.barTintColor = UIColor.white
-                    
+        
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-                    
+        
         let btnImg = UIImage.init(named: "Input_keyboard_icn")!.withRenderingMode(.alwaysOriginal)
-            
+        
         let hideKeybrd = UIBarButtonItem(image: btnImg, style: .done, target: self, action: #selector(hideKeyboard))
-
+        
         toolbar.setItems([flexibleSpace, hideKeybrd], animated: true)
         nameTextField.inputAccessoryView = toolbar
     }
@@ -274,11 +278,11 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if (string == " ") {
-          return false
+            return false
         }
         return true
     }
-
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             profileImage.image = image
@@ -311,7 +315,7 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
         NetworkManager.shared.signUp(userImg: profileImg, userName: userName, userEmail: useremail, userPwd: userpwd, userImgFlag: imgFlag){ (response) in
             
             if response.status == 200 {
-       
+                
                 guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "doneSignUpVC") as? DoneSignUpViewController else {return}
                 nextVC.modalPresentationStyle = .fullScreen
                 self.present(nextVC, animated: true, completion: nil)
@@ -324,7 +328,7 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
 }
 
 extension SignUpProfileViewController: presentPhotoLibrary {
-   func photoLibrary() {
+    func photoLibrary() {
         myPicker.delegate = self
         myPicker.sourceType = .photoLibrary
         self.present(myPicker, animated: true, completion: nil)

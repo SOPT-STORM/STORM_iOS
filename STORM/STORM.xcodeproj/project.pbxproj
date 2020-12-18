@@ -28,9 +28,6 @@
 		B8E9FA7A24B9FC0500A97235 /* ReminderPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9FA7924B9FC0500A97235 /* ReminderPopViewController.swift */; };
 		B8E9FA7C24B9FC3B00A97235 /* RoundStartPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9FA7B24B9FC3B00A97235 /* RoundStartPopViewController.swift */; };
 		B8E9FA7E24BA059600A97235 /* SettingCodePopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9FA7D24BA059600A97235 /* SettingCodePopViewController.swift */; };
-		B8E9FA8024BA3D2E00A97235 /* CancelCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9FA7F24BA3D2E00A97235 /* CancelCardViewController.swift */; };
-		B8E9FA8224BA50D800A97235 /* ChangeToDrawPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9FA8124BA50D800A97235 /* ChangeToDrawPopViewController.swift */; };
-		B8E9FA8424BA50EA00A97235 /* ChangeToTextPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9FA8324BA50EA00A97235 /* ChangeToTextPopViewController.swift */; };
 		B8E9FA8824BA5A8700A97235 /* SelectNextPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9FA8724BA5A8700A97235 /* SelectNextPopViewController.swift */; };
 		B8E9FA8A24BA5C8E00A97235 /* EndProjectPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9FA8924BA5C8E00A97235 /* EndProjectPopViewController.swift */; };
 		B8F5636024DB1AD40036C768 /* LogoutPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F5635F24DB1AD40036C768 /* LogoutPopUpViewController.swift */; };
@@ -123,9 +120,6 @@
 		B8E9FA7924B9FC0500A97235 /* ReminderPopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderPopViewController.swift; sourceTree = "<group>"; };
 		B8E9FA7B24B9FC3B00A97235 /* RoundStartPopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundStartPopViewController.swift; sourceTree = "<group>"; };
 		B8E9FA7D24BA059600A97235 /* SettingCodePopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCodePopViewController.swift; sourceTree = "<group>"; };
-		B8E9FA7F24BA3D2E00A97235 /* CancelCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelCardViewController.swift; sourceTree = "<group>"; };
-		B8E9FA8124BA50D800A97235 /* ChangeToDrawPopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeToDrawPopViewController.swift; sourceTree = "<group>"; };
-		B8E9FA8324BA50EA00A97235 /* ChangeToTextPopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeToTextPopViewController.swift; sourceTree = "<group>"; };
 		B8E9FA8724BA5A8700A97235 /* SelectNextPopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectNextPopViewController.swift; sourceTree = "<group>"; };
 		B8E9FA8924BA5C8E00A97235 /* EndProjectPopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndProjectPopViewController.swift; sourceTree = "<group>"; };
 		B8F5635F24DB1AD40036C768 /* LogoutPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutPopUpViewController.swift; sourceTree = "<group>"; };
@@ -282,9 +276,6 @@
 				B8E9FA7924B9FC0500A97235 /* ReminderPopViewController.swift */,
 				B8E9FA7B24B9FC3B00A97235 /* RoundStartPopViewController.swift */,
 				B8E9FA7D24BA059600A97235 /* SettingCodePopViewController.swift */,
-				B8E9FA7F24BA3D2E00A97235 /* CancelCardViewController.swift */,
-				B8E9FA8124BA50D800A97235 /* ChangeToDrawPopViewController.swift */,
-				B8E9FA8324BA50EA00A97235 /* ChangeToTextPopViewController.swift */,
 				B8E9FA8724BA5A8700A97235 /* SelectNextPopViewController.swift */,
 				B8E9FA8924BA5C8E00A97235 /* EndProjectPopViewController.swift */,
 				B878A01124D9692400A8C19F /* CameraPopUpViewController.swift */,
@@ -516,7 +507,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1160;
+				LastUpgradeCheck = 1220;
 				ORGANIZATIONNAME = "Team STORM";
 				TargetAttributes = {
 					D12EC23924AB4070007E5896 = {
@@ -655,14 +646,11 @@
 				D186F00324BFAE3E00D67FAD /* AllProjectViewController.swift in Sources */,
 				D1E5838724BC95990013FB7C /* SocketIOManager.swift in Sources */,
 				D16811E324FC18FD00B27643 /* FinishedRoundViewController.swift in Sources */,
-				B8E9FA8424BA50EA00A97235 /* ChangeToTextPopViewController.swift in Sources */,
 				D1E5838524BC95990013FB7C /* RoundMeetingViewController.swift in Sources */,
 				D1FCDB7324F63CDB00EF8A71 /* ApplicationSetting.swift in Sources */,
 				D1469A6E24DDDFE100D337F1 /* ProjectSetting.swift in Sources */,
-				B8E9FA8224BA50D800A97235 /* ChangeToDrawPopViewController.swift in Sources */,
 				D186EFFF24BF863100D67FAD /* ProjectSummaryCell.swift in Sources */,
 				D1E5839624BC965C0013FB7C /* Response.swift in Sources */,
-				B8E9FA8024BA3D2E00A97235 /* CancelCardViewController.swift in Sources */,
 				B8E9FA7224B9B7CB00A97235 /* OneLineMessagePopViewController.swift in Sources */,
 				B8E9FA8824BA5A8700A97235 /* SelectNextPopViewController.swift in Sources */,
 				B878A01424DA051A00A8C19F /* EnsureDeleteViewController.swift in Sources */,
@@ -732,6 +720,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -792,6 +781,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -836,6 +826,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tistory.lsh424.STORM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -859,6 +850,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tistory.lsh424.STORM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

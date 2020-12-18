@@ -9,7 +9,7 @@
 import UIKit
 
 class SelectNextPopViewController: UIViewController {
- 
+    
     @IBOutlet weak var roundInfoLabel: UILabel!
     @IBOutlet weak var popupView: UIView!
     
@@ -58,9 +58,9 @@ class SelectNextPopViewController: UIViewController {
     }
     
     func dismissViewControllers() {
-
+        
         let rootVC = self.view.window?.rootViewController
-
+        
         self.view.window?.rootViewController?.dismiss(animated: false, completion: {
             guard let navi = rootVC as? UINavigationController else {return}
             navi.popToRootViewController(animated: false)
@@ -72,5 +72,5 @@ class SelectNextPopViewController: UIViewController {
         })
     }
 }
-    
+
 

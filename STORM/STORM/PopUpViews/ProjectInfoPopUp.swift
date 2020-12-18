@@ -9,7 +9,7 @@
 import UIKit
 
 class ProjectInfoPopUp: UIViewController {
-
+    
     @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var projectNameLabel: UILabel!
     @IBOutlet weak var projectCommentLabel: UILabel!
@@ -26,7 +26,7 @@ class ProjectInfoPopUp: UIViewController {
         
         popupView.cornerRadius = 15
         popupView.clipsToBounds = true
-    
+        
     }
     
     @IBAction func didPressConfirmBtn(_ sender: UIButton) {
@@ -37,7 +37,7 @@ class ProjectInfoPopUp: UIViewController {
         self.dismiss(animated: false) {
             
             NetworkManager.shared.enterProject(projectIndex: self.projectIndex) { (response) in
-                    
+                
                 if response?.status == 200 {
                     
                     let storyboard = UIStoryboard(name: "ProjectRound", bundle: nil)
@@ -52,7 +52,7 @@ class ProjectInfoPopUp: UIViewController {
                     let naviController = UINavigationController(rootViewController: vc)
                     naviController.modalPresentationStyle = .fullScreen
                     presentingVC.present(naviController, animated: true, completion: nil)
-            
+                    
                 } else {
                     
                 }
@@ -65,7 +65,4 @@ class ProjectInfoPopUp: UIViewController {
     @IBAction func didPressCancelBtn(_ sender: UIButton) {
         self.dismiss(animated: false, completion: nil)
     }
-    
-    
-
 }

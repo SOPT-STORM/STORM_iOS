@@ -37,7 +37,7 @@ class CameraPopUpViewController: UIViewController,UIImagePickerControllerDelegat
         
         // 카드뷰 숨겨놓기
         if let safeAreaHeight = UIApplication.shared.windows.last?.safeAreaLayoutGuide.layoutFrame.size.height,
-            let bottomPadding = UIApplication.shared.windows.last?.safeAreaInsets.bottom {
+           let bottomPadding = UIApplication.shared.windows.last?.safeAreaInsets.bottom {
             cardViewTopConstraint.constant = safeAreaHeight + bottomPadding
         }
         
@@ -90,7 +90,7 @@ class CameraPopUpViewController: UIViewController,UIImagePickerControllerDelegat
             }
         case .ended:
             if let safeAreaHeight = UIApplication.shared.windows.last?.safeAreaLayoutGuide.layoutFrame.size.height,
-                let bottomPadding = UIApplication.shared.windows.last?.safeAreaInsets.bottom {
+               let bottomPadding = UIApplication.shared.windows.last?.safeAreaInsets.bottom {
                 if self.cardViewTopConstraint.constant < (safeAreaHeight + bottomPadding) * 0.79 {
                     showCard()
                 } else {
@@ -114,8 +114,8 @@ class CameraPopUpViewController: UIViewController,UIImagePickerControllerDelegat
     
     @IBAction func selectBasicImage(_ sender: UIButton) {
         NotificationCenter.default.post(
-        name: NSNotification.Name(rawValue: "SetBasicImage"),
-        object: nil)
+            name: NSNotification.Name(rawValue: "SetBasicImage"),
+            object: nil)
         self.dismiss(animated: false)
     }
     
@@ -126,14 +126,14 @@ class CameraPopUpViewController: UIViewController,UIImagePickerControllerDelegat
         self.view.layoutIfNeeded()
         
         if let safeAreaHeight = UIApplication.shared.windows.last?.safeAreaLayoutGuide.layoutFrame.size.height,
-            let bottomPadding = UIApplication.shared.windows.last?.safeAreaInsets.bottom {
+           let bottomPadding = UIApplication.shared.windows.last?.safeAreaInsets.bottom {
             cardViewTopConstraint.constant = (safeAreaHeight + bottomPadding) * 0.77
         }
         
         let showCard = UIViewPropertyAnimator(duration: 0.3, curve: .easeIn, animations: { self.view.layoutIfNeeded()})
         
         showCard.addAnimations({
-             self.dimmerView.alpha = 0.6
+            self.dimmerView.alpha = 0.6
         })
         
         showCard.startAnimation()
@@ -149,7 +149,7 @@ class CameraPopUpViewController: UIViewController,UIImagePickerControllerDelegat
         let hideCard = UIViewPropertyAnimator(duration: 0.1, curve: .easeOut, animations: { self.view.layoutIfNeeded()})
         
         hideCard.addAnimations({
-             self.dimmerView.alpha = 0.0
+            self.dimmerView.alpha = 0.0
         })
         
         hideCard.addCompletion({ position in
