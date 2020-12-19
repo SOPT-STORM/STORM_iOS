@@ -77,6 +77,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         self.basicImageStackView.isHidden = true
         self.userNameLabel.isHidden = true
+        
+        OperationQueue().addOperation {
+            self.getProfile()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -85,10 +89,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                                                selector: #selector(basicImage),
                                                name: NSNotification.Name(rawValue: "SetBasicImage"),
                                                object: nil)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        getProfile()
     }
     
     override func viewDidLayoutSubviews() {
@@ -266,35 +266,37 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 
                 guard let userName = self.myPageInfo?.user_name, let userImageFlag = self.myPageInfo?.user_img_flag else {return}
                 
-                self.userNameTextField.text = userName
-                self.previousName = userName
-                self.img_flag = userImageFlag
-                
-                if userImageFlag == 0 {
+                DispatchQueue.main.async {
                     
-                    guard let userImage = self.myPageInfo?.user_img else {return}
-                    self.userImageView.kf.setImage(with: URL(string: userImage))
+                    self.userNameTextField.text = userName
+                    self.previousName = userName
+                    self.img_flag = userImageFlag
                     
-                } else {
-                    
-                    self.basicImageStackView.isHidden = false
-                    self.setTwoWords(name: userName)
-                    self.userNameLabel.isHidden = false
-                    
-                    if userImageFlag == 1 {
-                        self.userImageContainerView.backgroundColor = .stormPurple
-                        self.purpleButton.setImage(UIImage(named: "purple"), for: .normal)
-                    } else if userImageFlag == 2 {
-                        self.userImageContainerView.backgroundColor = .stormYellow
-                        self.yellowButton.setImage(UIImage(named: "yellow"), for: .normal)
-                    } else if userImageFlag == 3 {
-                        self.userImageContainerView.backgroundColor = .stormRed
-                        self.redButton.setImage(UIImage(named: "red"), for: .normal)
+                    if userImageFlag == 0 {
+                        
+                        guard let userImage = self.myPageInfo?.user_img else {return}
+                        self.userImageView.kf.setImage(with: URL(string: userImage))
+                    } else {
+                        
+                        self.basicImageStackView.isHidden = false
+                        self.setTwoWords(name: userName)
+                        self.userNameLabel.isHidden = false
+                        
+                        if userImageFlag == 1 {
+                            self.userImageContainerView.backgroundColor = .stormPurple
+                            self.purpleButton.setImage(UIImage(named: "purple"), for: .normal)
+                        } else if userImageFlag == 2 {
+                            self.userImageContainerView.backgroundColor = .stormYellow
+                            self.yellowButton.setImage(UIImage(named: "yellow"), for: .normal)
+                        } else if userImageFlag == 3 {
+                            self.userImageContainerView.backgroundColor = .stormRed
+                            self.redButton.setImage(UIImage(named: "red"), for: .normal)
+                        }
+                        
+                        self.previousColor = self.userImageContainerView.backgroundColor
+                        
                     }
-                    
-                    self.previousColor = self.userImageContainerView.backgroundColor
-                    
-                }   
+                }
             }
         }
         
@@ -388,7 +390,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         isPhotoChanged = true
         dismiss(animated: true, completion: nil)
     }
-    
 }
 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
