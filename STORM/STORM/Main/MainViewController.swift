@@ -40,7 +40,6 @@ class MainViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
         fetchProjectList()
         loadSplashView()
     }
@@ -103,7 +102,6 @@ class MainViewController: UIViewController {
     func fetchProjectList() {
         NetworkManager.shared.fetchProjectList { (response) in
             if response?.status != 200 || response?.data?.isEmpty == true {
-                
                 self.collectionView.isHidden = true
             }else {
                 self.collectionView.isHidden = false
@@ -177,7 +175,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         let projectIndex = self.dataArray[indexPath.row].project_idx
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyboard = UIStoryboard(name: "RoundFinished", bundle: nil)
         guard let vc = storyboard.instantiateViewController(withIdentifier: "projectFinalViewController") as? ProjectFinalViewController else {return}
         vc.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "naviBackBtn" ), style: .plain, target: self, action: #selector(back))
         vc.projectIndex = projectIndex

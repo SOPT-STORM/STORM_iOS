@@ -56,7 +56,7 @@ class OneLineMessagePopViewController: UIViewController {
             
             self.dismiss(animated: false) {
                 
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let storyboard = UIStoryboard(name: "RoundFinished", bundle: nil)
                 guard let vc = storyboard.instantiateViewController(withIdentifier: "projectFinalViewController") as? ProjectFinalViewController else {return}
                 
                 let naviController = UINavigationController(rootViewController: vc)

@@ -69,7 +69,7 @@ class AllRoundViewController: UIViewController {
     }
     
     @IBAction func didPressCardAddition(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyboard = UIStoryboard(name: "ProjectRound", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "addCardViewController") as! AddCardViewController
         vc.projectName = self.projectNameLabel.text!
         vc.round = self.roundNumberLabel.text!
@@ -135,7 +135,7 @@ extension AllRoundViewController: UICollectionViewDataSource, UICollectionViewDe
 
 extension AllRoundViewController: PresentVC {
     func presentVC() {
-        if let roundMeetingVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "roundMeetingVC") as? RoundMeetingViewController {
+        if let roundMeetingVC = UIStoryboard(name: "ProjectRound", bundle: nil).instantiateViewController(withIdentifier: "roundMeetingVC") as? RoundMeetingViewController {
             
             let naviController = UINavigationController(rootViewController: roundMeetingVC)
             naviController.modalPresentationStyle = .fullScreen

@@ -248,7 +248,7 @@ extension RoundStartViewController: UITableViewDataSource, UITableViewDelegate {
 extension RoundStartViewController: PresentVC {
     func presentVC() {
         
-        if let allRoundVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "allRoundVC") as? AllRoundViewController {
+        if let allRoundVC = UIStoryboard(name: "ProjectRound", bundle: nil).instantiateViewController(withIdentifier: "allRoundVC") as? AllRoundViewController {
             
             let naviController = UINavigationController(rootViewController: allRoundVC)
             naviController.modalPresentationStyle = .fullScreen
