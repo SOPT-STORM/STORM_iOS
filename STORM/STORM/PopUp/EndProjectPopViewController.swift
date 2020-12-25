@@ -53,7 +53,7 @@ class EndProjectPopViewController: UIViewController {
                 navi.popToRootViewController(animated: false)
             })
         } else {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let storyboard = UIStoryboard(name: "RoundFinished", bundle: nil)
             guard let vc = storyboard.instantiateViewController(withIdentifier: "projectFinalViewController") as? ProjectFinalViewController else {return}
             
             let naviController = UINavigationController(rootViewController: vc)

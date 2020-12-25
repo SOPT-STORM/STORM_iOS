@@ -93,13 +93,12 @@
 		D761568F24B8D4AD00D4D484 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D761568E24B8D4AD00D4D484 /* UITextField.swift */; };
 		D761569124BADDEC00D4D484 /* RoundStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D761569024BADDEC00D4D484 /* RoundStartViewController.swift */; };
 		D761569524BB487600D4D484 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D761569424BB487600D4D484 /* UIColor+Extensions.swift */; };
-		D781D6FC24B4A66F00AAE389 /* LayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781D6EC24B4A66F00AAE389 /* LayerExtension.swift */; };
 		D7EB706A24B8B75A0041B9CA /* RoundSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EB706924B8B75A0041B9CA /* RoundSettingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		446905E67F662B2207C7B0E7 /* Pods-STORM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STORM.debug.xcconfig"; path = "Target Support Files/Pods-STORM/Pods-STORM.debug.xcconfig"; sourceTree = "<group>"; };
-		B800D24524E86D960024CE2F /* login_0816.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = login_0816.json; path = STORM/login_0816.json; sourceTree = SOURCE_ROOT; };
+		B800D24524E86D960024CE2F /* login_0816.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = login_0816.json; path = STORM/Resources/login_0816.json; sourceTree = SOURCE_ROOT; };
 		B806015824E50318006AA9EF /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		B806015A24E51254006AA9EF /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		B806015C24E5207E006AA9EF /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -186,7 +185,6 @@
 		D761568E24B8D4AD00D4D484 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		D761569024BADDEC00D4D484 /* RoundStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundStartViewController.swift; sourceTree = "<group>"; };
 		D761569424BB487600D4D484 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
-		D781D6EC24B4A66F00AAE389 /* LayerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayerExtension.swift; sourceTree = "<group>"; };
 		D7EB706924B8B75A0041B9CA /* RoundSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundSettingViewController.swift; sourceTree = "<group>"; };
 		F413571526ADC3ABE1F9D186 /* Pods_STORM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_STORM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F68B1EA2A7FA6388C84C951E /* Pods-STORM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STORM.release.xcconfig"; path = "Target Support Files/Pods-STORM/Pods-STORM.release.xcconfig"; sourceTree = "<group>"; };
@@ -235,20 +233,12 @@
 		B84697E024D30F6A00E56804 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
-				B84697E124D30FAA00E56804 /* MyPage.storyboard */,
-				B84697E324D30FB000E56804 /* Controller */,
-			);
-			path = MyPage;
-			sourceTree = "<group>";
-		};
-		B84697E324D30FB000E56804 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
 				B84697E424D313FB00E56804 /* ProfileViewController.swift */,
 				B84697E824D3141D00E56804 /* DeleteAccountViewController.swift */,
 				B878A01324DA051A00A8C19F /* EnsureDeleteViewController.swift */,
+				B84697E124D30FAA00E56804 /* MyPage.storyboard */,
 			);
-			path = Controller;
+			path = MyPage;
 			sourceTree = "<group>";
 		};
 		B84B87CF24F507F300E45C35 /* Recovered References */ = {
@@ -261,13 +251,13 @@
 		B8E34D5724E438A9003538A8 /* LogIn */ = {
 			isa = PBXGroup;
 			children = (
-				B8E34D5824E438C7003538A8 /* LogIn.storyboard */,
 				B806015A24E51254006AA9EF /* LogInViewController.swift */,
+				B8E34D5824E438C7003538A8 /* LogIn.storyboard */,
 			);
 			path = LogIn;
 			sourceTree = "<group>";
 		};
-		B8E9FA6E24B9B6EB00A97235 /* PopUpViews */ = {
+		B8E9FA6E24B9B6EB00A97235 /* PopUp */ = {
 			isa = PBXGroup;
 			children = (
 				B8E9FA7324B9B7FC00A97235 /* PopUp.storyboard */,
@@ -283,7 +273,51 @@
 				D1559FBF24DBEEFA0026F6F7 /* RoundFinishedPopup.swift */,
 				B81720B224ED39E600DB085D /* GoBackPopUpViewController.swift */,
 			);
-			path = PopUpViews;
+			path = PopUp;
+			sourceTree = "<group>";
+		};
+		D1070B35258E87C800C261D6 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				D12EC23D24AB4070007E5896 /* AppDelegate.swift */,
+				D147598424AB4DA3006C4122 /* SceneDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		D1070B36258E87EB00C261D6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D17935B824B1D73600811173 /* Fonts */,
+				D12EC24924AB4072007E5896 /* Assets.xcassets */,
+				B82094D424BCE25700DB543F /* real_loading.json */,
+				D13DD4EF24F44832005C569F /* splash.json */,
+				B800D24524E86D960024CE2F /* login_0816.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D1070B3D258EA61300C261D6 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				D186EFFC24BF840000D67FAD /* MainViewController.swift */,
+				D186F00224BFAE3D00D67FAD /* AllProjectViewController.swift */,
+				D186EFFE24BF863100D67FAD /* ProjectSummaryCell.swift */,
+				D1E5839724BC96C00013FB7C /* Main.storyboard */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		D1070B3E258EA67D00C261D6 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				D16635A724D8A86D00B881AB /* Timer.swift */,
+				D1469A6D24DDDFE100D337F1 /* ProjectSetting.swift */,
+				D1FCDB7224F63CDB00EF8A71 /* ApplicationSetting.swift */,
+				D160AFAB24E3FD9F00ED09C7 /* ShadowRoundedView.swift */,
+				D14D357024EBD540008E7581 /* ViewTransitionDelegate.swift */,
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 		D12EC23124AB4070007E5896 = {
@@ -308,48 +342,18 @@
 		D12EC23C24AB4070007E5896 /* STORM */ = {
 			isa = PBXGroup;
 			children = (
-				D12EC23D24AB4070007E5896 /* AppDelegate.swift */,
-				D147598424AB4DA3006C4122 /* SceneDelegate.swift */,
+				D1070B3E258EA67D00C261D6 /* Support */,
+				D1070B35258E87C800C261D6 /* AppDelegate */,
+				D1070B36258E87EB00C261D6 /* Resources */,
 				D1E5839024BC965C0013FB7C /* Network */,
-				B8E9FA6E24B9B6EB00A97235 /* PopUpViews */,
+				D743C56D24AF5B7300FF6ED4 /* Extensions */,
+				B8E9FA6E24B9B6EB00A97235 /* PopUp */,
 				B806015724E502A6006AA9EF /* SignUp */,
 				B8E34D5724E438A9003538A8 /* LogIn */,
 				B84697E024D30F6A00E56804 /* MyPage */,
 				D75ECBE724B6C78800CB46C3 /* ProjectRound */,
 				D16811DB24FC18D000B27643 /* RoundFinished */,
-				D743C56D24AF5B7300FF6ED4 /* Extensions */,
-				D17935D324B2484D00811173 /* AddCard */,
-				D1E5837B24BC95980013FB7C /* RoundMeetingViewController.swift */,
-				D15EA3ED24BF3FD900D3017F /* MemoCell.swift */,
-				D15EA3EF24BF3FE800D3017F /* DrawingCell.swift */,
-				D1E5839724BC96C00013FB7C /* Main.storyboard */,
-				D14B131D24C1E6D6002E87F2 /* AllRoundCarouselViewController.swift */,
-				D186EFF824BF5E4F00D67FAD /* AllRoundViewController.swift */,
-				D186EFFC24BF840000D67FAD /* MainViewController.swift */,
-				D186EFFE24BF863100D67FAD /* ProjectSummaryCell.swift */,
-				D186F00224BFAE3D00D67FAD /* AllProjectViewController.swift */,
-				D14B131F24C1E92B002E87F2 /* CarouselFlowLayout.swift */,
-				D16635A724D8A86D00B881AB /* Timer.swift */,
-				D1469A6D24DDDFE100D337F1 /* ProjectSetting.swift */,
-				D1FCDB7224F63CDB00EF8A71 /* ApplicationSetting.swift */,
-				D149795424E1689D0021CA32 /* DrawingCarouselCell.swift */,
-				D149795524E1689D0021CA32 /* DrawingCarouselCell.xib */,
-				D149795824E168B00021CA32 /* MemoCarouselCell.swift */,
-				D149795924E168B00021CA32 /* MemoCarouselCell.xib */,
-				D160AFAB24E3FD9F00ED09C7 /* ShadowRoundedView.swift */,
-				D14BC3A324EB17CF0075F026 /* ProjectFinalViewController.swift */,
-				D14BC39324EADA240075F026 /* ProjectInfoCell.swift */,
-				D14BC39424EADA240075F026 /* ProjectInfoCell.xib */,
-				D14BC39B24EAE3620075F026 /* RoundInfoCell.swift */,
-				D14BC39C24EAE3620075F026 /* RoundInfoCell.xib */,
-				D14BC39F24EAEFAA0075F026 /* ProjectFinishFooterView.swift */,
-				D14BC3A024EAEFAA0075F026 /* ProjectFinishFooterView.xib */,
-				D14D357024EBD540008E7581 /* ViewTransitionDelegate.swift */,
-				D17935B824B1D73600811173 /* Fonts */,
-				D12EC24924AB4072007E5896 /* Assets.xcassets */,
-				B82094D424BCE25700DB543F /* real_loading.json */,
-				D13DD4EF24F44832005C569F /* splash.json */,
-				B800D24524E86D960024CE2F /* login_0816.json */,
+				D1070B3D258EA61300C261D6 /* Main */,
 				D12EC24B24AB4072007E5896 /* LaunchScreen.storyboard */,
 				D12EC24E24AB4072007E5896 /* Info.plist */,
 				D12EC24624AB4070007E5896 /* STORM.xcdatamodeld */,
@@ -390,30 +394,21 @@
 		D16811DB24FC18D000B27643 /* RoundFinished */ = {
 			isa = PBXGroup;
 			children = (
-				D16811DC24FC18E400B27643 /* RoundFinished.storyboard */,
-				D16811DE24FC18F100B27643 /* Controller */,
-				D16811E524FC190900B27643 /* Cell */,
-			);
-			path = RoundFinished;
-			sourceTree = "<group>";
-		};
-		D16811DE24FC18F100B27643 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
 				D16811E124FC18FD00B27643 /* CardDetailViewController.swift */,
 				D16811E024FC18FD00B27643 /* FinishedRoundViewController.swift */,
 				D16811DF24FC18FC00B27643 /* ScrapCardViewController.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		D16811E524FC190900B27643 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
 				D16811E724FC191200B27643 /* RoundCollectionViewCell.swift */,
+				D14BC39B24EAE3620075F026 /* RoundInfoCell.swift */,
+				D14BC39F24EAEFAA0075F026 /* ProjectFinishFooterView.swift */,
+				D14BC3A324EB17CF0075F026 /* ProjectFinalViewController.swift */,
+				D14BC39324EADA240075F026 /* ProjectInfoCell.swift */,
+				D14BC39424EADA240075F026 /* ProjectInfoCell.xib */,
+				D14BC39C24EAE3620075F026 /* RoundInfoCell.xib */,
+				D14BC3A024EAEFAA0075F026 /* ProjectFinishFooterView.xib */,
+				D16811DC24FC18E400B27643 /* RoundFinished.storyboard */,
 				D16811E624FC191100B27643 /* RoundCollectionViewCell.xib */,
 			);
-			path = Cell;
+			path = RoundFinished;
 			sourceTree = "<group>";
 		};
 		D17935B824B1D73600811173 /* Fonts */ = {
@@ -424,15 +419,6 @@
 				D1FCDB6C24F5F57D00EF8A71 /* NotoSansCJKkr-Regular.otf */,
 			);
 			path = Fonts;
-			sourceTree = "<group>";
-		};
-		D17935D324B2484D00811173 /* AddCard */ = {
-			isa = PBXGroup;
-			children = (
-				D1E5837124BC95690013FB7C /* Canvas.swift */,
-				D1E5837224BC95690013FB7C /* AddCardViewController.swift */,
-			);
-			path = AddCard;
 			sourceTree = "<group>";
 		};
 		D1E5839024BC965C0013FB7C /* Network */ = {
@@ -450,7 +436,6 @@
 				D18D89B524B3A6FF00D8779E /* UIView.swift */,
 				D1E5838B24BC96270013FB7C /* UIViewController.swift */,
 				D761568E24B8D4AD00D4D484 /* UITextField.swift */,
-				D781D6EC24B4A66F00AAE389 /* LayerExtension.swift */,
 				D761569424BB487600D4D484 /* UIColor+Extensions.swift */,
 				D154C46324BEECF700FC95C9 /* UIImage.swift */,
 				D149795C24E17AB90021CA32 /* CALayer.swift */,
@@ -461,21 +446,25 @@
 		D75ECBE724B6C78800CB46C3 /* ProjectRound */ = {
 			isa = PBXGroup;
 			children = (
-				B882FCA824F95ACB0016DD74 /* ProjectRound.storyboard */,
-				D75ECBEA24B6C7B500CB46C3 /* Controller */,
-			);
-			path = ProjectRound;
-			sourceTree = "<group>";
-		};
-		D75ECBEA24B6C7B500CB46C3 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
+				D186EFF824BF5E4F00D67FAD /* AllRoundViewController.swift */,
+				D1E5837124BC95690013FB7C /* Canvas.swift */,
+				D1E5837224BC95690013FB7C /* AddCardViewController.swift */,
+				D1E5837B24BC95980013FB7C /* RoundMeetingViewController.swift */,
 				D75ECBEB24B6C7EF00CB46C3 /* ProjectSettingViewController.swift */,
 				D7EB706924B8B75A0041B9CA /* RoundSettingViewController.swift */,
 				D761569024BADDEC00D4D484 /* RoundStartViewController.swift */,
 				D13DD4EB24F2D10C005C569F /* ParticipantCell.swift */,
+				D15EA3ED24BF3FD900D3017F /* MemoCell.swift */,
+				D15EA3EF24BF3FE800D3017F /* DrawingCell.swift */,
+				D14B131D24C1E6D6002E87F2 /* AllRoundCarouselViewController.swift */,
+				D14B131F24C1E92B002E87F2 /* CarouselFlowLayout.swift */,
+				D149795424E1689D0021CA32 /* DrawingCarouselCell.swift */,
+				D149795824E168B00021CA32 /* MemoCarouselCell.swift */,
+				D149795524E1689D0021CA32 /* DrawingCarouselCell.xib */,
+				B882FCA824F95ACB0016DD74 /* ProjectRound.storyboard */,
+				D149795924E168B00021CA32 /* MemoCarouselCell.xib */,
 			);
-			path = Controller;
+			path = ProjectRound;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -625,7 +614,6 @@
 				D761569124BADDEC00D4D484 /* RoundStartViewController.swift in Sources */,
 				D7EB706A24B8B75A0041B9CA /* RoundSettingViewController.swift in Sources */,
 				D12EC23E24AB4070007E5896 /* AppDelegate.swift in Sources */,
-				D781D6FC24B4A66F00AAE389 /* LayerExtension.swift in Sources */,
 				D15EA3F024BF3FE800D3017F /* DrawingCell.swift in Sources */,
 				B806015F24E527B7006AA9EF /* SignUpProfileViewController.swift in Sources */,
 				B8E9FA7C24B9FC3B00A97235 /* RoundStartPopViewController.swift in Sources */,

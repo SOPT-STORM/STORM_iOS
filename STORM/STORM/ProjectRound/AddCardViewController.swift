@@ -259,7 +259,7 @@ extension AddCardViewController: UITextViewDelegate {
 
 extension AddCardViewController: PresentVC {
     func presentVC() {
-        if let roundMeetingVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "roundMeetingVC") as? RoundMeetingViewController {
+        if let roundMeetingVC = UIStoryboard(name: "ProjectRound", bundle: nil).instantiateViewController(withIdentifier: "roundMeetingVC") as? RoundMeetingViewController {
             
             let naviController = UINavigationController(rootViewController: roundMeetingVC)
             naviController.modalPresentationStyle = .fullScreen

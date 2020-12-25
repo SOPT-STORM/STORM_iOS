@@ -77,10 +77,8 @@ class CarouselLayout: UICollectionViewFlowLayout {
             attributes.alpha = 0
         }
         
-        let visibleRect = CGRect(origin: collectionView.contentOffset, size: collectionView.bounds.size)
-        let dist = attributes.frame.midX - visibleRect.midX
-        var transform = CATransform3DScale(CATransform3DIdentity, scale, scale, 1)
-        transform = CATransform3DTranslate(transform, 0, 0, -abs(dist/1000))
+        let transform = CATransform3DScale(CATransform3DIdentity, scale, scale, 1)
+        attributes.zIndex = Int(alpha * 10)
         attributes.transform3D = transform
         
         return attributes

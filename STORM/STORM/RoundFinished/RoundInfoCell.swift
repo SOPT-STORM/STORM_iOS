@@ -13,7 +13,6 @@ class RoundInfoCell: UICollectionViewCell {
     @IBOutlet weak var roundGoalLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

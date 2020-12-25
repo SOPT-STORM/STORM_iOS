@@ -150,7 +150,7 @@ class RoundMeetingViewController: UIViewController {
                 
                 // 프로젝트 최종 정리 뷰로 이동
                 
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let storyboard = UIStoryboard(name: "RoundFinished", bundle: nil)
                 guard let vc = storyboard.instantiateViewController(withIdentifier: "projectFinalViewController") as? ProjectFinalViewController else {return}
                 
                 self.socketOff()
@@ -246,7 +246,7 @@ extension RoundMeetingViewController: UICollectionViewDataSource, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        guard let allRoundCarouselVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "allRoundCarouselVC") as? AllRoundCarouselViewController else {return}
+        guard let allRoundCarouselVC = UIStoryboard(name: "ProjectRound", bundle: nil).instantiateViewController(withIdentifier: "allRoundCarouselVC") as? AllRoundCarouselViewController else {return}
         
         allRoundCarouselVC.cards = cards
         allRoundCarouselVC.cellIndexPath = indexPath
