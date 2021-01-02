@@ -11,6 +11,9 @@
 <br> 프로젝트가 끝난 뒤에는 최종 정리를 통해 라운드 및 카드 목록을 한눈에 볼 수 있으며,
 <br> 좋은 아이디어 카드들은 따로 스크랩해 모아볼 수 있습니다.<br><br>
 <br> 개발 기간 : 2020-07-11~2020-08-30 <br>
+<br> Language : Swift 5.0 <br>
+<br> iOS Depolyment Target : 13.0 <br>
+<br> App Store : https://apple.co/3jS1ny0 <br>
 
 <br>
 
@@ -39,4 +42,6 @@
 > 사용자는 본인이 참여했던 프로젝트와 스크랩했던 카드를 메인화면에서 모두 모아볼 수 있습니다.
 
 <br>
+
+[📄API 명세서](https://github.com/TEAMSTORMERS/STORM_Server/tree/addWiki)<br>
 
