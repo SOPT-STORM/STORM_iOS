@@ -342,8 +342,8 @@
 		D12EC23C24AB4070007E5896 /* STORM */ = {
 			isa = PBXGroup;
 			children = (
-				D1070B3E258EA67D00C261D6 /* Support */,
 				D1070B35258E87C800C261D6 /* AppDelegate */,
+				D1070B3E258EA67D00C261D6 /* Support */,
 				D1070B36258E87EB00C261D6 /* Resources */,
 				D1E5839024BC965C0013FB7C /* Network */,
 				D743C56D24AF5B7300FF6ED4 /* Extensions */,
@@ -814,7 +814,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tistory.lsh424.STORM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -838,7 +838,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tistory.lsh424.STORM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
