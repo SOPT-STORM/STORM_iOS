@@ -10,4 +10,5 @@ class ApplicationSetting {
     static let shared = ApplicationSetting()
     
     var isFirstEnter: Bool = true
+    var isFirstLogin: Bool = true
 }

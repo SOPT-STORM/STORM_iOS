@@ -40,9 +40,10 @@ class MainViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if ApplicationSetting.shared.isFirstEnter == true || ProjectSetting.shared.isAdded == true {
+        if ApplicationSetting.shared.isFirstLogin == true || ProjectSetting.shared.isAdded == true {
             fetchProjectList()
             ProjectSetting.shared.isAdded = false
+            ApplicationSetting.shared.isFirstLogin = false
         }
         loadSplashView()
     }
@@ -122,12 +123,6 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         let numberOfItems = self.dataArray.count
-        
-        //        if numberOfItems == 0 {
-        //            viewAllButton.isHidden = true
-        //        } else {
-        //            viewAllButton.isHidden = false
-        //        }
         
         return numberOfItems
     }
