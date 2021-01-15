@@ -73,10 +73,9 @@ class MainViewController: UIViewController {
     }
     
     func kingFisherSetup() {
-        //        KingfisherManager.shared.cache.clearMemoryCache()
+        KingfisherManager.shared.cache.memoryStorage.config.totalCostLimit = 500 * 1024 * 1024
         
-        // 캐싱 메모리 300mb로 사용 제한
-        KingfisherManager.shared.cache.memoryStorage.config.totalCostLimit = 30000
+        KingfisherManager.shared.cache.memoryStorage.config.countLimit = 100
     }
     
     func toolbarSetup() {

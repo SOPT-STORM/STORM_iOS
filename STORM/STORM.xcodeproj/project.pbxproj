@@ -404,9 +404,9 @@
 				D14BC39324EADA240075F026 /* ProjectInfoCell.swift */,
 				D14BC39424EADA240075F026 /* ProjectInfoCell.xib */,
 				D14BC39C24EAE3620075F026 /* RoundInfoCell.xib */,
+				D16811E624FC191100B27643 /* RoundCollectionViewCell.xib */,
 				D14BC3A024EAEFAA0075F026 /* ProjectFinishFooterView.xib */,
 				D16811DC24FC18E400B27643 /* RoundFinished.storyboard */,
-				D16811E624FC191100B27643 /* RoundCollectionViewCell.xib */,
 			);
 			path = RoundFinished;
 			sourceTree = "<group>";
@@ -461,8 +461,8 @@
 				D149795424E1689D0021CA32 /* DrawingCarouselCell.swift */,
 				D149795824E168B00021CA32 /* MemoCarouselCell.swift */,
 				D149795524E1689D0021CA32 /* DrawingCarouselCell.xib */,
-				B882FCA824F95ACB0016DD74 /* ProjectRound.storyboard */,
 				D149795924E168B00021CA32 /* MemoCarouselCell.xib */,
+				B882FCA824F95ACB0016DD74 /* ProjectRound.storyboard */,
 			);
 			path = ProjectRound;
 			sourceTree = "<group>";
