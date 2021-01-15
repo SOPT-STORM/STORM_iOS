@@ -104,7 +104,7 @@ class RoundSettingViewController: UIViewController {
     func postRoundSetting() { guard let roundGoal = roundGoalTextField.text, let time = minute, let projectIdx = ProjectSetting.shared.projectIdx else { return }
         
         NetworkManager.shared.setRound(projectIdx: projectIdx, roundPurpose: roundGoal, roundTime: time)
-        { (response) in
+        { [weak self] (response) in
             
             if response?.status == 200 {
                 
@@ -113,20 +113,22 @@ class RoundSettingViewController: UIViewController {
                 
                 vc.modalPresentationStyle = .fullScreen
                 
-                if self.roundNumb == 1 {
+                if self?.roundNumb == 1 {
                     
                     SocketIOManager.shared.socket.emit("joinRoom", ProjectSetting.shared.projectCode!) {
                         
                         ProjectSetting.shared.roundIdx = response?.data!
-                        self.present(vc, animated: false, completion: nil)
+                        self?.present(vc, animated: false, completion: nil)
                     }
                 }
                 
-                if self.roundNumb > 1 {
+                guard let roundNumb = self?.roundNumb else { return }
+                
+                if roundNumb > 1 {
                     guard let projectCode = ProjectSetting.shared.projectCode else {return}
                     SocketIOManager.shared.socket.emit("nextRound", projectCode) {
                         ProjectSetting.shared.roundIdx = response?.data!
-                        self.present(vc, animated: false, completion: nil)
+                        self?.present(vc, animated: false, completion: nil)
                     }
                 }
             }
@@ -136,17 +138,17 @@ class RoundSettingViewController: UIViewController {
     // MARK: - Receive Data
     
     func fetchProjectInfo() {
-        NetworkManager.shared.fetchProjectInfo(projectIdx: ProjectSetting.shared.projectIdx!) { (response) in
-            self.projectNameLabel.text = response?.data?.project_name
+        NetworkManager.shared.fetchProjectInfo(projectIdx: ProjectSetting.shared.projectIdx!) {[weak self] (response) in
+            self?.projectNameLabel.text = response?.data?.project_name
         }
     }
     
     func getRoundIndex() {
-        NetworkManager.shared.fetchRoundCountInfo(projectIdx: ProjectSetting.shared.projectIdx!) { (response) in
+        NetworkManager.shared.fetchRoundCountInfo(projectIdx: ProjectSetting.shared.projectIdx!) { [weak self] (response) in
             
             guard let rooundIdx = response?.data else {return}
-            self.roundIndexSetLabel.text = "ROUND \(rooundIdx) 설정"
-            self.roundNumb = rooundIdx
+            self?.roundIndexSetLabel.text = "ROUND \(rooundIdx) 설정"
+            self?.roundNumb = rooundIdx
         }
     }
     

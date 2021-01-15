@@ -7,10 +7,10 @@
 //
 
 
-protocol PresentVC {
+protocol PresentDelegate: AnyObject {
     func presentVC()
 }
 
-protocol PushVC {
+protocol PushDelegate: AnyObject {
     func pushVC()
 }

@@ -40,7 +40,10 @@ class MainViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        fetchProjectList()
+        if ApplicationSetting.shared.isFirstEnter == true || ProjectSetting.shared.isAdded == true {
+            fetchProjectList()
+            ProjectSetting.shared.isAdded = false
+        }
         loadSplashView()
     }
     
@@ -70,10 +73,9 @@ class MainViewController: UIViewController {
     }
     
     func kingFisherSetup() {
-        //        KingfisherManager.shared.cache.clearMemoryCache()
+        KingfisherManager.shared.cache.memoryStorage.config.totalCostLimit = 500 * 1024 * 1024
         
-        // 캐싱 메모리 300mb로 사용 제한
-        KingfisherManager.shared.cache.memoryStorage.config.totalCostLimit = 30000
+        KingfisherManager.shared.cache.memoryStorage.config.countLimit = 100
     }
     
     func toolbarSetup() {
@@ -100,17 +102,17 @@ class MainViewController: UIViewController {
     }
     
     func fetchProjectList() {
-        NetworkManager.shared.fetchProjectList { (response) in
+        NetworkManager.shared.fetchProjectList { [weak self] (response) in
             if response?.status != 200 || response?.data?.isEmpty == true {
-                self.collectionView.isHidden = true
+                self?.collectionView.isHidden = true
             }else {
-                self.collectionView.isHidden = false
+                self?.collectionView.isHidden = false
             }
             
             guard let data = response?.data else {return}
             
-            self.dataArray = data
-            self.collectionView.reloadData()
+            self?.dataArray = data
+            self?.collectionView.reloadData()
         }
     }
 }
@@ -190,7 +192,7 @@ extension MainViewController: UITextFieldDelegate {
         
         guard let code = textField.text else {return true}
         
-        NetworkManager.shared.fetchProjectStatus(projectCode: code) { (result) in
+        NetworkManager.shared.fetchProjectStatus(projectCode: code) {[weak self] (result) in
             
             guard let response = result else {return}
             
@@ -205,7 +207,7 @@ extension MainViewController: UITextFieldDelegate {
                 popup.projectIndex = (response.data?.project_idx)!
                 
                 popup.modalPresentationStyle = .overCurrentContext
-                self.present(popup, animated: false, completion: nil)
+                self?.present(popup, animated: false, completion: nil)
             } else {
                 let storyboard = UIStoryboard(name: "PopUp", bundle: nil)
                 guard let popup = storyboard.instantiateViewController(withIdentifier: "oneLineMessagePopVC") as? OneLineMessagePopViewController else {return}
@@ -215,19 +217,19 @@ extension MainViewController: UITextFieldDelegate {
                 switch response.status {
                 case 202:
                     popup.message = response.message
-                    self.present(popup, animated: false, completion: nil)
+                    self?.present(popup, animated: false, completion: nil)
                 case 204:
                     popup.message = response.message
-                    self.present(popup, animated: false, completion: nil)
+                    self?.present(popup, animated: false, completion: nil)
                 case 409:
                     popup.message = response.message
-                    self.present(popup, animated: false, completion: nil)
+                    self?.present(popup, animated: false, completion: nil)
                 case 400:
                     popup.message = response.message
-                    self.present(popup, animated: false, completion: nil)
+                    self?.present(popup, animated: false, completion: nil)
                 default:
                     popup.message = "오류가 발생했습니다"
-                    self.present(popup, animated: false, completion: nil)
+                    self?.present(popup, animated: false, completion: nil)
                 }
             }
         }

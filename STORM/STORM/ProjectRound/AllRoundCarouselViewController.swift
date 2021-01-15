@@ -224,11 +224,11 @@ class AllRoundCarouselViewController: UIViewController {
         
         guard let projectIndex = projectInfo.projectIdx, let roundIndex = projectInfo.roundIdx else {return}
         
-        NetworkManager.shared.fetchCardList(projectIdx: projectIndex , roundIdx: roundIndex) { (response) in
+        NetworkManager.shared.fetchCardList(projectIdx: projectIndex , roundIdx: roundIndex) { [weak self] (response) in
             
             guard let cardList = response?.data?.card_list else {return}
-            self.cards = cardList
-            self.collectionView.reloadData()
+            self?.cards = cardList
+            self?.collectionView.reloadData()
         }
     }
     

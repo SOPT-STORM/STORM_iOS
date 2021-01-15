@@ -57,11 +57,11 @@ class FinishedRoundViewController: UIViewController {
         
         guard let roundIndex = roundsInfo[selectedIndex].round_idx else {return}
         
-        NetworkManager.shared.fetchCardList(projectIdx: projectIndex, roundIdx: roundIndex) { (response) in
+        NetworkManager.shared.fetchCardList(projectIdx: projectIndex, roundIdx: roundIndex) { [weak self] (response) in
             
             guard let cardList = response?.data?.card_list else {return}
-            self.cards = cardList
-            self.cardListCollectionView.reloadData()
+            self?.cards = cardList
+            self?.cardListCollectionView.reloadData()
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
@@ -73,11 +73,11 @@ class FinishedRoundViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         guard let roundIndex = roundsInfo[selectedIndex].round_idx else {return}
         
-        NetworkManager.shared.fetchCardList(projectIdx: projectIndex, roundIdx: roundIndex) { (response) in
+        NetworkManager.shared.fetchCardList(projectIdx: projectIndex, roundIdx: roundIndex) { [weak self] (response) in
             
             guard let cardList = response?.data?.card_list else {return}
-            self.cards = cardList
-            self.cardListCollectionView.reloadData()
+            self?.cards = cardList
+            self?.cardListCollectionView.reloadData()
         }
     }
 }
@@ -217,11 +217,11 @@ extension FinishedRoundViewController: UICollectionViewDataSource, UICollectionV
             
             self.selectedIndex = pageControl.currentPage
             
-            NetworkManager.shared.fetchCardList(projectIdx: projectIndex, roundIdx: roundIndex) { (response) in
+            NetworkManager.shared.fetchCardList(projectIdx: projectIndex, roundIdx: roundIndex) { [weak self] (response) in
                 
                 guard let cardList = response?.data?.card_list else {return}
-                self.cards = cardList
-                self.cardListCollectionView.reloadData()
+                self?.cards = cardList
+                self?.cardListCollectionView.reloadData()
             }
         }
     }

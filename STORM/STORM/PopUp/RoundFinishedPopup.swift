@@ -12,7 +12,7 @@ class RoundFinishedPopup: UIViewController {
     
     @IBOutlet weak var contentView: UIView!
     
-    var delegate: PresentVC!
+    weak var delegate: PresentDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +22,7 @@ class RoundFinishedPopup: UIViewController {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             self.dismiss(animated: false) {
-                self.delegate.presentVC()
+                self.delegate?.presentVC()
             }
         }
     }

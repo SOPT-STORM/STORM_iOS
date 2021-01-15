@@ -44,6 +44,8 @@ class RoundStartViewController: UIViewController {
         pasteCodeImage.addGestureRecognizer(tapPasteCodeImage)
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateParticipantsList), name: UIApplication.willEnterForegroundNotification, object: nil)
+        
+        ProjectSetting.shared.isAdded = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,9 +65,8 @@ class RoundStartViewController: UIViewController {
             }
         }
         
-        SocketIOManager.shared.socket.on("roundComplete") { (dataArray, SocketAckEmitter) in
-            
-            self.fetchMemberList()
+        SocketIOManager.shared.socket.on("roundComplete") { [weak self](dataArray, SocketAckEmitter) in
+            self?.fetchMemberList()
         }
         
         fetchRoundInfo()
@@ -118,7 +119,7 @@ class RoundStartViewController: UIViewController {
     
     func initialSetup() {
         fetchProjectInfo()
-        //        fetchMemberList()
+
         self.setNaviTitle()
         setupTableView()
         
@@ -129,16 +130,16 @@ class RoundStartViewController: UIViewController {
     
     func fetchProjectInfo() {
         guard let projectIndex = ProjectSetting.shared.projectIdx else {return}
-        NetworkManager.shared.fetchProjectInfo(projectIdx: projectIndex) { (response) in
+        NetworkManager.shared.fetchProjectInfo(projectIdx: projectIndex) { [weak self] (response) in
             guard let projectName = response?.data?.project_name else {return}
             ProjectSetting.shared.projectName = projectName
-            self.projectNameLabel.text = projectName
+            self?.projectNameLabel.text = projectName
         }
     }
     
     func fetchRoundInfo() {
         guard let roundIndex = ProjectSetting.shared.roundIdx else {return}
-        NetworkManager.shared.fetchRoundInfo(roundIdx: roundIndex) { (response) in
+        NetworkManager.shared.fetchRoundInfo(roundIdx: roundIndex) {[weak self] (response) in
             
             guard let roundNumb = response?.data?.round_number, let roundTime = response?.data?.round_time, let roundPurpose = response?.data?.round_purpose, let roundIndex = ProjectSetting.shared.roundIdx  else {return}
             
@@ -148,28 +149,28 @@ class RoundStartViewController: UIViewController {
             ProjectSetting.shared.roundNumb = roundNumb
             
             if ProjectSetting.shared.mode == .host {
-                self.roundStateLabel.text = "ROUND \(roundNumb) 설정 완료"
+                self?.roundStateLabel.text = "ROUND \(roundNumb) 설정 완료"
             }else {
-                self.roundStateLabel.text = "ROUND \(roundNumb) 대기 중"
-                self.roundStartInfoLabel.isHidden = true
+                self?.roundStateLabel.text = "ROUND \(roundNumb) 대기 중"
+                self?.roundStartInfoLabel.isHidden = true
             }
             
-            self.roundInfoLabel.text  = "\(roundPurpose) \n 총 \(roundTime)분 예정"
+            self?.roundInfoLabel.text  = "\(roundPurpose) \n 총 \(roundTime)분 예정"
         }
     }
     
     func fetchMemberList() {
         guard let roundIndex = ProjectSetting.shared.roundIdx, let projectIndex = ProjectSetting.shared.projectIdx else {return}
         
-        NetworkManager.shared.fetchMemberList(roundIdx: roundIndex, projectIdx: projectIndex) { (result) in
-            self.members = result!.data!
+        NetworkManager.shared.fetchMemberList(roundIdx: roundIndex, projectIdx: projectIndex) {[weak self] (result) in
+            self?.members = result!.data!
             
             if NetworkManager.shared.user_idx == result!.data![0].user_idx && result!.data![0].user_host_flag == 1 {
                 
-                self.changeModeMemberToHost()
+                self?.changeModeMemberToHost()
             }
             
-            self.participantsTableView.reloadData()
+            self?.participantsTableView.reloadData()
         }
     }
     
@@ -245,7 +246,7 @@ extension RoundStartViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-extension RoundStartViewController: PresentVC {
+extension RoundStartViewController: PresentDelegate {
     func presentVC() {
         
         if let allRoundVC = UIStoryboard(name: "ProjectRound", bundle: nil).instantiateViewController(withIdentifier: "allRoundVC") as? AllRoundViewController {

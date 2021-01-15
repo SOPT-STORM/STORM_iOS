@@ -46,30 +46,30 @@ class ProjectFinalViewController: UIViewController {
         
         self.setNaviTitle()
         
-        NetworkManager.shared.fetchFinalProjectInfo(projectIdx: projectIndex) { (response) in
+        NetworkManager.shared.fetchFinalProjectInfo(projectIdx: projectIndex) { [weak self] (response) in
             
-            self.projectInfo = response?.data
+            self?.projectInfo = response?.data
             
-            guard self.projectInfo != nil && self.roundsInfo != nil && self.scrapCardInfo != nil else {return}
-            self.collectionView.reloadData()
+            guard self?.projectInfo != nil && self?.roundsInfo != nil && self?.scrapCardInfo != nil else {return}
+            self?.collectionView.reloadData()
         }
         
-        NetworkManager.shared.fetchAllRoundInfo(projectIdx: projectIndex) { (response) in
-            self.roundsInfo = response?.data
+        NetworkManager.shared.fetchAllRoundInfo(projectIdx: projectIndex) { [weak self] (response) in
+            self?.roundsInfo = response?.data
             
-            guard self.projectInfo != nil && self.roundsInfo != nil && self.scrapCardInfo != nil else {return}
+            guard self?.projectInfo != nil && self?.roundsInfo != nil && self?.scrapCardInfo != nil else {return}
             
-            self.collectionView.reloadData()
+            self?.collectionView.reloadData()
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        NetworkManager.shared.fetchAllScrapCard(projectIdx: projectIndex) { (response) in
-            self.scrapCardInfo = response?.data
+        NetworkManager.shared.fetchAllScrapCard(projectIdx: projectIndex) { [weak self] (response) in
+            self?.scrapCardInfo = response?.data
             
-            guard self.projectInfo != nil && self.roundsInfo != nil && self.scrapCardInfo != nil else {return}
+            guard self?.projectInfo != nil && self?.roundsInfo != nil && self?.scrapCardInfo != nil else {return}
             
-            self.collectionView.reloadData()
+            self?.collectionView.reloadData()
         }
     }
     
@@ -263,7 +263,7 @@ extension ProjectFinalViewController: UICollectionViewDelegate, UICollectionView
     }
 }
 
-extension ProjectFinalViewController: PushVC {
+extension ProjectFinalViewController: PushDelegate {
     func pushVC() {
         
         let storyboard = UIStoryboard(name: "RoundFinished", bundle: nil)

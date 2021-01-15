@@ -257,7 +257,7 @@ extension AddCardViewController: UITextViewDelegate {
     }
 }
 
-extension AddCardViewController: PresentVC {
+extension AddCardViewController: PresentDelegate {
     func presentVC() {
         if let roundMeetingVC = UIStoryboard(name: "ProjectRound", bundle: nil).instantiateViewController(withIdentifier: "roundMeetingVC") as? RoundMeetingViewController {
             

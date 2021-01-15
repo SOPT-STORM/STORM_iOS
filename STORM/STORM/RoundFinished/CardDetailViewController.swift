@@ -51,16 +51,15 @@ class CardDetailViewController: UIViewController {
     var topConst: CGFloat!
     
     @IBAction func didPressLeftBtn(_ sender: UIButton) {
-        if isEdit == false {
+        if isEdit == false && index >= 1{
+            index -= 1
             
-            if index >= 1 {
-                index -= 1
-            }
+            UIView.transition(with: contentView, duration: 0.5, options: .transitionCurlUp, animations: nil, completion: nil)
             
             if viewMode == .round {
-                updateRoundCard(index: index)
+                updateRoundCard(index: index, priorIndex: index + 1)
             } else {
-                updateScrapCard(index: index)
+                updateScrapCard(index: index, priorIndex: index + 1)
             }
             
             if self.cardsMemo[self.index] == nil {
@@ -72,16 +71,16 @@ class CardDetailViewController: UIViewController {
     }
     
     @IBAction func didPressRightBtn(_ sender: UIButton) {
-        if isEdit == false {
+        if isEdit == false && index < max(cards.count - 1, scrappedCards.count - 1)  {
             
-            if index < max(cards.count - 1, scrappedCards.count - 1) {
-                index += 1
-            }
+            index += 1
+            
+            UIView.transition(with: contentView, duration: 0.5, options: .transitionCurlDown, animations: nil, completion: nil)
             
             if viewMode == .round {
-                updateRoundCard(index: index)
+                updateRoundCard(index: index, priorIndex: index - 1)
             } else {
-                updateScrapCard(index: index)
+                updateScrapCard(index: index, priorIndex: index - 1)
             }
             
             if self.cardsMemo[self.index] == nil {
@@ -184,7 +183,7 @@ class CardDetailViewController: UIViewController {
                 self.createCardMemo()
                 self.createScrapCards()
                 
-                self.updateRoundCard(index: self.index)
+                self.updateRoundCard(index: self.index, priorIndex: nil)
                 
                 self.roundLabel.text = "ROUND \(self.roundNumber)"
                 self.roundPurposeLabel.text = self.roundPurpose
@@ -207,7 +206,7 @@ class CardDetailViewController: UIViewController {
                 self.createCardMemo()
                 self.createScrapCards()
                 
-                self.updateScrapCard(index: self.index)
+                self.updateScrapCard(index: self.index, priorIndex: nil)
                 
                 self.memoView.text = self.cardsMemo[self.index]
                 
@@ -249,7 +248,7 @@ class CardDetailViewController: UIViewController {
         }
     }
     
-    func updateRoundCard(index: Int) {
+    func updateRoundCard(index: Int, priorIndex: Int?) {
         
         guard index >= 0 && index <= cards.count - 1 else {return}
         
@@ -259,23 +258,32 @@ class CardDetailViewController: UIViewController {
         
         cardIndex = cardIdx
         
+        if let priorIdx = priorIndex {
+            let priorCard = cards[priorIdx]
+            if let userImageUrl = card.user_img, card.user_img != priorCard.user_img {
+                profileImageView.kf.setImage(with: URL(string: userImageUrl))
+            }
+        }else{
+            if let userImageUrl = card.user_img {
+                profileImageView.kf.setImage(with: URL(string: userImageUrl))
+            }
+        }
+        
         if card.card_img == nil {
             drawingImageView.isHidden = true
             textView.isHidden = false
             
-            guard let cardText = card.card_txt, let userImageUrl = card.user_img else {return}
+            guard let cardText = card.card_txt else {return}
             
             textView.text = cardText
-            profileImageView.kf.setImage(with: URL(string: userImageUrl))
             
         } else {
             textView.isHidden = true
             drawingImageView.isHidden = false
             
-            guard let cardImageUrl = card.card_img, let userImageUrl = card.user_img else {return}
+            guard let cardImageUrl = card.card_img else {return}
             
             drawingImageView.kf.setImage(with: URL(string: cardImageUrl))
-            profileImageView.kf.setImage(with: URL(string: userImageUrl))
         }
         
         memoView.text = cardsMemo[index]
@@ -291,13 +299,24 @@ class CardDetailViewController: UIViewController {
         }
     }
     
-    func updateScrapCard(index: Int) {
+    func updateScrapCard(index: Int, priorIndex: Int?) {
         
         guard index >= 0 && index <= scrappedCards.count - 1 else {return}
         
         let card = scrappedCards[index]
         
         cardIndex = card.card_idx
+        
+        if let priorIdx = priorIndex {
+            let priorCard = scrappedCards[priorIdx]
+            if let userImageUrl = card.user_img, card.user_img != priorCard.user_img {
+                profileImageView.kf.setImage(with: URL(string: userImageUrl))
+            }
+        }else{
+            if let userImageUrl = card.user_img {
+                profileImageView.kf.setImage(with: URL(string: userImageUrl))
+            }
+        }
         
         roundLabel.text = "ROUND \(card.round_number)"
         roundPurposeLabel.text = card.round_purpose
@@ -307,20 +326,18 @@ class CardDetailViewController: UIViewController {
             drawingImageView.isHidden = true
             textView.isHidden = false
             
-            guard let cardText = card.card_txt, let userImageUrl = card.user_img else {return}
+            guard let cardText = card.card_txt else {return}
             
             textView.text = cardText
-            profileImageView.kf.setImage(with: URL(string: userImageUrl))
             
         } else {
             drawingImageView.isHidden = false
             textView.isHidden = true
             
             
-            guard let cardImageUrl = card.card_img, let userImageUrl = card.user_img else {return}
+            guard let cardImageUrl = card.card_img else {return}
             
             drawingImageView.kf.setImage(with: URL(string: cardImageUrl))
-            profileImageView.kf.setImage(with: URL(string: userImageUrl))
             
         }
         

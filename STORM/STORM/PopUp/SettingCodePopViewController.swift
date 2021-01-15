@@ -16,7 +16,7 @@ class SettingCodePopViewController: UIViewController {
     @IBOutlet weak var settingCodePopView: UIView!
     @IBOutlet weak var copyButton: UIButton!
     
-    var delegate: PresentVC!
+    weak var delegate: PresentDelegate?
     
     // MARK:- viewDidLoad 선언
     
@@ -35,7 +35,7 @@ class SettingCodePopViewController: UIViewController {
         
         
         self.dismiss(animated: false) {
-            self.delegate.presentVC()
+            self.delegate?.presentVC()
         }
         
     }
