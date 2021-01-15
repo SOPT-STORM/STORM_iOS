@@ -44,6 +44,8 @@ class RoundStartViewController: UIViewController {
         pasteCodeImage.addGestureRecognizer(tapPasteCodeImage)
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateParticipantsList), name: UIApplication.willEnterForegroundNotification, object: nil)
+        
+        ProjectSetting.shared.isAdded = true
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -40,7 +40,10 @@ class MainViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        fetchProjectList()
+        if ApplicationSetting.shared.isFirstEnter == true || ProjectSetting.shared.isAdded == true {
+            fetchProjectList()
+            ProjectSetting.shared.isAdded = false
+        }
         loadSplashView()
     }
     
