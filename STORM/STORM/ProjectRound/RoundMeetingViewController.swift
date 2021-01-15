@@ -104,11 +104,11 @@ class RoundMeetingViewController: UIViewController {
         
         guard let projectIndex = projectInfo.projectIdx, let roundIndex = projectInfo.roundIdx else {return}
         
-        NetworkManager.shared.fetchCardList(projectIdx: projectIndex , roundIdx: roundIndex) { (response) in
+        NetworkManager.shared.fetchCardList(projectIdx: projectIndex , roundIdx: roundIndex) { [weak self] (response) in
             
             guard let cardList = response?.data?.card_list else {return}
-            self.cards = cardList
-            self.collectionView.reloadData()
+            self?.cards = cardList
+            self?.collectionView.reloadData()
         }
     }
     
@@ -133,30 +133,30 @@ class RoundMeetingViewController: UIViewController {
             
             SocketIOManager.shared.socket.on("memberNextRound") { (dataArray, SocketAckEmitter) in
                 
-                NetworkManager.shared.enterRound { (response) in
+                NetworkManager.shared.enterRound { [weak self] (response) in
                     guard let roundIndex = response.data, let projectCode = ProjectSetting.shared.projectCode else {return}
                     ProjectSetting.shared.roundIdx = roundIndex
                     
                     SocketIOManager.shared.socket.emit("enterNextRound", projectCode) {
                         
-                        self.socketOff()
-                        self.presentingViewController?.presentingViewController?.dismiss(animated: false, completion: nil)
+                        self?.socketOff()
+                        self?.presentingViewController?.presentingViewController?.dismiss(animated: false, completion: nil)
                     }
                 }
                 
             }
             
-            SocketIOManager.shared.socket.on("memberFinishProject") { (dataArray, SocketAckEmitter) in
+            SocketIOManager.shared.socket.on("memberFinishProject") { [weak self] (dataArray, SocketAckEmitter) in
                 
                 // 프로젝트 최종 정리 뷰로 이동
                 
                 let storyboard = UIStoryboard(name: "RoundFinished", bundle: nil)
                 guard let vc = storyboard.instantiateViewController(withIdentifier: "projectFinalViewController") as? ProjectFinalViewController else {return}
                 
-                self.socketOff()
+                self?.socketOff()
                 let naviController = UINavigationController(rootViewController: vc)
                 naviController.modalPresentationStyle = .fullScreen
-                self.present(naviController, animated: true, completion: nil)
+                self?.present(naviController, animated: true, completion: nil)
             }
         }
     }

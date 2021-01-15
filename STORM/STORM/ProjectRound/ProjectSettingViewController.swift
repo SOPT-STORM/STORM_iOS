@@ -57,7 +57,7 @@ class ProjectSettingViewController: UIViewController {
     
     func addProject() {
         guard let projectName = projectName, placeHolderLabel.isHidden == true else { return }
-        NetworkManager.shared.addProject(projectName: projectName, projectComment: projectComment) { (response) in
+        NetworkManager.shared.addProject(projectName: projectName, projectComment: projectComment) { [weak self](response) in
             
             guard let status = response?.status else {return}
             
@@ -71,7 +71,7 @@ class ProjectSettingViewController: UIViewController {
                 settingCodePopViewController.delegate = self
                 settingCodePopViewController.modalPresentationStyle = .overCurrentContext
                 
-                self.present(settingCodePopViewController, animated: false, completion: nil)
+                self?.present(settingCodePopViewController, animated: false, completion: nil)
             }
         }
     }
@@ -167,7 +167,7 @@ extension ProjectSettingViewController: UITextFieldDelegate {
     }
 }
 
-extension ProjectSettingViewController: PresentVC {
+extension ProjectSettingViewController: PresentDelegate {
     func presentVC() {
         
         let roundSettingNaviController = UIStoryboard(name: "ProjectRound", bundle: nil).instantiateViewController(withIdentifier: "roundSettingNavi") as! UINavigationController

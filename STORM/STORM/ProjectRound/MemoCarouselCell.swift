@@ -29,23 +29,23 @@ class MemoCarouselCell: UICollectionViewCell {
         if isScrapped == false {
             
             guard let idx = index else {return}
-            NetworkManager.shared.scrapCard(cardIdx: idx) { (response) in
+            NetworkManager.shared.scrapCard(cardIdx: idx) { [weak self] (response) in
                 let heartFillImage = UIImage(systemName: "heart.fill")
                 sender.setImage(heartFillImage, for: .normal)
                 sender.tintColor = UIColor(red: 236/255, green: 101/255, blue: 101/255, alpha: 1)
-                self.isScrapped = true
-                self.scrapBlock?()
+                self?.isScrapped = true
+                self?.scrapBlock?()
             }
         } else {
             
             guard let idx = index else {return}
-            NetworkManager.shared.cancelScrap(cardIdx: idx) { (response) in
+            NetworkManager.shared.cancelScrap(cardIdx: idx) { [weak self] (response) in
                 let heartImage = UIImage(systemName: "heart")
                 sender.setImage(heartImage, for: .normal)
                 sender.tintColor = UIColor(red: 112/255, green: 112/255, blue: 112/255, alpha: 1)
                 
-                self.isScrapped = false
-                self.cancelBlock?()
+                self?.isScrapped = false
+                self?.cancelBlock?()
             }
         }
     }
