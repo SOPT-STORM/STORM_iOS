@@ -29,6 +29,8 @@ class LogoutPopUpViewController: UIViewController {
         UserDefaults.standard.removeObject(forKey: "email")
         UserDefaults.standard.removeObject(forKey: "pwd")
         
+        ApplicationSetting.shared.isFirstLogin = true
+        
         guard let loginVC = UIStoryboard(name: "LogIn", bundle: nil).instantiateViewController(withIdentifier: "LogInVC") as? LogInViewController else {return}
         
         let naviController = UINavigationController(rootViewController: loginVC)
