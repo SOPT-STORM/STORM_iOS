@@ -10,13 +10,13 @@ import UIKit
 
 class ProjectFinishFooterView: UICollectionReusableView {
     
-    var delegate: PushVC!
+    weak var delegate: PushDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
     @IBAction func didPressMoreScrappedCard(_ sender: UIButton) {
-        self.delegate.pushVC()
+        self.delegate?.pushVC()
     }
 }

@@ -20,7 +20,7 @@ class RoundStartPopViewController: UIViewController {
     @IBOutlet weak var lottieView: UIView!
     @IBOutlet weak var startPopView: UIView!
     
-    var delegate: PresentVC!
+    weak var delegate: PresentDelegate?
     
     // MARK:- viewDidLoad 선언
     
@@ -39,7 +39,7 @@ class RoundStartPopViewController: UIViewController {
         //If you are using Storyboard
         DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
             self.dismiss(animated: false) {
-                self.delegate.presentVC()
+                self.delegate?.presentVC()
             }
         }
     }

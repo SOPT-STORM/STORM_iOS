@@ -105,8 +105,6 @@ class NetworkManager {
     func fetchMemberList(roundIdx: Int, projectIdx: Int, completion: @escaping (MemberResponse?) -> Void) {
         let url = baseURL + "/round/memberList/\(projectIdx)/\(roundIdx)"
         
-        print(url)
-        
         let request = AF.request(url)
         
         request.responseDecodable(of: MemberResponse.self) { response in
@@ -158,7 +156,7 @@ class NetworkManager {
         }
     }
     
-    // MARK:- (GET) 프로젝트 참여자 목록
+    // MARK:- (GET) 프로젝트 참여자 목록 (Not used)
     func fetchProjectMember(projectIdx: Int, completion: @escaping (MemberResponse?) -> Void) {
         let url = baseURL + "/project/enter/" + "\(projectIdx)"
         
@@ -176,7 +174,7 @@ class NetworkManager {
         }
     }
     
-    // MARK:- (DELETE) 프로젝트 나가기
+    // MARK:- (DELETE) 프로젝트 나가기 (Not used)
     func exitProject(projectIdx: Int, completion: @escaping (Response?) -> Void) {
         
         let url = baseURL + "/project/" + "\(user_idx)/"  + "\(projectIdx)"
