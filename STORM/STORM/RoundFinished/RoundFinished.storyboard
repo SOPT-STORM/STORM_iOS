@@ -324,54 +324,54 @@
                                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sew-B8-FmE">
+                                                <rect key="frame" x="23" y="23" width="27" height="27"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="27" id="fw0-ks-1eN"/>
+                                                    <constraint firstAttribute="width" secondItem="Sew-B8-FmE" secondAttribute="height" multiplier="1:1" id="qg1-9f-2MV"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NWZ-i0-DfH">
+                                                <rect key="frame" x="214" y="13" width="48" height="48"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="48" id="hT1-vd-Rkk"/>
+                                                    <constraint firstAttribute="height" constant="48" id="rvs-aq-Pjf"/>
+                                                </constraints>
+                                                <color key="tintColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <state key="normal" image="suit.heart" catalog="system">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                                </state>
+                                                <state key="selected" image="heart.fill" catalog="system">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="didPressHeartBtn:" destination="gnc-YB-F2E" eventType="touchUpInside" id="0Bc-5G-0gF"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="NWZ-i0-DfH" secondAttribute="trailing" constant="7" id="0TA-el-FI0"/>
+                                            <constraint firstItem="Sew-B8-FmE" firstAttribute="leading" secondItem="BYG-Nu-xfD" secondAttribute="leading" constant="23" id="4Ml-cg-XVm"/>
                                             <constraint firstItem="PxW-jp-L3i" firstAttribute="leading" secondItem="BYG-Nu-xfD" secondAttribute="leading" id="8Og-EE-Yfe"/>
                                             <constraint firstItem="4MZ-g0-nN2" firstAttribute="height" secondItem="BYG-Nu-xfD" secondAttribute="height" multiplier="0.739933" id="9Mb-iM-LVu"/>
                                             <constraint firstItem="4MZ-g0-nN2" firstAttribute="centerX" secondItem="PxW-jp-L3i" secondAttribute="centerX" id="Fic-hH-SmW"/>
                                             <constraint firstItem="4MZ-g0-nN2" firstAttribute="width" secondItem="BYG-Nu-xfD" secondAttribute="width" multiplier="0.728625" id="Fmh-Pw-EKn"/>
+                                            <constraint firstItem="Sew-B8-FmE" firstAttribute="top" secondItem="BYG-Nu-xfD" secondAttribute="top" constant="23" id="QDQ-8t-Hh8"/>
                                             <constraint firstAttribute="trailing" secondItem="PxW-jp-L3i" secondAttribute="trailing" id="TUh-Sy-nuZ"/>
                                             <constraint firstAttribute="bottom" secondItem="PxW-jp-L3i" secondAttribute="bottom" id="in6-ea-vFs"/>
                                             <constraint firstItem="PxW-jp-L3i" firstAttribute="top" secondItem="BYG-Nu-xfD" secondAttribute="top" id="qDn-i6-zqi"/>
+                                            <constraint firstItem="4MZ-g0-nN2" firstAttribute="top" secondItem="NWZ-i0-DfH" secondAttribute="bottom" constant="4" id="tbC-da-Q2l"/>
+                                            <constraint firstItem="NWZ-i0-DfH" firstAttribute="top" secondItem="BYG-Nu-xfD" secondAttribute="top" constant="13" id="unD-8j-iDM"/>
                                         </constraints>
                                     </view>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sew-B8-FmE">
-                                        <rect key="frame" x="23" y="23" width="27" height="27"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="27" id="fw0-ks-1eN"/>
-                                            <constraint firstAttribute="width" secondItem="Sew-B8-FmE" secondAttribute="height" multiplier="1:1" id="qg1-9f-2MV"/>
-                                        </constraints>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NWZ-i0-DfH">
-                                        <rect key="frame" x="214" y="13" width="48" height="48"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="48" id="hT1-vd-Rkk"/>
-                                            <constraint firstAttribute="height" constant="48" id="rvs-aq-Pjf"/>
-                                        </constraints>
-                                        <color key="tintColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <state key="normal" image="suit.heart" catalog="system">
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
-                                        </state>
-                                        <state key="selected" image="heart.fill" catalog="system">
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="didPressHeartBtn:" destination="gnc-YB-F2E" eventType="touchUpInside" id="0Bc-5G-0gF"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="BYG-Nu-xfD" firstAttribute="leading" secondItem="0BM-Gg-Qc7" secondAttribute="leading" id="6kX-ae-edF"/>
-                                    <constraint firstAttribute="trailing" secondItem="NWZ-i0-DfH" secondAttribute="trailing" constant="7" id="9zR-PO-zeq"/>
-                                    <constraint firstItem="Sew-B8-FmE" firstAttribute="leading" secondItem="0BM-Gg-Qc7" secondAttribute="leading" constant="23" id="A61-gm-Ayf"/>
                                     <constraint firstItem="BYG-Nu-xfD" firstAttribute="top" secondItem="0BM-Gg-Qc7" secondAttribute="top" id="SKK-hr-zPk"/>
-                                    <constraint firstItem="4MZ-g0-nN2" firstAttribute="top" secondItem="NWZ-i0-DfH" secondAttribute="bottom" constant="4" id="Ywd-hv-YTB"/>
                                     <constraint firstAttribute="trailing" secondItem="BYG-Nu-xfD" secondAttribute="trailing" id="aMO-La-brr"/>
                                     <constraint firstAttribute="bottom" secondItem="BYG-Nu-xfD" secondAttribute="bottom" id="fZj-PX-GZs"/>
-                                    <constraint firstItem="Sew-B8-FmE" firstAttribute="top" secondItem="0BM-Gg-Qc7" secondAttribute="top" constant="23" id="fu7-j8-HCz"/>
-                                    <constraint firstItem="NWZ-i0-DfH" firstAttribute="top" secondItem="0BM-Gg-Qc7" secondAttribute="top" constant="13" id="sVy-d8-25U"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
