@@ -71,17 +71,6 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
         
         toolbarSetup()
         
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        // 기본이미지 노티
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(basicImage),
-                                               name: NSNotification.Name(rawValue: "SetBasicImage"),
-                                               object: nil)
-    }
-    
-    override func viewDidLayoutSubviews() {
         
         // shadow, radius
         nameTextField.cornerRadius = 10
@@ -94,6 +83,29 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
         
         // textfield padding
         nameTextField.addLeftPadding()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // 기본이미지 노티
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(basicImage),
+                                               name: NSNotification.Name(rawValue: "SetBasicImage"),
+                                               object: nil)
+    }
+    
+    override func viewDidLayoutSubviews() {
+//
+//        // shadow, radius
+//        nameTextField.cornerRadius = 10
+//        doneButton.addShadow(cornerRadus: 10, shadowOffset: CGSize(width: 0, height: 3), shadowOpacity: 0.2, shadowRadius: 3)
+//
+//        // photo, photo button
+//        userImageContainerView.makeCircle()
+//        profileImage.makeCircle()
+//        profileImage.contentMode = .scaleAspectFill
+//
+//        // textfield padding
+//        nameTextField.addLeftPadding()
     }
     
     deinit {
@@ -160,11 +172,17 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
         if nameTextField.isEditing == true {
             topConstOfIndex.constant = -(self.view.frame.height * 0.08)
         }
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+        })
     }
     
     @objc func hideKeyboard(_ sender: UITextField){
         self.view.endEditing(true)
         topConstOfIndex.constant = topConst
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+        })
     }
     
     // MARK:- IBAction
@@ -241,7 +259,6 @@ class SignUpProfileViewController: UIViewController, UITextFieldDelegate, UIImag
         if name.count >= 2 {
             signUp()
         }
-        
     }
     
     

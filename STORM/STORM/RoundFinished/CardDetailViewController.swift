@@ -162,6 +162,9 @@ class CardDetailViewController: UIViewController {
         self.memoView.endEditing(true)
         topConstOfInfoView.constant = topConst
         isEdit = false
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+        })
     }
     
     @objc func keyboardWillShow(_ notification: Notification) {
@@ -170,6 +173,9 @@ class CardDetailViewController: UIViewController {
             let keyboardHeight = keyboardRectangle.height
             topConstOfInfoView.constant = -keyboardHeight + 69  
             isEdit = true
+            UIView.animate(withDuration: 0.3, animations: {
+                self.view.layoutIfNeeded()
+            })
         }
     }
     

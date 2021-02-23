@@ -71,9 +71,6 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
         toolbarSetup()
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-    }
-    
-    override func viewDidLayoutSubviews() {
         
         // shadow, radius
         emailTextField.cornerRadius = 10
@@ -86,6 +83,21 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
         emailTextField.addLeftPadding()
         pwdTextField.addLeftPadding()
         pwdConfirmTextField.addLeftPadding()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        
+//        // shadow, radius
+//        emailTextField.cornerRadius = 10
+//        pwdTextField.cornerRadius = 10
+//        pwdConfirmTextField.cornerRadius = 10
+//
+//        nextButton.addShadow(cornerRadus: 11, shadowOffset: CGSize(width: 0, height: 3), shadowOpacity: 0.2, shadowRadius: 3)
+//
+//        // textfield padding
+//        emailTextField.addLeftPadding()
+//        pwdTextField.addLeftPadding()
+//        pwdConfirmTextField.addLeftPadding()
     }
     
     // MARK:- @objc
@@ -113,11 +125,17 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
     @objc func keyboardWillShow(_ notification: Notification) {
         passwdViewCenterY.constant = -40
         emailViewCenterY.constant = -40
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+        })
     }
     
     @objc func hideKeyboard(_ sender: Any){
         passwdViewCenterY.constant = 0
         emailViewCenterY.constant = 0
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+        })
         self.view.endEditing(true)
     }
     
@@ -176,6 +194,9 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
         
         passwdViewCenterY.constant = 0
         emailViewCenterY.constant = 0
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+        })
     }
     
     func isValidEmail() -> Bool {

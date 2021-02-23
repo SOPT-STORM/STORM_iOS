@@ -76,11 +76,17 @@ class DeleteAccountViewController: UIViewController, UITextFieldDelegate, UIText
         if pwdTextField.isEditing == true {
             topConstOfIndex.constant = 5 //(self.view.frame.height * 0.05)
         }
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+        })
     }
     
     @objc func hideKeyboard(_ sender: Any){
         self.view.endEditing(true)
         topConstOfIndex.constant = topConst
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+        })
     }
     
     // MARK:- IBAction
@@ -94,7 +100,9 @@ class DeleteAccountViewController: UIViewController, UITextFieldDelegate, UIText
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         self.view.endEditing(true)
         topConstOfIndex.constant = topConst
-        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+        })
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {

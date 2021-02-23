@@ -63,6 +63,11 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         
         toolbarSetup()
+        
+        // shadow, radius
+        emailView.cornerRadius = 10
+        pwdView.cornerRadius = 10
+        loginButton.addShadow(cornerRadus: 11, shadowOffset: CGSize(width: 0, height: 3), shadowOpacity: 0.2, shadowRadius: 3)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,10 +75,10 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewDidLayoutSubviews() {
-        // shadow, radius
-        emailView.cornerRadius = 10
-        pwdView.cornerRadius = 10
-        loginButton.addShadow(cornerRadus: 11, shadowOffset: CGSize(width: 0, height: 3), shadowOpacity: 0.2, shadowRadius: 3)
+//        // shadow, radius
+//        emailView.cornerRadius = 10
+//        pwdView.cornerRadius = 10
+//        loginButton.addShadow(cornerRadus: 11, shadowOffset: CGSize(width: 0, height: 3), shadowOpacity: 0.2, shadowRadius: 3)
     }
     
     // MARK:- viewDidAppear
@@ -85,11 +90,17 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     // MARK:- @objc
     
     @objc func keyboardWillShow(_ notification: Notification) {
-        passwdViewCenterY.constant = -60
+        self.passwdViewCenterY.constant = -60
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+        })
     }
     
     @objc func hideKeyboard(_ sender: UITextField){
-        passwdViewCenterY.constant = 0
+        self.passwdViewCenterY.constant = 0
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+        })
         self.view.endEditing(true)
     }
     
@@ -142,6 +153,9 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         passwdViewCenterY.constant = 0
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+        })
         self.view.endEditing(true)
     }
     
