@@ -127,6 +127,9 @@ class AllRoundCarouselViewController: UIViewController {
         self.memoView.endEditing(true)
         topConstOfIndex.constant = topConst
         self.collectionView.isScrollEnabled = true
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+        })
     }
     
     @objc func keyboardWillShow(_ notification: Notification) {
@@ -135,7 +138,12 @@ class AllRoundCarouselViewController: UIViewController {
             let keyboardHeight = keyboardRectangle.height
             topConstOfIndex.constant = -keyboardHeight + 69  //-(keyboardHeight + 81)
             self.collectionView.isScrollEnabled = false
+            
+            UIView.animate(withDuration: 0.3, animations: {
+                self.view.layoutIfNeeded()
+            })
         }
+        
     }
     
     func addCardMemo() {
@@ -189,6 +197,9 @@ class AllRoundCarouselViewController: UIViewController {
         self.view.endEditing(true)
         topConstOfIndex.constant = topConst
         self.collectionView.isScrollEnabled = true
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+        })
     }
     
     func addCollectionView(){

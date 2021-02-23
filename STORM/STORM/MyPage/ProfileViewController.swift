@@ -43,41 +43,43 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     var myPageInfo: MyPage?
     var isPhotoChanged: Bool?
     
+    private var isFirstLayoutSubviews: Bool = true
+    
     // MARK:- viewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         //delegate
         self.menuTableView.delegate = self
         self.menuTableView.dataSource = self
-        
+
         // 네비게이션 바
         self.setNaviTitle()
         self.view.tintColor = .stormRed
-        
+
         // 유저 이미지
         userImageView.contentMode = .scaleAspectFill
-        
+
         // 텍스트 필드
         userNameTextField.isUserInteractionEnabled = false
         userNameTextField.delegate = self
-        
+
         // 2자 이상 입력해주세요.
         errorMessage.isHidden = true
-        
+
         // 사진 변경 여부
         isPhotoChanged = false
-        
+
         // navigationItem.backBarButtonItem?.action = #selector(didPressBack)
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "naviBackBtn" ), style: .plain, target: self, action: #selector(didPressBack))
-        
+
         // username 사진 위 두글자 제한
         userNameTextField.addTarget(self, action: #selector(textFieldTextDidChange), for: .editingChanged)
-        
+
         self.basicImageStackView.isHidden = true
         self.userNameLabel.isHidden = true
-        
+//
         OperationQueue().addOperation {
             self.getProfile()
         }
@@ -92,21 +94,27 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     override func viewDidLayoutSubviews() {
-        
+        guard isFirstLayoutSubviews else { return }
+
         // 사용자 이미지, 이미지 변경 버튼 동그랗게
         userImageContainerView.addShadow(cornerRadus: userImageContainerView.frame.width / 2, shadowOffset: CGSize(width: 0, height: -1.5), shadowOpacity: 0.16, shadowRadius: 4)
-        userImageView.makeCircle()
+
+//        userImageContainerView.layer.masksToBounds = true
+
+//        userImageView.makeCircle()
+        userImageView.layer.cornerRadius = userImageContainerView.frame.width / 2
         userImageView.layer.masksToBounds = true
-        
+
         //editPhotoButton.cornerRadius = editPhotoButton.frame.width / 2
-        
+
         // whiteView 모서리 radius
         whiteView.roundCorners(corners: [.topLeft, .topRight], radius: 30.0)
-        
+
         // 이름 밑 회색 바
         separatorView = UIView(frame: CGRect(x: 37, y: (self.view.frame.height * 0.48) , width: self.view.frame.width * 0.8, height: 2.0))
         separatorView.backgroundColor = UIColor(red: 234/255, green: 234/255, blue: 234/255, alpha: 1)
         self.view.addSubview(separatorView)
+        isFirstLayoutSubviews = false
     }
     
     deinit {
