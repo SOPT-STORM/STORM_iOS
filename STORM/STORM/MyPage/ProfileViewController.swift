@@ -80,18 +80,25 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         self.basicImageStackView.isHidden = true
         self.userNameLabel.isHidden = true
 //
-        OperationQueue().addOperation {
-            self.getProfile()
-        }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
+        
         // 기본이미지 노티
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(basicImage),
                                                name: NSNotification.Name(rawValue: "SetBasicImage"),
                                                object: nil)
+        
+        OperationQueue().addOperation {
+            self.getProfile()
+        }
     }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        // 기본이미지 노티
+//        NotificationCenter.default.addObserver(self,
+//                                               selector: #selector(basicImage),
+//                                               name: NSNotification.Name(rawValue: "SetBasicImage"),
+//                                               object: nil)
+//    }
     
     override func viewDidLayoutSubviews() {
         guard isFirstLayoutSubviews else { return }
