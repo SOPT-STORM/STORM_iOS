@@ -43,5 +43,3 @@
 
 <br>
 
-[📄API 명세서](https://github.com/TEAMSTORMERS/STORM_Server/tree/addWiki)<br>
-
